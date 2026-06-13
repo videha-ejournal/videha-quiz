@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>मैथिली गजल व्याकरण - खण्ड-७ (काफिया) क्विज</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: linear-gradient(145deg, #f7f3e9 0%, #e8dfcf 100%);
+font-family: 'Segoe UI', 'Mithila', 'Noto Sans Devanagari', 'Arial', sans-serif;
+padding: 2rem 1rem;
+color: #2c2418;
+}
+.container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffef7;
+border-radius: 2.5rem;
+box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+overflow: hidden;
+border: 1px solid #d9c8ae;
+}
+.header {
+background: #5c3e1f;
+padding: 1.8rem 2rem;
+text-align: center;
+color: #ffefcf;
+}
+.header h1 {
+font-size: 2rem;
+letter-spacing: 1px;
+margin-bottom: 0.4rem;
+font-weight: 600;
+}
+.header p {
+font-size: 1.2rem;
+opacity: 0.9;
+}
+.quiz-intro {
+background: #f1e9dc;
+padding: 0.9rem 2rem;
+font-size: 1rem;
+border-bottom: 1px solid #e0cfb5;
+color: #3a2a19;
+font-weight: 500;
+}
+.quiz-area {
+padding: 2rem 2rem 1.5rem 2rem;
+}
+.question-card {
+background: #ffffff;
+border-radius: 1.5rem;
+margin-bottom: 1.8rem;
+padding: 1.5rem 1.8rem;
+box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+border-left: 10px solid #b87c4a;
+transition: 0.2s;
+}
+.question-text {
+font-size: 1.25rem;
+font-weight: 600;
+margin-bottom: 1rem;
+color: #2b3b2c;
+line-height: 1.4;
+}
+.options {
+list-style: none;
+margin-top: 0.5rem;
+}
+.options li {
+margin-bottom: 0.7rem;
+padding: 0.4rem 0.8rem;
+background: #fef7ef;
+border-radius: 40px;
+border: 1px solid #eadbbe;
+transition: 0.1s;
+}
+.options li:hover {
+background: #f5e7d4;
+cursor: pointer;
+}
+label {
+display: flex;
+align-items: center;
+gap: 12px;
+cursor: pointer;
+font-size: 1rem;
+font-weight: 500;
+color: #3d2b1b;
+}
+input[type="radio"] {
+width: 18px;
+height: 18px;
+accent-color: #a5612a;
+cursor: pointer;
+}
+.btn-submit {
+background: #6b3f1c;
+border: none;
+color: white;
+font-size: 1.3rem;
+font-weight: bold;
+padding: 12px 25px;
+border-radius: 40px;
+cursor: pointer;
+transition: all 0.2s ease;
+width: 100%;
+margin-top: 1rem;
+letter-spacing: 1px;
+box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+}
+.btn-submit:hover {
+background: #8b582f;
+transform: scale(0.98);
+}
+.result-box {
+margin-top: 2rem;
+background: #e7ddce;
+border-radius: 1.5rem;
+padding: 1.2rem;
+text-align: center;
+font-size: 1.25rem;
+font-weight: bold;
+color: #1f3b2c;
+border: 1px solid #cfbc9b;
+}
+.feedback {
+margin-top: 1rem;
+font-weight: normal;
+font-size: 0.95rem;
+color: #4e3b28;
+}
+hr {
+margin: 1rem 0;
+border: 1px dashed #d9c29c;
+}
+footer {
+text-align: center;
+background: #f0e7db;
+padding: 1rem;
+font-size: 0.8rem;
+color: #5f4c32;
+}
+@media (max-width: 650px) {
+.quiz-area {
+padding: 1rem;
+}
+.question-card {
+padding: 1rem;
+}
+.question-text {
+font-size: 1.05rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="container"> <div class="header"> <h1>🎭 मैथिली गजल व्याकरण</h1> <p>खण्ड-७ : काफिया, पंचमाक्षर, अनुस्वार, चन्द्रबिंदु आ विशेष नियम</p> </div> <div class="quiz-intro">
+📖 <strong>निर्देश:</strong> खण्ड-७ (पृष्ठ 75–76) केर अध्ययनक आधार पर दिहल गेल बहुविकल्पीय प्रश्न सभक उत्तर दी। प्रश्न काफिया, पंचमाक्षर, अनुस्वार, चन्द्रबिंदु आ मैथिली गजलक विशिष्ट नियम पर आधारित अछि।
+</div> <div class="quiz-area" id="quizArea"> </div> </div>
+<script>
+  // खण्ड-७ (काफिया, पंचमाक्षर, अनुस्वार, चन्द्रबिंदु आदि) पर सटीक प्रश्न
+  const questions = [
+    {
+      text: "१. ‘काफिया’ कें परिभाषित करैत लेखक के अनुसार ई छैक?",
+      options: [
+        "गजलक अन्तिम शेर जहाँ शाइर अपन नाम लेताह",
+        "रदीफसँ पहिने स्वरसाम्य युक्त तुकान्त, चाहे ओ अक्षरक स्वरसाम्य हो या मात्राक स्वरसाम्य",
+        "प्रेमिकाक प्रशंसा हेतु विशेष अलंकार",
+        "बिना बहरक शेर के संग्रह"
+      ],
+      correct: 1
+    },
+    {
+      text: "२. खण्ड-७ अनुसार पंचमाक्षर (ङ, ञ, ण, न, म) कें कोन नियमसँ जोड़ल गेल अछि?",
+      options: [
+        "पंचमाक्षर सदिखन ह्रस्व होइत छै",
+        "यदि मतलाक काफियामे पंचमाक्षर या अनुस्वार प्रयोग भेल तँ हरेक शेरक काफियामे ओही स्थान पर अनुस्वार वा पंचमाक्षर हेबाक चाही",
+        "पंचमाक्षर केवल विदेशी शब्दमे प्रयुक्त होइत अछि",
+        "पंचमाक्षर आ अनुस्वार एक समान मानल जाएत, कोनो अन्तर नहि"
+      ],
+      correct: 1
+    },
+    {
+      text: "३. ‘अनुस्वार’ आ ‘चन्द्रबिंदु’ केर अन्तर बताबैत लेखक कोन नियम स्पष्ट करैत छथि?",
+      options: [
+        "अनुस्वार दीर्घ होइत अछि, चन्द्रबिंदु सामान्यतया लघु होइत अछि मुदा वैकल्पिक अवस्थामे लघुक दीर्घ मानल जा सकैए",
+        "अनुस्वार लघु होइत अछि आ चन्द्रबिंदु दीर्घ",
+        "दुनू हमेशा दीर्घ होइत अछि",
+        "गजलमे अनुस्वारक प्रयोग निषिद्ध अछि"
+      ],
+      correct: 0
+    },
+    {
+      text: "४. काफियाक निर्धारणमे यदि मतलाक काफिया “बसंत” अछि तँ बादक शेरक काफियामे केहन शब्द सही रहत? (पंचमाक्षर/अनुस्वार नियमक अनुसार)",
+      options: [
+        "बसंत के बाद ‘अनंत’, ‘दिगंत’ जाहिमे अन्तसँ दोसर अक्षर पर अनुस्वार/पंचमाक्षर आबै",
+        "बसति, धनंत, गरत जका शब्द",
+        "कोनो शब्द लेल जाएत, काफिया परिभाषा मात्र अन्तिम स्वर पर निर्भर",
+        "मात्र ‘बसंत’ आ ‘मसंत’ जका शब्द"
+      ],
+      correct: 0
+    },
+    {
+      text: "५. ‘नासिक्य’ आ ‘अनुनासिक’ केर अन्तर पर विचार करी, लेखक के अनुसार गजलक काफियामे कतेक सावधानी राखबाक चाही?",
+      options: [
+        "अनुनासिक स्वर आ व्यंजन दूनू समान मानल जाएत, पंचमाक्षरक बदला अनुस्वार प्रयोग कएल जा सकैए मुदा चन्द्रबिंदुक बदला अनुस्वार गलत आ अर्थकारी होइत अछि",
+        "दुनू एक समान अछि, कोनो अन्तर नै",
+        "अनुनासिक व्यंजन मात्र ह्रस्व होइत अछि",
+        "गजलमे अनुनासिकक प्रयोग बर्जित अछि"
+      ],
+      correct: 0
+    },
+    {
+      text: "६. खण्ड-७ अनुसार ‘मात्रा बला काफिया’ (जेना आ, ए, ऐ आदि) के संदर्भमे कोन नियम प्रस्तुत अछि?",
+      options: [
+        "मात्रा बला काफियामे स्वरसाम्यकेँ अलग राखि ओकरा निषिद्ध मानल गेल अछि",
+        "जँ मतलाक काफिया आ स्वरयुक्त अक्षर (जेना ‘आ’) अछि तँ हरेक शेरक काफियामे ओही मात्राक उच्चारणशैली आ अन्तिम अक्षरक समानता रहबाक चाही",
+        "कोनो नियम नै, शाइर स्वतन्त्र अछि",
+        "मात्रा बला काफिया केवल बिहारी गजलमे मान्य अछि"
+      ],
+      correct: 1
+    },
+    {
+      text: "७. ‘संयुक्ताक्षर बला काफिया’ के बारेमे लेखक के कहनाइ अछि? (पृष्ठ 67–68 अनुसार)",
+      options: [
+        "जेना मतलामे ‘मस्त’ अछि तँ आन शेर सभमे ‘दस्त’, ‘पस्त’ तक तप्त, सप्त सेहो काफिया भऽ सकैए, मुदा हलंत उच्चारण अलग भऽ जाइत अछि",
+        "संयुक्ताक्षर बला काफिया मैथिलीमे पूर्णतः प्रतिबन्धित अछि",
+        "केवल फारसी मूलक शब्द जे संयुक्ताक्षरसँ बनल हो ओकरा ही काफिया मानल जाएत",
+        "कोनो नियम नै, बस तुक होइत रहबाक चाही"
+      ],
+      correct: 0
+    },
+    {
+      text: "८. पंचमाक्षर आ अनुस्वारक काफियामे यदि मतलामे ‘बसंत’ आ ‘अनंत’ अछि तँ बादक शेरमे काफिया ‘दिगन्त’ के प्रयोग केहन रहत?",
+      options: [
+        "सही, कारण ‘दिगन्त’ मे अन्तसँ दोसर अक्षरपर अनुस्वार अछि आ पंचमाक्षरक विकल्प होइत छै",
+        "गलत, कारण पंचमाक्षर समान वर्गक हेबाक चाही आ अनुस्वार-पंचमाक्षर एक समान वर्ग मानल जाइत अछि",
+        "सही मुदा केवल यदि मतलामे चन्द्रबिंदु छै",
+        "गलत, काफिया मे पंचमाक्षरक प्रयोग पूर्ण वर्जित अछि"
+      ],
+      correct: 1   // सही: पंचमाक्षर वर्ग एक समान हेबाक चाही, मुदा व्यवहार मे छूट सेहो अछि पर लेखक अनुसार काफियामे एकर पालन जरूरी
+    },
+    {
+      text: "९. लेखक के अनुसार ‘चन्द्रबिंदु’ के प्रयोगमे कतेक सूक्ष्मता आवश्यक अछि?",
+      options: [
+        "चन्द्रबिंदु हमेशा दीर्घ होइत अछि, एकरा लघु मनब गलत",
+        "चन्द्रबिंदु युक्त एकअक्षरीय शब्द (हँ, सँ, जँ) कें वैकल्पिक रूप से दीर्घ मानल जा सकैए, मुदा मूल रूपे ई लघु छै",
+        "चन्द्रबिंदु के प्रयोग अनुस्वार जकाँ करबाक चाही",
+        "गजलमे चन्द्रबिंदु प्रयोग करबै नै चाही"
+      ],
+      correct: 1
+    },
+    {
+      text: "१०. ‘तहलीली रदीफ’ या ‘विभक्ति बला काफिया’ के संदर्भमे (पृ. 78-82) मैथिली गजलक विशेषता कोन अछि?",
+      options: [
+        "विभक्ति मूल शब्दसँ अलग लिखल जाए, ओकरा काफिया नै मानल जाए",
+        "मैथिलीमे विभक्ति (क, मे, सँ) मूल शब्दमे सटल रहबाक चाही, तँए ई काफिया आ रदीफ दुनू के रूपमे प्रयुक्त भऽ सकैए, ‘हाथक’ आ ‘बातक’ एक-दोसरक काफिया बनि सकैए",
+        "विभक्ति काफियाक नियमकेँ पूर्णतः अमान्य करैत अछि",
+        "केवल ‘सँ’ विभक्ति काफियाक अंग होइत अछि"
+      ],
+      correct: 1
+    }
+  ];
+
+  let userAnswers = new Array(questions.length).fill(null);
+  let quizSubmitted = false;
+
+  function renderQuiz() {
+    const container = document.getElementById('quizArea');
+    if (!container) return;
+    let html = `<div class="quiz-area-inner">`;
+    questions.forEach((q, idx) => {
+      html += `
+        <div class="question-card" data-qidx="${idx}">
+          <div class="question-text">${q.text}</div>
+          <ul class="options">
+      `;
+      q.options.forEach((opt, optIdx) => {
+        const isChecked = (userAnswers[idx] === optIdx);
+        html += `
+          <li>
+            <label>
+              <input type="radio" name="q${idx}" value="${optIdx}" ${isChecked ? 'checked' : ''} data-qid="${idx}" data-opt="${optIdx}">
+              <span>${opt}</span>
+            </label>
+          </li>
+        `;
+      });
+      html += `</ul></div>`;
+    });
+    html += `<button class="btn-submit" id="submitQuiz">✨ उत्तर जमा करू (Submit) ✨</button>`;
+    if (quizSubmitted) {
+      html += `<div class="result-box" id="resultBox"></div>`;
+    } else {
+      html += `<div class="result-box" id="resultBox" style="display:none;"></div>`;
+    }
+    html += `</div>`;
+    container.innerHTML = html;
+
+    // Attach event listeners to radio buttons
+    document.querySelectorAll('input[type="radio"]').forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        if (quizSubmitted) return;
+        const qid = parseInt(radio.getAttribute('data-qid'));
+        const optVal = parseInt(radio.getAttribute('data-opt'));
+        if (!isNaN(qid)) {
+          userAnswers[qid] = optVal;
+        }
+      });
+    });
+
+    const submitBtn = document.getElementById('submitQuiz');
+    if (submitBtn) {
+      submitBtn.addEventListener('click', evaluateQuiz);
+    }
+  }
+
+  function evaluateQuiz() {
+    if (quizSubmitted) return;
+    let score = 0;
+    const resultDetails = [];
+    for (let i = 0; i < questions.length; i++) {
+      const userOpt = userAnswers[i];
+      const isCorrect = (userOpt !== null && userOpt === questions[i].correct);
+      if (isCorrect) score++;
+      const correctText = questions[i].options[questions[i].correct];
+      const userText = (userOpt !== null) ? questions[i].options[userOpt] : "कुनो उत्तर नै देल गेल";
+      resultDetails.push({
+        num: i+1,
+        correct: isCorrect,
+        correctAns: correctText,
+        userAns: userText,
+        question: questions[i].text.substring(0, 100)
+      });
+    }
+    const total = questions.length;
+    const percent = Math.round((score/total)*100);
+    let resultHtml = `<div class="result-box"><strong>🏆 परिणाम:</strong> ${score}/${total} (${percent}%)<br>`;
+    resultHtml += `<div class="feedback">📘 खण्ड-७ आधारित उत्तरक सारांश:</div>`;
+    resultHtml += `<ul style="text-align:left; margin-top:10px;">`;
+    for (let r of resultDetails) {
+      const status = r.correct ? '✅ सही' : '❌ गलत';
+      resultHtml += `<li><strong>प्रश्न ${r.num}:</strong> ${status}<br> 
+      <span style="font-size:0.85rem;">✔ सही जबाब: ${r.correctAns}<br>
+      ✖ आपक जबाब: ${r.userAns}</span></li><hr style="margin:6px 0;">`;
+    }
+    resultHtml += `</ul><p style="margin-top:15px;">✍ नियम स्पष्टीकरण: काफियाकेँ रदीफसँ पहिने समान स्वर अक्षर अथवा समान मात्राक तुकान्त चाही। पंचमाक्षर आ अनुस्वारक प्रयोग काफियामे यदि मतलामे अछि तँ सम्पूर्ण गजलमे एकर पालन अनिवार्य अछि।</p>`;
+    resultHtml += `</div>`;
+    const resultBox = document.getElementById('resultBox');
+    if (resultBox) {
+      resultBox.style.display = 'block';
+      resultBox.innerHTML = resultHtml;
+      resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+    quizSubmitted = true;
+
+    // disable all radio buttons after submit to prevent changes
+    document.querySelectorAll('input[type="radio"]').forEach(radio => {
+      radio.disabled = true;
+    });
+    const submitBtn = document.getElementById('submitQuiz');
+    if (submitBtn) submitBtn.disabled = true;
+  }
+
+  // allow re-answer ? no, classical quiz keeps single submission.
+  // but user can refresh page for fresh attempt
+
+  renderQuiz();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

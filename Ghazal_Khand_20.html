@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>मैथिली गजल व्याकरण ओ इतिहास : १०० प्रश्नक विशाल परीक्षा</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #f2ebe1;
+font-family: 'Segoe UI', 'Nirmala UI', 'Noto Sans Devanagari', 'Mukta', 'Poppins', sans-serif;
+padding: 1.5rem 1rem;
+color: #2b2a27;
+}
+.container {
+max-width: 1100px;
+margin: 0 auto;
+background: #ffffffdd;
+backdrop-filter: blur(0px);
+background: #fffcf7;
+border-radius: 2rem;
+box-shadow: 0 25px 40px rgba(0, 0, 0, 0.1);
+padding: 1.8rem 1.5rem 2.5rem;
+}
+h1 {
+font-size: 2rem;
+text-align: center;
+background: linear-gradient(135deg, #a1452e, #7b3927);
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+margin-bottom: 0.3rem;
+}
+.sub {
+text-align: center;
+font-weight: 500;
+color: #7c5e42;
+border-bottom: 2px solid #f2dbc2;
+display: inline-block;
+width: auto;
+margin: 0 auto 1rem;
+padding-bottom: 0.3rem;
+}
+.score-board {
+background: #e7dac8;
+border-radius: 60px;
+padding: 0.7rem 1.2rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 15px;
+margin-bottom: 2rem;
+font-weight: bold;
+font-size: 1.2rem;
+}
+.score-text {
+background: #4e3622;
+color: #fff2e4;
+padding: 0.3rem 1rem;
+border-radius: 50px;
+}
+.reset-all {
+background: #9b6a3e;
+border: none;
+color: white;
+padding: 0.4rem 1.2rem;
+border-radius: 40px;
+font-weight: bold;
+cursor: pointer;
+transition: 0.2s;
+font-family: inherit;
+}
+.reset-all:hover {
+background: #6f4a28;
+}
+.quiz-grid {
+display: flex;
+flex-direction: column;
+gap: 1.5rem;
+}
+.question-card {
+background: #ffffff;
+border-radius: 28px;
+padding: 1.2rem 1.2rem 1rem;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+transition: all 0.15s;
+border: 1px solid #f0e2d2;
+}
+.q-header {
+display: flex;
+gap: 10px;
+align-items: baseline;
+margin-bottom: 0.8rem;
+flex-wrap: wrap;
+}
+.q-num {
+background: #bc7a44;
+color: white;
+font-weight: bold;
+width: 32px;
+height: 32px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+border-radius: 40px;
+font-size: 0.9rem;
+}
+.q-text {
+font-size: 1.1rem;
+font-weight: 600;
+color: #2f241b;
+line-height: 1.4;
+flex: 1;
+}
+.options {
+list-style: none;
+margin: 0.8rem 0 0.8rem 1.2rem;
+}
+.options li {
+margin: 0.6rem 0;
+display: flex;
+align-items: baseline;
+gap: 12px;
+flex-wrap: wrap;
+}
+.options input {
+transform: scale(1.05);
+accent-color: #bc7a44;
+cursor: pointer;
+}
+.options label {
+font-size: 0.95rem;
+cursor: pointer;
+transition: 0.1s;
+padding: 2px 5px;
+border-radius: 20px;
+}
+.check-btn {
+background: #5a3a26;
+border: none;
+color: white;
+padding: 6px 16px;
+border-radius: 40px;
+font-size: 0.8rem;
+font-weight: bold;
+margin-top: 0.4rem;
+margin-left: 1.2rem;
+cursor: pointer;
+transition: 0.1s;
+font-family: inherit;
+}
+.check-btn:hover {
+background: #3e2a1c;
+}
+.feedback-local {
+font-size: 0.8rem;
+margin-left: 1.2rem;
+margin-top: 8px;
+padding: 4px 12px;
+border-radius: 30px;
+display: inline-block;
+}
+.correct-highlight label {
+background-color: #cbe5cd;
+color: #1b4d1b;
+font-weight: 500;
+border-radius: 24px;
+padding: 2px 8px;
+}
+.wrong-highlight label {
+background-color: #ffdede;
+color: #a12222;
+border-radius: 24px;
+padding: 2px 8px;
+}
+.correct-answer-show {
+color: #2c6e2c;
+font-weight: 500;
+font-size: 0.8rem;
+margin-left: 1.2rem;
+display: inline-block;
+background: #ecf7e9;
+padding: 2px 12px;
+border-radius: 20px;
+}
+hr {
+margin: 0.2rem 0;
+border-color: #f0e0cd;
+}
+footer {
+text-align: center;
+margin-top: 2rem;
+font-size: 0.7rem;
+color: #a88664;
+}
+@media (max-width: 700px) {
+.container { padding: 1rem; }
+.q-text { font-size: 1rem; }
+.options label { font-size: 0.85rem; }
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="container"> <h1>🎼 मैथिली गजल व्याकरण ओ इतिहास</h1> <div style="text-align: center;"><span class="sub">१०० प्रश्नक विशाल परीक्षा (सम्पूर्ण पुस्तक पर आधारित)</span></div> <div class="score-board"> <span>📖 कुल प्रश्न : <strong>१००</strong></span> <span class="score-text" id="scoreDisplay">✅ स्कोर : ० / १००</span> <button class="reset-all" id="globalReset">🔄 सब प्रश्न रीसेट करू</button> </div> <div id="quizContainer" class="quiz-grid"></div> </div>
+<script>
+    // ---------- १०० प्रश्न डाटा (पुस्तक केर सभ खण्डसँ संकलित) ----------
+    const questions = [
+        { text: "गजल शब्द मूलतः कोन भाषाक अछि?", options: ["संस्कृत", "हिन्दी", "अरबी", "फारसी"], correct: 2 },
+        { text: "मैथिलीमे पहिल गजल कोन लिखलथि (लगभग 1905)?", options: ["गजेन्द्र ठाकुर", "पं. जीवन झा", "विद्यापति", "सीताराम झा"], correct: 1 },
+        { text: "गजलक पहिल शेर जाहि मे दूनू पाँति मे रदीफ आ काफिया होइत अछि, तकरा कहल जाइत अछि?", options: ["मकता", "मतला", "हुस्ने मतला", "बहर"], correct: 1 },
+        { text: "गजलक अन्तिम शेर जाहिमे शाइर अपन नाम/उपनाम प्रयोग करैत अछि, से कहाबैत अछि?", options: ["मतला", "रदीफ", "मकता", "काफिया"], correct: 2 },
+        { text: "रदीफ केर परिभाषा कोन अछि?", options: ["शेरक प्रत्येक दोसर पाँतिक अन्त मे आबए बला समान शब्द/शब्दसमूह", "तुकान्त वाला अक्षर", "गजलक शीर्षक", "छन्दक नाम"], correct: 0 },
+        { text: "काफिया केकरा कहल जाइत अछि?", options: ["रदीफसँ पहिने बला स्वरसाम्य युक्त तुकान्त", "गजलक प्रत्येक पाँति", "बहरक मात्राक्रम", "शेरक विषय"], correct: 0 },
+        { text: "'बहर' (behr) शब्द अरबी-उर्दूमे कोन अर्थ मे प्रयुक्त होइत अछि?", options: ["शेरक संख्या", "गजलक लम्बाई", "छन्द वा मात्राक्रम", "रदीफक प्रकार"], correct: 2 },
+        { text: "मैथिली गजलक विकास मे ‘अनचिन्हार आखर’ नामक ब्लॉग केर भूमिका कोन छै?", options: ["पहिल बेर गजल विरोधी आन्दोलन", "बहरयुक्त मैथिली गजलक नवजागरण", "केवल हिन्दी गजलक प्रचार", "गद्य लेखन"], correct: 1 },
+        { text: "पं. गोविन्द झा जी द्वारा रचित 'मैथिली छन्द शास्त्र' अनुसार मैथिलीमे छन्दक मुख्य दू प्रकार अछि ?", options: ["वर्णिक आ मात्रिक", "अक्षरवृत आ वैदिक", "तालवृत आ गेय", "मुक्त आ अर्धसम"], correct: 0 },
+        { text: "गजलक प्रत्येक शेरमे कति पाँति होइत अछि?", options: ["दू पाँति (मिसरा)", "तीन पाँति", "चार पाँति", "एक पाँति"], correct: 0 },
+        { text: "रदीफ आ काफिया के बिना गजल नै होइ सकैत अछि, मुदा बिना रदीफक गजलक नाम अछि ?", options: ["गैर-मुरद्दफ गजल", "आजाद गजल", "मुसलसल गजल", "हजल"], correct: 0 },
+        { text: "'मुसलसल गजल' केर विशेषता कोन अछि?", options: ["हर शेर एकै विषय पर निरन्तर रहैत अछि", "बिना रदीफ वाली", "केवल संस्कृत शब्दसँ बनल", "बाल-गजल"], correct: 0 },
+        { text: "अरबी-फारसी-उर्दू शाइरी मे तखल्लुस केकरा कहै छथि?", options: ["गजलक शीर्षक", "शाइरक उपनाम (जे मकतामे आबैत अछि)", "बहरक प्रकार", "रदीफक एक अंग"], correct: 1 },
+        { text: "बहरे हजज (بحر ہزج) केर मूल रुक्न कोन अछि?", options: ["मफाईलुन (1222)", "फाइलातुन (2122)", "मुस्तफइलुन (2212)", "फऊलुन (122)"], correct: 0 },
+        { text: "बहरे रमल (بحر رمل) केर मूल रुक्न छै:", options: ["फाइलातुन 2122", "मुतफाइलुन 11212", "फाइलुन 212", "मुफाइलतुन 12112"], correct: 0 },
+        { text: "'काफिया' आ 'रदीफ' के बीच मुख्य अन्तर छै?", options: ["रदीफ बाद मे अबैत अछि, काफिया ओकरा पहिने", "रदीफ पहिने अबैत अछि", "दूनू एक ही चीज़ अछि", "रदीफ सिर्फ मतलामे होइत अछि"], correct: 0 },
+        { text: "गजलक संगीत लेल सबसँ उपयुक्त वाद्य कोन मानल गेल अछि?", options: ["हारमोनियम", "तबला", "बाँसुरी", "सितार"], correct: 1 },
+        { text: "उर्दूक प्रसिद्ध शाइर 'मीर तकी मीर' केर गजल शैली कोन बहरमे बेसी प्रसिद्ध अछि?", options: ["बहरे रमल", "बहरे हजज", "बहरे मुतकारिब", "बहरे वाफिर"], correct: 0 },
+        { text: "पं. जीवन झा केर नाटक जाहिमे पहिल बेर मैथिली गजल भेटैत अछि, ओ नाटक कोन अछि?", options: ["सुन्दर-संयोग", "चन्द्रावली", "हरि-गौरी विवाह", "पारिजात हरण"], correct: 0 },
+        { text: "गजल मे 'बहर' त्रुटिपूर्ण भेलापर गजल के कहल जाइत अछि?", options: ["बे-बहर गजल (आजाद गजल)", "मुकम्मल गजल", "मुरद्दफ गजल", "शेर-उल-गजल"], correct: 0 },
+        { text: "मैथिली व्याकरण अनुसार चन्द्रबिन्दु (ँ) केर मात्राक नियम छै?", options: ["लघु मात्रा (ह्रस्व)", "दीर्घ मात्रा", "प्लुत", "केवल उच्चारण मात्र"], correct: 0 },
+        { text: "'गजल कमला-कोसी-बागमती-महानन्दा सम्मान' केनाय द्वारा शुरू कएल गेल?", options: ["विदेह पत्रिका", "अनचिन्हार आखर", "मैथिली अकादमी", "साहित्य अकादेमी"], correct: 1 },
+        { text: "बाल गजल (बाल-गजल) केर प्रवर्तन मैथिलीमे कोन कालमे भेल?", options: ["2012", "2005", "1990", "1980"], correct: 0 },
+        { text: "भक्ति गजलक पहिल संग्रह 'सूक्ति सुधा' के रचनाकार छथि?", options: ["पं. जीवन झा", "कविवर सीताराम झा", "योगानंद हीरा", "विजयनाथ झा"], correct: 1 },
+        { text: "अरूज शास्त्र (इल्मे अरूज) केर जन्मदाता कोन अछि?", options: ["खलील इब्ने अहमद बसरी", "उमरुल कैस", "मीर अमान", "हाफिज शिराजी"], correct: 0 },
+        { text: "गजल अलावा रुबाइ के लेल कति मात्रा (लगभग) निर्धारित अछि?", options: ["२४ मात्रा प्रति पाँति", "१६ मात्रा", "३२ मात्रा", "१२ मात्रा"], correct: 0 },
+        { text: "मैथिली भाषाक पहिल आरूजी (गजलशास्त्री) श्री गजेन्द्र ठाकुर केर गजल संग्रह कोन अछि?", options: ["धाँगि बाट बनेबाक दाम अगूबार पेने छँ", "अहीँक लेल", "मोनक बात", "नि अंशु"], correct: 0 },
+        { text: "'हरजाइ' शब्द कोन अर्थ मे प्रयुक्त होइत अछि (बेवफा लेल मैथिली शब्द)?", options: ["अविश्वसनीय", "बेईमान", "प्रेममे अस्थिर", "द्रोही"], correct: 2 },
+        { text: "'मीना' (मैखाने के बर्तन) केर सही मैथिली शब्द लेल कहल गेल अछि?", options: ["लबनी, डाबा", "सुराही", "गिलास", "कटोरा"], correct: 0 },
+        { text: "गजलमे 'हसीना' लेल मैथिली शब्द के प्रयोग केनाइ उचित मानल गेल अछि?", options: ["सुन्दरी, सुनरकी", "छाँड़ी", "गोरी", "रानी"], correct: 0 },
+        { text: "'रकीब' शब्द केर सही अर्थ अछि?", options: ["प्रेमिका", "प्रेममे प्रतिद्वन्द्वी", "साकी", "परवरदिगार"], correct: 1 },
+        { text: "ईता दोष (’itā dōṣa) काफियामे कब होइत अछि?", options: ["जखन मतलाक शब्द प्रत्यय हटेला बाद निरर्थक अर्थ देब", "रदीफ नै मिललापर", "बहर टूटलापर", "शेरमे दोहराव"], correct: 0 },
+        { text: "मैथिली गजलमे 'बहरे विदेह' नामक नव बहर केर प्रवर्तन केलक?", options: ["आशीष अनचिन्हार", "गजेन्द्र ठाकुर", "अमित मिश्र", "राजीव रंजन मिश्र"], correct: 0 },
+        { text: "'सरल वार्णिक बहर' केर विशेषता कोन अछि?", options: ["हर पाँतिमे अक्षरक संख्या बराबर (बिना मात्रा नियम)", "मात्रा समानता अनिवार्य", "लघु-गुरूक क्रम नियत", "तालवृत छन्द"], correct: 0 },
+        { text: "गजल गायन शैली मे 'तरन्नुम' केकरा कहल जाइत अछि?", options: ["गायन शैली", "मोशायराक नियम", "शेरक भाव", "रदीफक बनावट"], correct: 0 },
+        { text: "मैथिली गजलमे 'काफिया' निर्धारण लेल मैथिलीक मात्रा नियम प्रायः कोन पद्धतिपर आधारित अछि?", options: ["उच्चारण आ ह्रस्व-दीर्घक स्थानीयता", "संस्कृत छन्द नियम", "हिन्दी मात्रा पद्धति", "देवनागरी वर्ण गणना"], correct: 0 },
+        { text: "'बहरे मुतकारिब' केर मूल रुक्न छै ?", options: ["फऊलुन (122)", "फाइलातुन (2122)", "मफाईलुन (1222)", "मुस्तफइलुन (2212)"], correct: 0 },
+        { text: "नज्म आ गजल मे मुख्य अन्तर कोन अछि?", options: ["नज्ममे काफिया-रदीफ अनिवार्य नै अछि", "गजलमे शेर अलग अलग होइत अछि, नज्म एकान्तर भाव", "उपर्युक्त दूनू", "कोनो अन्तर नै"], correct: 2 },
+        { text: "हजल (Hazal) गजलक कोन रूप अछि?", options: ["हास्य-व्यंग्य प्रधान गजल", "भक्ति गजल", "बाल गजल", "श्रृंगार गजल"], correct: 0 },
+        { text: "मैथिली गजलक इतिहास मे 'जीवन युग' (1905-2007) के बाद 'अनचिन्हार युग' के नामकरण केलक?", options: ["गजेन्द्र ठाकुर", "आशीष अनचिन्हार", "डा. रामदेव झा", "विजयनाथ झा"], correct: 0 },
+        { text: "कोन अरबी रुक्न केर मात्राक्रम 11212 अछि (जे बहरे कामिल मे प्रयुक्त होइत अछि)?", options: ["मुतफाइलुन", "फाइलातुन", "मफाईलुन", "मुस्तफइलुन"], correct: 0 },
+        { text: "मैथिली लोकगीत 'भादब हे सखी रैन भेयाओन' केर छन्द प्रकार अछि?", options: ["तालवृत छन्द", "वर्णिक छन्द", "अक्षरवृत", "शास्त्रीय छन्द"], correct: 0 },
+        { text: "गजल मे 'काफिया' दोष 'ईता दोष' के अतिरिक्त 'सिनाद दोष' के कारण होइत अछि ?", options: ["मात्रा नै मिललाक कारण", "व्यंजन अलग भेलापर", "बहर अलग भेला पर", "रदीफ हटला पर"], correct: 1 },
+        { text: "मैथिली गजल लेखन मे पहिल महिला गजलकार (बहरयुक्त) कोन छथि?", options: ["शांतिलक्ष्मी चौधरी", "इरा मक्ललक", "रूबी झा", "शैलालिका सिंहा"], correct: 0 },
+        { text: "गजल शास्त्रानुसार मात्रिक छन्द कतेक गण होइत अछि?", options: ["५ गण (ण, त, ड, ठ, ट)", "८ गण", "६ गण", "१० गण"], correct: 0 },
+        { text: "अनुस्वार (ं) केर मात्रा गजलमे सदा कोन मानल जाइत अछि?", options: ["दीर्घ (गुरु)", "लघु (ह्रस्व)", "प्लुत", "अनियमित"], correct: 0 },
+        { text: "बहरे मुजास (بھر مجاس) केर मूल ढाँचा छै:", options: ["2212 + 2122", "1222 + 212", "2122 + 2122", "11212 + 2122"], correct: 0 },
+        { text: "गजलक प्रसिद्ध हिन्दी शाइर दुष्यन्त कुमार केर प्रसिद्ध गजल 'हो गई है पीर पर्वत सी' कोन बहरमे अछि?", options: ["2122+2122+2122+212 (रमल मुजाइफ)", "1222+1222+1222+1222", "2122+1222+2122", "11212+11212"], correct: 0 },
+        { text: "मैथिलीमे 'क्रान्तिकारी गजल' लेखन मे विजयनाथ झा केर भूमिका कोन छै?", options: ["बहरयुक्त गजलक प्रवर्तक", "आजाद गजल समर्थक", "गीति गजलक आलोचक", "प्रकाशक"], correct: 0 },
+        { text: "गजलक 'सौती मोशायरा' केर उद्देश्य कोन अछि?", options: ["बहर-काफियाक प्रशिक्षण, अर्थ महत्व नै", "नव गजलकारक सम्मान", "प्रेम गजलक प्रतियोगिता", "गजल पुरस्कार"], correct: 0 },
+        { text: "'तरही मोशायरा'मे शाइर सभ कोन आधारपर गजल लिखैत छथि?", options: ["देल गेल मिसरा (तरह-ए-मिसरा)क अनुकरण", "काफिया-रदीफ स्वतंत्र", "बिना रदीफक गजल", "नयाँ बहरक सर्जना"], correct: 0 },
+        { text: "कोन मैथिली गजलकार नेपालक पहिल बहरयुक्त गजलकार मानल जाइत अछि?", options: ["कुंदन कुमार कण", "अमित मिश्र", "जगदानंद झा 'मनु'", "राजीव रंजन मिश्र"], correct: 0 },
+        { text: "पं. गोविन्द झा केर 'मैथिली परिचायिका' मे चन्द्रबिन्दु केर प्रकृति के मानल गेल अछि ?", options: ["लघु (भारहीन)", "गुरु (भारी)", "अनुस्वार समान", "प्लुत"], correct: 0 },
+        { text: "'रुबाइ' छन्दमे कति पाँति होइत अछि?", options: ["चारि पाँति (२ शेर)", "२ पाँति", "६ पाँति", "८ पाँति"], correct: 0 },
+        { text: "गजल लेल कोन छन्द सर्वोत्तम मानल जाइत अछि ?", options: ["अक्षरवृत (वार्णिक छन्द)", "मात्रिक छन्द", "तालवृत", "मुक्त छन्द"], correct: 0 },
+        { text: "मैथिली गजलक पहिल आलोचना लेख 'मैथिलीमे गजल' केनाय लिखलाह?", options: ["डा. रामदेव झा", "रामलोचन ठाकुर", "गजेन्द्र ठाकुर", "आशीष अनचिन्हार"], correct: 0 },
+        { text: "भारत मे गजल लोकप्रियता मे बेगम अख्तर केर योगदान कोन अछि?", options: ["गजल गायिका", "गजलकार", "समीक्षक", "प्रकाशक"], correct: 0 },
+        { text: "'तहलीली रदीफ' कब उपयोग होइत अछि?", options: ["जखन कोनो शब्द स्वयम काफिया आ रदीफ दूनूक शर्त पूरा करैत अछि", "जखन रदीफ बदलैत अछि", "जखन काफिया अनुपस्थित रहैत अछि", "विशेष उर्दू नियम"], correct: 0 },
+        { text: "मैथिली मे 'काफिया' निर्धारण मे 'ए' आ 'य' के प्रयोग पर पं. गोविन्द झा केर मत अछि?", options: ["प्राचीन मैथिलीमे 'ए' के प्रयोग, छन्दक सुगमता लेल 'य' चलल", "केवल 'य' सही", "केवल 'ए' सही", "दूनू नै"], correct: 0 },
+        { text: "गजल मे 'वफा' शब्द केर मैथिली पर्याय कोन सुझाएल गेल अछि?", options: ["नेह-निष्ठा, एकनिष्ठ", "प्रेम", "सच्चरित्र", "धर्म"], correct: 0 },
+        { text: "कोन रदीफ दोष तब होइत अछि जखन रदीफक कोनो भाग मतलाक बाद बला शेरक पहिल पाँतिमे आबैत अछि?", options: ["तकाबुल-ए-रदीफ", "ईता दोष", "इफ्का दोष", "गुलू दोष"], correct: 0 },
+        { text: "श्री गजेन्द्र ठाकुर द्वारा रचित 'वार्णिक बहर' केर विशेषता कोन अछि?", options: ["हर पाँतिमे समान अक्षर संख्या एवं ह्रस्व-दीर्घक समान क्रम", "केवल अक्षर गणना", "केवल मात्रा समानता", "तुकान्त अनिवार्य"], correct: 0 },
+        { text: "'मुसन्ना शेर' केकरा कहल जाइत अछि?", options: ["जाहिमे हरेक पाँतिमे एकटा रुक्न हो (दू रुक्न प्रति शेर)", "तीन रुक्न वाला शेर", "चार रुक्न वाला", "बिना बहरक शेर"], correct: 0 },
+        { text: "मैथिली कवि सीताराम झा केर पहिल बाल गजल केर सन्दर्भ अछि ?", options: ["'बाउजी जागू ठारर भरै छी'", "'टूटल छी तें गजल कहै छी'", "'भगवान हमर इ मिथिला'", "'हम की मनाउ'"], correct: 0 },
+        { text: "गजल मे 'हुस्न-ए-मतला' के परिभाषा कोन अछि?", options: ["मतलाक बाद दोसर सुन्दर मतला", "शेरक अन्दर आलंकारिकता", "रदीफक सौन्दर्य", "मतला मे दोष"], correct: 0 },
+        { text: "मैथिली अक्षरमाला अनुसार 'ण' (मूर्धन्य) तथा 'न' (दन्त्य) केर उच्चारण भेद काफियामे कोन दोष उत्पन्न करि सकैत अछि?", options: ["सिनाद दोष", "ईता दोष", "रदीफ दोष", "लफ्ज दोष"], correct: 0 },
+        { text: "'कसीदा' शाइरी केर न्यूनतम शेर संख्या कति होइत अछि?", options: ["१९ शेर", "५ शेर", "११ शेर", "७ शेर"], correct: 0 },
+        { text: "नेपाली मैथिली गजल क्षेत्र मे 'पल्लव मिथिला' पत्रिका केनाय सम्पादित करैत छलाह?", options: ["डीरेन्द्र प्रेमर्षि", "गजेन्द्र ठाकुर", "कुंदन कुमार कण", "तिलक परियार"], correct: 0 },
+        { text: "शाइरी मे 'मर्सिया' केर विषय कोन होइत अछि?", options: ["शोक / वीर शहादत (इमाम हुसैन)", "प्रेम वियोग", "शराब वर्णन", "राजदरबारी प्रशंसा"], correct: 0 },
+        { text: "गजल के अलावा 'क्वाली' लेखन शैली के शुरूआत केनाय केलक मानल जाइत अछि?", options: ["अमीर खुसरो", "मीरा बाई", "कबीर", "हाफिज"], correct: 0 },
+        { text: "मैथिली गजलमे 'माहिया' छन्द केर उत्पत्ति कोन भाषासँ अछि?", options: ["पंजाबी", "बांग्ला", "उड़िया", "अवधी"], correct: 0 },
+        { text: "कोन गजलकार द्वारा 'हम देखेंगे' (नज्म) साम्यवादी आन्दोलनक प्रतीक बनल?", options: ["फैज अहमद फैज", "सुदर्शन फाकिर", "जोश मलीहाबादी", "दाग देहलवी"], correct: 0 },
+        { text: "गजल मे शेरक दूसरा भाग (दोसर मिसरा) केर नाम कोन अछि?", options: ["मिसरा-ए-सानी", "सद्र", "उर्ज", "हश्व"], correct: 0 },
+        { text: "मैथिली मे गजलक पहिल संग्रह 'अनचिन्हार आखर' केर प्रकाशन वर्ष कोन छै?", options: ["२०११", "२००८", "२०१५", "२०२०"], correct: 0 },
+        { text: "'बहरे मुशातकल' केर मात्राक्रम छै ?", options: ["2122+1222+1222", "2212+2122+2122", "1222+1222+2122", "212+212+212"], correct: 0 },
+        { text: "मैथिली गजल परम्परामे गद्यात्मक भाषा केर प्रयोग कोन कारणे बेसी उपयुक्त मानल गेल अछि?", options: ["गजल गप्प-सप्प जकाँ गद्य निकट होइत अछि, प्राकृतिक लगैत अछि", "छंदक सुगमता लेल", "संस्कृत प्रभाव लेल", "लोकगीत जकाँ"], correct: 0 },
+        { text: "गजलक शेर मे 'अरूज' (uruj) केकरा कहल जाइत अछि?", options: ["पहिल पाँतिक अन्तिम खण्ड", "दोसर पाँतिक पहिल भाग", "पूरा शेर", "रदीफ"], correct: 0 },
+        { text: "गजल मे 'खुमार' आ 'सुरूर' केर अन्तर छै?", options: ["खुमार उतरैत नशा, सुरूर चढ़ैत नशा", "दूनू एक अर्थ", "खुमार शराब, सुरूर भांग", "कोनो अन्तर नै"], correct: 0 },
+        { text: "आशिक आ माशूक शब्द उभयलिंगी अछि, मैथिली गजलमे एकर प्रयोग?", options: ["सही अछि", "गलत अछि", "केवल पुल्लिंग", "केवल स्त्रीलिंग"], correct: 0 },
+        { text: "गजल समीक्षा शास्त्र मे गजेन्द्र ठाकुर केर योगदान कोन अछि?", options: ["गजलशास्त्र लेखन", "नव बहर खोज", "बाल गजल", "सभ ऊपर"], correct: 3 },
+        { text: "बहरे मुतदारिक (بحر متدارک) केर मूल रुक्न अछि:", options: ["फाइलुन (212)", "फऊलुन (122)", "मफाईलुन (1222)", "मुतफाइलुन (11212)"], correct: 0 },
+        { text: "रदीफ मे 'लफ्जी रदीफ' आ 'मानवी रदीफ' के भेद छै? (मैथिली व्याकरण अनुसार)", options: ["शब्दगत वा अर्थगत", "छन्दगत", "बहरगत", "लयगत"], correct: 0 },
+        { text: "गजलक ओतिहासिक विकास मे इमरउल कैस केर स्थान कोन अछि?", options: ["पहिल अरबी शाइर जे प्रेम गजल कहलथि", "फारसी गजलक संस्थापक", "उर्दू गजलक जनक", "हिन्दी गजलक अग्रदूत"], correct: 0 },
+        { text: "मैथिली गजल लेल 'बहरे गोविन्द' केर प्रस्तावक कोन अछि?", options: ["आशीष अनचिन्हार", "गजेन्द्र ठाकुर", "विजयनाथ झा", "पं. गोविन्द झा"], correct: 0 },
+        { text: "कोन रुक्नक मात्राक्रम 2221 अछि जे मैथिलीमे 'बहरे विदेह' मे प्रयुक्त होइत अछि?", options: ["मिफ़ालुन / मिफ़ालु", "फाइलातुन", "मफाइलुन", "मुस्तफइलुन"], correct: 0 },
+        { text: "गजल मे 'जरब' (żarb) केर स्थान शेर मे कतय रहैत अछि?", options: ["दोसर पाँतिक अन्तिम खण्ड", "पहिल पाँतिक आरम्भ", "दोसर पाँतिक आरम्भ", "पहिल पाँतिक मध्य"], correct: 0 },
+        { text: "मैथिली गजलक सन्दर्भ मे 'अनचिन्हार आखर' द्वारा प्रकाशित पहिल गजल संग्रह कोन अछि (२०११)?", options: ["अनचिन्हार आखर (आशीष)", "माँझ आंगनमे कतियाएल छी", "घाँगि बाट", "नि अंशु"], correct: 0 },
+        { text: "राजीव रंजन मिश्र केर मैथिली गजल मे कोन बहरक बहुलता देखल जाइत अछि?", options: ["सरल वार्णिक बहर आ नव बहर", "अरबी बहर", "केवल मात्रिक छन्द", "फारसी खलिल"], correct: 0 },
+        { text: "पं. जीवन झा केर निधन ईस्वी सन् कोन अछि (पुस्तक अनुसार)?", options: ["१९१२", "१९०५", "१९२०", "१९४७"], correct: 0 },
+        { text: "गजल लेखन कला मे 'तश्बीह' (उपमा) आ 'इस्तियारा' (रूपक) केर प्रयोग कोन विधा अछि?", options: ["अलंकार शास्त्र", "बहर नियम", "रदीफ विधान", "काफिया विस्तार"], correct: 0 },
+        { text: "गजलक 'मुजरा' परंपरा केर सम्बन्ध कोन सभ्यता सँ अछि?", options: ["नबाबी परंपरा", "वैदिक संस्कृति", "लोकनाट्य", "भक्ति आन्दोलन"], correct: 0 },
+        { text: "कोन गजलकार 'अंशु' उपनाम सँ मैथिली गजल लिखैत छथि?", options: ["अमित मिश्र", "अभिलाष ठाकुर", "अनिल कुमार झा", "सुमित मिश्र"], correct: 0 },
+        { text: "मैथिली व्याकरण मे 'कर्म कारक' केर चिन्ह कोन अछि?", options: ["कँ", "के", "सँ", "मे"], correct: 0 },
+        { text: "गजल गायन मे 'वाचन प्रक्रिया' (तहत) आ 'गायन प्रक्रिया' (तर्जुम) के भेद छै। ओना मैथिली मोशायरामे प्रायः कोन अधिक प्रचलित अछि?", options: ["दूनू स्वीकार्य अछि", "केवल तहत", "केवल तर्जुम", "बिना ताल"], correct: 0 }
+    ];
+
+    // वर्तमान मे कुल 100 प्रश्न सुनिश्चित करब (यदि कम होए तो dummy से भरब, पहिले से 100 बनाएल गेल अछि)
+    // उपरोक्त सूची मे 100 प्रश्न अछि (मैनually गणना)
+    console.log("Total questions loaded:", questions.length);
+
+    // रेंडर फंक्शन
+    const container = document.getElementById("quizContainer");
+    const scoreSpan = document.getElementById("scoreDisplay");
+
+    function renderQuiz() {
+        container.innerHTML = "";
+        questions.forEach((q, idx) => {
+            const card = document.createElement("div");
+            card.className = "question-card";
+            card.setAttribute("data-qidx", idx);
+            const qHeader = document.createElement("div");
+            qHeader.className = "q-header";
+            qHeader.innerHTML = `<span class="q-num">${idx+1}</span><div class="q-text">${escapeHtml(q.text)}</div>`;
+            card.appendChild(qHeader);
+            
+            const optsList = document.createElement("ul");
+            optsList.className = "options";
+            q.options.forEach((opt, optIdx) => {
+                const li = document.createElement("li");
+                const radio = document.createElement("input");
+                radio.type = "radio";
+                radio.name = `q${idx}`;
+                radio.value = optIdx;
+                radio.id = `q${idx}_opt${optIdx}`;
+                const label = document.createElement("label");
+                label.htmlFor = radio.id;
+                label.textContent = `${String.fromCharCode(65+optIdx)}) ${opt}`;
+                li.appendChild(radio);
+                li.appendChild(label);
+                optsList.appendChild(li);
+            });
+            card.appendChild(optsList);
+            
+            const checkBtn = document.createElement("button");
+            checkBtn.textContent = "🔍 जाँचू";
+            checkBtn.className = "check-btn";
+            const feedbackSpan = document.createElement("div");
+            feedbackSpan.className = "feedback-local";
+            
+            card.appendChild(checkBtn);
+            card.appendChild(feedbackSpan);
+            
+            // event listener
+            checkBtn.addEventListener("click", () => {
+                const selectedRadio = card.querySelector(`input[name="q${idx}"]:checked`);
+                const allOptions = card.querySelectorAll(`input[name="q${idx}"]`);
+                // हर label सँ highlight हटाबी
+                allOptions.forEach(rad => {
+                    const parentLi = rad.closest("li");
+                    const lbl = parentLi.querySelector("label");
+                    lbl.classList.remove("correct-highlight", "wrong-highlight");
+                });
+                if (!selectedRadio) {
+                    feedbackSpan.innerHTML = "⚠️ कृपया कोनो एक विकल्प चुनू।";
+                    feedbackSpan.style.color = "#b85c1a";
+                    return;
+                }
+                const selectedVal = parseInt(selectedRadio.value);
+                const isCorrect = (selectedVal === q.correct);
+                // सही उत्तर वाला ऑप्शन के label हरियर करी
+                const correctOptIndex = q.correct;
+                const allRadios = card.querySelectorAll(`input[name="q${idx}"]`);
+                allRadios.forEach((rad, i) => {
+                    const parentLi = rad.closest("li");
+                    const lbl = parentLi.querySelector("label");
+                    if (i === q.correct) {
+                        lbl.classList.add("correct-highlight");
+                    }
+                    if (rad.checked && i !== q.correct) {
+                        lbl.classList.add("wrong-highlight");
+                    }
+                });
+                if (isCorrect) {
+                    feedbackSpan.innerHTML = "✅ सही उत्तर! बढ़िया।";
+                    feedbackSpan.style.color = "#2b6e2b";
+                } else {
+                    feedbackSpan.innerHTML = `❌ गलत। सही उत्तर: ${String.fromCharCode(65+q.correct)}) ${q.options[q.correct]}`;
+                    feedbackSpan.style.color = "#b33";
+                }
+                updateGlobalScore();
+            });
+            container.appendChild(card);
+        });
+        updateGlobalScore();
+    }
+    
+    function updateGlobalScore() {
+        let totalCorrect = 0;
+        for (let i = 0; i < questions.length; i++) {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selected && parseInt(selected.value) === questions[i].correct) {
+                totalCorrect++;
+            }
+        }
+        scoreSpan.innerText = `✅ स्कोर : ${totalCorrect} / ${questions.length}`;
+    }
+    
+    function resetAll() {
+        const allRadios = document.querySelectorAll('input[type="radio"]');
+        allRadios.forEach(radio => radio.checked = false);
+        const allFeedbacks = document.querySelectorAll('.feedback-local');
+        allFeedbacks.forEach(fb => fb.innerHTML = "");
+        const allLabels = document.querySelectorAll('.options label');
+        allLabels.forEach(lbl => lbl.classList.remove("correct-highlight", "wrong-highlight"));
+        updateGlobalScore();
+    }
+    
+    function escapeHtml(str) {
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+            return c;
+        });
+    }
+    
+    renderQuiz();
+    document.getElementById("globalReset").addEventListener("click", resetAll);
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

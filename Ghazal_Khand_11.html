@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>मैथिली गजल व्याकरण - खण्ड-११ (मात्रा, संयुक्ताक्षर, छन्द नियम) क्विज</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: linear-gradient(145deg, #f0e9da 0%, #dfcfb5 100%);
+font-family: 'Segoe UI', 'Mithila', 'Noto Sans Devanagari', 'Arial', sans-serif;
+padding: 2rem 1rem;
+color: #2c2418;
+}
+.container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffef7;
+border-radius: 2.5rem;
+box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+overflow: hidden;
+border: 1px solid #d9c8ae;
+}
+.header {
+background: #5c3e1f;
+padding: 1.8rem 2rem;
+text-align: center;
+color: #ffefcf;
+}
+.header h1 {
+font-size: 2rem;
+letter-spacing: 1px;
+margin-bottom: 0.4rem;
+font-weight: 600;
+}
+.header p {
+font-size: 1.2rem;
+opacity: 0.9;
+}
+.quiz-intro {
+background: #f1e9dc;
+padding: 0.9rem 2rem;
+font-size: 1rem;
+border-bottom: 1px solid #e0cfb5;
+color: #3a2a19;
+font-weight: 500;
+}
+.quiz-area {
+padding: 2rem 2rem 1.5rem 2rem;
+}
+.question-card {
+background: #ffffff;
+border-radius: 1.5rem;
+margin-bottom: 1.8rem;
+padding: 1.5rem 1.8rem;
+box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+border-left: 10px solid #b87c4a;
+transition: 0.2s;
+}
+.question-text {
+font-size: 1.25rem;
+font-weight: 600;
+margin-bottom: 1rem;
+color: #2b3b2c;
+line-height: 1.4;
+}
+.options {
+list-style: none;
+margin-top: 0.5rem;
+}
+.options li {
+margin-bottom: 0.7rem;
+padding: 0.4rem 0.8rem;
+background: #fef7ef;
+border-radius: 40px;
+border: 1px solid #eadbbe;
+transition: 0.1s;
+}
+.options li:hover {
+background: #f5e7d4;
+cursor: pointer;
+}
+label {
+display: flex;
+align-items: center;
+gap: 12px;
+cursor: pointer;
+font-size: 1rem;
+font-weight: 500;
+color: #3d2b1b;
+}
+input[type="radio"] {
+width: 18px;
+height: 18px;
+accent-color: #a5612a;
+cursor: pointer;
+}
+.btn-submit {
+background: #6b3f1c;
+border: none;
+color: white;
+font-size: 1.3rem;
+font-weight: bold;
+padding: 12px 25px;
+border-radius: 40px;
+cursor: pointer;
+transition: all 0.2s ease;
+width: 100%;
+margin-top: 1rem;
+letter-spacing: 1px;
+box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+}
+.btn-submit:hover {
+background: #8b582f;
+transform: scale(0.98);
+}
+.result-box {
+margin-top: 2rem;
+background: #e7ddce;
+border-radius: 1.5rem;
+padding: 1.2rem;
+text-align: center;
+font-size: 1.25rem;
+font-weight: bold;
+color: #1f3b2c;
+border: 1px solid #cfbc9b;
+}
+.feedback {
+margin-top: 1rem;
+font-weight: normal;
+font-size: 0.95rem;
+color: #4e3b28;
+}
+hr {
+margin: 1rem 0;
+border: 1px dashed #d9c29c;
+}
+footer {
+text-align: center;
+background: #f0e7db;
+padding: 1rem;
+font-size: 0.8rem;
+color: #5f4c32;
+}
+@media (max-width: 650px) {
+.quiz-area {
+padding: 1rem;
+}
+.question-card {
+padding: 1rem;
+}
+.question-text {
+font-size: 1.05rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="container"> <div class="header"> <h1>🎭 मैथिली गजल व्याकरण</h1> <p>खण्ड-११ : मात्रा निर्धारण, संयुक्ताक्षर, लघु-गुरू नियम</p> </div> <div class="quiz-intro">
+📖 <strong>निर्देश:</strong> खण्ड-११ (पृष्ठ 105–112) पर आधारित प्रश्न। एतय मात्राक नियम, संयुक्ताक्षरसँ पहिने दीर्घीकरण, चन्द्रबिन्दु, अनुस्वार, आघात नियम आ विसर्गक उच्चारणक विवेचना अछि।
+</div> <div class="quiz-area" id="quizArea"> </div> </div>
+<script>
+  // खण्ड-११: मात्रा निर्धारण, संयुक्ताक्षरसँ पूर्वक अक्षर दीर्घ, चन्द्रबिन्दु, विसर्ग नियम, दू लघुकें दीर्घ मानबाक नियम आदि
+  const questions = [
+    {
+      text: "१. खण्ड-११ अनुसार संयुक्ताक्षर (जेना ‘प्र’, ‘क्ष’, ‘न्ह’, ‘म्ह’) सँ पहिने बला अक्षरक मात्रा केना होइत छै?",
+      options: [
+        "संयुक्ताक्षरसँ पहिने बला अक्षर दीर्घ (गुरू) भऽ जाइत अछि, चाहे ओ मूल रूपसँ लघु किएक ने होइ",
+        "सदा लघु रहैत अछि",
+        "केवल उर्दू शब्दमे दीर्घ मानल जाएत",
+        "कोनो नियम नै अछि"
+      ],
+      correct: 0
+    },
+    {
+      text: "२. लेखक के अनुसार ‘कुम्हार’ शब्दमे ‘म्ह’ सँ पहिने बला ‘कु’ अक्षरक मात्रा की होएत?",
+      options: [
+        "‘कु’ दीर्घ (गुरू) होएत, कारण संयुक्ताक्षर ‘म्ह’ सँ पहिने अक्षर दीर्घीकरण होइत अछि, तँए ‘कुम्हार’ = दीर्घ-दीर्घ-लघु",
+        "‘कु’ लघु रहैत अछि",
+        "केवल ‘म्ह’ के बादक अक्षर मात्रा गनल जाएत",
+        "मैथिलीमे ‘न्ह’, ‘म्ह’ सँ पहिने कभू दीर्घ नै होइत"
+      ],
+      correct: 0
+    },
+    {
+      text: "३. ‘चन्द्रबिन्दु’ (ँ) युक्त अक्षरक मात्रा केनाहि नियमसँ निर्धारित होइत छै?",
+      options: [
+        "चन्द्रबिन्दु लघु अक्षरपर रहते लघु, दीर्घ अक्षरपर रहते दीर्घ; एक अक्षरीय चन्द्रबिन्दु बला शब्द (हँ, सँ) वैकल्पिक रूपसँ दीर्घ मानल जा सकैए",
+        "चन्द्रबिन्दु सदा दीर्घ होइत अछि",
+        "चन्द्रबिन्दु सदा लघु होइत अछि",
+        "चन्द्रबिन्दु मात्रा गनबामे छोड़ि देल जाएत"
+      ],
+      correct: 0
+    },
+    {
+      text: "४. ‘अनुस्वार’ (ं) केर मात्रा केनाहि होइत छै?",
+      options: [
+        "अनुस्वार सदा दीर्घ (गुरू) होइत अछि, चाहे ओ लघु अक्षरपर हो या दीर्घ अक्षरपर",
+        "अनुस्वार सदा लघु होइत अछि",
+        "अनुस्वारक मात्रा चन्द्रबिन्दु जकाँ होइत अछि",
+        "अनुस्वार मात्रा गनबामे नगण्य अछि"
+      ],
+      correct: 0
+    },
+    {
+      text: "५. दू लघु अक्षरसँ बनल शब्द (जेना ‘घर’) लेल लेखक के अनुसार गजलक मात्राक्रममे केनाहि व्यवहार करबाक चाही?",
+      options: [
+        "‘घर’ मूलतः लघु-लघु, मुदा आघातक कारणे दीर्घ मानल जाएत; वैकल्पिक स्थितिमे 21 (गुरू-लघु) सेहो मानल जा सकैए",
+        "सदा 11 (लघु-लघु) रहत, कभू दीर्घ नै मानल जाए",
+        "केवल 22 (दीर्घ-दीर्घ) मानल जाए",
+        "घर जका शब्द गजलमे प्रयोग नै करब"
+      ],
+      correct: 0
+    },
+    {
+      text: "६. तीन लघु अक्षरसँ बनल शब्द (जेना ‘तखन’, ‘बिगहि’) के मात्रा निर्धारणमे लेखक कोन दू विकल्प दैत छथि?",
+      options: [
+        "आघात मानेवला शाइरक लेल दीर्घ-लघु (2-11), आघात नै मानेवला लेल लघु-दीर्घ (1-2) मानल जाएत",
+        "सब एक समान (1-1-1) रहत",
+        "केवल 1-2 मानल जाए",
+        "तीन लघु शब्द गजलमे वर्जित"
+      ],
+      correct: 0
+    },
+    {
+      text: "७. पं. गोविन्द झा के अनुसार ‘न्ह’ आ ‘म्ह’ सँ पूर्व अक्षरक स्थितिपर लेखक (आशीष अनचिन्हार) के कोन स्पष्ट मान्यता अछि?",
+      options: [
+        "मैथिली उच्चारण अनुसार ‘कन्हाइ’, ‘कुम्हार’ सभमे पूर्व अक्षर दीर्घ होइत अछि, ई नियम संस्कृतसँ समर्थित; गजलमे एकर पालन करबाक चाही",
+        "दीर्घ नै होइत, लघु रहैत अछि",
+        "केवल उर्दू उच्चारण मान्य",
+        "कोनो नियम नै, जेना चाही तेना गनी"
+      ],
+      correct: 0
+    },
+    {
+      text: "८. ‘विसर्ग’ (ः) युक्त अक्षरक उच्चारण आ मात्रा केनाहि होइत छै? (पृ. 112 के आधार पर)",
+      options: [
+        "विसर्गक पहिने ‘अ’ हो तँ ‘ह’ जकाँ, ‘आ’ हो तँ ‘हा’ जकाँ उच्चारण; विसर्ग सदा स्वाराश्रित अछि आ ‘विरह’ आ ‘अतः’ एक दोसरक काफिया नै बनि सकैए",
+        "विसर्ग हमेशा दीर्घ होइत अछि",
+        "विसर्गक उच्चारण सदा ‘ह’ होइत अछि",
+        "विसर्ग बला शब्द काफियाक लेल उपयुक्त"
+      ],
+      correct: 0
+    },
+    {
+      text: "९. लेखक के अनुसार गजलमे ‘प्लुत’ स्वर (तीन मात्रिक) के परंपरा मैथिलीमे केना अछि?",
+      options: [
+        "प्लुत वर्तमान सभ भारतीय भाषासँ हटि गेल अछि, मुदा उर्दू शब्द (जेना ‘रास्ता’, ‘दोस्ती’) लेल वैकल्पिक रूपमे 212 या 22 मानल जा सकैए",
+        "प्लुत नियम अनिवार्य अछि",
+        "मैथिलीमे प्लुतक प्रयोग निषिद्ध",
+        "सब शब्द तीन मात्रिक होएत"
+      ],
+      correct: 0
+    },
+    {
+      text: "१०. खण्ड-११ के निष्कर्ष अनुसार गजलकार लेल मात्रा निर्धारणक सन्दर्भमे सबसँ महत्वपूर्ण सिद्धान्त कोन अछि?",
+      options: [
+        "एकरूपता – शाइर चाहे आघात मानू या नै, ओकरा अपन सभ गजलमे एकै नियमक पालन करबाक चाही; लिखित आ उच्चारणगत एकरूपता राखू",
+        "कहियो आघात मानू, कहियो नै मानू, स्वतन्त्रता अछि",
+        "केवल उर्दू नियम अपनाउ",
+        "मात्रा पर ध्यान नै देवू, केवल अर्थ देखू"
+      ],
+      correct: 0
+    }
+  ];
+
+  let userAnswers = new Array(questions.length).fill(null);
+  let quizSubmitted = false;
+
+  function renderQuiz() {
+    const container = document.getElementById('quizArea');
+    if (!container) return;
+    let html = `<div class="quiz-area-inner">`;
+    questions.forEach((q, idx) => {
+      html += `
+        <div class="question-card" data-qidx="${idx}">
+          <div class="question-text">${q.text}</div>
+          <ul class="options">
+      `;
+      q.options.forEach((opt, optIdx) => {
+        const isChecked = (userAnswers[idx] === optIdx);
+        html += `
+          <li>
+            <label>
+              <input type="radio" name="q${idx}" value="${optIdx}" ${isChecked ? 'checked' : ''} data-qid="${idx}" data-opt="${optIdx}">
+              <span>${opt}</span>
+            </label>
+          </li>
+        `;
+      });
+      html += `</ul></div>`;
+    });
+    html += `<button class="btn-submit" id="submitQuiz">✅ उत्तर जमा करू (खण्ड-११ पूर्ण)</button>`;
+    if (quizSubmitted) {
+      html += `<div class="result-box" id="resultBox"></div>`;
+    } else {
+      html += `<div class="result-box" id="resultBox" style="display:none;"></div>`;
+    }
+    html += `</div>`;
+    container.innerHTML = html;
+
+    document.querySelectorAll('input[type="radio"]').forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        if (quizSubmitted) return;
+        const qid = parseInt(radio.getAttribute('data-qid'));
+        const optVal = parseInt(radio.getAttribute('data-opt'));
+        if (!isNaN(qid)) {
+          userAnswers[qid] = optVal;
+        }
+      });
+    });
+
+    const submitBtn = document.getElementById('submitQuiz');
+    if (submitBtn) submitBtn.addEventListener('click', evaluateQuiz);
+  }
+
+  function evaluateQuiz() {
+    if (quizSubmitted) return;
+    let score = 0;
+    const resultDetails = [];
+    for (let i = 0; i < questions.length; i++) {
+      const userOpt = userAnswers[i];
+      const isCorrect = (userOpt !== null && userOpt === questions[i].correct);
+      if (isCorrect) score++;
+      const correctText = questions[i].options[questions[i].correct];
+      const userText = (userOpt !== null) ? questions[i].options[userOpt] : "कुनो उत्तर नै देल गेल";
+      resultDetails.push({
+        num: i+1,
+        correct: isCorrect,
+        correctAns: correctText,
+        userAns: userText,
+        question: questions[i].text.substring(0, 110)
+      });
+    }
+    const total = questions.length;
+    const percent = Math.round((score/total)*100);
+    let resultHtml = `<div class="result-box"><strong>📊 खण्ड-११ परिणाम:</strong> ${score}/${total} (${percent}%)<br>`;
+    resultHtml += `<div class="feedback">🎯 मात्रा, संयुक्ताक्षर, चन्द्रबिन्दु, अनुस्वार, आघात, विसर्ग – मैथिली गजलक प्राण नियम</div>`;
+    resultHtml += `<ul style="text-align:left; margin-top:10px;">`;
+    for (let r of resultDetails) {
+      const status = r.correct ? '✅ सही' : '❌ गलत';
+      resultHtml += `<li><strong>प्रश्न ${r.num}:</strong> ${status}<br> 
+      <span style="font-size:0.85rem;">✔ सही जबाब: ${r.correctAns}<br>
+      ✖ आपक जबाब: ${r.userAns}</span></li><hr style="margin:6px 0;">`;
+    }
+    resultHtml += `</ul><p style="margin-top:15px;">✍ खण्ड-११ सारांश: संयुक्ताक्षरसँ पहिनेक अक्षर दीर्घ; अनुस्वार दीर्घ, चन्द्रबिन्दु वैकल्पिक रूपसँ दीर्घ; दू-तीन लघु शब्दक मात्रा आघात आ उच्चारण पर निर्भर; विसर्गक उच्चारण स्वराश्रित। गजलकार लेल एकरूपता आवश्यक।</p>`;
+    resultHtml += `</div>`;
+    const resultBox = document.getElementById('resultBox');
+    if (resultBox) {
+      resultBox.style.display = 'block';
+      resultBox.innerHTML = resultHtml;
+      resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+    quizSubmitted = true;
+    document.querySelectorAll('input[type="radio"]').forEach(radio => radio.disabled = true);
+    const submitBtn = document.getElementById('submitQuiz');
+    if (submitBtn) submitBtn.disabled = true;
+  }
+
+  renderQuiz();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

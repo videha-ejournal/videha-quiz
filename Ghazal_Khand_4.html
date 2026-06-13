@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>मैथिली गजल – खण्ड-४ प्रश्नोत्तरी (रदीफ : नियम, दोष आ तहलीली रदीफ)</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #efe3d1;
+font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Arial', sans-serif;
+padding: 2rem 1rem;
+color: #2c251c;
+}
+.quiz-container {
+max-width: 950px;
+margin: 0 auto;
+background: #fffef7;
+border-radius: 2rem;
+box-shadow: 0 20px 35px rgba(70, 45, 20, 0.1);
+overflow: hidden;
+border: 1px solid #e9d7bc;
+}
+.quiz-header {
+background: #795e3a;
+background: linear-gradient(100deg, #74512d, #543f1f);
+padding: 1.6rem 2rem;
+text-align: center;
+color: white;
+}
+.quiz-header h1 {
+font-size: 1.7rem;
+font-weight: 600;
+letter-spacing: 1px;
+margin-bottom: 0.3rem;
+}
+.quiz-header p {
+font-size: 0.95rem;
+opacity: 0.9;
+border-top: 1px solid #cbab7a;
+display: inline-block;
+padding-top: 0.5rem;
+}
+.quiz-body {
+padding: 1.8rem 2rem 2rem 2rem;
+}
+.question-card {
+background: #ffffff;
+border-left: 7px solid #bd7a3b;
+margin-bottom: 2rem;
+padding: 1.2rem 1.2rem 0.9rem 1.2rem;
+border-radius: 1.2rem;
+box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.question-text {
+font-weight: 700;
+font-size: 1.2rem;
+margin-bottom: 1rem;
+color: #3c2a17;
+line-height: 1.4;
+}
+.options {
+list-style: none;
+padding-left: 0.3rem;
+}
+.options li {
+margin-bottom: 0.7rem;
+display: flex;
+align-items: flex-start;
+gap: 0.7rem;
+}
+.options input {
+margin-top: 0.2rem;
+accent-color: #a56f3c;
+width: 1.1rem;
+height: 1.1rem;
+}
+.options label {
+font-size: 1rem;
+line-height: 1.4;
+color: #2f2a21;
+font-weight: 500;
+flex: 1;
+}
+.btn-submit {
+background: #7b562f;
+border: none;
+width: 100%;
+padding: 0.9rem 1.5rem;
+font-size: 1.2rem;
+font-weight: bold;
+color: white;
+border-radius: 3rem;
+cursor: pointer;
+transition: 0.2s;
+margin-top: 1rem;
+margin-bottom: 1rem;
+font-family: inherit;
+}
+.btn-submit:hover {
+background: #583d1f;
+transform: scale(0.98);
+}
+.result-box {
+background: #f9f2e4;
+border-radius: 1.5rem;
+padding: 1rem 1.5rem;
+margin-top: 1.5rem;
+border-left: 5px solid #bd7a3e;
+font-size: 0.98rem;
+}
+.result-detail {
+max-height: 480px;
+overflow-y: auto;
+padding-right: 6px;
+}
+.correct-badge {
+color: #2a732a;
+font-weight: bold;
+}
+.wrong-badge {
+color: #bd4a27;
+font-weight: bold;
+}
+hr {
+margin: 0.8rem 0;
+border-color: #e3d0b2;
+}
+footer {
+text-align: center;
+padding: 1rem;
+font-size: 0.75rem;
+background: #faf2e8;
+color: #7a5f3c;
+border-top: 1px solid #ecdbba;
+}
+@media (max-width: 550px) {
+.quiz-body {
+padding: 1rem;
+}
+.question-text {
+font-size: 1rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <div class="quiz-header"> <h1>📜 खण्ड-४ : रदीफ – परिभाषा, नियम, तकाबुल दोष आ तहलीली रदीफ</h1> <p>मैथिली गजलक व्याकरण ओ इतिहास (खण्ड-४) पर आधारित बहुविकल्पी प्रश्नोत्तरी</p> </div> <div class="quiz-body"> <form id="khand4Form"> <div class="question-card"> <div class="question-text">१. “रदीफ” केर सही परिभाषा की अछि (खण्ड-४ अनुसार)?</div> <ul class="options"> <li><input type="radio" name="q1" value="A" id="q1_a"><label for="q1_a">(अ) गजलक हरेक शेरक दोसर पाँतिक अन्तिम तुकान्त (काफिया)</label></li> <li><input type="radio" name="q1" value="B" id="q1_b"><label for="q1_b">(ब) मतला बला शेरक दूनू पाँतिक ओहि अन्तिम हिस्सा जे दूनू पाँतिमे समान रूपें बिना हेइ-फेरके आबए</label></li> <li><input type="radio" name="q1" value="C" id="q1_c"><label for="q1_c">(स) गजलक पहिल शेरक पहिल पाँति</label></li> <li><input type="radio" name="q1" value="D" id="q1_d"><label for="q1_d">(द) शेरक बीचक भाग जकरा हश्र कहल जाइत अछि</label></li> </ul> </div> <div class="question-card"> <div class="question-text">२. रदीफ गजलक हरेक शेरमे केनऽ स्थान पर अनिवार्य रूपें आबैत अछि?</div> <ul class="options"> <li><input type="radio" name="q2" value="A" id="q2_a"><label for="q2_a">(अ) हरेक शेरक पहिल आ दोसर दूनू पाँतिमे</label></li> <li><input type="radio" name="q2" value="B" id="q2_b"><label for="q2_b">(ब) केवल मतलाक दूनू पाँतिमे, आ मतलाक बाद बला हरेक शेरक केवल दोसर पाँतिमे (पहिल पाँतिमे नै)</label></li> <li><input type="radio" name="q2" value="C" id="q2_c"><label for="q2_c">(स) केवल अन्तिम शेर (मकता) मे</label></li> <li><input type="radio" name="q2" value="D" id="q2_d"><label for="q2_d">(द) केवल मतलाक पहिल पाँतिमे</label></li> </ul> </div> <div class="question-card"> <div class="question-text">३. “तकाबुल-ए-रदीफ” नामक दोष के समय होइत अछि?</div> <ul class="options"> <li><input type="radio" name="q3" value="A" id="q3_a"><label for="q3_a">(अ) जखन मतलाक बाद बला कोनो शेरक पहिल पाँतिमे रदीफ वा रदीफक कोनो भाग आबि जाइत अछि</label></li> <li><input type="radio" name="q3" value="B" id="q3_b"><label for="q3_b">(ब) जखन रदीफ एक समान नै रहैत अछि</label></li> <li><input type="radio" name="q3" value="C" id="q3_c"><label for="q3_c">(स) जखन गजलमे बहर टूटि जाइत अछि</label></li> <li><input type="radio" name="q3" value="D" id="q3_d"><label for="q3_d">(द) जखन काफियामे गड़बड़ी होइत अछि</label></li> </ul> </div> <div class="question-card"> <div class="question-text">४. तकाबुल-ए-रदीफ दोषसँ बचबाक उपाय (पोथी अनुसार) की अछि?</div> <ul class="options"> <li><input type="radio" name="q4" value="A" id="q4_a"><label for="q4_a">(अ) पूरा गजलकेँ फेरसँ लिखू</label></li> <li><input type="radio" name="q4" value="B" id="q4_b"><label for="q4_b">(ब) ओहि पहिल पाँतिसँ रदीफ हटाए देब, या रदीफसँ पहिने काफिया दए हुस्ने-मतला बना देब</label></li> <li><input type="radio" name="q4" value="C" id="q4_c"><label for="q4_c">(स) शेरकेँ पूरा गजलसँ अलग कए देब</label></li> <li><input type="radio" name="q4" value="D" id="q4_d"><label for="q4_d">(द) रदीफकेँ बदलि कऽ दोसर शब्द लेब</label></li> </ul> </div> <div class="question-card"> <div class="question-text">५. “तहलीली रदीफ” (Tahleeli Radif) सँ का बुझाइत अछि?</div> <ul class="options"> <li><input type="radio" name="q5" value="A" id="q5_a"><label for="q5_a">(अ) ओहन शब्द जाहिमे काफिया आ रदीफ दूनू एकै सङ्ग आबैत अछि</label></li> <li><input type="radio" name="q5" value="B" id="q5_b"><label for="q5_b">(ब) जखन रदीफ मात्र एक अक्षरक होइत अछि</label></li> <li><input type="radio" name="q5" value="C" id="q5_c"><label for="q5_c">(स) जखन गजलक रदीफ बिना काफियाक होइत अछि</label></li> <li><input type="radio" name="q5" value="D" id="q5_d"><label for="q5_d">(द) रदीफ जे शेर-दर-शेर बदलल जाइत अछि</label></li> </ul> </div> <div class="question-card"> <div class="question-text">६. विजय नाथ झाक गजलमे “शिवासन” शब्द केनऽ रूपमे प्रयुक्त भेल छै जे तहलीली रदीफक उदाहरण अछि?</div> <ul class="options"> <li><input type="radio" name="q6" value="A" id="q6_a"><label for="q6_a">(अ) “सन” रदीफ अछि आ “आ” (व) मात्रा काफिया, दूनू एकै शब्दमे समेटल अछि</label></li> <li><input type="radio" name="q6" value="B" id="q6_b"><label for="q6_b">(ब) “शिव” काफिया अछि, “आसन” रदीफ अछि</label></li> <li><input type="radio" name="q6" value="C" id="q6_c"><label for="q6_c">(स) “शिवासन” पूरा रदीफ अछि, काफिया नै अछि</label></li> <li><input type="radio" name="q6" value="D" id="q6_d"><label for="q6_d">(द) एकरा अरूजी सभ दोष मानै छथि, मैथिलीमे नै चलैत अछि</label></li> </ul> </div> <div class="question-card"> <div class="question-text">७. मैथिली गजल लेल “तहलीली रदीफ” केरा कारणे महत्वपूर्ण बनि जाइत अछि?</div> <ul class="options"> <li><input type="radio" name="q7" value="A" id="q7_a"><label for="q7_a">(अ) मैथिलीमे विभक्ति (कारक चिह्न) शब्दमे सटि जाइत अछि, तँए ई नियम बडू उपयोगी अछि</label></li> <li><input type="radio" name="q7" value="B" id="q7_b"><label for="q7_b">(ब) मैथिलीमे रदीफ नै रखबाक परम्परा अछि</label></li> <li><input type="radio" name="q7" value="C" id="q7_c"><label for="q7_c">(स) तहलीली रदीफ संस्कृत छन्दसँ आएल अछि</label></li> <li><input type="radio" name="q7" value="D" id="q7_d"><label for="q7_d">(द) ई उर्दू गजलक अनिवार्य अंग अछि</label></li> </ul> </div> <div class="question-card"> <div class="question-text">८. गजलमे रदीफ आ काफिया दूनू सही रहबाक लेल शेरक दोसर पाँतिमे केनऽ नियम पालन करबाक चाही?</div> <ul class="options"> <li><input type="radio" name="q8" value="A" id="q8_a"><label for="q8_a">(अ) रदीफसँ ठीक पहिने काफिया (स्वर साम्य युक्त तुकान्त) आबैत अछि</label></li> <li><input type="radio" name="q8" value="B" id="q8_b"><label for="q8_b">(ब) रदीफ बाद काफिया आबैत अछि</label></li> <li><input type="radio" name="q8" value="C" id="q8_c"><label for="q8_c">(स) काफिया केवल मतलामे चाही, आन शेरमे नै</label></li> <li><input type="radio" name="q8" value="D" id="q8_d"><label for="q8_d">(द) रदीफ आ काफिया एक समान होएबाक चाही</label></li> </ul> </div> <div class="question-card"> <div class="question-text">९. पूरा गजलमे रदीफ के रूपमे केनऽ अवस्था स्वीकार्य अछि?</div> <ul class="options"> <li><input type="radio" name="q9" value="A" id="q9_a"><label for="q9_a">(अ) रदीफ अक्षरसः एकै समान होएबाक चाही, मुदा अर्थ अलग-अलग भए सकैत अछि</label></li> <li><input type="radio" name="q9" value="B" id="q9_b"><label for="q9_b">(ब) रदीफक अर्थ सेहो प्रत्येक शेरमे एकै होएबाक चाही</label></li> <li><input type="radio" name="q9" value="C" id="q9_c"><label for="q9_c">(स) रदीफ हरेक शेरमे बदलल जाए सकैत अछि</label></li> <li><input type="radio" name="q9" value="D" id="q9_d"><label for="q9_d">(द) रदीफ केवल मतलामे आबैत अछि, दोसर शेरमे आवश्यक नै</label></li> </ul> </div> <div class="question-card"> <div class="question-text">१०. पोथीक खण्ड-४ अनुसार, “गैर मुरद्दफ गजल” (बिना रदीफक गजल) के बारेमे सही कथन की अछि?</div> <ul class="options"> <li><input type="radio" name="q10" value="A" id="q10_a"><label for="q10_a">(अ) गैर मुरद्दफ गजलमे काफिया अनिवार्य अछि, मुदा रदीफ नै होइत अछि</label></li> <li><input type="radio" name="q10" value="B" id="q10_b"><label for="q10_b">(ब) गैर मुरद्दफ गजलमे ने काफिया होइत अछि ने रदीफ</label></li> <li><input type="radio" name="q10" value="C" id="q10_c"><label for="q10_c">(स) गैर मुरद्दफ गजल बेबहर (गलत) मानल जाइत अछि</label></li> <li><input type="radio" name="q10" value="D" id="q10_d"><label for="q10_d">(द) गैर मुरद्दफ गजलमे बहरक कोनो आवश्यकता नै अछि</label></li> </ul> </div> <button type="button" class="btn-submit" id="submitKhand4">📝 उत्तर जमा करू – परिणाम देखू</button> </form> <div id="resultArea" class="result-box" style="display: none;"></div> </div>
+</div>
+<script>
+  // सही उत्तर खण्ड-४ (PDF पृष्ठ 58-60 पर आधारित)
+  const correctAnswers = {
+    q1: "B",   // रदीफ परिभाषा: मतला बला शेरक दूनू पाँतिक अन्तिम समान हिस्सा
+    q2: "B",   // मतलाक दूनू पाँतिमे + मतलाक बाद केवल दोसर पाँतिमे
+    q3: "A",   // तकाबुल-ए-रदीफ: पहिल पाँतिमे रदीफ या ओकर भाग आबि जाइत अछि
+    q4: "B",   // समाधान: रदीफ हटाए देब या हुस्ने-मतला बनाएल
+    q5: "A",   // तहलीली रदीफ: एकै शब्दमे काफिया + रदीफ
+    q6: "A",   // शिवासन मे "सन" रदीफ आ "आ" मात्रा काफिया
+    q7: "A",   // मैथिलीमे विभक्ति सटनाइक कारण तहलीली रदीफ महत्वपूर्ण
+    q8: "A",   // रदीफसँ ठीक पहिने काफिया आबैत अछि
+    q9: "A",   // रदीफ अक्षरसः समान, अर्थ भिन्न भऽ सकैए
+    q10: "A"   // गैर मुरद्दफ गजल: रदीफ नै, काफिया अनिवार्य
+  };
+
+  const optionTexts = {
+    q1: {
+      A: "गजलक हरेक शेरक दोसर पाँतिक अन्तिम तुकान्त (काफिया)",
+      B: "मतला बला शेरक दूनू पाँतिक ओहि अन्तिम हिस्सा जे दूनू पाँतिमे समान रूपें बिना हेइ-फेरके आबए",
+      C: "गजलक पहिल शेरक पहिल पाँति",
+      D: "शेरक बीचक भाग जकरा हश्र कहल जाइत अछि"
+    },
+    q2: {
+      A: "हरेक शेरक पहिल आ दोसर दूनू पाँतिमे",
+      B: "केवल मतलाक दूनू पाँतिमे, आ मतलाक बाद बला हरेक शेरक केवल दोसर पाँतिमे (पहिल पाँतिमे नै)",
+      C: "केवल अन्तिम शेर (मकता) मे",
+      D: "केवल मतलाक पहिल पाँतिमे"
+    },
+    q3: {
+      A: "जखन मतलाक बाद बला कोनो शेरक पहिल पाँतिमे रदीफ वा रदीफक कोनो भाग आबि जाइत अछि",
+      B: "जखन रदीफ एक समान नै रहैत अछि",
+      C: "जखन गजलमे बहर टूटि जाइत अछि",
+      D: "जखन काफियामे गड़बड़ी होइत अछि"
+    },
+    q4: {
+      A: "पूरा गजलकेँ फेरसँ लिखू",
+      B: "ओहि पहिल पाँतिसँ रदीफ हटाए देब, या रदीफसँ पहिने काफिया दए हुस्ने-मतला बना देब",
+      C: "शेरकेँ पूरा गजलसँ अलग कए देब",
+      D: "रदीफकेँ बदलि कऽ दोसर शब्द लेब"
+    },
+    q5: {
+      A: "ओहन शब्द जाहिमे काफिया आ रदीफ दूनू एकै सङ्ग आबैत अछि",
+      B: "जखन रदीफ मात्र एक अक्षरक होइत अछि",
+      C: "जखन गजलक रदीफ बिना काफियाक होइत अछि",
+      D: "रदीफ जे शेर-दर-शेर बदलल जाइत अछि"
+    },
+    q6: {
+      A: "“सन” रदीफ अछि आ “आ” (व) मात्रा काफिया, दूनू एकै शब्दमे समेटल अछि",
+      B: "“शिव” काफिया अछि, “आसन” रदीफ अछि",
+      C: "“शिवासन” पूरा रदीफ अछि, काफिया नै अछि",
+      D: "एकरा अरूजी सभ दोष मानै छथि, मैथिलीमे नै चलैत अछि"
+    },
+    q7: {
+      A: "मैथिलीमे विभक्ति (कारक चिह्न) शब्दमे सटि जाइत अछि, तँए ई नियम बडू उपयोगी अछि",
+      B: "मैथिलीमे रदीफ नै रखबाक परम्परा अछि",
+      C: "तहलीली रदीफ संस्कृत छन्दसँ आएल अछि",
+      D: "ई उर्दू गजलक अनिवार्य अंग अछि"
+    },
+    q8: {
+      A: "रदीफसँ ठीक पहिने काफिया (स्वर साम्य युक्त तुकान्त) आबैत अछि",
+      B: "रदीफ बाद काफिया आबैत अछि",
+      C: "काफिया केवल मतलामे चाही, आन शेरमे नै",
+      D: "रदीफ आ काफिया एक समान होएबाक चाही"
+    },
+    q9: {
+      A: "रदीफ अक्षरसः एकै समान होएबाक चाही, मुदा अर्थ अलग-अलग भए सकैत अछि",
+      B: "रदीफक अर्थ सेहो प्रत्येक शेरमे एकै होएबाक चाही",
+      C: "रदीफ हरेक शेरमे बदलल जाए सकैत अछि",
+      D: "रदीफ केवल मतलामे आबैत अछि, दोसर शेरमे आवश्यक नै"
+    },
+    q10: {
+      A: "गैर मुरद्दफ गजलमे काफिया अनिवार्य अछि, मुदा रदीफ नै होइत अछि",
+      B: "गैर मुरद्दफ गजलमे ने काफिया होइत अछि ने रदीफ",
+      C: "गैर मुरद्दफ गजल बेबहर (गलत) मानल जाइत अछि",
+      D: "गैर मुरद्दफ गजलमे बहरक कोनो आवश्यकता नै अछि"
+    }
+  };
+
+  const questions = [
+    "१. “रदीफ” केर सही परिभाषा की अछि (खण्ड-४ अनुसार)?",
+    "२. रदीफ गजलक हरेक शेरमे केनऽ स्थान पर अनिवार्य रूपें आबैत अछि?",
+    "३. “तकाबुल-ए-रदीफ” नामक दोष के समय होइत अछि?",
+    "४. तकाबुल-ए-रदीफ दोषसँ बचबाक उपाय (पोथी अनुसार) की अछि?",
+    "५. “तहलीली रदीफ” (Tahleeli Radif) सँ का बुझाइत अछि?",
+    "६. विजय नाथ झाक गजलमे “शिवासन” शब्द केनऽ रूपमे प्रयुक्त भेल छै जे तहलीली रदीफक उदाहरण अछि?",
+    "७. मैथिली गजल लेल “तहलीली रदीफ” केरा कारणे महत्वपूर्ण बनि जाइत अछि?",
+    "८. गजलमे रदीफ आ काफिया दूनू सही रहबाक लेल शेरक दोसर पाँतिमे केनऽ नियम पालन करबाक चाही?",
+    "९. पूरा गजलमे रदीफ के रूपमे केनऽ अवस्था स्वीकार्य अछि?",
+    "१०. पोथीक खण्ड-४ अनुसार, “गैर मुरद्दफ गजल” (बिना रदीफक गजल) के बारेमे सही कथन की अछि?"
+  ];
+
+  const submitBtn = document.getElementById("submitKhand4");
+  const resultDiv = document.getElementById("resultArea");
+
+  submitBtn.addEventListener("click", () => {
+    let score = 0;
+    const userSelections = {};
+
+    for (let i = 1; i <= 10; i++) {
+      const name = "q" + i;
+      const radios = document.getElementsByName(name);
+      let selectedVal = null;
+      for (let r = 0; r < radios.length; r++) {
+        if (radios[r].checked) {
+          selectedVal = radios[r].value;
+          break;
+        }
+      }
+      userSelections[name] = selectedVal;
+      if (selectedVal && correctAnswers[name] === selectedVal) {
+        score++;
+      }
+    }
+
+    let html = `<strong>🏆 परिणाम : ${score} / 10</strong><br><br>`;
+    html += `<div class="result-detail">`;
+
+    for (let i = 1; i <= 10; i++) {
+      const qKey = "q" + i;
+      const userVal = userSelections[qKey];
+      const correctVal = correctAnswers[qKey];
+      const isCorrect = (userVal === correctVal);
+
+      html += `<strong>${questions[i-1]}</strong><br>`;
+      if (userVal) {
+        const userText = optionTexts[qKey][userVal] || "अमान्य";
+        html += `▸ अहाँक उत्तर : ${userText}<br>`;
+      } else {
+        html += `▸ अहाँक उत्तर : [कोनो उत्तर नै देल गेल]<br>`;
+      }
+      const correctText = optionTexts[qKey][correctVal];
+      html += `▸ सही उत्तर : ${correctText}<br>`;
+      if (isCorrect) {
+        html += `<span class="correct-badge">✓ सही</span><br><br>`;
+      } else {
+        html += `<span class="wrong-badge">✗ गलत</span><br><br>`;
+      }
+    }
+
+    html += `<hr><p style="font-size:0.85rem;">📌 टिप्पणी : प्रश्न पोथीक खण्ड-४ (रदीफक परिभाषा, तकाबुल-ए-रदीफ दोष आ समाधान, तहलीली रदीफ, मैथिली विभक्तिक विशेषता) पर आधारित अछि।</p>`;
+    html += `</div>`;
+    resultDiv.innerHTML = html;
+    resultDiv.style.display = "block";
+    resultDiv.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

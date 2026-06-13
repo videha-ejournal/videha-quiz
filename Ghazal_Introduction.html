@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>मैथिली गजलक व्याकरण ओ इतिहास – परिचय प्रश्नोत्तरी</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #faf3e0;
+font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Arial', sans-serif;
+padding: 2rem 1rem;
+color: #2c2b28;
+}
+.quiz-container {
+max-width: 850px;
+margin: 0 auto;
+background: #fffef7;
+border-radius: 2rem;
+box-shadow: 0 20px 35px rgba(100, 70, 40, 0.15);
+overflow: hidden;
+border: 1px solid #f0e2c5;
+}
+.quiz-header {
+background: #9b6b43;
+background: linear-gradient(135deg, #8b5a2b, #6b3e1a);
+padding: 1.8rem 2rem;
+text-align: center;
+color: white;
+}
+.quiz-header h1 {
+font-size: 1.7rem;
+letter-spacing: 1px;
+font-weight: 600;
+margin-bottom: 0.4rem;
+}
+.quiz-header p {
+font-size: 1rem;
+opacity: 0.9;
+border-top: 1px solid #e0bc8c;
+display: inline-block;
+padding-top: 0.5rem;
+}
+.quiz-body {
+padding: 1.8rem 2rem 2rem 2rem;
+}
+.question-card {
+background: #ffffff;
+border-left: 7px solid #c28a4b;
+margin-bottom: 2.2rem;
+padding: 1.2rem 1.2rem 0.8rem 1.2rem;
+border-radius: 1.2rem;
+box-shadow: 0 5px 12px rgba(0,0,0,0.03);
+transition: 0.1s;
+}
+.question-text {
+font-weight: 700;
+font-size: 1.2rem;
+margin-bottom: 1rem;
+color: #3e2a1f;
+line-height: 1.4;
+}
+.options {
+list-style: none;
+padding-left: 0.5rem;
+}
+.options li {
+margin-bottom: 0.7rem;
+display: flex;
+align-items: flex-start;
+gap: 0.6rem;
+flex-wrap: wrap;
+}
+.options input {
+margin-top: 0.2rem;
+accent-color: #9b6b43;
+width: 1.1rem;
+height: 1.1rem;
+}
+.options label {
+font-size: 1rem;
+line-height: 1.4;
+color: #2c2b28;
+font-weight: 500;
+flex: 1;
+}
+.btn-submit {
+background: #7b532e;
+border: none;
+padding: 0.9rem 2rem;
+font-size: 1.2rem;
+font-weight: bold;
+color: white;
+border-radius: 3rem;
+cursor: pointer;
+width: 100%;
+transition: 0.2s;
+margin-top: 1.2rem;
+margin-bottom: 1rem;
+letter-spacing: 1px;
+font-family: inherit;
+}
+.btn-submit:hover {
+background: #5e3c1d;
+transform: scale(0.98);
+}
+.result-box {
+background: #f9efdf;
+padding: 1rem 1.5rem;
+border-radius: 2rem;
+margin-top: 1.5rem;
+text-align: center;
+font-size: 1.2rem;
+font-weight: bold;
+border: 1px solid #e4cfb0;
+}
+.feedback {
+margin-top: 0.6rem;
+font-size: 0.9rem;
+color: #5e4b34;
+}
+.correct-answer {
+background: #e6f4e8;
+border-left-color: #2f6b2f;
+}
+hr {
+margin: 0.8rem 0;
+border-color: #eeddbb;
+}
+footer {
+text-align: center;
+padding: 1rem;
+font-size: 0.8rem;
+background: #f9f2e6;
+color: #7b5a3b;
+}
+@media (max-width: 550px) {
+.quiz-body {
+padding: 1rem;
+}
+.question-text {
+font-size: 1rem;
+}
+.options label {
+font-size: 0.9rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <div class="quiz-header"> <h1>📖 मैथिली गजलक व्याकरण ओ इतिहास</h1> <p>परिचय भाग – प्रश्नोत्तरी</p> </div> <div class="quiz-body"> <form id="quizForm"> <div class="question-card" id="q1-card"> <div class="question-text">१. प्रस्तुत पोथीक शीर्षक (नाम) की अछि?</div> <ul class="options"> <li><input type="radio" name="q1" value="A" id="q1_a"><label for="q1_a">(अ) मैथिली गजलक व्याकरण ओ इतिहास</label></li> <li><input type="radio" name="q1" value="B" id="q1_b"><label for="q1_b">(ब) अनचिन्हार आखर</label></li> <li><input type="radio" name="q1" value="C" id="q1_c"><label for="q1_c">(स) गजल शास्त्र</label></li> <li><input type="radio" name="q1" value="D" id="q1_d"><label for="q1_d">(द) मैथिली छन्द शास्त्र</label></li> </ul> </div> <div class="question-card" id="q2-card"> <div class="question-text">२. एहि पोथीक लेखक (रचनाकार) के छथि?</div> <ul class="options"> <li><input type="radio" name="q2" value="A" id="q2_a"><label for="q2_a">(अ) गजेन्द्र ठाकुर</label></li> <li><input type="radio" name="q2" value="B" id="q2_b"><label for="q2_b">(ब) आशीष अनचिन्हार</label></li> <li><input type="radio" name="q2" value="C" id="q2_c"><label for="q2_c">(स) पं. गोविन्द झा</label></li> <li><input type="radio" name="q2" value="D" id="q2_d"><label for="q2_d">(द) डा. कुँअर बैचेन</label></li> </ul> </div> <div class="question-card" id="q3-card"> <div class="question-text">३. ‘सूचना’ भागक अनुसार, गजल कहब-लीखब सीखबाक लेल तीन काज पहिल करबाक कहल गेल अछि। तेसर (तीसर) काज की अछि?</div> <ul class="options"> <li><input type="radio" name="q3" value="A" id="q3_a"><label for="q3_a">(अ) बहुत रास शब्द सभहँक मात्राक्रम निकालि अभ्यास करू</label></li> <li><input type="radio" name="q3" value="B" id="q3_b"><label for="q3_b">(ब) दू शब्दकँ आमने-सामने राखि काफिया बनि सकैए कि नै, अभ्यास करू</label></li> <li><input type="radio" name="q3" value="C" id="q3_c"><label for="q3_c">(स) एहन-एहन शेर सभ लीखू जाहिमे बहर-काफिया सही रहै मुदा भाव केखनो आबै केखनो नहियो</label></li> <li><input type="radio" name="q3" value="D" id="q3_d"><label for="q3_d">(द) सीधा गजल लिखल शुरू करू, नियम बादमे सीखू</label></li> </ul> </div> <div class="question-card" id="q4-card"> <div class="question-text">४. लेखक अनुसार, ई पोथी के लेल उपयुक्त नै अछि?</div> <ul class="options"> <li><input type="radio" name="q4" value="A" id="q4_a"><label for="q4_a">(अ) जे लोक बिना पढ़ने घोघाउज करै छथि</label></li> <li><input type="radio" name="q4" value="B" id="q4_b"><label for="q4_b">(ब) जिनका तर्क-वितर्कसँ परहेज छिनि</label></li> <li><input type="radio" name="q4" value="C" id="q4_c"><label for="q4_c">(स) जे लोक कोनो तथ्यक जाति-धर्म-उम्र-पद आदि देखि कठ मानै छथि</label></li> <li><input type="radio" name="q4" value="D" id="q4_d"><label for="q4_d">(द) उपरोक्त सभ (अ, ब, स)</label></li> </ul> </div> <div class="question-card" id="q5-card"> <div class="question-text">५. ‘अनचिन्हारक बात’ अनुसार लेखक बहुत रास नियम हटा देलक जे की मैथिलीक प्रकृतिसँ अलग छलै। ओ नियम सभ मूलतः कोन भाषा-समूहक छलै?</div> <ul class="options"> <li><input type="radio" name="q5" value="A" id="q5_a"><label for="q5_a">(अ) संस्कृत आ प्राकृत</label></li> <li><input type="radio" name="q5" value="B" id="q5_b"><label for="q5_b">(ब) अरबी-फारसी-उर्दू</label></li> <li><input type="radio" name="q5" value="C" id="q5_c"><label for="q5_c">(स) हिन्दी-अंग्रेजी</label></li> <li><input type="radio" name="q5" value="D" id="q5_d"><label for="q5_d">(द) ब्रजभाषा-अवधी</label></li> </ul> </div> <div class="question-card" id="q6-card"> <div class="question-text">६. पोथीक इतिहास खंडमे लेखक केनऽ विशेष बातक पालन केने अछि (दुर्भावनासँ बचबाक लेल)?</div> <ul class="options"> <li><input type="radio" name="q6" value="A" id="q6_a"><label for="q6_a">(अ) जिनकर काज पसंद नै पड़ल, ओकर नामोल्लेख नै करब</label></li> <li><input type="radio" name="q6" value="B" id="q6_b"><label for="q6_b">(ब) जिनकर काज पसंद नै पड़ल, ओकरा खुलि कऽ आलोचना करब आ नाम सेहो लेब</label></li> <li><input type="radio" name="q6" value="C" id="q6_c"><label for="q6_c">(स) केवल तारीफ करब, आलोचना नै करब</label></li> <li><input type="radio" name="q6" value="D" id="q6_d"><label for="q6_d">(द) सब गजलकारक नाम एकसाथ देब आ कोनो मूल्यांकन नै करब</label></li> </ul> </div> <div class="question-card" id="q7-card"> <div class="question-text">७. लेखक ‘अनचिन्हार’ कहै छथि – “हम अपन जीवनमे सभसँ सिस्त्रैत रहलहुँ तँए सभ हमर गुरू छथि।” एहि कथन अनुसार हुनकर गुरू के छथि?</div> <ul class="options"> <li><input type="radio" name="q7" value="A" id="q7_a"><label for="q7_a">(अ) केवल पं. गोविन्द झा</label></li> <li><input type="radio" name="q7" value="B" id="q7_b"><label for="q7_b">(ब) सभ (समस्त लोक आ पोथी)</label></li> <li><input type="radio" name="q7" value="C" id="q7_c"><label for="q7_c">(स) केवल गजेन्द्र ठाकुर</label></li> <li><input type="radio" name="q7" value="D" id="q7_d"><label for="q7_d">(द) केवल कुँअर बैचेनजी</label></li> </ul> </div> <div class="question-card" id="q8-card"> <div class="question-text">८. गजेन्द्र ठाकुरजी (गजलशास्त्र भाग-१४) अनुसार मैथिली गजलमे दू युग निर्धारित अछि। पहिल युगक नाम की अछि?</div> <ul class="options"> <li><input type="radio" name="q8" value="A" id="q8_a"><label for="q8_a">(अ) अनचिन्हार युग</label></li> <li><input type="radio" name="q8" value="B" id="q8_b"><label for="q8_b">(ब) जीवन युग (पं. जीवन झाक नाम पर)</label></li> <li><input type="radio" name="q8" value="C" id="q8_c"><label for="q8_c">(स) गालिब युग</label></li> <li><input type="radio" name="q8" value="D" id="q8_d"><label for="q8_d">(द) आधुनिक मैथिली युग</label></li> </ul> </div> <div class="question-card" id="q9-card"> <div class="question-text">९. दोसर युगक नाम “अनचिन्हार युग” केर आधार की अछि?</div> <ul class="options"> <li><input type="radio" name="q9" value="A" id="q9_a"><label for="q9_a">(अ) लेखकक उपनाम अनचिन्हार</label></li> <li><input type="radio" name="q9" value="B" id="q9_b"><label for="q9_b">(ब) “अनचिन्हार आखर” नामक ब्लाग / इंटरनेट पत्रिका</label></li> <li><input type="radio" name="q9" value="C" id="q9_c"><label for="q9_c">(स) गजल संग्रह “अनचिन्हार आखर”</label></li> <li><input type="radio" name="q9" value="D" id="q9_d"><label for="q9_d">(द) मैथिली अकादेमीक कोनो पुरस्कार</label></li> </ul> </div> <div class="question-card" id="q10-card"> <div class="question-text">१०. लेखक अनुसार, ई पोथीमे देल गेल अधिकांश बहस, चर्चा, परिचर्चा कोन माध्यम पर भेल अछि? (अनचिन्हारक बात)</div> <ul class="options"> <li><input type="radio" name="q10" value="A" id="q10_a"><label for="q10_a">(अ) पत्र-पत्रिकाक पत्राचार</label></li> <li><input type="radio" name="q10" value="B" id="q10_b"><label for="q10_b">(ब) मोशायरा आ गोष्ठी</label></li> <li><input type="radio" name="q10" value="C" id="q10_c"><label for="q10_c">(स) फेसबुक / इंटरनेट (सोशल मीडिया)</label></li> <li><input type="radio" name="q10" value="D" id="q10_d"><label for="q10_d">(द) व्यक्तिगत पत्र-व्यवहार</label></li> </ul> </div> <button type="button" class="btn-submit" id="submitQuiz">✅ उत्तर जमा करू (Result देखू)</button> </form> <div id="resultArea" class="result-box" style="display: none;"> </div> </div>
+</div>
+<script>
+  // सही उत्तर सूची (प्रश्न १ से १०)
+  const correctAnswers = {
+    q1: "A",   // मैथिली गजलक व्याकरण ओ इतिहास
+    q2: "B",   // आशीष अनचिन्हार
+    q3: "C",   // तेसर काज – शेर लिखब जाहिमे बहर-काफिया सही
+    q4: "D",   // उपरोक्त सभ (अ,ब,स)
+    q5: "B",   // अरबी-फारसी-उर्दू
+    q6: "B",   // जिनकर काज पसंद नै पड़ल ओकरा खुलि आलोचना करब आ नाम सेहो लेब
+    q7: "B",   // सभ हमर गुरू छथि
+    q8: "B",   // जीवन युग
+    q9: "B",   // अनचिन्हार आखर ब्लाग
+    q10: "C"   // फेसबुक / इंटरनेट
+  };
+
+  // प्रश्नों के प्रश्न-पाठ (स्कोर बाद दिखावे लेल)
+  const questionsText = [
+    "१. प्रस्तुत पोथीक शीर्षक (नाम) की अछि?",
+    "२. एहि पोथीक लेखक (रचनाकार) के छथि?",
+    "३. ‘सूचना’ भाग अनुसार गजल सीखबाक तेसर काज की अछि?",
+    "४. ई पोथी किनका लेल उपयुक्त नै अछि?",
+    "५. लेखक कोन भाषा-समूहक बहुत रास नियम हटा देलक?",
+    "६. इतिहास खंडमे दुर्भावनासँ बचबाक हेतु लेखक केनऽ तरीका अपनौलक?",
+    "७. लेखक अपन गुरू के मानै छथि?",
+    "८. गजेन्द्र ठाकुरजी अनुसार पहिल युगक नाम?",
+    "९. ‘अनचिन्हार युग’ नामकरण के आधार अछि?",
+    "१०. अधिकांश बहस-चर्चा कोन माध्यम पर भेल अछि?"
+  ];
+
+  const answerLabels = {
+    q1: { A: "मैथिली गजलक व्याकरण ओ इतिहास", B: "अनचिन्हार आखर", C: "गजल शास्त्र", D: "मैथिली छन्द शास्त्र" },
+    q2: { A: "गजेन्द्र ठाकुर", B: "आशीष अनचिन्हार", C: "पं. गोविन्द झा", D: "डा. कुँअर बैचेन" },
+    q3: { A: "बहुत रास शब्दक मात्राक्रम निकालि अभ्यास", B: "दू शब्दक आमने-सामने काफिया अभ्यास", C: "बहर-काफिया सही शेर लिखब, भावक आबि-नाइ आबि", D: "सीधा गजल लिखल शुरू करू" },
+    q4: { A: "बिना पढ़ने घोघाउज करै छथि", B: "तर्क-वितर्कसँ परहेज", C: "जाति-धर्म-उम्र-पद देखि तथ्य मानै छथि", D: "उपरोक्त सभ (अ,ब,स)" },
+    q5: { A: "संस्कृत-प्राकृत", B: "अरबी-फारसी-उर्दू", C: "हिन्दी-अंग्रेजी", D: "ब्रजभाषा-अवधी" },
+    q6: { A: "नामोल्लेख नै करब", B: "खुलि आलोचना करब आ नाम सेहो लेब", C: "केवल तारीफ करब", D: "कोनो मूल्यांकन नै करब" },
+    q7: { A: "केवल पं. गोविन्द झा", B: "सभ (समस्त लोक आ पोथी)", C: "केवल गजेन्द्र ठाकुर", D: "केवल कुँअर बैचेन" },
+    q8: { A: "अनचिन्हार युग", B: "जीवन युग", C: "गालिब युग", D: "आधुनिक मैथिली युग" },
+    q9: { A: "लेखकक उपनाम", B: "अनचिन्हार आखर ब्लाग", C: "गजल संग्रह", D: "अकादेमी पुरस्कार" },
+    q10: { A: "पत्र-पत्रिका", B: "मोशायरा-गोष्ठी", C: "फेसबुक / इंटरनेट", D: "व्यक्तिगत पत्र" }
+  };
+
+  document.getElementById("submitQuiz").addEventListener("click", function() {
+    let score = 0;
+    const userSelections = {};
+    const totalQuestions = 10;
+
+    // प्रत्येक प्रश्नक उत्तर एकट्ठा करी
+    for (let i = 1; i <= totalQuestions; i++) {
+      const radioName = "q" + i;
+      const selected = document.querySelector(`input[name="${radioName}"]:checked`);
+      if (selected) {
+        userSelections[radioName] = selected.value;
+        if (correctAnswers[radioName] === selected.value) {
+          score++;
+        }
+      } else {
+        userSelections[radioName] = null; // कोनो उत्तर नै देल गेल
+      }
+    }
+
+    // रिजल्ट बक्स बनाबी
+    const resultDiv = document.getElementById("resultArea");
+    let resultHtml = `<strong>🏆 परिणाम : ${score}/${totalQuestions}</strong><br>📌 सही उत्तरक संक्षिप्त समीक्षा :<br><br>`;
+
+    for (let i = 1; i <= totalQuestions; i++) {
+      const qKey = "q" + i;
+      const userVal = userSelections[qKey];
+      const correctVal = correctAnswers[qKey];
+      const isCorrect = (userVal === correctVal);
+      // प्रश्न-पाठ
+      resultHtml += `<strong>${questionsText[i-1]}</strong><br>`;
+      // प्रदर्शन करू अहाँक उत्तर आ सही उत्तर
+      if (userVal) {
+        const userText = answerLabels[qKey][userVal] || "अमान्य उत्तर";
+        resultHtml += `▸ अहाँक उत्तर: ${userText}<br>`;
+      } else {
+        resultHtml += `▸ अहाँक उत्तर: [कोनो उत्तर नै देल गेल]<br>`;
+      }
+      const correctText = answerLabels[qKey][correctVal];
+      resultHtml += `▸ सही उत्तर: ${correctText}<br>`;
+      if (isCorrect) {
+        resultHtml += `<span style="color:#2a7a2a;">✓ सही</span><br><br>`;
+      } else {
+        resultHtml += `<span style="color:#b34e3a;">✗ गलत</span><br><br>`;
+      }
+    }
+
+    resultHtml += `<hr><p style="font-size:0.9rem;">📖 “मैथिली गजलक व्याकरण ओ इतिहास” केर परिचय भाग पर आधारित प्रश्नोत्तरी समाप्त। पोथीक गहन अध्ययन लेल मूल पाठ देखू।</p>`;
+    resultDiv.innerHTML = resultHtml;
+    resultDiv.style.display = "block";
+
+    // रिजल्ट पहुँचाय लेल पेजक थोड़ा नीचा स्क्रोल
+    resultDiv.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

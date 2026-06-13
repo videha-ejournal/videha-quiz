@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>मैथिली गजल व्याकरण - खण्ड-१६ (बहर – हजज, रमल, कामिल, मुतकारिब आदि) क्विज</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: linear-gradient(145deg, #f2ebdb 0%, #e1cfb3 100%);
+font-family: 'Segoe UI', 'Mithila', 'Noto Sans Devanagari', 'Arial', sans-serif;
+padding: 2rem 1rem;
+color: #2c2418;
+}
+.container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffef7;
+border-radius: 2.5rem;
+box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+overflow: hidden;
+border: 1px solid #d9c8ae;
+}
+.header {
+background: #5c3e1f;
+padding: 1.8rem 2rem;
+text-align: center;
+color: #ffefcf;
+}
+.header h1 {
+font-size: 2rem;
+letter-spacing: 1px;
+margin-bottom: 0.4rem;
+font-weight: 600;
+}
+.header p {
+font-size: 1.2rem;
+opacity: 0.9;
+}
+.quiz-intro {
+background: #f1e9dc;
+padding: 0.9rem 2rem;
+font-size: 1rem;
+border-bottom: 1px solid #e0cfb5;
+color: #3a2a19;
+font-weight: 500;
+}
+.quiz-area {
+padding: 2rem 2rem 1.5rem 2rem;
+}
+.question-card {
+background: #ffffff;
+border-radius: 1.5rem;
+margin-bottom: 1.8rem;
+padding: 1.5rem 1.8rem;
+box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+border-left: 10px solid #b87c4a;
+transition: 0.2s;
+}
+.question-text {
+font-size: 1.25rem;
+font-weight: 600;
+margin-bottom: 1rem;
+color: #2b3b2c;
+line-height: 1.4;
+}
+.options {
+list-style: none;
+margin-top: 0.5rem;
+}
+.options li {
+margin-bottom: 0.7rem;
+padding: 0.4rem 0.8rem;
+background: #fef7ef;
+border-radius: 40px;
+border: 1px solid #eadbbe;
+transition: 0.1s;
+}
+.options li:hover {
+background: #f5e7d4;
+cursor: pointer;
+}
+label {
+display: flex;
+align-items: center;
+gap: 12px;
+cursor: pointer;
+font-size: 1rem;
+font-weight: 500;
+color: #3d2b1b;
+}
+input[type="radio"] {
+width: 18px;
+height: 18px;
+accent-color: #a5612a;
+cursor: pointer;
+}
+.btn-submit {
+background: #6b3f1c;
+border: none;
+color: white;
+font-size: 1.3rem;
+font-weight: bold;
+padding: 12px 25px;
+border-radius: 40px;
+cursor: pointer;
+transition: all 0.2s ease;
+width: 100%;
+margin-top: 1rem;
+letter-spacing: 1px;
+box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+}
+.btn-submit:hover {
+background: #8b582f;
+transform: scale(0.98);
+}
+.result-box {
+margin-top: 2rem;
+background: #e7ddce;
+border-radius: 1.5rem;
+padding: 1.2rem;
+text-align: center;
+font-size: 1.25rem;
+font-weight: bold;
+color: #1f3b2c;
+border: 1px solid #cfbc9b;
+}
+.feedback {
+margin-top: 1rem;
+font-weight: normal;
+font-size: 0.95rem;
+color: #4e3b28;
+}
+hr {
+margin: 1rem 0;
+border: 1px dashed #d9c29c;
+}
+footer {
+text-align: center;
+background: #f0e7db;
+padding: 1rem;
+font-size: 0.8rem;
+color: #5f4c32;
+}
+@media (max-width: 650px) {
+.quiz-area {
+padding: 1rem;
+}
+.question-card {
+padding: 1rem;
+}
+.question-text {
+font-size: 1.05rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="container"> <div class="header"> <h1>🎵 मैथिली गजल व्याकरण</h1> <p>खण्ड-१६ : बहर (छन्द) – हजज, रमल, कामिल, मुतकारिब, मुतदारिक, वाफिर आदिक उदाहरण</p> </div> <div class="quiz-intro">
+📖 <strong>निर्देश:</strong> खण्ड-१६ (पृष्ठ 188–197) पर आधारित प्रश्न। एतय बहरक व्यवहारिक उदाहरण, मात्राक्रम, रुक्न दोहराव आ मैथिली गजलमे बहरक प्रयोगक विवरण अछि।
+</div> <div class="quiz-area" id="quizArea"> </div> </div>
+<script>
+  // खण्ड-१६: बहरे हजज (1222), रमल (2122), कामिल (11212), मुतकारिब (122), मुतदारिक (212), वाफिर (12112) etc.
+  const questions = [
+    {
+      text: "१. ‘बहरे हजज’ केर मूल रुक्न ‘मफाईलुन’ (१ २ २ २) अछि। एकर मात्राक्रम छैक?",
+      options: [
+        "१२२२ (लघु-दीर्घ-दीर्घ-दीर्घ)",
+        "२१२२",
+        "१२१२",
+        "२२१२"
+      ],
+      correct: 0
+    },
+    {
+      text: "२. ‘बहरे रमल’ केर मूल रुक्न ‘फाइलातुन’ (२ १ २ २) अछि। एकर सही मात्राक्रम छैक?",
+      options: [
+        "२१२२ (दीर्घ-लघु-दीर्घ-दीर्घ)",
+        "१२२२",
+        "२१२१",
+        "२२१२"
+      ],
+      correct: 0
+    },
+    {
+      text: "३. ‘बहरे कामिल’ केर रुक्न ‘मुतफाइलुन’ (१ १ २ १ २) अछि। एकर मात्राक्रम कोन अछि?",
+      options: [
+        "११२१२ (लघु-लघु-दीर्घ-लघु-दीर्घ)",
+        "१२११२",
+        "२१२११",
+        "१२२१२"
+      ],
+      correct: 0
+    },
+    {
+      text: "४. अमित मिश्र द्वारा लिखल ‘उडल सबटा चिड़ैयाँ गाछपर फुर्रसँ’ कोन बहरक उदाहरण अछि? (पाठ देखू)",
+      options: [
+        "बहरे हजज (मफाईलुन तीन बेर)",
+        "बहरे रमल",
+        "बहरे मुतकारिब",
+        "बहरे कामिल"
+      ],
+      correct: 0
+    },
+    {
+      text: "५. ‘बहरे मुतकारिब’ केर मूल रुक्न ‘फऊलुन’ (१ २ २) अछि। आदि शंकराचार्यक ‘नमामी शमीशान निर्वाण रूपं’ ई बहरमे अछि। एकर मात्राक्रम केनाहि होइत अछि?",
+      options: [
+        "१२२ + १२२ + १२२ ... (लघु-दीर्घ-दीर्घ)",
+        "२१२ + २१२",
+        "१२२२ + १२२२",
+        "२२१२ + २२१२"
+      ],
+      correct: 0
+    },
+    {
+      text: "६. ‘बहरे मुतदारिक’ केर रुक्न ‘फाइलुन’ (२ १ २) अछि। कोन रचना एहि बहरक उदाहरण अछि? (पाठ अनुसार)",
+      options: [
+        "‘कुकुर उनटल पडल लार पर’ (अमित मिश्र)",
+        "‘उडल सबटा चिड़ैयाँ’",
+        "‘दाइ छी हम माइ छी हम’",
+        "‘राति िन्ना उगल छलै की ने’"
+      ],
+      correct: 0
+    },
+    {
+      text: "७. ‘बहरे वाफिर’ केर मूल रुक्न ‘मुफाइलतुन’ (१ २ १ १ २) अछि। लेखक के अनुसार एकर प्रयोग मैथिलीमे भेटैत अछि?",
+      options: [
+        "हँ, ‘खतम सब काज भेल हमर’ उदाहरण अछि (अमित मिश्र)",
+        "नै, ई बहर मैथिलीमे प्रयोग नै होइत",
+        "केवल अरबीमे",
+        "केवल फारसीमे"
+      ],
+      correct: 0
+    },
+    {
+      text: "८. खण्ड-१६ मे ‘बहरे कामिल’ (मुतफाइलुन) केर सही उदाहरण कोन अछि?",
+      options: [
+        "‘कतहुँ बात एहन भेल छै घर घर तउ रावण भेल छै’ (अमित मिश्र)",
+        "‘दाइ छी हम माइ छी हम’",
+        "‘हमर मुस्कीक तर झाँपल करेजक दर्द’",
+        "‘तखन राति आएल कारी’"
+      ],
+      correct: 0
+    },
+    {
+      text: "९. ‘मोसन्ना’ (मुसना) शेर कें कहल जाइत अछि –",
+      options: [
+        "जकर हरेक पाँतिमे एकटा रुक्न होइ (एक रुक्न प्रति पाँति, मने शेरमे दू रुक्न)",
+        "जकर पाँतिमे दू रुक्न होइ",
+        "जकर पाँतिमे तीन रुक्न होइ",
+        "जकर पाँतिमे चारि रुक्न होइ"
+      ],
+      correct: 0
+    },
+    {
+      text: "१०. लेखक खण्ड-१६ मे ‘बहरे रमल’ केर उदाहरण देलक – ‘धाख सभटा बिसरि गेलै घोघ हुनकर उतरि गेलै’। एकर मात्राक्रम छैक?",
+      options: [
+        "२१२२ + २१२२ (रमल मोरब्बा)",
+        "१२२ + १२२",
+        "११२१२ + ११२१२",
+        "२१२ + २१२"
+      ],
+      correct: 0
+    }
+  ];
+
+  let userAnswers = new Array(questions.length).fill(null);
+  let quizSubmitted = false;
+
+  function renderQuiz() {
+    const container = document.getElementById('quizArea');
+    if (!container) return;
+    let html = `<div class="quiz-area-inner">`;
+    questions.forEach((q, idx) => {
+      html += `
+        <div class="question-card" data-qidx="${idx}">
+          <div class="question-text">${q.text}</div>
+          <ul class="options">
+      `;
+      q.options.forEach((opt, optIdx) => {
+        const isChecked = (userAnswers[idx] === optIdx);
+        html += `
+          <li>
+            <label>
+              <input type="radio" name="q${idx}" value="${optIdx}" ${isChecked ? 'checked' : ''} data-qid="${idx}" data-opt="${optIdx}">
+              <span>${opt}</span>
+            </label>
+          </li>
+        `;
+      });
+      html += `</ul></div>`;
+    });
+    html += `<button class="btn-submit" id="submitQuiz">✅ उत्तर जमा करू (खण्ड-१६ पूर्ण)</button>`;
+    if (quizSubmitted) {
+      html += `<div class="result-box" id="resultBox"></div>`;
+    } else {
+      html += `<div class="result-box" id="resultBox" style="display:none;"></div>`;
+    }
+    html += `</div>`;
+    container.innerHTML = html;
+
+    document.querySelectorAll('input[type="radio"]').forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        if (quizSubmitted) return;
+        const qid = parseInt(radio.getAttribute('data-qid'));
+        const optVal = parseInt(radio.getAttribute('data-opt'));
+        if (!isNaN(qid)) {
+          userAnswers[qid] = optVal;
+        }
+      });
+    });
+
+    const submitBtn = document.getElementById('submitQuiz');
+    if (submitBtn) submitBtn.addEventListener('click', evaluateQuiz);
+  }
+
+  function evaluateQuiz() {
+    if (quizSubmitted) return;
+    let score = 0;
+    const resultDetails = [];
+    for (let i = 0; i < questions.length; i++) {
+      const userOpt = userAnswers[i];
+      const isCorrect = (userOpt !== null && userOpt === questions[i].correct);
+      if (isCorrect) score++;
+      const correctText = questions[i].options[questions[i].correct];
+      const userText = (userOpt !== null) ? questions[i].options[userOpt] : "कुनो उत्तर नै देल गेल";
+      resultDetails.push({
+        num: i+1,
+        correct: isCorrect,
+        correctAns: correctText,
+        userAns: userText,
+        question: questions[i].text.substring(0, 110)
+      });
+    }
+    const total = questions.length;
+    const percent = Math.round((score/total)*100);
+    let resultHtml = `<div class="result-box"><strong>📊 खण्ड-१६ परिणाम:</strong> ${score}/${total} (${percent}%)<br>`;
+    resultHtml += `<div class="feedback">🎯 बहरक प्रचलित रूप – हजज (१२२२), रमल (२१२२), कामिल (११२१२), मुतकारिब (१२२), मुतदारिक (२१२), वाफिर (१२११२) आदि।</div>`;
+    resultHtml += `<ul style="text-align:left; margin-top:10px;">`;
+    for (let r of resultDetails) {
+      const status = r.correct ? '✅ सही' : '❌ गलत';
+      resultHtml += `<li><strong>प्रश्न ${r.num}:</strong> ${status}<br> 
+      <span style="font-size:0.85rem;">✔ सही जबाब: ${r.correctAns}<br>
+      ✖ आपक जबाब: ${r.userAns}</span></li><hr style="margin:6px 0;">`;
+    }
+    resultHtml += `</ul><p style="margin-top:15px;">✍ खण्ड-१६ सारांश: ई खण्डमे विभिन्न बहरक मैथिली उदाहरण देल गेल अछि। हरेक बहरक विशिष्ट मात्राक्रम (लघु-दीर्घक्रम) रहैत अछि। गजलकार बहर चुनि शेरक मात्राक्रम एक समान राखथि। बहरे हजज, रमल, मुतकारिब (सरल), कामिल (छन्दबद्ध) आदि सभ मैथिली गजलमे प्रयुक्त होइत अछि। उचित बहर ज्ञानसँ गजल शुद्धता आ प्रभाव बढ़ैत अछि।</p>`;
+    resultHtml += `</div>`;
+    const resultBox = document.getElementById('resultBox');
+    if (resultBox) {
+      resultBox.style.display = 'block';
+      resultBox.innerHTML = resultHtml;
+      resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+    quizSubmitted = true;
+    document.querySelectorAll('input[type="radio"]').forEach(radio => radio.disabled = true);
+    const submitBtn = document.getElementById('submitQuiz');
+    if (submitBtn) submitBtn.disabled = true;
+  }
+
+  renderQuiz();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

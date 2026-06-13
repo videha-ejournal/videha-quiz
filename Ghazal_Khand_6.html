@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>मैथिली गजल – खण्ड-६ प्रश्नोत्तरी (ए, य, ध्वनिलोप आ मात्रा नियम)</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #efe2d0;
+font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Arial', sans-serif;
+padding: 2rem 1rem;
+color: #2b241a;
+}
+.quiz-wrapper {
+max-width: 950px;
+margin: 0 auto;
+background: #fffef8;
+border-radius: 2rem;
+box-shadow: 0 20px 35px rgba(70, 45, 20, 0.1);
+overflow: hidden;
+border: 1px solid #e9d5b8;
+}
+.quiz-header {
+background: #7a5533;
+background: linear-gradient(100deg, #7c572f, #593f1d);
+padding: 1.6rem 2rem;
+text-align: center;
+color: white;
+}
+.quiz-header h1 {
+font-size: 1.7rem;
+font-weight: 600;
+letter-spacing: 1px;
+margin-bottom: 0.3rem;
+}
+.quiz-header p {
+font-size: 0.95rem;
+opacity: 0.92;
+border-top: 1px solid #ceaa7a;
+display: inline-block;
+padding-top: 0.5rem;
+}
+.quiz-body {
+padding: 1.8rem 2rem 2rem 2rem;
+}
+.question-card {
+background: #ffffff;
+border-left: 7px solid #bc7a3b;
+margin-bottom: 2rem;
+padding: 1.2rem 1.2rem 0.9rem 1.2rem;
+border-radius: 1.2rem;
+box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.question-text {
+font-weight: 700;
+font-size: 1.2rem;
+margin-bottom: 1rem;
+color: #3b2a18;
+line-height: 1.4;
+}
+.options {
+list-style: none;
+padding-left: 0.3rem;
+}
+.options li {
+margin-bottom: 0.7rem;
+display: flex;
+align-items: flex-start;
+gap: 0.7rem;
+}
+.options input {
+margin-top: 0.2rem;
+accent-color: #a56f3c;
+width: 1.1rem;
+height: 1.1rem;
+}
+.options label {
+font-size: 1rem;
+line-height: 1.4;
+color: #2f2a21;
+font-weight: 500;
+flex: 1;
+}
+.btn-submit {
+background: #7b562f;
+border: none;
+width: 100%;
+padding: 0.9rem 1.5rem;
+font-size: 1.2rem;
+font-weight: bold;
+color: white;
+border-radius: 3rem;
+cursor: pointer;
+transition: 0.2s;
+margin-top: 1rem;
+margin-bottom: 1rem;
+font-family: inherit;
+}
+.btn-submit:hover {
+background: #583d1f;
+transform: scale(0.98);
+}
+.result-box {
+background: #f9f2e4;
+border-radius: 1.5rem;
+padding: 1rem 1.5rem;
+margin-top: 1.5rem;
+border-left: 5px solid #bd7a3e;
+font-size: 0.98rem;
+}
+.result-detail {
+max-height: 480px;
+overflow-y: auto;
+padding-right: 6px;
+}
+.correct-badge {
+color: #2a732a;
+font-weight: bold;
+}
+.wrong-badge {
+color: #bd4a27;
+font-weight: bold;
+}
+hr {
+margin: 0.8rem 0;
+border-color: #e3cfb0;
+}
+footer {
+text-align: center;
+padding: 1rem;
+font-size: 0.75rem;
+background: #faf2e8;
+color: #7a5f3c;
+border-top: 1px solid #ecdbba;
+}
+@media (max-width: 550px) {
+.quiz-body {
+padding: 1rem;
+}
+.question-text {
+font-size: 1rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-wrapper"> <div class="quiz-header"> <h1>📖 खण्ड-६ : ए, य, ध्वनिलोप – मैथिली गजलक मात्रा नियम</h1> <p>पोथी “मैथिली गजलक व्याकरण ओ इतिहास” खण्ड-६ पर आधारित बहुविकल्पी प्रश्नोत्तरी</p> </div> <div class="quiz-body"> <form id="khand6Form"> <div class="question-card"> <div class="question-text">१. पोथीक अनुसार, प्राचीन मैथिली वर्तनीमे “कएल, जाए, होएत” आदि लिखल जाइत छल। नवीन वर्तनीमे एकरा केना लिखल जाइत अछि?</div> <ul class="options"> <li><input type="radio" name="q1" value="A" id="q1_a"><label for="q1_a">(अ) कयल, जाय, होयत</label></li> <li><input type="radio" name="q1" value="B" id="q1_b"><label for="q1_b">(ब) कएल, जाइ, होइत</label></li> <li><input type="radio" name="q1" value="C" id="q1_c"><label for="q1_c">(स) कअल, जाअ, होअत</label></li> <li><input type="radio" name="q1" value="D" id="q1_d"><label for="q1_d">(द) कल, जल, होल</label></li> </ul> </div> <div class="question-card"> <div class="question-text">२. मैथिली व्याकरण के अनुसार शब्दक शुरूआतमे “ए” के बदला “य” लिखब उचित नै मानल जाइत अछि। ई उदाहरण में कोन अशुद्ध अछि?</div> <ul class="options"> <li><input type="radio" name="q2" value="A" id="q2_a"><label for="q2_a">(अ) एहि → यहि</label></li> <li><input type="radio" name="q2" value="B" id="q2_b"><label for="q2_b">(ब) एना → यना</label></li> <li><input type="radio" name="q2" value="C" id="q2_c"><label for="q2_c">(स) एकर → यकर</label></li> <li><input type="radio" name="q2" value="D" id="q2_d"><label for="q2_d">(द) उपरोक्त सभ (एहि, एना, एकर कें यहि, यना, यकर लिखब)</label></li> </ul> </div> <div class="question-card"> <div class="question-text">३. ध्वनिलोपक नियम अनुसार, “पढए गेलाह” के अपूर्ण रूप का होइत अछि (जतय ए वा य लुप्त होइत अछि)?</div> <ul class="options"> <li><input type="radio" name="q3" value="A" id="q3_a"><label for="q3_a">(अ) पढ़ गेलाह</label></li> <li><input type="radio" name="q3" value="B" id="q3_b"><label for="q3_b">(ब) पढ’ गेलाह / पढ़गेलाह</label></li> <li><input type="radio" name="q3" value="C" id="q3_c"><label for="q3_c">(स) पढए गेलाह (कोनो परिवर्तन नै)</label></li> <li><input type="radio" name="q3" value="D" id="q3_d"><label for="q3_d">(द) पढ़े गेलाह</label></li> </ul> </div> <div class="question-card"> <div class="question-text">४. ध्वनिलोप (विकारी या ‘) लगेलाक बाद, जेना “ल’” (ल + विराम) के उच्चारण ह्रस्व होइत अछि, मुदा छंदक अनुरोधे एकरा का मानल जा सकैत अछि?</div> <ul class="options"> <li><input type="radio" name="q4" value="A" id="q4_a"><label for="q4_a">(अ) सदा लघुए रहत अछि, दीर्घ कदापि नै</label></li> <li><input type="radio" name="q4" value="B" id="q4_b"><label for="q4_b">(ब) लघु रहैत अछि मुदा छंदक अनुरोधे वैकल्पिक रूपें दीर्घ सेहो मानल जा सकैए</label></li> <li><input type="radio" name="q4" value="C" id="q4_c"><label for="q4_c">(स) ई स्थितिमे दीर्घ मानल जाइए, लघु नै</label></li> <li><input type="radio" name="q4" value="D" id="q4_d"><label for="q4_d">(द) एकर उच्चारण पूर्णतः बन्द भऽ जाइत अछि</label></li> </ul> </div> <div class="question-card"> <div class="question-text">५. “खाए (य) गेल” के ध्वनिलोपक बाद अपूर्ण रूप का होइत अछि?</div> <ul class="options"> <li><input type="radio" name="q5" value="A" id="q5_a"><label for="q5_a">(अ) खाय गेल</label></li> <li><input type="radio" name="q5" value="B" id="q5_b"><label for="q5_b">(ब) खा गेल</label></li> <li><input type="radio" name="q5" value="C" id="q5_c"><label for="q5_c">(स) खाए गेल (अपरिवर्तित)</label></li> <li><input type="radio" name="q5" value="D" id="q5_d"><label for="q5_d">(द) खाइ गेल</label></li> </ul> </div> <div class="question-card"> <div class="question-text">६. ध्वनिलोपक चिन्ह (') वा विकारी (७) लागल शब्दक काफिया बनबैत काल का ध्यान राखबाक चाही?</div> <ul class="options"> <li><input type="radio" name="q6" value="A" id="q6_a"><label for="q6_a">(अ) हरेक काफियामे लोपसूचक चिह्नसँ पहिनुक अक्षर एक समान राखबाक चाही (जेना “ल’” काफिया लेल “चल’”, “राख’” आदि)</label></li> <li><input type="radio" name="q6" value="B" id="q6_b"><label for="q6_b">(ब) लोप सूचक चिन्हक कोनो महत्व नै अछि</label></li> <li><input type="radio" name="q6" value="C" id="q6_c"><label for="q6_c">(स) केवल व्यंजन समान रहै तें चलि जाएत</label></li> <li><input type="radio" name="q6" value="D" id="q6_d"><label for="q6_d">(द) लोप चिन्ह बदला पूरा अकार लिखल जाए</label></li> </ul> </div> <div class="question-card"> <div class="question-text">७. मैथिलीमे ‘ए’ के बदला ‘य’ के प्रचलन मुख्यतः कोन कारणें भेल (पोथी अनुसार)?</div> <ul class="options"> <li><input type="radio" name="q7" value="A" id="q7_a"><label for="q7_a">(अ) उर्दू-फारसीक नकल करबाक लेल</label></li> <li><input type="radio" name="q7" value="B" id="q7_b"><label for="q7_b">(ब) पद्यमे तुक (काफिया) कारणें, जेना लोकगीतमे “आयल” के बाद “बेसाहल” राखबाक सुविधा लेल</label></li> <li><input type="radio" name="q7" value="C" id="q7_c"><label for="q7_c">(स) संस्कृत प्रभावसँ</label></li> <li><input type="radio" name="q7" value="D" id="q7_d"><label for="q7_d">(द) ई व्याकरणिक गलती छल, तें सुधारक लेल</label></li> </ul> </div> <div class="question-card"> <div class="question-text">८. यदि कोनो मतलामे “दए” (द+ए) प्रयुक्त अछि तँ ओकर काफिया लेल नीचे देल शब्द सभमे कोन सही होइत?</div> <ul class="options"> <li><input type="radio" name="q8" value="A" id="q8_a"><label for="q8_a">(अ) लए, कए, भए (ए-अन्त)</label></li> <li><input type="radio" name="q8" value="B" id="q8_b"><label for="q8_b">(ब) दय, लय, कय (य-अन्त)</label></li> <li><input type="radio" name="q8" value="C" id="q8_c"><label for="q8_c">(स) दआ, लआ, कआ (विकारी सहित)</label></li> <li><input type="radio" name="q8" value="D" id="q8_d"><label for="q8_d">(द) ई सभ एक-दोसरक काफिया बनि सकैए</label></li> </ul> </div> <div class="question-card"> <div class="question-text">९. “लए” (मात्राक्रम ह्रस्व-दीर्घ = 12) आ “ल’” (लोप सूचक सहित) के मात्राक्रम पोथी अनुसार का होइत अछि?</div> <ul class="options"> <li><input type="radio" name="q9" value="A" id="q9_a"><label for="q9_a">(अ) लए = 12, ल’ = लघु (1) [छंद अनुरोधे दीर्घ मानल जा सकैए]</label></li> <li><input type="radio" name="q9" value="B" id="q9_b"><label for="q9_b">(ब) दूनूक मात्रा 22 होइत अछि</label></li> <li><input type="radio" name="q9" value="C" id="q9_c"><label for="q9_c">(स) लए = 21, ल’ = 11</label></li> <li><input type="radio" name="q9" value="D" id="q9_d"><label for="q9_d">(द) ल’ = 2, लए = 1</label></li> </ul> </div> <div class="question-card"> <div class="question-text">१०. पोथीमे ‘ए’ आ ‘य’ के सम्बन्धमे पं. गोविन्द झा आ रमानाथ झा के दृष्टिकोण के सम्बन्धमे का कहल गेल अछि?</div> <ul class="options"> <li><input type="radio" name="q10" value="A" id="q10_a"><label for="q10_a">(अ) रमानाथ झा ‘य’ के पक्ष मे छलाह, पं. गोविन्द झा ‘ए’ के पक्ष मे</label></li> <li><input type="radio" name="q10" value="B" id="q10_b"><label for="q10_b">(ब) रमानाथ झा ‘ए’ के पक्ष मे छलाह, पं. गोविन्द झा ‘य’ के पक्ष मे</label></li> <li><input type="radio" name="q10" value="C" id="q10_c"><label for="q10_c">(स) दुनू ‘ए’ के पक्ष मे छलाह</label></li> <li><input type="radio" name="q10" value="D" id="q10_d"><label for="q10_d">(द) दुनू ‘य’ के पक्ष मे छलाह</label></li> </ul> </div> <button type="button" class="btn-submit" id="submitKhand6">📝 उत्तर जमा करू – परिणाम देखू</button> </form> <div id="resultArea" class="result-box" style="display: none;"></div> </div>
+</div>
+<script>
+  // सही उत्तर (खण्ड-६ के अनुसार, PDF पृष्ठ 68-73 पर आधारित)
+  const correctAnswers = {
+    q1: "A",   // प्राचीन कएल → नवीन कयल, जाए → जाय, होएत → होयत
+    q2: "D",   // शब्दक शुरूमे ए बदलामे य लिखब अशुद्ध: एहि→यहि, एना→यना, एकर→यकर सभ गलत
+    q3: "B",   // पढए गेलाह → पढ’ गेलाह / पढ़गेलाह
+    q4: "B",   // लघु रहैत अछि मुदा छंदक अनुरोधे वैकल्पिक रूपें दीर्घ सेहो मानल जा सकैए
+    q5: "B",   // खाए (य) गेल → खा गेल (पूर्वकालिक कृत प्रत्यय लोप)
+    q6: "A",   // काफियामे लोपसूचक चिह्नसँ पहिनुक अक्षर एक समान राखब
+    q7: "B",   // पद्यमे तुक (काफिया) कारणें, लोकगीतमे सुविधा लेल ‘य’ प्रचलन
+    q8: "A",   // दए काफिया लेल लए, कए, भए (ए-अन्त) सही; दय, लय उर्दू प्रभाव अलग
+    q9: "A",   // लए = 12 (ह्रस्व-दीर्घ), ल’ = लघु (1) छंद अनुरोधे दीर्घ मानि सकैए
+    q10: "B"   // रमानाथ झा ‘ए’ के पक्ष (य बदला ए), पं. गोविन्द झा ‘य’ के पक्ष (ए बदला य) – पोथी अनुसार विवरण
+  };
+
+  const optionTexts = {
+    q1: { A: "कयल, जाय, होयत", B: "कएल, जाइ, होइत", C: "कअल, जाअ, होअत", D: "कल, जल, होल" },
+    q2: { A: "एहि → यहि", B: "एना → यना", C: "एकर → यकर", D: "उपरोक्त सभ (एहि, एना, एकर कें यहि, यना, यकर लिखब)" },
+    q3: { A: "पढ़ गेलाह", B: "पढ’ गेलाह / पढ़गेलाह", C: "पढए गेलाह (कोनो परिवर्तन नै)", D: "पढ़े गेलाह" },
+    q4: { A: "सदा लघुए रहत अछि, दीर्घ कदापि नै", B: "लघु रहैत अछि मुदा छंदक अनुरोधे वैकल्पिक रूपें दीर्घ सेहो मानल जा सकैए", C: "ई स्थितिमे दीर्घ मानल जाइए, लघु नै", D: "एकर उच्चारण पूर्णतः बन्द भऽ जाइत अछि" },
+    q5: { A: "खाय गेल", B: "खा गेल", C: "खाए गेल (अपरिवर्तित)", D: "खाइ गेल" },
+    q6: { A: "हरेक काफियामे लोपसूचक चिह्नसँ पहिनुक अक्षर एक समान राखबाक चाही (जेना “ल’” काफिया लेल “चल’”, “राख’” आदि)", B: "लोप सूचक चिन्हक कोनो महत्व नै अछि", C: "केवल व्यंजन समान रहै तें चलि जाएत", D: "लोप चिन्ह बदला पूरा अकार लिखल जाए" },
+    q7: { A: "उर्दू-फारसीक नकल करबाक लेल", B: "पद्यमे तुक (काफिया) कारणें, जेना लोकगीतमे “आयल” के बाद “बेसाहल” राखबाक सुविधा लेल", C: "संस्कृत प्रभावसँ", D: "ई व्याकरणिक गलती छल, तें सुधारक लेल" },
+    q8: { A: "लए, कए, भए (ए-अन्त)", B: "दय, लय, कय (य-अन्त)", C: "दआ, लआ, कआ (विकारी सहित)", D: "ई सभ एक-दोसरक काफिया बनि सकैए" },
+    q9: { A: "लए = 12, ल’ = लघु (1) [छंद अनुरोधे दीर्घ मानल जा सकैए]", B: "दूनूक मात्रा 22 होइत अछि", C: "लए = 21, ल’ = 11", D: "ल’ = 2, लए = 1" },
+    q10: { A: "रमानाथ झा ‘य’ के पक्ष मे छलाह, पं. गोविन्द झा ‘ए’ के पक्ष मे", B: "रमानाथ झा ‘ए’ के पक्ष मे छलाह, पं. गोविन्द झा ‘य’ के पक्ष मे", C: "दुनू ‘ए’ के पक्ष मे छलाह", D: "दुनू ‘य’ के पक्ष मे छलाह" }
+  };
+
+  const questions = [
+    "१. प्राचीन मैथिली वर्तनीमे “कएल, जाए, होएत” आदि लिखल जाइत छल। नवीन वर्तनीमे एकरा केना लिखल जाइत अछि?",
+    "२. मैथिली व्याकरण के अनुसार शब्दक शुरूआतमे “ए” के बदला “य” लिखब उचित नै मानल जाइत अछि। ई उदाहरण में कोन अशुद्ध अछि?",
+    "३. ध्वनिलोपक नियम अनुसार, “पढए गेलाह” के अपूर्ण रूप का होइत अछि (जतय ए वा य लुप्त होइत अछि)?",
+    "४. ध्वनिलोप (विकारी या ‘) लगेलाक बाद, जेना “ल’” (ल + विराम) के उच्चारण ह्रस्व होइत अछि, मुदा छंदक अनुरोधे एकरा का मानल जा सकैत अछि?",
+    "५. “खाए (य) गेल” के ध्वनिलोपक बाद अपूर्ण रूप का होइत अछि?",
+    "६. ध्वनिलोपक चिन्ह (') वा विकारी (७) लागल शब्दक काफिया बनबैत काल का ध्यान राखबाक चाही?",
+    "७. मैथिलीमे ‘ए’ के बदला ‘य’ के प्रचलन मुख्यतः कोन कारणें भेल (पोथी अनुसार)?",
+    "८. यदि कोनो मतलामे “दए” (द+ए) प्रयुक्त अछि तँ ओकर काफिया लेल नीचे देल शब्द सभमे कोन सही होइत?",
+    "९. “लए” (मात्राक्रम ह्रस्व-दीर्घ = 12) आ “ल’” (लोप सूचक सहित) के मात्राक्रम पोथी अनुसार का होइत अछि?",
+    "१०. पोथीमे ‘ए’ आ ‘य’ के सम्बन्धमे पं. गोविन्द झा आ रमानाथ झा के दृष्टिकोण के सम्बन्धमे का कहल गेल अछि?"
+  ];
+
+  const submitBtn = document.getElementById("submitKhand6");
+  const resultDiv = document.getElementById("resultArea");
+
+  submitBtn.addEventListener("click", () => {
+    let score = 0;
+    const userSelections = {};
+
+    for (let i = 1; i <= 10; i++) {
+      const name = "q" + i;
+      const radios = document.getElementsByName(name);
+      let selectedVal = null;
+      for (let r = 0; r < radios.length; r++) {
+        if (radios[r].checked) {
+          selectedVal = radios[r].value;
+          break;
+        }
+      }
+      userSelections[name] = selectedVal;
+      if (selectedVal && correctAnswers[name] === selectedVal) {
+        score++;
+      }
+    }
+
+    let html = `<strong>🏆 परिणाम : ${score} / 10</strong><br><br>`;
+    html += `<div class="result-detail">`;
+
+    for (let i = 1; i <= 10; i++) {
+      const qKey = "q" + i;
+      const userVal = userSelections[qKey];
+      const correctVal = correctAnswers[qKey];
+      const isCorrect = (userVal === correctVal);
+
+      html += `<strong>${questions[i-1]}</strong><br>`;
+      if (userVal) {
+        const userText = optionTexts[qKey][userVal] || "अमान्य";
+        html += `▸ अहाँक उत्तर : ${userText}<br>`;
+      } else {
+        html += `▸ अहाँक उत्तर : [कोनो उत्तर नै देल गेल]<br>`;
+      }
+      const correctText = optionTexts[qKey][correctVal];
+      html += `▸ सही उत्तर : ${correctText}<br>`;
+      if (isCorrect) {
+        html += `<span class="correct-badge">✓ सही</span><br><br>`;
+      } else {
+        html += `<span class="wrong-badge">✗ गलत</span><br><br>`;
+      }
+    }
+
+    html += `<hr><p style="font-size:0.85rem;">📌 टिप्पणी : प्रश्न पोथीक खण्ड-६ (ए, य, ध्वनिलोप, लोप चिन्ह, काफियाक नियम, मैथिली लोकगीतक उदाहरण) पर आधारित अछि।</p>`;
+    html += `</div>`;
+    resultDiv.innerHTML = html;
+    resultDiv.style.display = "block";
+    resultDiv.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

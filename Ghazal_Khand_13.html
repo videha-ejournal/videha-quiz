@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>मैथिली गजल व्याकरण - खण्ड-१३ (मकता, तखल्लुस) क्विज</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: linear-gradient(145deg, #f3ecd9 0%, #e2d2b8 100%);
+font-family: 'Segoe UI', 'Mithila', 'Noto Sans Devanagari', 'Arial', sans-serif;
+padding: 2rem 1rem;
+color: #2c2418;
+}
+.container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffef7;
+border-radius: 2.5rem;
+box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+overflow: hidden;
+border: 1px solid #d9c8ae;
+}
+.header {
+background: #5c3e1f;
+padding: 1.8rem 2rem;
+text-align: center;
+color: #ffefcf;
+}
+.header h1 {
+font-size: 2rem;
+letter-spacing: 1px;
+margin-bottom: 0.4rem;
+font-weight: 600;
+}
+.header p {
+font-size: 1.2rem;
+opacity: 0.9;
+}
+.quiz-intro {
+background: #f1e9dc;
+padding: 0.9rem 2rem;
+font-size: 1rem;
+border-bottom: 1px solid #e0cfb5;
+color: #3a2a19;
+font-weight: 500;
+}
+.quiz-area {
+padding: 2rem 2rem 1.5rem 2rem;
+}
+.question-card {
+background: #ffffff;
+border-radius: 1.5rem;
+margin-bottom: 1.8rem;
+padding: 1.5rem 1.8rem;
+box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+border-left: 10px solid #b87c4a;
+transition: 0.2s;
+}
+.question-text {
+font-size: 1.25rem;
+font-weight: 600;
+margin-bottom: 1rem;
+color: #2b3b2c;
+line-height: 1.4;
+}
+.options {
+list-style: none;
+margin-top: 0.5rem;
+}
+.options li {
+margin-bottom: 0.7rem;
+padding: 0.4rem 0.8rem;
+background: #fef7ef;
+border-radius: 40px;
+border: 1px solid #eadbbe;
+transition: 0.1s;
+}
+.options li:hover {
+background: #f5e7d4;
+cursor: pointer;
+}
+label {
+display: flex;
+align-items: center;
+gap: 12px;
+cursor: pointer;
+font-size: 1rem;
+font-weight: 500;
+color: #3d2b1b;
+}
+input[type="radio"] {
+width: 18px;
+height: 18px;
+accent-color: #a5612a;
+cursor: pointer;
+}
+.btn-submit {
+background: #6b3f1c;
+border: none;
+color: white;
+font-size: 1.3rem;
+font-weight: bold;
+padding: 12px 25px;
+border-radius: 40px;
+cursor: pointer;
+transition: all 0.2s ease;
+width: 100%;
+margin-top: 1rem;
+letter-spacing: 1px;
+box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+}
+.btn-submit:hover {
+background: #8b582f;
+transform: scale(0.98);
+}
+.result-box {
+margin-top: 2rem;
+background: #e7ddce;
+border-radius: 1.5rem;
+padding: 1.2rem;
+text-align: center;
+font-size: 1.25rem;
+font-weight: bold;
+color: #1f3b2c;
+border: 1px solid #cfbc9b;
+}
+.feedback {
+margin-top: 1rem;
+font-weight: normal;
+font-size: 0.95rem;
+color: #4e3b28;
+}
+hr {
+margin: 1rem 0;
+border: 1px dashed #d9c29c;
+}
+footer {
+text-align: center;
+background: #f0e7db;
+padding: 1rem;
+font-size: 0.8rem;
+color: #5f4c32;
+}
+@media (max-width: 650px) {
+.quiz-area {
+padding: 1rem;
+}
+.question-card {
+padding: 1rem;
+}
+.question-text {
+font-size: 1.05rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="container"> <div class="header"> <h1>🎭 मैथिली गजल व्याकरण</h1> <p>खण्ड-१३ : मकता (तखल्लुस) – गजलक अन्तिम शेरमे नाम-उपनाम प्रयोग</p> </div> <div class="quiz-intro">
+📖 <strong>निर्देश:</strong> खण्ड-१३ (पृष्ठ 137–138) पर आधारित प्रश्न। एतय ‘मकता’ (Makta) के परिभाषा, तखल्लुस (उपनाम) के प्रयोग विधि, एवं मैथिलीमे विभक्ति जुड़ल नामक विशिष्टता समाविष्ट अछि।
+</div> <div class="quiz-area" id="quizArea"> </div> </div>
+<script>
+  // खण्ड-१३: मकता, तखल्लुस (उपनाम) के प्रयोग, मैथिली विशिष्टता
+  const questions = [
+    {
+      text: "१. ‘मकता’ के परिभाषा लेखक केनाहि देने छथि?",
+      options: [
+        "गजलक अन्तिम शेर जाहिमे शाइर अपन नाम अथवा उपनाम (तखल्लुस) के प्रयोग करैत अछि",
+        "गजलक पहिल शेर (मतला)",
+        "गजलक काफिया रदीफ रहित शेर",
+        "शाइरक जीवनी पर आधारित शेर"
+      ],
+      correct: 0
+    },
+    {
+      text: "२. तखल्लुस (उपनाम) के प्रयोगक सन्दर्भमे लेखक कोन अनिवार्य नियम बतबैत छथि?",
+      options: [
+        "शाइर अपन सभ गजलमे या तँ अपन नाम या उपनाम (दुनूमे कोनो एक) के स्थिर रूपें प्रयोग करू; एकटा गजलमे नाम तँ दोसरमे उपनाम नै करू",
+        "शाइर हरेक गजलमे भिन्न उपनाम प्रयोग करू",
+        "उपनाम केवल उर्दू गजलमे प्रयोग होइत अछि",
+        "मैथिली गजलमे नाम लिखब नै चाही"
+      ],
+      correct: 0
+    },
+    {
+      text: "३. यदि कोनो शाइर मकतामे बिना उद्धरण चिन्ह (‘ ’) अपन उपनाम लिखैत अछि तँ लेखक के अनुसार केना होएत?",
+      options: [
+        "उद्धरण चिन्ह नै लगाएबाक अर्थ संकोच होइत अछि; सोझा लिखलासँ व्यक्तिवाचकता आ सामान्य अर्थ दुनू भऽ सकैए, अतः स्पष्टता लेल किछु शाइर उद्धरण चिन्ह लगाबैत छथि, मुदा ई आवश्यक नै",
+        "उद्धरण चिन्ह अनिवार्य अछि",
+        "उद्धरण चिन्ह लगाबा निषिद्ध अछि",
+        "मैथिलीमे उद्धरण चिन्ह प्रचलित नै अछि"
+      ],
+      correct: 0
+    },
+    {
+      text: "४. मैथिली गजलक मकतामे विभक्ति (जेना ‘क’, ‘मे’, ‘सँ’) कें नाम या उपनामसँ जोड़ल जाए पर कोन नियम लागू होइत अछि?",
+      options: [
+        "मैथिलीमे विभक्ति मूल शब्दमे सटल रहबाक चाही, तँए विभक्ति जुड़ल नाम-उपनाम सेहो मकता कहल जाएत, जेना ‘राजीवक नाम अमर छै’",
+        "विभक्ति जुड़लासँ मकता मान्य नै रहैत",
+        "केवल बिना विभक्ति वाला नाम मकता होइत अछि",
+        "विभक्ति नामसँ अलग लिखल जाए"
+      ],
+      correct: 0
+    },
+    {
+      text: "५. लेखक के अनुसार यदि कोनो शाइर मकतामे नाम-उपनाम नै देलक तँ ओ शेर कहल जाएत?",
+      options: [
+        "ओकरा मकता नै कहल जाएत, ओ एक साधारण शेर मात्र होएत",
+        "ओहो मकता कहल जाएत",
+        "ओ शेर मतला कहल जाएत",
+        "ओ शेर अवैध अछि"
+      ],
+      correct: 0
+    },
+    {
+      text: "६. मैथिलीमे गजलक मकताक बारेमे लेखक कोन बात पर बल दैत छथि?",
+      options: [
+        "मकता गजलक अन्तिम शेर होइत अछि; बीच बला शेरमे नाम लिखल गेल तँ ओ मकता नै होएत, केवल अन्तिम शेर मकता कहाएत",
+        "हरेक शेरमे नाम लिखल जाए तँ मकता बनि जाएत",
+        "दोसर शेरमे नाम लिखल गेल तँ मकता कहल जाएत",
+        "मकता केवल पहिल शेर होइत अछि"
+      ],
+      correct: 0
+    },
+    {
+      text: "७. ‘तखल्लुस’ शब्द के अर्थ (सन्दर्भ अनुसार) छैक?",
+      options: [
+        "शाइरक उपनाम या कलमी नाम, जे ओ अपन गजलक मकतामे प्रयोग करैत अछि",
+        "गजलक रदीफ",
+        "काफियाक प्रकार",
+        "बहरक नाम"
+      ],
+      correct: 0
+    },
+    {
+      text: "८. लेखक अपन उदाहरण ‘चिन्हार अनचिन्हारक संग गरदनि कटैए सपनामे’ मे ‘अनचिन्हार’ कें प्रयोग केलक। एहन मकता मे केवल उपनाम लिखलासँ कतेक अर्थ होइत अछि?",
+      options: [
+        "एकर अर्थ आशीष अनचिन्हार सेहो भऽ सकैए, आ अन्य अपरिचित शाइरक उपनाम सेहो, अतः स्पष्टता लेल किछु लोक उद्धरण चिन्ह प्रयोग करैत छथि",
+        "एकर एकटा मात्र अर्थ अछि",
+        "एहन प्रयोग गलत अछि",
+        "उपनाम केवल उर्दूमे लिखल जाए"
+      ],
+      correct: 0
+    },
+    {
+      text: "९. खण्ड-१३ अनुसार बिना मकता वाली गजल के स्थिति केना रहैत अछि?",
+      options: [
+        "बिना मकताक गजल सेहो होइत अछि, ओकरा कोनो दोष नै, मुदा मकता गजलक एकरसता आ शाइरक पहिचान लेल उपयोगी अछि",
+        "बिना मकताक गजल अपूर्ण अछि",
+        "बिना मकताक गजल अमान्य अछि",
+        "बिना मकता केवल शास्त्रीय गजलमे अनुमत"
+      ],
+      correct: 0
+    },
+    {
+      text: "१०. मैथिली गजलमे उर्दू-हिन्दी सँ अलग नाम-उपनामक विभक्ति जुड़ाव पर लेखक के आग्रह अछि –",
+      options: [
+        "‘राजीवक नाम अमर छै’ वा ‘अमरक नाम’ जकाँ विभक्ति सटल नाम मकता हेतक, मैथिलीक स्वाभाविक प्रकृति अनुसार विभक्ति मूल शब्दमे सटल रहब",
+        "विभक्ति नामसँ अलग लिखल जाए",
+        "मैथिलीमे मकता नै होइत अछि",
+        "केवल अंग्रेजी नाम अनुमत"
+      ],
+      correct: 0
+    }
+  ];
+
+  let userAnswers = new Array(questions.length).fill(null);
+  let quizSubmitted = false;
+
+  function renderQuiz() {
+    const container = document.getElementById('quizArea');
+    if (!container) return;
+    let html = `<div class="quiz-area-inner">`;
+    questions.forEach((q, idx) => {
+      html += `
+        <div class="question-card" data-qidx="${idx}">
+          <div class="question-text">${q.text}</div>
+          <ul class="options">
+      `;
+      q.options.forEach((opt, optIdx) => {
+        const isChecked = (userAnswers[idx] === optIdx);
+        html += `
+          <li>
+            <label>
+              <input type="radio" name="q${idx}" value="${optIdx}" ${isChecked ? 'checked' : ''} data-qid="${idx}" data-opt="${optIdx}">
+              <span>${opt}</span>
+            </label>
+          </li>
+        `;
+      });
+      html += `</ul></div>`;
+    });
+    html += `<button class="btn-submit" id="submitQuiz">✅ उत्तर जमा करू (खण्ड-१३ पूर्ण)</button>`;
+    if (quizSubmitted) {
+      html += `<div class="result-box" id="resultBox"></div>`;
+    } else {
+      html += `<div class="result-box" id="resultBox" style="display:none;"></div>`;
+    }
+    html += `</div>`;
+    container.innerHTML = html;
+
+    document.querySelectorAll('input[type="radio"]').forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        if (quizSubmitted) return;
+        const qid = parseInt(radio.getAttribute('data-qid'));
+        const optVal = parseInt(radio.getAttribute('data-opt'));
+        if (!isNaN(qid)) {
+          userAnswers[qid] = optVal;
+        }
+      });
+    });
+
+    const submitBtn = document.getElementById('submitQuiz');
+    if (submitBtn) submitBtn.addEventListener('click', evaluateQuiz);
+  }
+
+  function evaluateQuiz() {
+    if (quizSubmitted) return;
+    let score = 0;
+    const resultDetails = [];
+    for (let i = 0; i < questions.length; i++) {
+      const userOpt = userAnswers[i];
+      const isCorrect = (userOpt !== null && userOpt === questions[i].correct);
+      if (isCorrect) score++;
+      const correctText = questions[i].options[questions[i].correct];
+      const userText = (userOpt !== null) ? questions[i].options[userOpt] : "कुनो उत्तर नै देल गेल";
+      resultDetails.push({
+        num: i+1,
+        correct: isCorrect,
+        correctAns: correctText,
+        userAns: userText,
+        question: questions[i].text.substring(0, 100)
+      });
+    }
+    const total = questions.length;
+    const percent = Math.round((score/total)*100);
+    let resultHtml = `<div class="result-box"><strong>📊 खण्ड-१३ परिणाम:</strong> ${score}/${total} (${percent}%)<br>`;
+    resultHtml += `<div class="feedback">🎯 मकता (तखल्लुस) – गजलक अन्तिम शेरमे शाइरक नाम/उपनामक प्रयोग अनिवार्य नै मुदा सम्मानजनक।</div>`;
+    resultHtml += `<ul style="text-align:left; margin-top:10px;">`;
+    for (let r of resultDetails) {
+      const status = r.correct ? '✅ सही' : '❌ गलत';
+      resultHtml += `<li><strong>प्रश्न ${r.num}:</strong> ${status}<br> 
+      <span style="font-size:0.85rem;">✔ सही जबाब: ${r.correctAns}<br>
+      ✖ आपक जबाब: ${r.userAns}</span></li><hr style="margin:6px 0;">`;
+    }
+    resultHtml += `</ul><p style="margin-top:15px;">✍ खण्ड-१३ सारांश: ‘मकता’ गजलक अन्तिम शेर, जतए शाइर अपन तखल्लुस (उपनाम) अथवा नाम प्रयोग करैत अछि। एकटा शाइरक सभ गजलमे एकनिष्ठ रूपें या तँ नाम अथवा उपनाम प्रयोग करब। बिना मकताक गजल सेहो मान्य अछि। मैथिली विशेषता – विभक्ति जुड़ल नाम सेहो मकता कहाएत।</p>`;
+    resultHtml += `</div>`;
+    const resultBox = document.getElementById('resultBox');
+    if (resultBox) {
+      resultBox.style.display = 'block';
+      resultBox.innerHTML = resultHtml;
+      resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+    quizSubmitted = true;
+    document.querySelectorAll('input[type="radio"]').forEach(radio => radio.disabled = true);
+    const submitBtn = document.getElementById('submitQuiz');
+    if (submitBtn) submitBtn.disabled = true;
+  }
+
+  renderQuiz();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

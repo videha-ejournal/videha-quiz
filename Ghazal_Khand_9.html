@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>मैथिली गजल व्याकरण - खण्ड-९ (इ, रेफ, मात्रा नियम) क्विज</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: linear-gradient(145deg, #f4efe3 0%, #e2d5bd 100%);
+font-family: 'Segoe UI', 'Mithila', 'Noto Sans Devanagari', 'Arial', sans-serif;
+padding: 2rem 1rem;
+color: #2c2418;
+}
+.container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffef7;
+border-radius: 2.5rem;
+box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+overflow: hidden;
+border: 1px solid #d9c8ae;
+}
+.header {
+background: #5c3e1f;
+padding: 1.8rem 2rem;
+text-align: center;
+color: #ffefcf;
+}
+.header h1 {
+font-size: 2rem;
+letter-spacing: 1px;
+margin-bottom: 0.4rem;
+font-weight: 600;
+}
+.header p {
+font-size: 1.2rem;
+opacity: 0.9;
+}
+.quiz-intro {
+background: #f1e9dc;
+padding: 0.9rem 2rem;
+font-size: 1rem;
+border-bottom: 1px solid #e0cfb5;
+color: #3a2a19;
+font-weight: 500;
+}
+.quiz-area {
+padding: 2rem 2rem 1.5rem 2rem;
+}
+.question-card {
+background: #ffffff;
+border-radius: 1.5rem;
+margin-bottom: 1.8rem;
+padding: 1.5rem 1.8rem;
+box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+border-left: 10px solid #b87c4a;
+transition: 0.2s;
+}
+.question-text {
+font-size: 1.25rem;
+font-weight: 600;
+margin-bottom: 1rem;
+color: #2b3b2c;
+line-height: 1.4;
+}
+.options {
+list-style: none;
+margin-top: 0.5rem;
+}
+.options li {
+margin-bottom: 0.7rem;
+padding: 0.4rem 0.8rem;
+background: #fef7ef;
+border-radius: 40px;
+border: 1px solid #eadbbe;
+transition: 0.1s;
+}
+.options li:hover {
+background: #f5e7d4;
+cursor: pointer;
+}
+label {
+display: flex;
+align-items: center;
+gap: 12px;
+cursor: pointer;
+font-size: 1rem;
+font-weight: 500;
+color: #3d2b1b;
+}
+input[type="radio"] {
+width: 18px;
+height: 18px;
+accent-color: #a5612a;
+cursor: pointer;
+}
+.btn-submit {
+background: #6b3f1c;
+border: none;
+color: white;
+font-size: 1.3rem;
+font-weight: bold;
+padding: 12px 25px;
+border-radius: 40px;
+cursor: pointer;
+transition: all 0.2s ease;
+width: 100%;
+margin-top: 1rem;
+letter-spacing: 1px;
+box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+}
+.btn-submit:hover {
+background: #8b582f;
+transform: scale(0.98);
+}
+.result-box {
+margin-top: 2rem;
+background: #e7ddce;
+border-radius: 1.5rem;
+padding: 1.2rem;
+text-align: center;
+font-size: 1.25rem;
+font-weight: bold;
+color: #1f3b2c;
+border: 1px solid #cfbc9b;
+}
+.feedback {
+margin-top: 1rem;
+font-weight: normal;
+font-size: 0.95rem;
+color: #4e3b28;
+}
+hr {
+margin: 1rem 0;
+border: 1px dashed #d9c29c;
+}
+footer {
+text-align: center;
+background: #f0e7db;
+padding: 1rem;
+font-size: 0.8rem;
+color: #5f4c32;
+}
+@media (max-width: 650px) {
+.quiz-area {
+padding: 1rem;
+}
+.question-card {
+padding: 1rem;
+}
+.question-text {
+font-size: 1.05rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="container"> <div class="header"> <h1>🎭 मैथिली गजल व्याकरण</h1> <p>खण्ड-९ : इकारान्त काफिया, रेफ आ उच्चारणशैलीक गहन नियम</p> </div> <div class="quiz-intro">
+📖 <strong>निर्देश:</strong> खण्ड-९ (पृष्ठ 92–96) पर आधारित प्रश्न। एतय ‘इ’ कार युक्त काफिया, ‘रेफ’ बला शब्द, द्विविध उच्चारण (माटि/माइट) आ मैथिलीक मात्रा-निर्धारणक सूक्ष्म नियमक समावेश अछि।
+</div> <div class="quiz-area" id="quizArea"> </div> </div>
+<script>
+  // खण्ड-९ पूर्णतः 'इ', 'रेफ', उच्चारणशैली, काफियाक व्यवहार पर आधारित
+  const questions = [
+    {
+      text: "१. खण्ड-९ अनुसार मैथिलीमे ‘इ’ कारान्त शब्द (जेना ‘माटि’, ‘देखि’) केर उच्चारण केहन अछि?",
+      options: [
+        "केवल एकटा उच्चारण ‘माटि’ होइत अछि",
+        "दू तरहें उच्चारण होइत अछि – पहिल: ‘माटि’ (लिखलो पहिने आ बाजलो पहिने), दोसर: ‘माइट’ (लिखलो पहिने मुदा बाजलो बादमे)",
+        "केवल ‘माइट’ उच्चारण मान्य अछि",
+        "उच्चारण क्षेत्र अनुसार बदलैत अछि मुदा गजलमे कोनो नियम नै"
+      ],
+      correct: 1
+    },
+    {
+      text: "२. ‘इ’ कार युक्त काफियाक सन्दर्भमे लेखक के नियम बतैत छथि? (उदाहरण: यदि मतलामे ‘राति’ काफिया अछि तँ आन शेरमे केहन काफिया प्रयुक्त होएत?)",
+      options: [
+        "राति, जाति, नाति जकाँ शब्द जकर अन्तमे ‘ति’ एक समान होइ (त + इ), समान व्यंजन ‘त’ आ ‘इ’ मात्रा समान होए",
+        "मात्र ‘राती’, ‘जाती’ जकाँ दीर्घ ईकार प्रयोग करबाक चाही",
+        "कोनो नियम नै, कोनो शब्द चुनल जाए",
+        "केवल तत्सम शब्द चुनल जाए"
+      ],
+      correct: 0
+    },
+    {
+      text: "३. ‘रेफ’ बला काफियाक सम्बन्धमे लेखक कोन बात स्पष्ट करैत छथि? (पृ. 92-93)",
+      options: [
+        "रेफ युक्त शब्द (जेना ‘मरद’) आ रेफ रहित शब्द (जेना ‘सदँ’) एक दोसरक काफिया नै बनि सकैए कारण उच्चारण अलग अछि",
+        "सब रेफ बला शब्द एक समान होइत अछि",
+        "रेफ सदा लघु अक्षरक रूपमे गनल जाएत",
+        "मैथिलीमे रेफ केवल विदेशी शब्दमे आबैत अछि"
+      ],
+      correct: 0
+    },
+    {
+      text: "४. ‘ह्रस्व इ’ के दोसर उच्चारण शैली (जेना ‘नजरि’ बदला ‘नजैर’) कें लेखक केनाहि बतैत छथि?",
+      options: [
+        "ई प्रचलन गलत अछि आ मात्राक्रम परिवर्तित करैत अछि (नजरि = 12, नजैर = 121), अतः गजलमे सावधानी आवश्यक",
+        "ई बिल्कुल सही अछि आ सब गजलकार एकर प्रयोग करू",
+        "एहन वर्तनी गजलमे सम्मिलित करबाक चाही, कारण लोकप्रिय अछि",
+        "कोनो अन्तर नै पड़ै"
+      ],
+      correct: 0
+    },
+    {
+      text: "५. खण्ड-९ मे पं. गोविन्द झा के अनुसार ‘माटि’ आ ‘माइट’ जका उच्चारण शैली लेल लेखक के निर्णय अछि?",
+      options: [
+        "लिखित रूप एक समान (माटि) रहबाक चाही, काफियाक नियम लिखित रूप पर आधारित रहत, उच्चारण शैली भले दू तरहें होइ",
+        "प्रत्येक शाइर अपन उच्चारण अनुसार लिखू",
+        "गजलमे उच्चारण शैलीक आधार पर मात्रा घट-बढ़ सकैए",
+        "केवल ‘माइट’ शुद्ध अछि"
+      ],
+      correct: 0
+    },
+    {
+      text: "६. ‘रेफ’ आ ‘मात्रा बला काफिया’ के संबन्धमे लेखक कोन उदाहरण सही मानैत छथि?",
+      options: [
+        "मतलामे ‘सदँ’ आ ‘पदँ’ अछि तँ बादक शेरमे ‘बखाँ’ या ‘बरखा’ प्रयोग कएल जा सकैए, कारण ओ मात्रा बला रेफ श्रेणीमे अछि आ स्वरसाम्य रहैत अछि",
+        "रेफ सँ सम्बन्धित कोनो काफिया नै बनि सकैए",
+        "केवल तत्सम शब्द जेना ‘पर्वत’ प्रयोग होएत",
+        "रेफ युक्त शब्द केवल उर्दू शब्दावली तक सीमित अछि"
+      ],
+      correct: 0
+    },
+    {
+      text: "७. लेखक के अनुसार ‘इ’ केर दोसर उच्चारण शैली (जेना कीखास कए तत्सम शब्दमे इकार बादमे उच्चारण) काफियामे कतेक प्रभाव डालैत अछि?",
+      options: [
+        "यदि ‘गति’ काफियाक रूपमे लेल गेल अछि तँ ‘हथि’ काफिया नै बनि सकैए, कारण उच्चारण अन्तर; गजल सदिखन उच्चारणपर निर्भर अछि",
+        "दुनू बनि सकैए, कोनो अन्तर नै",
+        "केवल ‘गति’ आ ‘रति’ एक समान अछि",
+        "ई नियम केवल मात्रिक छन्दमे लागू"
+      ],
+      correct: 0
+    },
+    {
+      text: "८. मैथिलीमे ‘ऋ’ (ऋषि) आ ‘इ’ (इषि) के उच्चारण अन्तरक कारण काफिया सम्भव अछि की नै? (पृ. 94-95 के आशय)",
+      options: [
+        "नै, कारण उच्चारण अलग अलग अछि आ गजल उच्चारणप्रधान अछि; संस्कृतमे ‘गणेश’ आ ‘गनेस’ जकाँ उच्चारण बदलि जाइत अछि मुदा काफियामे ई सावधानी चाही",
+        "हँ, दुनू एक समान अछि",
+        "केवल आधुनिक प्रयोगमे एक मानल जाएत",
+        "गजलमे संस्कृत शब्द प्रयोग वर्जित"
+      ],
+      correct: 0
+    },
+    {
+      text: "९. खण्ड-९ मे ‘ए’ आ ‘य’ केर प्रयोगक चर्चा अछि। मैथिली गजलमे ‘आएल’ (22) आ ‘आयल’ (121) के बीच लेखक के सुझाव अछि?",
+      options: [
+        "‘ए’ बदलामे ‘य’ प्रचलन काफियाक दृष्टि सँ उपयोगी अछि, मुदा लिखित रूप मानक रहबाक चाही; आवश्यकता अनुसार छूट लेल जा सकैए",
+        "केवल ‘आएल’ शुद्ध अछि",
+        "केवल ‘आयल’ शुद्ध अछि",
+        "एहन अन्तर गजल व्याकरणमे नगण्य अछि"
+      ],
+      correct: 0
+    },
+    {
+      text: "१०. खण्ड-९ के अन्तर्गत लेखक मैथिली गजलकार सभ लेल नैतिक आग्रह करैत छथि जे –",
+      options: [
+        "‘इ’ आ ‘उ’ केर काफियाक निर्धारण लिखित रूपक अनुसार करू, मुदा उच्चारण विविधता कें स्वीकार करू; गजलमे उच्चारण अनुशासन आ लिखित एकरूपता दुनू आवश्यक",
+        "उच्चारण जेना चाही तेना लिखू, कोनो बन्धन नै",
+        "केवल उर्दू काफिया नियम अपनाउ",
+        "सब गजल मात्रिक छन्दमे लिखू, मात्राकेँ तोड़-मरोड़ सकै छी"
+      ],
+      correct: 0
+    }
+  ];
+
+  let userAnswers = new Array(questions.length).fill(null);
+  let quizSubmitted = false;
+
+  function renderQuiz() {
+    const container = document.getElementById('quizArea');
+    if (!container) return;
+    let html = `<div class="quiz-area-inner">`;
+    questions.forEach((q, idx) => {
+      html += `
+        <div class="question-card" data-qidx="${idx}">
+          <div class="question-text">${q.text}</div>
+          <ul class="options">
+      `;
+      q.options.forEach((opt, optIdx) => {
+        const isChecked = (userAnswers[idx] === optIdx);
+        html += `
+          <li>
+            <label>
+              <input type="radio" name="q${idx}" value="${optIdx}" ${isChecked ? 'checked' : ''} data-qid="${idx}" data-opt="${optIdx}">
+              <span>${opt}</span>
+            </label>
+          </li>
+        `;
+      });
+      html += `</ul></div>`;
+    });
+    html += `<button class="btn-submit" id="submitQuiz">✅ उत्तर जमा करू (खण्ड-९ पूर्ण)</button>`;
+    if (quizSubmitted) {
+      html += `<div class="result-box" id="resultBox"></div>`;
+    } else {
+      html += `<div class="result-box" id="resultBox" style="display:none;"></div>`;
+    }
+    html += `</div>`;
+    container.innerHTML = html;
+
+    document.querySelectorAll('input[type="radio"]').forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        if (quizSubmitted) return;
+        const qid = parseInt(radio.getAttribute('data-qid'));
+        const optVal = parseInt(radio.getAttribute('data-opt'));
+        if (!isNaN(qid)) {
+          userAnswers[qid] = optVal;
+        }
+      });
+    });
+
+    const submitBtn = document.getElementById('submitQuiz');
+    if (submitBtn) submitBtn.addEventListener('click', evaluateQuiz);
+  }
+
+  function evaluateQuiz() {
+    if (quizSubmitted) return;
+    let score = 0;
+    const resultDetails = [];
+    for (let i = 0; i < questions.length; i++) {
+      const userOpt = userAnswers[i];
+      const isCorrect = (userOpt !== null && userOpt === questions[i].correct);
+      if (isCorrect) score++;
+      const correctText = questions[i].options[questions[i].correct];
+      const userText = (userOpt !== null) ? questions[i].options[userOpt] : "कुनो उत्तर नै देल गेल";
+      resultDetails.push({
+        num: i+1,
+        correct: isCorrect,
+        correctAns: correctText,
+        userAns: userText,
+        question: questions[i].text.substring(0, 110)
+      });
+    }
+    const total = questions.length;
+    const percent = Math.round((score/total)*100);
+    let resultHtml = `<div class="result-box"><strong>📊 खण्ड-९ परिणाम:</strong> ${score}/${total} (${percent}%)<br>`;
+    resultHtml += `<div class="feedback">🎯 ‘इ’ काफिया, रेफ नियम, उच्चारणशैली आ मैथिली गजलक मौलिकता पर आधारित मूल्यांकन</div>`;
+    resultHtml += `<ul style="text-align:left; margin-top:10px;">`;
+    for (let r of resultDetails) {
+      const status = r.correct ? '✅ सही' : '❌ गलत';
+      resultHtml += `<li><strong>प्रश्न ${r.num}:</strong> ${status}<br> 
+      <span style="font-size:0.85rem;">✔ सही जबाब: ${r.correctAns}<br>
+      ✖ आपक जबाब: ${r.userAns}</span></li><hr style="margin:6px 0;">`;
+    }
+    resultHtml += `</ul><p style="margin-top:15px;">✍ खण्ड-९ सारांश: मैथिलीमे ह्रस्व इकार युक्त काफियाक लिखित एकरूपता आवश्यक, रेफ बला शब्द सावधानीपूर्वक काफियामे चुनू। दोसर उच्चारण शैली (माटि/माइट) गजलक मात्राक्रम बदलि सकैत अछि, तँए शाइर लिखित रूप समान राखि अर्थ आ बहर दुनू सुरक्षित राखू।</p>`;
+    resultHtml += `</div>`;
+    const resultBox = document.getElementById('resultBox');
+    if (resultBox) {
+      resultBox.style.display = 'block';
+      resultBox.innerHTML = resultHtml;
+      resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+    quizSubmitted = true;
+    document.querySelectorAll('input[type="radio"]').forEach(radio => radio.disabled = true);
+    const submitBtn = document.getElementById('submitQuiz');
+    if (submitBtn) submitBtn.disabled = true;
+  }
+
+  renderQuiz();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

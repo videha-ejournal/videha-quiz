@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>मैथिली गजल – खण्ड-२ प्रश्नोत्तरी (गजल रचना प्रक्रिया आ शब्दावली)</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #f5ede1;
+font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Arial', sans-serif;
+padding: 2rem 1rem;
+color: #2d281c;
+}
+.quiz-container {
+max-width: 950px;
+margin: 0 auto;
+background: #fffef8;
+border-radius: 2rem;
+box-shadow: 0 20px 35px rgba(80, 55, 30, 0.12);
+overflow: hidden;
+border: 1px solid #eedbc2;
+}
+.quiz-header {
+background: #84613c;
+background: linear-gradient(105deg, #7b5837, #5d3e1f);
+padding: 1.6rem 2rem;
+text-align: center;
+color: white;
+}
+.quiz-header h1 {
+font-size: 1.7rem;
+font-weight: 600;
+letter-spacing: 1px;
+margin-bottom: 0.3rem;
+}
+.quiz-header p {
+font-size: 0.95rem;
+opacity: 0.92;
+border-top: 1px solid #dbb77a;
+display: inline-block;
+padding-top: 0.5rem;
+}
+.quiz-body {
+padding: 1.8rem 2rem 2rem 2rem;
+}
+.question-card {
+background: #ffffff;
+border-left: 7px solid #c28642;
+margin-bottom: 2rem;
+padding: 1.2rem 1.2rem 0.9rem 1.2rem;
+border-radius: 1.2rem;
+box-shadow: 0 3px 9px rgba(0,0,0,0.03);
+transition: 0.1s;
+}
+.question-text {
+font-weight: 700;
+font-size: 1.2rem;
+margin-bottom: 1rem;
+color: #3e2c1a;
+line-height: 1.4;
+}
+.options {
+list-style: none;
+padding-left: 0.3rem;
+}
+.options li {
+margin-bottom: 0.7rem;
+display: flex;
+align-items: flex-start;
+gap: 0.7rem;
+}
+.options input {
+margin-top: 0.2rem;
+accent-color: #a56f3c;
+width: 1.1rem;
+height: 1.1rem;
+}
+.options label {
+font-size: 1rem;
+line-height: 1.4;
+color: #2f2b23;
+font-weight: 500;
+flex: 1;
+}
+.btn-submit {
+background: #7b562f;
+border: none;
+width: 100%;
+padding: 0.9rem 1.5rem;
+font-size: 1.2rem;
+font-weight: bold;
+color: white;
+border-radius: 3rem;
+cursor: pointer;
+transition: 0.2s;
+margin-top: 1rem;
+margin-bottom: 1rem;
+font-family: inherit;
+}
+.btn-submit:hover {
+background: #5a3b1d;
+transform: scale(0.98);
+}
+.result-box {
+background: #f9f2e5;
+border-radius: 1.5rem;
+padding: 1rem 1.5rem;
+margin-top: 1.5rem;
+border-left: 5px solid #bc7e44;
+font-size: 0.98rem;
+}
+.result-detail {
+max-height: 450px;
+overflow-y: auto;
+padding-right: 6px;
+}
+.correct-highlight {
+color: #2a752a;
+font-weight: bold;
+}
+.wrong-highlight {
+color: #b94b2c;
+font-weight: bold;
+}
+hr {
+margin: 0.7rem 0;
+border-color: #e7d6be;
+}
+footer {
+text-align: center;
+padding: 1rem;
+font-size: 0.75rem;
+background: #faf3e9;
+color: #7c623f;
+border-top: 1px solid #eedcc5;
+}
+@media (max-width: 550px) {
+.quiz-body {
+padding: 1rem;
+}
+.question-text {
+font-size: 1rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <div class="quiz-header"> <h1>🎭 खण्ड-२ : गजल कोना कहल जाइत छैक – रचना, शब्दावली आ परिभाषा</h1> <p>मैथिली गजलक व्याकरण ओ इतिहास (खण्ड-२) पर आधारित बहुविकल्पी प्रश्न</p> </div> <div class="quiz-body"> <form id="khand2Form"> <div class="question-card"> <div class="question-text">१. अरबी-उर्दू परम्परामे “लघु” (ह्रस्व) आ “दीर्घ” केर सूचक अक्षर (लाम आ काफ) मानल जाइत अछि। गजलक मात्राक्रममे दीर्घ केर उर्दू शब्द की अछि?</div> <ul class="options"> <li><input type="radio" name="q1" value="A" id="q1_a"><label for="q1_a">(अ) लाम (ल)</label></li> <li><input type="radio" name="q1" value="B" id="q1_b"><label for="q1_b">(ब) काफ (क)</label></li> <li><input type="radio" name="q1" value="C" id="q1_c"><label for="q1_c">(स) अलिफ (अ)</label></li> <li><input type="radio" name="q1" value="D" id="q1_d"><label for="q1_d">(द) हे (ह)</label></li> </ul> </div> <div class="question-card"> <div class="question-text">२. गजलक पहिल शेर जाहि महँक दूनू पाँतिमे रदीफ आ काफिया उपस्थित रहैत अछि, तकरा का कहल जाइत अछि?</div> <ul class="options"> <li><input type="radio" name="q2" value="A" id="q2_a"><label for="q2_a">(अ) मकता</label></li> <li><input type="radio" name="q2" value="B" id="q2_b"><label for="q2_b">(ब) मतला</label></li> <li><input type="radio" name="q2" value="C" id="q2_c"><label for="q2_c">(स) हुस्ने मतला</label></li> <li><input type="radio" name="q2" value="D" id="q2_d"><label for="q2_d">(द) गैर मुरद्दफ शेर</label></li> </ul> </div> <div class="question-card"> <div class="question-text">३. शेरक दूनू पाँतिकेँ अलग-अलग संज्ञा दैल गेल अछि। “मिसरा-ए-उला” कें का कहल जाइत अछि?</div> <ul class="options"> <li><input type="radio" name="q3" value="A" id="q3_a"><label for="q3_a">(अ) शेरक दोसर पाँति</label></li> <li><input type="radio" name="q3" value="B" id="q3_b"><label for="q3_b">(ब) शेरक पहिल पाँति (जे कोनो तथ्यक स्थापना करैत अछि)</label></li> <li><input type="radio" name="q3" value="C" id="q3_c"><label for="q3_c">(स) रदीफ के बाद बला भाग</label></li> <li><input type="radio" name="q3" value="D" id="q3_d"><label for="q3_d">(द) गजलक अन्तिम शेर</label></li> </ul> </div> <div class="question-card"> <div class="question-text">४. पोथीक खण्ड-२ अनुसार, “रदीफ” के अर्थ छै?</div> <ul class="options"> <li><input type="radio" name="q4" value="A" id="q4_a"><label for="q4_a">(अ) गजलक हरेक शेरक अन्तिम तुकान्त (काफिया)</label></li> <li><input type="radio" name="q4" value="B" id="q4_b"><label for="q4_b">(ब) मतलाक दूनू पाँतिमे अन्तसँ उभयनिष्ठ शब्द वा शब्द समूह</label></li> <li><input type="radio" name="q4" value="C" id="q4_c"><label for="q4_c">(स) शेरक अरूज भाग</label></li> <li><input type="radio" name="q4" value="D" id="q4_d"><label for="q4_d">(द) बहरक मात्राक्रम</label></li> </ul> </div> <div class="question-card"> <div class="question-text">५. रदीफसँ पहिने स्वर साम्य युक्त तुकान्त (जे गजलक हरेक शेरक दोसर पाँतिमे आबैत अछि) तकरा का कहल जाइत अछि आ ई दू प्रकारक होइत अछि?</div> <ul class="options"> <li><input type="radio" name="q5" value="A" id="q5_a"><label for="q5_a">(अ) रदीफ – मात्रिक आ वर्णिक</label></li> <li><input type="radio" name="q5" value="B" id="q5_b"><label for="q5_b">(ब) काफिया – अक्षरक स्वरसाम्य, मात्राक स्वरसाम्य</label></li> <li><input type="radio" name="q5" value="C" id="q5_c"><label for="q5_c">(स) बहर – सालिम आ मुरक्कब</label></li> <li><input type="radio" name="q5" value="D" id="q5_d"><label for="q5_d">(द) तकतीह – लघु-दीर्घ गणना</label></li> </ul> </div> <div class="question-card"> <div class="question-text">६. गजलक अन्तिम शेर जाहिमे शाइर अपन तखल्लुस (नाम/उपनाम) के प्रयोग करैत अछि, तकरा का कहल जाइत अछि?</div> <ul class="options"> <li><input type="radio" name="q6" value="A" id="q6_a"><label for="q6_a">(अ) मतला-ए-सानी</label></li> <li><input type="radio" name="q6" value="B" id="q6_b"><label for="q6_b">(ब) हासिल-ए-गजल</label></li> <li><input type="radio" name="q6" value="C" id="q6_c"><label for="q6_c">(स) मकता</label></li> <li><input type="radio" name="q6" value="D" id="q6_d"><label for="q6_d">(द) कसीदा</label></li> </ul> </div> <div class="question-card"> <div class="question-text">७. जाहि गजलक मतलामे रदीफ नै होइत अछि, तकरा का कहल जाइत अछि? (खण्ड-२)</div> <ul class="options"> <li><input type="radio" name="q7" value="A" id="q7_a"><label for="q7_a">(अ) मुसल्सल गजल</label></li> <li><input type="radio" name="q7" value="B" id="q7_b"><label for="q7_b">(ब) गैर मुरद्दफ गजल</label></li> <li><input type="radio" name="q7" value="C" id="q7_c"><label for="q7_c">(स) हजल</label></li> <li><input type="radio" name="q7" value="D" id="q7_d"><label for="q7_d">(द) मुजाइल बहर</label></li> </ul> </div> <div class="question-card"> <div class="question-text">८. कोनो गजल बहरमे अछि वा नै, ई पता लगाबाक लेल मात्राक गिनती करबाक क्रियाकेँ का कहल जाइत अछि?</div> <ul class="options"> <li><input type="radio" name="q8" value="A" id="q8_a"><label for="q8_a">(अ) इल्मे अरूज</label></li> <li><input type="radio" name="q8" value="B" id="q8_b"><label for="q8_b">(ब) वज्न</label></li> <li><input type="radio" name="q8" value="C" id="q8_c"><label for="q8_c">(स) तकतीह</label></li> <li><input type="radio" name="q8" value="D" id="q8_d"><label for="q8_d">(द) रुक्न</label></li> </ul> </div> <div class="question-card"> <div class="question-text">९. शेरक छह खण्ड (सदर, हश्र, अरूज, इब्दा, हश्र, जरब) मध्ये पहिल पाँतिक अन्तिम खण्डकें का कहल जाइत अछि?</div> <ul class="options"> <li><input type="radio" name="q9" value="A" id="q9_a"><label for="q9_a">(अ) सदर</label></li> <li><input type="radio" name="q9" value="B" id="q9_b"><label for="q9_b">(ब) इब्दा</label></li> <li><input type="radio" name="q9" value="C" id="q9_c"><label for="q9_c">(स) अरूज</label></li> <li><input type="radio" name="q9" value="D" id="q9_d"><label for="q9_d">(द) जरब</label></li> </ul> </div> <div class="question-card"> <div class="question-text">१०. मोशायरामे शाइर पहिल पाँति पढ़ैत अछि, फेर दोसर पाँति कहबाक लेल “इरशाद-इरशाद” कहल जाइत अछि। पोथीक अनुसार एकर मैथिलीकरण केनऽ रूपमे भऽ सकैए?</div> <ul class="options"> <li><input type="radio" name="q10" value="A" id="q10_a"><label for="q10_a">(अ) सुनल जाए</label></li> <li><input type="radio" name="q10" value="B" id="q10_b"><label for="q10_b">(ब) जरूर</label></li> <li><input type="radio" name="q10" value="C" id="q10_c"><label for="q10_c">(स) फेरसँ कहू</label></li> <li><input type="radio" name="q10" value="D" id="q10_d"><label for="q10_d">(द) सादर नमन</label></li> </ul> </div> <button type="button" class="btn-submit" id="submitKhand2">📝 उत्तर जमा करू – परिणाम देखू</button> </form> <div id="resultArea" class="result-box" style="display: none;"></div> </div>
+</div>
+<script>
+  // सही उत्तर (खण्ड-२ के प्रमुख तथ्यपर आधारित)
+  const correctMap = {
+    q1: "B",   // काफ (दीर्घ लेल)
+    q2: "B",   // मतला
+    q3: "B",   // मिसरा-ए-उला = पहिल पाँति (तथ्य स्थापना)
+    q4: "B",   // रदीफ = उभयनिष्ठ शब्द/समूह
+    q5: "B",   // काफिया (अक्षर स्वरसाम्य, मात्राक स्वरसाम्य)
+    q6: "C",   // मकता
+    q7: "B",   // गैर मुरद्दफ गजल
+    q8: "C",   // तकतीह
+    q9: "C",   // अरूज
+    q10: "B"   // "जरूर" (पोथी अनुसार: "इरशाद केर मैथिलीकरण जरूर भऽ सकैए")
+  };
+
+  // विकल्प पाठ भण्डार (प्रदर्शन हेतु)
+  const optionTexts = {
+    q1: { A: "लाम (ल)", B: "काफ (क)", C: "अलिफ (अ)", D: "हे (ह)" },
+    q2: { A: "मकता", B: "मतला", C: "हुस्ने मतला", D: "गैर मुरद्दफ शेर" },
+    q3: { A: "शेरक दोसर पाँति", B: "शेरक पहिल पाँति (जे कोनो तथ्यक स्थापना करैत अछि)", C: "रदीफ के बाद बला भाग", D: "गजलक अन्तिम शेर" },
+    q4: { A: "गजलक हरेक शेरक अन्तिम तुकान्त (काफिया)", B: "मतलाक दूनू पाँतिमे अन्तसँ उभयनिष्ठ शब्द वा शब्द समूह", C: "शेरक अरूज भाग", D: "बहरक मात्राक्रम" },
+    q5: { A: "रदीफ – मात्रिक आ वर्णिक", B: "काफिया – अक्षरक स्वरसाम्य, मात्राक स्वरसाम्य", C: "बहर – सालिम आ मुरक्कब", D: "तकतीह – लघु-दीर्घ गणना" },
+    q6: { A: "मतला-ए-सानी", B: "हासिल-ए-गजल", C: "मकता", D: "कसीदा" },
+    q7: { A: "मुसल्सल गजल", B: "गैर मुरद्दफ गजल", C: "हजल", D: "मुजाइल बहर" },
+    q8: { A: "इल्मे अरूज", B: "वज्न", C: "तकतीह", D: "रुक्न" },
+    q9: { A: "सदर", B: "इब्दा", C: "अरूज", D: "जरब" },
+    q10: { A: "सुनल जाए", B: "जरूर", C: "फेरसँ कहू", D: "सादर नमन" }
+  };
+
+  const questionTextList = [
+    "१. गजलक मात्राक्रममे दीर्घ केर उर्दू शब्द की अछि?",
+    "२. गजलक पहिल शेर जाहि महँक दूनू पाँतिमे रदीफ आ काफिया उपस्थित रहैत अछि, तकरा का कहल जाइत अछि?",
+    "३. “मिसरा-ए-उला” कें का कहल जाइत अछि?",
+    "४. “रदीफ” के अर्थ छै?",
+    "५. रदीफसँ पहिने स्वर साम्य युक्त तुकान्त (जे हरेक शेरक दोसर पाँतिमे आबैत अछि) तकरा का कहल जाइत अछि आ ई दू प्रकारक होइत अछि?",
+    "६. गजलक अन्तिम शेर जाहिमे शाइर अपन तखल्लुस के प्रयोग करैत अछि, तकरा का कहल जाइत अछि?",
+    "७. जाहि गजलक मतलामे रदीफ नै होइत अछि, तकरा का कहल जाइत अछि?",
+    "८. मात्राक गिनती करबाक क्रिया (बहर जाँच) केँ का कहल जाइत अछि?",
+    "९. शेरक छह खण्ड मध्ये पहिल पाँतिक अन्तिम खण्डकें का कहल जाइत अछि?",
+    "१०. मोशायरामे “इरशाद” केर मैथिलीकरण केनऽ रूपमे भऽ सकैए (पोथी अनुसार)?"
+  ];
+
+  const submitBtn = document.getElementById("submitKhand2");
+  const resultDiv = document.getElementById("resultArea");
+
+  submitBtn.addEventListener("click", () => {
+    let score = 0;
+    const userAnswers = {};
+
+    // सभ प्रश्नक उत्तर संग्रह
+    for (let i = 1; i <= 10; i++) {
+      const name = "q" + i;
+      const radios = document.getElementsByName(name);
+      let selectedValue = null;
+      for (let r = 0; r < radios.length; r++) {
+        if (radios[r].checked) {
+          selectedValue = radios[r].value;
+          break;
+        }
+      }
+      userAnswers[name] = selectedValue;
+      if (selectedValue && correctMap[name] === selectedValue) {
+        score++;
+      }
+    }
+
+    // रिजल्ट HTML निर्माण
+    let resultHtml = `<strong>🏆 परिणाम : ${score} / 10</strong><br><br>`;
+    resultHtml += `<div class="result-detail">`;
+
+    for (let i = 1; i <= 10; i++) {
+      const qKey = "q" + i;
+      const userVal = userAnswers[qKey];
+      const correctVal = correctMap[qKey];
+      const isCorrect = (userVal === correctVal);
+
+      resultHtml += `<strong>${questionTextList[i-1]}</strong><br>`;
+      if (userVal) {
+        const userText = optionTexts[qKey][userVal] || "अमान्य";
+        resultHtml += `▸ अहाँक उत्तर : ${userText}<br>`;
+      } else {
+        resultHtml += `▸ अहाँक उत्तर : [कोनो उत्तर नै देल गेल]<br>`;
+      }
+      const correctText = optionTexts[qKey][correctVal];
+      resultHtml += `▸ सही उत्तर : ${correctText}<br>`;
+      if (isCorrect) {
+        resultHtml += `<span class="correct-highlight">✓ सही</span><br><br>`;
+      } else {
+        resultHtml += `<span class="wrong-highlight">✗ गलत</span><br><br>`;
+      }
+    }
+
+    resultHtml += `<hr><p style="font-size:0.85rem;">📌 नोट : प्रश्न पोथीक खण्ड-२ (गजल कोना कहल जाइत छैक, रदीफ-काफिया, मतला-मकता, शेरक अङ्ग, तकतीह, मोशायरा) पर आधारित अछि।</p>`;
+    resultHtml += `</div>`;
+    resultDiv.innerHTML = resultHtml;
+    resultDiv.style.display = "block";
+    resultDiv.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>
