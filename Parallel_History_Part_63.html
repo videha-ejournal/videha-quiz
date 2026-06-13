@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Quiz: Chapter 63 – Acharya Ramanand Mandal | Western Maithili Voice & Social Critic</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2efe7;
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            padding: 2rem 1rem;
+            color: #2d2a24;
+        }
+
+        .quiz-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fffef9;
+            border-radius: 36px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
+            overflow: hidden;
+            border: 1px solid #e2d9cc;
+        }
+
+        .quiz-header {
+            background: #8b5e3c;
+            background: linear-gradient(135deg, #6b4524, #9e6e45);
+            padding: 1.8rem 2rem;
+            color: white;
+        }
+
+        .quiz-header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+            margin-bottom: 0.4rem;
+        }
+
+        .quiz-header h1 span {
+            font-weight: 400;
+            font-style: italic;
+            font-size: 1rem;
+            background: #f3deba80;
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+        }
+
+        .quiz-header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 0.6rem;
+            border-left: 3px solid #ffd580;
+            padding-left: 1rem;
+        }
+
+        .quiz-body {
+            padding: 2rem 2rem 1rem;
+        }
+
+        .question-card {
+            background: #ffffff;
+            border: 1px solid #e8e0d4;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.8rem;
+            margin-bottom: 2rem;
+            transition: all 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .question-card:hover {
+            border-color: #cfc1a8;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #5a3e1f;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .options {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .options li {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+        }
+
+        .options input {
+            margin-top: 0.25rem;
+            width: 1.1rem;
+            height: 1.1rem;
+            accent-color: #9e6e45;
+            flex-shrink: 0;
+        }
+
+        .options label {
+            font-size: 1rem;
+            line-height: 1.4;
+            color: #3e3a32;
+            font-weight: normal;
+        }
+
+        .feedback {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 30px;
+            display: inline-block;
+            background: #f3f2ec;
+            color: #4a5b4a;
+        }
+
+        .feedback.correct {
+            background: #e0f2e9;
+            color: #1f5e3a;
+            border-left: 4px solid #2b7a4b;
+        }
+
+        .feedback.wrong {
+            background: #ffeae6;
+            color: #b34141;
+            border-left: 4px solid #c4554b;
+        }
+
+        .explanation {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #6c685b;
+            font-style: italic;
+            border-left: 2px solid #dbd2c2;
+            padding-left: 12px;
+        }
+
+        .quiz-footer {
+            padding: 1.2rem 2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-top: 1px solid #e8e0d4;
+            background: #fefcf7;
+        }
+
+        .score-area {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: #e5ede2;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            color: #2b523b;
+        }
+
+        button {
+            background: #9e6e45;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.7rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.15s;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background: #7c5332;
+            transform: scale(0.97);
+        }
+
+        .reset-btn {
+            background: #8f7a64;
+        }
+        .reset-btn:hover {
+            background: #6d5b49;
+        }
+
+        @media (max-width: 650px) {
+            .quiz-body {
+                padding: 1.5rem;
+            }
+            .question-card {
+                padding: 1.1rem;
+            }
+            .quiz-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="quiz-container">
+    <div class="quiz-header">
+        <h1>📚 Chapter 63 · Acharya Ramanand Mandal <span>Western Maithili Voice · Social Critic</span></h1>
+        <p>Based on “ACHARYA RAMANAND MANDAL – A Complete Critical Research Report” (Videha Parallel History, Tome III)<br>Works: Bhāsā Ke Na Bāṃṭiyo · Rāṇiyāṃ Bhikhārin · Gāgar Meṃ Sāgar · Bajjika dialect · Navya-Nyāya · Sita motif · Dalit aesthetics</p>
+    </div>
+    <div class="quiz-body" id="quizBody"></div>
+    <div class="quiz-footer">
+        <div class="score-area" id="scoreDisplay">Score: 0 / 0</div>
+        <div>
+            <button id="checkBtn">✅ Check answers</button>
+            <button id="resetBtn" class="reset-btn">⟳ Reset quiz</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ---- QUESTIONS BASED ON CHAPTER 63: Acharya Ramanand Mandal (pages 268-300) ----
+    const questions = [
+        {
+            text: "In which dialect does Acharya Ramanand Mandal primarily write, and what is his political stance regarding its status?",
+            options: [
+                "Standard Maithili (Sotipura) – he believes it is the only correct form",
+                "Western Maithili (Bajjika) – he insists it is a dialect of Maithili, not a separate language, and demands linguistic unity",
+                "Angika – he claims it is independent of Maithili",
+                "Hindi – he writes only in Hindi for wider reach"
+            ],
+            correct: 1,
+            explanation: "Mandal writes in Bajjika (Western Maithili) and the title poem of his first collection 'Bhāsā Ke Na Bāṃṭiyo' (Do Not Divide the Language) argues that Bajjika and Angika are dialects of Maithili, not separate languages – a foundational linguistic-political stance."
+        },
+        {
+            text: "What is the title of Acharya Ramanand Mandal's debut poetry collection (2022), whose title poem pleads for linguistic solidarity against fragmentation?",
+            options: [
+                "Rāṇiyāṃ Bhikhārin",
+                "Gāgar Meṃ Sāgar",
+                "Bhāsā Ke Na Bāṃṭiyo",
+                "Mithilāk Piyās"
+            ],
+            correct: 2,
+            explanation: "'Bhāsā Ke Na Bāṃṭiyo' (Do Not Divide the Language) is his poetry collection. The title poem uses a logical structure (vyāpti) to argue that language fragmentation leads to cultural impoverishment and political subjugation."
+        },
+        {
+            text: "Mandal's short story collection 'Rāṇiyāṃ Bhikhārin' (2023) is named after its title story about a polio-afflicted beggar woman. What makes this story remarkable?",
+            options: [
+                "It is a romance",
+                "The protagonist is sexually exploited by a bus conductor but becomes a devoted mother – transcending categories of legitimacy/purity, and the story uses upamāna (analogy) to compare her maternal love to Yashoda's love for Krishna",
+                "It is a comedy",
+                "It is about a wealthy queen"
+            ],
+            correct: 1,
+            explanation: "The story is a social-realist document and a metaphysical meditation on vatsalya (parental love). The Navya-Nyāya analysis shows it uses upamāna (analogy) to generate valid moral knowledge: maternal love transcends social stigma, akin to divine models."
+        },
+        {
+            text: "The essay collection 'Gāgar Meṃ Sāgar: Nava Vaicārikī' (An Ocean in a Pot) includes an essay critiquing Brahmanical hegemony in Mithila. Which scholar's Linguistic Survey of India is cited as evidence?",
+            options: [
+                "Max Müller",
+                "George Grierson",
+                "Suniti Kumar Chatterji",
+                "William Jones"
+            ],
+            correct: 1,
+            explanation: "The essay 'Babuavādī Saṃskṛti Banam Hāśiye kā Samāj' cites George Grierson's Linguistic Survey of India to challenge Brahmanical dominance over Maithili literary culture and dialectal exclusion."
+        },
+        {
+            text: "Mandal's poem 'Avīr Sītā' (Cowardly Sita) and 'Bhūmijā Sītā' (Earth-born Sita) engage in feminist revisionism. What is the key reversal?",
+            options: [
+                "Sita is portrayed as a queen",
+                "The apparently 'cowardly' (avīr) Sita is redefined as truly courageous (vīr), while Rama becomes the deserter – challenging patriarchal readings of the Ramayana",
+                "Sita becomes a warrior goddess",
+                "Rama is praised as the ideal husband"
+            ],
+            correct: 1,
+            explanation: "Using Navya-Nyāya avacchedaka (limitor) analysis: Sita is analysed through the property 'abandoned woman' (parityaktatvāvacchinna), which generates ironic reversal – the 'hero' Rama becomes the deserter, and the 'weak' Sita becomes the courageous one."
+        },
+        {
+            text: "The chapter applies Gaṅgeśa's concept of 'Parataḥ Pramāṇya' (extrinsic validity) to Mandal's use of Bajjika. What does this mean?",
+            options: [
+                "Bajjika is intrinsically inferior to standard Maithili",
+                "The legitimacy of Bajjika as a literary medium is not declared a priori by any academy but demonstrated through its communicative effectiveness, emotional resonance, and social recognition (samvādipravṛtti)",
+                "Only Sanskrit has intrinsic validity",
+                "Bajjika is not a real language"
+            ],
+            correct: 1,
+            explanation: "Parataḥ Pramāṇya holds that knowledge is validated through successful practical engagement. Mandal's Bajjika poetry achieves validity because it effectively communicates, resonates emotionally, and gains social recognition – not because an academy declares it valid."
+        },
+        {
+            text: "In the title story 'Rāṇiyāṃ Bhikhārin', Mandal invites a moral analogy (upamāna) between Raniyan's relation to her child and which divine model of vātsalya?",
+            options: [
+                "Parvati and Ganesha",
+                "Yashoda and Krishna",
+                "Kausalya and Rama",
+                "Devaki and Krishna"
+            ],
+            correct: 1,
+            explanation: "The upamāna (analogy) is epistemological: Raniyan's maternal love is analogous to Yashoda's love for Krishna – the divine model that transcends birth-circumstances, generating valid moral knowledge that maternal devotion transcends social stigma."
+        },
+        {
+            text: "Mandal's essay 'Babuavādī Saṃskṛti Banam Hāśiye kā Samāj' cites which Bajjika writer whose manuscript was rejected by the Maithili Sahitya Akademi because it was 'not Maithili'?",
+            options: [
+                "The writer's name is not given; the chapter uses this as evidence of institutional silencing of the subaltern voice (Spivak's 'Can the Subaltern Speak?')",
+                "Acharya Ramanand Mandal himself",
+                "Kishun Karigar",
+                "Ramnaresh Yadav"
+            ],
+            correct: 0,
+            explanation: "The essay cites an unnamed Bajjika writer whose manuscript was rejected for not being 'standard Maithili' – a direct instance of institutional silencing. This is analysed through Gayatri Spivak's subaltern theory: the subaltern's speech is rendered inaudible by dominant discourse."
+        },
+        {
+            text: "The chapter identifies a structural parallelism between Gaṅgeśa Upādhyāya (founder of Navya-Nyāya) and Acharya Ramanand Mandal. What is the suppressed biographical parallel?",
+            options: [
+                "Both were kings",
+                "Both were Brahmins from elite families",
+                "Gaṅgeśa was born five years after his father's death and married a Charmkarini (leather-working caste woman); Mandal is an OBC writer from Sitamarhi writing in Bajjika – both produced foundational work from socially marginalised positions, and their backgrounds were suppressed by the Brahminical establishment",
+                "Both wrote only in Sanskrit"
+            ],
+            correct: 2,
+            explanation: "The Videha Parallel History recovered that Gaṅgeśa's non-elite origins were suppressed by Brahmin historians. Mandal, writing in Bajjika from an OBC background, shares the same structural position: producing foundational intellectual work despite institutional marginalisation."
+        },
+        {
+            text: "Which two Western critical theorists are used in the chapter to analyse Mandal's 'Babuavādī Saṃskṛti' essay and the silencing of Bajjika writers?",
+            options: [
+                "Foucault and Derrida",
+                "Gramsci (hegemony) and Spivak (subaltern speech)",
+                "Barthes and Kristeva",
+                "Lacan and Žižek"
+            ],
+            correct: 1,
+            explanation: "Gramsci's concept of cultural hegemony explains Brahminical dominance over Maithili literary institutions; Spivak's 'Can the Subaltern Speak?' explains how the Bajjika writer's voice is institutionally rendered inaudible – the subaltern cannot speak within dominant discourse."
+        },
+        {
+            text: "The poem 'Bhāsā Ke Na Bāṃṭiyo' is analysed through Navya-Nyāya vyāpti (invariable concomitance). What is the logical structure of the poem?",
+            options: [
+                "If Bajjika is a separate language, then Mithila will prosper",
+                "Wherever there is language fragmentation (hetu), there is cultural impoverishment and political subjugation (sādhya). Bajjika is subject to fragmentation. Therefore, Bajjika speakers face subjugation.",
+                "If Maithili is not standardised, it will die",
+                "All dialects are equal, so no conclusion"
+            ],
+            correct: 1,
+            explanation: "The poem's rhetorical power lies in establishing this vyāpti not abstractly but through concrete historical evidence – Angika writers whose works were rejected because their dialect was not 'standard' Maithili."
+        },
+        {
+            text: "In the short story 'Dharam Saṃkaṭ Mukta', a feudal landlord's desire for a Dalit woman is analysed through Lacanian psychoanalysis. What is the key Lacanian concept applied?",
+            options: [
+                "The Oedipus complex",
+                "The objet petit a – the object-cause of desire that the subject can never fully possess, because possession would dissolve the social distance that constitutes the desire itself",
+                "The mirror stage",
+                "The Name-of-the-Father"
+            ],
+            correct: 1,
+            explanation: "Rajeshwar Pratap's desire for the Dalit woman Raniyan is structured by caste distance; he desires her as objet petit a – if he actually possessed her, the social distance (and therefore the desire) would collapse. The story traces the transition from Imaginary desire to Symbolic caste law."
+        }
+    ];
+
+    let userAnswers = new Array(questions.length).fill(null);
+    const quizBody = document.getElementById('quizBody');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const checkBtn = document.getElementById('checkBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    function renderQuiz() {
+        quizBody.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.setAttribute('data-qidx', idx);
+
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qText);
+
+            const optionsList = document.createElement('ul');
+            optionsList.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const li = document.createElement('li');
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q${idx}`;
+                radio.value = optIdx;
+                radio.id = `q${idx}_opt${optIdx}`;
+                if (userAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    userAnswers[idx] = parseInt(e.target.value);
+                    const oldFeedback = card.querySelector('.feedback');
+                    const oldExpl = card.querySelector('.explanation');
+                    if (oldFeedback) oldFeedback.remove();
+                    if (oldExpl) oldExpl.remove();
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q${idx}_opt${optIdx}`;
+                label.innerText = opt;
+                li.appendChild(radio);
+                li.appendChild(label);
+                optionsList.appendChild(li);
+            });
+            card.appendChild(optionsList);
+            quizBody.appendChild(card);
+        });
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    function evaluateQuiz() {
+        // sync current selections
+        for (let i = 0; i < questions.length; i++) {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selected) {
+                userAnswers[i] = parseInt(selected.value);
+            } else {
+                if (userAnswers[i] !== null) userAnswers[i] = null;
+            }
+        }
+
+        let correctCount = 0;
+        // clear old feedback
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const oldFeedback = card.querySelector('.feedback');
+            const oldExpl = card.querySelector('.explanation');
+            if (oldFeedback) oldFeedback.remove();
+            if (oldExpl) oldExpl.remove();
+        }
+
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const userChoice = userAnswers[i];
+            const isCorrect = (userChoice !== null && userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+
+            const feedbackSpan = document.createElement('div');
+            feedbackSpan.className = 'feedback';
+            if (userChoice === null) {
+                feedbackSpan.innerText = '⚠️ Not answered';
+                feedbackSpan.classList.add('wrong');
+            } else if (isCorrect) {
+                feedbackSpan.innerText = '✓ Correct';
+                feedbackSpan.classList.add('correct');
+            } else {
+                const correctLetter = String.fromCharCode(65 + questions[i].correct);
+                const correctText = questions[i].options[questions[i].correct];
+                feedbackSpan.innerText = `✗ Incorrect. Correct: ${correctLetter}. ${correctText.substring(0, 100)}${correctText.length > 100 ? '…' : ''}`;
+                feedbackSpan.classList.add('wrong');
+            }
+
+            const explDiv = document.createElement('div');
+            explDiv.className = 'explanation';
+            explDiv.innerHTML = `📖 ${questions[i].explanation}`;
+            card.appendChild(feedbackSpan);
+            card.appendChild(explDiv);
+        }
+        scoreDisplay.innerText = `Score: ${correctCount} / ${questions.length}`;
+    }
+
+    function resetQuiz() {
+        for (let i = 0; i < questions.length; i++) userAnswers[i] = null;
+        renderQuiz();
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    checkBtn.addEventListener('click', evaluateQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+
+    renderQuiz();
+</script>
+</body>
+</html>

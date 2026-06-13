@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Quiz: Chapter 62 – Critical Appreciations | Seven Maithili Voices</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0ede5;
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            padding: 2rem 1rem;
+            color: #2d2a24;
+        }
+
+        .quiz-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fffef9;
+            border-radius: 36px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
+            overflow: hidden;
+            border: 1px solid #e2d9cc;
+        }
+
+        .quiz-header {
+            background: #5f7e4e;
+            background: linear-gradient(135deg, #3e5e2f, #6b8c4e);
+            padding: 1.8rem 2rem;
+            color: white;
+        }
+
+        .quiz-header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+            margin-bottom: 0.4rem;
+        }
+
+        .quiz-header h1 span {
+            font-weight: 400;
+            font-style: italic;
+            font-size: 1rem;
+            background: #e1eac080;
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+        }
+
+        .quiz-header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 0.6rem;
+            border-left: 3px solid #c7e0a3;
+            padding-left: 1rem;
+        }
+
+        .quiz-body {
+            padding: 2rem 2rem 1rem;
+        }
+
+        .question-card {
+            background: #ffffff;
+            border: 1px solid #e8e0d4;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.8rem;
+            margin-bottom: 2rem;
+            transition: all 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .question-card:hover {
+            border-color: #bfc9b3;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #3a5e2e;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .options {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .options li {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+        }
+
+        .options input {
+            margin-top: 0.25rem;
+            width: 1.1rem;
+            height: 1.1rem;
+            accent-color: #6b8c4e;
+            flex-shrink: 0;
+        }
+
+        .options label {
+            font-size: 1rem;
+            line-height: 1.4;
+            color: #3e3a32;
+            font-weight: normal;
+        }
+
+        .feedback {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 30px;
+            display: inline-block;
+            background: #f3f2ec;
+            color: #4a5b4a;
+        }
+
+        .feedback.correct {
+            background: #e0f2e9;
+            color: #1f5e3a;
+            border-left: 4px solid #2b7a4b;
+        }
+
+        .feedback.wrong {
+            background: #ffeae6;
+            color: #b34141;
+            border-left: 4px solid #c4554b;
+        }
+
+        .explanation {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #6c685b;
+            font-style: italic;
+            border-left: 2px solid #dbd2c2;
+            padding-left: 12px;
+        }
+
+        .quiz-footer {
+            padding: 1.2rem 2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-top: 1px solid #e8e0d4;
+            background: #fefcf7;
+        }
+
+        .score-area {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: #e5ede2;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            color: #2b523b;
+        }
+
+        button {
+            background: #6b8c4e;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.7rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.15s;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background: #4e6e37;
+            transform: scale(0.97);
+        }
+
+        .reset-btn {
+            background: #8f7a64;
+        }
+        .reset-btn:hover {
+            background: #6d5b49;
+        }
+
+        @media (max-width: 650px) {
+            .quiz-body {
+                padding: 1.5rem;
+            }
+            .question-card {
+                padding: 1.1rem;
+            }
+            .quiz-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="quiz-container">
+    <div class="quiz-header">
+        <h1>📖 Chapter 62 · Critical Appreciations <span>Seven Contemporary Maithili Voices</span></h1>
+        <p>Based on “CRITICAL APPRECIATIONS – Indian & Western Literary Theory · Videha Parallel History Framework” (Tome III)<br>Ram Sogarth Yadav · Shashidhar Kumar 'Videh' · Shivshankar Singh Thakur · Santosh Kumar Roy 'Batohi' · Subodh Kumar Thakur · Subodh Jha · Subhash Kumar Kamat</p>
+    </div>
+    <div class="quiz-body" id="quizBody"></div>
+    <div class="quiz-footer">
+        <div class="score-area" id="scoreDisplay">Score: 0 / 0</div>
+        <div>
+            <button id="checkBtn">✅ Check answers</button>
+            <button id="resetBtn" class="reset-btn">⟳ Reset quiz</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ---- QUESTIONS BASED ON CHAPTER 62: Seven Maithili Writers (pages 257-266) ----
+    const questions = [
+        {
+            text: "Ram Sogarth Yadav, an OBC-Yadav voice in the Videha archive, wrote a sequence of social protest poems whose titles form a catalogue of Bihar's crises. Which poem title calls for the building of a new Mithila?",
+            options: [
+                "He Yuvā Uṭhū",
+                "Rokū Dahejakeṃ",
+                "Nava Mithilāka Nirmāṇa Karaita Calū (Let Us Build New Mithila)",
+                "Ghūsakeṃ Jūsa Bandu Karu"
+            ],
+            correct: 2,
+            explanation: "The sequence of problem-naming poems (dowry, bribery, unemployment, poverty) concludes with the affirmative vision 'Nava Mithilāka Nirmāṇa Karaita Calū' – a constructive call for a new Mithila."
+        },
+        {
+            text: "Dr. Shashidhar Kumar 'Videh' adopted his pen-name from the ancient Maithili kingdom. What is his most distinctive contribution in the Videha archive?",
+            options: [
+                "Only ghazals and rubai",
+                "The most generically diverse presence, including science writing for children (South Pole, ozone, earthquake sci-fi), a 170-page bāla kavitā section, literary criticism, and cultural essays",
+                "Only folk songs",
+                "Only political satire"
+            ],
+            correct: 1,
+            explanation: "Shashidhar Kumar 'Videh' is the most prolific and versatile contributor in the archive, spanning science communication, children's poetry (170 pages in Sadeha 19), literary criticism, and cultural essays – a true Maithili renaissance figure."
+        },
+        {
+            text: "Which rasa (aesthetic emotion) does the chapter identify as dominant in Dr. Shashidhar Kumar 'Videh's science writing for children, particularly in cultivating curiosity about the natural world?",
+            options: [
+                "Karuna (pathos)",
+                "Adbhuta (wonder)",
+                "Raudra (fury)",
+                "Śānta (peace)"
+            ],
+            correct: 1,
+            explanation: "Good science communication for children evokes Adbhuta-rasa – the emotion of wonder, which is the foundation of scientific curiosity. Videh's South Pole narrative and earthquake science fiction achieve this."
+        },
+        {
+            text: "Shivshankar Singh Thakur's ghazals are noted for their use of specifically Maithili cultural imagery. Which image from Mithila's wedding tradition appears in his title 'Kohbaraका Hāla Kahalo Ne Jāya'?",
+            options: [
+                "The Chhath festival",
+                "The kohbar (ritual wedding chamber decorated with Madhubani paintings)",
+                "The Sohar birth song",
+                "The Bidesia migrant song"
+            ],
+            correct: 1,
+            explanation: "The kohbar is the ritual wedding chamber of Mithila, decorated with lotus, fish, and divine couple – its 'state that cannot be told' carries dhvani of sanctity and social conditions surrounding marriage."
+        },
+        {
+            text: "Santosh Kumar Roy 'Batohi' (pen-name meaning 'traveller') wrote 'Dalita Chī Hama' (I Am Dalit). How does the chapter characterise this poem?",
+            options: [
+                "A lament of victimhood",
+                "An assertive identity declaration, not apologetic – the most Ambedkarite assertion in the Batohi corpus",
+                "A love poem",
+                "A religious hymn"
+            ],
+            correct: 1,
+            explanation: "'Dalita Chī Hama' is not a lament but an assertion of Dalit identity, reflecting Ambedkar's vision of pride and dignity, and it is a direct statement of self-affirmation within the parallel tradition."
+        },
+        {
+            text: "In Santosh Kumar Roy 'Batohi's satirical essay 'Bakarī Saṃskṛti' (Goat Culture), what social phenomenon is he critiquing?",
+            options: [
+                "Environmental destruction",
+                "The culture of docility, conformity, and following-the-herd in Bihar's social and political life",
+                "Migration to cities",
+                "Religious rituals"
+            ],
+            correct: 1,
+            explanation: "The 'goat culture' metaphor satirises the uncritical following of herd behaviour – docility and conformity in politics and society, which Roy critiques through carnivalesque humour."
+        },
+        {
+            text: "Subodh Kumar Thakur's recurring motif 'Pratīkṣā' (Waiting/Expectation) appears across multiple Sadeha volumes. What philosophical posture does this represent?",
+            options: [
+            "Impatient rage",
+            "A commitment to patience as both personal virtue and political stance – waiting as ethical posture in the face of social transformation",
+            "Romantic longing",
+            "Religious devotion"
+            ],
+            correct: 1,
+            explanation: "Thakur's repeated return to 'Pratīkṣā' signals a philosophical commitment to patience – not passivity, but an ethical stance of endurance while witnessing the emptying of villages and erosion of community."
+        },
+        {
+            text: "Subodh Kumar Thakur's poem 'Hama Nai Khelab Holī' (I Will Not Play Holi) is described as a refusal of festivity. What is its political-moral significance?",
+            options: [
+                "He dislikes colours",
+                "The refusal to celebrate Holi – the most communal Maithili festival – is a political gesture of mourning during times of social injustice, comparable to refusing celebration when the community suffers",
+                "He prefers Diwali",
+                "He is a recluse"
+            ],
+            correct: 1,
+            explanation: "Refusing to play Holi is a powerful political-moral gesture: when injustice prevails, celebration is inappropriate. The poem belongs to the tradition of social mourning that refuses festivity during crises."
+        },
+        {
+            text: "Subodh Jha's contribution in Sadeha 7 includes the folk figure 'Batahiyā' – the wandering, slightly mad person at the margins. Which Western theorist's concept of madness is invoked to analyse this figure?",
+            options: [
+                "Sigmund Freud's psychoanalysis",
+                "Michel Foucault's 'Madness and Civilization' – the mad/wandering figure as the one who sees social reality from outside its normative framework",
+                "Jacques Lacan's mirror stage",
+                "Gilles Deleuze's schizoanalysis"
+            ],
+            correct: 1,
+            explanation: "Foucault's analysis of madness shows that the marginalised 'mad' person can perceive social reality that the 'sane' normativised subject cannot – the Batahiyā is such an outsider-witness."
+        },
+        {
+            text: "Subhash Kumar Kamat's bīhani kathā titles include 'Tanakhāha' (Salary), 'Bhūkha' (Hunger), 'Buṛhavā Peṃśana' (Old Man's Pension), and 'Maithilī' (the language itself). What do these titles collectively represent?",
+            options: [
+                "List of festivals",
+                "The economic anxieties and social lexicon of contemporary Bihar – mapping the precarious condition of both people and language",
+                "Love stories",
+                "Village deities"
+            ],
+            correct: 1,
+            explanation: "Kamat's seed story titles form a pointed social vocabulary: from salary to hunger to old-age pension to the language itself as a precarious object – a journey through Bihar's economic landscape of rural poor and urban aspirants."
+        },
+        {
+            text: "Which bīhani kathā by Subhash Kumar Kamat uses the title 'Maithilī' – making the language itself a character in a very short story?",
+            options: [
+                "Tanakhāha",
+                "Bhūkha",
+                "Maithilī",
+                "Ānalāīna"
+            ],
+            correct: 2,
+            explanation: "The story titled 'Maithilī' is the Videha Parallel History's meta-literary moment – the language that the archive exists to sustain becomes the subject of a seed story, questioning what happens when a language is treated as a narrative rather than a living medium."
+        },
+        {
+            text: "Brecht's Verfremdungseffekt (alienation effect) is applied to Subhash Kumar Kamat's bīhani kathā. How does the seed story form achieve this estrangement?",
+            options: [
+                "By using long descriptions",
+                "By extreme compression – familiar economic realities (salary, pension, hunger) are made strange by being placed in a literary frame that demands reflection rather than passive consumption",
+                "By avoiding social issues",
+                "By using Sanskrit vocabulary"
+            ],
+            correct: 1,
+            explanation: "The bīhani kathā's radical compression defamiliarises everyday economic realities, forcing the reader to see 'salary' or 'pension' not as normal but as social constructs worthy of critique – the essence of Brechtian estrangement."
+        }
+    ];
+
+    let userAnswers = new Array(questions.length).fill(null);
+    const quizBody = document.getElementById('quizBody');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const checkBtn = document.getElementById('checkBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    function renderQuiz() {
+        quizBody.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.setAttribute('data-qidx', idx);
+
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qText);
+
+            const optionsList = document.createElement('ul');
+            optionsList.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const li = document.createElement('li');
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q${idx}`;
+                radio.value = optIdx;
+                radio.id = `q${idx}_opt${optIdx}`;
+                if (userAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    userAnswers[idx] = parseInt(e.target.value);
+                    const oldFeedback = card.querySelector('.feedback');
+                    const oldExpl = card.querySelector('.explanation');
+                    if (oldFeedback) oldFeedback.remove();
+                    if (oldExpl) oldExpl.remove();
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q${idx}_opt${optIdx}`;
+                label.innerText = opt;
+                li.appendChild(radio);
+                li.appendChild(label);
+                optionsList.appendChild(li);
+            });
+            card.appendChild(optionsList);
+            quizBody.appendChild(card);
+        });
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    function evaluateQuiz() {
+        // sync current selections
+        for (let i = 0; i < questions.length; i++) {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selected) {
+                userAnswers[i] = parseInt(selected.value);
+            } else {
+                if (userAnswers[i] !== null) userAnswers[i] = null;
+            }
+        }
+
+        let correctCount = 0;
+        // clear old feedback
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const oldFeedback = card.querySelector('.feedback');
+            const oldExpl = card.querySelector('.explanation');
+            if (oldFeedback) oldFeedback.remove();
+            if (oldExpl) oldExpl.remove();
+        }
+
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const userChoice = userAnswers[i];
+            const isCorrect = (userChoice !== null && userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+
+            const feedbackSpan = document.createElement('div');
+            feedbackSpan.className = 'feedback';
+            if (userChoice === null) {
+                feedbackSpan.innerText = '⚠️ Not answered';
+                feedbackSpan.classList.add('wrong');
+            } else if (isCorrect) {
+                feedbackSpan.innerText = '✓ Correct';
+                feedbackSpan.classList.add('correct');
+            } else {
+                const correctLetter = String.fromCharCode(65 + questions[i].correct);
+                const correctText = questions[i].options[questions[i].correct];
+                feedbackSpan.innerText = `✗ Incorrect. Correct: ${correctLetter}. ${correctText.substring(0, 100)}${correctText.length > 100 ? '…' : ''}`;
+                feedbackSpan.classList.add('wrong');
+            }
+
+            const explDiv = document.createElement('div');
+            explDiv.className = 'explanation';
+            explDiv.innerHTML = `📖 ${questions[i].explanation}`;
+            card.appendChild(feedbackSpan);
+            card.appendChild(explDiv);
+        }
+        scoreDisplay.innerText = `Score: ${correctCount} / ${questions.length}`;
+    }
+
+    function resetQuiz() {
+        for (let i = 0; i < questions.length; i++) userAnswers[i] = null;
+        renderQuiz();
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    checkBtn.addEventListener('click', evaluateQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+
+    renderQuiz();
+</script>
+</body>
+</html>

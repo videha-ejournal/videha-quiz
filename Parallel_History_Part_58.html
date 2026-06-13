@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Quiz: Chapter 58 – Premshankar Singh & Ilarani Singh | Literary History & Drama Translation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0ede5;
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            padding: 2rem 1rem;
+            color: #2d2a24;
+        }
+
+        .quiz-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fffef9;
+            border-radius: 36px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
+            overflow: hidden;
+            border: 1px solid #e2d9cc;
+        }
+
+        .quiz-header {
+            background: #4a6741;
+            background: linear-gradient(135deg, #2d5230, #5f7e4e);
+            padding: 1.8rem 2rem;
+            color: white;
+        }
+
+        .quiz-header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+            margin-bottom: 0.4rem;
+        }
+
+        .quiz-header h1 span {
+            font-weight: 400;
+            font-style: italic;
+            font-size: 1rem;
+            background: #e1eac080;
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+        }
+
+        .quiz-header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 0.6rem;
+            border-left: 3px solid #c7e0a3;
+            padding-left: 1rem;
+        }
+
+        .quiz-body {
+            padding: 2rem 2rem 1rem;
+        }
+
+        .question-card {
+            background: #ffffff;
+            border: 1px solid #e8e0d4;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.8rem;
+            margin-bottom: 2rem;
+            transition: all 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .question-card:hover {
+            border-color: #bfc9b3;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #3a5e2e;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .options {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .options li {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+        }
+
+        .options input {
+            margin-top: 0.25rem;
+            width: 1.1rem;
+            height: 1.1rem;
+            accent-color: #5f7e4e;
+            flex-shrink: 0;
+        }
+
+        .options label {
+            font-size: 1rem;
+            line-height: 1.4;
+            color: #3e3a32;
+            font-weight: normal;
+        }
+
+        .feedback {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 30px;
+            display: inline-block;
+            background: #f3f2ec;
+            color: #4a5b4a;
+        }
+
+        .feedback.correct {
+            background: #e0f2e9;
+            color: #1f5e3a;
+            border-left: 4px solid #2b7a4b;
+        }
+
+        .feedback.wrong {
+            background: #ffeae6;
+            color: #b34141;
+            border-left: 4px solid #c4554b;
+        }
+
+        .explanation {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #6c685b;
+            font-style: italic;
+            border-left: 2px solid #dbd2c2;
+            padding-left: 12px;
+        }
+
+        .quiz-footer {
+            padding: 1.2rem 2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-top: 1px solid #e8e0d4;
+            background: #fefcf7;
+        }
+
+        .score-area {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: #e5ede2;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            color: #2b523b;
+        }
+
+        button {
+            background: #5f7e4e;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.7rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.15s;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background: #456137;
+            transform: scale(0.97);
+        }
+
+        .reset-btn {
+            background: #8f7a64;
+        }
+        .reset-btn:hover {
+            background: #6d5b49;
+        }
+
+        @media (max-width: 650px) {
+            .quiz-body {
+                padding: 1.5rem;
+            }
+            .question-card {
+                padding: 1.1rem;
+            }
+            .quiz-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="quiz-container">
+    <div class="quiz-header">
+        <h1>📘 Chapter 58 · Premshankar Singh & Ilarani Singh <span>Literary History · Textual Scholarship · Drama Translation</span></h1>
+        <p>Based on “PROF. PREMSHANKAR SINGH & ILARANI SINGH – CRITICAL APPRECIATION” (Videha Parallel History, Tome III)<br>Maithili Bhasha Sahitya: Beesam Shatabdi · Vyadhibhakti-tarangini · Prem: Ek Kavita · Navya-Nyāya · Women’s poetry</p>
+    </div>
+    <div class="quiz-body" id="quizBody"></div>
+    <div class="quiz-footer">
+        <div class="score-area" id="scoreDisplay">Score: 0 / 0</div>
+        <div>
+            <button id="checkBtn">✅ Check answers</button>
+            <button id="resetBtn" class="reset-btn">⟳ Reset quiz</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ---- QUESTIONS BASED ON CHAPTER 58: Premshankar Singh & Ilarani Singh (pages 181-205) ----
+    const questions = [
+        {
+            text: "What is the title of Premshankar Singh's landmark survey of Maithili language and literature of the twentieth century, first serialised in Videha eJournal?",
+            options: [
+                "Maithili Sahitya ka Itihas",
+                "Maithili Bhasha Sahitya: Beesam Shatabdi (Maithili Language and Literature: The Twentieth Century)",
+                "Maithili Navajagaran",
+                "Beesvi Sadi ka Maithili Sahitya"
+            ],
+            correct: 1,
+            explanation: "The book is 'Maithili Bhasha Sahitya: Beesam Shatabdi' (2009), which covers folk ballads, folk theatre, drama, memoir literature, radio drama, and the Chetna Samiti movement."
+        },
+        {
+            text: "Which Sanskrit serpent-worship text by Vidyapati did Premshankar Singh edit, recovering it from a palm-leaf manuscript held by Dhaka University Library?",
+            options: [
+                "Purusha Pariksha",
+                "Kirtilata",
+                "Vyadhibhakti-tarangini (Waves of Devotion in Illness/Affliction)",
+                "Bhuparikrama"
+            ],
+            correct: 2,
+            explanation: "The Vyadhibhakti-tarangini is a Sanskrit composition on the Manasa serpent cult, edited by Singh from a sole palm-leaf manuscript in Tirhuta/Bangla script."
+        },
+        {
+            text: "Ilarani Singh translated which play by Pravir Mukhopadhyay into Maithili, dealing with themes of tuberculosis, poverty, and self-sacrificing love?",
+            options: [
+                "Salome by Oscar Wilde",
+                "Bishabriksha by Bankim Chandra Chatterjee",
+                "Prem: Ek Kavita (Love: A Poem)",
+                "Ek Minute Ki Rani"
+            ],
+            correct: 2,
+            explanation: "She translated 'Prem: Ek Kavita' (first edition 1968), where protagonist Manoj hides his tuberculosis and urges his friend to marry his beloved Seema – a tragic exploration of love and disease."
+        },
+        {
+            text: "According to the chapter, what is the significance of the anthology 'Ijoriyak Angaithi-Mor' (The Fireplace of Light That Is Mine), edited by Mala Jha and Vibha Jha, in which Ilarani Singh's poetry appears?",
+            options: [
+                "It is a collection of Maithili folk tales",
+                "It is the largest curated collection of Maithili women's poetry, recovering voices historically marginalised by the literary establishment",
+                "It is a grammar textbook",
+                "It is a translation of Tagore's Gitanjali"
+            ],
+            correct: 1,
+            explanation: "The anthology (first edition 2004, updated 2022) is a feminist literary recovery, giving voice to Maithili women poets and documenting the 'half population' of Mithila."
+        },
+        {
+            text: "In his literary history, Premshankar Singh explicitly identifies which two malpractices within the Maithili literary establishment, aligning with the Videha Parallel History critique?",
+            options: [
+                "Lack of printing presses and illiteracy",
+                "Caste bias, sectarian criticism, and mutual praise clubs ('blackmail literature')",
+                "Excessive translation from English and neglect of folk forms",
+                "Overuse of Sanskrit and neglect of Maithili"
+            ],
+            correct: 1,
+            explanation: "Singh does not spare any caste or community; he identifies caste bias, inferiority-complex-driven literature, and networks of mutual praise that harm literary welfare."
+        },
+        {
+            text: "The chapter applies Navya-Nyāya concept of 'avacchedaka' (limitor) to Ilarani Singh's translation work. How is this concept used?",
+            options: [
+                "To measure the length of her poems",
+                "To specify the precise scope of the translation's fidelity – limited by (avacchinna by) the Maithili linguistic and cultural domain",
+                "To count the number of characters in the play",
+                "To determine the rasa of the original"
+            ],
+            correct: 1,
+            explanation: "Avacchedaka prevents vague generalisation: her translation is not 'faithful' in a universal sense but faithful as limited by Maithili idiom and the specific emotional register of the original."
+        },
+        {
+            text: "In Ilarani Singh's translation of 'Prem: Ek Kavita', the X-ray plate serves as a plot device revealing the protagonist's tuberculosis. From a Navya-Nyāya perspective, the X-ray functions as:",
+            options: [
+                "An alankara (figure of speech)",
+                "A pramāṇa (instrument of valid knowledge) – specifically anumāna (inference) that transforms the beloved's cognition from illusion (bhrama) to reality (pramā)",
+                "A radif (refrain)",
+                "A rasa-dhvani device"
+            ],
+            correct: 1,
+            explanation: "The X-ray provides perceptual evidence (pratyaksha) that Manoj is a patient, not a husband; it moves Seema from false hope (bhrama) to valid knowledge (prama) of his condition."
+        },
+        {
+            text: "Which Western critical theory is used in the chapter to analyse the tension between naturalism (disease and poverty as deterministic forces) and romantic idealism in Ilarani Singh's translated play?",
+            options: [
+                "Postcolonial theory",
+                "Feminist criticism",
+                "Aristotelian tragic hero with hamartia (nobility as Manoj's flaw) and naturalistic determinism",
+                "Reader-response theory"
+            ],
+            correct: 2,
+            explanation: "The analysis identifies Manoj's 'hamartia' as his nobility (self-sacrifice), while tuberculosis and poverty act as naturalistic forces – a blend of Greek tragedy and Zola-esque naturalism."
+        },
+        {
+            text: "Premshankar Singh's editorial recovery of the Vyadhibhakti-tarangini is significant for the Videha Parallel History because it deals with which subaltern religious tradition?",
+            options: [
+                "Vedic sacrifice",
+                "Serpent worship (Manasa cult) – a non-Brahminical, folk-goddess tradition of Mithila and Bengal",
+                "Buddhist monasticism",
+                "Islamic Sufism"
+            ],
+            correct: 1,
+            explanation: "The text is about the snake-goddess Manasa, a subaltern goddess tradition of Mithila and Bengal, aligning with the Parallel History's recovery of suppressed folk-religious voices."
+        },
+        {
+            text: "The chapter cites Susie Tharu and K. Lalita's 'Women Writing in India' as a parallel to which editorial project?",
+            options: [
+                "Premshankar Singh's literary history",
+                "Ilarani Singh's play translation",
+                "The anthology 'Ijoriyak Angaithi-Mor' as a feminist literary recovery in Maithili",
+                "Videha eJournal"
+            ],
+            correct: 2,
+            explanation: "Just as Tharu and Lalita recovered women's writing across Indian languages, 'Ijoriyak Angaithi-Mor' performs the same recovery within Maithili, documenting women poets from Ilarani Singh to the present."
+        },
+        {
+            text: "According to the chapter, what is the 'dried main drain' vs 'living parallel stream' metaphor, and how does it apply to Premshankar Singh's work?",
+            options: [
+                "It contrasts Hindi and Maithili; Singh wrote only in Hindi",
+                "It contrasts the institutional Sahitya Akademi canon (dried main drain) with the democratic parallel tradition; Singh's critical work exposing caste bias aligns with the parallel stream",
+                "It contrasts poetry and prose; Singh wrote only prose",
+                "It contrasts modern and ancient Maithili"
+            ],
+            correct: 1,
+            explanation: "Singh's insistence on identifying 'blackmail literature' and caste-based gatekeeping places him within the Videha Parallel History's living stream, opposed to the ossified mainstream canon."
+        },
+        {
+            text: "The chapter mentions that Premshankar Singh's survey covers folk ballad (Lokgatha) and gives special attention to the contribution of which region's scholars to Maithili folk ballads?",
+            options: [
+                "Bengal",
+                "Manipur",
+                "Nepal",
+                "Kerala"
+            ],
+            correct: 1,
+            explanation: "The text notes that Singh's section on Lokgatha includes a special focus on Manipuri scholars' contribution to Maithili folk ballads – an unusual cross-regional insight."
+        }
+    ];
+
+    let userAnswers = new Array(questions.length).fill(null);
+    const quizBody = document.getElementById('quizBody');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const checkBtn = document.getElementById('checkBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    function renderQuiz() {
+        quizBody.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.setAttribute('data-qidx', idx);
+
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qText);
+
+            const optionsList = document.createElement('ul');
+            optionsList.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const li = document.createElement('li');
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q${idx}`;
+                radio.value = optIdx;
+                radio.id = `q${idx}_opt${optIdx}`;
+                if (userAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    userAnswers[idx] = parseInt(e.target.value);
+                    const oldFeedback = card.querySelector('.feedback');
+                    const oldExpl = card.querySelector('.explanation');
+                    if (oldFeedback) oldFeedback.remove();
+                    if (oldExpl) oldExpl.remove();
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q${idx}_opt${optIdx}`;
+                label.innerText = opt;
+                li.appendChild(radio);
+                li.appendChild(label);
+                optionsList.appendChild(li);
+            });
+            card.appendChild(optionsList);
+            quizBody.appendChild(card);
+        });
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    function evaluateQuiz() {
+        // sync current selections
+        for (let i = 0; i < questions.length; i++) {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selected) {
+                userAnswers[i] = parseInt(selected.value);
+            } else {
+                if (userAnswers[i] !== null) userAnswers[i] = null;
+            }
+        }
+
+        let correctCount = 0;
+        // clear old feedback
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const oldFeedback = card.querySelector('.feedback');
+            const oldExpl = card.querySelector('.explanation');
+            if (oldFeedback) oldFeedback.remove();
+            if (oldExpl) oldExpl.remove();
+        }
+
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const userChoice = userAnswers[i];
+            const isCorrect = (userChoice !== null && userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+
+            const feedbackSpan = document.createElement('div');
+            feedbackSpan.className = 'feedback';
+            if (userChoice === null) {
+                feedbackSpan.innerText = '⚠️ Not answered';
+                feedbackSpan.classList.add('wrong');
+            } else if (isCorrect) {
+                feedbackSpan.innerText = '✓ Correct';
+                feedbackSpan.classList.add('correct');
+            } else {
+                const correctLetter = String.fromCharCode(65 + questions[i].correct);
+                const correctText = questions[i].options[questions[i].correct];
+                feedbackSpan.innerText = `✗ Incorrect. Correct: ${correctLetter}. ${correctText.substring(0, 100)}${correctText.length > 100 ? '…' : ''}`;
+                feedbackSpan.classList.add('wrong');
+            }
+
+            const explDiv = document.createElement('div');
+            explDiv.className = 'explanation';
+            explDiv.innerHTML = `📖 ${questions[i].explanation}`;
+            card.appendChild(feedbackSpan);
+            card.appendChild(explDiv);
+        }
+        scoreDisplay.innerText = `Score: ${correctCount} / ${questions.length}`;
+    }
+
+    function resetQuiz() {
+        for (let i = 0; i < questions.length; i++) userAnswers[i] = null;
+        renderQuiz();
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    checkBtn.addEventListener('click', evaluateQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+
+    renderQuiz();
+</script>
+</body>
+</html>

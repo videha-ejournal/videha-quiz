@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Quiz: Chapter 53 – Narendra Jha & Panna Jha | Dampati Lekhaka of Maithili</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4efe6;
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            padding: 2rem 1rem;
+            color: #2e2a24;
+        }
+
+        .quiz-container {
+            max-width: 980px;
+            margin: 0 auto;
+            background: #fffef9;
+            border-radius: 36px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
+            overflow: hidden;
+            border: 1px solid #e2d9cc;
+        }
+
+        .quiz-header {
+            background: #3a2c1f;
+            background: linear-gradient(115deg, #2b4f3c, #4e6b44);
+            padding: 1.8rem 2rem;
+            color: white;
+        }
+
+        .quiz-header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+            margin-bottom: 0.4rem;
+        }
+
+        .quiz-header h1 span {
+            font-weight: 400;
+            font-style: italic;
+            font-size: 1.1rem;
+            background: #e9d6a870;
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+        }
+
+        .quiz-header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 0.6rem;
+            border-left: 3px solid #f2c94c;
+            padding-left: 1rem;
+        }
+
+        .quiz-body {
+            padding: 2rem 2rem 1rem;
+        }
+
+        .question-card {
+            background: #ffffff;
+            border: 1px solid #e8e0d4;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.8rem;
+            margin-bottom: 2rem;
+            transition: all 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .question-card:hover {
+            border-color: #bfc9b3;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2d432d;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .options {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .options li {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+        }
+
+        .options input {
+            margin-top: 0.25rem;
+            width: 1.1rem;
+            height: 1.1rem;
+            accent-color: #4e6b44;
+            flex-shrink: 0;
+        }
+
+        .options label {
+            font-size: 1rem;
+            line-height: 1.4;
+            color: #3e423a;
+            font-weight: normal;
+        }
+
+        .feedback {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 30px;
+            display: inline-block;
+            background: #f3f2ec;
+            color: #4a5b4a;
+        }
+
+        .feedback.correct {
+            background: #e0f2e9;
+            color: #1f5e3a;
+            border-left: 4px solid #2b7a4b;
+        }
+
+        .feedback.wrong {
+            background: #ffeae6;
+            color: #b34141;
+            border-left: 4px solid #c4554b;
+        }
+
+        .explanation {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #6c685b;
+            font-style: italic;
+            border-left: 2px solid #dbd2c2;
+            padding-left: 12px;
+        }
+
+        .quiz-footer {
+            padding: 1.2rem 2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-top: 1px solid #e8e0d4;
+            background: #fefcf7;
+        }
+
+        .score-area {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: #e5ede2;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            color: #2b523b;
+        }
+
+        button {
+            background: #4e6b44;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.7rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.15s;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background: #3b5533;
+            transform: scale(0.97);
+        }
+
+        .reset-btn {
+            background: #8f7a64;
+        }
+        .reset-btn:hover {
+            background: #6d5b49;
+        }
+
+        @media (max-width: 650px) {
+            .quiz-body {
+                padding: 1.5rem;
+            }
+            .question-card {
+                padding: 1.1rem;
+            }
+            .quiz-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="quiz-container">
+    <div class="quiz-header">
+        <h1>📚 Chapter 53 · Narendra Jha & Panna Jha <span>Dampati Lekhaka Tradition</span></h1>
+        <p>Based on “NARENDRA JHA & PANNA JHA – A Comprehensive Critical Research Report” <br>Videha Parallel History (Tome III) – Economic writing, feminist psychology, Navya-Nyāya & couple-writers legacy</p>
+    </div>
+    <div class="quiz-body" id="quizBody"></div>
+    <div class="quiz-footer">
+        <div class="score-area" id="scoreDisplay">Score: 0 / 0</div>
+        <div>
+            <button id="checkBtn">✅ Check answers</button>
+            <button id="resetBtn" class="reset-btn">⟳ Reset quiz</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ---- QUESTIONS BASED ON CHAPTER 53: Narendra Jha (economist-writer) & Panna Jha (psychologist-author) ----
+    const questions = [
+        {
+            text: "What distinguishes Narendra Jha’s position in Maithili literary history according to Chapter 53?",
+            options: [
+                "He was the first Sahitya Akademi winner from Mithila",
+                "He pioneered economic and political writing in Maithili with eight works including 'Mithila Rising'",
+                "He wrote exclusively in English to promote Maithili",
+                "He was a traditional poet in Vidyapati's style"
+            ],
+            correct: 1,
+            explanation: "Narendra Jha is virtually the only writer to produce a sustained body of economic-geographic analysis in Maithili, filling a near-total vacuum."
+        },
+        {
+            text: "Which English-language book by Narendra Jha argues for a separate Mithila state as the only solution to the region's underdevelopment?",
+            options: [
+                "Mithilak Arthik Vikas",
+                "Mithila Rising (2014)",
+                "Arthantara O Bhrashtachar",
+                "Mithila me Jal-Sansadhan O Prabandhan"
+            ],
+            correct: 1,
+            explanation: "Mithila Rising (2014) is his English manifesto that culminates with a chapter on statehood, asserting administrative separation from Bihar."
+        },
+        {
+            text: "Panna Jha, a retired Professor of Psychology, brought which unique expertise to her Maithili literary works?",
+            options: [
+                "Economic geography of Mithila",
+                "Psychoanalytic depth, feminist consciousness, and social critique in short stories and essays",
+                "Sanskrit prosody and alankara",
+                "Environmental activism and water conservation"
+            ],
+            correct: 1,
+            explanation: "Her works 'Anubhuti', 'Anusheelan', and 'Abhilasha' integrate psychological realism with feminist Maithili social critique."
+        },
+        {
+            text: "What is the title of Panna Jha’s essay collection that covers feminist literary criticism, applied psychology, and Maithili drama history?",
+            options: [
+                "Anubhuti",
+                "Abhilasha",
+                "Anusheelan (2012)",
+                "Psycho Social Stress and Schizophrenia"
+            ],
+            correct: 2,
+            explanation: "'Anusheelan' (Practice/Cultivation) contains 17 essays spanning Sahitya-Drishti, women in ancient culture, Dalit literature, suicide, corruption, and Maithili drama."
+        },
+        {
+            text: "According to the chapter, which Maithili novelist (finally awarded Sahitya Akademi in 2021) is the 'novelist-scale version' of Rajdeo Mandal’s subaltern project?",
+            options: [
+                "Jagdish Prasad Mandal",
+                "Subhash Chandra Yadav",
+                "Lalit (Lalitesh Mishra)",
+                "Harimohan Jha"
+            ],
+            correct: 0,
+            explanation: "Jagdish Prasad Mandal (author of 'Pangu') documents lower-caste rural Mithila in long-form; Roy works in short forms – together they map subaltern experience."
+        },
+        {
+            text: "Navya-Nyāya epistemology, applied in the chapter, uses the concept of 'vyāpti' (invariable concomitance). How is this used to analyse Narendra Jha’s economic writing?",
+            options: [
+                "To measure the popularity of his books",
+                "To identify the universal relation between observed economic data (hetu) and structural underdevelopment (sādhya)",
+                "To decode the meter of his poetry",
+                "To assess the emotional impact (rasa) of his memoir"
+            ],
+            correct: 1,
+            explanation: "Navya-Nyāya vyāpti helps show that wherever there is data on corruption and flood mismanagement, there follows the inference of Mithila’s systemic exploitation."
+        },
+        {
+            text: "Which story from Panna Jha’s 'Anubhuti' collection deals with a daughter who recognises she is re-enacting her father’s behavioural pattern and consciously decides to break the cycle?",
+            options: [
+                "Asaman ke Sarokaar",
+                "Pen Friend",
+                "Punaravritti (Repetition)",
+                "Antardvandva"
+            ],
+            correct: 2,
+            explanation: "Punaravritti is described as one of the most psychologically nuanced Maithili stories, addressing intergenerational trauma and conscious rupture."
+        },
+        {
+            text: "The chapter places both Jhas within the 'Samanantar Parampara' (Parallel Tradition). What does this framework claim about mainstream Maithili literary history?",
+            options: [
+                "It has been fully inclusive of all castes",
+                "It systematically excludes Dalit, subaltern, women’s, and non-literary knowledge writing",
+                "It originated in the 19th century with British administrators",
+                "It focuses only on Nepal-side Maithili"
+            ],
+            correct: 1,
+            explanation: "The Parallel Tradition framework, as advanced by Gajendra Thakur, argues that the Sahitya Akademi canon has suppressed democratic and subaltern voices."
+        },
+        {
+            text: "According to the chapter, what is a major limitation of Narendra Jha’s economic books?",
+            options: [
+                "They are written in obscure Sanskrit",
+                "They are primarily documentary (data compilation) rather than prescriptive, with insufficient policy solutions",
+                "They ignore the Koshi river system",
+                "They advocate for Hindi imposition"
+            ],
+            correct: 1,
+            explanation: "Critics note that Jha’s works assemble data impressively but do not always provide adequate policy frameworks; also his treatment of zamindari is sometimes uncritical."
+        },
+        {
+            text: "Panna Jha’s essay 'Nari- Lekhanak Kathaa- Dishaa' (The Story-Direction of Women Writers) contributes to which field of Indian feminist criticism?",
+            options: [
+                "Écriture féminine in French theory",
+                "Recovering and documenting Maithili women’s literary history (similar to Tharu & Lalita’s project)",
+                "Analyzing male gaze in cinema",
+                "Environmental ecofeminism"
+            ],
+            correct: 1,
+            explanation: "The essay positions her as a feminist literary historian within Maithili, documenting the emergence and concerns of women’s writing."
+        },
+        {
+            text: "The chapter draws a parallel between the suppression of Gangesa Upadhyaya’s social origins and what aspect of the Jhas’ work?",
+            options: [
+                "Their exclusive focus on urban elites",
+                "The marginalisation of their non-elite social backgrounds and the erasure of subaltern intellectual roots",
+                "Their rejection of Navya-Nyaya",
+                "Their complete absence from Maithili literary discussions"
+            ],
+            correct: 1,
+            explanation: "Just as Gangesa’s inter-caste marriage was erased by Brahmin historians, the Jhas’ voices represent democratic traditions suppressed by the literary establishment."
+        },
+        {
+            text: "What is the name of the award given to both Narendra and Panna Jha together in 2019, recognising their joint literary contribution?",
+            options: [
+                "Sahitya Akademi Award",
+                "Vaidyanath Mishra 'Yatri' Samman",
+                "Mithila Vibhuti Samman",
+                "Videha Samman"
+            ],
+            correct: 1,
+            explanation: "They received the Vaidyanath Mishra 'Yatri' Samman (named after Nagarjun) at a ceremony jointly organised by Akhil Bharatiya Maithili Sahitya Parishad and Mithilanchal Vikas Parishad."
+        }
+    ];
+
+    let userAnswers = new Array(questions.length).fill(null);
+    const quizBody = document.getElementById('quizBody');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const checkBtn = document.getElementById('checkBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    function renderQuiz() {
+        quizBody.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.setAttribute('data-qidx', idx);
+
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qText);
+
+            const optionsList = document.createElement('ul');
+            optionsList.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const li = document.createElement('li');
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q${idx}`;
+                radio.value = optIdx;
+                radio.id = `q${idx}_opt${optIdx}`;
+                if (userAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    userAnswers[idx] = parseInt(e.target.value);
+                    // remove existing feedback for a clean state
+                    const oldFeedback = card.querySelector('.feedback');
+                    const oldExpl = card.querySelector('.explanation');
+                    if (oldFeedback) oldFeedback.remove();
+                    if (oldExpl) oldExpl.remove();
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q${idx}_opt${optIdx}`;
+                label.innerText = opt;
+                li.appendChild(radio);
+                li.appendChild(label);
+                optionsList.appendChild(li);
+            });
+            card.appendChild(optionsList);
+            quizBody.appendChild(card);
+        });
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    function evaluateQuiz() {
+        // sync any unchecked radios
+        for (let i = 0; i < questions.length; i++) {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selected) {
+                userAnswers[i] = parseInt(selected.value);
+            } else {
+                if (userAnswers[i] !== null) userAnswers[i] = null;
+            }
+        }
+
+        let correctCount = 0;
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const oldFeedback = card.querySelector('.feedback');
+            const oldExpl = card.querySelector('.explanation');
+            if (oldFeedback) oldFeedback.remove();
+            if (oldExpl) oldExpl.remove();
+        }
+
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const userChoice = userAnswers[i];
+            const isCorrect = (userChoice !== null && userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+
+            const feedbackSpan = document.createElement('div');
+            feedbackSpan.className = 'feedback';
+            if (userChoice === null) {
+                feedbackSpan.innerText = '⚠️ Not answered';
+                feedbackSpan.classList.add('wrong');
+            } else if (isCorrect) {
+                feedbackSpan.innerText = '✓ Correct';
+                feedbackSpan.classList.add('correct');
+            } else {
+                const correctLetter = String.fromCharCode(65 + questions[i].correct);
+                const correctText = questions[i].options[questions[i].correct];
+                feedbackSpan.innerText = `✗ Incorrect. Correct: ${correctLetter}. ${correctText.substring(0, 100)}${correctText.length > 100 ? '…' : ''}`;
+                feedbackSpan.classList.add('wrong');
+            }
+
+            const explDiv = document.createElement('div');
+            explDiv.className = 'explanation';
+            explDiv.innerHTML = `📖 ${questions[i].explanation}`;
+            card.appendChild(feedbackSpan);
+            card.appendChild(explDiv);
+        }
+        scoreDisplay.innerText = `Score: ${correctCount} / ${questions.length}`;
+    }
+
+    function resetQuiz() {
+        for (let i = 0; i < questions.length; i++) userAnswers[i] = null;
+        renderQuiz();
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    checkBtn.addEventListener('click', evaluateQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+
+    renderQuiz();
+</script>
+</body>
+</html>

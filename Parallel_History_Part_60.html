@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Quiz: Chapter 60 – Rajdeo Mandal | Poet, Novelist, Dramatist of Mithila</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2efe7;
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            padding: 2rem 1rem;
+            color: #2d2a24;
+        }
+
+        .quiz-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fffef9;
+            border-radius: 36px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
+            overflow: hidden;
+            border: 1px solid #e2d9cc;
+        }
+
+        .quiz-header {
+            background: #8b5e3c;
+            background: linear-gradient(135deg, #6b4524, #9e6e45);
+            padding: 1.8rem 2rem;
+            color: white;
+        }
+
+        .quiz-header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+            margin-bottom: 0.4rem;
+        }
+
+        .quiz-header h1 span {
+            font-weight: 400;
+            font-style: italic;
+            font-size: 1rem;
+            background: #f3deba80;
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+        }
+
+        .quiz-header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 0.6rem;
+            border-left: 3px solid #ffd580;
+            padding-left: 1rem;
+        }
+
+        .quiz-body {
+            padding: 2rem 2rem 1rem;
+        }
+
+        .question-card {
+            background: #ffffff;
+            border: 1px solid #e8e0d4;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.8rem;
+            margin-bottom: 2rem;
+            transition: all 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .question-card:hover {
+            border-color: #bfc9b3;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #5a3e1f;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .options {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .options li {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+        }
+
+        .options input {
+            margin-top: 0.25rem;
+            width: 1.1rem;
+            height: 1.1rem;
+            accent-color: #9e6e45;
+            flex-shrink: 0;
+        }
+
+        .options label {
+            font-size: 1rem;
+            line-height: 1.4;
+            color: #3e3a32;
+            font-weight: normal;
+        }
+
+        .feedback {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 30px;
+            display: inline-block;
+            background: #f3f2ec;
+            color: #4a5b4a;
+        }
+
+        .feedback.correct {
+            background: #e0f2e9;
+            color: #1f5e3a;
+            border-left: 4px solid #2b7a4b;
+        }
+
+        .feedback.wrong {
+            background: #ffeae6;
+            color: #b34141;
+            border-left: 4px solid #c4554b;
+        }
+
+        .explanation {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #6c685b;
+            font-style: italic;
+            border-left: 2px solid #dbd2c2;
+            padding-left: 12px;
+        }
+
+        .quiz-footer {
+            padding: 1.2rem 2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-top: 1px solid #e8e0d4;
+            background: #fefcf7;
+        }
+
+        .score-area {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: #e5ede2;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            color: #2b523b;
+        }
+
+        button {
+            background: #9e6e45;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.7rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.15s;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background: #7c5332;
+            transform: scale(0.97);
+        }
+
+        .reset-btn {
+            background: #8f7a64;
+        }
+        .reset-btn:hover {
+            background: #6d5b49;
+        }
+
+        @media (max-width: 650px) {
+            .quiz-body {
+                padding: 1.5rem;
+            }
+            .question-card {
+                padding: 1.1rem;
+            }
+            .quiz-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="quiz-container">
+    <div class="quiz-header">
+        <h1>📖 Chapter 60 · Rajdeo Mandal <span>Poet · Novelist · Dramatist · Screenwriter</span></h1>
+        <p>Based on “A COMPLETE CRITICAL APPRECIATION OF RAJDEO MANDAL” (Videha Parallel History, Tome III)<br>Dhanuk community voice · Hamar Tol · Ambara · Jal Bhanwar · Laj · Panchaiti · Navya-Nyāya · Subaltern realism</p>
+    </div>
+    <div class="quiz-body" id="quizBody"></div>
+    <div class="quiz-footer">
+        <div class="score-area" id="scoreDisplay">Score: 0 / 0</div>
+        <div>
+            <button id="checkBtn">✅ Check answers</button>
+            <button id="resetBtn" class="reset-btn">⟳ Reset quiz</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ---- QUESTIONS BASED ON CHAPTER 60: Rajdeo Mandal (pages 221-241) ----
+    const questions = [
+        {
+            text: "Rajdeo Mandal belongs to which caste community, and what is his literary-historical significance for that community?",
+            options: [
+                "Maithil Brahmin – first to write modern poetry",
+                "Dhanuk (OBC cultivator-artisan caste) – first Dhanuk-caste novelist in Maithili literature",
+                "Kayastha – first to write screenplays",
+                "Dalit – first Dalit autobiographer"
+            ],
+            correct: 1,
+            explanation: "Mandal is from the Dhanuk community (OBC). The chapter states he is 'unquestionably the most important writer to emerge from the Dhanuk caste community' and the first Dhanuk-caste novelist in Maithili."
+        },
+        {
+            text: "Which poetry collection by Rajdeo Mandal (2010) is described in the preface as 'the best collection of this genre in the first decade of the 21st Century' in Maithili?",
+            options: [
+                "Hamar Tol",
+                "Ambara (The Sky/Canopy)",
+                "Trivenik Rang",
+                "Jal Bhanwar"
+            ],
+            correct: 1,
+            explanation: "Ambara (2010) is his debut poetry collection, praised by Gajendra Thakur for its existential depth and social consciousness, including poems like 'Aah', 'Gyanak Jhanda', and 'Nadik Machh'."
+        },
+        {
+            text: "The novel 'Hamar Tol' (My Quarter of the Village) is compared by the chapter to which earlier Maithili novel by Nagarjun, but with the crucial difference that Mandal writes from within his own community's experience?",
+            options: [
+                "Patrahin Nagna Gachh",
+                "Paro (first-hand account of Nagarjun's Brahmin caste)",
+                "Mithila Makhaan",
+                "Prithviputra"
+            ],
+            correct: 1,
+            explanation: "Nagarjun's 'Paro' depicted his Maithil Brahmin community from within; 'Hamar Tol' does the same for the Dhanuk community – a first-hand account where none existed before."
+        },
+        {
+            text: "In the novel 'Hamar Tol', the ending is described as necessarily tragic. What is the closing image?",
+            options: [
+                "A flood destroys the village",
+                "A fight between a Crow and a Myna, unseen by humans – only the tree saw it, and the tree remained silent",
+                "The protagonist dies of hunger",
+                "The landlord evicts everyone"
+            ],
+            correct: 1,
+            explanation: "The fight between Crow and Myna, witnessed only by the silent tree, represents internal conflict within the subaltern community and the impossibility of full articulation – a sophisticated narrative device."
+        },
+        {
+            text: "Which one-act play by Rajdeo Mandal (2015) addresses dowry system and the exploitation of lower-caste girls by upper-caste landlords, with the title meaning 'Shame'?",
+            options: [
+                "Panchaiti",
+                "Laj",
+                "Jaal",
+                "Waapsi"
+            ],
+            correct: 1,
+            explanation: "'Laj' (Shame) is a one-act play where the shame operates in multiple directions – the shame felt by lower castes, the shame that should be felt by exploiters, and the shame of a system that normalises exploitation."
+        },
+        {
+            text: "The short screenplay 'Panchaiti' (2013) dramatises an inter-caste elopement and the village panchayat's authority. The crucial dramatic moment occurs when the young man Kishan asserts:",
+            options: [
+                "'We will run away to the city'",
+                "'We both love each other... We both are adults. I have the right to marry by law' – appealing to constitutional rights against caste custom",
+                "'Let the panchayat decide'",
+                "'I will never marry'"
+            ],
+            correct: 1,
+            explanation: "Kishan's assertion of legal rights against caste-based panchayat authority is the play's central anagnorisis (recognition) – the discovery that constitutional rights override traditional caste councils."
+        },
+        {
+            text: "The chapter applies Georg Lukács' concept of 'typicality' to Mandal's novel 'Hamar Tol'. What does this mean?",
+            options: [
+                "Characters are stereotypes",
+                "Characters are fully realised individuals whose specific fates illuminate the structural conditions of Dhanuk community life – the particular representing the general",
+                "The novel follows a predictable plot",
+                "It is a roman à clef"
+            ],
+            correct: 1,
+            explanation: "Lukácsian typicality means the individual character embodies the social-historical forces of their time and place; Mandal's Dhanuk characters are not abstractions but concrete individuals whose lives reveal caste and economic structures."
+        },
+        {
+            text: "Mandal's seed story collection 'Trivenik Rang' (Colours of the Triveni) engages with Walter Benjamin's concept of storytelling. What does Benjamin argue about the storyteller?",
+            options: [
+                "Storytellers must be university-trained",
+                "The storyteller draws on a community of listeners and carries 'counsel' – practical wisdom from lived experience, transmitted across generations",
+                "Storytelling is obsolete in the modern age",
+                "Only epic poetry counts as storytelling"
+            ],
+            correct: 1,
+            explanation: "The vihani katha (seed story) tradition recovers the oral storytelling community described by Benjamin, where stories carry counsel rooted in shared experience – exemplified by Mandal's Sagar Raati Deep Jaray recitation programmes."
+        },
+        {
+            text: "In the screenplay 'Jaal' (The Net), Mandal uses a powerful metaphor: 'The net was made by our own hands / Now it is tightened on us ourselves.' This is analysed through which concept?",
+            options: [
+                "Aristotelian catharsis",
+                "Marxist alienation – the net-makers (peasant-artisan communities) trapped by the social structures they themselves created and maintained",
+                "Freudian repression",
+                "Brechtian Verfremdungseffekt"
+            ],
+            correct: 1,
+            explanation: "The metaphor encapsulates Marx's concept of alienation without imported terminology: the labouring class creates the structures that then enslave them."
+        },
+        {
+            text: "The chapter compares Rajdeo Mandal's short story 'Rusal Bauwa' (An Angry Boy) to Premchand's 'Idgah'. What is the crucial difference?",
+            options: [
+                "Both stories celebrate altruism",
+                "'Idgah' shows a poor boy's self-abnegating love; 'Rusal Bauwa' shows a poor child's legitimate anger at visible economic inequality – subaltern assertion rather than accommodation",
+                "Both stories are set in cities",
+                "Mandal copies Premchand exactly"
+            ],
+            correct: 1,
+            explanation: "Where Premchand's Hamid buys tongs for his grandmother, Mandal's Fekan's son refuses to accept the humiliation of inequality – a shift from accommodation to assertion, characteristic of the parallel tradition."
+        },
+        {
+            text: "The chapter applies Gayatri Spivak's question 'Can the subaltern speak?' to Mandal's work. What answer does the Videha parallel tradition offer?",
+            options: [
+                "No, the subaltern can never speak",
+                "Yes – but only through alternative institutional structures: the Videha digital archive, Shruti Prakashan, Sagar Raati Deep Jaray programmes, and writing in gamaya (village) Maithili",
+                "Only in Sanskrit",
+                "Only through translation into English"
+            ],
+            correct: 1,
+            explanation: "Spivak's question is answered affirmatively but conditionally: the subaltern can speak when alternative, non-hegemonic institutions (like Videha) create the conditions for that speech to be heard without appropriation."
+        },
+        {
+            text: "Which Western playwright's theory of 'alienation effect' (Verfremdungseffekt) is used to analyse Mandal's story 'Electionak Bhoot' (The Ghost of Election), where electoral corruption is framed as a dream?",
+            options: [
+                "Anton Chekhov",
+                "Henrik Ibsen",
+                "Bertolt Brecht – the dream-frame creates critical distance, making the audience observe corruption while remaining emotionally engaged",
+                "Samuel Beckett"
+            ],
+            correct: 2,
+            explanation: "By framing electoral corruption as a dream, Mandal achieves Brecht's alienation effect: the audience both feels the emotional intensity and maintains critical cognitive distance, enabling social critique without didacticism."
+        }
+    ];
+
+    let userAnswers = new Array(questions.length).fill(null);
+    const quizBody = document.getElementById('quizBody');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const checkBtn = document.getElementById('checkBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    function renderQuiz() {
+        quizBody.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.setAttribute('data-qidx', idx);
+
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qText);
+
+            const optionsList = document.createElement('ul');
+            optionsList.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const li = document.createElement('li');
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q${idx}`;
+                radio.value = optIdx;
+                radio.id = `q${idx}_opt${optIdx}`;
+                if (userAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    userAnswers[idx] = parseInt(e.target.value);
+                    const oldFeedback = card.querySelector('.feedback');
+                    const oldExpl = card.querySelector('.explanation');
+                    if (oldFeedback) oldFeedback.remove();
+                    if (oldExpl) oldExpl.remove();
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q${idx}_opt${optIdx}`;
+                label.innerText = opt;
+                li.appendChild(radio);
+                li.appendChild(label);
+                optionsList.appendChild(li);
+            });
+            card.appendChild(optionsList);
+            quizBody.appendChild(card);
+        });
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    function evaluateQuiz() {
+        // sync current selections
+        for (let i = 0; i < questions.length; i++) {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selected) {
+                userAnswers[i] = parseInt(selected.value);
+            } else {
+                if (userAnswers[i] !== null) userAnswers[i] = null;
+            }
+        }
+
+        let correctCount = 0;
+        // clear old feedback
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const oldFeedback = card.querySelector('.feedback');
+            const oldExpl = card.querySelector('.explanation');
+            if (oldFeedback) oldFeedback.remove();
+            if (oldExpl) oldExpl.remove();
+        }
+
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const userChoice = userAnswers[i];
+            const isCorrect = (userChoice !== null && userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+
+            const feedbackSpan = document.createElement('div');
+            feedbackSpan.className = 'feedback';
+            if (userChoice === null) {
+                feedbackSpan.innerText = '⚠️ Not answered';
+                feedbackSpan.classList.add('wrong');
+            } else if (isCorrect) {
+                feedbackSpan.innerText = '✓ Correct';
+                feedbackSpan.classList.add('correct');
+            } else {
+                const correctLetter = String.fromCharCode(65 + questions[i].correct);
+                const correctText = questions[i].options[questions[i].correct];
+                feedbackSpan.innerText = `✗ Incorrect. Correct: ${correctLetter}. ${correctText.substring(0, 100)}${correctText.length > 100 ? '…' : ''}`;
+                feedbackSpan.classList.add('wrong');
+            }
+
+            const explDiv = document.createElement('div');
+            explDiv.className = 'explanation';
+            explDiv.innerHTML = `📖 ${questions[i].explanation}`;
+            card.appendChild(feedbackSpan);
+            card.appendChild(explDiv);
+        }
+        scoreDisplay.innerText = `Score: ${correctCount} / ${questions.length}`;
+    }
+
+    function resetQuiz() {
+        for (let i = 0; i < questions.length; i++) userAnswers[i] = null;
+        renderQuiz();
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    checkBtn.addEventListener('click', evaluateQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+
+    renderQuiz();
+</script>
+</body>
+</html>

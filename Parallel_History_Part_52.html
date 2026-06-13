@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Quiz: Chapter 52 – Narayanji Chaudhary | Water Guardian of Mithila</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #eef4f0;
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            padding: 2rem 1rem;
+            color: #1e2f2b;
+        }
+
+        .quiz-container {
+            max-width: 980px;
+            margin: 0 auto;
+            background: #fffffc;
+            border-radius: 36px;
+            box-shadow: 0 20px 35px -12px rgba(0,20,10,0.2);
+            overflow: hidden;
+            border: 1px solid #cbdcd0;
+        }
+
+        .quiz-header {
+            background: #1f5e3a;
+            background: linear-gradient(125deg, #1b4d2e, #2b6e46);
+            padding: 1.8rem 2rem;
+            color: white;
+        }
+
+        .quiz-header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            margin-bottom: 0.4rem;
+        }
+
+        .quiz-header h1 span {
+            font-weight: 400;
+            font-style: italic;
+            font-size: 1.1rem;
+            background: #f3e1b070;
+            padding: 0.1rem 0.6rem;
+            border-radius: 40px;
+        }
+
+        .quiz-header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 0.6rem;
+            border-left: 3px solid #f7bc45;
+            padding-left: 1rem;
+        }
+
+        .quiz-body {
+            padding: 2rem 2rem 1rem;
+        }
+
+        .question-card {
+            background: #ffffff;
+            border: 1px solid #e2e6de;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.8rem;
+            margin-bottom: 2rem;
+            transition: 0.2s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .question-card:hover {
+            border-color: #b7cfbe;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1f3d32;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .options {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .options li {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            flex-wrap: wrap;
+        }
+
+        .options input {
+            margin-top: 0.25rem;
+            width: 1.1rem;
+            height: 1.1rem;
+            accent-color: #2b6e46;
+            flex-shrink: 0;
+        }
+
+        .options label {
+            font-size: 1rem;
+            line-height: 1.4;
+            color: #2a3a33;
+            font-weight: normal;
+        }
+
+        .feedback {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 30px;
+            display: inline-block;
+            background: #f3f5f0;
+            color: #3d5a4b;
+        }
+
+        .feedback.correct {
+            background: #e0f2e9;
+            color: #1f5e3a;
+            border-left: 4px solid #2b7a4b;
+        }
+
+        .feedback.wrong {
+            background: #ffe8e6;
+            color: #ac3a3a;
+            border-left: 4px solid #c4554b;
+        }
+
+        .explanation {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #5e6b62;
+            font-style: italic;
+            border-left: 2px solid #cddfd3;
+            padding-left: 14px;
+        }
+
+        .quiz-footer {
+            padding: 1.2rem 2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-top: 1px solid #e1e8e1;
+            background: #fefcf7;
+        }
+
+        .score-area {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: #e3ece5;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            color: #1a4c33;
+        }
+
+        button {
+            background: #2b6e46;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.7rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.15s;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background: #1f5438;
+            transform: scale(0.97);
+        }
+
+        .reset-btn {
+            background: #8b7a62;
+        }
+        .reset-btn:hover {
+            background: #6b5d49;
+        }
+
+        @media (max-width: 650px) {
+            .quiz-body {
+                padding: 1.5rem;
+            }
+            .question-card {
+                padding: 1.1rem;
+            }
+            .quiz-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="quiz-container">
+    <div class="quiz-header">
+        <h1>🌊 Chapter 52 · Narayanji Chaudhary <span>Talab Bachao Abhiyan</span></h1>
+        <p>Based on “NARAYANJI CHAUDHARY – Environmental Activist, Water Heritage Guardian of Mithila” <br>Videha Parallel History (Tome III) — ponds, people’s movement, and NGT legal victories</p>
+    </div>
+    <div class="quiz-body" id="quizBody"></div>
+    <div class="quiz-footer">
+        <div class="score-area" id="scoreDisplay">Score: 0 / 0</div>
+        <div>
+            <button id="checkBtn">✅ Check answers</button>
+            <button id="resetBtn" class="reset-btn">⟳ Reset quiz</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ----- QUESTIONS BASED ON CHAPTER 52: Narayanji Chaudhary & Talab Bachao Abhiyan -----
+    const questions = [
+        {
+            text: "What is the name of the civil society movement founded and led by Narayanji Chaudhary to protect ponds of Mithila?",
+            options: [
+                "Mithila Jal Andolan",
+                "Talab Bachao Abhiyan (Save Ponds Campaign)",
+                "Jalashay Sanrakshan Yatra",
+                "Pokhar Raksha Sangh"
+            ],
+            correct: 1,
+            explanation: "The Talab Bachao Abhiyan (Save Ponds Campaign) was launched through Mithila Gram Vikas Parishad to resist encroachment and filling of ponds in Darbhanga and the wider Mithilanchal region."
+        },
+        {
+            text: "Which historical proverb best represents the traditional water-rich identity of the Mithila region?",
+            options: [
+                "Har khet me pokhar, har ghar me maachh",
+                "Pag-pag pokhar, macch-makhan (every step a pond, fish and makhana)",
+                "Kosi ke paani, Mithila ki kahani",
+                "Dighi aur talab, Mithila ka swabhiman"
+            ],
+            correct: 1,
+            explanation: "The chapter quotes the proverb 'Pag- pag pokhar, macch- makhan' to describe the exceptional density of ponds in Mithila that defined its ecology and culture."
+        },
+        {
+            text: "In early 2025, which railway station was fined ₹1.61 crore by the Bihar State Pollution Control Board (BSPCB) for polluting the Harahi and Dighi ponds?",
+            options: [
+                "Darbhanga Railway Station",
+                "Madhubani Railway Station",
+                "Samastipur Junction",
+                "Sitamarhi Railway Station"
+            ],
+            correct: 0,
+            explanation: "Following NGT orders and complaints by Chaudhary, Darbhanga Railway Station was fined ₹1.61 crore for discharging sewage into the heritage ponds."
+        },
+        {
+            text: "What is the estimated number of ponds in Darbhanga town according to official data in 2024, showing a drastic decline from over 300 in 1964?",
+            options: [
+                "Less than 50",
+                "Less than 100 (fewer than 100 ponds)",
+                "Exactly 213",
+                "Around 150"
+            ],
+            correct: 1,
+            explanation: "Darbhanga Urban Body's 2016 data showed only 84 ponds; by 2024 estimates put the number at less than 100, a steep fall from 300+ in 1964."
+        },
+        {
+            text: "Which three heritage ponds in Darbhanga are estimated to be 600–900 years old and were the subject of NGT litigation led by Narayanji Chaudhary?",
+            options: [
+                "Kosi, Kamala, Balan",
+                "Harahi, Dighi, and Ganga Sagar",
+                "Surya Pokhar, Man Pokhar, Neem Pokhar",
+                "Ram Pokhar, Laxman Pokhar, Sita Pokhar"
+            ],
+            correct: 1,
+            explanation: "The National Green Tribunal passed orders on Harahi, Dighi and Ganga Sagar ponds, banning illegal construction and imposing environmental compensation."
+        },
+        {
+            text: "According to the chapter, what percentage of Bihar’s groundwater depletion since 2005 is attributed to pond loss (based on Down to Earth sources)?",
+            options: [
+                "Approximately 30%",
+                "About 50%",
+                "About 60%",
+                "Nearly 75%"
+            ],
+            correct: 2,
+            explanation: "Down to Earth reported that 60% of Bihar's groundwater table drop (10-15 feet since 2005) is linked to the disappearance of ponds."
+        },
+        {
+            text: "Which retired DRDO scientist and associate of former President A.P.J. Abdul Kalam collaborated with Narayanji Chaudhary’s movement?",
+            options: [
+                "Prof. Vidyanath Jha",
+                "Dinesh Kumar Mishra",
+                "Padma Shri Dr. Manas Bihari Verma",
+                "Dr. Kailash Kumar Mishra"
+            ],
+            correct: 2,
+            explanation: "Padma Shri Dr. Manas Bihari Verma (retired DRDO scientist) participated in the 2019 seminar and supported the Talab Bachao Abhiyan with scientific validation."
+        },
+        {
+            text: "The Videha eJournal dedicated its entire Issue 419 (01 June 2025) to Narayanji Chaudhary as a Visheshank. How many pages did that special issue contain?",
+            options: [
+                "72 pages",
+                "97 pages",
+                "112 pages",
+                "85 pages"
+            ],
+            correct: 1,
+            explanation: "Videha Issue 419 is a 97-page Visheshank (special issue) with 23 references, poetry, analytical essays, and multi-perspectival profiles."
+        },
+        {
+            text: "Which of the following national/international media outlets has NOT cited Narayanji Chaudhary’s Talab Bachao Abhiyan according to the chapter?",
+            options: [
+                "Down to Earth",
+                "Mongabay India",
+                "The Guardian (UK)",
+                "NewsClick"
+            ],
+            correct: 2,
+            explanation: "The Guardian is not mentioned; coverage includes Down to Earth, Mongabay, India Water Portal, NewsClick, and Hindustan Times."
+        },
+        {
+            text: "What unique quality does the chapter attribute to Narayanji Chaudhary, describing it as 'bataahpani' – a prerequisite for heritage conservation?",
+            options: [
+                "Financial acumen",
+                "Political connections",
+                "A productive, almost reckless devotion",
+                "Legal expertise"
+            ],
+            correct: 2,
+            explanation: "Multiple contributors describe his quality as bataahpani – productive and reckless devotion – which drives him despite death threats and false FIRs."
+        },
+        {
+            text: "According to the Videha Visheshank, what was the estimated loss of fish species in Mithila due to pond disappearance and ecological degradation?",
+            options: [
+                "5% of species",
+                "About 20% of Mithila’s fish species",
+                "35% of fish diversity",
+                "Over half of native species"
+            ],
+            correct: 1,
+            explanation: "Down to Earth (2024) estimated that approximately 20% of Mithila’s fish species have been lost, along with devastation of fishing communities and makhana producers."
+        },
+        {
+            text: "Which Indian National Trust for Art and Cultural Heritage (INTACH) chapter worked with Narayanji Chaudhary to list natural heritage sites in Darbhanga and Madhubani?",
+            options: [
+                "INTACH Delhi",
+                "INTACH Bihar State Chapter",
+                "INTACH Darbhanga Chapter (established 2016)",
+                "INTACH Mithila Heritage Council"
+            ],
+            correct: 2,
+            explanation: "The INTACH Darbhanga Chapter, established in 2016, collaborated with Chaudhary for listing and documentation of water heritage."
+        }
+    ];
+
+    let userAnswers = new Array(questions.length).fill(null);
+    const quizBody = document.getElementById('quizBody');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const checkBtn = document.getElementById('checkBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    function renderQuiz() {
+        quizBody.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.setAttribute('data-qidx', idx);
+
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qText);
+
+            const optionsList = document.createElement('ul');
+            optionsList.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const li = document.createElement('li');
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q${idx}`;
+                radio.value = optIdx;
+                radio.id = `q${idx}_opt${optIdx}`;
+                if (userAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    userAnswers[idx] = parseInt(e.target.value);
+                    // remove existing feedback/explanation for clean re-evaluation later
+                    const oldFeedback = card.querySelector('.feedback');
+                    const oldExpl = card.querySelector('.explanation');
+                    if (oldFeedback) oldFeedback.remove();
+                    if (oldExpl) oldExpl.remove();
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q${idx}_opt${optIdx}`;
+                label.innerText = opt;
+                li.appendChild(radio);
+                li.appendChild(label);
+                optionsList.appendChild(li);
+            });
+            card.appendChild(optionsList);
+            quizBody.appendChild(card);
+        });
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    function evaluateQuiz() {
+        // sync any radio selection not yet stored (if some radios changed but event didn't fire for any reason)
+        for (let i = 0; i < questions.length; i++) {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selected) {
+                userAnswers[i] = parseInt(selected.value);
+            } else {
+                if (userAnswers[i] !== null) userAnswers[i] = null;
+            }
+        }
+
+        let correctCount = 0;
+        // remove previous feedback/explanation from all cards
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const oldFeedback = card.querySelector('.feedback');
+            const oldExpl = card.querySelector('.explanation');
+            if (oldFeedback) oldFeedback.remove();
+            if (oldExpl) oldExpl.remove();
+        }
+
+        // compute and add fresh feedback
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const userChoice = userAnswers[i];
+            const isCorrect = (userChoice !== null && userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+
+            const feedbackSpan = document.createElement('div');
+            feedbackSpan.className = 'feedback';
+            if (userChoice === null) {
+                feedbackSpan.innerText = '⚠️ Not answered';
+                feedbackSpan.classList.add('wrong');
+            } else if (isCorrect) {
+                feedbackSpan.innerText = '✓ Correct';
+                feedbackSpan.classList.add('correct');
+            } else {
+                const correctLetter = String.fromCharCode(65 + questions[i].correct);
+                const correctAnsText = questions[i].options[questions[i].correct];
+                feedbackSpan.innerText = `✗ Incorrect. Correct: ${correctLetter}. ${correctAnsText.substring(0, 100)}${correctAnsText.length > 100 ? '…' : ''}`;
+                feedbackSpan.classList.add('wrong');
+            }
+
+            const explDiv = document.createElement('div');
+            explDiv.className = 'explanation';
+            explDiv.innerHTML = `🌿 ${questions[i].explanation}`;
+            card.appendChild(feedbackSpan);
+            card.appendChild(explDiv);
+        }
+        scoreDisplay.innerText = `Score: ${correctCount} / ${questions.length}`;
+    }
+
+    function resetQuiz() {
+        for (let i = 0; i < questions.length; i++) userAnswers[i] = null;
+        renderQuiz();
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    checkBtn.addEventListener('click', evaluateQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+
+    renderQuiz();
+</script>
+</body>
+</html>
