@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मैथिली कथा साहित्य : सामाजिक समरसता क्विज़ — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+box-sizing: border-box;
+}
+body {
+background: #fef7e6;
+font-family: 'Segoe UI', 'Nirmala UI', 'Noto Sans', 'Mithila', 'Arial', sans-serif;
+margin: 0;
+padding: 24px 16px;
+color: #2c2418;
+}
+.quiz-container {
+max-width: 1200px;
+margin: 0 auto;
+background: #ffffffdd;
+background: white;
+border-radius: 2rem;
+box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+overflow: hidden;
+padding: 20px 24px 40px;
+backdrop-filter: blur(0px);
+}
+h1 {
+font-size: 1.8rem;
+text-align: center;
+color: #a0522d;
+border-left: 8px solid #d9a066;
+border-right: 8px solid #d9a066;
+display: inline-block;
+padding: 0 20px;
+margin: 0 0 8px 0;
+}
+.title-wrap {
+text-align: center;
+margin-bottom: 28px;
+}
+.sub {
+text-align: center;
+font-size: 0.9rem;
+color: #6b4c2c;
+border-top: 1px solid #f0e0b5;
+display: inline-block;
+padding-top: 6px;
+}
+.quiz-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+background: #f8f0df;
+padding: 12px 24px;
+border-radius: 60px;
+margin-bottom: 30px;
+gap: 12px;
+}
+.score-badge {
+background: #3b5c3a;
+color: white;
+font-weight: bold;
+padding: 6px 18px;
+border-radius: 40px;
+font-size: 1.2rem;
+letter-spacing: 1px;
+}
+button {
+background: #b8693a;
+border: none;
+color: white;
+font-weight: bold;
+padding: 8px 26px;
+border-radius: 40px;
+cursor: pointer;
+font-size: 0.9rem;
+transition: 0.2s;
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+button:hover {
+background: #8f4a22;
+transform: scale(0.97);
+}
+.reset-btn {
+background: #5d6b5c;
+}
+.reset-btn:hover {
+background: #3e4a3d;
+}
+.questions-grid {
+display: flex;
+flex-direction: column;
+gap: 1.6rem;
+}
+.question-card {
+background: #fffbf2;
+border-radius: 28px;
+padding: 1rem 1.5rem;
+border: 1px solid #f0dfbe;
+transition: 0.1s;
+}
+.correct-highlight {
+background: #e2f3e2;
+border-left: 8px solid #2b7a2b;
+}
+.wrong-highlight {
+background: #ffe3e0;
+border-left: 8px solid #c23b22;
+}
+.question-text {
+font-weight: 700;
+font-size: 1.02rem;
+margin-bottom: 12px;
+display: flex;
+gap: 12px;
+align-items: baseline;
+flex-wrap: wrap;
+}
+.q-num {
+background: #dabb84;
+width: 32px;
+height: 32px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+border-radius: 30px;
+font-weight: bold;
+font-size: 0.85rem;
+}
+.options {
+display: flex;
+flex-wrap: wrap;
+gap: 1rem;
+margin-left: 12px;
+margin-top: 6px;
+}
+.option {
+display: flex;
+align-items: center;
+gap: 8px;
+background: #fef7ea;
+padding: 6px 16px;
+border-radius: 40px;
+cursor: pointer;
+border: 1px solid #ecdcaa;
+}
+.option:hover {
+background: #f5e9d3;
+}
+input[type="radio"] {
+accent-color: #b8693a;
+width: 18px;
+height: 18px;
+margin: 0;
+}
+label {
+font-weight: 500;
+font-size: 0.9rem;
+}
+.feedback {
+font-size: 0.8rem;
+margin-top: 10px;
+margin-left: 44px;
+color: #5e4b30;
+background: #fff3e0;
+display: inline-block;
+padding: 4px 14px;
+border-radius: 28px;
+}
+footer {
+text-align: center;
+margin-top: 40px;
+font-size: 0.7rem;
+color: #ab8a60;
+border-top: 1px dashed #e9dbbc;
+padding-top: 20px;
+}
+hr {
+margin: 10px 0;
+border-color: #efe3c9;
+}
+@media (max-width: 640px) {
+.quiz-container {
+padding: 16px;
+}
+.options {
+flex-direction: column;
+gap: 0.5rem;
+}
+.question-card {
+padding: 1rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="quiz-container" id="quizRoot"> <div class="title-wrap"> </div> <div class="quiz-header"> <span>🧑‍🏫 मैथिली कथा-यात्रा, समरसता, दलित-शोषित स्वर</span> <span class="score-badge" id="scoreDisplay">0 / 30</span> <div> <button id="submitBtn">✅ उत्तर जाँचू</button> <button id="resetBtn" class="reset-btn">⟳ नवीकरण</button> </div> </div> <div id="questionsContainer" class="questions-grid"></div> <footer class="vq-footer">© सम्पादक, videha.co.in</footer>
+</div>
+<script>
+
+</script><script>
+
+  // 30 प्रश्न (FACTS FROM PDF: मैथिली कथा साहित्य + सामाजिक समरसता + लेखक)
+  const QUIZ_DATA = [
+    { text: "सामाजिक समरसता के भावना के प्रतिनिधित्व कोन अवधारणा करैत अछि?", options: ["विविधतामे एकता", "एकरसता", "वर्ण-व्यवस्था", "धर्मान्धता"], correct: 0 },
+    { text: "मैथिली कथा साहित्यक निर्माण के प्रारम्भ के कारण मिथिलाक विद्वानमे केकर प्रभाव सँ जागल?", options: ["विद्यापति के सम्मान आ चन्दाझाक यश", "बांग्ला उपन्यास", "अंग्रेजी शिक्षा", "रामायण"], correct: 0 },
+    { text: "मैथिली साहित्यक समालोचक डॉ. रामदेव झा के अनुसार आरम्भिक मैथिली कथा लेखनक दुई आदर्श छल - पहिल संस्कृत परम्परा आ दोसर?", options: ["पाश्चात्य परिपाटी", "फारसी कथा", "अवधी लोकगाथा", "तमिल साहित्य"], correct: 0 },
+    { text: "मौलिक मैथिली कथा लिखल जाए लागल लगभग कोन वर्ष के आसपास?", options: ["१९२२-२३ ई.", "१९०० ई.", "१९३५ ई.", "१९४७ ई."], correct: 0 },
+    { text: "प्रारम्भिक कथाकार जे मिथिलाक वर्तमान समाजक स्थितिकें देखैत सामाजिक जीवनसँ जोड़बाक प्रयास केलक, ओहमे के-के छल?", options: ["कुमार गंगानन्द सिंह, कालीकुमार दास, लक्ष्मीपति सिंह आदि", "केवल विद्यापति", "ललित आ धीरेन्द्र", "सोमदेव आ मायानन्द"], correct: 0 },
+    { text: "कुमार गंगानन्द सिंह के कौन कथा मे सामाजिक समरसताक वातावरणक अक्षरशः पालन देखल गेल?", options: ["पंचपरमेश्वर आ बिहाडि", "घरदेखिया", "समजानी", "मलाहक टोल"], correct: 0 },
+    { text: "स्वतन्त्रोत्तर युग (post-independence) मे मैथिली कथा साहित्यकार जे सामाजिक समरसता के नियोजन करैत गामधर शोषित पात्र के प्रतिस्थापित केलक, ओहमे प्रमुख थिक?", options: ["ललित, राजकमल, सोमदेव, मायानन्द मिश्र, धीरेन्द्र आदि", "केवल चन्दा झा", "केवल विद्यापति", "केवल बांग्ला अनुवादक"], correct: 0 },
+    { text: "ललितक श्रेष्ठ कथा जे अखन धरि टटका अछि, से छी ?", options: ["समजानी (स्मजानी)", "मुक्ति", "ओवरलोड", "जान्नर"], correct: 0 },
+    { text: "ललित के कोन कथा मे सामन्ती विकारक जगजियार करैत सामाजिक समरसता के बोध देल गेल अछि?", options: ["ओवरलोड, कंचनियाँ, मुक्ति, जान्नर", "केवल मुक्ति", "घंटी", "बनैत बिगड़ेत"], correct: 0 },
+    { text: "धीरेन्द्रक प्रसिद्ध कथा जे सामाजिक रूप से तिरस्कृत क्षेत्रक व्यथा पर केन्द्रित अछि, ओहमे कोन अछि?", options: ["घंटी, सवाइ, हिइकैत बहैत सेती, गामक ठठरी, मादा काँकेड", "पंचपरमेश्वर", "समजानी", "फैंसरी"], correct: 0 },
+    { text: "रामदेव झाक कथा 'मनुक संतान' आ 'एक ख्रीरातीन फाँक' मे के विषय चित्रित अछि?", options: ["आर्थिक संघर्ष, जाति विभेदक समाप्ति आ वर्ग-संघर्षसँ मुक्ति", "प्रेम कथा", "राजनीतिक षड्यंत्र", "पौराणिक चरित्र"], correct: 0 },
+    { text: "दलित अस्मिताक प्रवक्ता (वक्ता) कथाकारक रूपमे सबसँ महत्त्वपूर्ण नाम कोन अछि?", options: ["सुभाषचन्द्र यादव", "ललित", "धीरेन्द्र", "राजकमल"], correct: 0 },
+    { text: "सुभाषचन्द्र यादवक प्रमुख कथा सभमे कोन नहि अछि?", options: ["बनैत बिगड़ेत (संग्रह)", "घरदेखिया", "काठक बनल लोक", "समजानी"], correct: 3 },
+    { text: "सन् १९७० क दशक मे बैंकक राष्ट्रीयकरण, प्रिवीपस समाप्ति, भूमि सुधार आन्दोलन, साम्यवादी आन्दोलन के का परिणाम भेल?", options: ["पूँजीपति आ श्रमिक मध्य संघर्ष मे वृद्धि, दलित वर्ग मे सह-अस्मिताक भाव मे वृद्धि", "सामाजिक समरसता नष्ट", "केवल आर्थिक उन्नति", "शिक्षा प्रणाली बदल"], correct: 0 },
+    { text: "प्रभाष कुमार चौधरी के कथा ‘मलाहक टोल’ शोषित वर्ग के के लेल प्रेरित करैत अछि?", options: ["अपन अस्तित्वक रक्षा लेल", "भागबाक लेल", "पूजा करबाक लेल", "विदेश जाएबाक"], correct: 0 },
+    { text: "‘इनकिलाव’ नामक कथा जे तत्कालीन राजनीतिक एवं सामाजिक जीवनक यथार्थ पर आधारित अछि, के रचयिता छथि?", options: ["जीवक्रान्त", "रामदेव झा", "सोमदेव", "देवशंकर नवीन"], correct: 0 },
+    { text: "‘अंगाचोर’ आ ‘मलाहक टोल’ जहिना कथा मुख्यतः केकर जीवनक यथार्थ चित्रण करैत अछि?", options: ["निष्णु (दलित/शोषित) वर्ग", "जमींदार वर्ग", "ब्राह्मण वर्ग", "व्यापारी वर्ग"], correct: 0 },
+    { text: "रामान्द रेणु अपन कथा मे कोन चीजक चीरलेखन (विवेचना) केने छथि?", options: ["आर्थिक विसंगति जन्य निष्णु वर्गक दंश आ कृष्टा", "प्रेम संबंध", "शहरीकरण", "प्रौद्योगिकी"], correct: 0 },
+    { text: "‘बनैत बिगड़ेत’ कथा संग्रह के रचयिता छथि?", options: ["सुभाषचन्द्र यादव", "ललित", "धीरेन्द्र", "कुमार गंगानन्द सिंह"], correct: 0 },
+    { text: "निम्नलिखित मे से कोन कथाकार दलित वर्गक सह-अस्मिताक स्वर दैत समकालीन यथार्थ चित्रण मे सफल मानल जाइत अछि?", options: ["सुभाषचन्द्र यादव, महाप्रकाश, सुकान्त सोम, मनमोहन झा उदयचन्द्र झा विनोद", "केवल ललित", "केवल चन्दा झा", "गंगानन्द सिंह"], correct: 0 },
+    { text: "मैथिली कथा साहित्य के आधुनिक युग के प्रथम गद्यकार के रूप मे के नाम अछि?", options: ["चन्दाझा", "विद्यापति", "ज्योतिरीश्वर", "हरिसिंहदेव"], correct: 0 },
+    { text: "मैथिली कथाकार सोमदेव के बारे मे कोन कथन सही अछि?", options: ["विशिष्ट कथाकार छथि (PDF अनुसार)", "सिर्फ नाटक लिखलथि", "पत्रकार छलाह", "संस्कृत कवि छलाह"], correct: 0 },
+    { text: "‘काठक बनल लोक’ कथा के रचयिता छथि?", options: ["सुभाषचन्द्र यादव", "ललित", "धीरेन्द्र", "रामदेव झा"], correct: 0 },
+    { text: "धीरेन्द्र कथाकार के कथा ‘मादा काँकेड’ कोन वर्ग के समस्या उठबैत अछि?", options: ["सामाजिक रूप से तिरस्कृत, शारीरिक दण्डित, आर्थिक अभिशप्त वर्ग", "व्यापारी वर्ग", "उच्च जाति", "बुद्धिजीवी"], correct: 0 },
+    { text: "PDF के अनुसार मैथिली कथा साहित्यक निर्माण मे बंगला साहित्य के प्रभाव कोन कारणसँ परिलक्षित होइत अछि?", options: ["मिथिला-बंगाल प्राचीन सम्बन्ध आ बंगला मे पाश्चात्य कथाक अनुवाद लोकप्रिय छल", "बंगला मे मैथिली नाटक", "बंगला के अनिवार्य शिक्षा", "केवल राजनीतिक"], correct: 0 },
+    { text: "‘मैथिली साहित्य के अलोचनात्मक इतिहास’ के लेखक छथि?", options: ["डॉ. दिनेश कुमार झा", "डॉ. बासुकीनाथ झा", "डॉ. रामदेव झा", "डॉ. श्रीश"], correct: 0 },
+    { text: "‘मैथिली साहित्यक इतिहास’ (१९९१) के रचयिता कोन छथि?", options: ["डॉ. दुगानाथ झा ‘श्रीश’", "डॉ. रामानन्द रमण", "डॉ. बालगोविन्द व्यथित", "डॉ. भीमनाथ झा"], correct: 0 },
+    { text: "उच्चशिक्षाक माध्यम के विषय मे बाबा रामदेव के का मांग रहल?", options: ["भारतीय भाषाक माध्यमसँ उच्च शिक्षा", "अंग्रेजी माध्यम बंद", "केवल संस्कृत", "तकनीकी शिक्षा"], correct: 0 },
+    { text: "मुंबई उच्च न्यायालय के फैसला लोक सेवा अयोग के अंतर्गत के बारे मे छल?", options: ["भाषा सम्बन्धी अर्हता", "जाति प्रमाण", "शैक्षणिक योग्यता", "उम्र सीमा"], correct: 0 },
+    { text: "निम्नलिखित में सुभाषचन्द्र यादव के कथा संग्रह छी?", options: ["बनैत बिगड़ेत", "समजानी", "मलाहक टोल", "पंचपरमेश्वर"], correct: 0 },
+    { text: "PDF मे ‘बिहाडि’ कथा सामाजिक समरसता के कोन पहलू लेल उदाहरण छी?", options: ["सामाजिक समरसता के वातावरण पालन", "विद्रोह", "प्रेमगाथा", "हास्य"], correct: 0 }
+  ];
+  
+  // ensure 30 questions
+  const QUESTIONS = QUIZ_DATA.slice(0,30);
+  let userAnswers = new Array(QUESTIONS.length).fill(null);
+  let submitted = false;
+  
+  function renderQuestions() {
+    const container = document.getElementById('questionsContainer');
+    container.innerHTML = '';
+    QUESTIONS.forEach((q, idx) => {
+      const card = document.createElement('div');
+      card.className = 'question-card';
+      if (submitted) {
+        const selected = userAnswers[idx];
+        const isCorrect = (selected === q.correct);
+        if (isCorrect) card.classList.add('correct-highlight');
+        else if (selected !== null && selected !== q.correct) card.classList.add('wrong-highlight');
+      }
+      const qHeader = document.createElement('div');
+      qHeader.className = 'question-text';
+      qHeader.innerHTML = `<span class="q-num">${idx+1}</span> <span>${q.text}</span>`;
+      const optionsDiv = document.createElement('div');
+      optionsDiv.className = 'options';
+      q.options.forEach((opt, optIdx) => {
+        const radId = `q${idx}_opt${optIdx}`;
+        const isChecked = (userAnswers[idx] === optIdx);
+        const radio = document.createElement('input');
+        radio.type = 'radio';
+        radio.name = `q${idx}`;
+        radio.value = optIdx;
+        radio.id = radId;
+        radio.disabled = submitted;
+        if (isChecked) radio.checked = true;
+        radio.addEventListener('change', (e) => {
+          if (!submitted) {
+            userAnswers[idx] = parseInt(e.target.value);
+            updateScoreDisplay();
+          }
+        });
+        const label = document.createElement('label');
+        label.htmlFor = radId;
+        label.innerText = opt;
+        const optionWrap = document.createElement('div');
+        optionWrap.className = 'option';
+        optionWrap.appendChild(radio);
+        optionWrap.appendChild(label);
+        optionsDiv.appendChild(optionWrap);
+      });
+      card.appendChild(qHeader);
+      card.appendChild(optionsDiv);
+      if (submitted && userAnswers[idx] !== null && userAnswers[idx] !== q.correct) {
+        const feed = document.createElement('div');
+        feed.className = 'feedback';
+        feed.innerHTML = `✅ सही उत्तर: ${q.options[q.correct]}`;
+        card.appendChild(feed);
+      } else if (submitted && userAnswers[idx] === null) {
+        const feed = document.createElement('div');
+        feed.className = 'feedback';
+        feed.innerHTML = `⚠️ कोनो उत्तर नै देल गेल (सही: ${q.options[q.correct]})`;
+        card.appendChild(feed);
+      }
+      container.appendChild(card);
+    });
+  }
+  
+  function updateScoreDisplay() {
+    if (!submitted) {
+      const answeredCount = userAnswers.filter(a => a !== null).length;
+      document.getElementById('scoreDisplay').innerText = `${answeredCount} / ${QUESTIONS.length}`;
+    } else {
+      let correct = 0;
+      for (let i = 0; i < QUESTIONS.length; i++) {
+        if (userAnswers[i] !== null && userAnswers[i] === QUESTIONS[i].correct) correct++;
+      }
+      document.getElementById('scoreDisplay').innerHTML = `${correct} / ${QUESTIONS.length} 🏆`;
+    }
+  }
+  
+  function submitQuiz() {
+    submitted = true;
+    renderQuestions();
+    let correctCount = 0;
+    for (let i=0; i<QUESTIONS.length; i++) {
+      if (userAnswers[i] !== null && userAnswers[i] === QUESTIONS[i].correct) correctCount++;
+    }
+    document.getElementById('scoreDisplay').innerHTML = `${correctCount} / ${QUESTIONS.length} ✨`;
+    const subBtn = document.getElementById('submitBtn');
+    subBtn.disabled = true;
+    subBtn.style.opacity = '0.6';
+  }
+  
+  function resetQuiz() {
+    submitted = false;
+    userAnswers = new Array(QUESTIONS.length).fill(null);
+    const subBtn = document.getElementById('submitBtn');
+    subBtn.disabled = false;
+    subBtn.style.opacity = '1';
+    renderQuestions();
+    updateScoreDisplay();
+  }
+  
+  document.getElementById('submitBtn').addEventListener('click', submitQuiz);
+  document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+  renderQuestions();
+  updateScoreDisplay();
+
+</script></body>
+</html>

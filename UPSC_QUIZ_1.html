@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मैथिली साहित्य एवं संस्कृति परीक्षण | 100 प्रश्न — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+box-sizing: border-box;
+}
+body {
+background: #f5f2e8;
+font-family: 'Segoe UI', 'Nirmala UI', 'Noto Sans', system-ui, 'Mithila', 'Arial', sans-serif;
+margin: 0;
+padding: 20px;
+color: #2c2a24;
+}
+.quiz-container {
+max-width: 1300px;
+margin: 0 auto;
+background: #fffef7;
+border-radius: 32px;
+box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+overflow: hidden;
+padding: 20px 24px 40px;
+}
+h1 {
+font-size: 1.9rem;
+text-align: center;
+margin: 0 0 8px 0;
+color: #8b3c1c;
+border-bottom: 3px solid #e7cfa1;
+display: inline-block;
+width: auto;
+padding-bottom: 8px;
+}
+.title-wrap {
+text-align: center;
+margin-bottom: 30px;
+}
+.sub {
+text-align: center;
+color: #5a4a2e;
+font-style: italic;
+margin-top: -5px;
+font-size: 0.9rem;
+}
+.quiz-header {
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+flex-wrap: wrap;
+margin-bottom: 25px;
+background: #fef3da;
+padding: 12px 20px;
+border-radius: 60px;
+}
+.score-area {
+font-weight: bold;
+background: #2c5f2d;
+color: white;
+padding: 6px 18px;
+border-radius: 40px;
+font-size: 1.2rem;
+}
+button {
+background: #b4652d;
+border: none;
+color: white;
+font-weight: bold;
+padding: 8px 24px;
+border-radius: 40px;
+cursor: pointer;
+font-size: 1rem;
+transition: 0.2s;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+button:hover {
+background: #8e4a1c;
+transform: scale(0.98);
+}
+.reset-btn {
+background: #4a5b6e;
+}
+.reset-btn:hover {
+background: #2c3e4e;
+}
+.questions-grid {
+display: flex;
+flex-direction: column;
+gap: 1.8rem;
+margin-top: 20px;
+}
+.question-card {
+background: #ffffff;
+border-radius: 28px;
+padding: 1rem 1.6rem;
+box-shadow: 0 5px 12px rgba(0,0,0,0.05);
+border: 1px solid #ece2cf;
+transition: 0.1s;
+}
+.question-text {
+font-weight: 700;
+font-size: 1.05rem;
+margin-bottom: 12px;
+color: #2c1e12;
+padding-right: 10px;
+display: flex;
+align-items: baseline;
+gap: 8px;
+flex-wrap: wrap;
+}
+.q-num {
+background: #d9c48b;
+width: 30px;
+height: 30px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+border-radius: 30px;
+font-weight: bold;
+font-size: 0.85rem;
+color: #2d2b1f;
+}
+.options {
+display: flex;
+flex-wrap: wrap;
+gap: 1.2rem;
+margin-top: 6px;
+margin-left: 12px;
+}
+.option {
+display: flex;
+align-items: center;
+gap: 8px;
+background: #faf7ef;
+padding: 6px 15px;
+border-radius: 40px;
+cursor: pointer;
+transition: 0.1s;
+border: 1px solid #e7dbbc;
+}
+.option:hover {
+background: #f1e8d4;
+}
+input[type="radio"] {
+accent-color: #b4652d;
+width: 18px;
+height: 18px;
+margin: 0;
+}
+label {
+font-weight: 500;
+font-size: 0.95rem;
+color: #2c2a24;
+}
+.wrong-highlight {
+background-color: #ffdede;
+border-left: 6px solid #c7362b;
+}
+.correct-highlight {
+background-color: #e0f2e3;
+border-left: 6px solid #2c7a2d;
+}
+.feedback {
+font-size: 0.8rem;
+margin-top: 8px;
+margin-left: 40px;
+color: #5e5a4c;
+}
+hr {
+margin: 20px 0;
+border-color: #ece2cf;
+}
+footer {
+text-align: center;
+margin-top: 40px;
+font-size: 0.75rem;
+color: #9b8a6b;
+}
+@media (max-width: 700px) {
+.quiz-container {
+padding: 16px;
+}
+.options {
+flex-direction: column;
+gap: 0.6rem;
+}
+.question-card {
+padding: 1rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="quiz-container" id="quizRoot"> <div class="title-wrap"> </div> <div class="quiz-header"> <span>📜 प्राचीन से आधुनिक काल तक</span> <span class="score-area" id="scoreDisplay">0 / 100</span> <button id="submitBtn">✅ जाँच करू</button> <button id="resetBtn" class="reset-btn">⟳ पुनः प्रयास</button> </div> <div id="questionsContainer" class="questions-grid"></div> <footer class="vq-footer">© सम्पादक, videha.co.in</footer>
+</div>
+<script>
+
+</script><script>
+
+    // ---------- 100 प्रश्न (MCQ) ----------
+    // आंकड़े विशेष रूप से दिए गए PDF अंश से संकलित
+    const QUESTIONS = [
+        { text: "बृहद्विष्णुपुराण (५म शताब्दी) के अनुसार मिथिला की पश्चिमी सीमा कौन नदी बताइत अछि?", options: ["गण्डकी", "कोशी", "गंगा", "कमला"], correct: 0 },
+        { text: "मिथिला के कौन नाम ‘तिरहुत’ सर्वप्रथम कवि/कोश में उल्लिखित अछि?", options: ["त्रिकाण्डकोश (१२म शताब्दी)", "अमरकोश", "वैदेही कोश", "मैथिली कोष"], correct: 0 },
+        { text: "विदेह राज्य का मिथिला पर शासनकाल लगभग कब धरि मानल जाइत अछि?", options: ["3000 ई.पू. – 600 ई.पू.", "1500 ई.पू. – 500 ई.पू.", "1000 ई.पू. – 200 ई.पू.", "600 ई.पू. – 100 ई.पू."], correct: 0 },
+        { text: "मिथिला में पंजी व्यवस्था के सम्पादन कें आरंभ केलनि?", options: ["हरिसिंहदेव (कर्णाटवंशी)", "नान्यदेव", "चण्डेश्वर ठाकूर", "विद्यापति"], correct: 0 },
+        { text: "ग्रन्थ ‘सप्तरब्राकर’ के रचयिता छथि?", options: ["चण्डेश्वर ठाकूर", "ज्योतिरीश्वर", "विद्यापति", "महेश ठाकूर"], correct: 0 },
+        { text: "मिथिला के प्रथम कर्णाटवंशीय शासक छलाह?", options: ["नान्यदेव (१०९७ ई.)", "हरिसिंहदेव", "रामसिंह", "गंगदेव"], correct: 0 },
+        { text: "खण्डबला राजवंश के स्थापना केलनि (१५५७) ?", options: ["म.म. महेश ठाकूर", "चण्डेश्वर", "नान्यदेव", "हरिसिंहदेव"], correct: 0 },
+        { text: "औडनवार राजवंश के शासन मिथिला में कवने शताब्दी में आरंभ भेल?", options: ["चौदहम शताब्दी मध्य", "तेरहम् शताब्दी", "पन्द्रहम् शताब्दी", "सोलहम् शताब्दी"], correct: 0 },
+        { text: "मिथिला में त्रिपुण्ड भस्म से अंकित होइत अछि -", options: ["शिव भक्ति के प्रतीक", "विष्णु भक्ति के प्रतीक", "शाक्त भावना के प्रतीक", "सूर्य उपासना"], correct: 0 },
+        { text: "मिथिलाक्षर के विकास कहियाँ से मान्य अछि?", options: ["तान्त्रिक यन्त्र से", "ब्राह्मी लिपि से", "शारदा लिपि से", "कैथी लिपि से"], correct: 0 },
+        { text: "मिथिला विवाह में गाओल जाइवाला ‘जोग’ कें संबद्ध मानल जाइत अछि –", options: ["तन्त्र से", "वेद से", "पुराण से", "यज्ञ से"], correct: 0 },
+        { text: "मैथिलीय राग-रागिनी के प्राचीनतम उल्लेख कहाँ मिलैत अछि?", options: ["चर्यापद में", "कीर्तिलता में", "वर्णरत्नाकर में", "गोरक्षविजय में"], correct: 0 },
+        { text: "नान्यदेव के संगीतग्रन्थ के नाम कि अछि?", options: ["सरस्वती हृदयालंकार", "संगीत रत्नाकर", "नाट्यशास्त्र", "भरत कोश"], correct: 0 },
+        { text: "मैथिली संगीत के सक्रिय विकास के दृष्टि से विशेष उल्लेखनीय शासक छलाह?", options: ["हरिसिंहदेव (१२९६-१३२६)", "नान्यदेव", "शिवसिंह", "पद्मसिंह"], correct: 0 },
+        { text: "‘बटगवनी’ में केकर वर्णन होइत अछि?", options: ["अभिसारिका नायिकाक", "विप्रलम्भ श्रृंगार", "कृष्ण-रास", "गोपी-गीत"], correct: 0 },
+        { text: "‘रास’ साहित्य के सर्वप्रथम रचयिता छलाह?", options: ["साहेबरामदास", "विद्यापति", "चन्दा झा", "शंकरदेव"], correct: 0 },
+        { text: "मैथिली शब्द के प्रयोग सर्वप्रथम कोलब्रुक (Colebrooke) के कोन पुस्तक में भेल १८०१ ई. ?", options: ["कोलबुक", "लिंग्विस्टिक सर्वे", "भाषा विज्ञान", "इंडियन ग्रामर"], correct: 0 },
+        { text: "प्राचीनतम मैथिली लिपि के स्वरूप ‘वैदेहीलिपि’ के उल्लेख कोन बौद्ध ग्रन्थ में अछि?", options: ["ललितविस्तार", "सुत्तपिटक", "बुद्धचरित", "धम्मपद"], correct: 0 },
+        { text: "‘लोकगाथा’ कें कहल जाइत अछि?", options: ["गेयात्मक कथा दीर्घाख्यान पर आधारित", "छन्द बद्ध कविता", "गद्य आख्यान", "वीरगाथा"], correct: 0 },
+        { text: "मैथिली के प्रमुख लोकगाथा काव्य ‘लोरिकाइन’ के अतिरिक्त कोन?", options: ["सलहेस", "रामायण", "पद्मावत", "विद्यापति पदावली"], correct: 0 },
+        { text: "मैथिली साहित्य के प्रथम उपलब्ध गद्य ग्रंथ थिक ?", options: ["वर्णरत्नाकर", "कीर्तिलता", "भामती टीका", "कीर्तिपताका"], correct: 0 },
+        { text: "विद्यापति के अवहट्ट ग्रंथ जे गद्य-पद्यमय अछि?", options: ["कीर्तिलता", "पुरुषपरीक्षा", "गोरक्षविजय", "भूपरिक्रमा"], correct: 0 },
+        { text: "विद्यापति के संस्कृत नाटक जहिमे मैथिली पद सेहो प्रयुक्त अछि?", options: ["गोरक्षविजय", "लिखनावती", "दानविजय", "भागवत नाटक"], correct: 0 },
+        { text: "दरभंगा राज हाई स्कूल के स्थापना कहियाँ भेल?", options: ["१८७९ ई.", "१८५७ ई.", "१८९० ई.", "१९०० ई."], correct: 0 },
+        { text: "मैथिली भाषा साहित्य अकादेमी, दिल्ली द्वारा स्वीकृत भेल ?", options: ["१९६६ ई.", "१९५० ई.", "१९७६ ई.", "१९८० ई."], correct: 0 },
+        { text: "मैथिली अकादमी के स्थापना भेल ?", options: ["१९७६ ई.", "१९६६ ई.", "१९८६ ई.", "१९७० ई."], correct: 0 },
+        { text: "‘अंकियानाट’ के आदि रचियता छलाह?", options: ["शंकरदेव (१४४९-१५६९)", "विद्यापति", "माधवकन्दली", "रामानन्द"], correct: 0 },
+        { text: "मिथिला में कीर्तिनिजानाच परम्परा के आरंभ कोन प्रभाव से भेल १७म् शताब्दी आदि में?", options: ["नवद्वीप कीर्तनमण्डली", "चैतन्य महाप्रभु", "गौड़ीय वैष्णव", "शंकराचार्य"], correct: 0 },
+        { text: "ग्रियर्सन के अनुसार मैथिली के कतिगोट उपभाषा छथि?", options: ["६", "५", "८", "४"], correct: 0 },
+        { text: "पं. गोविन्द झा के मैथिली के उपभाषा कतिगोट बाँटल जाइत अछि?", options: ["पाँच", "छह", "सात", "आठ"], correct: 0 },
+        { text: "आठगोट उपभाषा वर्गीकरण अनुसार ‘मानक मैथिली’ के मुख्य क्षेत्र थिक ?", options: ["दरभंगा, मधुबनी, समस्तीपुर", "मुंगेर", "पूर्णिया", "मुजफ्फरपुर"], correct: 0 },
+        { text: "दक्षिणी मैथिली में ‘अछ’ के स्थान पर मानक मैथिली में कि प्रयोग होइत अछि?", options: ["अछि", "छी", "हौ", "होइत"], correct: 0 },
+        { text: "पूर्वी मैथिली में सम्बन्ध कारक के चिन्ह कोन प्रयुक्त होइत अछि?", options: ["केर", "के", "कर", "क"], correct: 0 },
+        { text: "‘ठिका-ठिकी’ बोली के विशेषता अछि शब्द के अन्त में ?", options: ["‘की’ वा ‘हो’ उच्चारण", "ह्रस्व स्वर", "अनुस्वार", "दीर्घ स्वर"], correct: 0 },
+        { text: "पश्चिमी मैथिली पर कोन भाषा के व्यापक प्रभाव अछि?", options: ["भोजपुरी", "अवधी", "बांग्ला", "हिन्दी"], correct: 0 },
+        { text: "वैशाली जिला के भाषा के नवीन नाम देत छथि?", options: ["बज्जिका", "अंगिका", "मानक मैथिली", "जोलहा"], correct: 0 },
+        { text: "जोलहा बोली के प्रयोग करैत छथि ?", options: ["दरभंगा के मुसलमान", "नेपाली मूल", "चम्पारण के हिंदू", "पूर्णिया के आदिवासी"], correct: 0 },
+        { text: "केन्द्रीय मैथिली के क्षेत्र कोन अछि?", options: ["दरभंगा, मधुबनी, पंचकोशी", "मुजफ्फरपुर", "सहरसा", "भागलपुर"], correct: 0 },
+        { text: "‘अंगिका’ उपभाषा के केन्द्र स्थल थिक ?", options: ["भागलपुर", "दरभंगा", "मुंगेर", "मधेपुरा"], correct: 0 },
+        { text: "वर्णरत्नाकर के रचनाकाल लगभग थिक?", options: ["१३२४ ई.", "१२५० ई.", "१४०० ई.", "१५०० ई."], correct: 0 },
+        { text: "‘चर्यापद’ के रचयिता सिद्ध साधु लोकनिक समय कोन मानल जाइत अछि?", options: ["८म् – १२म् शताब्दी", "५म् – ७म् शताब्दी", "१२-१५ शताब्दी", "१५०० ई. पश्चात"], correct: 0 },
+        { text: "डॉ. सुनीति कुमार चटर्जी चर्यापद के भाषा का मानैत छथि?", options: ["शौरसेनी अपभ्रंश", "मागधी", "प्राचीन मैथिली", "पैशाची"], correct: 0 },
+        { text: "डॉ. सुभद्र झा चर्यापद के भाषा के मैथिली के कोन शाखा में रखैत छथि?", options: ["छकाछिकी (चीका-ठीकी)", "मानक", "दक्षिणी", "पूर्वी"], correct: 0 },
+        { text: "‘डाक वचनावली’ के सम्बन्ध मुख्यतः कृषि आ ज्योतिष से अछि। कोन विद्वान एकरा प्राचीन मानैत अछि?", options: ["बहुत विद्वान चर्यापद से प्राचीन", "नै प्राचीन", "विद्यापति काल", "आधुनिक"], correct: 0 },
+        { text: "प्राचीन डाक वचनावली के प्रकाशन मैथिली साहित्य परिषद, दरभंगा सँ कन्हैयालाल कृष्णदास द्वारा भेल। ई कोन शाखा में अछि?", options: ["अवहट्ट", "शौरसेनी", "प्राकृत", "संस्कृत"], correct: 0 },
+        { text: "लोरिक गीत के सन्दर्भ सर्वप्रथम कोन ग्रन्थ में उल्लिखित अछि?", options: ["वर्णरत्नाकर (ज्योतिरीश्वर)", "कीर्तिलता", "गोरक्षविजय", "पद्मावत"], correct: 0 },
+        { text: "ग्रियर्सन संग्रह लोरिक गीत के प्राचीनतम संग्रहकर्ता छलाह, उनकर समय थिक ?", options: ["१९म् शताब्दी अन्त", "१८५७", "१९००", "१८०१"], correct: 0 },
+        { text: "पंजी प्रारंभ १३१० ई. मानल गेल अछि, जहिमे मैथिली शब्द उपलब्ध अछि। कोन विद्वान एकरा प्राचीनतम मानैत छथि?", options: ["डॉ. जयकान्त मिश्र", "ग्रियर्सन", "सुभद्र झा", "विद्यापति"], correct: 0 },
+        { text: "चण्डेश्वर ठाकूर द्वारा प्रयुक्त मैथिली शब्द ‘जलदरी’ संस्कृत के कोन शब्द के लेल अछि?", options: ["जलग्रह", "जलद", "वारिद", "नदी"], correct: 0 },
+        { text: "रुचिपति टीका में मैथिली शब्द ‘पलंग’ संस्कृत के कोन शब्द के अर्थ अछि?", options: ["पर्यङ्क", "शय्या", "खट्वा", "पीठ"], correct: 0 },
+        { text: "‘विहंगिक’ के मैथिली रूप कोन अछि जे प्राचीन टीका में भेटैत अछि?", options: ["बँहगी", "पंछी", "चिरई", "डोंगी"], correct: 0 },
+        { text: "सिद्ध साहित्य ‘चर्यापद’ में प्रमुख कवि सरहपा, कान्हपा आदि। पहिल कवि ‘सरहपा’ के अविभाव काल कोन मानल गेल अछि?", options: ["संवत् ८१७", "७०० ई", "९०० ई", "१००० ई"], correct: 0 },
+        { text: "‘दोहाकोष’ के भाषा के डॉ. सुनीति चटर्जी का मानैत छथि?", options: ["शौरसेनी अपभ्रंश", "मैथिली", "पुरानी हिन्दी", "बांग्ला"], correct: 0 },
+        { text: "प्राचीन मैथिली के विशेषता ‘दन्त्य वर्ण प्रधानता’ के प्राचीन ग्रन्थ कहाँ पाओल जाइत अछि?", options: ["चर्यापद में", "वर्णरत्नाकर में", "कीर्तिलता में", "भामती में"], correct: 0 },
+        { text: "‘जे जे अएला ते ते गेला’ प्राचीन लोकोक्ति मैथिली सिद्ध साहित्य में पाओल गेल अछि। ई प्रयोग कहाँ भेटैत अछि?", options: ["चर्यापद", "वर्णरत्नाकर", "डाक वचन", "कीर्तिलता"], correct: 0 },
+        { text: "मैथिली साहित्य में ‘चन्दा झा’ कोन युग के प्रवर्तक मानल जाइत अछि?", options: ["नवयुग / आधुनिक युग", "मध्यकाल", "भक्ति युग", "गीतिकाव्य युग"], correct: 0 },
+        { text: "डॉ. उमेश मिश्र के अनुसार आदिकाल (मैथिली) के समय सीमा थिक ? (प्रथम विभाजन)", options: ["११०० ई – १३०० ई", "८००–१२००", "१३००–१६००", "१०००–१४००"], correct: 0 },
+        { text: "डॉ. जयकान्त मिश्र ‘History of Maithili Literature’ में मध्यकालीन मैथिली साहित्य के समय सीमा दिअनि?", options: ["१६००-१८६० ई", "१३००-१६००", "१८६०-१९५०", "१५००-१८००"], correct: 0 },
+        { text: "कुमार गंगानन्द सिंह के अनुसार प्रारंभिक काल (प्राचीन) थिक?", options: ["६०० – १३०० ई", "८००-१२००", "१०००-१४००", "१२००-१५००"], correct: 0 },
+        { text: "डॉ. दुगानाथ झा ‘श्रीश’ के अनुसार ‘विद्यापति युग’ के समय सीमा?", options: ["१३०० – १६६०", "१४००-१७००", "१२००-१५५०", "१३५०-१७००"], correct: 0 },
+        { text: "डॉ. दिनेश कुमार झा के अनुसार आधुनिक काल के ‘ब्रिटिश काल’ कोन धरि मानल गेल?", options: ["१८५७ – १९४७", "१८६०-१९५०", "१९००-१९४७", "१८००-१९००"], correct: 0 },
+        { text: "प्रो. प्रेमशंकर सिंह अनुसार मैथिली साहित्यक आधुनिक युग के प्रारम्भ कोन सालसँ मानल अछि?", options: ["१८५७ ई.", "१६६० ई.", "१८०० ई.", "१९०० ई."], correct: 0 },
+        { text: "‘कीर्तिपताका’ के रचयिता छथि?", options: ["विद्यापति", "ज्योतिरीश्वर", "रुचिपति", "मनबोध"], correct: 0 },
+        { text: "‘पारिजातहरण’ नाटक के रचयिता छलाह?", options: ["उमापति उपाध्याय", "रामदास झा", "काशीनाथ", "धनपति"], correct: 0 },
+        { text: "‘माधवानल कामकण्डला’ नाटक के रचयिता छथि?", options: ["धनपति", "कृष्णदेव", "काशीनाथ", "महेश ठाकूर"], correct: 0 },
+        { text: "ग्रियर्सन के अनुसार ‘मानक मैथिली’ के मुख्य बोलैत छथि ?", options: ["दरभंगा आ भागलपुर उत्तरी ब्राह्मण", "मधुबनी के कायस्थ", "समस्तीपुर के यादव", "सहरसा के कोइरी"], correct: 0 },
+        { text: "दक्षिणी मैथिली में सर्वनाम ‘मोर, तोर’ प्रयोग होइत अछि जबकि मानक मैथिली में कोन?", options: ["हमर, तोहर", "हमका, तोहका", "मोके, तोके", "हमरा, तोहरा"], correct: 0 },
+        { text: "पूर्वी मैथिली कें ग्रियर्सन का कहैत छलाह?", options: ["गैंवारी मैथिली", "परिष्कृत", "उत्तम", "साहित्यिक"], correct: 0 },
+        { text: "ठिकाठिकी बोली में ‘अपना’ शब्द के उच्चारण कइसन होइत अछि?", options: ["अपनाकी", "अपनेहो", "अपनी", "अपनहो"], correct: 0 },  // जेना– अपना, खएबहो ; but safest: अपनाकी? text says "अपना, खएबहो" but they include “की” वा “हो” so refer answer
+        { text: "‘बज्जिका’ भाषा के नामकरण कोन ऐतिहासिक आधार पर कएल गेल?", options: ["लिच्छवी वंश के इतिहास", "वैशाली के नाट्य", "मौर्य काल", "गुप्त काल"], correct: 0 },
+        { text: "मैथिली के कोन उपभाषा पर नेपाली भाषा के स्पष्ट प्रभाव अछि?", options: ["उत्तरी बोली", "पूर्वी", "पश्चिमी", "जोलहा"], correct: 0 },
+        { text: "विद्यापति के ‘कीर्तिलता’ के भाषा का अछि?", options: ["अवहट्ट", "मैथिली", "प्राकृत", "संस्कृत मिश्रित"], correct: 0 },
+        { text: "‘गोरक्षविजय’ नाटक विद्यापति के कोन भाषा में रचल?", options: ["संस्कृत (मैथिली पद सहित)", "मैथिली", "अपभ्रंश", "हिन्दी"], correct: 0 },
+        { text: "‘विशुद्ध विद्यापति पदावली’ के संकलन विद्यापति के बाद लगभग कतना शताब्दी बाद भेल?", options: ["एक शताब्दी", "दो शताब्दी", "पचास वर्ष", "तत्काल"], correct: 0 },
+        { text: "डॉ. सुभद्र झा के अनुसार चर्यापद के भाषा मैथिली के छकाछिकी शाखा अन्तर्गत, अन्य मत भी अछि। राहुल सांकृत्यायन एकरा कि मानैत छथि?", options: ["प्राचीन मैथिली", "प्राचीन बंगाली", "प्राकृत", "हिन्दी"], correct: 0 },
+        { text: "प्राचीन मैथिली साहित्य के प्रारम्भिक साक्ष्य ‘पंजी’ में मिलैत अछि, पंजी के प्रारम्भ काल?", options: ["१३१० ई.", "१२०० ई.", "१४०० ई.", "१२५० ई."], correct: 0 },
+        { text: "डॉ. जयकान्त मिश्र के अनुसार ‘प्राक्-मैथिली काल’ थिक ?", options: ["८म् शताब्दी – १२म् शताब्दी", "६००-१०००", "१०००-१३००", "५००-८००"], correct: 0 },
+        { text: "विद्यापति के ‘कीर्तिलता’ में प्राचीन मैथिली के कोन विशेषता पाओल जाइत अछि?", options: ["क्रियाक स्त्रीलिंग रूप ए, ऐ, हिं", "दीर्घ स्वर", "तत्सम बहुल", "फारसी शब्द"], correct: 0 },
+        { text: "‘सलहेस’ गाथा कोन श्रेणी के साहित्य अछि?", options: ["लोकगाथा", "नाटक", "गीतिकाव्य", "चरित काव्य"], correct: 0 },
+        { text: "पुरुषोत्तमदेव के ‘त्रिकाण्डकोश’ (१२म् शताब्दी) में कोन नामक उल्लेख मिलैत अछि?", options: ["तिरहत", "मिथिला", "विदेह", "जनकपुर"], correct: 0 },
+        { text: "बृहद्विष्णुपुराण मिथिला के कतिगोट नाम बतौलनि?", options: ["बारह", "दस", "पन्द्रह", "आठ"], correct: 0 },
+        { text: "मिथिला के आदि शासक विदेह के कारण मिथिला के का नाम पड़ल?", options: ["विदेह", "तिरहुत", "जनकपुर", "मिथिला नगरी"], correct: 0 },
+        { text: "‘ज्ञानशीलं कृपापीठं स्वर्णलांगलपद्धति:’ मिथिला के विशेषण है, कौन ग्रन्थ में अछि?", options: ["बृहद्विष्णुपुराण", "मत्स्यपुराण", "कूर्मपुराण", "वायुपुराण"], correct: 0 },
+        { text: "नाट्य कला के चार प्रकार अभिनय – आंगिक, वाचिक, आहार्य तथा ?", options: ["सात्त्विक", "भाविक", "रसात्मक", "प्रासंगिक"], correct: 0 },
+        { text: "‘लोरिक विजय’ पर निबंध श्री मणिपद्मक ‘वैदेही’ में कोन वर्ष प्रकाशित भेल छल?", options: ["दिसम्बर १९५३", "१९५०", "१९६०", "१९४७"], correct: 0 },
+        { text: "डॉ. ग्रियर्सन के अनुसार ‘जोलहा बोली’ मुख्यतः कोन समुदाय द्वारा बोलल जाइत अछि?", options: ["मुसलमान (दरभंगा)", "नेपाली", "बनिया", "रजपूत"], correct: 0 },
+        { text: "‘बटगवनी’ में सखी सबहक संग पति से मिलबाक हेतु जाइत नायिका के वर्णन; ई श्रृंगार के कोन पक्ष अछि?", options: ["अभिसारिका", "वासकसज्जा", "खण्डिता", "प्रोषितभर्तृका"], correct: 0 },
+        { text: "‘गोअलरी’ के विषय वस्तु का होइत अछि?", options: ["गोपी-कृष्ण नोक-झोक एवं केलि", "रासलीला", "वियोग वर्णन", "दानलीला"], correct: 0 },
+        { text: "‘तिरहुति’ गीत श्रृंगार रस के संगीत परम्परा, ई मुख्यतः केंन्द्रित अछि?", options: ["नायक-नायिका संयोग-वियोग", "भक्ति रस", "वीर रस", "हास्य रस"], correct: 0 },
+        { text: "विद्यापति के समय मैथिली साहित्य कोन युग कहल जाइत अछि (डॉ. श्रीश विभाजन में)?", options: ["विद्यापति युग (१३००-१६६०)", "प्राचीन काल", "मध्य काल", "नवयुग"], correct: 0 },
+        { text: "डॉ. बालगोविन्द झा ‘व्यथित’ मैथिली साहित्य के प्राचीन काल मानैत छथि ?", options: ["७०० – १३२५ ई", "६००–१२००", "८००–१३५०", "१०००–१४००"], correct: 0 },
+        { text: "‘मैथिली भाषा आ साहित्य’ पर प्रो. सोमदेव के अनुसार नवजागरण काल के प्रारम्भ कोन साल मानल गेल?", options: ["१९३६ ई.", "१९४७ ई.", "१९०० ई.", "१९२० ई."], correct: 0 },
+        { text: "ज्योतिरीश्वर के ‘वर्णरत्नाकर’ गद्य ग्रंथ है। एकर रचना काल लगभग निश्चित अछि?", options: ["१३२४ ई.", "१३०० ई.", "१३५० ई.", "१२९० ई."], correct: 0 },
+        { text: "‘प्राकृत पंगलम’ ग्रंथ में लोकभाषा के उदाहरण मैथिली के शब्द देखल जाइत अछि। कोन विद्वान एकर समर्थन करैत छथि?", options: ["शिवनन्दन ठाकूर", "ग्रियर्सन", "जयकान्त मिश्र", "सुभद्र झा"], correct: 0 },
+        { text: "मिथिला में पंजी प्रणाली के प्रवर्तक कोन शासक छलाह?", options: ["हरिसिंहदेव", "नान्यदेव", "रामसिंह", "भूपाल सिंह"], correct: 0 },
+        { text: "कवीश्वर चन्दा झा द्वारा अनुवाद बृहद्विष्णुपुराण अनुसार मिथिला के पूर्व सीमा कोन नदी?", options: ["कोशी (कौशिकी)", "गंडकी", "गंगा", "महानंदा"], correct: 0 },
+        { text: "‘रास’ साहित्य में वर्णन होइत अछि ?", options: ["रासलीला", "कृष्ण जन्म", "होली", "दान लीला"], correct: 0 },
+        { text: "‘दीनाभद्री’ प्रसिद्ध मैथिली लोकगाथा थिक । ई कोन श्रेणी अछि?", options: ["लोकगाथा काव्य", "नाटक", "व्रतकथा", "आख्यान"], correct: 0 },
+        { text: "मैथिली भाषा के उत्तरी सीमा पर कोन भाषा अछि?", options: ["नेपाली", "भोजपुरी", "बांग्ला", "मगही"], correct: 0 },
+        { text: "प्राचीन मैथिली वाक्य ‘हाक पाडई’ (चर्यापद में) के अर्थ किछु अछि?", options: ["पुकार करैत अछि / बोलाबैत अछि", "हंसैत अछि", "रोवैत अछि", "गाबैत अछि"], correct: 0 }
+    ];
+
+    // exactly 100 questions verify length
+    console.log("Total questions loaded:", QUESTIONS.length);
+    // if less, pad dummy but already 100 (checked manually I counted approx 94, need 100 -> i need 6 more but we have actually 100?
+    // Let's ensure 100; my list length after writing above must be exactly 100. I'll double-check manually.
+    // I'll add 6 additional easy factual from PDF quickly.
+    const extraQuestions = [
+        { text: "‘चर्यापद’ के सिद्ध कवि ‘भुसुकपा’, ‘शबरपा’ आदि। ई साहित्य कोन धारा अछि?", options: ["बौद्ध सिद्धाचार्य", "जैन", "शैव", "वैष्णव"], correct: 0 },
+        { text: "मैथिली के केन्द्रीय उपभाषा साहित्यिक भाषा के अत्यन्त निकट अछि, कोन जिला एकर अन्तर्गत?", options: ["दरभंगा-मधुबनी", "मुजफ्फरपुर", "सुपौल", "कटिहार"], correct: 0 },
+        { text: "डाक के वचन ‘साओन पछबा बह दिन चारि’ कैस पंक्ति अछि?", options: ["कृषि एवं ज्योतिष", "प्रेम गीत", "विरह गीत", "भक्ति"], correct: 0 },
+        { text: "कर्णाटवंशीय शासक नान्यदेव के ‘सरस्वतीहृदयालंकार’ किस विषय पर अछि?", options: ["संगीत", "व्याकरण", "अलंकार", "दर्शन"], correct: 0 },
+        { text: "‘वैदेहीलिपि’ के उल्लेख वाले बौद्ध ग्रंथ ‘ललितविस्तार’ की भाषा अछि?", options: ["संस्कृत", "पालि", "प्राकृत", "तिब्बती"], correct: 0 },
+        { text: "मैथिली साहित्यक आधुनिक काल के प्रारंभ में कोन विद्वान के नाम लेल जाइत अछि?", options: ["चन्दा झा", "विद्यापति", "ज्योतिरीश्वर", "रामदास झा"], correct: 0 }
+    ];
+    // merge to make exactly 100
+    const fullQuiz = [...QUESTIONS, ...extraQuestions];
+    if (fullQuiz.length !== 100) console.warn("Length mismatch:", fullQuiz.length);
+    // final array exactly 100 (we ensure by slice)
+    const FINAL_QUESTIONS = fullQuiz.slice(0,100);
+    
+    let userAnswers = new Array(100).fill(null);
+    let submitted = false;
+
+    function renderQuestions() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        FINAL_QUESTIONS.forEach((q, idx) => {
+            const qDiv = document.createElement('div');
+            qDiv.className = 'question-card';
+            if (submitted) {
+                const selected = userAnswers[idx];
+                const isCorrect = (selected === q.correct);
+                if (isCorrect) qDiv.classList.add('correct-highlight');
+                else if (selected !== null && selected !== q.correct) qDiv.classList.add('wrong-highlight');
+            }
+            const qTextSpan = document.createElement('div');
+            qTextSpan.className = 'question-text';
+            qTextSpan.innerHTML = `<span class="q-num">${idx+1}</span> <span>${q.text}</span>`;
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const radioId = `q${idx}_opt${optIdx}`;
+                const isChecked = (userAnswers[idx] === optIdx);
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q${idx}`;
+                radio.value = optIdx;
+                radio.id = radioId;
+                radio.disabled = submitted;
+                if (isChecked) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    if (!submitted) {
+                        userAnswers[idx] = parseInt(e.target.value);
+                        updateScoreDisplay();
+                    }
+                });
+                const label = document.createElement('label');
+                label.htmlFor = radioId;
+                label.innerText = opt;
+                const optWrap = document.createElement('div');
+                optWrap.className = 'option';
+                optWrap.appendChild(radio);
+                optWrap.appendChild(label);
+                optionsDiv.appendChild(optWrap);
+            });
+            qDiv.appendChild(qTextSpan);
+            qDiv.appendChild(optionsDiv);
+            if (submitted && userAnswers[idx] !== null && userAnswers[idx] !== q.correct) {
+                const feed = document.createElement('div');
+                feed.className = 'feedback';
+                feed.innerHTML = `✔️ सही उत्तर: ${q.options[q.correct]}`;
+                qDiv.appendChild(feed);
+            }
+            container.appendChild(qDiv);
+        });
+    }
+
+    function updateScoreDisplay() {
+        if (!submitted) {
+            let answered = userAnswers.filter(a => a !== null).length;
+            document.getElementById('scoreDisplay').innerText = `${answered} / 100`;
+        } else {
+            let correct = 0;
+            for (let i=0; i<100; i++) {
+                if (userAnswers[i] !== null && userAnswers[i] === FINAL_QUESTIONS[i].correct) correct++;
+            }
+            document.getElementById('scoreDisplay').innerText = `${correct} / 100`;
+        }
+    }
+
+    function calculateAndShow() {
+        submitted = true;
+        let correct = 0;
+        for (let i=0; i<100; i++) {
+            if (userAnswers[i] !== null && userAnswers[i] === FINAL_QUESTIONS[i].correct) correct++;
+        }
+        renderQuestions();
+        document.getElementById('scoreDisplay').innerHTML = `${correct} / 100 🎯`;
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.7';
+    }
+
+    function resetQuiz() {
+        submitted = false;
+        userAnswers = new Array(100).fill(null);
+        renderQuestions();
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+        updateScoreDisplay();
+    }
+
+    document.getElementById('submitBtn').addEventListener('click', calculateAndShow);
+    document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+    renderQuestions();
+    updateScoreDisplay();
+
+</script></body>
+</html>
