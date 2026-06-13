@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Quiz: Chapter 67 – Four Maithili Masters | Ramesh Narayan · Nagendra Kumar · Gopesh · Vijaynath Jha</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2ede4;
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            padding: 2rem 1rem;
+            color: #2d2a24;
+        }
+
+        .quiz-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fffef9;
+            border-radius: 36px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
+            overflow: hidden;
+            border: 1px solid #e2d9cc;
+        }
+
+        .quiz-header {
+            background: #4a5b6e;
+            background: linear-gradient(135deg, #2e4a5c, #4e6b7e);
+            padding: 1.8rem 2rem;
+            color: white;
+        }
+
+        .quiz-header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+            margin-bottom: 0.4rem;
+        }
+
+        .quiz-header h1 span {
+            font-weight: 400;
+            font-style: italic;
+            font-size: 1rem;
+            background: #c6dde8b3;
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+        }
+
+        .quiz-header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 0.6rem;
+            border-left: 3px solid #9ac7d9;
+            padding-left: 1rem;
+        }
+
+        .quiz-body {
+            padding: 2rem 2rem 1rem;
+        }
+
+        .question-card {
+            background: #ffffff;
+            border: 1px solid #e8e0d4;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.8rem;
+            margin-bottom: 2rem;
+            transition: all 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .question-card:hover {
+            border-color: #bfc9b3;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2e4a5c;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .options {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .options li {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+        }
+
+        .options input {
+            margin-top: 0.25rem;
+            width: 1.1rem;
+            height: 1.1rem;
+            accent-color: #4e6b7e;
+            flex-shrink: 0;
+        }
+
+        .options label {
+            font-size: 1rem;
+            line-height: 1.4;
+            color: #3e3a32;
+            font-weight: normal;
+        }
+
+        .feedback {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 30px;
+            display: inline-block;
+            background: #f3f2ec;
+            color: #4a5b4a;
+        }
+
+        .feedback.correct {
+            background: #e0f2e9;
+            color: #1f5e3a;
+            border-left: 4px solid #2b7a4b;
+        }
+
+        .feedback.wrong {
+            background: #ffeae6;
+            color: #b34141;
+            border-left: 4px solid #c4554b;
+        }
+
+        .explanation {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #6c685b;
+            font-style: italic;
+            border-left: 2px solid #dbd2c2;
+            padding-left: 12px;
+        }
+
+        .quiz-footer {
+            padding: 1.2rem 2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-top: 1px solid #e8e0d4;
+            background: #fefcf7;
+        }
+
+        .score-area {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: #e5ede2;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            color: #2b523b;
+        }
+
+        button {
+            background: #4e6b7e;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.7rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.15s;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background: #3a5568;
+            transform: scale(0.97);
+        }
+
+        .reset-btn {
+            background: #8f7a64;
+        }
+        .reset-btn:hover {
+            background: #6d5b49;
+        }
+
+        @media (max-width: 650px) {
+            .quiz-body {
+                padding: 1.5rem;
+            }
+            .question-card {
+                padding: 1.1rem;
+            }
+            .quiz-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="quiz-container">
+    <div class="quiz-header">
+        <h1>📚 Chapter 67 · Four Maithili Masters <span>Parallel Histories · Fiction · Poetry · Drama · Translation</span></h1>
+        <p>Based on “A COMPLETE CRITICAL RESEARCH AND APPRECIATION OF WORKS OF – Ramesh Narayan · Nagendra Kumar · Gopalji Jha ‘Gopesh’ · Vijaynath Jha” (Videha Parallel History, Tome III)<br>Pāṭharak Nāo · Sasarphānī · Gumm Bhelaṭhāṛh Chhī · Ahīṅk Lel · Kāmāyanī Mahākāvya Maithilī Chandānuvāda</p>
+    </div>
+    <div class="quiz-body" id="quizBody"></div>
+    <div class="quiz-footer">
+        <div class="score-area" id="scoreDisplay">Score: 0 / 0</div>
+        <div>
+            <button id="checkBtn">✅ Check answers</button>
+            <button id="resetBtn" class="reset-btn">⟳ Reset quiz</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ---- QUESTIONS BASED ON CHAPTER 67: Four Maithili Masters (pages 405-438) ----
+    const questions = [
+        {
+            text: "Ramesh Narayan's short story collection 'Pāṭharak Nāo' (The Reader's Boat) uses a meta-fictional conceit. What is the double meaning of 'nāo' in the title?",
+            options: [
+                "Boat and river",
+                "Boat and name (nāv) – the reader is both the named character and the act of reading itself",
+                "Reader and writer",
+                "Stone and water"
+            ],
+            correct: 1,
+            explanation: "The pun on 'nāo' (boat / name) creates a sustained rūpaka (metaphor): the story is a boat, the text is the river, and the reader is both rower and passenger. The reader cannot remain outside the fiction."
+        },
+        {
+            text: "Nagendra Kumar's 1947 collection 'Sasarphānī' (The Slender River-Snake) is a landmark of Maithili social realism. The title metaphor suggests:",
+            options: [
+                "A dangerous predator",
+                "The sinuous, winding path of life – slender and always in danger of being crushed",
+                "A royal crown",
+                "A religious ritual"
+            ],
+            correct: 1,
+            explanation: "The snake metaphor operates at the level of dhvani throughout: lives are slender, sinuous, in constant danger of being crushed by social hierarchies, caste norms, and economic precarity."
+        },
+        {
+            text: "In Nagendra Kumar's story 'Sasarphānī' (the title story), what is the fate of Jyotsna, the 13-year-old girl forced into marriage with an already-married man due to the Kulin system?",
+            options: [
+                "She becomes a happy bride",
+                "Years later, she is skeletal, pale, and broken – a victim of the traditional marriage system",
+                "She runs away and becomes a doctor",
+                "She is never mentioned again"
+            ],
+            correct: 1,
+            explanation: "The story's tragic arc shows Jyotsna transformed from a vibrant girl into a 'skeleton covered in thin skin'. The Navya-Nyāya analysis sees this as exposing the faulty vyāpti (pervasion) of caste nobility."
+        },
+        {
+            text: "Gopalji Jha 'Gopesh' wrote the poetry-drama collection 'Gumm Bhelaṭhāṛh Chhī' (Suddenly It Became Silent). What is the central mood of the title poem, where the poet stands at crossroads 'picking tobacco'?",
+            options: [
+                "Joyful celebration",
+                "Alienated observation – the poet as paralysed witness to cultural loss, standing at the junction of eras (yugsandhi)",
+                "Religious devotion",
+                "Political activism"
+            ],
+            correct: 1,
+            explanation: "The persona stands stunned (gumm) at railway stations and ghats, observing the shift from traditional attire to 'drainpipe' trousers and the loss of folk heritage. This is a Prufrockian figure of modern alienation."
+        },
+        {
+            text: "Gopesh's satirical poem 'He Kavi Kokil' (O Poet-Cuckoo) reimagines Vidyapati in the 1960s. What is the poem's critical point?",
+            options: [
+                "Praise of Vidyapati's timelessness",
+                "Deconstruction of how traditional icons are commodified – Vidyapati as a corrupt IAS officer, film lyricist, or freelancer in the 'Sputnik era'",
+                "Celebration of modern Maithili",
+                "Rejection of all poetry"
+            ],
+            correct: 1,
+            explanation: "The poem uses Western satirical burlesque to show how the medieval saint-poet would be co-opted by modern institutions – a postcolonial critique of commodification and the betrayal of traditional values."
+        },
+        {
+            text: "Vijaynath Jha's ghazal collection 'Ahīṅk Lel' (For You) is analysed through Navya-Nyāya epistemology. What is the significance of his father being Pt. Ratnanath Jha, Head of Eastern Philosophy at BHU?",
+            options: [
+                "It is irrelevant to his poetry",
+                "His poetry inherits a precise logical vocabulary; the title ghazal 'Ahīṅk Lel' uses avacchedakatā (limiters) to define the self through negation and surrender",
+                "He rejected his father's scholarship",
+                "He only wrote in Sanskrit"
+            ],
+            correct: 1,
+            explanation: "The chapter notes that Vijaynath Jha's lineage in Oriental Philosophy manifests in his use of Navya-Nyāya techniques – defining subjects by what they are not, and treating śabda (word) as the ultimate authority."
+        },
+        {
+            text: "Vijaynath Jha completed a Maithili verse translation (chandānuvāda) of Jaishankar Prasad's epic 'Kāmāyanī' (2020). What is unique about this translation?",
+            options: [
+                "It is a prose translation",
+                "It attempts to match the original's 15-canto structure and varṇa-vṛtta metres while using Maithili prosody (chandas) – a sustained creative and scholarly achievement of the highest order",
+                "It changes the story completely",
+                "It translates only the first canto"
+            ],
+            correct: 1,
+            explanation: "The chandānuvāda (verse translation) preserves the metrical structure of the original, requiring the translator to simultaneously manage semantic fidelity, prosodic equivalence, and tonal match – a feat of extraordinary discipline."
+        },
+        {
+            text: "Ramesh Narayan's story 'Pāṭharak Nāo' is analysed through Shklovsky's concept of ostranenie (defamiliarisation). How does the story achieve this?",
+            options: [
+                "By using foreign words",
+                "The familiar rural boat journey is made strange by the insistent identification of the reader with the vessel – the reader is from the title already aboard, unable to remain outside the fiction",
+                "By avoiding any description",
+                "By setting the story in a city"
+            ],
+            correct: 1,
+            explanation: "Ostranenie makes the familiar strange. The boat – a common Maithili image – is rendered unfamiliar by the meta-fictional move that equates reading with voyaging, forcing the reader to experience vulnerability and navigation."
+        },
+        {
+            text: "The chapter applies Kṣemendra's concept of 'aucitya' (propriety/decorum) to evaluate the four authors. Which author's choice of genre for each subject is cited as exemplary?",
+            options: [
+                "Ramesh Narayan – all stories are romantic",
+                "Nagendra Kumar – uses satire (Betal Katha) for political absurdity, lyric poetry for longing, and folk-tale compilation for oral wisdom – each genre fitting its subject perfectly",
+                "Gopesh – only writes comedy",
+                "Vijaynath Jha – only writes ghazals"
+            ],
+            correct: 1,
+            explanation: "Auchitya demands that every element be fitting. Nagendra Kumar's use of the Betal Katha frame for social critique, lyric for displacement, and folk compilation for preserving oral culture demonstrates this principle."
+        },
+        {
+            text: "In the comparative synthesis, the chapter uses the Navya-Nyāya pramāṇa framework to organise a complete critical account. Which pramāṇa corresponds to the close reading of primary texts – the specific words, images, and structures?",
+            options: [
+                "Anumāna (inference)",
+                "Upamāna (comparison)",
+                "Pratyakṣa (direct perception)",
+                "Śabda (verbal testimony)"
+            ],
+            correct: 2,
+            explanation: "Pratyakṣa – direct perception – is the sensory foundation of critique: the actual texts as linguistic facts. This corresponds to the New Critical principle of close reading, grounded in the literary object itself."
+        },
+        {
+            text: "Gopalji Jha 'Gopesh' includes a poem about the 1962 and 1965 wars titled 'Sonadaik Nav Chitthhi' (Sonadai's New Letter). What is the dramatic voice of this poem?",
+            options: [
+                "A soldier at the front",
+                "A female persona writing from a rifle training centre, vowing not to let the 'Chinese foot' advance and mocking the 'Hindi-Chini Bhai-Bhai' slogan",
+                "A politician",
+                "A farmer"
+            ],
+            correct: 1,
+            explanation: "The poem takes the form of a letter from 'Sonadai' – a woman who practices parade and rifle shooting daily, donates her jewellery for the national defence fund, and asserts patriotic Vira rasa from a female perspective."
+        },
+        {
+            text: "The chapter notes that Vijaynath Jha's father was head of the Department of Eastern Philosophy at Banaras Hindu University. What is the philosophical significance of this for Jha's translation of 'Kāmāyanī'?",
+            options: [
+                "It has no significance",
+                "The epic 'Kāmāyanī' deals with Vedic cosmogony, the flood myth of Manu and Śraddhā, and the tension between intellect (prajñā) and faith (śraddhā) – themes that resonate with his father's scholarly tradition",
+                "His father rejected the epic",
+                "He translated it to spite his father"
+            ],
+            correct: 1,
+            explanation: "Prasad's 'Kāmāyanī' is deeply philosophical, drawing on Vedic and Upanisadic thought. Jha's lineage in Eastern Philosophy provided the conceptual depth to render the text's philosophical vocabulary accurately in Maithili."
+        }
+    ];
+
+    let userAnswers = new Array(questions.length).fill(null);
+    const quizBody = document.getElementById('quizBody');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const checkBtn = document.getElementById('checkBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    function renderQuiz() {
+        quizBody.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.setAttribute('data-qidx', idx);
+
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qText);
+
+            const optionsList = document.createElement('ul');
+            optionsList.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const li = document.createElement('li');
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q${idx}`;
+                radio.value = optIdx;
+                radio.id = `q${idx}_opt${optIdx}`;
+                if (userAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    userAnswers[idx] = parseInt(e.target.value);
+                    const oldFeedback = card.querySelector('.feedback');
+                    const oldExpl = card.querySelector('.explanation');
+                    if (oldFeedback) oldFeedback.remove();
+                    if (oldExpl) oldExpl.remove();
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q${idx}_opt${optIdx}`;
+                label.innerText = opt;
+                li.appendChild(radio);
+                li.appendChild(label);
+                optionsList.appendChild(li);
+            });
+            card.appendChild(optionsList);
+            quizBody.appendChild(card);
+        });
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    function evaluateQuiz() {
+        // sync current selections
+        for (let i = 0; i < questions.length; i++) {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selected) {
+                userAnswers[i] = parseInt(selected.value);
+            } else {
+                if (userAnswers[i] !== null) userAnswers[i] = null;
+            }
+        }
+
+        let correctCount = 0;
+        // clear old feedback
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const oldFeedback = card.querySelector('.feedback');
+            const oldExpl = card.querySelector('.explanation');
+            if (oldFeedback) oldFeedback.remove();
+            if (oldExpl) oldExpl.remove();
+        }
+
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const userChoice = userAnswers[i];
+            const isCorrect = (userChoice !== null && userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+
+            const feedbackSpan = document.createElement('div');
+            feedbackSpan.className = 'feedback';
+            if (userChoice === null) {
+                feedbackSpan.innerText = '⚠️ Not answered';
+                feedbackSpan.classList.add('wrong');
+            } else if (isCorrect) {
+                feedbackSpan.innerText = '✓ Correct';
+                feedbackSpan.classList.add('correct');
+            } else {
+                const correctLetter = String.fromCharCode(65 + questions[i].correct);
+                const correctText = questions[i].options[questions[i].correct];
+                feedbackSpan.innerText = `✗ Incorrect. Correct: ${correctLetter}. ${correctText.substring(0, 100)}${correctText.length > 100 ? '…' : ''}`;
+                feedbackSpan.classList.add('wrong');
+            }
+
+            const explDiv = document.createElement('div');
+            explDiv.className = 'explanation';
+            explDiv.innerHTML = `📖 ${questions[i].explanation}`;
+            card.appendChild(feedbackSpan);
+            card.appendChild(explDiv);
+        }
+        scoreDisplay.innerText = `Score: ${correctCount} / ${questions.length}`;
+    }
+
+    function resetQuiz() {
+        for (let i = 0; i < questions.length; i++) userAnswers[i] = null;
+        renderQuiz();
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    checkBtn.addEventListener('click', evaluateQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+
+    renderQuiz();
+</script>
+</body>
+</html>
