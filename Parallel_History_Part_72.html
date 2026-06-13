@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Quiz: Chapter 72 – Ravibhushan Pathak & Kumar Manoj Kashyap | Drama · Short Stories · Translation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2ede4;
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            padding: 2rem 1rem;
+            color: #2d2a24;
+        }
+
+        .quiz-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fffef9;
+            border-radius: 36px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
+            overflow: hidden;
+            border: 1px solid #e2d9cc;
+        }
+
+        .quiz-header {
+            background: #4a5b6e;
+            background: linear-gradient(135deg, #2e4a5c, #4e6b7e);
+            padding: 1.8rem 2rem;
+            color: white;
+        }
+
+        .quiz-header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+            margin-bottom: 0.4rem;
+        }
+
+        .quiz-header h1 span {
+            font-weight: 400;
+            font-style: italic;
+            font-size: 1rem;
+            background: #c6dde8b3;
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+        }
+
+        .quiz-header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 0.6rem;
+            border-left: 3px solid #9ac7d9;
+            padding-left: 1rem;
+        }
+
+        .quiz-body {
+            padding: 2rem 2rem 1rem;
+        }
+
+        .question-card {
+            background: #ffffff;
+            border: 1px solid #e8e0d4;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.8rem;
+            margin-bottom: 2rem;
+            transition: all 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .question-card:hover {
+            border-color: #bfc9b3;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2e4a5c;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .options {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .options li {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+        }
+
+        .options input {
+            margin-top: 0.25rem;
+            width: 1.1rem;
+            height: 1.1rem;
+            accent-color: #4e6b7e;
+            flex-shrink: 0;
+        }
+
+        .options label {
+            font-size: 1rem;
+            line-height: 1.4;
+            color: #3e3a32;
+            font-weight: normal;
+        }
+
+        .feedback {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 30px;
+            display: inline-block;
+            background: #f3f2ec;
+            color: #4a5b4a;
+        }
+
+        .feedback.correct {
+            background: #e0f2e9;
+            color: #1f5e3a;
+            border-left: 4px solid #2b7a4b;
+        }
+
+        .feedback.wrong {
+            background: #ffeae6;
+            color: #b34141;
+            border-left: 4px solid #c4554b;
+        }
+
+        .explanation {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #6c685b;
+            font-style: italic;
+            border-left: 2px solid #dbd2c2;
+            padding-left: 12px;
+        }
+
+        .quiz-footer {
+            padding: 1.2rem 2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-top: 1px solid #e8e0d4;
+            background: #fefcf7;
+        }
+
+        .score-area {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: #e5ede2;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            color: #2b523b;
+        }
+
+        button {
+            background: #4e6b7e;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.7rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.15s;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background: #3a5568;
+            transform: scale(0.97);
+        }
+
+        .reset-btn {
+            background: #8f7a64;
+        }
+        .reset-btn:hover {
+            background: #6d5b49;
+        }
+
+        @media (max-width: 650px) {
+            .quiz-body {
+                padding: 1.5rem;
+            }
+            .question-card {
+                padding: 1.1rem;
+            }
+            .quiz-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<div class="quiz-container">
+    <div class="quiz-header">
+        <h1>🎭 Chapter 72 · Pathak & Kashyap <span>Drama · Short Stories · Translation · Parallel Voices</span></h1>
+        <p>Based on “RESEARCH & CRITICAL APPRECIATION of the Works of RAVIBHUSHAN PATHAK & KUMAR MANOJ KASHYAP” (Videha Parallel History, Tome III)<br>Riharsal · Badalait Samay · Ek Thop Ijot · Nirala translations · Laghu-katha · Navya-Nyāya · Bahār debate · Subaltern voices</p>
+    </div>
+    <div class="quiz-body" id="quizBody"></div>
+    <div class="quiz-footer">
+        <div class="score-area" id="scoreDisplay">Score: 0 / 0</div>
+        <div>
+            <button id="checkBtn">✅ Check answers</button>
+            <button id="resetBtn" class="reset-btn">⟳ Reset quiz</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ---- QUESTIONS BASED ON CHAPTER 72: Ravibhushan Pathak & Kumar Manoj Kashyap (pages 507-523) ----
+    const questions = [
+        {
+            text: "Ravibhushan Pathak's play 'Riharsal' (Rehearsal) is set in a village theatrical group. What is the central dramatic conflict of the play?",
+            options: [
+                "A love triangle",
+                "The conflict between a Brahmin director (Hemchandra) and a low-caste aspiring actor (Ramapravesh) over casting – theatrical roles become proxies for caste access to cultural capital",
+                "A property dispute",
+                "A religious festival"
+            ],
+            correct: 1,
+            explanation: "The play stages the cultural crisis of Mithila: caste has changed in name but not in function. The question of who gets to play canonical roles (Kalidasa, Vidyapati) becomes a question of who has the right to inhabit Mithila's cultural heritage."
+        },
+        {
+            text: "In 'Riharsal', Pathak contrasts two rooms: Hemchandra's photograph-covered walls (Vidyapati, Rabindranath, Nirala, Harimohan Jha) and Ramapravesh's room (Tulsi, Kabir, Marx, Nagarjuna). What does this contrast represent?",
+            options: [
+                "Rich vs poor",
+                "The canon of literary authority vs the counter-canon of dissent and democracy",
+                "Modern vs traditional art",
+                "Hindu vs Muslim"
+            ],
+            correct: 1,
+            explanation: "The visual contrast is the play's most eloquent statement: Hemchandra's wall represents the institutionalised, upper-caste canon; Ramapravesh's wall represents the parallel tradition of subaltern, anti-caste, and democratic voices."
+        },
+        {
+            text: "Pathak's essay on translation in Videha Sadeha 27 invokes Navya-Nyāya categories. What two definitions of translation does he cite from the Shabdarthalochintamani?",
+            options: [
+                "Literal and free translation",
+                "'Praptasya punah kathane' (re-telling the already-known) and 'jnatarthasya pratipadane' (explicating known meaning)",
+                "Poetry and prose translation",
+                "Oral and written translation"
+            ],
+            correct: 1,
+            explanation: "Pathak applies Navya-Nyāya categorical precision to translation poetics, distinguishing between retelling what is already known and explicating known meaning – a framework that guides his own Nirala translations."
+        },
+        {
+            text: "Kumar Manoj Kashyap's short story 'Kalakaar' (The Artiste) depicts a child performing extraordinary acrobatics at a city intersection, then holding out a bowl to beg. What is the story's central dhvani (suggested meaning)?",
+            options: [
+                "Child labour should be banned",
+                "The audience is enchanted by the performance but collective amnesia follows when the light turns green – artistry is forgotten, poverty ignored; the red light becomes the symbol of deferred hope",
+                "The child is a professional performer",
+                "The city is dangerous"
+            ],
+            correct: 1,
+            explanation: "The story's power lies in what is not said: the contrast between the audience's wonder and their refusal to see the structural poverty that produces the performance. The red traffic light becomes a metaphor for hope that never arrives."
+        },
+        {
+            text: "Kashyap's short story 'Giraith Dewal' (The Falling Wall) centres on Baitha, a washerman whose daughter elopes. How does Baitha respond to the village's outrage?",
+            options: [
+                "He beats his daughter",
+                "'If I couldn't arrange her marriage, she has found her own way – what's the great matter?' – resigned acceptance that challenges communal norms of honour",
+                "He disowns her",
+                "He files a police complaint"
+            ],
+            correct: 1,
+            explanation: "Baitha's response exposes the gap between lived experience (poverty preventing arranged marriage) and social norming (outrage at elopement). His resignation is not passivity but a quiet refusal of patriarchal honour codes."
+        },
+        {
+            text: "Pathak's 'Ghar' series of three micro-prose vignettes captures the social grammar of Maithili family life. 'Ghar (Ek)' traces a conversation from 'My father is like this' to 'In our village, things are like this' to 'The younger Chaudhary is like this'. What does this progression reveal?",
+            options: [
+                "A simple family chat",
+                "The absorption of political and caste discourse into domestic talk – social hierarchy is reproduced in everyday gossip",
+                "A recipe",
+                "A love letter"
+            ],
+            correct: 1,
+            explanation: "In twelve lines, Pathak maps how the macro-structures of caste, class, and power are miniaturised and naturalised in domestic conversation. The 'younger Chaudhary' is not just a neighbour but a figure of feudal authority."
+        },
+        {
+            text: "The chapter applies Georg Lukács's theory of realism to Kashyap's laghu-kathas. What distinguishes his stories from naturalism?",
+            options: [
+                "They avoid social issues",
+                "His characters are not mere sketches but 'typical' in Lukács's sense – individuals whose particular situation crystallises the structural conditions of a whole social formation",
+                "They are entirely abstract",
+                "They have no characters"
+            ],
+            correct: 1,
+            explanation: "Naturalism describes surface reality; realism reveals underlying social totality through typical characters. Kashyap's Baitha, the child acrobat, and Harkhoo (flood-affected farmer) are not case studies but figures whose fates illuminate caste, poverty, and ecological crisis structurally."
+        },
+        {
+            text: "Pathak's translation of Nirala's poem 'Sneh Nijhkar Bah Gaya Hai' (Love Has Dried and Flowed Away) into Maithili is discussed in the chapter. What is the central principle of his translation practice?",
+            options: [
+                "Word-for-word literalism",
+                "'Acoustic fidelity' – the sound-world of the original must find an equivalent in Maithili; following dhvani theory, the 'soul of poetry' is inseparable from phonic texture",
+                "Complete rewriting",
+                "Translation into English first"
+            ],
+            correct: 1,
+            explanation: "Pathak argues that the poem's resonant suggestion (dhvani) is inseparable from its phonic texture. Translation must reconstitute a sonic environment, not merely transfer meaning – a theoretically grounded position."
+        },
+        {
+            text: "Kashyap's story 'Bhukhala Peta' (The Hungry Belly) depicts Harkhoo, a sharecropper, whose crop is swept away by the Kosi flood. What metaphor is used for the flood?",
+            options: [
+                "A monsoon rain",
+                "Sursa – the monster from the Ramayana who expands her mouth endlessly; Harkhoo lacks Hanuman's capacity to escape, using the epic ironically",
+                "A gift of nature",
+                "A government project"
+            ],
+            correct: 1,
+            explanation: "The Ramayana allusion is deployed with full ironic force: where Hanuman could escape Sursa's mouth, Harkhoo cannot. The flood is mythologised not as divine play but as the crushing reality of the poor who lack any supernatural rescue."
+        },
+        {
+            text: "The chapter uses Bakhtin's concept of 'heteroglossia' to analyse Pathak's play 'Riharsal'. What does this concept refer to?",
+            options: [
+                "A single authoritative voice",
+                "The coexistence of multiple social voices and languages within a text – high-caste Sanskrit theatrical culture, subaltern folk performance, political sloganeering, and vernacular gossip all collide",
+                "A silent text",
+                "A monologue"
+            ],
+            correct: 1,
+            explanation: "Bakhtin's heteroglossia describes the novel's (and drama's) capacity to stage competing social languages. 'Riharsal' does not resolve these voices into a single monological stance but lets them clash – the play's form is its argument."
+        },
+        {
+            text: "Kashyap's preface to 'Badalait Samay' theorises the laghu-katha (short story/flash fiction) form. What is his definition of the form's power?",
+            options: [
+                "Lengthy descriptions",
+                "'dekhne mein chhotan lage, ghav kare gambhir' (small in appearance, deep the wound) – brevity is not limitation but concentration of force",
+                "Complex plots",
+                "Many characters"
+            ],
+            correct: 1,
+            explanation: "The popular saying quoted by Kashyap captures the essence of the laghu-katha: like an arrow, it concentrates its force. Compression creates intensity, and the wound is deeper because it is inflicted by a small, precise instrument."
+        },
+        {
+            text: "The chapter concludes that both Pathak and Kashyap occupy a specific position within the Videha Parallel History. What is that position?",
+            options: [
+                "Mainstream Sahitya Akademi winners",
+                "'Established-parallel' writers – with book-length collections archived in Videha, but operating entirely outside the Sahitya Akademi mainstream, representing the democratic, multi-caste, digitally democratised nature of Maithili literature",
+                "Traditional court poets",
+                "Only translators, not original writers"
+            ],
+            correct: 1,
+            explanation: "Both writers have achieved recognition within the parallel tradition but remain excluded from institutional gatekeeping. Their work is archived, disseminated, and critically appreciated through Videha, not through state academies – embodying the counter-canonical project."
+        }
+    ];
+
+    let userAnswers = new Array(questions.length).fill(null);
+    const quizBody = document.getElementById('quizBody');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const checkBtn = document.getElementById('checkBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    function renderQuiz() {
+        quizBody.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.setAttribute('data-qidx', idx);
+
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qText);
+
+            const optionsList = document.createElement('ul');
+            optionsList.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const li = document.createElement('li');
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q${idx}`;
+                radio.value = optIdx;
+                radio.id = `q${idx}_opt${optIdx}`;
+                if (userAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    userAnswers[idx] = parseInt(e.target.value);
+                    const oldFeedback = card.querySelector('.feedback');
+                    const oldExpl = card.querySelector('.explanation');
+                    if (oldFeedback) oldFeedback.remove();
+                    if (oldExpl) oldExpl.remove();
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q${idx}_opt${optIdx}`;
+                label.innerText = opt;
+                li.appendChild(radio);
+                li.appendChild(label);
+                optionsList.appendChild(li);
+            });
+            card.appendChild(optionsList);
+            quizBody.appendChild(card);
+        });
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    function evaluateQuiz() {
+        // sync current selections
+        for (let i = 0; i < questions.length; i++) {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selected) {
+                userAnswers[i] = parseInt(selected.value);
+            } else {
+                if (userAnswers[i] !== null) userAnswers[i] = null;
+            }
+        }
+
+        let correctCount = 0;
+        // clear old feedback
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const oldFeedback = card.querySelector('.feedback');
+            const oldExpl = card.querySelector('.explanation');
+            if (oldFeedback) oldFeedback.remove();
+            if (oldExpl) oldExpl.remove();
+        }
+
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const userChoice = userAnswers[i];
+            const isCorrect = (userChoice !== null && userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+
+            const feedbackSpan = document.createElement('div');
+            feedbackSpan.className = 'feedback';
+            if (userChoice === null) {
+                feedbackSpan.innerText = '⚠️ Not answered';
+                feedbackSpan.classList.add('wrong');
+            } else if (isCorrect) {
+                feedbackSpan.innerText = '✓ Correct';
+                feedbackSpan.classList.add('correct');
+            } else {
+                const correctLetter = String.fromCharCode(65 + questions[i].correct);
+                const correctText = questions[i].options[questions[i].correct];
+                feedbackSpan.innerText = `✗ Incorrect. Correct: ${correctLetter}. ${correctText.substring(0, 100)}${correctText.length > 100 ? '…' : ''}`;
+                feedbackSpan.classList.add('wrong');
+            }
+
+            const explDiv = document.createElement('div');
+            explDiv.className = 'explanation';
+            explDiv.innerHTML = `📖 ${questions[i].explanation}`;
+            card.appendChild(feedbackSpan);
+            card.appendChild(explDiv);
+        }
+        scoreDisplay.innerText = `Score: ${correctCount} / ${questions.length}`;
+    }
+
+    function resetQuiz() {
+        for (let i = 0; i < questions.length; i++) userAnswers[i] = null;
+        renderQuiz();
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    checkBtn.addEventListener('click', evaluateQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+
+    renderQuiz();
+</script>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>

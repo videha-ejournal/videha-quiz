@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Quiz: Critical Frameworks | Videha Parallel History (Ch. 84)</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f4f0ea;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      padding: 2rem 1rem;
+      color: #2a2722;
+    }
+    .quiz-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fffef9;
+      border-radius: 32px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2d8cb;
+      overflow: hidden;
+    }
+    .quiz-header {
+      background: #2f5e5c;
+      background: linear-gradient(135deg, #2f5e5c 0%, #4b7b78 100%);
+      color: #fff4e4;
+      padding: 1.8rem 2rem;
+      text-align: center;
+    }
+    .quiz-header h1 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.4rem;
+    }
+    .quiz-header p {
+      font-size: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    .quiz-body {
+      padding: 2rem 2rem 1.2rem;
+    }
+    .question-card {
+      background: #ffffff;
+      border-radius: 24px;
+      margin-bottom: 1.8rem;
+      padding: 1.5rem;
+      border: 1px solid #ece1d2;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .question-text {
+      font-size: 1.22rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #2a5a5a;
+      border-left: 5px solid #c2856b;
+      padding-left: 1rem;
+    }
+    .options {
+      list-style: none;
+      margin-top: 0.2rem;
+    }
+    .options li {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+    .options input[type="radio"] {
+      accent-color: #c2856b;
+      width: 1.1rem;
+      height: 1.1rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+    .options label {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #3f3a33;
+      font-weight: 500;
+    }
+    .feedback {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 40px;
+      display: inline-block;
+    }
+    .feedback.correct {
+      background: #e1f0e0;
+      color: #236b43;
+      border-left: 3px solid #236b43;
+    }
+    .feedback.incorrect {
+      background: #ffe3db;
+      color: #bc4c2c;
+      border-left: 3px solid #bc4c2c;
+    }
+    .btn-group {
+      text-align: center;
+      padding: 0.5rem 0 2rem;
+    }
+    .btn-submit, .btn-reset {
+      background: #2f5e5c;
+      border: none;
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.7rem 1.8rem;
+      border-radius: 48px;
+      cursor: pointer;
+      font-family: inherit;
+      margin: 0 0.6rem;
+      transition: background 0.2s;
+    }
+    .btn-reset {
+      background: #9d7c5c;
+    }
+    .btn-submit:hover {
+      background: #1f4543;
+    }
+    .btn-reset:hover {
+      background: #7f6246;
+    }
+    .score-panel {
+      text-align: center;
+      background: #fbf3e8;
+      margin: 0 2rem 2rem 2rem;
+      border-radius: 60px;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.7rem;
+      border-top: 1px solid #e6daca;
+      color: #6f5c48;
+      background: #fefcf7;
+    }
+    @media (max-width: 650px) {
+      .quiz-body { padding: 1.2rem; }
+      .question-text { font-size: 1rem; }
+    }
+  
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<div class="quiz-container">
+  <div class="quiz-header">
+    <h1>📚 Critical Appreciations</h1>
+    <p>Indian & Western Literary Theory · Videha Parallel History Framework · Navya-Nyāya</p>
+    <p>Chapter 84 – Videha Parallel History (Tome IV)</p>
+  </div>
+  <div class="quiz-body" id="quizContainer"></div>
+  <div class="btn-group">
+    <button class="btn-submit" id="submitQuizBtn">✓ Submit answers</button>
+    <button class="btn-reset" id="resetQuizBtn">⟳ Reset quiz</button>
+  </div>
+  <div class="score-panel" id="scorePanel">
+    <span id="scoreMessage">📖 Twelve questions on the theoretical frameworks that structure the Videha Parallel History.</span>
+  </div>
+  
+</div>
+
+<script>
+  // --------------------------------------------------------------
+  // QUESTIONS BASED ON CHAPTER 84 – CRITICAL APPRECIATIONS:
+  // Indian & Western Literary Theory · Videha Parallel History Framework · Navya-Nyāya
+  // The chapter (pages referenced throughout the Tome) synthesizes the key critical lenses:
+  // - Indian: Rasa (Bharata), Dhvani (Anandavardhana), Vakrokti (Kuntaka), Auchitya (Kshemendra)
+  // - Navya-Nyāya: Gaṅgeśa Upādhyāya, four pramāṇas (pratyakṣa, anumāna, upamāna, śabda), vyāpti, avacchedaka
+  // - Western: New Criticism, Marxist, Postcolonial (Spivak, Bhabha), Feminist, Reader-Response, etc.
+  // - Videha Parallel History Framework: seven simultaneous lenses (Marxist, historical materialist, structuralist, magic-realist, postmodern, feminist, deconstructive)
+  // --------------------------------------------------------------
+  const questions = [
+    {
+      text: "The Videha Parallel History Framework applies seven simultaneous critical lenses to literary analysis. Which of the following is NOT among those seven?",
+      options: [
+        "Marxist",
+        "Structuralist",
+        "Feminist",
+        "Psychoanalytic (Freudian)"
+      ],
+      correct: 3   // the seven are Marxist, historical materialist, structuralist, magic-realist, postmodern, feminist, deconstructive – no psychoanalytic
+    },
+    {
+      text: "According to the Navya-Nyāya epistemology of Gaṅgeśa Upādhyāya, which pramāṇa (means of valid knowledge) corresponds to the reader’s immediate aesthetic experience of a literary text?",
+      options: [
+        "Anumāna (inference)",
+        "Śabda (verbal testimony)",
+        "Pratyakṣa (perception)",
+        "Upamāna (comparison)"
+      ],
+      correct: 2   // pratyaksha – direct perception, applied to close reading
+    },
+    {
+      text: "Ānandavardhana’s Dhvanyāloka, a key Indian aesthetic text, argues that the highest poetry operates through dhvani. What is dhvani?",
+      options: [
+        "The literal denotation of words",
+        "The figurative or metaphorical meaning",
+        "The resonant, suggested meaning that exceeds the literal (vyañjanā)",
+        "The grammatical structure of a sentence"
+      ],
+      correct: 2   // suggestion / resonance, the ‘soul of poetry’
+    },
+    {
+      text: "Kuntaka’s Vakrokti theory holds that the essence of poetic language lies in ‘oblique expression’. In the Videha framework, this concept is used to analyse:",
+      options: [
+        "Only Sanskrit poetry",
+        "The deviation from ordinary speech that produces aesthetic surprise, including in Maithili protest poetry",
+        "The strict adherence to grammatical rules",
+        "The rejection of all figures of speech"
+      ],
+      correct: 1   // vakrokti = bent/oblique speech, creative deviation
+    },
+    {
+      text: "Which Western critical framework, associated with Cleanth Brooks and the ‘well‑wrought urn’, emphasises close reading of a text’s internal tensions, irony, and paradox?",
+      options: [
+        "Structuralism",
+        "New Criticism",
+        "Postcolonialism",
+        "Marxist criticism"
+      ],
+      correct: 1   // New Criticism
+    },
+    {
+      text: "In the Videha Parallel History, the application of Gayatri Chakravorty Spivak’s ‘Can the Subaltern Speak?’ helps to analyse:",
+      options: [
+        "The dominance of Sanskrit in medieval Mithila",
+        "The exclusion of Dalit, women, and Nepal-side Maithili voices from the official canon, and the counter‑archive’s effort to make them heard",
+        "The prosody of Vidyapati’s padāvalī",
+        "The economic impact of the Kosi floods"
+      ],
+      correct: 1   // subaltern exclusion and recovery
+    },
+    {
+      text: "Which of the following is NOT one of the four pramāṇas (valid sources of knowledge) in Gaṅgeśa’s Navya-Nyāya system?",
+      options: [
+        "Pratyakṣa (perception)",
+        "Anumāna (inference)",
+        "Upamāna (comparison)",
+        "Anvaya (positive correlation)"
+      ],
+      correct: 3   // anvaya is a method, not a pramana; the four are pratyaksha, anumana, upamana, shabda
+    },
+    {
+      text: "The concept of ‘vyāpti’ in Navya-Nyāya refers to:",
+      options: [
+        "The emotional effect of a poem",
+        "The invariable concomitance (universal relation) between a probans and a probandum, e.g., wherever smoke, fire",
+        "The use of metaphor in folk tales",
+        "The metrical pattern of a ghazal"
+      ],
+      correct: 1   // invariable concomitance
+    },
+    {
+      text: "Bharata Muni’s Nāṭyaśāstra identifies eight (later nine) rasas. Which rasa, associated with compassion and pathos, is frequently evoked in the social realist poetry of the Videha tradition?",
+      options: [
+        "Śṛṅgāra (erotic love)",
+        "Hāsya (comedy)",
+        "Karuṇa (pathos/compassion)",
+        "Vīra (heroism)"
+      ],
+      correct: 2   // karuna – dominant in poverty, migration, caste oppression narratives
+    },
+    {
+      text: "The Videha Parallel History Framework explicitly names ‘magic realism’ as one of its seven lenses. In the context of Maithili literature, this lens is used to read works such as:",
+      options: [
+        "Strictly journalistic reportage",
+        "Texts where the ordinary and the mythic blend without hierarchy, e.g., mother as sacred Kumbh bath or mythological figures in contemporary settings",
+        "Only Western imports",
+        "Pure documentary realism"
+      ],
+      correct: 1   // magic realism: blend of quotidian and mythic (see earlier chapters: Sanju Das, Gajendra Thakur’s Tarharime Pariloke, etc.)
+    },
+    {
+      text: "Which Indian aesthetic concept, theorised by Kṣemendra, stresses ‘propriety’ or the perfect fit between form, content, register, and context as the supreme literary virtue?",
+      options: [
+        "Alaṅkāra",
+        "Rasa",
+        "Dhvani",
+        "Auchitya"
+      ],
+      correct: 3   // aucitya – propriety/decorum
+    },
+    {
+      text: "The Videha Parallel History Framework’s ‘deconstructive lens’ (inspired by Derrida) is applied to reveal:",
+      options: [
+        "The stable, unified meaning of a text",
+        "The aporias and suppressed contradictions in a text’s claims, e.g., the idea of a unified ‘Maithili literature’ that historically excluded subaltern voices",
+        "The author’s biographical intention",
+        "The moral lesson of a folk tale"
+      ],
+      correct: 1   // deconstruction exposes contradictions and suppressed binaries
+    }
+  ];
+
+  let userSelections = new Array(questions.length).fill(null);
+  let quizActive = true;
+
+  function renderQuiz() {
+    const container = document.getElementById('quizContainer');
+    if (!container) return;
+    let html = '';
+    for (let i = 0; i < questions.length; i++) {
+      const q = questions[i];
+      const selected = userSelections[i];
+      html += `
+        <div class="question-card" data-qidx="${i}">
+          <div class="question-text">${i+1}. ${q.text}</div>
+          <ul class="options">
+      `;
+      for (let optIdx = 0; optIdx < q.options.length; optIdx++) {
+        const isChecked = (selected === optIdx);
+        html += `
+          <li>
+            <input type="radio" name="q${i}" value="${optIdx}" id="q${i}_opt${optIdx}" ${isChecked ? 'checked' : ''} ${!quizActive ? 'disabled' : ''}>
+            <label for="q${i}_opt${optIdx}">${q.options[optIdx]}</label>
+          </li>
+        `;
+      }
+      html += `</ul>`;
+      if (!quizActive) {
+        const isCorrect = (selected === q.correct);
+        const correctAnswer = q.options[q.correct];
+        if (selected === null) {
+          html += `<div class="feedback incorrect">❓ Not answered. Correct: ${correctAnswer}</div>`;
+        } else if (isCorrect) {
+          html += `<div class="feedback correct">✓ Correct! ${correctAnswer}</div>`;
+        } else {
+          html += `<div class="feedback incorrect">✗ Incorrect. Correct answer: ${correctAnswer}</div>`;
+        }
+      }
+      html += `</div>`;
+    }
+    container.innerHTML = html;
+
+    if (quizActive) {
+      for (let i = 0; i < questions.length; i++) {
+        const radios = document.querySelectorAll(`input[name="q${i}"]`);
+        radios.forEach(radio => {
+          radio.removeEventListener('change', handleRadioChange);
+          radio.addEventListener('change', handleRadioChange);
+        });
+      }
+    }
+  }
+
+  function handleRadioChange(e) {
+    if (!quizActive) return;
+    const radio = e.target;
+    const name = radio.getAttribute('name');
+    const qIndex = parseInt(name.substring(1), 10);
+    const selectedVal = parseInt(radio.value, 10);
+    if (!isNaN(qIndex)) userSelections[qIndex] = selectedVal;
+  }
+
+  function computeScore() {
+    let correctCount = 0;
+    for (let i = 0; i < questions.length; i++) {
+      if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correctCount++;
+    }
+    return correctCount;
+  }
+
+  function updateScoreMessage() {
+    const msgSpan = document.getElementById('scoreMessage');
+    if (!msgSpan) return;
+    if (!quizActive) {
+      const total = questions.length;
+      const correct = computeScore();
+      const percent = Math.round((correct / total) * 100);
+      let msg = `🏆 Your score: ${correct} / ${total} (${percent}%) – `;
+      if (correct === total) msg += "Perfect! You have mastered the critical frameworks of the Videha Parallel History.";
+      else if (correct >= total-2) msg += "Excellent — you understand the synthesis of Indian, Western, and Navya-Nyāya theories.";
+      else if (correct >= total/2) msg += "Good attempt. Review the sections on the four pramāṇas, rasa, dhvani, and the seven lenses.";
+      else msg += "Re‑read Chapter 84. Focus on the key concepts: vyāpti, vakrokti, aucitya, and the postcolonial/subaltern lens.";
+      msgSpan.innerHTML = msg;
+    } else {
+      msgSpan.innerHTML = "📚 Twelve questions on Indian & Western literary theory, Navya-Nyāya epistemology, and the Videha Parallel History Framework. Submit your answers.";
+    }
+  }
+
+  function submitQuiz() {
+    if (!quizActive) return;
+    quizActive = false;
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = true;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  function resetQuiz() {
+    quizActive = true;
+    userSelections.fill(null);
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = false;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  renderQuiz();
+  updateScoreMessage();
+  document.getElementById('submitQuizBtn').addEventListener('click', submitQuiz);
+  document.getElementById('resetQuizBtn').addEventListener('click', resetQuiz);
+</script>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Quiz: Prof. Dr. Yogendra P. Yadava – Maithili Linguist | Videha Parallel History Ch. 100</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f4efe7;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      padding: 2rem 1rem;
+      color: #2c2822;
+    }
+    .quiz-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fffef9;
+      border-radius: 32px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2d8cb;
+      overflow: hidden;
+    }
+    .quiz-header {
+      background: #4a6b5c;
+      background: linear-gradient(135deg, #2c5a4e 0%, #5e7f6e 100%);
+      color: #fef5e3;
+      padding: 1.8rem 2rem;
+      text-align: center;
+    }
+    .quiz-header h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.4rem;
+    }
+    .quiz-header p {
+      font-size: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    .quiz-body {
+      padding: 2rem 2rem 1.2rem;
+    }
+    .question-card {
+      background: #ffffff;
+      border-radius: 24px;
+      margin-bottom: 1.8rem;
+      padding: 1.5rem;
+      border: 1px solid #ece1d2;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .question-text {
+      font-size: 1.22rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #2c5a4e;
+      border-left: 5px solid #c2825c;
+      padding-left: 1rem;
+    }
+    .options {
+      list-style: none;
+      margin-top: 0.2rem;
+    }
+    .options li {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+    .options input[type="radio"] {
+      accent-color: #c2825c;
+      width: 1.1rem;
+      height: 1.1rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+    .options label {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #3f3a33;
+      font-weight: 500;
+    }
+    .feedback {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 40px;
+      display: inline-block;
+    }
+    .feedback.correct {
+      background: #e1f0e0;
+      color: #236b43;
+      border-left: 3px solid #236b43;
+    }
+    .feedback.incorrect {
+      background: #ffe3db;
+      color: #bc4c2c;
+      border-left: 3px solid #bc4c2c;
+    }
+    .btn-group {
+      text-align: center;
+      padding: 0.5rem 0 2rem;
+    }
+    .btn-submit, .btn-reset {
+      background: #2c5a4e;
+      border: none;
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.7rem 1.8rem;
+      border-radius: 48px;
+      cursor: pointer;
+      font-family: inherit;
+      margin: 0 0.6rem;
+      transition: background 0.2s;
+    }
+    .btn-reset {
+      background: #9d7c5c;
+    }
+    .btn-submit:hover {
+      background: #1f4239;
+    }
+    .btn-reset:hover {
+      background: #7f6246;
+    }
+    .score-panel {
+      text-align: center;
+      background: #fbf3e8;
+      margin: 0 2rem 2rem 2rem;
+      border-radius: 60px;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.7rem;
+      border-top: 1px solid #e6daca;
+      color: #6f5c48;
+      background: #fefcf7;
+    }
+    @media (max-width: 650px) {
+      .quiz-body { padding: 1.2rem; }
+      .question-text { font-size: 1rem; }
+    }
+  
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<div class="quiz-wrapper">
+  <div class="quiz-header">
+    <h1>📖 Prof. Dr. Yogendra P. Yadava</h1>
+    <p>Maithili Linguist · Syntactician · Lexicographer · Language Policy Architect</p>
+    <p>Chapter 100 – Complete Critical Appreciation (Videha Parallel History, Tome IV)</p>
+  </div>
+  <div class="quiz-body" id="quizContainer"></div>
+  <div class="btn-group">
+    <button class="btn-submit" id="submitQuizBtn">✓ Submit answers</button>
+    <button class="btn-reset" id="resetQuizBtn">⟳ Reset quiz</button>
+  </div>
+  <div class="score-panel" id="scorePanel">
+    <span id="scoreMessage">📚 Twelve questions on Prof. Yadava’s linguistic contributions, theoretical frameworks, and role in the Videha tradition.</span>
+  </div>
+  
+</div>
+
+<script>
+  // ---------------------------------------------------------------
+  // QUESTIONS BASED ON CHAPTER 100 – PROF. DR. YOGENDRA P. YADAVA (pages 608–624)
+  // Topics: birth in Siraha, Nepal; M.A. English, CIEFL Hyderabad PhD; Government-Binding theory;
+  // major book: Issues in Maithili Syntax (Lincom Europa, 1998); co-authored paper "Face vs. Empathy" (Linguistics, 1999);
+  // Prajñā Maithilī-Nepālī-English Dictionary; editor of Readings in Maithili Language, Literature and Culture;
+  // Linguistic Survey of Nepal; Mithila Ratna Award; Vidyapati Anusandhan Puraskar; Navya-Nyāya epistemology;
+  // sociolinguistics (Bourdieu, Fishman, Skutnabb-Kangas); role in Videha Munnaji interview series.
+  // ---------------------------------------------------------------
+  const questions = [
+    {
+      text: "Prof. Yogendra P. Yadava was born in Navarajpur Village, District Siraha, Nepal. Which two languages are his mother tongue and acquired second languages respectively?",
+      options: [
+        "Nepali (mother tongue); Hindi and English (acquired)",
+        "Maithili (mother tongue); Nepali and Hindi (acquired)",
+        "Hindi (mother tongue); Maithili and Nepali (acquired)",
+        "English (mother tongue); Maithili and Nepali (acquired)"
+      ],
+      correct: 1   // page 608 – "Maithili is his mother tongue, and Nepali and Hindi his acquired second languages"
+    },
+    {
+      text: "Yadava’s doctoral dissertation (CIEFL, Hyderabad, 1983/84) was titled ‘Movement Rules in Maithili and English: Their Implications for the Theory of Government and Binding’. Which linguistic framework did he apply to Maithili syntax for the first time?",
+      options: [
+        "Structuralism (Saussure)",
+        "Generative Grammar / Government‑and‑Binding theory (Chomsky)",
+        "Systemic Functional Linguistics (Halliday)",
+        "Cognitive Linguistics (Lakoff)"
+      ],
+      correct: 1   // page 609 – "the first major application of Chomskyan Government-and-Binding theory to Maithili syntax"
+    },
+    {
+      text: "Yadava’s most internationally cited paper (Linguistics, 1999) is co‑authored with Balthasar Bickel and Walter Bisang. What is its central finding about Maithili verb agreement?",
+      options: [
+        "Maithili has no agreement system",
+        "Maithili agreement is controlled by two social principles: social hierarchy (face) and social solidarity (empathy), and the system is reduced among lower‑caste speakers",
+        "Agreement is purely phonological",
+        "Agreement is identical to English"
+      ],
+      correct: 1   // page 611 – "Maithili has one of the most complex agreement systems ... the system is reduced among lower-caste speakers"
+    },
+    {
+      text: "Yadava’s book ‘Issues in Maithili Syntax: A Government‑Binding Approach’ was published by which prestigious European academic publisher?",
+      options: [
+        "Oxford University Press",
+        "Cambridge University Press",
+        "Lincom Europa",
+        "Mouton de Gruyter"
+      ],
+      correct: 2   // page 610 – "Munich/Newcastle: Lincom Europa"
+    },
+    {
+      text: "Yadava served as Founder Director of the Linguistic Survey of Nepal (2008–2009) and contributed to the ‘Ethnologue: Languages of Nepal’. What is the significance of this survey for Maithili?",
+      options: [
+        "It proved that Maithili is a dialect of Nepali",
+        "It documented Nepal’s linguistic diversity, including Maithili as the second most spoken language, and provided data for language rights advocacy",
+        "It recommended replacing Maithili with Nepali in all domains",
+        "It ignored Maithili entirely"
+      ],
+      correct: 1   // page 616 – "documentation of all languages spoken in Nepal, ensuring that endangered and minority languages received the same scholarly documentation"
+    },
+    {
+      text: "Yadava’s trilingual dictionary ‘Prajñā Maithilī-Nepālī-English Dictionary’ (2017) is described in the chapter as an institutionalised encoding of śabda-pramāṇa (verbal testimony). What does this mean in Navya-Nyāya terms?",
+      options: [
+        "The dictionary is the authoritative record of word meanings, serving as a valid source of knowledge for the language community",
+        "The dictionary is a work of fiction",
+        "The dictionary only lists Nepali words",
+        "The dictionary rejects all traditional meanings"
+      ],
+      correct: 0   // page 611 – "the dictionary is the institutionalised encoding of śabda-jñāna, the knowledge conveyed through language"
+    },
+    {
+      text: "Which prestigious honour was Yadava awarded in 2016, placing him among a small number of non‑American scholars of exceptional distinction?",
+      options: [
+        "Fulbright Fellowship",
+        "Honorary Life Member of the Linguistic Society of America",
+        "Padma Shri",
+        "Sahitya Akademi Award"
+      ],
+      correct: 1   // page 609 – "elected Honorary Life Member of the Linguistic Society of America"
+    },
+    {
+      text: "The chapter applies Pierre Bourdieu’s concept of ‘linguistic capital’ to Yadava’s career. How does Yadava’s work aim to increase Maithili’s linguistic capital?",
+      options: [
+        "By proving that Maithili is a dialect of Hindi",
+        "By formal syntactic analysis that asserts Maithili’s place in international linguistics, and by language policy advocacy to extend Maithili’s use in education and administration",
+        "By discouraging Maithili speakers from using their language",
+        "By translating all Maithili works into English"
+      ],
+      correct: 1   // page 620 – "a sustained effort to increase Maithili's linguistic capital, to validate it as a language of intellectual and official prestige"
+    },
+    {
+      text: "Yadava’s research on ‘raising from tensed clauses’ demonstrated that Maithili allows subject‑to‑subject raising from a finite embedded clause, a property that distinguishes Maithili from English. What does this finding contribute to linguistic typology?",
+      options: [
+        "It identifies a ‘Maithili‑type’ parametric variation in Universal Grammar",
+        "It proves that Maithili has no syntax",
+        "It shows that Maithili is identical to Japanese",
+        "It invalidates all linguistic theory"
+      ],
+      correct: 0   // page 615 – "identifies a 'Maithili-type' language, contrasted with 'English-type' languages, in Chomsky's parametric framework"
+    },
+    {
+      text: "Within the Videha Parallel History Framework, Yadava appears as the second interviewee in Munnaji’s series ‘हम पुछैत छी’ (We Ask). What does this placement signify?",
+      options: [
+        "He is a minor figure",
+        "He is recognised as a central figure of the Maithili cultural world, whose views on language, literature, and society are important to the broader Maithili‑speaking community",
+        "He is rejected by the parallel tradition",
+        "He only writes in English"
+      ],
+      correct: 1   // page 613 – "signals his recognition within the Videha intellectual community ... as a central figure of the Maithili cultural world"
+    },
+    {
+      text: "The chapter connects Yadava’s work to the Navya-Nyāya tradition of Gaṅgeśa Upādhyāya. Which Navya-Nyāya concept refers to the ‘invariable concomitance’ that Yadava identifies between social‑structural properties (face/empathy) and grammatical properties (agreement paradigm)?",
+      options: [
+        "Avacchedakatva",
+        "Vyāpti",
+        "Pratyakṣa",
+        "Śabda"
+      ],
+      correct: 1   // page 615 – "identifies the invariant relationship (vyāpti) between social-structural properties ... and grammatical properties"
+    },
+    {
+      text: "Yadava has contributed to mother tongue‑based multilingual education (MLE) in Nepal. Which framework of linguistic human rights, associated with Tove Skutnabb‑Kangas, does his work explicitly engage with?",
+      options: [
+        "The argument that all children have a right to education in their mother tongue, and that denial of this right constitutes ‘linguistic genocide’",
+        "The promotion of English‑only education",
+        "The rejection of all minority languages",
+        "The assimilation of all languages into Nepali"
+      ],
+      correct: 0   // page 620-621 – "all children have a right to education in their mother tongue, and that denial of this right constitutes a form of 'linguistic genocide'"
+    }
+  ];
+
+  let userSelections = new Array(questions.length).fill(null);
+  let quizActive = true;
+
+  function renderQuiz() {
+    const container = document.getElementById('quizContainer');
+    if (!container) return;
+    let html = '';
+    for (let i = 0; i < questions.length; i++) {
+      const q = questions[i];
+      const selected = userSelections[i];
+      html += `
+        <div class="question-card" data-qidx="${i}">
+          <div class="question-text">${i+1}. ${q.text}</div>
+          <ul class="options">
+      `;
+      for (let optIdx = 0; optIdx < q.options.length; optIdx++) {
+        const isChecked = (selected === optIdx);
+        html += `
+          <li>
+            <input type="radio" name="q${i}" value="${optIdx}" id="q${i}_opt${optIdx}" ${isChecked ? 'checked' : ''} ${!quizActive ? 'disabled' : ''}>
+            <label for="q${i}_opt${optIdx}">${q.options[optIdx]}</label>
+          </li>
+        `;
+      }
+      html += `</ul>`;
+      if (!quizActive) {
+        const isCorrect = (selected === q.correct);
+        const correctAnswer = q.options[q.correct];
+        if (selected === null) {
+          html += `<div class="feedback incorrect">❓ Not answered. Correct: ${correctAnswer}</div>`;
+        } else if (isCorrect) {
+          html += `<div class="feedback correct">✓ Correct! ${correctAnswer}</div>`;
+        } else {
+          html += `<div class="feedback incorrect">✗ Incorrect. Correct answer: ${correctAnswer}</div>`;
+        }
+      }
+      html += `</div>`;
+    }
+    container.innerHTML = html;
+
+    if (quizActive) {
+      for (let i = 0; i < questions.length; i++) {
+        const radios = document.querySelectorAll(`input[name="q${i}"]`);
+        radios.forEach(radio => {
+          radio.removeEventListener('change', handleRadioChange);
+          radio.addEventListener('change', handleRadioChange);
+        });
+      }
+    }
+  }
+
+  function handleRadioChange(e) {
+    if (!quizActive) return;
+    const radio = e.target;
+    const name = radio.getAttribute('name');
+    const qIndex = parseInt(name.substring(1), 10);
+    const selectedVal = parseInt(radio.value, 10);
+    if (!isNaN(qIndex)) userSelections[qIndex] = selectedVal;
+  }
+
+  function computeScore() {
+    let correctCount = 0;
+    for (let i = 0; i < questions.length; i++) {
+      if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correctCount++;
+    }
+    return correctCount;
+  }
+
+  function updateScoreMessage() {
+    const msgSpan = document.getElementById('scoreMessage');
+    if (!msgSpan) return;
+    if (!quizActive) {
+      const total = questions.length;
+      const correct = computeScore();
+      const percent = Math.round((correct / total) * 100);
+      let msg = `🏆 Your score: ${correct} / ${total} (${percent}%) – `;
+      if (correct === total) msg += "Flawless! You have mastered the linguistic and policy contributions of Prof. Yogendra P. Yadava.";
+      else if (correct >= total-2) msg += "Excellent – you understand his formal syntax, sociolinguistics, and Navya-Nyāya connections.";
+      else if (correct >= total/2) msg += "Good attempt. Review the ‘Face vs. Empathy’ paper, the Linguistic Survey of Nepal, and the Mithila Ratna Award.";
+      else msg += "Re‑read Chapter 100. Focus on his doctoral work, the trilingual dictionary, and his role in the Videha interview series.";
+      msgSpan.innerHTML = msg;
+    } else {
+      msgSpan.innerHTML = "📚 Twelve questions on Prof. Dr. Yogendra P. Yadava – Maithili linguist, syntactician, lexicographer, and language policy architect. Submit your answers.";
+    }
+  }
+
+  function submitQuiz() {
+    if (!quizActive) return;
+    quizActive = false;
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = true;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  function resetQuiz() {
+    quizActive = true;
+    userSelections.fill(null);
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = false;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  renderQuiz();
+  updateScoreMessage();
+  document.getElementById('submitQuizBtn').addEventListener('click', submitQuiz);
+  document.getElementById('resetQuizBtn').addEventListener('click', resetQuiz);
+</script>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>

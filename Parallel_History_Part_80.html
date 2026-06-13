@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Quiz: Shanti Lakshmi Chaudhary & Rajeev Ranjan Mishra | Videha Parallel History (Ch. 80)</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #faf6ef;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      padding: 2rem 1rem;
+      color: #2e2a24;
+    }
+    .quiz-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fffef9;
+      border-radius: 32px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.06);
+      border: 1px solid #e5dbcE;
+      overflow: hidden;
+    }
+    .quiz-header {
+      background: #6b2e40;
+      background: linear-gradient(135deg, #5e2a3a 0%, #8b4c5c 100%);
+      color: #ffeede;
+      padding: 1.6rem 2rem;
+      text-align: center;
+    }
+    .quiz-header h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: -0.2px;
+      margin-bottom: 0.5rem;
+    }
+    .quiz-header p {
+      font-size: 0.95rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    .quiz-body {
+      padding: 2rem 2rem 1.2rem;
+    }
+    .question-card {
+      background: #ffffff;
+      border-radius: 24px;
+      margin-bottom: 1.8rem;
+      padding: 1.5rem;
+      border: 1px solid #ece0d0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .question-text {
+      font-size: 1.22rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #4c2c3a;
+      border-left: 5px solid #c2856b;
+      padding-left: 1rem;
+    }
+    .options {
+      list-style: none;
+      margin-top: 0.2rem;
+    }
+    .options li {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+    .options input[type="radio"] {
+      accent-color: #aa6f55;
+      width: 1.1rem;
+      height: 1.1rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+    .options label {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #3f3a33;
+      font-weight: 500;
+    }
+    .feedback {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 40px;
+      display: inline-block;
+    }
+    .feedback.correct {
+      background: #e1f0e0;
+      color: #236b43;
+      border-left: 3px solid #236b43;
+    }
+    .feedback.incorrect {
+      background: #ffe3db;
+      color: #bc4c2c;
+      border-left: 3px solid #bc4c2c;
+    }
+    .btn-group {
+      text-align: center;
+      padding: 0.5rem 0 2rem;
+    }
+    .btn-submit, .btn-reset {
+      background: #6b2e40;
+      border: none;
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.7rem 1.8rem;
+      border-radius: 48px;
+      cursor: pointer;
+      font-family: inherit;
+      margin: 0 0.6rem;
+      transition: background 0.2s;
+    }
+    .btn-reset {
+      background: #9d7c5c;
+    }
+    .btn-submit:hover {
+      background: #4f212f;
+    }
+    .btn-reset:hover {
+      background: #7f6246;
+    }
+    .score-panel {
+      text-align: center;
+      background: #fbf3e8;
+      margin: 0 2rem 2rem 2rem;
+      border-radius: 60px;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.7rem;
+      border-top: 1px solid #e6daca;
+      color: #6f5c48;
+      background: #fefcf7;
+    }
+    @media (max-width: 650px) {
+      .quiz-body { padding: 1.2rem; }
+      .question-text { font-size: 1rem; }
+    }
+  
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<div class="quiz-container">
+  <div class="quiz-header">
+    <h1>🌸 Parallel Histories: Shanti Lakshmi Chaudhary & Rajeev Ranjan Mishra</h1>
+    <p>Feminist Poet‑Essayist · Ghazal Poet & Devotional Composer | Chapter 80 – Videha Parallel History</p>
+  </div>
+  <div class="quiz-body" id="quizContainer"></div>
+  <div class="btn-group">
+    <button class="btn-submit" id="submitQuizBtn">✓ Submit answers</button>
+    <button class="btn-reset" id="resetQuizBtn">⟳ Reset quiz</button>
+  </div>
+  <div class="score-panel" id="scorePanel">
+    <span id="scoreMessage">📖 Twelve questions on the works and critical frameworks of Shanti Lakshmi Chaudhary & Rajeev Ranjan Mishra.</span>
+  </div>
+  
+</div>
+
+<script>
+  // ---------------------------------------------------------------
+  // QUESTIONS BASED ON CHAPTER 80 (SHANTI LAKSHMI CHAUDHARY & RAJEEV RANJAN MISHRA)
+  // Source: PDF pages 78–87 (Part One: Shanti Lakshmi Chaudhary; Part Two: Rajeev Ranjan Mishra)
+  // ---------------------------------------------------------------
+  const questions = [
+    {
+      text: "Shanti Lakshmi Chaudhary’s landmark essay ‘Lesbian Continuum’ draws directly on the theoretical framework of which Western feminist thinker?",
+      options: [
+        "Simone de Beauvoir",
+        "Judith Butler",
+        "Adrienne Rich",
+        "Elaine Showalter"
+      ],
+      correct: 2   // Adrienne Rich – “Compulsory Heterosexuality and Lesbian Existence” (page 80-81)
+    },
+    {
+      text: "In Videha Sadeha 15, Shanti Lakshmi Chaudhary’s triptych ‘Lesbian Continuum’, ‘Mātr̥tva’ (Motherhood), and ‘Netājī’ critiques three patriarchal institutions. Which of the following is NOT one of those three?",
+      options: [
+        "Compulsory heterosexual family",
+        "Idealised motherhood",
+        "Male political authority",
+        "The institution of caste hierarchy"
+      ],
+      correct: 3   // caste hierarchy is not named as the third; Netājī is about political leadership (page 80)
+    },
+    {
+      text: "Shanti Lakshmi’s nature poem ‘Bathuāka Timana’ (cooked dish of Bathuā leaves) and ‘Tilakora’ (taro plant) are described as acts of democratic aesthetic. Which concept from the Videha Parallel History does this exemplify?",
+      options: [
+        "The ‘two Vidyapatis’ thesis",
+        "Treating everyday culinary practice as a worthy literary subject",
+        "Navya-Nyāya vyāpti",
+        "The suppression of the Dooshan Panji"
+      ],
+      correct: 1   // democratic aesthetic: ordinary, low-prestige domestic subjects (page 81)
+    },
+    {
+      text: "Shanti Lakshmi Chaudhary’s ‘bāla ghazal’ (children’s ghazal) is a Videha innovation. What is its primary pedagogical purpose?",
+      options: [
+        "To teach Persian prosody",
+        "To introduce children to the ghazal form with simpler vocabulary and accessible imagery",
+        "To replace traditional lullabies",
+        "To train children in classical Sanskrit metres"
+      ],
+      correct: 1   // children’s ghazal: simpler vocabulary, accessible imagery (page 81)
+    },
+    {
+      text: "Which classical Indian aesthetic concept is used to analyse Shanti Lakshmi’s use of a Western theoretical term (‘Lesbian Continuum’) in a Maithili essay as an ‘oblique expression that creates a cognitive shock’?",
+      options: [
+        "Rasa",
+        "Dhvani",
+        "Vakrokti",
+        "Alaṅkāra"
+      ],
+      correct: 2   // Vakrokti – oblique, unexpected expression (page 82)
+    },
+    {
+      text: "Rajeev Ranjan Mishra’s first documented Videha contribution is a ‘Bhakti Ghazal’. This genre combines the Arabic-Persian ghazal form with which Indian devotional tradition?",
+      options: [
+        "Nirguṇa bhakti (Kabir)",
+        "Sufi and Vaishnava (Vidyapati’s Radha-Krishna) traditions",
+        "Shaiva Agamas",
+        "Sikh Gurbani"
+      ],
+      correct: 1   // Sufi + Maithili Vaishnava (page 85)
+    },
+    {
+      text: "Mishra’s ‘Janaki Gita’ (song to Janaki/Sita) is culturally specific because Janaki is the presiding divine figure of Mithila. Which ancient kingdom does ‘Videha’ (the eJournal) reference?",
+      options: [
+        "The kingdom of Janaka and Sita",
+        "The Gupta Empire",
+        "The Pala dynasty",
+        "The Malla kingdom of Nepal"
+      ],
+      correct: 0   // Videha = ancient kingdom of King Janaka (page 85)
+    },
+    {
+      text: "In Videha Sadeha 20, Rajeev Ranjan Mishra includes ‘Faguā’ and ‘Jogīrā’ – Holi songs. Which Western critic’s concept of ‘carnivalesque’ (festive inversion, suspension of social hierarchy) is used to analyse these folk forms?",
+      options: [
+        "Jacques Derrida",
+        "Mikhail Bakhtin",
+        "Roland Barthes",
+        "Michel Foucault"
+      ],
+      correct: 1   // Bakhtin – carnivalesque (page 86-87)
+    },
+    {
+      text: "According to the Rasa analysis, Mishra’s Bhakti Ghazal and Janaki Gita operate primarily in which two rasas?",
+      options: [
+        "Śṛṅgāra and Hāsya",
+        "Karuṇa and Raudra",
+        "Śānta (tranquillity) and Śṛṅgāra (erotic-devotional love)",
+        "Adbhuta and Vīra"
+      ],
+      correct: 2   // Santa-rasa (devotional tranquillity) + Srngara (erotic-devotional) – page 86
+    },
+    {
+      text: "The Videha Parallel History Framework documents the recovery of Gaṅgeśa Upādhyāya’s inter-caste origins (marriage to a Charmkarini). How does this connect to Rajeev Ranjan Mishra’s work?",
+      options: [
+        "Mishra’s ghazals directly mention Gaṅgeśa",
+        "The Navya-Nyāya concept of śabda-pramāṇa is used to analyse devotional testimony in Mishra’s bhakti ghazals",
+        "Mishra is a descendant of Gaṅgeśa",
+        "There is no connection"
+      ],
+      correct: 1   // Navya-Nyāya analysis of śabda-pramāṇa (page 86 – “the bhakti poet’s authority rests on their claimed experiential knowledge”)
+    },
+    {
+      text: "Shanti Lakshmi Chaudhary’s prose poem ‘Matibhrama’ (Confusion of Mind / Delusion) resonates with the feminist critique of false consciousness. In the Videha archive, which earlier feminist piece by her directly invokes the ‘lesbian continuum’?",
+      options: [
+        "Mātr̥tva",
+        "Netājī",
+        "Barkha Rānī",
+        "Lesbian Continuum (लेस्बियन कॉन्टिन्युअम)"
+      ],
+      correct: 3   // the essay itself (page 80)
+    },
+    {
+      text: "Rajeev Ranjan Mishra’s corpus includes both the literary ghazal and the folk-festive Faguā. The Videha Parallel History values this range because it demonstrates:",
+      options: [
+        "The superiority of Persian over Maithili",
+        "The democratic fullness of Maithili literary practice, equally valuing high and low forms",
+        "The rejection of all classical metres",
+        "The need to write only in Devanagari"
+      ],
+      correct: 1   // democratic fullness, no hierarchy of forms (page 86)
+    }
+  ];
+
+  let userSelections = new Array(questions.length).fill(null);
+  let quizActive = true;
+
+  function renderQuiz() {
+    const container = document.getElementById('quizContainer');
+    if (!container) return;
+    let html = '';
+    for (let i = 0; i < questions.length; i++) {
+      const q = questions[i];
+      const selected = userSelections[i];
+      html += `
+        <div class="question-card" data-qidx="${i}">
+          <div class="question-text">${i+1}. ${q.text}</div>
+          <ul class="options">
+      `;
+      for (let optIdx = 0; optIdx < q.options.length; optIdx++) {
+        const isChecked = (selected === optIdx);
+        html += `
+          <li>
+            <input type="radio" name="q${i}" value="${optIdx}" id="q${i}_opt${optIdx}" ${isChecked ? 'checked' : ''} ${!quizActive ? 'disabled' : ''}>
+            <label for="q${i}_opt${optIdx}">${q.options[optIdx]}</label>
+          </li>
+        `;
+      }
+      html += `</ul>`;
+      if (!quizActive) {
+        const isCorrect = (selected === q.correct);
+        const correctAnswer = q.options[q.correct];
+        if (selected === null) {
+          html += `<div class="feedback incorrect">❓ Not answered. Correct: ${correctAnswer}</div>`;
+        } else if (isCorrect) {
+          html += `<div class="feedback correct">✓ Correct! ${correctAnswer}</div>`;
+        } else {
+          html += `<div class="feedback incorrect">✗ Incorrect. Correct answer: ${correctAnswer}</div>`;
+        }
+      }
+      html += `</div>`;
+    }
+    container.innerHTML = html;
+
+    if (quizActive) {
+      for (let i = 0; i < questions.length; i++) {
+        const radios = document.querySelectorAll(`input[name="q${i}"]`);
+        radios.forEach(radio => {
+          radio.removeEventListener('change', handleRadioChange);
+          radio.addEventListener('change', handleRadioChange);
+        });
+      }
+    }
+  }
+
+  function handleRadioChange(e) {
+    if (!quizActive) return;
+    const radio = e.target;
+    const name = radio.getAttribute('name');
+    const qIndex = parseInt(name.substring(1), 10);
+    const selectedVal = parseInt(radio.value, 10);
+    if (!isNaN(qIndex)) userSelections[qIndex] = selectedVal;
+  }
+
+  function computeScore() {
+    let correctCount = 0;
+    for (let i = 0; i < questions.length; i++) {
+      if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correctCount++;
+    }
+    return correctCount;
+  }
+
+  function updateScoreMessage() {
+    const msgSpan = document.getElementById('scoreMessage');
+    if (!msgSpan) return;
+    if (!quizActive) {
+      const total = questions.length;
+      const correct = computeScore();
+      const percent = Math.round((correct / total) * 100);
+      let msg = `🏆 Your score: ${correct} / ${total} (${percent}%) – `;
+      if (correct === total) msg += "Outstanding! You have mastered the parallel histories of these two distinctive voices.";
+      else if (correct >= total-2) msg += "Excellent – you understand the feminist poetics and ghazal revival in Maithili.";
+      else if (correct >= total/2) msg += "Good attempt. Revisit the sections on Adrienne Rich, Vakrokti, and the carnivalesque.";
+      else msg += "Re‑read the chapter carefully. Pay special attention to Shanti Lakshmi's essay and Mishra's folk-festive forms.";
+      msgSpan.innerHTML = msg;
+    } else {
+      msgSpan.innerHTML = "📖 Twelve questions on Shanti Lakshmi Chaudhary (feminist poet-essayist) & Rajeev Ranjan Mishra (ghazal poet). Submit your answers.";
+    }
+  }
+
+  function submitQuiz() {
+    if (!quizActive) return;
+    quizActive = false;
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = true;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  function resetQuiz() {
+    quizActive = true;
+    userSelections.fill(null);
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = false;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  // initial render
+  renderQuiz();
+  updateScoreMessage();
+  document.getElementById('submitQuizBtn').addEventListener('click', submitQuiz);
+  document.getElementById('resetQuizBtn').addEventListener('click', resetQuiz);
+</script>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Quiz: Videha Parallel Audio Video Archive | Ch. 94 | Digital Remediation & Subaltern Historiography</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f0ece4;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      padding: 2rem 1rem;
+      color: #2a241e;
+    }
+    .quiz-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fffef8;
+      border-radius: 32px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2d8cb;
+      overflow: hidden;
+    }
+    .quiz-header {
+      background: #2f5e5c;
+      background: linear-gradient(135deg, #1e4a47 0%, #3e7774 100%);
+      color: #fef5e3;
+      padding: 1.8rem 2rem;
+      text-align: center;
+    }
+    .quiz-header h1 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.4rem;
+    }
+    .quiz-header p {
+      font-size: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    .quiz-body {
+      padding: 2rem 2rem 1.2rem;
+    }
+    .question-card {
+      background: #ffffff;
+      border-radius: 24px;
+      margin-bottom: 1.8rem;
+      padding: 1.5rem;
+      border: 1px solid #ece1d2;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .question-text {
+      font-size: 1.22rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #1e4a47;
+      border-left: 5px solid #c2825c;
+      padding-left: 1rem;
+    }
+    .options {
+      list-style: none;
+      margin-top: 0.2rem;
+    }
+    .options li {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+    .options input[type="radio"] {
+      accent-color: #c2825c;
+      width: 1.1rem;
+      height: 1.1rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+    .options label {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #3f3a33;
+      font-weight: 500;
+    }
+    .feedback {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 40px;
+      display: inline-block;
+    }
+    .feedback.correct {
+      background: #e1f0e0;
+      color: #236b43;
+      border-left: 3px solid #236b43;
+    }
+    .feedback.incorrect {
+      background: #ffe3db;
+      color: #bc4c2c;
+      border-left: 3px solid #bc4c2c;
+    }
+    .btn-group {
+      text-align: center;
+      padding: 0.5rem 0 2rem;
+    }
+    .btn-submit, .btn-reset {
+      background: #1e4a47;
+      border: none;
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.7rem 1.8rem;
+      border-radius: 48px;
+      cursor: pointer;
+      font-family: inherit;
+      margin: 0 0.6rem;
+      transition: background 0.2s;
+    }
+    .btn-reset {
+      background: #9d7c5c;
+    }
+    .btn-submit:hover {
+      background: #133532;
+    }
+    .btn-reset:hover {
+      background: #7f6246;
+    }
+    .score-panel {
+      text-align: center;
+      background: #fbf3e8;
+      margin: 0 2rem 2rem 2rem;
+      border-radius: 60px;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.7rem;
+      border-top: 1px solid #e6daca;
+      color: #6f5c48;
+      background: #fefcf7;
+    }
+    @media (max-width: 650px) {
+      .quiz-body { padding: 1.2rem; }
+      .question-text { font-size: 1rem; }
+    }
+  
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<div class="quiz-container">
+  <div class="quiz-header">
+    <h1>🎥 Videha Parallel Audio Video Archive</h1>
+    <p>Digital Remediation · Subaltern Historiography · Maithili Linguistic Sovereignty</p>
+    <p>Chapter 94 – Videha Parallel History (Tome IV)</p>
+  </div>
+  <div class="quiz-body" id="quizContainer"></div>
+  <div class="btn-group">
+    <button class="btn-submit" id="submitQuizBtn">✓ Submit answers</button>
+    <button class="btn-reset" id="resetQuizBtn">⟳ Reset quiz</button>
+  </div>
+  <div class="score-panel" id="scorePanel">
+    <span id="scoreMessage">📚 Twelve questions on the audio‑video archive, folk art, ghazal revival, and script sovereignty.</span>
+  </div>
+  
+</div>
+
+<script>
+  // ---------------------------------------------------------------
+  // QUESTIONS BASED ON CHAPTER 94 – THE VIDEHA PARALLEL AUDIO VIDEO ARCHIVE
+  // Topics: founding year (2004), Mithila art forms (Bhittichitra, Aripana, Pata-Chitra),
+  // notable artists (Sita Devi, Ravindra Nath Thakur, Maithili Thakur, Sharda Sinha),
+  // Anchinhar movement for Maithili ghazal, Ghajalsastram, Tirhuta Unicode,
+  // Dooshan Panji (Blackbook), Nepal-Maithili dramatists (Bhupatindra Malla),
+  // Navya-Nyāya terms (Avacchedaka), Braille and sign language inclusion.
+  // ---------------------------------------------------------------
+  const questions = [
+    {
+      text: "The Videha Parallel Audio Video Archive was founded in which year by editor Gajendra Thakur?",
+      options: [
+        "2000",
+        "2004",
+        "2008",
+        "2012"
+      ],
+      correct: 1   // page 465 – "Founded in 2004 by the polymathic editor Gajendra Thakur"
+    },
+    {
+      text: "Which of the following is NOT one of the Mithila art forms documented in the archive, according to the chapter?",
+      options: [
+        "Bhittichitra (Wall Painting, especially Kohbar Ghar)",
+        "Aripana (Floor Art)",
+        "Pata-Chitra (Canvas Painting)",
+        "Mughal miniature painting"
+      ],
+      correct: 3   // Mughal miniature is not mentioned; the three Mithila forms are listed on page 467
+    },
+    {
+      text: "Which national award‑winning Mithila painter from Jitwarpur is noted as a pioneer of the Madhubani painting tradition in the archive?",
+      options: [
+        "Maithili Thakur",
+        "Sita Devi",
+        "Sharda Sinha",
+        "Ravindra Nath Thakur"
+      ],
+      correct: 1   // page 467 – "Sita Devi: Mithila Painting / National award-winning artist from Jitwarpur"
+    },
+    {
+      text: "The ‘Anchinhar Aakhar’ movement, launched on 11 April 2008, sought to restore the formal standards of which poetic genre in Maithili?",
+      options: [
+        "Haiku",
+        "Bihani Kathā",
+        "Ghazal (Behr, Qaafiyaa, Radif, Matla)",
+        "Chhanda"
+      ],
+      correct: 2   // page 468-469 – "Anchinhar movement for the revitalization of the Maithili ghazal"
+    },
+    {
+      text: "Who authored the ‘Ghajalsastram’, described as the first comprehensive theoretical manual of the Maithili ghazal?",
+      options: [
+        "Ashish Anchinhar",
+        "Gajendra Thakur",
+        "Yogendra Pathak Viyogi",
+        "Umesh Mandal"
+      ],
+      correct: 1   // page 468 – "Gajendra Thakur, acting as Maithili’s first 'Aruji' (prosody expert), authored the Ghajalsastram"
+    },
+    {
+      text: "One of the most significant technical achievements of the Videha movement is the revitalisation of the Tirhuta (Mithilakshar) script. What major outcome did this effort achieve?",
+      options: [
+        "Tirhuta was removed from all digital platforms",
+        "Tirhuta was encoded in the Unicode Standard (2014), enabling digital preservation of palm‑leaf manuscripts",
+        "Tirhuta was replaced by Devanagari permanently",
+        "Tirhuta fonts were declared illegal"
+      ],
+      correct: 1   // page 470 – "successful proposal to include Tirhuta in the Unicode Standard (encoded in 2014)"
+    },
+    {
+      text: "The archive’s ‘Dooshan Panji’ (The Blackbook) is a set of genealogical records. What historical fact does the Videha movement claim was suppressed by elite historians and revealed through these records?",
+      options: [
+        "That Vidyapati never existed",
+        "That the philosopher Gaṅgeśa Upādhyāya married a woman from the Charmkar (cobbler) community",
+        "That Maithili was never a written language",
+        "That the Malla kings wrote only in Nepali"
+      ],
+      correct: 1   // page 471 – "evidence that the philosopher Gaṅgeśa Upādhyāya married a woman from the Charmkar (cobbler) community"
+    },
+    {
+      text: "Which Malla king of Nepal is credited with composing 26 plays in Maithili, representing the zenith of the Nepal‑Maithili dramatic tradition?",
+      options: [
+        "Jagajyotirmalla",
+        "Vishwamalla",
+        "Bhupatindra Malla",
+        "Ranjit Malla"
+      ],
+      correct: 2   // page 472 – "Bhupatindra Malla: Composed 26 plays in Maithili"
+    },
+    {
+      text: "The archive applies Navya-Nyāya epistemology to literary criticism. Which term refers to the ‘delimiter’ or ‘limiting property’ that defines the precise boundaries of a concept?",
+      options: [
+        "Śābdabodha",
+        "Avacchedaka",
+        "Vyāpti",
+        "Viśiṣṭajāna"
+      ],
+      correct: 1   // page 471-472 – "Avacchedaka (The delimitor of a property)"
+    },
+    {
+      text: "Which folk singer, known as the ‘Bihar Kokila’, is documented in the archive’s Maithili CD/Album special issue (Issue 217) for her wedding songs (Vivah‑Geet)?",
+      options: [
+        "Maithili Thakur",
+        "Sharda Sinha",
+        "Ira Mallik",
+        "Kunj Bihari Mishra"
+      ],
+      correct: 1   // page 468 – "Sharda Sinha’s 'Vivah-Geet' album"
+    },
+    {
+      text: "The chapter notes that the archive includes Maithili Sign Language for the first time, as part of which national educational resource?",
+      options: [
+        "NCERT Bhasha Sangam",
+        "Sahitya Akademi Braille series",
+        "Google Translate Maithili",
+        "UNESCO Atlas of Languages"
+      ],
+      correct: 0   // page 466, 476 – "NCERT Bhasha Sangam Maithili video (mp4) ... includes Maithili Sign Language"
+    },
+    {
+      text: "The ‘Bīhani Kathā’ (Seed Story) genre, popularised through Videha, is characterised by extreme brevity and a ‘seed‑like’ openness. Which contemporary writer is celebrated in the archive for representing subaltern voices in this form?",
+      options: [
+        "Rajdeo Mandal",
+        "Jagdish Prasad Mandal",
+        "Bechan Thakur",
+        "All of the above"
+      ],
+      correct: 3   // page 473 – "Writers like Rajdeo Mandal and Jagdish Prasad Mandal ... Bechan Thakur" are identified as "truly great contemporary voices"
+    }
+  ];
+
+  let userSelections = new Array(questions.length).fill(null);
+  let quizActive = true;
+
+  function renderQuiz() {
+    const container = document.getElementById('quizContainer');
+    if (!container) return;
+    let html = '';
+    for (let i = 0; i < questions.length; i++) {
+      const q = questions[i];
+      const selected = userSelections[i];
+      html += `
+        <div class="question-card" data-qidx="${i}">
+          <div class="question-text">${i+1}. ${q.text}</div>
+          <ul class="options">
+      `;
+      for (let optIdx = 0; optIdx < q.options.length; optIdx++) {
+        const isChecked = (selected === optIdx);
+        html += `
+          <li>
+            <input type="radio" name="q${i}" value="${optIdx}" id="q${i}_opt${optIdx}" ${isChecked ? 'checked' : ''} ${!quizActive ? 'disabled' : ''}>
+            <label for="q${i}_opt${optIdx}">${q.options[optIdx]}</label>
+          </li>
+        `;
+      }
+      html += `</ul>`;
+      if (!quizActive) {
+        const isCorrect = (selected === q.correct);
+        const correctAnswer = q.options[q.correct];
+        if (selected === null) {
+          html += `<div class="feedback incorrect">❓ Not answered. Correct: ${correctAnswer}</div>`;
+        } else if (isCorrect) {
+          html += `<div class="feedback correct">✓ Correct! ${correctAnswer}</div>`;
+        } else {
+          html += `<div class="feedback incorrect">✗ Incorrect. Correct answer: ${correctAnswer}</div>`;
+        }
+      }
+      html += `</div>`;
+    }
+    container.innerHTML = html;
+
+    if (quizActive) {
+      for (let i = 0; i < questions.length; i++) {
+        const radios = document.querySelectorAll(`input[name="q${i}"]`);
+        radios.forEach(radio => {
+          radio.removeEventListener('change', handleRadioChange);
+          radio.addEventListener('change', handleRadioChange);
+        });
+      }
+    }
+  }
+
+  function handleRadioChange(e) {
+    if (!quizActive) return;
+    const radio = e.target;
+    const name = radio.getAttribute('name');
+    const qIndex = parseInt(name.substring(1), 10);
+    const selectedVal = parseInt(radio.value, 10);
+    if (!isNaN(qIndex)) userSelections[qIndex] = selectedVal;
+  }
+
+  function computeScore() {
+    let correctCount = 0;
+    for (let i = 0; i < questions.length; i++) {
+      if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correctCount++;
+    }
+    return correctCount;
+  }
+
+  function updateScoreMessage() {
+    const msgSpan = document.getElementById('scoreMessage');
+    if (!msgSpan) return;
+    if (!quizActive) {
+      const total = questions.length;
+      const correct = computeScore();
+      const percent = Math.round((correct / total) * 100);
+      let msg = `🏆 Your score: ${correct} / ${total} (${percent}%) – `;
+      if (correct === total) msg += "Flawless! You have mastered the audio‑video archive and subaltern historiography.";
+      else if (correct >= total-2) msg += "Excellent – you understand the digital remediation, ghazal revival, and script sovereignty.";
+      else if (correct >= total/2) msg += "Good attempt. Review the Anchinhar movement, Dooshan Panji, and the Nepal‑Maithili dramatists.";
+      else msg += "Re‑read Chapter 94. Focus on the archive’s founding, folk art documentation, and Navya-Nyāya terms.";
+      msgSpan.innerHTML = msg;
+    } else {
+      msgSpan.innerHTML = "📚 Twelve questions on the Videha Parallel Audio Video Archive (digital remediation, folk art, ghazal revival, Tirhuta Unicode). Submit your answers.";
+    }
+  }
+
+  function submitQuiz() {
+    if (!quizActive) return;
+    quizActive = false;
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = true;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  function resetQuiz() {
+    quizActive = true;
+    userSelections.fill(null);
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = false;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  renderQuiz();
+  updateScoreMessage();
+  document.getElementById('submitQuizBtn').addEventListener('click', submitQuiz);
+  document.getElementById('resetQuizBtn').addEventListener('click', resetQuiz);
+</script>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>

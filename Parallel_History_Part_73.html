@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Quiz: Chapter 73 – Ravindra Nath Thakur | Maithili Poet · Lyricist · Stage Performer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0ede5;
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            padding: 2rem 1rem;
+            color: #2d2a24;
+        }
+
+        .quiz-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fffef9;
+            border-radius: 36px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
+            overflow: hidden;
+            border: 1px solid #e2d9cc;
+        }
+
+        .quiz-header {
+            background: #8b5a2b;
+            background: linear-gradient(135deg, #6b3e1a, #9a6838);
+            padding: 1.8rem 2rem;
+            color: white;
+        }
+
+        .quiz-header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+            margin-bottom: 0.4rem;
+        }
+
+        .quiz-header h1 span {
+            font-weight: 400;
+            font-style: italic;
+            font-size: 1rem;
+            background: #f3deba80;
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+        }
+
+        .quiz-header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 0.6rem;
+            border-left: 3px solid #ffd580;
+            padding-left: 1rem;
+        }
+
+        .quiz-body {
+            padding: 2rem 2rem 1rem;
+        }
+
+        .question-card {
+            background: #ffffff;
+            border: 1px solid #e8e0d4;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.8rem;
+            margin-bottom: 2rem;
+            transition: all 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .question-card:hover {
+            border-color: #cfc1a8;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #5a3e1f;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .options {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .options li {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+        }
+
+        .options input {
+            margin-top: 0.25rem;
+            width: 1.1rem;
+            height: 1.1rem;
+            accent-color: #9a6838;
+            flex-shrink: 0;
+        }
+
+        .options label {
+            font-size: 1rem;
+            line-height: 1.4;
+            color: #3e3a32;
+            font-weight: normal;
+        }
+
+        .feedback {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 30px;
+            display: inline-block;
+            background: #f3f2ec;
+            color: #4a5b4a;
+        }
+
+        .feedback.correct {
+            background: #e0f2e9;
+            color: #1f5e3a;
+            border-left: 4px solid #2b7a4b;
+        }
+
+        .feedback.wrong {
+            background: #ffeae6;
+            color: #b34141;
+            border-left: 4px solid #c4554b;
+        }
+
+        .explanation {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #6c685b;
+            font-style: italic;
+            border-left: 2px solid #dbd2c2;
+            padding-left: 12px;
+        }
+
+        .quiz-footer {
+            padding: 1.2rem 2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-top: 1px solid #e8e0d4;
+            background: #fefcf7;
+        }
+
+        .score-area {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: #e5ede2;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            color: #2b523b;
+        }
+
+        button {
+            background: #9a6838;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.7rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.15s;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background: #7c4f27;
+            transform: scale(0.97);
+        }
+
+        .reset-btn {
+            background: #8f7a64;
+        }
+        .reset-btn:hover {
+            background: #6d5b49;
+        }
+
+        @media (max-width: 650px) {
+            .quiz-body {
+                padding: 1.5rem;
+            }
+            .question-card {
+                padding: 1.1rem;
+            }
+            .quiz-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<div class="quiz-container">
+    <div class="quiz-header">
+        <h1>🎤 Chapter 73 · Ravindra Nath Thakur <span>Abhinav Vidyapati · Maithili Poet & Lyricist</span></h1>
+        <p>Based on “Ravindra Nath Thakur – Maithili Poet · Lyricist · Scholar · Literary Administrator” (Videha Parallel History, Tome III)<br>Lekhani Ek Rang Anek · Ravindra-Mahendra duo · Maithili Academy · Mamta Gaaye Geet · Abhinav Vidyapati · Sahitya Akademi neglect</p>
+    </div>
+    <div class="quiz-body" id="quizBody"></div>
+    <div class="quiz-footer">
+        <div class="score-area" id="scoreDisplay">Score: 0 / 0</div>
+        <div>
+            <button id="checkBtn">✅ Check answers</button>
+            <button id="resetBtn" class="reset-btn">⟳ Reset quiz</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ---- QUESTIONS BASED ON CHAPTER 73: Ravindra Nath Thakur (pages 524-537) ----
+    const questions = [
+        {
+            text: "Ravindra Nath Thakur was given the title 'Abhinav Vidyapati' (New Vidyapati) by which legendary Maithili-Hindi poet?",
+            options: [
+                "Harimohan Jha",
+                "Baba Nagarjuna (Vaidyanath Mishra Yatri)",
+                "Phanishwar Nath Renu",
+                "Ramdhari Singh Dinkar"
+            ],
+            correct: 1,
+            explanation: "The title 'Abhinav Vidyapati' was conferred upon him personally by the eminent poet Nagarjuna at a public ceremony in Purnia. The chapter notes that this epithet has paradoxically been used by the literary establishment to bracket Thakur as a 'stage performer' rather than a serious literary figure."
+        },
+        {
+            text: "What was the name of Ravindra Nath Thakur's landmark Maithili ghazal collection published in 1985, which contained 109 ghazals and proved that ghazal could be written in Maithili despite critics' claims?",
+            options: [
+                "Ravindra Padavali",
+                "Lekhani Ek Rang Anek",
+                "Pratyaya",
+                "Ati-Geet"
+            ],
+            correct: 1,
+            explanation: "Lekhani Ek Rang Anek (The Pen, One Colour Many) was published in 1985. At that time, no ghazal grammar existed for Maithili, and critics had flatly claimed that ghazal could not be written in the language. Thakur's collection empirically refuted that claim."
+        },
+        {
+            text: "Ravindra Nath Thakur formed a legendary stage partnership with Mahendra Jha of Jamsam village. What was the division of labour in this duo?",
+            options: [
+                "Both sang together equally",
+                "Thakur composed the lyrics and set the tunes; Mahendra Jha sang. The combination of Thakur's verbal genius and Mahendra's melodic voice became unstoppable",
+                "Thakur sang and Mahendra wrote",
+                "They performed only in films"
+            ],
+            correct: 1,
+            explanation: "The Ravindra-Mahendra partnership performed at over ten thousand events. After Mahendra Jha's death, Thakur effectively retired from stage performance, unable to continue without his partner."
+        },
+        {
+            text: "Ravindra Nath Thakur played a central role in the creation of the first Maithili feature film. What was the name of this film, for which he was lyricist, co-director, and screenplay writer?",
+            options: [
+                "Mithila Makhaan",
+                "Mamta Gaaye Geet",
+                "Sasta Jingni Mahag Sinur",
+                "Gonujha"
+            ],
+            correct: 1,
+            explanation: "Mamta Gaaye Geet had a complex production history – it ran out of funds and lay dormant for eighteen years. Thakur eventually secured rights and completed the film's release, an act described as singular courage."
+        },
+        {
+            text: "During his tenure as Director-cum-Secretary of the Maithili Academy (Bihar Government), what was Ravindra Nath Thakur's most significant institutional achievement?",
+            options: [
+                "Establishing a Maithili film board",
+                "Overseeing the publication of the first comprehensive Maithili dictionary in two volumes",
+                "Creating a Maithili university",
+                "Translating the Vedas into Maithili"
+            ],
+            correct: 1,
+            explanation: "The publication of the first two-volume Maithili dictionary was a milestone in the standardisation and institutionalisation of the language, significantly advancing written Maithili."
+        },
+        {
+            text: "Which of the following major national honours did Ravindra Nath Thakur NOT receive, despite the chapter lamenting this neglect?",
+            options: [
+                "Mithila Vibhuti Samman",
+                "Videha Samman",
+                "Sahitya Akademi Award",
+                "Prabodh Sahitya Samman"
+            ],
+            correct: 2,
+            explanation: "The chapter explicitly laments that Thakur was never awarded the Sahitya Akademi Award for Maithili, despite his output and popularity. Dr. Kailash Kumar Mishra compares the cultural neglect of Thakur with the celebrated treatment of Bhupen Hazarika in Assam."
+        },
+        {
+            text: "Ravindra Nath Thakur's ghazal collection 'Lekhani Ek Rang Anek' has been technically critiqued by Ashish Anchinhar. What is the main formal criticism?",
+            options: [
+                "It has too many ghazals",
+                "The compositions are 'kath-it ghazal' (so-called ghazal) rather than ghazals in the technical sense because the bahr (prosodic metre) is not maintained consistently",
+                "It uses too many Urdu words",
+                "It has no matla"
+            ],
+            correct: 1,
+            explanation: "While acknowledging the collection's historic importance in establishing that Maithili ghazal could exist, Anchinhar's technical analysis notes that the bahr is not maintained, distinguishing these as songs rather than ghazals in the formal sense."
+        },
+        {
+            text: "Which of the following songs by Ravindra Nath Thakur became an anthem of Maithili identity, affirming pride in Mithila?",
+            options: [
+                "Bhari Nagari Me Shor",
+                "Chala Mithila Me Chal",
+                "Kathi Ke Mithila Ke Maithil",
+                "Ar Bakri Ghas Kho"
+            ],
+            correct: 2,
+            explanation: "The chapter lists 'Kathi Ke Mithila Ke Maithil' as an identity anthem. His songs entered common parlance across the Mithila region and diaspora, covering themes from migration to women's labour to festive celebration."
+        },
+        {
+            text: "Ravindra Nath Thakur's innovation in Maithili song was to move beyond borrowing Hindi film tunes. What was his distinctive compositional method?",
+            options: [
+                "He used only classical ragas",
+                "He composed songs with new tunes invented by himself, rooted in the padavali tradition and the folk soundscape of Mithila, rather than borrowing from Hindi film conventions",
+                "He set Vidyapati's verses to Western music",
+                "He avoided tunes entirely"
+            ],
+            correct: 1,
+            explanation: "While Madhup (Kashikant Mishra) had revitalised the tradition by adopting Hindi film tune patterns, Thakur recognised this strategy had reached its limit and that something genuinely Maithili in voice and lyricism was needed."
+        },
+        {
+            text: "Ravindra Nath Thakur retired from government service in 1980 but was called back to serve the Maithili Academy. In which city did he spend his final years and pass away in 2022?",
+            options: [
+                "Patna",
+                "Darbhanga",
+                "Noida",
+                "Kolkata"
+            ],
+            correct: 2,
+            explanation: "Thakur had settled in Noida (A-327, Sector 46) in his later years. He passed away on 18 May 2022 at a private hospital in Noida, and his last rites were performed at Haridwar."
+        },
+        {
+            text: "The chapter quotes Bihar Chief Minister Nitish Kumar's condolence message on Thakur's passing. What did the Chief Minister specifically praise?",
+            options: [
+                "His novels and essays",
+                "His stage singing (manchīya gāyan) and his many books in Maithili, stating that his passing caused an irreparable loss to literature, especially Maithili literature",
+                "His political activism",
+                "His translations from Sanskrit"
+            ],
+            correct: 1,
+            explanation: "The Chief Minister's message reflects the stature of state recognition that Thakur had earned, noting that he was 'very popular among Maithili speakers for his stage singing' and had composed many books in Maithili."
+        },
+        {
+            text: "The chapter identifies a central critical problem in the reception of Ravindra Nath Thakur's work. What is the 'defining intellectual challenge' posed by the Videha special issue?",
+            options: [
+                "Why he never won the Padma award",
+                "Why are his songs great, and what exactly makes them stage-worthy? – the longstanding hierarchical distinction between 'manchi' (stage) literature and 'pustak' (book) literature, with the latter accorded canonical status",
+                "Why he wrote only in Maithili",
+                "Why he stopped performing after 2000"
+            ],
+            correct: 1,
+            explanation: "Gajendra Thakur's editorial frames this as the central question: the literary establishment has historically treated performance-based poetry as entertainment, not serious literature. The Videha issue attempts the first serious literary reading of Thakur's work."
+        }
+    ];
+
+    let userAnswers = new Array(questions.length).fill(null);
+    const quizBody = document.getElementById('quizBody');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const checkBtn = document.getElementById('checkBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    function renderQuiz() {
+        quizBody.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.setAttribute('data-qidx', idx);
+
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qText);
+
+            const optionsList = document.createElement('ul');
+            optionsList.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const li = document.createElement('li');
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q${idx}`;
+                radio.value = optIdx;
+                radio.id = `q${idx}_opt${optIdx}`;
+                if (userAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    userAnswers[idx] = parseInt(e.target.value);
+                    const oldFeedback = card.querySelector('.feedback');
+                    const oldExpl = card.querySelector('.explanation');
+                    if (oldFeedback) oldFeedback.remove();
+                    if (oldExpl) oldExpl.remove();
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q${idx}_opt${optIdx}`;
+                label.innerText = opt;
+                li.appendChild(radio);
+                li.appendChild(label);
+                optionsList.appendChild(li);
+            });
+            card.appendChild(optionsList);
+            quizBody.appendChild(card);
+        });
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    function evaluateQuiz() {
+        // sync current selections
+        for (let i = 0; i < questions.length; i++) {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selected) {
+                userAnswers[i] = parseInt(selected.value);
+            } else {
+                if (userAnswers[i] !== null) userAnswers[i] = null;
+            }
+        }
+
+        let correctCount = 0;
+        // clear old feedback
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const oldFeedback = card.querySelector('.feedback');
+            const oldExpl = card.querySelector('.explanation');
+            if (oldFeedback) oldFeedback.remove();
+            if (oldExpl) oldExpl.remove();
+        }
+
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const userChoice = userAnswers[i];
+            const isCorrect = (userChoice !== null && userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+
+            const feedbackSpan = document.createElement('div');
+            feedbackSpan.className = 'feedback';
+            if (userChoice === null) {
+                feedbackSpan.innerText = '⚠️ Not answered';
+                feedbackSpan.classList.add('wrong');
+            } else if (isCorrect) {
+                feedbackSpan.innerText = '✓ Correct';
+                feedbackSpan.classList.add('correct');
+            } else {
+                const correctLetter = String.fromCharCode(65 + questions[i].correct);
+                const correctText = questions[i].options[questions[i].correct];
+                feedbackSpan.innerText = `✗ Incorrect. Correct: ${correctLetter}. ${correctText.substring(0, 100)}${correctText.length > 100 ? '…' : ''}`;
+                feedbackSpan.classList.add('wrong');
+            }
+
+            const explDiv = document.createElement('div');
+            explDiv.className = 'explanation';
+            explDiv.innerHTML = `📖 ${questions[i].explanation}`;
+            card.appendChild(feedbackSpan);
+            card.appendChild(explDiv);
+        }
+        scoreDisplay.innerText = `Score: ${correctCount} / ${questions.length}`;
+    }
+
+    function resetQuiz() {
+        for (let i = 0; i < questions.length; i++) userAnswers[i] = null;
+        renderQuiz();
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    checkBtn.addEventListener('click', evaluateQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+
+    renderQuiz();
+</script>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>

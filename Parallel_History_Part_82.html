@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Quiz: Dr. Shiv Kumar Prasad | Videha Parallel History (Ch. 82)</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f4efe7;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      padding: 2rem 1rem;
+      color: #2c2822;
+    }
+    .quiz-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fffdf9;
+      border-radius: 32px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e5dbce;
+      overflow: hidden;
+    }
+    .quiz-header {
+      background: #4b3e2c;
+      color: #fef5e3;
+      padding: 1.6rem 2rem;
+      text-align: center;
+    }
+    .quiz-header h1 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.4rem;
+    }
+    .quiz-header p {
+      font-size: 0.95rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    .quiz-body {
+      padding: 2rem 2rem 1.2rem;
+    }
+    .question-card {
+      background: #ffffff;
+      border-radius: 24px;
+      margin-bottom: 1.8rem;
+      padding: 1.5rem;
+      border: 1px solid #ece1d2;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .question-text {
+      font-size: 1.22rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #4b3e2c;
+      border-left: 5px solid #b47c4a;
+      padding-left: 1rem;
+    }
+    .options {
+      list-style: none;
+      margin-top: 0.2rem;
+    }
+    .options li {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+    .options input[type="radio"] {
+      accent-color: #b47c4a;
+      width: 1.1rem;
+      height: 1.1rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+    .options label {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #3f3a33;
+      font-weight: 500;
+    }
+    .feedback {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 40px;
+      display: inline-block;
+    }
+    .feedback.correct {
+      background: #e1f0e0;
+      color: #236b43;
+      border-left: 3px solid #236b43;
+    }
+    .feedback.incorrect {
+      background: #ffe3db;
+      color: #bc4c2c;
+      border-left: 3px solid #bc4c2c;
+    }
+    .btn-group {
+      text-align: center;
+      padding: 0.5rem 0 2rem;
+    }
+    .btn-submit, .btn-reset {
+      background: #4b3e2c;
+      border: none;
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.7rem 1.8rem;
+      border-radius: 48px;
+      cursor: pointer;
+      font-family: inherit;
+      margin: 0 0.6rem;
+      transition: background 0.2s;
+    }
+    .btn-reset {
+      background: #9d7c5c;
+    }
+    .btn-submit:hover {
+      background: #32281c;
+    }
+    .btn-reset:hover {
+      background: #7f6246;
+    }
+    .score-panel {
+      text-align: center;
+      background: #fbf3e8;
+      margin: 0 2rem 2rem 2rem;
+      border-radius: 60px;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.7rem;
+      border-top: 1px solid #e6daca;
+      color: #6f5c48;
+      background: #fefcf7;
+    }
+    @media (max-width: 650px) {
+      .quiz-body { padding: 1.2rem; }
+      .question-text { font-size: 1rem; }
+    }
+  
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<div class="quiz-wrapper">
+  <div class="quiz-header">
+    <h1>📖 Dr. Shiv Kumar Prasad</h1>
+    <p>Poet · Short Story Writer · Literary Critic · Translator</p>
+    <p>Chapter 82 – Videha Parallel History (Tome IV)</p>
+    <p style="font-size:0.8rem;">“Language and literature are like a ceaselessly falling waterfall…”</p>
+  </div>
+  <div class="quiz-body" id="quizContainer"></div>
+  <div class="btn-group">
+    <button class="btn-submit" id="submitQuizBtn">✓ Submit answers</button>
+    <button class="btn-reset" id="resetQuizBtn">⟳ Reset quiz</button>
+  </div>
+  <div class="score-panel" id="scorePanel">
+    <span id="scoreMessage">📚 Test your knowledge of Dr. Shiv Kumar Prasad: poetry, short fiction, criticism, translation & the Navya-Nyāya framework.</span>
+  </div>
+  
+</div>
+
+<script>
+  // ---------------------------------------------------------------
+  // QUESTIONS BASED ON CHAPTER 82 – DR. SHIV KUMAR PRASAD (Pages 108–153)
+  // Topics: poetry collections (Khebaivan, Maay Hamar Nav Kumbh Naheli, Shahar O Gel),
+  // short fiction (Aanhar, Banmaanush aur Jamila), literary criticism (Dalit Sahitya essay,
+  // Sakhaaree-Petaaree review), translation (Rajni Chhabra’s Pighalte Himkhand),
+  // and theoretical frameworks (Navya-Nyāya, rasa, dhvani, vakrokti, Marxist, postcolonial).
+  // ---------------------------------------------------------------
+  const questions = [
+    {
+      text: "Dr. Shiv Kumar Prasad taught Hindi at Hariprashad Sah Mahavidyalaya, Nirmali, Supaul, but wrote primarily in Maithili. Which poem of his uses the refrain ‘binu khebaiyan hamare naav achi’ (our boat is without a boatman) to evoke social abandonment and the lack of a guide?",
+      options: [
+        "Shahar O Gel",
+        "Khebaivan",
+        "Maay Hamar Nav Kumbh Naheli",
+        "Dekh Elaun Ham Patna"
+      ],
+      correct: 1   // Khebaivan (The Boatman) – pages 111, 112, 114, 120
+    },
+    {
+      text: "In the poem ‘Maay Hamar Nav Kumbh Naheli’, the mother is described as ‘neither learned nor beautiful’ yet pure like a Kumbh bath. Which rasa does this poem primarily evoke according to the chapter?",
+      options: [
+        "Śṛṅgāra (erotic love)",
+        "Karuna (pathos)",
+        "Śānta rasa (tranquil spiritual insight) blended with Bhakti aesthetics",
+        "Raudra (fury)"
+      ],
+      correct: 2   // shanta rasa, inner purity – page 111
+    },
+    {
+      text: "Dr. Prasad’s poem ‘Shahar O Gel’ contrasts village and city, stating ‘in the village, he was a jungle creature / in the stone jungle of the city / everyone has turned to stone’. Which Western critical lens is used to interpret this as a critique of capitalist urbanisation?",
+      options: [
+        "New Criticism",
+        "Postcolonial theory",
+        "Marxist realism (Lukács) and the destruction of non‑commodified relations",
+        "Reader‑response theory"
+      ],
+      correct: 2   // Lukácsian critical realism – pages 114-115
+    },
+    {
+      text: "Dr. Prasad’s essay ‘Dalit Sahityaken Aana Sahityas Futkaibak Prayojan’ argues against separating Dalit literature from mainstream Maithili literature. Which Navya-Nyāya concept is used to formalise his argument in the critical appreciation?",
+      options: [
+        "Pratyakṣa (perception)",
+        "Upamāna (comparison)",
+        "Pakṣatā, hetu, sādhya and the analysis of vyāpti (invariable concomitance)",
+        "Śabda (testimony) only"
+      ],
+      correct: 2   // pages 119-120 – formal inference structure with paksha, sadhya, hetu, vyapti
+    },
+    {
+      text: "The chapter applies Navya-Nyāya’s four pramāṇas to Dr. Prasad’s literary criticism. Which pramāṇa corresponds to ‘close reading of the primary text – what is actually on the page’?",
+      options: [
+        "Anumāna (inference)",
+        "Pratyakṣa (perception)",
+        "Upamāna (comparison)",
+        "Śabda (verbal testimony)"
+      ],
+      correct: 1   // pratyaksha = direct perception of the text – page 121
+    },
+    {
+      text: "Dr. Prasad translated Rajni Chhabra’s Hindi poetry collection ‘Pighalte Himkhand’ (Melting Glaciers) into Maithili. According to translation theorist Lawrence Venuti, what strategy does this translation represent?",
+      options: [
+        "Domestication (making the foreign familiar)",
+        "Resistant translation (preserving the friction of cultural encounter)",
+        "Complete omission of cultural references",
+        "Machine translation"
+      ],
+      correct: 1   // resistant translation – page 124
+    },
+    {
+      text: "Which short story by Dr. Prasad, according to the chapter, uses the figure of a ‘blind’ character and a ‘jungle man’ to explore reversal where the supposedly civilised reveals its savagery?",
+      options: [
+        "Adiya",
+        "Aanhar and Banmaanush",
+        "Jamila",
+        "Ghardekhiya"
+      ],
+      correct: 1   // Aanhar (Blind) and Banmaanush (Jungle Man) – pages 122-123
+    },
+    {
+      text: "In the analysis of Dr. Prasad’s poem ‘Khebaivan’, Anandavardhana’s dhvani theory is invoked. The repeated question ‘muda ena kie?’ (but why this?) suggests more than its literal meaning. This is classified as:",
+      options: [
+        "Abhidhā (denotation)",
+        "Lakṣaṇā (secondary indication)",
+        "Vyañjanā (suggestive meaning) – the soul of poetry",
+        "Anuprāsa (alliteration)"
+      ],
+      correct: 2   // dhvani / vyanjana – pages 112, 120
+    },
+    {
+      text: "Dr. Prasad’s poem ‘Kalpaniyak Satya’ (The Truth of Fantasy) uses surreal inversions (sun at night, men pregnant). Which Navya-Nyāya procedure does this exemplify according to the text?",
+      options: [
+        "Testing the limits of accepted vyāpti (universal concomitance)",
+        "Refuting all perception",
+        "Proving the existence of God",
+        "Rejecting metaphor"
+      ],
+      correct: 0   // testing vyāpti – page 26 (in the earlier Chapter 77), also page 126 context
+    },
+    {
+      text: "What is the significance of Dr. Prasad’s participation in ‘Sagar Raati Deep Jarai’ (all‑night storytelling marathons) within the Videha Parallel History?",
+      options: [
+        "It is a mere social event with no literary value",
+        "It connects him to the oral‑performative literary economy of Mithila, a grassroots institution parallel to academic establishments",
+        "It replaced all print publication",
+        "It was exclusively for Hindi writers"
+      ],
+      correct: 1   // oral-literate continuum, grassroots – pages 122, 124
+    },
+    {
+      text: "The chapter mentions that Dr. Prasad’s review ‘Sakhaaree‑Petaaree Ker Taani‑Bharni’ uses the extended metaphor of opening a traditional Maithil bridal box. Which Indian critical concept does this compositional device exemplify?",
+      options: [
+        "Rasa",
+        "Dhvani",
+        "Vakrokti at the compositional level (prasanga‑vakrata)",
+        "Alaṅkāra"
+      ],
+      correct: 2   // vakrokti – page 112
+    },
+    {
+      text: "According to the chapter, Dr. Prasad served as Assistant Professor of Hindi, yet his creative work is in Maithili. This bilingual professional identity is described as a ‘micro‑instance’ of what larger contestation documented by Videha?",
+      options: [
+        "The rivalry between Hindi and Urdu",
+        "The macro‑political contest between Maithili and Hindi (regional prestige language vs. mother tongue)",
+        "The conflict between Sanskrit and Prakrit",
+        "The tension between English and Bhojpuri"
+      ],
+      correct: 1   // page 109 – contest between Maithili and Hindi
+    }
+  ];
+
+  let userSelections = new Array(questions.length).fill(null);
+  let quizActive = true;
+
+  function renderQuiz() {
+    const container = document.getElementById('quizContainer');
+    if (!container) return;
+    let html = '';
+    for (let i = 0; i < questions.length; i++) {
+      const q = questions[i];
+      const selected = userSelections[i];
+      html += `
+        <div class="question-card" data-qidx="${i}">
+          <div class="question-text">${i+1}. ${q.text}</div>
+          <ul class="options">
+      `;
+      for (let optIdx = 0; optIdx < q.options.length; optIdx++) {
+        const isChecked = (selected === optIdx);
+        html += `
+          <li>
+            <input type="radio" name="q${i}" value="${optIdx}" id="q${i}_opt${optIdx}" ${isChecked ? 'checked' : ''} ${!quizActive ? 'disabled' : ''}>
+            <label for="q${i}_opt${optIdx}">${q.options[optIdx]}</label>
+          </li>
+        `;
+      }
+      html += `</ul>`;
+      if (!quizActive) {
+        const isCorrect = (selected === q.correct);
+        const correctAnswer = q.options[q.correct];
+        if (selected === null) {
+          html += `<div class="feedback incorrect">❓ Not answered. Correct: ${correctAnswer}</div>`;
+        } else if (isCorrect) {
+          html += `<div class="feedback correct">✓ Correct! ${correctAnswer}</div>`;
+        } else {
+          html += `<div class="feedback incorrect">✗ Incorrect. Correct answer: ${correctAnswer}</div>`;
+        }
+      }
+      html += `</div>`;
+    }
+    container.innerHTML = html;
+
+    if (quizActive) {
+      for (let i = 0; i < questions.length; i++) {
+        const radios = document.querySelectorAll(`input[name="q${i}"]`);
+        radios.forEach(radio => {
+          radio.removeEventListener('change', handleRadioChange);
+          radio.addEventListener('change', handleRadioChange);
+        });
+      }
+    }
+  }
+
+  function handleRadioChange(e) {
+    if (!quizActive) return;
+    const radio = e.target;
+    const name = radio.getAttribute('name');
+    const qIndex = parseInt(name.substring(1), 10);
+    const selectedVal = parseInt(radio.value, 10);
+    if (!isNaN(qIndex)) userSelections[qIndex] = selectedVal;
+  }
+
+  function computeScore() {
+    let correctCount = 0;
+    for (let i = 0; i < questions.length; i++) {
+      if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correctCount++;
+    }
+    return correctCount;
+  }
+
+  function updateScoreMessage() {
+    const msgSpan = document.getElementById('scoreMessage');
+    if (!msgSpan) return;
+    if (!quizActive) {
+      const total = questions.length;
+      const correct = computeScore();
+      const percent = Math.round((correct / total) * 100);
+      let msg = `🏆 Your score: ${correct} / ${total} (${percent}%) – `;
+      if (correct === total) msg += "Flawless! You have a deep command of Dr. Shiv Kumar Prasad’s literary world.";
+      else if (correct >= total-2) msg += "Excellent — you understand the synthesis of Indian and Western frameworks applied to his work.";
+      else if (correct >= total/2) msg += "Good attempt. Review the sections on Navya-Nyāya, rasa, and his social critique.";
+      else msg += "Re‑read the chapter. Focus on his poems ‘Khebaivan’, ‘Shahar O Gel’, and the Dalit literature essay.";
+      msgSpan.innerHTML = msg;
+    } else {
+      msgSpan.innerHTML = "📚 Twelve questions on Dr. Shiv Kumar Prasad: poet, short story writer, critic, translator. Submit to see your score.";
+    }
+  }
+
+  function submitQuiz() {
+    if (!quizActive) return;
+    quizActive = false;
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = true;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  function resetQuiz() {
+    quizActive = true;
+    userSelections.fill(null);
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = false;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  // initial render
+  renderQuiz();
+  updateScoreMessage();
+  document.getElementById('submitQuizBtn').addEventListener('click', submitQuiz);
+  document.getElementById('resetQuizBtn').addEventListener('click', resetQuiz);
+</script>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>

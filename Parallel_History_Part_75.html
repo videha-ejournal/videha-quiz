@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Quiz: Chapter 75 – Sandeep Kumar Safi | First Dalit Autobiography in Maithili</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4efe6;
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            padding: 2rem 1rem;
+            color: #2d2a24;
+        }
+
+        .quiz-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fffef9;
+            border-radius: 36px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
+            overflow: hidden;
+            border: 1px solid #e2d9cc;
+        }
+
+        .quiz-header {
+            background: #8b5a2b;
+            background: linear-gradient(135deg, #6b3e1a, #9a6838);
+            padding: 1.8rem 2rem;
+            color: white;
+        }
+
+        .quiz-header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+            margin-bottom: 0.4rem;
+        }
+
+        .quiz-header h1 span {
+            font-weight: 400;
+            font-style: italic;
+            font-size: 1rem;
+            background: #f3deba80;
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+        }
+
+        .quiz-header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 0.6rem;
+            border-left: 3px solid #ffd580;
+            padding-left: 1rem;
+        }
+
+        .quiz-body {
+            padding: 2rem 2rem 1rem;
+        }
+
+        .question-card {
+            background: #ffffff;
+            border: 1px solid #e8e0d4;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.8rem;
+            margin-bottom: 2rem;
+            transition: all 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .question-card:hover {
+            border-color: #cfc1a8;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #5a3e1f;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .options {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .options li {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+        }
+
+        .options input {
+            margin-top: 0.25rem;
+            width: 1.1rem;
+            height: 1.1rem;
+            accent-color: #9a6838;
+            flex-shrink: 0;
+        }
+
+        .options label {
+            font-size: 1rem;
+            line-height: 1.4;
+            color: #3e3a32;
+            font-weight: normal;
+        }
+
+        .feedback {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 30px;
+            display: inline-block;
+            background: #f3f2ec;
+            color: #4a5b4a;
+        }
+
+        .feedback.correct {
+            background: #e0f2e9;
+            color: #1f5e3a;
+            border-left: 4px solid #2b7a4b;
+        }
+
+        .feedback.wrong {
+            background: #ffeae6;
+            color: #b34141;
+            border-left: 4px solid #c4554b;
+        }
+
+        .explanation {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #6c685b;
+            font-style: italic;
+            border-left: 2px solid #dbd2c2;
+            padding-left: 12px;
+        }
+
+        .quiz-footer {
+            padding: 1.2rem 2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-top: 1px solid #e8e0d4;
+            background: #fefcf7;
+        }
+
+        .score-area {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: #e5ede2;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            color: #2b523b;
+        }
+
+        button {
+            background: #9a6838;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.7rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.15s;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background: #7c4f27;
+            transform: scale(0.97);
+        }
+
+        .reset-btn {
+            background: #8f7a64;
+        }
+        .reset-btn:hover {
+            background: #6d5b49;
+        }
+
+        @media (max-width: 650px) {
+            .quiz-body {
+                padding: 1.5rem;
+            }
+            .question-card {
+                padding: 1.1rem;
+            }
+            .quiz-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<div class="quiz-container">
+    <div class="quiz-header">
+        <h1>📖 Chapter 75 · Sandeep Kumar Safi <span>First Dalit Autobiography in Maithili</span></h1>
+        <p>Based on “A COMPLETE CRITICAL APPRECIATION OF SANDEEP KUMAR SAFI” (Videha Parallel History, Tome III)<br>Baishakh Me Dalan Par · Dalit autobiography · Dhobi community · Hybrid form · Navya-Nyāya · Spivak · Comparative Dalit literature</p>
+    </div>
+    <div class="quiz-body" id="quizBody"></div>
+    <div class="quiz-footer">
+        <div class="score-area" id="scoreDisplay">Score: 0 / 0</div>
+        <div>
+            <button id="checkBtn">✅ Check answers</button>
+            <button id="resetBtn" class="reset-btn">⟳ Reset quiz</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ---- QUESTIONS BASED ON CHAPTER 75: Sandeep Kumar Safi (pages 555-575) ----
+    const questions = [
+        {
+            text: "What is the historic significance of Sandeep Kumar Safi's 'Baishakh Me Dalan Par' (2014) in Maithili literary history?",
+            options: [
+                "The first Maithili novel to win a national award",
+                "The first Dalit autobiography in the Maithili language",
+                "The first translation of the Ramayana into Maithili",
+                "The first collection of Maithili folk tales"
+            ],
+            correct: 1,
+            explanation: "The chapter states: 'Maithilime Dalit atmakathak sarvathe abhav rahal achhi' – there has been a complete absence of Dalit autobiography in Maithili. Safi's work fills that absence. It is the first published Dalit autobiography in the language."
+        },
+        {
+            text: "Sandeep Kumar Safi belongs to which caste community, whose traditional occupation is washing clothes for landed families in Mithila?",
+            options: [
+                "Chamar (leather-worker)",
+                "Dhobi (washerman)",
+                "Musahar (rat-catcher)",
+                "Dom (funeral worker)"
+            ],
+            correct: 1,
+            explanation: "Safi is from the dhobi community. The autobiography opens with the direct disclosure: 'Ham jatik dhobi chhi, harijan (dalit) chhi' – We are of the dhobi caste, we are Harijan (Dalit)."
+        },
+        {
+            text: "The book 'Baishakh Me Dalan Par' is a hybrid work combining autobiography, poetry, seed stories, short stories, and aphorisms. What is the significance of this hybrid form?",
+            options: [
+                "It shows the author's indecision",
+                "It refuses to confine Safi to a single genre, claiming the full spectrum of literary expression for a Dalit voice that mainstream Maithili culture had not previously granted that right",
+                "It makes the book longer",
+                "It was a publishing requirement"
+            ],
+            correct: 1,
+            explanation: "The hybrid form is itself a critical statement: the Dalit voice claims all genres – lyric, narrative, aphoristic – not just a prescribed 'protest' mode. This is an act of literary democratisation."
+        },
+        {
+            text: "Safi's poem 'Bhakjogni' (The Firefly) captures a night scene in a lower-caste Mithila household. Which specific cultural element appears in this poem?",
+            options: [
+                "A radio playing film songs",
+                "An uncle singing nirgun (mystical devotional songs of the Kabir tradition) while a child wants to catch a firefly",
+                "A television",
+                "A computer"
+            ],
+            correct: 1,
+            explanation: "The poem compresses an extraordinary amount of social observation: the darkness (no electricity), the firefly, the uncle singing nirgun (lower-caste devotional tradition), the tobacco, the child's desire – all rendered with dense sensory precision."
+        },
+        {
+            text: "Gajendra Thakur's editorial note declares that Safi's autobiography fills a 'complete absence' in Maithili. What does the chapter identify as the reason for this absence?",
+            options: [
+                "Dalits did not write in Maithili",
+                "Systematic exclusion by the literary establishment – Dalit voices were present in oral and folk traditions but absent from formal, published literary production",
+                "Dalits preferred Hindi",
+                "The Maithili script was lost"
+            ],
+            correct: 1,
+            explanation: "The chapter notes that Dalit participation in Maithili literary activities has historically been 'not more than one percent'. The absence is systematic, not accidental – the result of caste-based gatekeeping in publishing and institutional recognition."
+        },
+        {
+            text: "In Navya-Nyāya terms, what does Safi's autobiography achieve epistemologically?",
+            options: [
+                "It confirms existing bhrama (false cognition)",
+                "It corrects the bhrama that 'Maithili literature' is exhausted by its Brahmin-Kayastha tradition, and establishes prama (valid cognition) through pratyaksha of first-hand dhobi community experience",
+                "It rejects all pramāṇas",
+                "It is purely fictional"
+            ],
+            correct: 1,
+            explanation: "The chapter argues that Safi's text moves Maithili literary cognition of Dalit life from bhrama (false universal – Brahmin experience representing all of Mithila) to prama (valid knowledge – direct testimony of dhobi life)."
+        },
+        {
+            text: "The chapter draws a parallel between Safi and Gaṅgeśa Upādhyāya, the founder of Navya-Nyāya. What is the suppressed biographical parallel?",
+            options: [
+                "Both were kings",
+                "Both were Brahmins",
+                "Gaṅgeśa was born of an inter-caste union (Charmkarini mother) and his social origins were suppressed by Brahmin historians – both produced foundational work from socially marginalised positions",
+                "Both wrote only in Sanskrit"
+            ],
+            correct: 2,
+            explanation: "The Videha Parallel History recovered that Gaṅgeśa's non-elite origins were suppressed. Safi, writing from the dhobi community, shares the same structural position: producing foundational intellectual work despite institutional marginalisation."
+        },
+        {
+            text: "Safi's poem 'Roudhi Bha Gaile' (The Drought Has Come) ends with the image of the entire field turning into the leaf of the 'kesaur'. What is the kesaur?",
+            options: [
+                "A type of crop",
+                "A water weed that colonises drought-dried fields – a specific ecological signal indicating that the ground has dried completely, where only weeds can grow",
+                "A bird",
+                "A festival"
+            ],
+            correct: 1,
+            explanation: "Safi's poetry functions as both aesthetic expression and ecological observation. The kesaur is a specific signal of complete agricultural collapse – the poem is a document of climate's effect on the subaltern economy of Mithila."
+        },
+        {
+            text: "The chapter compares Safi's 'Baishakh Me Dalan Par' with Omprakash Valmiki's 'Joothan' (Hindi). What is a key tonal difference between the two works?",
+            options: [
+                "Safi's is more outraged; Valmiki's is more affectionate",
+                "Valmiki's 'Joothan' brims with simmering outrage; Safi's is more affectionate, less angry, and ends with a declaration of love for Mithila rather than a call for transformation",
+                "Both are identical in tone",
+                "Safi's is entirely political, Valmiki's is entirely personal"
+            ],
+            correct: 1,
+            explanation: "The chapter notes that Valmiki writes after decades of politicisation within the Hindi Dalit literary movement; Safi writes at the beginning of Maithili Dalit literature, and his tone is that of a pioneer claiming a space rather than a militant challenging an established system."
+        },
+        {
+            text: "What is the most urgent gap identified by the chapter for the future of Maithili Dalit literature?",
+            options: [
+                "More poetry collections",
+                "The absence of Maithili Dalit women's writing – the direct testimony of Dalit women from within their own experience",
+                "Translations from English",
+                "More political manifestos"
+            ],
+            correct: 1,
+            explanation: "The chapter notes that while Safi's text gives voice to dhobi experience through a male perspective, Maithili Dalit literary tradition awaits its first Dalit woman autobiographer, who will bring the specifically gendered experience of caste oppression."
+        },
+        {
+            text: "Safi's poem 'Var Bikaai Lagname' (The Groom Is for Sale at the Wedding Season) satirises the dowry system. What figure of speech does it use?",
+            options: [
+                "Simile",
+                "Comparison of the groom-market to the fish market – 'Do not ask the groom's price, master / It rises like the price of a good fish' – an example of Kuntaka's vakrokti (oblique expression)",
+                "Metaphor",
+                "Hyperbole"
+            ],
+            correct: 1,
+            explanation: "The unexpected analogy between groom-price and fish-market creates both comic recognition and critical insight simultaneously – this is vakrokti, the 'crooked speech' that makes poetry. The dowry system is made strange and therefore criticisable."
+        },
+        {
+            text: "How does Safi's autobiography close, and what does this signify?",
+            options: [
+                "With a demand for revolution",
+                "With 'Jai Mithila, Jai Mithila Dham, Pranam' (Victory to Mithila, Victory to the Land of Mithila, Greetings) – an assertion of belonging to the land that has refused him, which no economic or social system can revoke",
+                "With a curse on Mithila",
+                "With a prayer for death"
+            ],
+            correct: 1,
+            explanation: "The closing is not masochism but a radical assertion: Sandeep Kumar Safi belongs to Mithila. His text has proven it, for all of literary history. The greeting to the land that has refused him is the ultimate act of subaltern dignity and cultural claim."
+        }
+    ];
+
+    let userAnswers = new Array(questions.length).fill(null);
+    const quizBody = document.getElementById('quizBody');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const checkBtn = document.getElementById('checkBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    function renderQuiz() {
+        quizBody.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.setAttribute('data-qidx', idx);
+
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qText);
+
+            const optionsList = document.createElement('ul');
+            optionsList.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const li = document.createElement('li');
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q${idx}`;
+                radio.value = optIdx;
+                radio.id = `q${idx}_opt${optIdx}`;
+                if (userAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    userAnswers[idx] = parseInt(e.target.value);
+                    const oldFeedback = card.querySelector('.feedback');
+                    const oldExpl = card.querySelector('.explanation');
+                    if (oldFeedback) oldFeedback.remove();
+                    if (oldExpl) oldExpl.remove();
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q${idx}_opt${optIdx}`;
+                label.innerText = opt;
+                li.appendChild(radio);
+                li.appendChild(label);
+                optionsList.appendChild(li);
+            });
+            card.appendChild(optionsList);
+            quizBody.appendChild(card);
+        });
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    function evaluateQuiz() {
+        // sync current selections
+        for (let i = 0; i < questions.length; i++) {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selected) {
+                userAnswers[i] = parseInt(selected.value);
+            } else {
+                if (userAnswers[i] !== null) userAnswers[i] = null;
+            }
+        }
+
+        let correctCount = 0;
+        // clear old feedback
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const oldFeedback = card.querySelector('.feedback');
+            const oldExpl = card.querySelector('.explanation');
+            if (oldFeedback) oldFeedback.remove();
+            if (oldExpl) oldExpl.remove();
+        }
+
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const userChoice = userAnswers[i];
+            const isCorrect = (userChoice !== null && userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+
+            const feedbackSpan = document.createElement('div');
+            feedbackSpan.className = 'feedback';
+            if (userChoice === null) {
+                feedbackSpan.innerText = '⚠️ Not answered';
+                feedbackSpan.classList.add('wrong');
+            } else if (isCorrect) {
+                feedbackSpan.innerText = '✓ Correct';
+                feedbackSpan.classList.add('correct');
+            } else {
+                const correctLetter = String.fromCharCode(65 + questions[i].correct);
+                const correctText = questions[i].options[questions[i].correct];
+                feedbackSpan.innerText = `✗ Incorrect. Correct: ${correctLetter}. ${correctText.substring(0, 100)}${correctText.length > 100 ? '…' : ''}`;
+                feedbackSpan.classList.add('wrong');
+            }
+
+            const explDiv = document.createElement('div');
+            explDiv.className = 'explanation';
+            explDiv.innerHTML = `📖 ${questions[i].explanation}`;
+            card.appendChild(feedbackSpan);
+            card.appendChild(explDiv);
+        }
+        scoreDisplay.innerText = `Score: ${correctCount} / ${questions.length}`;
+    }
+
+    function resetQuiz() {
+        for (let i = 0; i < questions.length; i++) userAnswers[i] = null;
+        renderQuiz();
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    checkBtn.addEventListener('click', evaluateQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+
+    renderQuiz();
+</script>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>

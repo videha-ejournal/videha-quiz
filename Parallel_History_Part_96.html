@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Quiz: Epistemology of Parallelism – Videha Sadeha 1–350 | Ch. 96</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f4efe7;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      padding: 2rem 1rem;
+      color: #2c2822;
+    }
+    .quiz-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fffef9;
+      border-radius: 32px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2d8cb;
+      overflow: hidden;
+    }
+    .quiz-header {
+      background: #5a6b5c;
+      background: linear-gradient(135deg, #3e5a4b 0%, #6b7f6e 100%);
+      color: #fef5e3;
+      padding: 1.8rem 2rem;
+      text-align: center;
+    }
+    .quiz-header h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.4rem;
+    }
+    .quiz-header p {
+      font-size: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    .quiz-body {
+      padding: 2rem 2rem 1.2rem;
+    }
+    .question-card {
+      background: #ffffff;
+      border-radius: 24px;
+      margin-bottom: 1.8rem;
+      padding: 1.5rem;
+      border: 1px solid #ece1d2;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .question-text {
+      font-size: 1.22rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #3e5a4b;
+      border-left: 5px solid #c2825c;
+      padding-left: 1rem;
+    }
+    .options {
+      list-style: none;
+      margin-top: 0.2rem;
+    }
+    .options li {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+    .options input[type="radio"] {
+      accent-color: #c2825c;
+      width: 1.1rem;
+      height: 1.1rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+    .options label {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #3f3a33;
+      font-weight: 500;
+    }
+    .feedback {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 40px;
+      display: inline-block;
+    }
+    .feedback.correct {
+      background: #e1f0e0;
+      color: #236b43;
+      border-left: 3px solid #236b43;
+    }
+    .feedback.incorrect {
+      background: #ffe3db;
+      color: #bc4c2c;
+      border-left: 3px solid #bc4c2c;
+    }
+    .btn-group {
+      text-align: center;
+      padding: 0.5rem 0 2rem;
+    }
+    .btn-submit, .btn-reset {
+      background: #3e5a4b;
+      border: none;
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.7rem 1.8rem;
+      border-radius: 48px;
+      cursor: pointer;
+      font-family: inherit;
+      margin: 0 0.6rem;
+      transition: background 0.2s;
+    }
+    .btn-reset {
+      background: #9d7c5c;
+    }
+    .btn-submit:hover {
+      background: #2c4236;
+    }
+    .btn-reset:hover {
+      background: #7f6246;
+    }
+    .score-panel {
+      text-align: center;
+      background: #fbf3e8;
+      margin: 0 2rem 2rem 2rem;
+      border-radius: 60px;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.7rem;
+      border-top: 1px solid #e6daca;
+      color: #6f5c48;
+      background: #fefcf7;
+    }
+    @media (max-width: 650px) {
+      .quiz-body { padding: 1.2rem; }
+      .question-text { font-size: 1rem; }
+    }
+  
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<div class="quiz-wrapper">
+  <div class="quiz-header">
+    <h1>📚 Epistemology of Parallelism</h1>
+    <p>Videha Sadeha 1–37 (Issues 1–350) | The Maithili Digital Renaissance</p>
+    <p>Chapter 96 – Videha Parallel History (Tome IV)</p>
+  </div>
+  <div class="quiz-body" id="quizContainer"></div>
+  <div class="btn-group">
+    <button class="btn-submit" id="submitQuizBtn">✓ Submit answers</button>
+    <button class="btn-reset" id="resetQuizBtn">⟳ Reset quiz</button>
+  </div>
+  <div class="score-panel" id="scorePanel">
+    <span id="scoreMessage">📚 Twelve questions on the epistemology of parallelism, the 37 Sadeha volumes, and the counter‑canon.</span>
+  </div>
+  
+</div>
+
+<script>
+  // ---------------------------------------------------------------
+  // QUESTIONS BASED ON CHAPTER 96 – EPISTEMOLOGY OF PARALLELISM (pages 490–518)
+  // Topics: Gaṅgeśa’s Navya-Nyāya, vyāpti, pramāṇa, the Sandesh section as paratext (Genette),
+  // Jauss (horizon of expectations), Bourdieu (cultural field), Habermas (public sphere),
+  // Bhāmaha’s svabhāvokti, Ānandavardhana’s dhvani, Bharatamuni’s rasa,
+  // the 37 Sadeha volumes, translation movement (Anuvad Vols. 27 & 37), and the counter‑canon.
+  // ---------------------------------------------------------------
+  const questions = [
+    {
+      text: "The chapter opens with the statement: ‘The methodological commitment is identical to the one that defines the Navya Nyāya tradition of Mithilā: every claim must rest on a valid pramāṇa.’ Which of the following is NOT one of the four pramāṇas in Gaṅgeśa’s system?",
+      options: [
+        "Pratyakṣa (perception)",
+        "Anumāna (inference)",
+        "Upamāna (comparison)",
+        "Viparyaya (error)"
+      ],
+      correct: 3   // the four are pratyaksha, anumana, upamana, shabda; viparyaya is not a pramana.
+    },
+    {
+      text: "The ‘Sandesh’ section of early Videha issues (with endorsements from intellectuals, academics, and community members) is analysed through Gérard Genette’s theory of paratext. What function does this paratext serve?",
+      options: [
+        "It provides a table of contents",
+        "It establishes the ‘horizon of expectations’ and legitimises the journal as a courageous, counter‑canonical experiment",
+        "It lists subscription prices",
+        "It contains only advertisements"
+      ],
+      correct: 1   // page 492 – "the paratext ... establishes the conditions under which a text is read and the horizon of expectations"
+    },
+    {
+      text: "Which Western critical framework – associated with Hans Robert Jauss – is used to understand how the endorsements of Videha shaped readers’ expectations of the journal?",
+      options: [
+        "Reader‑response theory",
+        "Reception theory and the concept of ‘horizon of expectations’ (Erwartungshorizont)",
+        "New Criticism",
+        "Structuralism"
+      ],
+      correct: 1   // page 493 – "Jauss argues that a literary work's meaning is ... constituted through its reception ... the 'horizon of expectations'"
+    },
+    {
+      text: "The chapter applies J.L. Austin’s speech act theory to the endorsements. Why are the endorsements described as ‘performative’ rather than merely ‘constative’?",
+      options: [
+        "Because they describe the journal accurately",
+        "Because they do not merely describe Videha as courageous but, by being spoken publicly, constitute Videha as a courageous experiment",
+        "Because they are written in the future tense",
+        "Because they are purely fictional"
+      ],
+      correct: 1   // page 493 – "performative utterances (statements that do) ... constitutes Videha as a courageous experiment"
+    },
+    {
+      text: "Gajendra Thakur’s critical essay ‘Samīkshāśāstra ā Samalochanāk Samalochana’ (Sadeha 10) surveys Western theory from Plato to Derrida and Indian traditions. Which ancient Indian text is cited for its systematic preservation methods (padapāṭha, kramapāṭha, ghanapāṭha)?",
+      options: [
+        "The Vedas",
+        "The Nāṭyaśāstra",
+        "The Arthashastra",
+        "The Panchatantra"
+      ],
+      correct: 0   // page 494 – "the Vedic transmission methods (padapāṭha, kramapāṭha, ghanapāṭha)"
+    },
+    {
+      text: "The chapter invokes Bhāmaha’s concept of ‘svabhāvokti’ – the precise, truthful rendering of reality. Which contemporary Maithili writer’s social‑realist fiction is cited as an example of this principle?",
+      options: [
+        "Jagdish Prasad Mandal",
+        "Vidyapati",
+        "Jayakant Mishra",
+        "Ramanath Jha"
+      ],
+      correct: 0   // page 493 – "The Maithili social-realist tradition that Jagdish Prasad Mandal had extended in fiction"
+    },
+    {
+      text: "Jürgen Habermas’s theory of communicative action is used to frame Videha’s project. According to the chapter, what does Videha’s non‑commercial, multi‑script, free‑access archive reconstitute?",
+      options: [
+        "A literary prize committee",
+        "A Habermasian public sphere from which subaltern voices had been excluded",
+        "A digital marketplace",
+        "A private library"
+      ],
+      correct: 1   // page 493 – "precisely the reconstitution of a Habermasian public sphere from which subaltern voices had been excluded"
+    },
+    {
+      text: "The Sadeha series consists of 37 special issues drawn from the first 350 issues of Videha. Which volume is specifically noted for its focus on essays, management, and criticism (Vol. 2) and for bridging academic discourse with modern concepts?",
+      options: [
+        "Sadeha 1",
+        "Sadeha 2",
+        "Sadeha 10",
+        "Sadeha 27"
+      ],
+      correct: 1   // page 502 – "Volume 2 ... representing the first major attempt to integrate modern management theory and administrative essays"
+    },
+    {
+      text: "Volumes 27 and 37 of the Sadeha series are dedicated to translation (‘Anuvad’). What is the significance of Volume 37 in particular?",
+      options: [
+        "It contains only Maithili poetry",
+        "It showcases translations from South and West Indian languages (Telugu, Odia, Gujarati, Kannada) into Maithili",
+        "It translates only Sanskrit texts",
+        "It is a grammar book"
+      ],
+      correct: 1   // page 512 – "translations from the English translations of major South Indian and Western Indian literatures ... Telugu, Odia, Gujarati, and Kannada"
+    },
+    {
+      text: "The chapter emphasises the ‘epistemic breach’ achieved by applying Navya-Nyāya – a school historically associated with high‑caste gatekeeping – to subaltern and Dalit literature. Which suppressed fact about Gaṅgeśa Upādhyāya does the Videha Parallel History recover to support this democratisation?",
+      options: [
+        "That he wrote only in Sanskrit",
+        "That he was born of an inter‑caste union and married a Charmkarini (leather‑worker woman)",
+        "That he rejected all logic",
+        "That he was a poet"
+      ],
+      correct: 1   // page 490, 496 – "Gaṅgeśa’s inter‑caste origins ... suppressed by Ramanath Jha"
+    },
+    {
+      text: "The Sandesh section expanded over time to include voices from Nepal, the UK, and younger writers. In Bourdieu’s terms, what does this accumulation of symbolic capital represent?",
+      options: [
+        "A decline in literary quality",
+        "The enactment of a democratic principle – full and equal participation of previously marginalised voices",
+        "A shift to English language",
+        "The rejection of all awards"
+      ],
+      correct: 1   // page 495 – "the enactment of a democratic principle ... their statements are substantively sophisticated ... full and equal participation"
+    },
+    {
+      text: "The ‘Bīhani Kathā’ (seed story) is identified as a formal innovation of the Videha era. According to the Navya-Nyāya analysis, what kind of cognition does the open, unresolved bihani kathā produce?",
+      options: [
+        "Niścaya (determinate, certain cognition)",
+        "A‑niścaya (doubt, suspended cognition – knowing‑that‑one‑does‑not‑know)",
+        "Only emotional affect",
+        "Purely didactic knowledge"
+      ],
+      correct: 1   // page 435 (in Chapter 92) and similar logic in Ch. 96 – the open seed story produces a refined uncertainty.
+    }
+  ];
+
+  let userSelections = new Array(questions.length).fill(null);
+  let quizActive = true;
+
+  function renderQuiz() {
+    const container = document.getElementById('quizContainer');
+    if (!container) return;
+    let html = '';
+    for (let i = 0; i < questions.length; i++) {
+      const q = questions[i];
+      const selected = userSelections[i];
+      html += `
+        <div class="question-card" data-qidx="${i}">
+          <div class="question-text">${i+1}. ${q.text}</div>
+          <ul class="options">
+      `;
+      for (let optIdx = 0; optIdx < q.options.length; optIdx++) {
+        const isChecked = (selected === optIdx);
+        html += `
+          <li>
+            <input type="radio" name="q${i}" value="${optIdx}" id="q${i}_opt${optIdx}" ${isChecked ? 'checked' : ''} ${!quizActive ? 'disabled' : ''}>
+            <label for="q${i}_opt${optIdx}">${q.options[optIdx]}</label>
+          </li>
+        `;
+      }
+      html += `</ul>`;
+      if (!quizActive) {
+        const isCorrect = (selected === q.correct);
+        const correctAnswer = q.options[q.correct];
+        if (selected === null) {
+          html += `<div class="feedback incorrect">❓ Not answered. Correct: ${correctAnswer}</div>`;
+        } else if (isCorrect) {
+          html += `<div class="feedback correct">✓ Correct! ${correctAnswer}</div>`;
+        } else {
+          html += `<div class="feedback incorrect">✗ Incorrect. Correct answer: ${correctAnswer}</div>`;
+        }
+      }
+      html += `</div>`;
+    }
+    container.innerHTML = html;
+
+    if (quizActive) {
+      for (let i = 0; i < questions.length; i++) {
+        const radios = document.querySelectorAll(`input[name="q${i}"]`);
+        radios.forEach(radio => {
+          radio.removeEventListener('change', handleRadioChange);
+          radio.addEventListener('change', handleRadioChange);
+        });
+      }
+    }
+  }
+
+  function handleRadioChange(e) {
+    if (!quizActive) return;
+    const radio = e.target;
+    const name = radio.getAttribute('name');
+    const qIndex = parseInt(name.substring(1), 10);
+    const selectedVal = parseInt(radio.value, 10);
+    if (!isNaN(qIndex)) userSelections[qIndex] = selectedVal;
+  }
+
+  function computeScore() {
+    let correctCount = 0;
+    for (let i = 0; i < questions.length; i++) {
+      if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correctCount++;
+    }
+    return correctCount;
+  }
+
+  function updateScoreMessage() {
+    const msgSpan = document.getElementById('scoreMessage');
+    if (!msgSpan) return;
+    if (!quizActive) {
+      const total = questions.length;
+      const correct = computeScore();
+      const percent = Math.round((correct / total) * 100);
+      let msg = `🏆 Your score: ${correct} / ${total} (${percent}%) – `;
+      if (correct === total) msg += "Flawless! You have mastered the epistemology of parallelism and the Sadeha series.";
+      else if (correct >= total-2) msg += "Excellent – you understand the theoretical frameworks and the counter‑canonical project.";
+      else if (correct >= total/2) msg += "Good attempt. Review the roles of Gaṅgeśa, Jauss, and the translation volumes.";
+      else msg += "Re‑read Chapter 96. Focus on the four pramāṇas, the Sandesh paratext, and the Anuvad volumes.";
+      msgSpan.innerHTML = msg;
+    } else {
+      msgSpan.innerHTML = "📚 Twelve questions on the epistemology of parallelism, the 37 Sadeha volumes, and the digital renaissance. Submit your answers.";
+    }
+  }
+
+  function submitQuiz() {
+    if (!quizActive) return;
+    quizActive = false;
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = true;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  function resetQuiz() {
+    quizActive = true;
+    userSelections.fill(null);
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = false;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  renderQuiz();
+  updateScoreMessage();
+  document.getElementById('submitQuizBtn').addEventListener('click', submitQuiz);
+  document.getElementById('resetQuizBtn').addEventListener('click', resetQuiz);
+</script>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>

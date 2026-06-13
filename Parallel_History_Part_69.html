@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Quiz: Chapter 69 – Rudrapur Recensions | Ramji Chaudhary & Ramlochan Sharan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0ede5;
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            padding: 2rem 1rem;
+            color: #2d2a24;
+        }
+
+        .quiz-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fffef9;
+            border-radius: 36px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
+            overflow: hidden;
+            border: 1px solid #e2d9cc;
+        }
+
+        .quiz-header {
+            background: #8b5a2b;
+            background: linear-gradient(135deg, #6b3e1a, #9a6838);
+            padding: 1.8rem 2rem;
+            color: white;
+        }
+
+        .quiz-header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+            margin-bottom: 0.4rem;
+        }
+
+        .quiz-header h1 span {
+            font-weight: 400;
+            font-style: italic;
+            font-size: 1rem;
+            background: #f3deba80;
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+        }
+
+        .quiz-header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 0.6rem;
+            border-left: 3px solid #ffd580;
+            padding-left: 1rem;
+        }
+
+        .quiz-body {
+            padding: 2rem 2rem 1rem;
+        }
+
+        .question-card {
+            background: #ffffff;
+            border: 1px solid #e8e0d4;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.8rem;
+            margin-bottom: 2rem;
+            transition: all 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .question-card:hover {
+            border-color: #cfc1a8;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #5a3e1f;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .options {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .options li {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+        }
+
+        .options input {
+            margin-top: 0.25rem;
+            width: 1.1rem;
+            height: 1.1rem;
+            accent-color: #9a6838;
+            flex-shrink: 0;
+        }
+
+        .options label {
+            font-size: 1rem;
+            line-height: 1.4;
+            color: #3e3a32;
+            font-weight: normal;
+        }
+
+        .feedback {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 30px;
+            display: inline-block;
+            background: #f3f2ec;
+            color: #4a5b4a;
+        }
+
+        .feedback.correct {
+            background: #e0f2e9;
+            color: #1f5e3a;
+            border-left: 4px solid #2b7a4b;
+        }
+
+        .feedback.wrong {
+            background: #ffeae6;
+            color: #b34141;
+            border-left: 4px solid #c4554b;
+        }
+
+        .explanation {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #6c685b;
+            font-style: italic;
+            border-left: 2px solid #dbd2c2;
+            padding-left: 12px;
+        }
+
+        .quiz-footer {
+            padding: 1.2rem 2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-top: 1px solid #e8e0d4;
+            background: #fefcf7;
+        }
+
+        .score-area {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: #e5ede2;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            color: #2b523b;
+        }
+
+        button {
+            background: #9a6838;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.7rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.15s;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background: #7c4f27;
+            transform: scale(0.97);
+        }
+
+        .reset-btn {
+            background: #8f7a64;
+        }
+        .reset-btn:hover {
+            background: #6d5b49;
+        }
+
+        @media (max-width: 650px) {
+            .quiz-body {
+                padding: 1.5rem;
+            }
+            .question-card {
+                padding: 1.1rem;
+            }
+            .quiz-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<div class="quiz-container">
+    <div class="quiz-header">
+        <h1>📖 Chapter 69 · Rudrapur Recensions <span>Ramji Chaudhary · Ramlochan Sharan · Devotion & Parallel History</span></h1>
+        <p>Based on “The Rudrapur Recensions: Pandit Ramji Chaudhary and the Parallel Histories of Maithil Devotion” (Videha Parallel History, Tome III)<br>Vividh Bhajnavali · Maithili Shri Ram Charit Manas · Raga classification · Navya-Nyāya · Rasa-Dhvani · Jayanti-Smarak-Granth</p>
+    </div>
+    <div class="quiz-body" id="quizBody"></div>
+    <div class="quiz-footer">
+        <div class="score-area" id="scoreDisplay">Score: 0 / 0</div>
+        <div>
+            <button id="checkBtn">✅ Check answers</button>
+            <button id="resetBtn" class="reset-btn">⟳ Reset quiz</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ---- QUESTIONS BASED ON CHAPTER 69: Pt. Ramji Chaudhary & Acharya Ramlochan Sharan (pages 444-473) ----
+    const questions = [
+        {
+            text: "Pt. Ramji Chaudhary's devotional collection 'Vividh Bhajnavali' (c. 1948) includes compositions in how many ragas, ranging from Raga Rekhata to Maheshvani?",
+            options: [
+                "12 ragas",
+                "22 ragas",
+                "15 ragas",
+                "30 ragas"
+            ],
+            correct: 1,
+            explanation: "The Vividh Bhajnavali has 22 raga-classified compositions including Raga Rekhata, Lavani, Jhaptala, Dhrupad, Gauri, Tirhut, Bhajan Vinay, Maheshvani, and others – a musically structured text."
+        },
+        {
+            text: "Ramji Chaudhary's personal life was marked by repeated tragedy. What event led him to resign his post as Jyestha Raiyat under the Darbhanga Raj and withdraw entirely into devotional life?",
+            options: [
+                "Loss of his property",
+                "The death of his third wife within fifteen days of the birth of their son Durganath Chaudhary",
+                "A flood that destroyed his village",
+                "A dispute with the local zamindar"
+            ],
+            correct: 1,
+            explanation: "After his third wife died shortly after childbirth, Chaudhary resigned his position and devoted himself completely to literary composition and devotional life – the suffering shaped his bhakti poetry."
+        },
+        {
+            text: "In Ramji Chaudhary's Maheshvani (Shiva hymns), the poet adopts the persona of a destitute devotee ('param anatha') who has been failed by gods, kings, and kinsmen. Which Navya-Nyāya concept is applied to analyse these hymns?",
+            options: [
+                "Anumāna (inference)",
+                "Parataḥ Pramāṇya (extrinsic validity) – the devotee's petition is valid only if God responds; the truth depends on the outcome, not on intrinsic self-evidence",
+                "Upamāna (analogy)",
+                "Avacchedaka (limitor)"
+            ],
+            correct: 1,
+            explanation: "The hymns enact parataḥ pramāṇya: the knowledge-claim 'I am helpless' is made valid only through divine response. The petition's truth depends on external verification – a Navya-Nyāya epistemological move embedded in devotional speech."
+        },
+        {
+            text: "Acharya Ramlochan Sharan (1889–1971) was a Sanskrit scholar, grammarian, and founder of Pustak Bhandar. He also edited which children's journal that aimed to construct a new 'implied Maithili child reader'?",
+            options: [
+                "Balak",
+                "Vasak (Balakothar)",
+                "Chandamama",
+                "Balbharati"
+            ],
+            correct: 1,
+            explanation: "Sharan served as complete editor of the children's journal 'Vasak' (Balakothar). This pedagogical project aimed at constructing a literate, regionally conscious, morally guided Maithili child reader."
+        },
+        {
+            text: "Sharan's Maithili translation of Tulsidas's Ram Charit Manas is described as a 'chandānuvāda'. What does this term mean?",
+            options: [
+                "A prose summary",
+                "A verse translation that attempts to match the metrical structure of the original (chaupai-doha-soratha) in Maithili chandas",
+                "A word-for-word literal translation",
+                "An adaptation into modern Hindi"
+            ],
+            correct: 1,
+            explanation: "Chandānuvāda is the most demanding mode of literary translation – preserving the prosodic architecture (16-matra chaupai, 24-matra doha) while transposing meaning into Maithili."
+        },
+        {
+            text: "The Jayanti-Smarak-Granth (1966) was a felicitation volume presented to Acharya Ramlochan Sharan. Who was the patron of this volume, representing the last significant patron of classical Maithili literary culture?",
+            options: [
+                "Maharaja of Darbhanga",
+                "Maharajadhiraj Dr. Sir Kameshwar Singh Bahadur, K.C.I.E., Ph.D., D.Litt.",
+                "The British Governor of Bihar",
+                "The Sahitya Akademi"
+            ],
+            correct: 1,
+            explanation: "The volume was patronised by Maharajadhiraj Dr. Sir Kameshwar Singh Bahadur, the last significant feudal patron of classical Maithili literary culture, signalling the 'residual' cultural power of the Darbhanga Raj in the post-Independence period."
+        },
+        {
+            text: "The chapter applies Homi Bhabha's concept of 'hybrid identity' to Acharya Ramlochan Sharan. What is the hybridity evident in his work?",
+            options: [
+                "He wrote only in English",
+                "He operated across Maithili, Hindi, and Sanskrit – a Hindi grammarian who also translated the Manas into Maithili, occupying a third space between the Hindi literary establishment and the Maithili folk tradition",
+                "He rejected all modern languages",
+                "He wrote only devotional poetry"
+            ],
+            correct: 1,
+            explanation: "Sharan contributed to Hindi grammar standardisation while simultaneously translating Tulsidas into Maithili. This positions him neither fully within Hindi nor fully within vernacular folk tradition, but strategically negotiating both."
+        },
+        {
+            text: "In the Navya-Nyāya analysis of Sharan's Maithili Manas translation, the vyāpti (invariable concomitance) required for a valid translation is:",
+            options: [
+                "The target language must be Sanskrit",
+                "The target language must possess adequate expressive resources for the source text's semantic range – if the Maithili words and grammar can carry the devotional meaning, the translation is valid",
+                "The translator must change the meaning entirely",
+                "Only literal word-for-word translation is valid"
+            ],
+            correct: 1,
+            explanation: "Navya-Nyāya asks: does Maithili have the expressive resources to convey Tulsidas's meaning? Sharan's use of Sanskrit loan-words and Maithili's strong Sanskrit substrate ensures that the hetu (reason) genuinely pervades the sādhya (valid transmission)."
+        },
+        {
+            text: "Ramji Chaudhary's bhajan 'Jay Ganesh Shankar sut sundar ati kripalu deenan jan Palak' includes the poet's signature 'Ramji araj sunahu'. This bhanita (authorial seal) tradition connects him to which earlier Maithili poet?",
+            options: [
+                "Jyotirishwar Thakur",
+                "Vidyapati (who used bhanita signatures in his padavali)",
+                "Harimohan Jha",
+                "Nagarjun"
+            ],
+            correct: 1,
+            explanation: "The insertion of the poet's name in the final couplet ('Ramji araj sunahu') follows the convention traceable from Vidyapati's bhanita – an authorial seal that claims the poem while performing Vinaya (self-humbling supplication)."
+        },
+        {
+            text: "The chapter places both Ramji Chaudhary and Acharya Ramlochan Sharan within the Videha Parallel History's nine layers. In which layer does Sharan's Maithili Manas translation and the Jayanti-Smarak-Granth (1966) belong?",
+            options: [
+                "Layer 2: Buddhist Charyapada",
+                "Layer 5: Post-Independence (1947–1971) – the period of the first Sahitya Akademi award controversies and residual feudal patronage",
+                "Layer 1: Pre-Vidyapati",
+                "Layer 8: Nepal-side Maithili"
+            ],
+            correct: 1,
+            explanation: "The post-Independence layer includes the period when Maithili was recognised by the Sahitya Akademi (1965) but not yet in the Eighth Schedule. Sharan's work and the 1966 felicitation volume belong here."
+        },
+        {
+            text: "What is the theological significance of Sharan translating the Ram Charit Manas into Maithili, according to the chapter?",
+            options: [
+                "It is a purely commercial project",
+                "Maithili is Sita's language (Mithila as Janakpur, Sita's birthplace). The translation gives the Maithili translation a unique territorial-spiritual authority that no other language's translation can possess",
+                "He wanted to replace Tulsidas",
+                "He rejected the Ramayana"
+            ],
+            correct: 1,
+            explanation: "Since Mithila is Sita's homeland, a Maithili Manas has a special claim: it speaks the Ramayana in the voice of Sita's own people. This intertextual resonance gives the translation an authority beyond linguistic equivalence."
+        },
+        {
+            text: "The chapter uses Raymond Williams's triad of dominant-residual-emergent to analyse the cultural position of the Darbhanga Raj's patronage of the Jayanti-Smarak-Granth. What does 'residual' refer to here?",
+            options: [
+                "The future of Maithili literature",
+                "The Sanskrit-Maithili cultural apparatus of the Darbhanga feudal order, which was declining in the post-Independence period",
+                "The emergent Dalit literature",
+                "The dominant Hindi nationalism"
+            ],
+            correct: 1,
+            explanation: "Williams's 'residual' refers to cultural formations that were once dominant but are now in decline. The Darbhanga Raj's patronage of classical Maithili scholarship in 1966 represents a residual cultural force, while Hindi nationalism was dominant and Videha's parallel movement emergent."
+        }
+    ];
+
+    let userAnswers = new Array(questions.length).fill(null);
+    const quizBody = document.getElementById('quizBody');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const checkBtn = document.getElementById('checkBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    function renderQuiz() {
+        quizBody.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.setAttribute('data-qidx', idx);
+
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qText);
+
+            const optionsList = document.createElement('ul');
+            optionsList.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const li = document.createElement('li');
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q${idx}`;
+                radio.value = optIdx;
+                radio.id = `q${idx}_opt${optIdx}`;
+                if (userAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    userAnswers[idx] = parseInt(e.target.value);
+                    const oldFeedback = card.querySelector('.feedback');
+                    const oldExpl = card.querySelector('.explanation');
+                    if (oldFeedback) oldFeedback.remove();
+                    if (oldExpl) oldExpl.remove();
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q${idx}_opt${optIdx}`;
+                label.innerText = opt;
+                li.appendChild(radio);
+                li.appendChild(label);
+                optionsList.appendChild(li);
+            });
+            card.appendChild(optionsList);
+            quizBody.appendChild(card);
+        });
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    function evaluateQuiz() {
+        // sync current selections
+        for (let i = 0; i < questions.length; i++) {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selected) {
+                userAnswers[i] = parseInt(selected.value);
+            } else {
+                if (userAnswers[i] !== null) userAnswers[i] = null;
+            }
+        }
+
+        let correctCount = 0;
+        // clear old feedback
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const oldFeedback = card.querySelector('.feedback');
+            const oldExpl = card.querySelector('.explanation');
+            if (oldFeedback) oldFeedback.remove();
+            if (oldExpl) oldExpl.remove();
+        }
+
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const userChoice = userAnswers[i];
+            const isCorrect = (userChoice !== null && userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+
+            const feedbackSpan = document.createElement('div');
+            feedbackSpan.className = 'feedback';
+            if (userChoice === null) {
+                feedbackSpan.innerText = '⚠️ Not answered';
+                feedbackSpan.classList.add('wrong');
+            } else if (isCorrect) {
+                feedbackSpan.innerText = '✓ Correct';
+                feedbackSpan.classList.add('correct');
+            } else {
+                const correctLetter = String.fromCharCode(65 + questions[i].correct);
+                const correctText = questions[i].options[questions[i].correct];
+                feedbackSpan.innerText = `✗ Incorrect. Correct: ${correctLetter}. ${correctText.substring(0, 100)}${correctText.length > 100 ? '…' : ''}`;
+                feedbackSpan.classList.add('wrong');
+            }
+
+            const explDiv = document.createElement('div');
+            explDiv.className = 'explanation';
+            explDiv.innerHTML = `📖 ${questions[i].explanation}`;
+            card.appendChild(feedbackSpan);
+            card.appendChild(explDiv);
+        }
+        scoreDisplay.innerText = `Score: ${correctCount} / ${questions.length}`;
+    }
+
+    function resetQuiz() {
+        for (let i = 0; i < questions.length; i++) userAnswers[i] = null;
+        renderQuiz();
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    checkBtn.addEventListener('click', evaluateQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+
+    renderQuiz();
+</script>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>

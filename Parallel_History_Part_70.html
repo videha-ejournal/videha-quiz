@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Quiz: Chapter 70 – Ramlochan Thakur | Poet · Satirist · Folklorist · Translator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0ede5;
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            padding: 2rem 1rem;
+            color: #2d2a24;
+        }
+
+        .quiz-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fffef9;
+            border-radius: 36px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
+            overflow: hidden;
+            border: 1px solid #e2d9cc;
+        }
+
+        .quiz-header {
+            background: #8b5a2b;
+            background: linear-gradient(135deg, #6b3e1a, #9a6838);
+            padding: 1.8rem 2rem;
+            color: white;
+        }
+
+        .quiz-header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+            margin-bottom: 0.4rem;
+        }
+
+        .quiz-header h1 span {
+            font-weight: 400;
+            font-style: italic;
+            font-size: 1rem;
+            background: #f3deba80;
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+        }
+
+        .quiz-header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 0.6rem;
+            border-left: 3px solid #ffd580;
+            padding-left: 1rem;
+        }
+
+        .quiz-body {
+            padding: 2rem 2rem 1rem;
+        }
+
+        .question-card {
+            background: #ffffff;
+            border: 1px solid #e8e0d4;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.8rem;
+            margin-bottom: 2rem;
+            transition: all 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .question-card:hover {
+            border-color: #cfc1a8;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #5a3e1f;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .options {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .options li {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+        }
+
+        .options input {
+            margin-top: 0.25rem;
+            width: 1.1rem;
+            height: 1.1rem;
+            accent-color: #9a6838;
+            flex-shrink: 0;
+        }
+
+        .options label {
+            font-size: 1rem;
+            line-height: 1.4;
+            color: #3e3a32;
+            font-weight: normal;
+        }
+
+        .feedback {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 30px;
+            display: inline-block;
+            background: #f3f2ec;
+            color: #4a5b4a;
+        }
+
+        .feedback.correct {
+            background: #e0f2e9;
+            color: #1f5e3a;
+            border-left: 4px solid #2b7a4b;
+        }
+
+        .feedback.wrong {
+            background: #ffeae6;
+            color: #b34141;
+            border-left: 4px solid #c4554b;
+        }
+
+        .explanation {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #6c685b;
+            font-style: italic;
+            border-left: 2px solid #dbd2c2;
+            padding-left: 12px;
+        }
+
+        .quiz-footer {
+            padding: 1.2rem 2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-top: 1px solid #e8e0d4;
+            background: #fefcf7;
+        }
+
+        .score-area {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: #e5ede2;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            color: #2b523b;
+        }
+
+        button {
+            background: #9a6838;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.7rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.15s;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background: #7c4f27;
+            transform: scale(0.97);
+        }
+
+        .reset-btn {
+            background: #8f7a64;
+        }
+        .reset-btn:hover {
+            background: #6d5b49;
+        }
+
+        @media (max-width: 650px) {
+            .quiz-body {
+                padding: 1.5rem;
+            }
+            .question-card {
+                padding: 1.1rem;
+            }
+            .quiz-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<div class="quiz-container">
+    <div class="quiz-header">
+        <h1>📖 Chapter 70 · Ramlochan Thakur <span>Poet · Satirist · Translator · Folklorist</span></h1>
+        <p>Based on “A Critical Study of the Works of RAMLOCHAN THAKUR” (Videha Parallel History, Tome III)<br>Itihasahanta · Betal Katha · Maithili Lokakatha · Pratidhvani · Ja Sakai Chhi Kintu Kiye Jao · Bhasha-Bharati Samman · Rasa-Dhvani · Navya-Nyāya · Postcolonial theory</p>
+    </div>
+    <div class="quiz-body" id="quizBody"></div>
+    <div class="quiz-footer">
+        <div class="score-area" id="scoreDisplay">Score: 0 / 0</div>
+        <div>
+            <button id="checkBtn">✅ Check answers</button>
+            <button id="resetBtn" class="reset-btn">⟳ Reset quiz</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ---- QUESTIONS BASED ON CHAPTER 70: Ramlochan Thakur (pages 474-487) ----
+    const questions = [
+        {
+            text: "Ramlochan Thakur, born in 1949 in Babupali, Madhubani, moved to Kolkata at age fifteen for economic reasons. He used multiple pseudonyms. Which of the following was NOT one of his pen names?",
+            options: [
+                "Agradoot",
+                "Kumaresha Kashyap",
+                "Mujtaba Ali",
+                "Abhinav Vidyapati"
+            ],
+            correct: 3,
+            explanation: "His pseudonyms were Agradoot, Kumaresha Kashyap, and Mujtaba Ali. 'Abhinav Vidyapati' was the title conferred on Ravindra Nath Thakur by Nagarjun, not a pen name of Ramlochan Thakur."
+        },
+        {
+            text: "Ramlochan Thakur's poetry collection 'Desak Nam Chhalai Son Chiraiya' (1986) uses the metaphor of a 'golden bird' for India. Which rasa is dominant in this elegiac collection?",
+            options: [
+                "Śṛṅgāra (love)",
+                "Karuṇa (compassion/pathos) and Vīra (heroic defiance) – the betrayed promise of independent India experienced through a Maithil migrant's consciousness",
+                "Hāsya (comedy)",
+                "Adbhuta (wonder)"
+            ],
+            correct: 1,
+            explanation: "The title – 'the country's name was Golden Bird' – resonates with profound elegiac sentiment about the betrayed promise of independence, evoking karuna (pathos) and vira (heroic resistance)."
+        },
+        {
+            text: "Which satirical work by Ramlochan Thakur uses the ancient frame-narrative of Vikram and Baital (Betal) to expose social hypocrisy, political corruption, and cultural displacement?",
+            options: [
+                "Itihasahanta",
+                "Betal Katha (1981)",
+                "Smritik Dhokaral Rang",
+                "Riharsal"
+            ],
+            correct: 1,
+            explanation: "'Betal Katha' (1981) deploys the folk-tale frame of Vikram and Baital as a form of vakrokti (oblique expression) – speaking about contemporary realities by displacing them into a legendary, fantastic register."
+        },
+        {
+            text: "Thakur's translation 'Ja Sakai Chhi Kintu Kiye Jao' (I can go, but why should I go) received the Bhasha-Bharati Samman from CIIL. What is the central dhvani (suggested meaning) of this title?",
+            options: [
+                "A celebration of migration",
+                "The impossible predicament of the diaspora intellectual: the capacity to leave (assimilate, abandon one's language) set against the moral impossibility of doing so",
+                "A love story",
+                "A religious hymn"
+            ],
+            correct: 1,
+            explanation: "The title stages the question of whether a marginalised language and its people should surrender to dominant linguistic cultures or resist – the dhvani is civilisational, not merely personal."
+        },
+        {
+            text: "Ramlochan Thakur compiled and edited 'Maithili Lokakatha' (1983, reprinted 2006). From the perspective of Loka Sahitya criticism, what is the significance of this work?",
+            options: [
+                "It is a collection of Sanskrit hymns",
+                "It preserves a living archive of oral culture – folk narratives that might otherwise have been lost under conditions of economic migration and cultural marginalisation",
+                "It is a grammar textbook",
+                "It is a collection of modern poems"
+            ],
+            correct: 1,
+            explanation: "By systematically collecting, editing, and publishing Maithili folk tales, Thakur preserved the oral wisdom, fears, and cosmology of rural Mithila – an act of ethnographic preservation and cultural memory."
+        },
+        {
+            text: "The chapter applies Gayatri Spivak's question 'Can the subaltern speak?' to Thakur's folk literature work. What caution does Spivak's theory raise about such collections?",
+            options: [
+                "The subaltern can never speak at all",
+                "The very act of collection, editing, and literary publication transforms and partly domesticates the subaltern voice it seeks to rescue – the subaltern's speech is mediated by the collector's framework",
+                "Only Dalits can collect folk tales",
+                "Folk tales have no value"
+            ],
+            correct: 1,
+            explanation: "Spivak's caution remains: the subaltern voice, when collected and published, undergoes transformation. Thakur's act is necessary but not unproblematic – it creates conditions for audibility but also risks appropriation."
+        },
+        {
+            text: "Which Western theorist's concept of 'hybridity' and 'third space' is used to analyse Ramlochan Thakur's position as a Maithili poet writing from Kolkata?",
+            options: [
+                "Edward Said",
+                "Homi Bhabha – the creative, unstable space between cultures where new identities are forged; writing Maithili poetry in Kolkata, using Sanskrit forms and folk oral traditions simultaneously",
+                "Frantz Fanon",
+                "Michel Foucault"
+            ],
+            correct: 1,
+            explanation: "Bhabha's third space describes Thakur's location: writing Maithili in metropolitan Kolkata, drawing on classical Sanskrit aesthetics and folk oral traditions, neither fully within nor outside any single tradition – a site of productive cultural negotiation."
+        },
+        {
+            text: "Thakur's poem 'Ja Sakai Chhi Kintu Kiye Jao' is analysed through the Aristotelian concept of universality. How does it achieve Aristotelian mimesis?",
+            options: [
+                "It describes a specific historical event",
+                "The migrant Maithil poet is not a specific individual but a type – the disinherited intellectual, the custodian of a threatened culture, achieving universal resonance",
+                "It is a purely personal confession",
+                "It avoids all generalisation"
+            ],
+            correct: 1,
+            explanation: "Aristotle distinguished poetry (universal) from history (particular). Thakur's poem renders the pain of postcolonial betrayal as both specific (Mithila, Maithili) and universally resonant (every culture that has seen its dreams deferred)."
+        },
+        {
+            text: "From a psychoanalytic perspective, the chapter reads Thakur's repeated return to themes of loss, homeland, and unanswered questions as evidence of which Freudian structure?",
+            options: [
+                "The Oedipus complex",
+                "Melancholia rather than mourning – the lost object (home, language, cultural world) cannot be relinquished; the poet keeps asking questions to which no answer will suffice",
+                "Repression",
+                "The death drive"
+            ],
+            correct: 1,
+            explanation: "Mourning, for Freud, eventually allows the lost object to be relinquished. Melancholia is the state where the lost object cannot be given up. Thakur's 'Lakh Prasna Anuttarit' (A Hundred Thousand Questions Unanswered) exemplifies melancholic structure."
+        },
+        {
+            text: "Thakur's essay collection 'Smritik Dhokaral Rang' (The Colour of Memory's Deception, 2004) and his poetry both engage with the question of authenticity. Which concept from post-structuralism is used to deconstruct his central metaphor of the 'golden bird'?",
+            options: [
+                "Logocentrism",
+                "Deconstruction (Derrida) – the golden bird represents lost national promise, but the deconstruction asks: was the nation ever a golden bird, or was this always a retrospective myth?",
+                "Binary opposition",
+                "Différance"
+            ],
+            correct: 1,
+            explanation: "A deconstructive reading questions whether the origin being mourned is itself a retrospective construction – a story told about a purity that never existed. The 'golden bird' may be a myth that the poem simultaneously uses and undermines."
+        },
+        {
+            text: "Thakur was awarded the Bhasha-Bharati Samman (2003–04) by the Central Institute of Indian Languages (CIIL), Mysore, for his translation work. He also received the Videha Samman 2012. What does the chapter note about his institutional recognition?",
+            options: [
+                "He received the Sahitya Akademi Award",
+                "He never received the Sahitya Akademi Award, and this neglect is part of the canonical bias against performance-based and translation-focused literary work",
+                "He rejected all awards",
+                "He only received state awards"
+            ],
+            correct: 1,
+            explanation: "The chapter implies that Thakur's exclusion from the Sahitya Akademi Award reflects the institutional bias of the Maithili literary establishment, which privileges certain genres and social positions over folk, translation, and performance-oriented literature."
+        },
+        {
+            text: "Thakur's poetry repeatedly uses the imagery of 'mati-pani' (soil and water) and 'son chiraiya' (golden bird). In the Videha Parallel History framework, what does this signify?",
+            options: [
+                "Nostalgia without politics",
+                "A deep rooting in the specific ecology and folk imaginary of Mithila – the poet draws on folk imagery even as he writes within modern literary conventions, asserting that the vernacular landscape is worthy of serious literature",
+                "A rejection of Mithila",
+                "An embrace of urban modernity"
+            ],
+            correct: 1,
+            explanation: "The Parallel History values literature that is rooted in the land, folk traditions, and subaltern experience. Thakur's persistent imagery of Mithila's soil, water, and golden bird grounds his poetry in the living cultural heritage that the framework champions against deracinated, elite literary production."
+        }
+    ];
+
+    let userAnswers = new Array(questions.length).fill(null);
+    const quizBody = document.getElementById('quizBody');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const checkBtn = document.getElementById('checkBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    function renderQuiz() {
+        quizBody.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.setAttribute('data-qidx', idx);
+
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qText);
+
+            const optionsList = document.createElement('ul');
+            optionsList.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const li = document.createElement('li');
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q${idx}`;
+                radio.value = optIdx;
+                radio.id = `q${idx}_opt${optIdx}`;
+                if (userAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    userAnswers[idx] = parseInt(e.target.value);
+                    const oldFeedback = card.querySelector('.feedback');
+                    const oldExpl = card.querySelector('.explanation');
+                    if (oldFeedback) oldFeedback.remove();
+                    if (oldExpl) oldExpl.remove();
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q${idx}_opt${optIdx}`;
+                label.innerText = opt;
+                li.appendChild(radio);
+                li.appendChild(label);
+                optionsList.appendChild(li);
+            });
+            card.appendChild(optionsList);
+            quizBody.appendChild(card);
+        });
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    function evaluateQuiz() {
+        // sync current selections
+        for (let i = 0; i < questions.length; i++) {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selected) {
+                userAnswers[i] = parseInt(selected.value);
+            } else {
+                if (userAnswers[i] !== null) userAnswers[i] = null;
+            }
+        }
+
+        let correctCount = 0;
+        // clear old feedback
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const oldFeedback = card.querySelector('.feedback');
+            const oldExpl = card.querySelector('.explanation');
+            if (oldFeedback) oldFeedback.remove();
+            if (oldExpl) oldExpl.remove();
+        }
+
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const userChoice = userAnswers[i];
+            const isCorrect = (userChoice !== null && userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+
+            const feedbackSpan = document.createElement('div');
+            feedbackSpan.className = 'feedback';
+            if (userChoice === null) {
+                feedbackSpan.innerText = '⚠️ Not answered';
+                feedbackSpan.classList.add('wrong');
+            } else if (isCorrect) {
+                feedbackSpan.innerText = '✓ Correct';
+                feedbackSpan.classList.add('correct');
+            } else {
+                const correctLetter = String.fromCharCode(65 + questions[i].correct);
+                const correctText = questions[i].options[questions[i].correct];
+                feedbackSpan.innerText = `✗ Incorrect. Correct: ${correctLetter}. ${correctText.substring(0, 100)}${correctText.length > 100 ? '…' : ''}`;
+                feedbackSpan.classList.add('wrong');
+            }
+
+            const explDiv = document.createElement('div');
+            explDiv.className = 'explanation';
+            explDiv.innerHTML = `📖 ${questions[i].explanation}`;
+            card.appendChild(feedbackSpan);
+            card.appendChild(explDiv);
+        }
+        scoreDisplay.innerText = `Score: ${correctCount} / ${questions.length}`;
+    }
+
+    function resetQuiz() {
+        for (let i = 0; i < questions.length; i++) userAnswers[i] = null;
+        renderQuiz();
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    checkBtn.addEventListener('click', evaluateQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+
+    renderQuiz();
+</script>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>

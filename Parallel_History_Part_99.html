@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Quiz: Yogendra Pathak Viyogi – Science Writer & SF Pioneer | Videha Parallel History Ch. 99</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f4efe7;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      padding: 2rem 1rem;
+      color: #2c2822;
+    }
+    .quiz-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fffef9;
+      border-radius: 32px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2d8cb;
+      overflow: hidden;
+    }
+    .quiz-header {
+      background: #3e5d58;
+      background: linear-gradient(135deg, #2c4a45 0%, #5b7e78 100%);
+      color: #fef5e3;
+      padding: 1.8rem 2rem;
+      text-align: center;
+    }
+    .quiz-header h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.4rem;
+    }
+    .quiz-header p {
+      font-size: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    .quiz-body {
+      padding: 2rem 2rem 1.2rem;
+    }
+    .question-card {
+      background: #ffffff;
+      border-radius: 24px;
+      margin-bottom: 1.8rem;
+      padding: 1.5rem;
+      border: 1px solid #ece1d2;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .question-text {
+      font-size: 1.22rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #2c4a45;
+      border-left: 5px solid #c2825c;
+      padding-left: 1rem;
+    }
+    .options {
+      list-style: none;
+      margin-top: 0.2rem;
+    }
+    .options li {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+    .options input[type="radio"] {
+      accent-color: #c2825c;
+      width: 1.1rem;
+      height: 1.1rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+    .options label {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #3f3a33;
+      font-weight: 500;
+    }
+    .feedback {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 40px;
+      display: inline-block;
+    }
+    .feedback.correct {
+      background: #e1f0e0;
+      color: #236b43;
+      border-left: 3px solid #236b43;
+    }
+    .feedback.incorrect {
+      background: #ffe3db;
+      color: #bc4c2c;
+      border-left: 3px solid #bc4c2c;
+    }
+    .btn-group {
+      text-align: center;
+      padding: 0.5rem 0 2rem;
+    }
+    .btn-submit, .btn-reset {
+      background: #2c4a45;
+      border: none;
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.7rem 1.8rem;
+      border-radius: 48px;
+      cursor: pointer;
+      font-family: inherit;
+      margin: 0 0.6rem;
+      transition: background 0.2s;
+    }
+    .btn-reset {
+      background: #9d7c5c;
+    }
+    .btn-submit:hover {
+      background: #1e3430;
+    }
+    .btn-reset:hover {
+      background: #7f6246;
+    }
+    .score-panel {
+      text-align: center;
+      background: #fbf3e8;
+      margin: 0 2rem 2rem 2rem;
+      border-radius: 60px;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.7rem;
+      border-top: 1px solid #e6daca;
+      color: #6f5c48;
+      background: #fefcf7;
+    }
+    @media (max-width: 650px) {
+      .quiz-body { padding: 1.2rem; }
+      .question-text { font-size: 1rem; }
+    }
+  
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<div class="quiz-wrapper">
+  <div class="quiz-header">
+    <h1>⚛️ Yogendra Pathak Viyogi</h1>
+    <p>Physicist · Popular‑Science Writer · Science‑Fiction Pioneer of Maithili · Translator · Novelist</p>
+    <p>Chapter 99 – Complete Critical Appreciation (Videha Parallel History, Tome IV)</p>
+  </div>
+  <div class="quiz-body" id="quizContainer"></div>
+  <div class="btn-group">
+    <button class="btn-submit" id="submitQuizBtn">✓ Submit answers</button>
+    <button class="btn-reset" id="resetQuizBtn">⟳ Reset quiz</button>
+  </div>
+  <div class="score-panel" id="scorePanel">
+    <span id="scoreMessage">📚 Twelve questions on Viyogi’s science writing, SF drama, translations, and critical frameworks.</span>
+  </div>
+  
+</div>
+
+<script>
+  // ---------------------------------------------------------------
+  // QUESTIONS BASED ON CHAPTER 99 – YOGENDRA PATHAK VIYOGI (pages 591–606)
+  // Topics: birth (1948, Laufa, Madhubani), scientific career (FNA, FNASc, Director IOP Bhubaneswar, NISER),
+  // works: Vigyanak Batkahi (Parts 1 & 2), Narak Vijay (AI drama with Hindu cosmology),
+  // Robot (Maithili translation of Čapek’s R.U.R.), Hamar Gaam (novel), Piramidak Desh Me, Kichhu Teet Madhur,
+  // Acta Misiya (short stories). Theoretical frameworks: Suvin (cognitive estrangement), Jameson,
+  // rasa (adbhuta), dhvani, Navya-Nyāya (pramāṇas, vyāpti), Venuti (foreignisation), Bakhtin (chronotope).
+  // ---------------------------------------------------------------
+  const questions = [
+    {
+      text: "Yogendra Pathak Viyogi was born in 1948 in Laufa village, Madhubani district. Which two Indian science academies elected him as a Fellow (FNA, FNASc)?",
+      options: [
+        "Indian National Science Academy and National Academy of Sciences, India",
+        "Indian Academy of Sciences and Indian National Science Academy",
+        "National Academy of Sciences and Indian Council of Medical Research",
+        "Indian Science Congress and Indian Physical Society"
+      ],
+      correct: 0   // page 591 – "Fellow of the Indian National Science Academy (FNA) and of the National Academy of Sciences, India (FNASc)"
+    },
+    {
+      text: "Viyogi’s popular science essay collection ‘Vigyanak Batkahi’ (Science Conversations) aims to democratise science for Maithili readers. What is his stated rhetorical strategy?",
+      options: [
+        "‘Packaging’ (paikejing) – presenting difficult material in accessible prose, narrative, and humour",
+        "Direct technical explanations without simplification",
+        "Only using Sanskrit terminology",
+        "Avoiding all examples"
+      ],
+      correct: 0   // page 594 – "the 'packaging' (paikejing) of science—presenting difficult material in the wrapping of accessible prose"
+    },
+    {
+      text: "Viyogi’s Maithili translation of Karel Čapek’s 1920 play ‘R.U.R.’ (Rossum’s Universal Robots) is significant because it introduced which word to Maithili literature?",
+      options: [
+        "Cyborg",
+        "Robot",
+        "Android",
+        "AI"
+      ],
+      correct: 1   // page 593 – "the play that coined the word 'robot'"
+    },
+    {
+      text: "Which of Viyogi’s works is a science‑fiction drama that blends AI and cyborg technology with Hindu cosmology, featuring characters like Narada, Yamaraja, and the scientist Anupam Amit?",
+      options: [
+        "Acta Misiya",
+        "Narak Vijay",
+        "Robot",
+        "Piramidak Desh Me"
+      ],
+      correct: 1   // page 595-596 – "Narak Vijay ... operates simultaneously in two registers: the realistic register ... and the mythological register of Hindu cosmology"
+    },
+    {
+      text: "The chapter applies Darko Suvin’s concept of ‘cognitive estrangement’ to Viyogi’s SF. What is the novum (scientifically plausible new element) in ‘Narak Vijay’?",
+      options: [
+        "Time travel",
+        "AI and cyborg technology within a mythological‑cosmological framework – using AI to potentially escape Yamaraja’s judgment",
+        "Alien invasion",
+        "Telepathy"
+      ],
+      correct: 1   // page 598 – "the novum is AI and cyborg technology within a mythological-cosmological framework"
+    },
+    {
+      text: "Viyogi’s travelogue ‘Piramidak Desh Me’ (In the Land of the Pyramids) uses which Maithili/Indic concept as a hermeneutic key to explain Egyptian mummification?",
+      options: [
+        "Karma",
+        "Punarjanma (reincarnation) and the belief that the soul would return to the preserved body",
+        "Moksha",
+        "Dharma"
+      ],
+      correct: 1   // page 594 – "the Maithili reader's familiar concept—punarjanma (reincarnation), moksha ... to explain the Egyptian practice of mummification"
+    },
+    {
+      text: "Viyogi’s drama ‘Narak Vijay’ is analysed through Mikhail Bakhtin’s concept of the chronotope. Which two chronotopes are juxtaposed in the play?",
+      options: [
+        "The city and the village",
+        "The laboratory (modern SF) and Yamaloka (mythological space of judgment)",
+        "The past and the future",
+        "India and Europe"
+      ],
+      correct: 1   // page 599-600 – "the laboratory chronotope ... is doubled by the mythological chronotope of Yamaloka"
+    },
+    {
+      text: "According to the chapter, which rasa (aesthetic emotion) is the dominant one in Viyogi’s popular science essays, evoked by the wonder of scientific discovery?",
+      options: [
+        "Vīra (heroism)",
+        "Karuṇa (pathos)",
+        "Adbhuta (wonder/marvellous)",
+        "Śānta (tranquillity)"
+      ],
+      correct: 2   // page 600 – "Adbhuta rasa (wonder/marvellous): The dominant rasa of the Vigyanak Batkahi essays"
+    },
+    {
+      text: "Viyogi’s translation of R.U.R. retains the original Czech industrial/corporate setting (Rossum’s factory) rather than adapting it to a Maithili rural context. According to Lawrence Venuti, this strategy is called:",
+      options: [
+        "Domestication",
+        "Foreignisation (preserving the strangeness of the source text to expand the target reader’s horizons)",
+        "Adaptation",
+        "Localisation"
+      ],
+      correct: 1   // page 599 – "foreignisation: he brings the Czech play to Maithili readers in its otherness, refusing to domesticate"
+    },
+    {
+      text: "The novel ‘Hamar Gaam’ (My Village) by Viyogi recounts his intimate engagement with his birth village. Which chapter in the novel addresses electrification (bijulikar) and examines the gap between India’s scientific achievements and rural experience?",
+      options: [
+        "Pancayati Raj",
+        "Bijulikar",
+        "Khet",
+        "Samacarka Dunia"
+      ],
+      correct: 1   // page 597 – "The chapter on 'bijulikar' (electrification) is paradigmatic"
+    },
+    {
+      text: "Viyogi’s short story collection ‘Acta Misiya’ includes paired stories with a mock‑documentary, transcript‑like format. The title itself – ‘Acta’ – suggests:",
+      options: [
+        "Fictional romance",
+        "Official records or proceedings (Latin), framing the stories as archives of ‘missions’",
+        "Epic poetry",
+        "Children’s fables"
+      ],
+      correct: 1   // page 596 – "'Acta' (Latin: proceedings, records) combined with 'Misiya' (mission) – suggests an archive of missions"
+    },
+    {
+      text: "The chapter compares Viyogi to Satyajit Ray’s Professor Shonku series. What is the key difference in their attitude towards science?",
+      options: [
+        "Ray was pessimistic; Viyogi is optimistic",
+        "Ray’s SF is fundamentally optimistic about science (wonder‑generating, benevolent); Viyogi’s AI drama is framed with the MIT warning about existential risk, reflecting AI anxiety",
+        "Ray wrote only in English; Viyogi writes only in Maithili",
+        "There is no difference"
+      ],
+      correct: 1   // page 602-603 – "Ray wrote in the post-Independence science-optimist mood; Viyogi writes in the age of AI anxiety"
+    }
+  ];
+
+  let userSelections = new Array(questions.length).fill(null);
+  let quizActive = true;
+
+  function renderQuiz() {
+    const container = document.getElementById('quizContainer');
+    if (!container) return;
+    let html = '';
+    for (let i = 0; i < questions.length; i++) {
+      const q = questions[i];
+      const selected = userSelections[i];
+      html += `
+        <div class="question-card" data-qidx="${i}">
+          <div class="question-text">${i+1}. ${q.text}</div>
+          <ul class="options">
+      `;
+      for (let optIdx = 0; optIdx < q.options.length; optIdx++) {
+        const isChecked = (selected === optIdx);
+        html += `
+          <li>
+            <input type="radio" name="q${i}" value="${optIdx}" id="q${i}_opt${optIdx}" ${isChecked ? 'checked' : ''} ${!quizActive ? 'disabled' : ''}>
+            <label for="q${i}_opt${optIdx}">${q.options[optIdx]}</label>
+          </li>
+        `;
+      }
+      html += `</ul>`;
+      if (!quizActive) {
+        const isCorrect = (selected === q.correct);
+        const correctAnswer = q.options[q.correct];
+        if (selected === null) {
+          html += `<div class="feedback incorrect">❓ Not answered. Correct: ${correctAnswer}</div>`;
+        } else if (isCorrect) {
+          html += `<div class="feedback correct">✓ Correct! ${correctAnswer}</div>`;
+        } else {
+          html += `<div class="feedback incorrect">✗ Incorrect. Correct answer: ${correctAnswer}</div>`;
+        }
+      }
+      html += `</div>`;
+    }
+    container.innerHTML = html;
+
+    if (quizActive) {
+      for (let i = 0; i < questions.length; i++) {
+        const radios = document.querySelectorAll(`input[name="q${i}"]`);
+        radios.forEach(radio => {
+          radio.removeEventListener('change', handleRadioChange);
+          radio.addEventListener('change', handleRadioChange);
+        });
+      }
+    }
+  }
+
+  function handleRadioChange(e) {
+    if (!quizActive) return;
+    const radio = e.target;
+    const name = radio.getAttribute('name');
+    const qIndex = parseInt(name.substring(1), 10);
+    const selectedVal = parseInt(radio.value, 10);
+    if (!isNaN(qIndex)) userSelections[qIndex] = selectedVal;
+  }
+
+  function computeScore() {
+    let correctCount = 0;
+    for (let i = 0; i < questions.length; i++) {
+      if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correctCount++;
+    }
+    return correctCount;
+  }
+
+  function updateScoreMessage() {
+    const msgSpan = document.getElementById('scoreMessage');
+    if (!msgSpan) return;
+    if (!quizActive) {
+      const total = questions.length;
+      const correct = computeScore();
+      const percent = Math.round((correct / total) * 100);
+      let msg = `🏆 Your score: ${correct} / ${total} (${percent}%) – `;
+      if (correct === total) msg += "Flawless! You have mastered Viyogi’s scientific and literary contributions.";
+      else if (correct >= total-2) msg += "Excellent – you understand the fusion of science, mythology, and translation in his work.";
+      else if (correct >= total/2) msg += "Good attempt. Review the concepts of adbhuta rasa, foreignisation, and the Navya-Nyāya pramāṇas.";
+      else msg += "Re‑read Chapter 99. Focus on Vigyanak Batkahi, Narak Vijay, and the R.U.R. translation.";
+      msgSpan.innerHTML = msg;
+    } else {
+      msgSpan.innerHTML = "📚 Twelve questions on Yogendra Pathak Viyogi: physicist, popular science writer, SF pioneer, translator. Submit your answers.";
+    }
+  }
+
+  function submitQuiz() {
+    if (!quizActive) return;
+    quizActive = false;
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = true;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  function resetQuiz() {
+    quizActive = true;
+    userSelections.fill(null);
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = false;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  renderQuiz();
+  updateScoreMessage();
+  document.getElementById('submitQuizBtn').addEventListener('click', submitQuiz);
+  document.getElementById('resetQuizBtn').addEventListener('click', resetQuiz);
+</script>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>

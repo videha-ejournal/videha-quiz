@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Quiz: Voices from Mithila – Vibha Rani, Bindeshwar Thakur, Anmol Jha | Videha Parallel History Ch. 92</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f4efe7;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      padding: 2rem 1rem;
+      color: #2c2822;
+    }
+    .quiz-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fffef9;
+      border-radius: 32px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2d8cb;
+      overflow: hidden;
+    }
+    .quiz-header {
+      background: #7a5b4e;
+      background: linear-gradient(135deg, #5e3f32 0%, #8b6b5b 100%);
+      color: #fef5e3;
+      padding: 1.8rem 2rem;
+      text-align: center;
+    }
+    .quiz-header h1 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.4rem;
+    }
+    .quiz-header p {
+      font-size: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    .quiz-body {
+      padding: 2rem 2rem 1.2rem;
+    }
+    .question-card {
+      background: #ffffff;
+      border-radius: 24px;
+      margin-bottom: 1.8rem;
+      padding: 1.5rem;
+      border: 1px solid #ece1d2;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .question-text {
+      font-size: 1.22rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #5e3f32;
+      border-left: 5px solid #c2825c;
+      padding-left: 1rem;
+    }
+    .options {
+      list-style: none;
+      margin-top: 0.2rem;
+    }
+    .options li {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+    .options input[type="radio"] {
+      accent-color: #c2825c;
+      width: 1.1rem;
+      height: 1.1rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+    .options label {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #3f3a33;
+      font-weight: 500;
+    }
+    .feedback {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 40px;
+      display: inline-block;
+    }
+    .feedback.correct {
+      background: #e1f0e0;
+      color: #236b43;
+      border-left: 3px solid #236b43;
+    }
+    .feedback.incorrect {
+      background: #ffe3db;
+      color: #bc4c2c;
+      border-left: 3px solid #bc4c2c;
+    }
+    .btn-group {
+      text-align: center;
+      padding: 0.5rem 0 2rem;
+    }
+    .btn-submit, .btn-reset {
+      background: #5e3f32;
+      border: none;
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.7rem 1.8rem;
+      border-radius: 48px;
+      cursor: pointer;
+      font-family: inherit;
+      margin: 0 0.6rem;
+      transition: background 0.2s;
+    }
+    .btn-reset {
+      background: #9d7c5c;
+    }
+    .btn-submit:hover {
+      background: #422a1f;
+    }
+    .btn-reset:hover {
+      background: #7f6246;
+    }
+    .score-panel {
+      text-align: center;
+      background: #fbf3e8;
+      margin: 0 2rem 2rem 2rem;
+      border-radius: 60px;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.7rem;
+      border-top: 1px solid #e6daca;
+      color: #6f5c48;
+      background: #fefcf7;
+    }
+    @media (max-width: 650px) {
+      .quiz-body { padding: 1.2rem; }
+      .question-text { font-size: 1rem; }
+    }
+  
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<div class="quiz-wrapper">
+  <div class="quiz-header">
+    <h1>🎭 Voices from Mithila</h1>
+    <p>Vibha Rani · Bindeshwar Thakur · Anmol Jha</p>
+    <p>Chapter 92 – Critical Appreciations (Videha Parallel History, Tome IV)</p>
+  </div>
+  <div class="quiz-body" id="quizContainer"></div>
+  <div class="btn-group">
+    <button class="btn-submit" id="submitQuizBtn">✓ Submit answers</button>
+    <button class="btn-reset" id="resetQuizBtn">⟳ Reset quiz</button>
+  </div>
+  <div class="score-panel" id="scorePanel">
+    <span id="scoreMessage">📚 Twelve questions on the works of Vibha Rani, Bindeshwar Thakur, and Anmol Jha.</span>
+  </div>
+  
+</div>
+
+<script>
+  // ---------------------------------------------------------------
+  // QUESTIONS BASED ON CHAPTER 92 – VOICES FROM MITHILA (pages 420–443)
+  // Topics: Vibha Rani's plays Bhāg Rau (Run Away) and Balchandā (feminist mono‑drama);
+  // Bindeshwar Thakur's ghazal collection Nepālak Nor Marubhūmi Me (Gulf diaspora);
+  // Anmol Jha's laghukathā collection Samay Sākṣī Ṭhik and CCRT research on Maithili children's literature;
+  // theoretical frameworks: Bharata's Nāṭyaśāstra, Brecht, Navya-Nyāya, feminism, postcolonialism.
+  // ---------------------------------------------------------------
+  const questions = [
+    {
+      text: "Vibha Rani’s Maithili play ‘Bhāg Rau’ (Run Away) centres on Mangtū, a disabled, literate beggar. Which theatrical technique does the play use by including a ‘Darśaka’ (spectator) character who delivers lines from within the audience?",
+      options: [
+        "Aristotelian catharsis",
+        "Brechtian Verfremdungseffekt (alienation effect) and a fusion of lokadharmi and nāṭyadharmi",
+        "Shakespearean soliloquy",
+        "Greek chorus"
+      ],
+      correct: 1   // page 424 – "a 'Darśaka' (spectator) character is listed ... this is lokadharmi staging deployed within a nāṭyadharmi dramaturgy — a Brechtian gesture"
+    },
+    {
+      text: "Which play by Vibha Rani is a mono‑drama performed by a single actress, addressing female foeticide and the suppression of the feminine, and uses the mime of sequential amputation?",
+      options: [
+        "Bhāg Rau",
+        "Balchandā",
+        "Madad Karu Santoṣī Mātā",
+        "Chhinardevi"
+      ],
+      correct: 1   // page 431-432 – "Balchandā (a mono-drama) ... the sequential amputation of the actress's limbs in mime"
+    },
+    {
+      text: "The chapter applies classical Indian rasa theory to Bhāg Rau. What is the dominant rasa of the play, and how does it transform by the end?",
+      options: [
+        "Hāsya (comedy) throughout",
+        "Karuṇa (pathos) is dominant, but the ending re‑channels grief into vīra (heroism) through a collective choral affirmation",
+        "Śṛṅgāra (erotic love) only",
+        "Bhayānaka (terror) without resolution"
+      ],
+      correct: 1   // page 423 – "The dominant rasa is karuṇa ... ending instead with a unison chant ... that re-channels grief into vīra-rasa"
+    },
+    {
+      text: "Bindeshwar Thakur, a Nepali‑side Maithili writer working in Qatar, titled his composite volume ‘Nepālak Nor Marubhūmi Me’. What does ‘Nor’ refer to in the title?",
+      options: [
+        "A desert animal",
+        "The Maithili word for tear (nor), linking the ghazal tradition’s trope of longing with the migrant’s anguish",
+        "A type of music",
+        "A river in Nepal"
+      ],
+      correct: 1   // page 433 – "nora (tear) as the dominant trope of love-poetry and ghazal"
+    },
+    {
+      text: "Thakur’s ghazals in the volume include bhakti ghazals addressed to the goddess Bhavānī. How does the chapter describe this fusion?",
+      options: [
+        "A rejection of all religious poetry",
+        "Adapting the erotic‑devotional ambiguity of the Vidyapati tradition to the ghazal form",
+        "A purely secular love poem",
+        "A translation from Persian"
+      ],
+      correct: 1   // page 434 – "Lines such as 'Ahīṃ chī hamar bhavānī maiyā' directly echo Vidyapati's padāvalī devotional idiom within a Persian-Urdu formal structure"
+    },
+    {
+      text: "The prose section of Thakur’s volume includes both laghukathā and bihani kathā. According to the Videha school, what is the formal difference between the two?",
+      options: [
+        "Laghukathā is longer; bihani kathā is shorter",
+        "Laghukathā resolves into a single ironic closure; bihani kathā is deliberately open, seed‑like, allowing the reader to complete the emotional arc",
+        "Bihani kathā has rhyme; laghukathā does not",
+        "There is no difference"
+      ],
+      correct: 1   // page 427, 434 – "bihani kathā is deliberately open, seed-like ... the laghukathā’s ironic closure is appropriate for socio-political critique"
+    },
+    {
+      text: "Anmol Jha’s laghukathā collection is titled ‘Samay Sākṣī Ṭhik’ (Time Itself Is the Witness). According to the chapter, what does the title announce about the epistemology of the genre?",
+      options: [
+        "Time is the ultimate pramāṇa (means of valid knowledge)",
+        "Stories should be timeless",
+        "The author controls time",
+        "Only the present matters"
+      ],
+      correct: 0   // page 436 – "time as the ultimate pramāṇa — means of valid knowledge"
+    },
+    {
+      text: "Anmol Jha’s CCRT research report (745 pages) is a landmark study of contemporary Maithili children’s literature. Which of the following genres is NOT covered in the report’s chapters?",
+      options: [
+        "Children’s ghazal",
+        "Children’s drama",
+        "Children’s science fiction in English",
+        "Children’s songs and riddles"
+      ],
+      correct: 2   // page 436-437 – the report covers songs, ghazal, drama, novels, translation, but not English SF
+    },
+    {
+      text: "Vibha Rani founded AVITOKO, a socio‑cultural organisation in Mumbai, and pioneered ‘ekānt raṅgamanc’ (room theatre). Which classical Indian theatrical concept does her solo performance practice most directly engage?",
+      options: [
+        "Nāṭyadharmi (stylised theatre) only",
+        "A productive tension between nāṭyadharmi and lokadharmi (realistic), collapsing the distinction between stage and audience",
+        "Kathakali conventions",
+        "Sanskrit ritual drama"
+      ],
+      correct: 1   // page 424 – "collapse the architectural distinction between stage and audience ... lokadharmi staging deployed within a nāṭyadharmi dramaturgy"
+    },
+    {
+      text: "The chapter uses Navya-Nyāya’s concept of ‘vyāpti’ (invariable concomitance) to analyse Vibha Rani’s Bhāg Rau. What structural invariant does it identify across the play?",
+      options: [
+        "Wherever there is wealth, there is happiness",
+        "Wherever there is literacy, there is deprivation – the newspaper is both epistemic enabler and epistemic wound",
+        "Wherever there is police, there is justice",
+        "Wherever there is a train, there is escape"
+      ],
+      correct: 1   // page 431 – "wherever there is literacy in Bhāg Rau, there is deprivation"
+    },
+    {
+      text: "Bindeshwar Thakur’s position as a Nepali citizen writing in Maithili, working in Qatar, and published by an Indian press (Shruti Prakashan) is described as an example of:",
+      options: [
+        "The ‘third space’ of cultural hybridity and multiple peripheries, which the Videha platform consciously supports as a trans‑national project",
+        "A rejection of all national identities",
+        "A purely commercial enterprise",
+        "An isolated case"
+      ],
+      correct: 0   // page 435 – "He occupies multiple peripheries simultaneously ... The Videha platform's explicit commitment to trans-national Maithili culture"
+    },
+    {
+      text: "Anmol Jha’s CCRT research report notes that Maithili children’s literature has historically underrepresented girl protagonists and female authors. The chapter connects this to which broader project of the Videha Parallel History?",
+      options: [
+        "The promotion of Sanskrit only",
+        "The recovery of the ‘parallel’ women’s tradition and the need for gender‑inclusive literary archives",
+        "The rejection of all children’s literature",
+        "The focus on Dalit issues exclusively"
+      ],
+      correct: 1   // page 438 – "makes this gap visible and measurable" – part of feminist recovery
+    }
+  ];
+
+  let userSelections = new Array(questions.length).fill(null);
+  let quizActive = true;
+
+  function renderQuiz() {
+    const container = document.getElementById('quizContainer');
+    if (!container) return;
+    let html = '';
+    for (let i = 0; i < questions.length; i++) {
+      const q = questions[i];
+      const selected = userSelections[i];
+      html += `
+        <div class="question-card" data-qidx="${i}">
+          <div class="question-text">${i+1}. ${q.text}</div>
+          <ul class="options">
+      `;
+      for (let optIdx = 0; optIdx < q.options.length; optIdx++) {
+        const isChecked = (selected === optIdx);
+        html += `
+          <li>
+            <input type="radio" name="q${i}" value="${optIdx}" id="q${i}_opt${optIdx}" ${isChecked ? 'checked' : ''} ${!quizActive ? 'disabled' : ''}>
+            <label for="q${i}_opt${optIdx}">${q.options[optIdx]}</label>
+          </li>
+        `;
+      }
+      html += `</ul>`;
+      if (!quizActive) {
+        const isCorrect = (selected === q.correct);
+        const correctAnswer = q.options[q.correct];
+        if (selected === null) {
+          html += `<div class="feedback incorrect">❓ Not answered. Correct: ${correctAnswer}</div>`;
+        } else if (isCorrect) {
+          html += `<div class="feedback correct">✓ Correct! ${correctAnswer}</div>`;
+        } else {
+          html += `<div class="feedback incorrect">✗ Incorrect. Correct answer: ${correctAnswer}</div>`;
+        }
+      }
+      html += `</div>`;
+    }
+    container.innerHTML = html;
+
+    if (quizActive) {
+      for (let i = 0; i < questions.length; i++) {
+        const radios = document.querySelectorAll(`input[name="q${i}"]`);
+        radios.forEach(radio => {
+          radio.removeEventListener('change', handleRadioChange);
+          radio.addEventListener('change', handleRadioChange);
+        });
+      }
+    }
+  }
+
+  function handleRadioChange(e) {
+    if (!quizActive) return;
+    const radio = e.target;
+    const name = radio.getAttribute('name');
+    const qIndex = parseInt(name.substring(1), 10);
+    const selectedVal = parseInt(radio.value, 10);
+    if (!isNaN(qIndex)) userSelections[qIndex] = selectedVal;
+  }
+
+  function computeScore() {
+    let correctCount = 0;
+    for (let i = 0; i < questions.length; i++) {
+      if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correctCount++;
+    }
+    return correctCount;
+  }
+
+  function updateScoreMessage() {
+    const msgSpan = document.getElementById('scoreMessage');
+    if (!msgSpan) return;
+    if (!quizActive) {
+      const total = questions.length;
+      const correct = computeScore();
+      const percent = Math.round((correct / total) * 100);
+      let msg = `🏆 Your score: ${correct} / ${total} (${percent}%) – `;
+      if (correct === total) msg += "Flawless! You have mastered the three voices from Mithila.";
+      else if (correct >= total-2) msg += "Excellent – you understand the drama, ghazal, and laghukathā traditions.";
+      else if (correct >= total/2) msg += "Good attempt. Review the Brechtian elements in Bhāg Rau, the ghazal form, and the CCRT research.";
+      else msg += "Re‑read Chapter 92. Focus on Vibha Rani’s plays, Bindeshwar Thakur’s diaspora ghazals, and Anmol Jha’s children’s literature survey.";
+      msgSpan.innerHTML = msg;
+    } else {
+      msgSpan.innerHTML = "📚 Twelve questions on Vibha Rani, Bindeshwar Thakur, and Anmol Jha. Submit your answers.";
+    }
+  }
+
+  function submitQuiz() {
+    if (!quizActive) return;
+    quizActive = false;
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = true;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  function resetQuiz() {
+    quizActive = true;
+    userSelections.fill(null);
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = false;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  renderQuiz();
+  updateScoreMessage();
+  document.getElementById('submitQuizBtn').addEventListener('click', submitQuiz);
+  document.getElementById('resetQuizBtn').addEventListener('click', resetQuiz);
+</script>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>

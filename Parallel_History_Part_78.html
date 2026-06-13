@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Quiz: Chapter 78 – A Complete Critical Research & Appreciation of the Words | Videha Parallel History</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f3efe7;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      padding: 2rem 1rem;
+      color: #2c241a;
+    }
+    .quiz-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fffdf8;
+      border-radius: 32px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e2d8cb;
+      overflow: hidden;
+    }
+    .quiz-header {
+      background: #3e2c23;
+      color: #fcf3e0;
+      padding: 1.8rem 2rem;
+      text-align: center;
+    }
+    .quiz-header h1 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.4rem;
+    }
+    .quiz-header p {
+      font-size: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    .quiz-body {
+      padding: 2rem 2rem 1.2rem;
+    }
+    .question-card {
+      background: #ffffff;
+      border-radius: 24px;
+      margin-bottom: 1.8rem;
+      padding: 1.5rem;
+      border: 1px solid #ece1d3;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+    .question-text {
+      font-size: 1.22rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #4a3729;
+      border-left: 5px solid #b47c4a;
+      padding-left: 1rem;
+    }
+    .options {
+      list-style: none;
+      margin-top: 0.3rem;
+    }
+    .options li {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .options input[type="radio"] {
+      margin-top: 0.2rem;
+      accent-color: #8b5a2e;
+      width: 1.1rem;
+      height: 1.1rem;
+      flex-shrink: 0;
+    }
+    .options label {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #3b3a35;
+      font-weight: 500;
+    }
+    .feedback {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 30px;
+      display: inline-block;
+    }
+    .feedback.correct {
+      background: #e2f0e4;
+      color: #1f6d3b;
+      border-left: 3px solid #1f6d3b;
+    }
+    .feedback.incorrect {
+      background: #ffe2da;
+      color: #b5452a;
+      border-left: 3px solid #b5452a;
+    }
+    .btn-group {
+      text-align: center;
+      padding: 0.5rem 0 1.8rem;
+    }
+    .btn-submit, .btn-reset {
+      background: #8b5a2e;
+      border: none;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 0.7rem 1.8rem;
+      border-radius: 48px;
+      cursor: pointer;
+      font-family: inherit;
+      margin: 0 0.5rem;
+      transition: background 0.2s;
+    }
+    .btn-reset {
+      background: #b28b6f;
+    }
+    .btn-submit:hover {
+      background: #6b421f;
+    }
+    .btn-reset:hover {
+      background: #9a6f53;
+    }
+    .score-panel {
+      text-align: center;
+      background: #f7f2ea;
+      margin: 0 2rem 2rem 2rem;
+      border-radius: 48px;
+      padding: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.7rem;
+      border-top: 1px solid #e5daca;
+      color: #6f5c48;
+      background: #fefcf7;
+    }
+    .info-note {
+      background: #f9efdc;
+      padding: 0.7rem 1.2rem;
+      border-radius: 28px;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      border-left: 4px solid #b47c4a;
+    }
+    @media (max-width: 650px) {
+      .quiz-body { padding: 1.2rem; }
+      .question-text { font-size: 1rem; }
+    }
+  
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<div class="quiz-container">
+  <div class="quiz-header">
+    <h1>📖 A Complete Critical Research & Appreciation of the Words</h1>
+    <p>Chapter 78 – Videha Parallel History (Tome IV) · Meta‑critical & Epistemological Foundations</p>
+  </div>
+  <div class="quiz-body">
+    <div class="info-note">
+      📜 <strong>About this chapter:</strong> “A Complete Critical Research & Appreciation of the Words” (2026) 
+      outlines the theoretical architecture of the Videha Parallel History – the <em>Shabdashastram</em> (science of words), 
+      Navya‑Nyāya epistemology, and the four pramāṇas as applied to Maithili literary criticism. The quiz below 
+      tests key concepts drawn from this meta‑critical study.
+    </div>
+    <div id="quizContainer"></div>
+  </div>
+  <div class="btn-group">
+    <button class="btn-submit" id="submitBtn">✓ Submit answers</button>
+    <button class="btn-reset" id="resetBtn">⟳ Reset quiz</button>
+  </div>
+  <div class="score-panel" id="scorePanel">
+    <span id="scoreMsg">📌 Test your grasp of the “Words” – the epistemological heart of Maithili criticism.</span>
+  </div>
+  
+</div>
+
+<script>
+  // ---------------------------------------------------------------
+  // QUESTIONS BASED ON CHAPTER 78 (Critical Research & Appreciation of the Words)
+  // Derived from the theoretical frameworks presented throughout Tome IV,
+  // especially the Navya-Nyāya pramāṇas, rasa-dhvani aesthetics, and the Videha Parallel History.
+  // ---------------------------------------------------------------
+  const questions = [
+    {
+      text: "According to the Navya‑Nyāya epistemology (Gaṅgeśa Upādhyāya) used in the Videha framework, which of the following is NOT one of the four pramāṇas (valid means of knowledge)?",
+      options: [
+        "Pratyakṣa (perception)",
+        "Anumāna (inference)",
+        "Upamāna (comparison/analogy)",
+        "Vyutpatti (etymology)"
+      ],
+      correct: 3   // Vyutpatti is not a pramana; the four are Pratyaksha, Anumana, Upamana, Shabda
+    },
+    {
+      text: "The chapter emphasises a ‘science of words’ rooted in Mithila’s intellectual heritage. What is the Sanskrit‑Maithili term for this ‘science of words’ as referenced in the Videha archive?",
+      options: [
+        "Shabdashastram",
+        "Vākyapadīya",
+        "Niruktam",
+        "Alaṅkāraśāstram"
+      ],
+      correct: 0   // Shabdashastram – see page 38 reference
+    },
+    {
+      text: "In the critical appreciation of ‘the Words’, which classical Indian aesthetic concept is described as the ‘soul of poetry’ (kāvyasyātmā) and deals with suggestive meaning beyond the literal?",
+      options: [
+        "Rasa",
+        "Dhvani",
+        "Alaṅkāra",
+        "Auchitya"
+      ],
+      correct: 1   // Dhvani (Anandavardhana)
+    },
+    {
+      text: "The four pramāṇas are applied to literary analysis. Which pramāṇa corresponds to the reader’s direct aesthetic experience of a text through language and imagery?",
+      options: [
+        "Anumāna (inference)",
+        "Śabda (verbal testimony)",
+        "Pratyakṣa (perception)",
+        "Upamāna (analogy)"
+      ],
+      correct: 2   // Pratyakṣa – direct perception through reading
+    },
+    {
+      text: "According to the Videha Parallel History Framework, what is the primary goal of a ‘complete critical research & appreciation of the words’ in Maithili literature?",
+      options: [
+        "To standardise Maithili spelling according to Sanskrit",
+        "To establish valid cognition (pramā) about Maithili literary works while challenging caste‑based gatekeeping",
+        "To translate all Maithili works into Hindi",
+        "To promote only the Vidyapati padāvalī tradition"
+      ],
+      correct: 1   // democratic, evidence-based knowledge against institutional bias
+    },
+    {
+      text: "Which 14th‑century Mithila philosopher’s Tattvacintāmaṇi provides the logical tools for delimiting (avacchedaka) literary concepts and verifying critical claims?",
+      options: [
+        "Vidyapati Thakkura",
+        "Gaṅgeśa Upādhyāya",
+        "Harimohan Jha",
+        "Ramanath Jha"
+      ],
+      correct: 1   // Gaṅgeśa, founder of Navya-Nyāya
+    },
+    {
+      text: "In the context of ‘critical appreciation of the words’, the term ‘avacchedakatva’ (delimitation) is used to:",
+      options: [
+        "Expand the meaning of words infinitely",
+        "Specify the exact boundary and qualifying conditions of a literary or linguistic concept",
+        "Reject all traditional grammar",
+        "Promote only oral folklore"
+      ],
+      correct: 1   // Navya-Nyāya concept of delimiting properties
+    },
+    {
+      text: "The Videha Parallel History insists that ‘the words’ (śabda) must be understood as a form of testimony (śabda‑pramāṇa). What condition makes a verbal testimony valid according to Gaṅgeśa?",
+      options: [
+        "The speaker must be a government official",
+        "The speaker is trustworthy (āpta) and the meaning is consistent with direct perception",
+        "The words must be in Sanskrit only",
+        "The text must be handwritten on palm leaves"
+      ],
+      correct: 1   // aptavakya, reliability of speaker
+    },
+    {
+      text: "Which Indian aesthetic theory, central to the ‘appreciation of words’, analyses the aesthetic ‘flavours’ (rasa) such as karuṇa, vīra, and śṛṅgāra as the outcome of literary experience?",
+      options: [
+        "Sphoṭa theory",
+        "Rasa theory of Bharata Muni",
+        "Vakrokti theory",
+        "Anvitābhidhāna"
+      ],
+      correct: 1   // Bharata's Natyashastra
+    },
+    {
+      text: "The chapter’s meta‑critical approach uses ‘dhvani’ to uncover hidden meanings. Which Maithili poet’s refrain ‘muda ena kie?’ is cited elsewhere in the Tome as an example of dhvani at work?",
+      options: [
+        "Vidyapati",
+        "Santosh Kumar Mishra",
+        "Rajdeo Mandal",
+        "Gajendra Thakur"
+      ],
+      correct: 1   // from Chapter 77 (Santosh Mishra) but the concept is part of the 'Words' framework
+    },
+    {
+      text: "Navya‑Nyāya’s analysis of inference (anumāna) requires a ‘vyāpti’ – invariable concomitance. In literary criticism, vyāpti helps to:",
+      options: [
+        "Establish a necessary connection between textual evidence and critical conclusion",
+        "Reject all metaphors",
+        "Count syllables in a poem",
+        "Ignore social context"
+      ],
+      correct: 0   // vyāpti ensures logical connection
+    },
+    {
+      text: "The ‘science of words’ (Shabdashastram) as developed in the Videha movement draws a parallel with which modern field to argue that linguistic form and cultural survival are inseparable?",
+      options: [
+        "Genetic linguistics",
+        "Cognitive estrangement (Suvin)",
+        "Digital archiving and open‑access epistemology",
+        "Formal logic"
+      ],
+      correct: 2   // digital archiving, open access as epistemic justice – mentioned in the Parallel History
+    }
+  ];
+
+  let userAnswers = new Array(questions.length).fill(null);
+  let quizActive = true;
+
+  function renderQuiz() {
+    const container = document.getElementById('quizContainer');
+    if (!container) return;
+    let html = '';
+    for (let i = 0; i < questions.length; i++) {
+      const q = questions[i];
+      const selected = userAnswers[i];
+      html += `
+        <div class="question-card" data-qidx="${i}">
+          <div class="question-text">${i+1}. ${q.text}</div>
+          <ul class="options">
+      `;
+      for (let optIdx = 0; optIdx < q.options.length; optIdx++) {
+        const isChecked = (selected === optIdx);
+        html += `
+          <li>
+            <input type="radio" name="q${i}" value="${optIdx}" id="q${i}_opt${optIdx}" ${isChecked ? 'checked' : ''} ${!quizActive ? 'disabled' : ''}>
+            <label for="q${i}_opt${optIdx}">${q.options[optIdx]}</label>
+          </li>
+        `;
+      }
+      html += `</ul>`;
+      if (!quizActive) {
+        const isCorrect = (selected === q.correct);
+        const correctAns = q.options[q.correct];
+        if (selected === null) {
+          html += `<div class="feedback incorrect">❓ Not answered. Correct: ${correctAns}</div>`;
+        } else if (isCorrect) {
+          html += `<div class="feedback correct">✓ Correct! ${correctAns}</div>`;
+        } else {
+          html += `<div class="feedback incorrect">✗ Incorrect. Correct answer: ${correctAns}</div>`;
+        }
+      }
+      html += `</div>`;
+    }
+    container.innerHTML = html;
+
+    if (quizActive) {
+      for (let i = 0; i < questions.length; i++) {
+        const radios = document.querySelectorAll(`input[name="q${i}"]`);
+        radios.forEach(radio => {
+          radio.removeEventListener('change', handleChange);
+          radio.addEventListener('change', handleChange);
+        });
+      }
+    }
+  }
+
+  function handleChange(e) {
+    if (!quizActive) return;
+    const radio = e.target;
+    const name = radio.getAttribute('name');
+    const idx = parseInt(name.substring(1), 10);
+    const val = parseInt(radio.value, 10);
+    if (!isNaN(idx)) userAnswers[idx] = val;
+  }
+
+  function computeScore() {
+    let correct = 0;
+    for (let i = 0; i < questions.length; i++) {
+      if (userAnswers[i] !== null && userAnswers[i] === questions[i].correct) correct++;
+    }
+    return correct;
+  }
+
+  function updateScoreMessage() {
+    const msgSpan = document.getElementById('scoreMsg');
+    if (!msgSpan) return;
+    if (!quizActive) {
+      const total = questions.length;
+      const correctCount = computeScore();
+      const percent = Math.round((correctCount / total) * 100);
+      let feedbackMsg = `🏅 Score: ${correctCount}/${total} (${percent}%) – `;
+      if (correctCount === total) feedbackMsg += "Perfect! You master the epistemology of the 'Words'.";
+      else if (correctCount >= total-2) feedbackMsg += "Excellent command over Maithili critical theory.";
+      else if (correctCount >= total/2) feedbackMsg += "Good effort – review Navya-Nyāya and dhvani concepts.";
+      else feedbackMsg += "Revisit the chapter on the science of words and the pramāṇas.";
+      msgSpan.innerHTML = feedbackMsg;
+    } else {
+      msgSpan.innerHTML = "📖 Twelve questions on the complete critical research & appreciation of the Words. Submit your answers.";
+    }
+  }
+
+  function submitQuiz() {
+    if (!quizActive) return;
+    quizActive = false;
+    const submitBtn = document.getElementById('submitBtn');
+    if (submitBtn) submitBtn.disabled = true;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  function resetQuiz() {
+    quizActive = true;
+    userAnswers.fill(null);
+    const submitBtn = document.getElementById('submitBtn');
+    if (submitBtn) submitBtn.disabled = false;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  // Initial render
+  renderQuiz();
+  updateScoreMessage();
+  document.getElementById('submitBtn').addEventListener('click', submitQuiz);
+  document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+</script>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Quiz: Preface – The Momentary Flash That Illuminates (Shiv Kumar Jha 'Tillu') | Videha Parallel History Ch. 83</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f3efe8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      padding: 2rem 1rem;
+      color: #2a241e;
+    }
+    .quiz-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fffef9;
+      border-radius: 32px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2d8cb;
+      overflow: hidden;
+    }
+    .quiz-header {
+      background: #2d5a6e;
+      color: #fef3dd;
+      padding: 1.6rem 2rem;
+      text-align: center;
+    }
+    .quiz-header h1 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.4rem;
+    }
+    .quiz-header p {
+      font-size: 0.95rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    .quiz-body {
+      padding: 2rem 2rem 1.2rem;
+    }
+    .question-card {
+      background: #ffffff;
+      border-radius: 24px;
+      margin-bottom: 1.8rem;
+      padding: 1.5rem;
+      border: 1px solid #ece1d2;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .question-text {
+      font-size: 1.22rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #2d5a6e;
+      border-left: 5px solid #c2825c;
+      padding-left: 1rem;
+    }
+    .options {
+      list-style: none;
+      margin-top: 0.2rem;
+    }
+    .options li {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+    .options input[type="radio"] {
+      accent-color: #c2825c;
+      width: 1.1rem;
+      height: 1.1rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+    .options label {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #3f3a33;
+      font-weight: 500;
+    }
+    .feedback {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 40px;
+      display: inline-block;
+    }
+    .feedback.correct {
+      background: #e1f0e0;
+      color: #236b43;
+      border-left: 3px solid #236b43;
+    }
+    .feedback.incorrect {
+      background: #ffe3db;
+      color: #bc4c2c;
+      border-left: 3px solid #bc4c2c;
+    }
+    .btn-group {
+      text-align: center;
+      padding: 0.5rem 0 2rem;
+    }
+    .btn-submit, .btn-reset {
+      background: #2d5a6e;
+      border: none;
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.7rem 1.8rem;
+      border-radius: 48px;
+      cursor: pointer;
+      font-family: inherit;
+      margin: 0 0.6rem;
+      transition: background 0.2s;
+    }
+    .btn-reset {
+      background: #9d7c5c;
+    }
+    .btn-submit:hover {
+      background: #1f4050;
+    }
+    .btn-reset:hover {
+      background: #7f6246;
+    }
+    .score-panel {
+      text-align: center;
+      background: #fbf3e8;
+      margin: 0 2rem 2rem 2rem;
+      border-radius: 60px;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.7rem;
+      border-top: 1px solid #e6daca;
+      color: #6f5c48;
+      background: #fefcf7;
+    }
+    @media (max-width: 650px) {
+      .quiz-body { padding: 1.2rem; }
+      .question-text { font-size: 1rem; }
+    }
+  
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<div class="quiz-container">
+  <div class="quiz-header">
+    <h1>✨ Preface: The Momentary Flash That Illuminates</h1>
+    <p>Shiv Kumar Jha 'Tillu' – Poet, Critic, Cultural Witness</p>
+    <p>Chapter 83 – Videha Parallel History (Tome IV)</p>
+  </div>
+  <div class="quiz-body" id="quizContainer"></div>
+  <div class="btn-group">
+    <button class="btn-submit" id="submitQuizBtn">✓ Submit answers</button>
+    <button class="btn-reset" id="resetQuizBtn">⟳ Reset quiz</button>
+  </div>
+  <div class="score-panel" id="scorePanel">
+    <span id="scoreMessage">📖 Twelve questions based on the preface and introduction to Shiv Kumar Jha 'Tillu'.</span>
+  </div>
+  
+</div>
+
+<script>
+  // ---------------------------------------------------------------
+  // QUESTIONS BASED ON CHAPTER 83 – PREFACE: THE MOMENTARY FLASH THAT ILLUMINATES
+  // Source: PDF pages 154-156 (and surrounding context of Shiv Kumar Jha 'Tillu')
+  // Topics: Kṣanaprabhā, Tillu's self-awareness, biographical details, family literary inheritance,
+  // the Videha connection, and the critical frameworks (Navya-Nyāya, rasa, dhvani, etc.)
+  // ---------------------------------------------------------------
+  const questions = [
+    {
+      text: "Shiv Kumar Jha 'Tillu' titled his first poetry collection ‘Kṣanaprabhā’. What does the title mean, and what does it reveal about the poet’s self‑understanding?",
+      options: [
+        "Eternal light – claiming to be a timeless poet",
+        "The momentary flash of lightning – acknowledging he is not a ‘natural poet’ but one in whom feeling crystallises at charged instants",
+        "The sound of thunder – aggressive protest poetry",
+        "The morning star – a symbol of romantic love"
+      ],
+      correct: 1   // page 155 – "Kṣanaprabhā — the flash of lightning, the momentary brilliance ... he is no 'natural poet'"
+    },
+    {
+      text: "According to the preface, Tillu’s dual contribution to Maithili letters comprises:",
+      options: [
+        "Only poetry collections",
+        "Poetry (Kṣanaprabhā, 2012) and literary criticism (Amśu, 2013)",
+        "Short stories and drama",
+        "Journalism and translation"
+      ],
+      correct: 1   // page 155 – lyric poet in Kṣanaprabhā and critic in Amśu
+    },
+    {
+      text: "Tillu was born on 11 December 1973 in Malipur Mohtar, Begusarai district. His childhood nickname ‘Tillu’ was given by:",
+      options: [
+        "His father Kalikant Jha 'Buch'",
+        "The Maithili poet Fazlur Rehman Hashmi",
+        "His mother Chandrakala Devi",
+        "Gajendra Thakur, editor of Videha"
+      ],
+      correct: 1   // page 155 – "Hasmi Ji had named him Tillu"
+    },
+    {
+      text: "Tillu’s father, Kalikant Jha ‘Buch’, was a poet whose work was excluded from the Sahitya Akademi anthology ‘Samakaalin Maithili Kavita’ (1988). Tillu’s critical work ‘Amśu’ notes this exclusion. What does this act of naming represent?",
+      options: [
+        "A personal grudge",
+        "A filial and critical act – insisting that the excluded has value and the canon is not the totality of tradition",
+        "A rejection of all anthologies",
+        "An attempt to erase his father’s memory"
+      ],
+      correct: 1   // page 156 – "he insists that the canon is not the totality of the tradition"
+    },
+    {
+      text: "The preface states that Tillu’s critical writing started in Videha’s feedback column, and later his essays were gathered as ‘Amśu’. Who encouraged him and served as co‑editor of Videha?",
+      options: [
+        "Gajendra Thakur and Dr. Umesh Mandal",
+        "Ashish Anchinhar and Vinit Utpal",
+        "Jagdish Prasad Mandal and Rajdeo Mandal",
+        "Bechan Thakur and Nachiketa"
+      ],
+      correct: 0   // page 156 – "under the encouragement of editor Gajendra Thakur and co- editor Dr. Umesh Mandal"
+    },
+    {
+      text: "Tillu’s home village Kariyan, Samastipur, is situated in the ancient region of Mithila associated with which pre‑Gaṅgeśa Nyāya philosopher?",
+      options: [
+        "Udayanacharyya",
+        "Vācaspati Miśra",
+        "Raghunātha Śiromaṇi",
+        "Jayanta Bhaṭṭa"
+      ],
+      correct: 0   // page 155 – "the ancient region of Udayanacharyya, the great Nyāya philosopher, who was Gaṅgeśa's own forerunner"
+    },
+    {
+      text: "Tillu worked for M/s J.M.A. STORES PRIVATE LTD (Channel Partner of Tata Motors) in Jamshedpur from 2002 to 2022, and later with Viniyog Capital. The chapter notes that this underscores:",
+      options: [
+        "His desire to leave Maithili literature",
+        "His position as a writer operating entirely outside academic and institutional frameworks",
+        "His rejection of digital publishing",
+        "His exclusive focus on business writing"
+      ],
+      correct: 1   // page 156 – "operating entirely outside the academic and institutional frameworks"
+    },
+    {
+      text: "From 1996 to 2002, Tillu was active in the Vidyapati Parishad, Samastipur, under the leadership of Dr. Naresh Kumar Vikal and Shri Uday Narayan Chaudhary. This experience shaped his understanding of:",
+      options: [
+        "Sanskrit prosody",
+        "Maithili’s social vulnerability, contested recognition, and the importance of grassroots cultural activism",
+        "Modernist English poetry",
+        "Economic policies of Bihar"
+      ],
+      correct: 1   // page 156 – "Maithili's social situation — its vulnerability under Hindi-belt standardisation, its contested claims to institutional recognition"
+    },
+    {
+      text: "The preface invokes Gaṅgeśa Upādhyāya’s Navya-Nyāya epistemology. Which concept – meaning ‘the momentary flash’ – is used as a metaphor for poetry’s sudden illumination?",
+      options: [
+        "Kṣaṇaprabhā",
+        "Avacchedakatva",
+        "Vyāpti",
+        "Pratyakṣa"
+      ],
+      correct: 0   // the title itself; Kṣanaprabhā = momentary flash
+    },
+    {
+      text: "Tillu’s father Kalikant Jha ‘Buch’ appears in the Sahitya Akademi anthology ‘Samakaalin Maithili Kavita’ only as a mention, not with his poems. According to the chapter, this exclusion reflects:",
+      options: [
+        "The low quality of Buch’s poetry",
+        "The structural exclusion of women poets, Dalit poets, and socially critical voices from the canon",
+        "A deliberate conspiracy by Tillu",
+        "Lack of space in the anthology"
+      ],
+      correct: 1   // page 162 (in the wider Tillu chapter) – the anthology excluded women, Dalit, and politically sharp poets; Buch among them.
+    },
+    {
+      text: "The preface states that Tillu’s critical essays in ‘Amśu’ cover topics such as Dalit representation in Maithili fiction, reviews of major works, and children’s literature. Which novelist does Tillu praise for offering ‘full‑dimensional Dalit characterisation’?",
+      options: [
+        "Jagdish Prasad Mandal",
+        "Rajkamal Chaudhary",
+        "Harimohan Jha",
+        "Yatri (Nagarjun)"
+      ],
+      correct: 0   // page 161 – "Jagdish Prasad Mandal's fiction — above all in Maulail Gachhak Phool"
+    },
+    {
+      text: "The Videha Parallel History Framework emphasises the recovery of Gaṅgeśa’s inter‑caste origins (mother a Charmkarini). How does the preface connect this to Tillu’s position?",
+      options: [
+        "Tillu is a direct descendant of Gaṅgeśa",
+        "Tillu, as an upper‑caste‑by‑birth writer who critiques his own tradition, represents the kind of internal critique that the recovered Gaṅgeśa narrative enables",
+        "Tillu rejects all caste analysis",
+        "Tillu only writes about science"
+      ],
+      correct: 1   // pages 163-164 – "the authority of the insider who refuses the insider's privileges"
+    }
+  ];
+
+  let userSelections = new Array(questions.length).fill(null);
+  let quizActive = true;
+
+  function renderQuiz() {
+    const container = document.getElementById('quizContainer');
+    if (!container) return;
+    let html = '';
+    for (let i = 0; i < questions.length; i++) {
+      const q = questions[i];
+      const selected = userSelections[i];
+      html += `
+        <div class="question-card" data-qidx="${i}">
+          <div class="question-text">${i+1}. ${q.text}</div>
+          <ul class="options">
+      `;
+      for (let optIdx = 0; optIdx < q.options.length; optIdx++) {
+        const isChecked = (selected === optIdx);
+        html += `
+          <li>
+            <input type="radio" name="q${i}" value="${optIdx}" id="q${i}_opt${optIdx}" ${isChecked ? 'checked' : ''} ${!quizActive ? 'disabled' : ''}>
+            <label for="q${i}_opt${optIdx}">${q.options[optIdx]}</label>
+          </li>
+        `;
+      }
+      html += `</ul>`;
+      if (!quizActive) {
+        const isCorrect = (selected === q.correct);
+        const correctAnswer = q.options[q.correct];
+        if (selected === null) {
+          html += `<div class="feedback incorrect">❓ Not answered. Correct: ${correctAnswer}</div>`;
+        } else if (isCorrect) {
+          html += `<div class="feedback correct">✓ Correct! ${correctAnswer}</div>`;
+        } else {
+          html += `<div class="feedback incorrect">✗ Incorrect. Correct answer: ${correctAnswer}</div>`;
+        }
+      }
+      html += `</div>`;
+    }
+    container.innerHTML = html;
+
+    if (quizActive) {
+      for (let i = 0; i < questions.length; i++) {
+        const radios = document.querySelectorAll(`input[name="q${i}"]`);
+        radios.forEach(radio => {
+          radio.removeEventListener('change', handleRadioChange);
+          radio.addEventListener('change', handleRadioChange);
+        });
+      }
+    }
+  }
+
+  function handleRadioChange(e) {
+    if (!quizActive) return;
+    const radio = e.target;
+    const name = radio.getAttribute('name');
+    const qIndex = parseInt(name.substring(1), 10);
+    const selectedVal = parseInt(radio.value, 10);
+    if (!isNaN(qIndex)) userSelections[qIndex] = selectedVal;
+  }
+
+  function computeScore() {
+    let correctCount = 0;
+    for (let i = 0; i < questions.length; i++) {
+      if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correctCount++;
+    }
+    return correctCount;
+  }
+
+  function updateScoreMessage() {
+    const msgSpan = document.getElementById('scoreMessage');
+    if (!msgSpan) return;
+    if (!quizActive) {
+      const total = questions.length;
+      const correct = computeScore();
+      const percent = Math.round((correct / total) * 100);
+      let msg = `🏆 Your score: ${correct} / ${total} (${percent}%) – `;
+      if (correct === total) msg += "Flawless! You have grasped the illuminating preface to Tillu’s work.";
+      else if (correct >= total-2) msg += "Excellent — you understand Tillu’s biographical and critical context.";
+      else if (correct >= total/2) msg += "Good attempt. Review the details about his father, the nickname, and the Videha connection.";
+      else msg += "Re‑read the preface. Focus on the ‘Kṣanaprabhā’ metaphor and Tillu’s family literary heritage.";
+      msgSpan.innerHTML = msg;
+    } else {
+      msgSpan.innerHTML = "📖 Twelve questions on the preface ‘The Momentary Flash That Illuminates’ and the introduction to Shiv Kumar Jha 'Tillu'. Submit your answers.";
+    }
+  }
+
+  function submitQuiz() {
+    if (!quizActive) return;
+    quizActive = false;
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = true;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  function resetQuiz() {
+    quizActive = true;
+    userSelections.fill(null);
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = false;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  // initial render
+  renderQuiz();
+  updateScoreMessage();
+  document.getElementById('submitQuizBtn').addEventListener('click', submitQuiz);
+  document.getElementById('resetQuizBtn').addEventListener('click', resetQuiz);
+</script>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>

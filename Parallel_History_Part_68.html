@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Quiz: Chapter 68 – Looking into the Mirror of Time | Maithili Poem & Translation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0ede5;
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            padding: 2rem 1rem;
+            color: #2d2a24;
+        }
+
+        .quiz-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fffef9;
+            border-radius: 36px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
+            overflow: hidden;
+            border: 1px solid #e2d9cc;
+        }
+
+        .quiz-header {
+            background: #8b5a2b;
+            background: linear-gradient(135deg, #6b3e1a, #9a6838);
+            padding: 1.8rem 2rem;
+            color: white;
+        }
+
+        .quiz-header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+            margin-bottom: 0.4rem;
+        }
+
+        .quiz-header h1 span {
+            font-weight: 400;
+            font-style: italic;
+            font-size: 1rem;
+            background: #f3deba80;
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+        }
+
+        .quiz-header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 0.6rem;
+            border-left: 3px solid #ffd580;
+            padding-left: 1rem;
+        }
+
+        .quiz-body {
+            padding: 2rem 2rem 1rem;
+        }
+
+        .question-card {
+            background: #ffffff;
+            border: 1px solid #e8e0d4;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.8rem;
+            margin-bottom: 2rem;
+            transition: all 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .question-card:hover {
+            border-color: #cfc1a8;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #5a3e1f;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .options {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .options li {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+        }
+
+        .options input {
+            margin-top: 0.25rem;
+            width: 1.1rem;
+            height: 1.1rem;
+            accent-color: #9a6838;
+            flex-shrink: 0;
+        }
+
+        .options label {
+            font-size: 1rem;
+            line-height: 1.4;
+            color: #3e3a32;
+            font-weight: normal;
+        }
+
+        .feedback {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 30px;
+            display: inline-block;
+            background: #f3f2ec;
+            color: #4a5b4a;
+        }
+
+        .feedback.correct {
+            background: #e0f2e9;
+            color: #1f5e3a;
+            border-left: 4px solid #2b7a4b;
+        }
+
+        .feedback.wrong {
+            background: #ffeae6;
+            color: #b34141;
+            border-left: 4px solid #c4554b;
+        }
+
+        .explanation {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #6c685b;
+            font-style: italic;
+            border-left: 2px solid #dbd2c2;
+            padding-left: 12px;
+        }
+
+        .quiz-footer {
+            padding: 1.2rem 2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-top: 1px solid #e8e0d4;
+            background: #fefcf7;
+        }
+
+        .score-area {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: #e5ede2;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            color: #2b523b;
+        }
+
+        button {
+            background: #9a6838;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.7rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.15s;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background: #7c4f27;
+            transform: scale(0.97);
+        }
+
+        .reset-btn {
+            background: #8f7a64;
+        }
+        .reset-btn:hover {
+            background: #6d5b49;
+        }
+
+        @media (max-width: 650px) {
+            .quiz-body {
+                padding: 1.5rem;
+            }
+            .question-card {
+                padding: 1.1rem;
+            }
+            .quiz-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<div class="quiz-container">
+    <div class="quiz-header">
+        <h1>🪞 Chapter 68 · Looking into the Mirror of Time <span>Maithili Poem · English Translation</span></h1>
+        <p>Based on “Original poem in Maithili. Translated into English by Gajendra Thakur” (Videha Parallel History, Tome III)<br>Themes: Time · Desire · Memory · Emotion's waves · Pet pigeon · Stone-piece of time · Rasa & Dhvani · Navya-Nyāya</p>
+    </div>
+    <div class="quiz-body" id="quizBody"></div>
+    <div class="quiz-footer">
+        <div class="score-area" id="scoreDisplay">Score: 0 / 0</div>
+        <div>
+            <button id="checkBtn">✅ Check answers</button>
+            <button id="resetBtn" class="reset-btn">⟳ Reset quiz</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ---- QUESTIONS BASED ON CHAPTER 68: Original Maithili Poem & Translation (page 441) ----
+    const questions = [
+        {
+            text: "What is the title of the original Maithili poem presented in Chapter 68, as translated into English?",
+            options: [
+                "The River of Time",
+                "Looking into the Mirror of Time",
+                "The Dusty Wings of Memory",
+                "The Stone of Eternity"
+            ],
+            correct: 1,
+            explanation: "The poem is titled 'Looking into the Mirror of Time' (English translation by Gajendra Thakur). It was originally published in Muse India (Nov-Dec 2008, ISSN 0975-1815)."
+        },
+        {
+            text: "In the poem, what does the speaker see when looking into the mirror of time?",
+            options: [
+                "A future vision",
+                "His own face, and feels that nothing new happens",
+                "The face of a loved one",
+                "A distant landscape"
+            ],
+            correct: 1,
+            explanation: "The opening lines: 'Looking into the mirror of time / I see my face / And feel / That nothing new happens'. The poem is a meditation on the cyclical, repetitive nature of existence."
+        },
+        {
+            text: "The poem describes emotions that rise in the mind each morning. What metaphor is used for these emotions?",
+            options: [
+                "A storm at sea",
+                "Emotion's wave (upward goes emotion’s wave)",
+                "A burning fire",
+                "A falling leaf"
+            ],
+            correct: 1,
+            explanation: "The speaker feels 'Some desires of this kind / Within the mind upward goes emotion’s wave' – the wave metaphor suggests both rising intensity and inevitable subsidence."
+        },
+        {
+            text: "What role does the Sun-God play in the poem's daily drama?",
+            options: [
+                "He brings eternal joy",
+                "He impresses on the head of day some news in which the speaker cannot adjust himself",
+                "He gives warmth and light",
+                "He is absent from the poem"
+            ],
+            correct: 1,
+            explanation: "The Sun-God 'impresses / On the head of day some news of this kind / In which I to myself / Am not able to adjust' – the external world brings news that the speaker cannot integrate into his sense of self."
+        },
+        {
+            text: "Which image is used to describe the domesticated, comfortable bird that has become 'fatty' from flying short distances?",
+            options: [
+                "The sparrow",
+                "The pet pigeon",
+                "The caged parrot",
+                "The village crow"
+            ],
+            correct: 1,
+            explanation: "'Flying distances with dusty wings / Fatty becomes the pet pigeon likewise' – a critique of comfortable, unadventurous existence that has lost the capacity for real flight or risk."
+        },
+        {
+            text: "According to the poem, what happens to the speaker's 'waves of emotions' as they gain support from experiences?",
+            options: [
+                "They disappear",
+                "They become thick and prove that nothing new happens",
+                "They turn into stone",
+                "They create new dreams"
+            ],
+            correct: 1,
+            explanation: "The emotions 'become thick find support from my experiences / Prove that / Nothing new happens' – experience does not bring novelty but confirms the repetitive nature of life."
+        },
+        {
+            text: "What is the 'stone-piece of time' in the poem's imagery?",
+            options: [
+                "A monument",
+                "The surface on which whatever comes in front of us happens to be – the same worn-out old thing, old ideology that boasts of being new",
+                "A milestone",
+                "A tombstone"
+            ],
+            correct: 1,
+            explanation: "'Whatever comes in front of us / That happens to be on the stone-piece of time / The same worn-out old thing old ideology / That boasts of being new' – the stone-piece represents the unchanging substrate of history, where novelty is only a pretence."
+        },
+        {
+            text: "The poem ends with an image of what is squeezed out of the 'tired-inert mind'. What is it?",
+            options: [
+                "Joy and celebration",
+                "The pain",
+                "New ideas",
+                "Creative energy"
+            ],
+            correct: 1,
+            explanation: "'And squeezes the pain out of tired-inert mind' – the final gesture is one of exhaustion and extraction, not transformation. The poem resists false consolation."
+        },
+        {
+            text: "From the perspective of Bharata's rasa theory, which dominant rasa (aesthetic emotion) is evoked by this poem?",
+            options: [
+                "Śṛṅgāra (love)",
+                "Karuṇa (pathos/compassion) combined with Śānta (peace of resignation) and a subdued Vīra (the courage to face repetition)",
+                "Hāsya (comedy)",
+                "Raudra (fury)"
+            ],
+            correct: 1,
+            explanation: "The poem's mood is predominantly melancholic acceptance (karuna leading to shanta). The speaker does not rage against time but observes its sameness with quiet, tired honesty."
+        },
+        {
+            text: "How would Ānandavardhana's dhvani theory analyse the repeated declaration 'nothing new happens' in the poem?",
+            options: [
+                "As a literal statement of fact",
+                "As a resonant suggestion (dhvani) that the speaker's longing for novelty is itself the only new thing – the very desire for change is what is perpetually reborn each morning",
+                "As a mistake",
+                "As a religious mantra"
+            ],
+            correct: 1,
+            explanation: "The surface meaning (vācyārtha) is despair of novelty. The suggested meaning (vyañjanārtha) is the irony that the desire for something new arises anew each day – desire itself is the recurring wave, the only 'new' phenomenon."
+        },
+        {
+            text: "From a Navya-Nyāya epistemological perspective, what false cognition (bhrama) does the poem correct?",
+            options: [
+                "That time is linear",
+                "The bhrama that each new day brings genuine novelty – the poem reveals that the 'new' is often old ideology masquerading as fresh, and that true cognition requires looking beyond surface appearance",
+                "That emotions are permanent",
+                "That the self is unchanging"
+            ],
+            correct: 1,
+            explanation: "The poem challenges the illusion (bhrama) of novelty. What appears new is 'the same worn-out old thing old ideology that boasts of being new'. Valid knowledge (prama) recognises the repetitive structure of historical experience."
+        },
+        {
+            text: "The poem mentions 'dusty wings' and a 'pet pigeon'. In the Videha Parallel History framework, what might the 'pet pigeon' symbolise?",
+            options: [
+                "Freedom and migration",
+                "The domesticated, comfortable Maithili writer who has lost the capacity for risky, disruptive writing – contrasted with the 'wild' parallel tradition that flies long distances with dusty wings",
+                "Religious devotion",
+                "The British colonial influence"
+            ],
+            correct: 1,
+            explanation: "The pet pigeon that becomes 'fatty' from short flights represents literary domestication – safe, establishment-approved writing that avoids hardship. The parallel tradition, by contrast, flies with 'dusty wings' over long distances, carrying the pain of real experience."
+        }
+    ];
+
+    let userAnswers = new Array(questions.length).fill(null);
+    const quizBody = document.getElementById('quizBody');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const checkBtn = document.getElementById('checkBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    function renderQuiz() {
+        quizBody.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.setAttribute('data-qidx', idx);
+
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qText);
+
+            const optionsList = document.createElement('ul');
+            optionsList.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const li = document.createElement('li');
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q${idx}`;
+                radio.value = optIdx;
+                radio.id = `q${idx}_opt${optIdx}`;
+                if (userAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    userAnswers[idx] = parseInt(e.target.value);
+                    const oldFeedback = card.querySelector('.feedback');
+                    const oldExpl = card.querySelector('.explanation');
+                    if (oldFeedback) oldFeedback.remove();
+                    if (oldExpl) oldExpl.remove();
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q${idx}_opt${optIdx}`;
+                label.innerText = opt;
+                li.appendChild(radio);
+                li.appendChild(label);
+                optionsList.appendChild(li);
+            });
+            card.appendChild(optionsList);
+            quizBody.appendChild(card);
+        });
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    function evaluateQuiz() {
+        // sync current selections
+        for (let i = 0; i < questions.length; i++) {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selected) {
+                userAnswers[i] = parseInt(selected.value);
+            } else {
+                if (userAnswers[i] !== null) userAnswers[i] = null;
+            }
+        }
+
+        let correctCount = 0;
+        // clear old feedback
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const oldFeedback = card.querySelector('.feedback');
+            const oldExpl = card.querySelector('.explanation');
+            if (oldFeedback) oldFeedback.remove();
+            if (oldExpl) oldExpl.remove();
+        }
+
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const userChoice = userAnswers[i];
+            const isCorrect = (userChoice !== null && userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+
+            const feedbackSpan = document.createElement('div');
+            feedbackSpan.className = 'feedback';
+            if (userChoice === null) {
+                feedbackSpan.innerText = '⚠️ Not answered';
+                feedbackSpan.classList.add('wrong');
+            } else if (isCorrect) {
+                feedbackSpan.innerText = '✓ Correct';
+                feedbackSpan.classList.add('correct');
+            } else {
+                const correctLetter = String.fromCharCode(65 + questions[i].correct);
+                const correctText = questions[i].options[questions[i].correct];
+                feedbackSpan.innerText = `✗ Incorrect. Correct: ${correctLetter}. ${correctText.substring(0, 100)}${correctText.length > 100 ? '…' : ''}`;
+                feedbackSpan.classList.add('wrong');
+            }
+
+            const explDiv = document.createElement('div');
+            explDiv.className = 'explanation';
+            explDiv.innerHTML = `📖 ${questions[i].explanation}`;
+            card.appendChild(feedbackSpan);
+            card.appendChild(explDiv);
+        }
+        scoreDisplay.innerText = `Score: ${correctCount} / ${questions.length}`;
+    }
+
+    function resetQuiz() {
+        for (let i = 0; i < questions.length; i++) userAnswers[i] = null;
+        renderQuiz();
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    checkBtn.addEventListener('click', evaluateQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+
+    renderQuiz();
+</script>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>

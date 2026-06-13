@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Quiz: Evernew Sushil – Nit Naval Sushil | Videha Parallel History (Ch. 88)</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f4efe7;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      padding: 2rem 1rem;
+      color: #2c2822;
+    }
+    .quiz-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fffdf9;
+      border-radius: 32px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e5dbce;
+      overflow: hidden;
+    }
+    .quiz-header {
+      background: #7a4c3c;
+      background: linear-gradient(135deg, #5e3a2c 0%, #8b5a48 100%);
+      color: #fef5e3;
+      padding: 1.8rem 2rem;
+      text-align: center;
+    }
+    .quiz-header h1 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.4rem;
+    }
+    .quiz-header p {
+      font-size: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    .quiz-body {
+      padding: 2rem 2rem 1.2rem;
+    }
+    .question-card {
+      background: #ffffff;
+      border-radius: 24px;
+      margin-bottom: 1.8rem;
+      padding: 1.5rem;
+      border: 1px solid #ece1d2;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .question-text {
+      font-size: 1.22rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #5e3a2c;
+      border-left: 5px solid #c2825c;
+      padding-left: 1rem;
+    }
+    .options {
+      list-style: none;
+      margin-top: 0.2rem;
+    }
+    .options li {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+    .options input[type="radio"] {
+      accent-color: #c2825c;
+      width: 1.1rem;
+      height: 1.1rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+    .options label {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #3f3a33;
+      font-weight: 500;
+    }
+    .feedback {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 40px;
+      display: inline-block;
+    }
+    .feedback.correct {
+      background: #e1f0e0;
+      color: #236b43;
+      border-left: 3px solid #236b43;
+    }
+    .feedback.incorrect {
+      background: #ffe3db;
+      color: #bc4c2c;
+      border-left: 3px solid #bc4c2c;
+    }
+    .btn-group {
+      text-align: center;
+      padding: 0.5rem 0 2rem;
+    }
+    .btn-submit, .btn-reset {
+      background: #5e3a2c;
+      border: none;
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.7rem 1.8rem;
+      border-radius: 48px;
+      cursor: pointer;
+      font-family: inherit;
+      margin: 0 0.6rem;
+      transition: background 0.2s;
+    }
+    .btn-reset {
+      background: #9d7c5c;
+    }
+    .btn-submit:hover {
+      background: #422a1f;
+    }
+    .btn-reset:hover {
+      background: #7f6246;
+    }
+    .score-panel {
+      text-align: center;
+      background: #fbf3e8;
+      margin: 0 2rem 2rem 2rem;
+      border-radius: 60px;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.7rem;
+      border-top: 1px solid #e6daca;
+      color: #6f5c48;
+      background: #fefcf7;
+    }
+    @media (max-width: 650px) {
+      .quiz-body { padding: 1.2rem; }
+      .question-text { font-size: 1rem; }
+    }
+  
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<div class="quiz-wrapper">
+  <div class="quiz-header">
+    <h1>📖 Evernew Sushil · Nit Naval Sushil</h1>
+    <p>Sushil Chandra Jha – Novelist · Dramatist · Short Story Writer</p>
+    <p>Chapter 88 – Videha Parallel History (Tome IV)</p>
+  </div>
+  <div class="quiz-body" id="quizContainer"></div>
+  <div class="btn-group">
+    <button class="btn-submit" id="submitQuizBtn">✓ Submit answers</button>
+    <button class="btn-reset" id="resetQuizBtn">⟳ Reset quiz</button>
+  </div>
+  <div class="score-panel" id="scorePanel">
+    <span id="scoreMessage">📚 Twelve questions on Sushil’s novels, drama, short stories, and the suppression of his work.</span>
+  </div>
+  
+</div>
+
+<script>
+  // ---------------------------------------------------------------
+  // QUESTIONS BASED ON CHAPTER 88 – EVERNEW SUSHIL (Nit Naval Sushil) – pages 302–376
+  // Topics: Sushil Chandra Jha (Sushil) – Gharāṛī (1973), Gāmbālī (1982),
+  // Bhāmatī (drama, 1991/2013), Asmitā (short stories, 2016),
+  // pseudocriticism (Kamalanand Jha ignoring Sushil),
+  // Dooshan Panji and Gaṅgeśa’s inter‑caste marriage,
+  // story analyses ("Baghotiya", "Masjid", "Ekta Kalakar Ki Atmahatyā", etc.),
+  // suppression by mainstream, Sagar Raati Deep Jare.
+  // ---------------------------------------------------------------
+  const questions = [
+    {
+      text: "Sushil’s first novel ‘Gharāṛī’ (1973) explores inter‑caste romance. Which communities are involved in the central love relationship?",
+      options: [
+        "Brahmin widow and Yadav man",
+        "Brahmin’s son and a Mallah (fisherman) girl",
+        "Kayastha and Dalit",
+        "Muslim and Hindu"
+      ],
+      correct: 1   // page 344 – "love relationship between a Mallah girl and a Brahmin's son"
+    },
+    {
+      text: "In ‘Gharāṛī’, the nurse Karuna is later revealed to be the sister of which character, establishing that she is Brahmin by birth?",
+      options: [
+        "Ratan (the military man)",
+        "Binayak (the doctor)",
+        "Lalbabu",
+        "Paragas"
+      ],
+      correct: 0   // page 347 – "Karuna is Ratan's sister, Munia"
+    },
+    {
+      text: "Sushil’s novel ‘Gāmbālī’ (1982) centres on a Brahmin widow in a live‑in relationship with Gyanchan Yadav. After her death, which two communities argue over who will perform her last rites?",
+      options: [
+        "Brahmin and Kayastha",
+        "Yadav and Brahmin",
+        "Mallah and Yadav",
+        "Dalit and Brahmin"
+      ],
+      correct: 1   // page 348 – "Yadav society or Brahmin society?"
+    },
+    {
+      text: "The critic Kamalanand Jha, in his book ‘Maithili Upanyas: Samay Samaj A Sawal’ (2021), claimed that the credit for writing a dignified novel on inter‑caste marriage goes to Gaurinath. Which earlier Sushil novel does the chapter say he ignored?",
+      options: [
+        "Gharāṛī (1973)",
+        "Gāmbālī (1982)",
+        "Bhāmatī (1991)",
+        "Asmitā (2016)"
+      ],
+      correct: 1   // pages 304-305 – "Gāmbālī (1982) ... Kamalanand Jha snatch this credit from Sushil"
+    },
+    {
+      text: "Sushil’s drama ‘Bhāmatī’ (first staged 1991) is based on the life of the philosopher Vachaspati Mishra and his wife. What is the central feminist criticism of the play mentioned in the chapter?",
+      options: [
+        "It has no female characters",
+        "Bhāmatī attempts suicide, placing her in a lower category of feminist representation",
+        "It glorifies patriarchy",
+        "It is set in modern times"
+      ],
+      correct: 1   // page 354 – "due to Bhāmatī's suicide attempt, it falls into a lower category within feminism"
+    },
+    {
+      text: "In Sushil’s short story ‘Baghotiya’ (from ‘Asmitā’), the title refers to a bird of prey. What does the story critique?",
+      options: [
+        "Child marriage",
+        "The spread of fake news and the politics of distraction (land, votes, and a phantom bird)",
+        "Dowry system",
+        "Electoral violence"
+      ],
+      correct: 1   // page 355-356 – "demonstrates how fake news is spread ... Baghotiya (a bird of prey) was lifting children"
+    },
+    {
+      text: "Which story from ‘Asmitā’ is described as Sushil’s most discussed, in which Devkant decides to build a mosque in his village for his guru, promoting communal harmony?",
+      options: [
+        "Haḍtāl",
+        "Masjid",
+        "Saḍak",
+        "Gām Sadhbā Hoit Achhi"
+      ],
+      correct: 1   // page 358 – "Masjid: Devkant's guru has to go far to offer namaz. Devkant decides to build a mosque"
+    },
+    {
+      text: "The chapter reveals that the original Panji (genealogical) records (Dooshan Panji) document that Gaṅgeśa Upādhyāya, the founder of Navya-Nyāya, married a woman from which community?",
+      options: [
+        "Maithil Brahmin",
+        "Kayastha",
+        "Charmakarini (leather‑working caste)",
+        "Yadav"
+      ],
+      correct: 2   // page 306 – "Gangesh's Vallabha, a Charmakarini"
+    },
+    {
+      text: "According to the chapter, mainstream critics (pseudocritics) systematically suppressed Sushil’s work. Which other major Maithili writer is mentioned as having been similarly honoured by the mainstream despite mediocrity, while Sushil was ignored?",
+      options: [
+        "Udaychandra Jha ‘Vinod’ (also from Dulaha village)",
+        "Harimohan Jha",
+        "Rajkamal Chaudhary",
+        "Jagdish Prasad Mandal"
+      ],
+      correct: 0   // page 305, 344 – "Udaychandra Jha 'Vinod' from Dulaha village... was accepted in the mainstream"
+    },
+    {
+      text: "Sushil’s short story ‘Ekta Kalakar Ki Atmahatyā’ (An Artist’s Suicide) is about a painter who stops painting. What does the chapter say this story represents in the context of Sushil’s own career?",
+      options: [
+        "It is purely fictional with no connection to Sushil",
+        "It symbolises the murder of creativity by the literary establishment – when the artist gives up art, it is suicide, and if others are responsible, it is murder",
+        "It is a comedy",
+        "It is about financial failure"
+      ],
+      correct: 1   // page 369 – "when the artist gave up art, it was a suicide; but if others are responsible for it... then it was a murder"
+    },
+    {
+      text: "In Sushil’s story ‘Haḍtāl’ (Strike), a tea shop owner named Bhola is killed by a pipe gun bullet. How does the story end?",
+      options: [
+        "The killer is arrested",
+        "A silent procession is taken out in his mourning",
+        "The shop reopens the next day",
+        "The strike is called off"
+      ],
+      correct: 1   // page 358 – "A pipe gun bullet hits him; he dies. In the evening, a silent procession is taken out in his mourning."
+    },
+    {
+      text: "The chapter discusses the suppression of Sushil’s work and the role of institutional gatekeeping. Which grassroots all‑night storytelling event is mentioned as a parallel institution that the Sahitya Akademi attempted to bring under its control?",
+      options: [
+        "Videha Natya Utsav",
+        "Sagar Raati Deep Jare",
+        "Mithila Mihir Sammelan",
+        "Katha Goshthi"
+      ],
+      correct: 1   // page 373 – "Sagar Raati Deep Jare" and the attempt to co‑opt it
+    }
+  ];
+
+  let userSelections = new Array(questions.length).fill(null);
+  let quizActive = true;
+
+  function renderQuiz() {
+    const container = document.getElementById('quizContainer');
+    if (!container) return;
+    let html = '';
+    for (let i = 0; i < questions.length; i++) {
+      const q = questions[i];
+      const selected = userSelections[i];
+      html += `
+        <div class="question-card" data-qidx="${i}">
+          <div class="question-text">${i+1}. ${q.text}</div>
+          <ul class="options">
+      `;
+      for (let optIdx = 0; optIdx < q.options.length; optIdx++) {
+        const isChecked = (selected === optIdx);
+        html += `
+          <li>
+            <input type="radio" name="q${i}" value="${optIdx}" id="q${i}_opt${optIdx}" ${isChecked ? 'checked' : ''} ${!quizActive ? 'disabled' : ''}>
+            <label for="q${i}_opt${optIdx}">${q.options[optIdx]}</label>
+          </li>
+        `;
+      }
+      html += `</ul>`;
+      if (!quizActive) {
+        const isCorrect = (selected === q.correct);
+        const correctAnswer = q.options[q.correct];
+        if (selected === null) {
+          html += `<div class="feedback incorrect">❓ Not answered. Correct: ${correctAnswer}</div>`;
+        } else if (isCorrect) {
+          html += `<div class="feedback correct">✓ Correct! ${correctAnswer}</div>`;
+        } else {
+          html += `<div class="feedback incorrect">✗ Incorrect. Correct answer: ${correctAnswer}</div>`;
+        }
+      }
+      html += `</div>`;
+    }
+    container.innerHTML = html;
+
+    if (quizActive) {
+      for (let i = 0; i < questions.length; i++) {
+        const radios = document.querySelectorAll(`input[name="q${i}"]`);
+        radios.forEach(radio => {
+          radio.removeEventListener('change', handleRadioChange);
+          radio.addEventListener('change', handleRadioChange);
+        });
+      }
+    }
+  }
+
+  function handleRadioChange(e) {
+    if (!quizActive) return;
+    const radio = e.target;
+    const name = radio.getAttribute('name');
+    const qIndex = parseInt(name.substring(1), 10);
+    const selectedVal = parseInt(radio.value, 10);
+    if (!isNaN(qIndex)) userSelections[qIndex] = selectedVal;
+  }
+
+  function computeScore() {
+    let correctCount = 0;
+    for (let i = 0; i < questions.length; i++) {
+      if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correctCount++;
+    }
+    return correctCount;
+  }
+
+  function updateScoreMessage() {
+    const msgSpan = document.getElementById('scoreMessage');
+    if (!msgSpan) return;
+    if (!quizActive) {
+      const total = questions.length;
+      const correct = computeScore();
+      const percent = Math.round((correct / total) * 100);
+      let msg = `🏆 Your score: ${correct} / ${total} (${percent}%) – `;
+      if (correct === total) msg += "Flawless! You have mastered Sushil’s works and the suppression of his legacy.";
+      else if (correct >= total-2) msg += "Excellent – you understand the novels, drama, short stories, and the Dooshan Panji controversy.";
+      else if (correct >= total/2) msg += "Good attempt. Review the plots of ‘Gharāṛī’, ‘Gāmbālī’, and the story ‘Masjid’.";
+      else msg += "Re‑read Chapter 88. Focus on the pseudocriticism, Sushil’s major works, and the Panji records.";
+      msgSpan.innerHTML = msg;
+    } else {
+      msgSpan.innerHTML = "📚 Twelve questions on Evernew Sushil: Gharāṛī, Gāmbālī, Bhāmatī, Asmitā, and the parallel tradition. Submit your answers.";
+    }
+  }
+
+  function submitQuiz() {
+    if (!quizActive) return;
+    quizActive = false;
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = true;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  function resetQuiz() {
+    quizActive = true;
+    userSelections.fill(null);
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = false;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  renderQuiz();
+  updateScoreMessage();
+  document.getElementById('submitQuizBtn').addEventListener('click', submitQuiz);
+  document.getElementById('resetQuizBtn').addEventListener('click', resetQuiz);
+</script>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>

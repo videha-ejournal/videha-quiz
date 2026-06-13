@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Quiz: Dr. Shambhu Kumar Singh | Videha Parallel History (Ch. 79)</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f8f4ed;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      padding: 2rem 1rem;
+      color: #2a241e;
+    }
+    .quiz-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fffef9;
+      border-radius: 32px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e5dbcE;
+      overflow: hidden;
+    }
+    .quiz-header {
+      background: #1e3b3a;
+      color: #fef3dd;
+      padding: 1.6rem 2rem;
+      text-align: center;
+    }
+    .quiz-header h1 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.4rem;
+    }
+    .quiz-header p {
+      font-size: 0.95rem;
+      font-style: italic;
+      opacity: 0.85;
+    }
+    .quiz-body {
+      padding: 2rem 2rem 1.2rem;
+    }
+    .question-card {
+      background: #ffffff;
+      border-radius: 24px;
+      margin-bottom: 1.8rem;
+      padding: 1.5rem;
+      border: 1px solid #ece0d0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .question-text {
+      font-size: 1.22rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #2a5a4f;
+      border-left: 5px solid #c2793b;
+      padding-left: 1rem;
+    }
+    .options {
+      list-style: none;
+      margin-top: 0.2rem;
+    }
+    .options li {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+    .options input[type="radio"] {
+      accent-color: #b9632e;
+      width: 1.1rem;
+      height: 1.1rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+    .options label {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #3e3a34;
+      font-weight: 500;
+    }
+    .feedback {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 40px;
+      display: inline-block;
+    }
+    .feedback.correct {
+      background: #e1f0e0;
+      color: #236b43;
+      border-left: 3px solid #236b43;
+    }
+    .feedback.incorrect {
+      background: #ffe3db;
+      color: #bc4c2c;
+      border-left: 3px solid #bc4c2c;
+    }
+    .btn-group {
+      text-align: center;
+      padding: 0.5rem 0 2rem;
+    }
+    .btn-submit, .btn-reset {
+      background: #1e3b3a;
+      border: none;
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.7rem 1.8rem;
+      border-radius: 48px;
+      cursor: pointer;
+      font-family: inherit;
+      margin: 0 0.6rem;
+      transition: background 0.2s;
+    }
+    .btn-reset {
+      background: #9d7c5c;
+    }
+    .btn-submit:hover {
+      background: #0f2e2d;
+    }
+    .btn-reset:hover {
+      background: #7f6246;
+    }
+    .score-panel {
+      text-align: center;
+      background: #f9f2e6;
+      margin: 0 2rem 2rem 2rem;
+      border-radius: 60px;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.7rem;
+      border-top: 1px solid #e6daca;
+      color: #6f5c48;
+      background: #fefcf7;
+    }
+    @media (max-width: 650px) {
+      .quiz-body { padding: 1.2rem; }
+      .question-text { font-size: 1rem; }
+    }
+  
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<div class="quiz-wrapper">
+  <div class="quiz-header">
+    <h1>📚 Dr. Shambhu Kumar Singh</h1>
+    <p>Scholar · Translator · Critic · Poet · Educator | Chapter 79 – Videha Parallel History</p>
+    <p style="font-size:0.8rem; margin-top:6px;">Critical appreciation of a linguist of Maithili literary history & pioneer of cross-linguistic translation</p>
+  </div>
+  <div class="quiz-body" id="quizContainer"></div>
+  <div class="btn-group">
+    <button class="btn-submit" id="submitQuizBtn">✓ Submit answers</button>
+    <button class="btn-reset" id="resetQuizBtn">⟳ Reset quiz</button>
+  </div>
+  <div class="score-panel" id="scorePanel">
+    <span id="scoreMessage">📖 Test your understanding of Dr. Shambhu Kumar Singh’s scholarly & creative works.</span>
+  </div>
+  
+</div>
+
+<script>
+  // ---------------------------------------------------------------
+  // QUESTIONS BASED ON CHAPTER 79 (DR. SHAMBHUKUMAR SINGH)
+  // Source: PDF pages 61–77 of Tome IV (Critical Appreciation of the Works of Dr. Shambhu Kumar Singh)
+  // ---------------------------------------------------------------
+  const questions = [
+    {
+      text: "Dr. Shambhu Kumar Singh is a scholar, critic, translator and poet. In which district of Bihar was he born, which also connects him to the celebrated writer Anima Singh?",
+      options: [
+        "Darbhanga",
+        "Madhubani",
+        "Saharsa",
+        "Supaul"
+      ],
+      correct: 2   // Saharsa (page 63: "Dr. Singh is from Saharsa district")
+    },
+    {
+      text: "Which of the following essays by Dr. Singh, published in Videha Sadeha 26, was explicitly designed for UPSC civil service examination candidates?",
+      options: [
+        "Aadhunik Maithili Naatakme Chitrit: Nirdhanataak Samasya",
+        "Maithili Sahityak Kaal-Nirdharan (Periodisation of Maithili Literature)",
+        "Maithili Samajik Naatakak Mul Kendra Bindu: Naari Samasya",
+        "Smriti Shesh: Snehil Aasheevacan"
+      ],
+      correct: 1   // periodisation essay, prepared for UPSC candidates (page 63-64)
+    },
+    {
+      text: "Dr. Singh’s doctoral research and essays analyse social problems in modern Maithili drama. Which problem is NOT listed as a primary focus in his survey of Maithili social drama?",
+      options: [
+        "Child marriage (baal vivah)",
+        "Dowry (dahej)",
+        "Sexual exploitation (yaun utpeedan)",
+        "Caste-based reservation policies"
+      ],
+      correct: 3   // reservation policies not mentioned; the three others are explicit (page 65-66)
+    },
+    {
+      text: "In the essay 'Maithili Samajik Naatakak Mul Kendra Bindu: Naari Samasya', which mythological play by Kanchinath Jha ‘Kiran’ is praised for allegorising caste-sexual oppression using Surya and Kunti?",
+      options: [
+        "Basaat",
+        "Sappat",
+        "Karn",
+        "Triveni"
+      ],
+      correct: 2   // 'Karn' – using Surya and Kunti as allegory (page 66)
+    },
+    {
+      text: "Dr. Singh’s memoir 'Smriti Shesh: Snehil Aasheevacan' recounts his visit to which legendary Maithili scholar in Kolkata in July 2009?",
+      options: [
+        "Prof. Uday Narayana Singh ‘Nachiketa’",
+        "Prof. Anima Singh",
+        "Dr. Ramanath Jha",
+        "Prof. Prabodh Narayan Singh"
+      ],
+      correct: 1   // Anima Singh (page 66)
+    },
+    {
+      text: "What object does Dr. Singh carry from his mother to Prof. Anima Singh, which becomes a fragrant symbol of Mithila’s soil and cultural memory?",
+      options: [
+        "A packet of vermilion (sindur)",
+        "A brass lota",
+        "Ground moong dal (moolg lentils) ground on a stone grinder",
+        "A copy of Vidyapati’s padavali"
+      ],
+      correct: 2   // packet of ground moolg lentils, fragrant with home-ground dal (page 66-67)
+    },
+    {
+      text: "Dr. Singh translated which Konkani novel (originally by Tukaram Rama Shet) into Maithili, with an intermediate Hindi version by Sebi Fernandes?",
+      options: [
+        "Pakhalo",
+        "Gandha",
+        "Bulbul",
+        "Mati"
+      ],
+      correct: 0   // 'Pakhalo' (wings) – pages 68-69
+    },
+    {
+      text: "Dr. Singh’s poem 'Lori' (Lullaby) subverts the traditional comforting genre by presenting a child speaker who is hungry, cold, and contrasts a ‘white dog in a car’ eating milk-rice while the child starves. This technique aligns with which Indian aesthetic concept?",
+      options: [
+        "Rasa (aesthetic flavour)",
+        "Vakrokti (oblique expression/satirical inversion)",
+        "Alamkara (ornamentation)",
+        "Auchitya (propriety)"
+      ],
+      correct: 1   // vakrokti – the carnivalesque inversion (page 67-68)
+    },
+    {
+      text: "According to the chapter, Dr. Singh’s critical method in his essays on Maithili drama is described as ‘socio-literary’. Which Western critical framework is most directly aligned with this method?",
+      options: [
+        "New Criticism",
+        "Structuralism",
+        "Marxist and materialist criticism (Lukács, Raymond Williams)",
+        "Reader-response theory"
+      ],
+      correct: 2   // Marxist/materialist, social realism (pages 65, 71)
+    },
+    {
+      text: "In the analysis of Dr. Singh’s scholarly work, the Navya-Nyāya concept of ‘upādhi’ (limiting condition) is used to evaluate his periodisation essay. What does upādhi refer to in that context?",
+      options: [
+        "The universal validity of a literary theory",
+        "A limiting condition that invalidates a vyāpti (universal concomitance), such as neglecting pre-1300 CE material",
+        "The emotional core of a poem",
+        "The metrical structure of a ghazal"
+      ],
+      correct: 1   // upadhi: limiting condition that undermines vyapti (page 64, 69)
+    },
+    {
+      text: "Dr. Singh’s poem ‘Priyvaar Sampadakji’ is an apostrophe to the editor of Videha. Who is the editor praised for ‘building ever‑new histories’ and ‘defining Mithila, Maithili and the Maithil people’?",
+      options: [
+        "Umesh Mandal",
+        "Gajendra Thakur",
+        "Ashish Anchinhar",
+        "Nachiketa"
+      ],
+      correct: 1   // Gajendra Thakur – the poem is addressed to the editor (page 68)
+    },
+    {
+      text: "Which pramāṇa (valid source of knowledge) from Gaṅgeśa’s Navya-Nyāya is most directly relevant to Dr. Singh’s translation of ‘Pakhalo’, according to the critical appreciation?",
+      options: [
+        "Pratyakṣa (perception)",
+        "Anumāna (inference)",
+        "Upamāna (comparison)",
+        "Śabda (verbal testimony) and the reliability of the translator as an āpta"
+      ],
+      correct: 3   // Śabda-pramāṇa, with emphasis on apta (reliable authority) – page 69-70
+    }
+  ];
+
+  let userSelections = new Array(questions.length).fill(null);
+  let quizActive = true;
+
+  function renderQuiz() {
+    const container = document.getElementById('quizContainer');
+    if (!container) return;
+    let html = '';
+    for (let i = 0; i < questions.length; i++) {
+      const q = questions[i];
+      const selected = userSelections[i];
+      html += `
+        <div class="question-card" data-qidx="${i}">
+          <div class="question-text">${i+1}. ${q.text}</div>
+          <ul class="options">
+      `;
+      for (let optIdx = 0; optIdx < q.options.length; optIdx++) {
+        const isChecked = (selected === optIdx);
+        html += `
+          <li>
+            <input type="radio" name="q${i}" value="${optIdx}" id="q${i}_opt${optIdx}" ${isChecked ? 'checked' : ''} ${!quizActive ? 'disabled' : ''}>
+            <label for="q${i}_opt${optIdx}">${q.options[optIdx]}</label>
+          </li>
+        `;
+      }
+      html += `</ul>`;
+      if (!quizActive) {
+        const isCorrect = (selected === q.correct);
+        const correctAnswer = q.options[q.correct];
+        if (selected === null) {
+          html += `<div class="feedback incorrect">❓ Not answered. Correct: ${correctAnswer}</div>`;
+        } else if (isCorrect) {
+          html += `<div class="feedback correct">✓ Correct! ${correctAnswer}</div>`;
+        } else {
+          html += `<div class="feedback incorrect">✗ Incorrect. Correct answer: ${correctAnswer}</div>`;
+        }
+      }
+      html += `</div>`;
+    }
+    container.innerHTML = html;
+
+    if (quizActive) {
+      for (let i = 0; i < questions.length; i++) {
+        const radios = document.querySelectorAll(`input[name="q${i}"]`);
+        radios.forEach(radio => {
+          radio.removeEventListener('change', handleRadioChange);
+          radio.addEventListener('change', handleRadioChange);
+        });
+      }
+    }
+  }
+
+  function handleRadioChange(e) {
+    if (!quizActive) return;
+    const radio = e.target;
+    const name = radio.getAttribute('name');
+    const qIndex = parseInt(name.substring(1), 10);
+    const selectedVal = parseInt(radio.value, 10);
+    if (!isNaN(qIndex)) userSelections[qIndex] = selectedVal;
+  }
+
+  function computeScore() {
+    let correctCount = 0;
+    for (let i = 0; i < questions.length; i++) {
+      if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correctCount++;
+    }
+    return correctCount;
+  }
+
+  function updateScoreMessage() {
+    const msgSpan = document.getElementById('scoreMessage');
+    if (!msgSpan) return;
+    if (!quizActive) {
+      const total = questions.length;
+      const correct = computeScore();
+      const percent = Math.round((correct / total) * 100);
+      let msg = `🏆 Your score: ${correct} / ${total} (${percent}%) – `;
+      if (correct === total) msg += "Flawless! You deeply understand Dr. Shambhu Kumar Singh’s contributions.";
+      else if (correct >= total-2) msg += "Excellent grasp of the scholar-translator’s oeuvre.";
+      else if (correct >= total/2) msg += "Good — review the essays on Maithili drama and the Navya-Nyāya framework.";
+      else msg += "Re‑read the chapter on periodisation, social drama, and ‘Pakhalo’ translation.";
+      msgSpan.innerHTML = msg;
+    } else {
+      msgSpan.innerHTML = "📚 Twelve questions on Dr. Shambhu Kumar Singh: critic, poet, translator, and cultural worker. Submit to see your score.";
+    }
+  }
+
+  function submitQuiz() {
+    if (!quizActive) return;
+    quizActive = false;
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = true;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  function resetQuiz() {
+    quizActive = true;
+    userSelections.fill(null);
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = false;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  // initial render
+  renderQuiz();
+  updateScoreMessage();
+  document.getElementById('submitQuizBtn').addEventListener('click', submitQuiz);
+  document.getElementById('resetQuizBtn').addEventListener('click', resetQuiz);
+</script>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>

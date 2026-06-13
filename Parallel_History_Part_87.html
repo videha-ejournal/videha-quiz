@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Quiz: Sujit Kumar Jha – Complete Critical Appreciation | Videha Parallel History (Ch. 87)</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f1efe7;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      padding: 2rem 1rem;
+      color: #2c2a24;
+    }
+    .quiz-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fffef9;
+      border-radius: 32px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2d8cb;
+      overflow: hidden;
+    }
+    .quiz-header {
+      background: #3e6b5e;
+      background: linear-gradient(135deg, #2c5a4e 0%, #4e7f6f 100%);
+      color: #fff4e4;
+      padding: 1.8rem 2rem;
+      text-align: center;
+    }
+    .quiz-header h1 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.4rem;
+    }
+    .quiz-header p {
+      font-size: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    .quiz-body {
+      padding: 2rem 2rem 1.2rem;
+    }
+    .question-card {
+      background: #ffffff;
+      border-radius: 24px;
+      margin-bottom: 1.8rem;
+      padding: 1.5rem;
+      border: 1px solid #ece1d2;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .question-text {
+      font-size: 1.22rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #2c5a4e;
+      border-left: 5px solid #c2825c;
+      padding-left: 1rem;
+    }
+    .options {
+      list-style: none;
+      margin-top: 0.2rem;
+    }
+    .options li {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+    .options input[type="radio"] {
+      accent-color: #c2825c;
+      width: 1.1rem;
+      height: 1.1rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+    .options label {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #3f3a33;
+      font-weight: 500;
+    }
+    .feedback {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 40px;
+      display: inline-block;
+    }
+    .feedback.correct {
+      background: #e1f0e0;
+      color: #236b43;
+      border-left: 3px solid #236b43;
+    }
+    .feedback.incorrect {
+      background: #ffe3db;
+      color: #bc4c2c;
+      border-left: 3px solid #bc4c2c;
+    }
+    .btn-group {
+      text-align: center;
+      padding: 0.5rem 0 2rem;
+    }
+    .btn-submit, .btn-reset {
+      background: #2c5a4e;
+      border: none;
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.7rem 1.8rem;
+      border-radius: 48px;
+      cursor: pointer;
+      font-family: inherit;
+      margin: 0 0.6rem;
+      transition: background 0.2s;
+    }
+    .btn-reset {
+      background: #9d7c5c;
+    }
+    .btn-submit:hover {
+      background: #1f4239;
+    }
+    .btn-reset:hover {
+      background: #7f6246;
+    }
+    .score-panel {
+      text-align: center;
+      background: #fbf3e8;
+      margin: 0 2rem 2rem 2rem;
+      border-radius: 60px;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.7rem;
+      border-top: 1px solid #e6daca;
+      color: #6f5c48;
+      background: #fefcf7;
+    }
+    @media (max-width: 650px) {
+      .quiz-body { padding: 1.2rem; }
+      .question-text { font-size: 1rem; }
+    }
+  
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<div class="quiz-wrapper">
+  <div class="quiz-header">
+    <h1>📖 Sujit Kumar Jha</h1>
+    <p>Journalist · Storyteller · Children's Writer · Memoirist</p>
+    <p>The Nepali-Maithili Voice from Janakpurdham | Chapter 87 – Videha Parallel History (Tome IV)</p>
+  </div>
+  <div class="quiz-body" id="quizContainer"></div>
+  <div class="btn-group">
+    <button class="btn-submit" id="submitQuizBtn">✓ Submit answers</button>
+    <button class="btn-reset" id="resetQuizBtn">⟳ Reset quiz</button>
+  </div>
+  <div class="score-panel" id="scorePanel">
+    <span id="scoreMessage">📚 Twelve questions on Sujit Kumar Jha: works, themes, and critical frameworks.</span>
+  </div>
+  
+</div>
+
+<script>
+  // ---------------------------------------------------------------
+  // QUESTIONS BASED ON CHAPTER 87 – SUJIT KUMAR JHA (Pages 283–299)
+  // Topics: biography (born 1976, Janakpurdham), journalistic career (Radio Mithila, etc.),
+  // story collections: Chiṛai, Jiddī, Bulbul, Gandha, Khajurībālī,
+  // children's collection: Koilī Ghūri Āu,
+  // memoir-essays: Reporter Diary,
+  // Nepal Bidyapati Maithili Research Prize,
+  // theoretical frameworks: rasa-dhvani, Navya-Nyāya (Gaṅgeśa), postcolonial, feminist,
+  // Videha Parallel History and Nepal-side Maithili.
+  // ---------------------------------------------------------------
+  const questions = [
+    {
+      text: "Sujit Kumar Jha was born in which Nepali city, the sacred birthplace of Sita and a major centre of Maithili culture?",
+      options: [
+        "Kathmandu",
+        "Pokhara",
+        "Janakpurdham",
+        "Biratnagar"
+      ],
+      correct: 2   // Janakpurdham, Dhanusha district – page 284
+    },
+    {
+      text: "Which of the following is Sujit Kumar Jha’s debut short‑story collection (c. 2006, earlier than his other collections), named after the nightingale?",
+      options: [
+        "Chiṛai",
+        "Jiddī",
+        "Bulbul",
+        "Gandha"
+      ],
+      correct: 2   // Bulbul (2006) – page 291-292
+    },
+    {
+      text: "Jha’s story collection ‘Gandha’ (Smell) is noted for its strong olfactory imagery and women‑centred narratives. Which Urdu‑Hindi writer is cited as an influence on this collection’s aesthetic?",
+      options: [
+        "Premchand",
+        "Ismat Chughtai",
+        "Saadat Hasan Manto",
+        "Krishna Sobti"
+      ],
+      correct: 2   // Manto – page 292: "Manto's capacity to write about the body's social coding"
+    },
+    {
+      text: "Jha’s children’s story collection is titled ‘Koilī Ghūri Āu’ (The Cuckoo Returns). The cuckoo (koil) is a beloved bird in Mithila’s lyric tradition. What dual meaning does the title ‘return’ carry?",
+      options: [
+        "The return of the monsoon and the return of harvest",
+        "The natural return of the migrant bird in spring and the cultural return to Maithili language and identity",
+        "The return of the king",
+        "The return of the protagonist from exile"
+      ],
+      correct: 1   // page 294 – "the natural return of the migrant bird ... and the cultural return"
+    },
+    {
+      text: "Jha’s ‘Reporter Diary’ is a collection of memoir‑essays based on his journalistic career. Which essay in the collection documents the linguistic politics of wedding cards printed in Maithili versus Hindi?",
+      options: [
+        "‘Hāt cārṭ-cārṭa kaṣ netājī svādad rahi’",
+        "‘Vivāha kārdme Maithilī bhāṣā’",
+        "‘Parivartanak anubhūt daich jayanagar’",
+        "‘Canavāk nāmapar paisāk bahas’"
+      ],
+      correct: 1   // page 294-295 – "Vivāha kārdme Maithilī bhāṣā"
+    },
+    {
+      text: "Jha received the Nepal Bidyapati Maithili Research Prize (NPR 1,00,000) from the Ministry of Culture, Government of Nepal. What does this award signify in the context of the Videha Parallel History?",
+      options: [
+        "It is a Sahitya Akademi award from India",
+        "It is the highest state recognition for Maithili language and literature contribution in Nepal, confirming Jha’s importance in the Nepal‑side parallel tradition",
+        "It is a prize for English writing",
+        "It is given only to Sanskrit scholars"
+      ],
+      correct: 1   // page 284 – "the highest state recognition for Maithili language and literature contribution in Nepal"
+    },
+    {
+      text: "The chapter applies Gaṅgeśa’s Navya-Nyāya epistemology to Jha’s fiction. Which pramāṇa corresponds to the direct, concrete, sensory scenes that begin many of his stories (e.g., a card game, an old man waiting outside a temple)?",
+      options: [
+        "Anumāna (inference)",
+        "Pratyakṣa (perception)",
+        "Upamāna (comparison)",
+        "Śabda (verbal testimony)"
+      ],
+      correct: 1   // pratyaksha – page 286: "pratyakṣa (direct perception) in literary criticism corresponds to close reading"
+    },
+    {
+      text: "Which story collection by Jha has the largest number of pages (122) and the title that plays on the ambiguity of ‘smell’ – both pleasant fragrance (sugandha) and offensive odour (durgandha)?",
+      options: [
+        "Chiṛai",
+        "Jiddī",
+        "Gandha",
+        "Khajurībālī"
+      ],
+      correct: 2   // Gandha – page 292
+    },
+    {
+      text: "Jha’s journalistic career includes serving as News Chief of Radio Mithila 100.8 MHz, Janakpurdham. How does the chapter interpret this role as part of the parallel literary tradition?",
+      options: [
+        "It is irrelevant to literature",
+        "Radio is the medium through which Maithili reaches semi‑literate agrarian communities; every news broadcast in Maithili is an act of linguistic preservation and democratisation",
+        "It is only about entertainment",
+        "It replaces written literature"
+      ],
+      correct: 1   // page 288
+    },
+    {
+      text: "In the chapter, the critical preface to ‘Chiṛai’ by Chandresh identifies three main thematic layers. Which of the following is NOT one of those layers?",
+      options: [
+        "The psychology of love and desire",
+        "The critique of capitalist‑patriarchal social structures",
+        "The persistence of human agency and dignity",
+        "The superiority of urban over rural life"
+      ],
+      correct: 3   // page 290 – urban/rural not mentioned; the third is agency/dignity
+    },
+    {
+      text: "What is the significance of the title ‘Jiddī’ (Stubborn/Obstinate) for the collection of the same name?",
+      options: [
+        "It describes a single character’s flaw",
+        "It is a philosophical‑ethical position: stubborn insistence on dignity, love, truth, and justice is not a personal flaw but a social necessity",
+        "It means ‘flexible’",
+        "It is the name of a folk dance"
+      ],
+      correct: 1   // page 291 – "jiddī (stubbornness) is the sādhya (what is to be established)"
+    },
+    {
+      text: "The chapter notes that Jha’s works are part of the ‘Digital Era’ Maithili (2000–present) according to the Videha Parallel History. Which of his story collections explicitly engages with the digital moment, including mobile phone charging businesses and Facebook?",
+      options: [
+        "Bulbul",
+        "Chiṛai",
+        "Gandha",
+        "Khajurībālī"
+      ],
+      correct: 3   // Khajurībālī (2015) – page 293, includes mobile phone, digital themes; also earlier Reporter Diary has Facebook references.
+    }
+  ];
+
+  let userSelections = new Array(questions.length).fill(null);
+  let quizActive = true;
+
+  function renderQuiz() {
+    const container = document.getElementById('quizContainer');
+    if (!container) return;
+    let html = '';
+    for (let i = 0; i < questions.length; i++) {
+      const q = questions[i];
+      const selected = userSelections[i];
+      html += `
+        <div class="question-card" data-qidx="${i}">
+          <div class="question-text">${i+1}. ${q.text}</div>
+          <ul class="options">
+      `;
+      for (let optIdx = 0; optIdx < q.options.length; optIdx++) {
+        const isChecked = (selected === optIdx);
+        html += `
+          <li>
+            <input type="radio" name="q${i}" value="${optIdx}" id="q${i}_opt${optIdx}" ${isChecked ? 'checked' : ''} ${!quizActive ? 'disabled' : ''}>
+            <label for="q${i}_opt${optIdx}">${q.options[optIdx]}</label>
+          </li>
+        `;
+      }
+      html += `</ul>`;
+      if (!quizActive) {
+        const isCorrect = (selected === q.correct);
+        const correctAnswer = q.options[q.correct];
+        if (selected === null) {
+          html += `<div class="feedback incorrect">❓ Not answered. Correct: ${correctAnswer}</div>`;
+        } else if (isCorrect) {
+          html += `<div class="feedback correct">✓ Correct! ${correctAnswer}</div>`;
+        } else {
+          html += `<div class="feedback incorrect">✗ Incorrect. Correct answer: ${correctAnswer}</div>`;
+        }
+      }
+      html += `</div>`;
+    }
+    container.innerHTML = html;
+
+    if (quizActive) {
+      for (let i = 0; i < questions.length; i++) {
+        const radios = document.querySelectorAll(`input[name="q${i}"]`);
+        radios.forEach(radio => {
+          radio.removeEventListener('change', handleRadioChange);
+          radio.addEventListener('change', handleRadioChange);
+        });
+      }
+    }
+  }
+
+  function handleRadioChange(e) {
+    if (!quizActive) return;
+    const radio = e.target;
+    const name = radio.getAttribute('name');
+    const qIndex = parseInt(name.substring(1), 10);
+    const selectedVal = parseInt(radio.value, 10);
+    if (!isNaN(qIndex)) userSelections[qIndex] = selectedVal;
+  }
+
+  function computeScore() {
+    let correctCount = 0;
+    for (let i = 0; i < questions.length; i++) {
+      if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correctCount++;
+    }
+    return correctCount;
+  }
+
+  function updateScoreMessage() {
+    const msgSpan = document.getElementById('scoreMessage');
+    if (!msgSpan) return;
+    if (!quizActive) {
+      const total = questions.length;
+      const correct = computeScore();
+      const percent = Math.round((correct / total) * 100);
+      let msg = `🏆 Your score: ${correct} / ${total} (${percent}%) – `;
+      if (correct === total) msg += "Flawless! You have mastered Sujit Kumar Jha’s literary world and the Nepal‑side parallel tradition.";
+      else if (correct >= total-2) msg += "Excellent – you understand his major collections, journalistic role, and theoretical frameworks.";
+      else if (correct >= total/2) msg += "Good attempt. Review the details about ‘Gandha’, ‘Reporter Diary’, and the Navya-Nyāya analysis.";
+      else msg += "Re‑read Chapter 87. Focus on his biography, the bird metaphors in his titles, and the significance of the Nepal Bidyapati Prize.";
+      msgSpan.innerHTML = msg;
+    } else {
+      msgSpan.innerHTML = "📚 Twelve questions on Sujit Kumar Jha: journalist, storyteller, children's writer, and Nepali‑Maithili voice. Submit your answers.";
+    }
+  }
+
+  function submitQuiz() {
+    if (!quizActive) return;
+    quizActive = false;
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = true;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  function resetQuiz() {
+    quizActive = true;
+    userSelections.fill(null);
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = false;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  renderQuiz();
+  updateScoreMessage();
+  document.getElementById('submitQuizBtn').addEventListener('click', submitQuiz);
+  document.getElementById('resetQuizBtn').addEventListener('click', resetQuiz);
+</script>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>

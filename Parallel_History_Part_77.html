@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Quiz: Santosh Kumar Mishra | Videha Parallel History (Ch. 77)</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      padding: 2rem 1rem;
+      color: #2a241e;
+    }
+
+    .quiz-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fffdf9;
+      border-radius: 32px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e2d8cd;
+      overflow: hidden;
+    }
+
+    .quiz-header {
+      background: #2f6b47;
+      color: #fef7e0;
+      padding: 1.8rem 2rem;
+      text-align: center;
+    }
+
+    .quiz-header h1 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.2px;
+      margin-bottom: 0.4rem;
+    }
+
+    .quiz-header p {
+      font-size: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+
+    .quiz-body {
+      padding: 2rem 2rem 1.2rem;
+    }
+
+    .question-card {
+      background: #ffffff;
+      border-radius: 24px;
+      margin-bottom: 1.8rem;
+      padding: 1.5rem;
+      border: 1px solid #e9e0d4;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      transition: all 0.2s;
+    }
+
+    .question-text {
+      font-size: 1.22rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #2b4b35;
+      border-left: 5px solid #c27e5a;
+      padding-left: 1rem;
+    }
+
+    .options {
+      list-style: none;
+      margin-top: 0.3rem;
+    }
+
+    .options li {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .options input[type="radio"] {
+      margin-top: 0.2rem;
+      accent-color: #2f6b47;
+      width: 1.1rem;
+      height: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .options label {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #3b3a35;
+      font-weight: 500;
+    }
+
+    .feedback {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 30px;
+      display: inline-block;
+    }
+
+    .feedback.correct {
+      background: #e2f0e4;
+      color: #1f6d3b;
+      border-left: 3px solid #1f6d3b;
+    }
+
+    .feedback.incorrect {
+      background: #ffe2da;
+      color: #b5452a;
+      border-left: 3px solid #b5452a;
+    }
+
+    .btn-group {
+      text-align: center;
+      padding: 0.5rem 0 1.8rem;
+    }
+
+    .btn-submit, .btn-reset {
+      background: #2f6b47;
+      border: none;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 0.7rem 1.8rem;
+      border-radius: 48px;
+      cursor: pointer;
+      font-family: inherit;
+      margin: 0 0.5rem;
+      transition: background 0.2s;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .btn-reset {
+      background: #b28b6f;
+    }
+
+    .btn-submit:hover {
+      background: #1f553a;
+    }
+
+    .btn-reset:hover {
+      background: #9a6f53;
+    }
+
+    .score-panel {
+      text-align: center;
+      background: #f7f2ea;
+      margin: 0 2rem 2rem 2rem;
+      border-radius: 48px;
+      padding: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.7rem;
+      border-top: 1px solid #e5daca;
+      color: #6f5c48;
+      background: #fefcf7;
+    }
+
+    @media (max-width: 650px) {
+      .quiz-body { padding: 1.2rem; }
+      .question-text { font-size: 1rem; }
+    }
+  
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<div class="quiz-wrapper">
+  <div class="quiz-header">
+    <h1>📖 RESEARCH & CRITICAL APPRECIATION</h1>
+    <p>Santosh Kumar Mishra · Maithili Poet, Short‑Story Writer & Cultural Activist</p>
+    <p style="font-size:0.85rem;">Chapter 77 – Videha Parallel History (Tome IV)</p>
+  </div>
+  <div class="quiz-body" id="quizContainer"></div>
+  <div class="btn-group">
+    <button class="btn-submit" id="submitQuizBtn">✓ Submit answers</button>
+    <button class="btn-reset" id="resetQuizBtn">⟳ Reset quiz</button>
+  </div>
+  <div class="score-panel" id="scorePanel">
+    <span id="scoreMessage">📌 Answer the questions to test your understanding.</span>
+  </div>
+  
+</div>
+
+<script>
+  // ---------------------------------------------------------------
+  // QUESTIONS BASED ON CHAPTER 77: SANTOSH KUMAR MISHRA
+  // (Research & Critical Appreciation, pages 22–40)
+  // ---------------------------------------------------------------
+  const questions = [
+    {
+      text: "Santosh Kumar Mishra was born in which city of Nepal, known as the birthplace of Sita and a centre of Maithili culture?",
+      options: [
+        "Kathmandu",
+        "Pokhara",
+        "Janakpurdham",
+        "Biratnagar"
+      ],
+      correct: 2  // Janakpurdham
+    },
+    {
+      text: "Which collection of Santosh Kumar Mishra’s poetry includes the politically charged poem 'Bhaka Bali' (The Scapegoat), which critiques power structures and sacrifice of innocents?",
+      options: [
+        "Aena",
+        "Udas Mon",
+        "Kabita Santosh",
+        "Posput"
+      ],
+      correct: 2  // Kabita Santosh
+    },
+    {
+      text: "What does the title 'Aena' (Mirror) signify in Mishra’s edited anthology, according to his editorial philosophy?",
+      options: [
+        "Literature only reflects society without any moral direction",
+        "Literature not only mirrors society but also acts as a guide, showing what a good face should be",
+        "Literature must be apolitical and purely aesthetic",
+        "Literature is a weapon to overthrow governments"
+      ],
+      correct: 1  // mirror + guide; shows ideal face
+    },
+    {
+      text: "The short story 'Posput' (The Adoptive Son) follows an old man Bhavani Shankar and weaves together personal grief with Nepal’s democratic revolution. Which revolution is explicitly referenced in the story?",
+      options: [
+        "The 1990 People's Movement",
+        "The prajatantrik revolution against the Rana oligarchy (1950 CE)",
+        "The Maoist insurgency",
+        "The 2007 Madhesh movement"
+      ],
+      correct: 1  // Tribhuvan era / 1950 democratic revolution
+    },
+    {
+      text: "Which story from the collection 'Posput' depicts a Nepali police officer whose professional pride collides with the changed political reality of post‑Rana Nepal?",
+      options: [
+        "Doctor",
+        "Daag",
+        "Sipahi",
+        "Bhagya Appan-Appan"
+      ],
+      correct: 2  // Sipahi (The Soldier)
+    },
+    {
+      text: "Santosh Kumar Mishra’s short story 'Daag' (Stain) features a woman named Rani who remarries. The editor’s preface moralizes about 'immature love', yet the narrative itself leans toward:",
+      options: [
+        "Condemning the woman as a fallen character",
+        "Empathetic complexity and female agency",
+        "Strict religious punishment",
+        "Indifference to gender issues"
+      ],
+      correct: 1  // empathetic complexity
+    },
+    {
+      text: "Which Maithili literary organisation was founded by Santosh Kumar Mishra, and serves as a parallel institution promoting Nepal‑side Maithili literature?",
+      options: [
+        "Sahitya Akademi Maithili Board",
+        "Maithil Navayu Sahitya Parishad",
+        "Videha Parisad",
+        "Janakpur Sahitya Sansthan"
+      ],
+      correct: 1  // Maithil Navayu Sahitya Parishad
+    },
+    {
+      text: "In the Videha Parallel History Framework, Santosh Kumar Mishra’s work is significant because he represents:",
+      options: [
+        "The mainstream Brahminical canon",
+        "The suppressed Nepal‑Terai voice in Maithili literature",
+        "Hindi avant‑garde poetry",
+        "Exclusively Sanskrit revival"
+      ],
+      correct: 1  // Nepal-Terai voice
+    },
+    {
+      text: "Which Indian classical aesthetic concept – referring to suggested meaning beyond literal expression – is used to analyse the refrain 'Muda ena kie?' (But why this?) in Mishra’s poem 'Ena Kie?'?",
+      options: [
+        "Rasa",
+        "Alamkara",
+        "Dhvani",
+        "Auchitya"
+      ],
+      correct: 2  // dhvani (suggestion/resonance)
+    },
+    {
+      text: "The critical monograph applies Navya‑Nyāya epistemology, founded by Gaṅgeśa Upādhyāya of Mithila. Which of the following is NOT one of the four pramāṇas (means of valid knowledge) used in the analysis?",
+      options: [
+        "Pratyakṣa (perception)",
+        "Anumāna (inference)",
+        "Śabda (testimony)",
+        "Karma (action)"
+      ],
+      correct: 3  // Karma is not a pramana in Navya-Nyaya
+    },
+    {
+      text: "Mishra’s poem 'Kalpaniyak Satya' (The Truth of Fantasy) presents surreal inversions (sun rising at night, men becoming pregnant). This technique is linked to which Navya‑Nyāya concept?",
+      options: [
+        "Testing the limits of accepted vyāpti (universal concomitance)",
+        "Bhāvanā (imaginative meditation)",
+        "Upamāna (analogy)",
+        "Anvaya (positive correlation)"
+      ],
+      correct: 0  // testing vyāpti – questioning conventional wisdom
+    },
+    {
+      text: "What is the print run of Mishra’s short story collection 'Posput' (3,500 copies) said to signify in the chapter?",
+      options: [
+        "A commercial failure",
+        "A remarkable figure indicating substantial community readership and grassroots support",
+        "Government subsidy for Maithili books",
+        "The smallest print run in Maithili history"
+      ],
+      correct: 1  // remarkable figure – 3,500 copies shows substantial community readership
+    }
+  ];
+
+  // Store user selections (null = unanswered)
+  let userSelections = new Array(questions.length).fill(null);
+  let quizActive = true;   // if false, answers are locked and feedback shown
+  let score = 0;
+
+  // Helper: render full quiz DOM
+  function renderQuiz() {
+    const container = document.getElementById('quizContainer');
+    if (!container) return;
+    let html = '';
+    for (let i = 0; i < questions.length; i++) {
+      const q = questions[i];
+      const selectedVal = userSelections[i];
+      html += `
+        <div class="question-card" data-qidx="${i}">
+          <div class="question-text">${i+1}. ${q.text}</div>
+          <ul class="options">
+      `;
+      for (let optIdx = 0; optIdx < q.options.length; optIdx++) {
+        const isChecked = (selectedVal === optIdx);
+        html += `
+          <li>
+            <input type="radio" name="q${i}" value="${optIdx}" id="q${i}_opt${optIdx}" ${isChecked ? 'checked' : ''} ${!quizActive ? 'disabled' : ''}>
+            <label for="q${i}_opt${optIdx}">${q.options[optIdx]}</label>
+          </li>
+        `;
+      }
+      html += `</ul>`;
+      // if quiz submitted, show feedback
+      if (!quizActive) {
+        const isCorrect = (selectedVal === q.correct);
+        const correctAnswer = q.options[q.correct];
+        if (selectedVal === null) {
+          html += `<div class="feedback incorrect">❓ Not answered. Correct: ${correctAnswer}</div>`;
+        } else if (isCorrect) {
+          html += `<div class="feedback correct">✓ Correct! ${correctAnswer}</div>`;
+        } else {
+          html += `<div class="feedback incorrect">✗ Incorrect. Correct answer: ${correctAnswer}</div>`;
+        }
+      }
+      html += `</div>`;
+    }
+    container.innerHTML = html;
+
+    // attach event listeners if quiz is active
+    if (quizActive) {
+      for (let i = 0; i < questions.length; i++) {
+        const radios = document.querySelectorAll(`input[name="q${i}"]`);
+        radios.forEach(radio => {
+          radio.removeEventListener('change', handleRadioChange);
+          radio.addEventListener('change', handleRadioChange);
+        });
+      }
+    }
+  }
+
+  function handleRadioChange(e) {
+    if (!quizActive) return;
+    const radio = e.target;
+    const nameAttr = radio.getAttribute('name');  // "q5"
+    const qIndex = parseInt(nameAttr.substring(1), 10);
+    const chosen = parseInt(radio.value, 10);
+    if (!isNaN(qIndex)) {
+      userSelections[qIndex] = chosen;
+    }
+  }
+
+  function computeScore() {
+    let correctCount = 0;
+    for (let i = 0; i < questions.length; i++) {
+      if (userSelections[i] !== null && userSelections[i] === questions[i].correct) {
+        correctCount++;
+      }
+    }
+    return correctCount;
+  }
+
+  function updateScoreMessage() {
+    const msgSpan = document.getElementById('scoreMessage');
+    if (!msgSpan) return;
+    if (!quizActive) {
+      const total = questions.length;
+      const correctCount = computeScore();
+      const percent = Math.round((correctCount / total) * 100);
+      msgSpan.innerHTML = `🏆 Your score: ${correctCount} / ${total} (${percent}%) – ${getMotivationMessage(correctCount, total)}`;
+    } else {
+      msgSpan.innerHTML = `📚 Choose the best answer for each question. Submit when ready.`;
+    }
+  }
+
+  function getMotivationMessage(correct, total) {
+    if (correct === total) return "Perfect! You know the Nepal‑side Maithili voice deeply.";
+    if (correct >= total - 2) return "Excellent grasp of Santosh Kumar Mishra’s literary world.";
+    if (correct >= total/2) return "Good attempt — revisit the chapter to sharpen your insights.";
+    return "Re‑read the critical appreciation; Mithila’s parallel tradition awaits!";
+  }
+
+  function submitQuiz() {
+    if (!quizActive) return;
+    quizActive = false;
+    // Disable submit button style but keep
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = true;
+    renderQuiz();   // re-render with feedback and disabled radios
+    updateScoreMessage();
+  }
+
+  function resetQuiz() {
+    quizActive = true;
+    userSelections.fill(null);
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = false;
+    renderQuiz();   // fresh radios without feedback
+    updateScoreMessage();
+  }
+
+  // initial render
+  renderQuiz();
+  updateScoreMessage();
+
+  // attach button events
+  document.getElementById('submitQuizBtn').addEventListener('click', submitQuiz);
+  document.getElementById('resetQuizBtn').addEventListener('click', resetQuiz);
+</script>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>

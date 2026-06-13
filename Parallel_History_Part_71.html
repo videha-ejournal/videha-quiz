@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Quiz: Chapter 71 – Ram Vilas Sahu | OBC Voice · Poet of Labour & Subaltern Dignity</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4efe6;
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            padding: 2rem 1rem;
+            color: #2d2a24;
+        }
+
+        .quiz-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fffef9;
+            border-radius: 36px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
+            overflow: hidden;
+            border: 1px solid #e2d9cc;
+        }
+
+        .quiz-header {
+            background: #8b5e3c;
+            background: linear-gradient(135deg, #6b4524, #9e6e45);
+            padding: 1.8rem 2rem;
+            color: white;
+        }
+
+        .quiz-header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+            margin-bottom: 0.4rem;
+        }
+
+        .quiz-header h1 span {
+            font-weight: 400;
+            font-style: italic;
+            font-size: 1rem;
+            background: #f3deba80;
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+        }
+
+        .quiz-header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 0.6rem;
+            border-left: 3px solid #ffd580;
+            padding-left: 1rem;
+        }
+
+        .quiz-body {
+            padding: 2rem 2rem 1rem;
+        }
+
+        .question-card {
+            background: #ffffff;
+            border: 1px solid #e8e0d4;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.8rem;
+            margin-bottom: 2rem;
+            transition: all 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .question-card:hover {
+            border-color: #cfc1a8;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #5a3e1f;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .options {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .options li {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+        }
+
+        .options input {
+            margin-top: 0.25rem;
+            width: 1.1rem;
+            height: 1.1rem;
+            accent-color: #9e6e45;
+            flex-shrink: 0;
+        }
+
+        .options label {
+            font-size: 1rem;
+            line-height: 1.4;
+            color: #3e3a32;
+            font-weight: normal;
+        }
+
+        .feedback {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 30px;
+            display: inline-block;
+            background: #f3f2ec;
+            color: #4a5b4a;
+        }
+
+        .feedback.correct {
+            background: #e0f2e9;
+            color: #1f5e3a;
+            border-left: 4px solid #2b7a4b;
+        }
+
+        .feedback.wrong {
+            background: #ffeae6;
+            color: #b34141;
+            border-left: 4px solid #c4554b;
+        }
+
+        .explanation {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #6c685b;
+            font-style: italic;
+            border-left: 2px solid #dbd2c2;
+            padding-left: 12px;
+        }
+
+        .quiz-footer {
+            padding: 1.2rem 2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-top: 1px solid #e8e0d4;
+            background: #fefcf7;
+        }
+
+        .score-area {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: #e5ede2;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            color: #2b523b;
+        }
+
+        button {
+            background: #9e6e45;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.7rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.15s;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background: #7c5332;
+            transform: scale(0.97);
+        }
+
+        .reset-btn {
+            background: #8f7a64;
+        }
+        .reset-btn:hover {
+            background: #6d5b49;
+        }
+
+        @media (max-width: 650px) {
+            .quiz-body {
+                padding: 1.5rem;
+            }
+            .question-card {
+                padding: 1.1rem;
+            }
+            .quiz-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<div class="quiz-container">
+    <div class="quiz-header">
+        <h1>📖 Chapter 71 · Ram Vilas Sahu <span>Labour · Caste · Ecology · Subaltern Voice</span></h1>
+        <p>Based on “RAM VILAS SAHU: A COMPLETE CRITICAL APPRECIATION” (Videha Parallel History, Tome III)<br>Works: Rathak Cakkā Ulait Cale Bāṭ · Karm Binu Jag Sunnā · Dūdhbechnī · Skūlak Khicṛī · Tanka & Haiku · Navya-Nyāya · Marxist · Subaltern · Feminist · Ecocriticism</p>
+    </div>
+    <div class="quiz-body" id="quizBody"></div>
+    <div class="quiz-footer">
+        <div class="score-area" id="scoreDisplay">Score: 0 / 0</div>
+        <div>
+            <button id="checkBtn">✅ Check answers</button>
+            <button id="resetBtn" class="reset-btn">⟳ Reset quiz</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ---- QUESTIONS BASED ON CHAPTER 71: Ram Vilas Sahu (pages 489-505) ----
+    const questions = [
+        {
+            text: "Ram Vilas Sahu belongs to which caste community, and what is the significance of his emergence as a writer within the Videha Parallel History?",
+            options: [
+                "Maithil Brahmin – continuing the classical tradition",
+                "Sahu (OBC trading/shopkeeping community) – his emergence challenges the historically upper-caste dominance of Maithili literary institutions",
+                "Dalit – first Dalit autobiographer in Maithili",
+                "Kayastha – known for administrative writings"
+            ],
+            correct: 1,
+            explanation: "The chapter identifies Sahu as belonging to the Sahu community (OBC). His presence alongside Jagdish Prasad Mandal and Umesh Mandal represents the democratic broadening of Maithili literature beyond Brahmin-Kayastha dominance."
+        },
+        {
+            text: "What is the meaning of the title of Sahu's first poetry collection 'Rathak Cakkā Ulait Cale Bāṭ' (2013/2024), and what philosophical claim does it make?",
+            options: [
+                "The wheel of fortune turns – life is unpredictable",
+                "The wheel of the chariot turns backward to make its way – progress requires the reversal of the established social order",
+                "The chariot moves forward steadily – gradual reform",
+                "The wheel is broken – despair"
+            ],
+            correct: 1,
+            explanation: "The title is a compressed philosophical-political statement: 'ulait' (turned backward/reversed) and 'cale bāṭ' (making its path) create the paradox that genuine forward movement requires overturning the existing order – a radical poetics of revolutionary inversion."
+        },
+        {
+            text: "Sahu's poem 'Karm Binu Jag Sunnā' (Without Work the World is Empty) lists seventeen cosmic dependencies (sun-sky, lightning-cloud, life-earth, etc.) before concluding with its central claim. What is the epistemological structure of this poem?",
+            options: [
+                "A devotional prayer",
+                "A systematic demonstration of vyāpti (invariable concomitance) – each couplet establishes a vyāpti, and the final couplet applies the logic to 'work' as the ground of all value",
+                "A random list",
+                "A love lyric"
+            ],
+            correct: 1,
+            explanation: "The poem performs anumāna through dṛṣṭāntā (example): each couplet provides an example of absence leading to emptiness, establishing the vyāpti that 'wherever absence of the essential, emptiness follows'. The final application to karm (work) is inferred, not asserted."
+        },
+        {
+            text: "In Sahu's short story 'Ḍomak Āgi' (The Dom's Fire), the entire village waits for Baukaū Dom to sell fire for the funeral pyre. What social paradox does this story expose?",
+            options: [
+                "The generosity of the Dom community",
+                "The constitutive contradiction of caste: the Dom is untouchable in life but indispensable at death – only the Dom can 'sell fire' for the upper-caste funeral",
+                "The importance of fire in rituals",
+                "The wealth of the Dom"
+            ],
+            correct: 1,
+            explanation: "The story uses the ritual necessity of purchasing fire from the Dom community to expose caste hypocrisy: the same community excluded from social spaces is essential for death rituals, making visible the structural paradox of untouchability."
+        },
+        {
+            text: "The seed story 'Ghūshā Ghar Mukhiyājī' (The Corrupt Headman) features Budhni, an old woman who refuses a bribe-house from the Indira Awas Yojana. What is her moral reasoning?",
+            options: [
+                "She wants a bigger house",
+                "'If I build a house with bribe money, what kind of house will I live in?' – her refusal asserts dignity and moral clarity against systemic corruption",
+                "She is afraid of the police",
+                "She prefers her old hut"
+            ],
+            correct: 1,
+            explanation: "Budhni's question is the story's moral centre: a house built on corruption is no house at all. Her defiance against the mukhiya is the subaltern speaking with moral authority despite total material powerlessness."
+        },
+        {
+            text: "Sahu's poem 'Raudī' (Drought) depicts a farmer whose crop has failed. What is the bitter irony of the government's response?",
+            options: [
+                "The government sends water tankers",
+                "'He asks for water, he gets diesel subsidies' (Māṃgai chhai pāni tā / ḍījalak anudan bhaiṭai chhai) – the state offers fuel subsidies for tractors when what is needed is water",
+                "The government waives loans",
+                "The government provides seeds"
+            ],
+            correct: 1,
+            explanation: "The poem's devastating irony is the mismatch between need and state response: a farmer dying of thirst receives diesel subsidies – a critique of developmental logic that serves capital, not people."
+        },
+        {
+            text: "The chapter applies Antonio Gramsci's concept of 'organic intellectual' to Ram Vilas Sahu. What evidence supports this classification?",
+            options: [
+                "He holds a PhD from a university",
+                "He is a farmer-writer who combines agricultural work with literary work, rooted in Madhubani village, speaking for and from the perspective of the rural poor – an intellectual who emerges from within the subaltern class",
+                "He is a government official",
+                "He writes only for elite audiences"
+            ],
+            correct: 1,
+            explanation: "Gramsci's organic intellectual arises from a subaltern class and articulates its experiences. Sahu's poetry and stories are grounded in his own labour as a farmer and his community's daily struggles – he is not an outsider writing about the poor but the poor writing as themselves."
+        },
+        {
+            text: "Sahu's seed story 'Vargak Sukh' (Class/Heaven's Joy) features Baukaū, a Dom living on the Koshi riverbank, whose family is flooded out. Despite poverty, they share a simple feast. The husband says: 'This is paradise's joy. Even kings and maharajas don't get this.' What theme does this story celebrate?",
+            options: [
+                "The misery of poverty",
+                "Subaltern resilience and the politics of sufficiency – joy is possible not despite poverty but in the dignity of shared labour and simple sufficiency",
+                "The need for charity",
+                "The superiority of kings"
+            ],
+            correct: 1,
+            explanation: "The story refuses the narrative of poverty as pure suffering. It affirms that the poorest can experience a fullness that the wealthy cannot buy – a radical assertion of dignity and a critique of the equation of wealth with happiness."
+        },
+        {
+            text: "Sahu is among the pioneers of tanka and haiku in Maithili literature. These Japanese forms (5-7-5-7-7 and 5-7-5) are adopted through the Videha movement's commitment to global lyric forms. What is the formal characteristic of his tanka?",
+            options: [
+                "They avoid social themes",
+                "They consistently address ethical and social themes in compressed form, using the pivot between the upper and lower units to move from natural image to human implication",
+                "They are purely romantic",
+                "They have no fixed syllable count"
+            ],
+            correct: 1,
+            explanation: "Sahu's tanka use the form's structural division (5-7-5 upper unit, 7-7 lower unit) to create a pivot between observation and critique – the formal correlate of his prose's ironic turning point."
+        },
+        {
+            text: "In Navya-Nyāya terms, how does the chapter analyse Sahu's story 'Bāl-Bodh' (The Children's Understanding), where a poor father (Dukhilāl) pledges his sons as child labourers to clear a debt?",
+            options: [
+                "As a simple tragedy",
+                "As a meditation on śabdapramāṇa (verbal testimony) – the debt documents were signed through thumbprints (illiteracy), raising the question of what constitutes valid testimony when obtained through deception",
+                "As a romance",
+                "As a comedy"
+            ],
+            correct: 1,
+            explanation: "The story interrogates the validity of verbal testimony: the landowner's authority derives from documents, but those documents were obtained from an illiterate man. Does deception invalidate śabdapramāṇa? Sahu's story raises this Navya-Nyāya question through narrative."
+        },
+        {
+            text: "The chapter applies ecocriticism and Rob Nixon's concept of 'slow violence' to Sahu's work. Which river and ecological crisis is repeatedly depicted in his poetry and stories?",
+            options: [
+                "The Ganga pollution",
+                "The Koshi River – the 'sorrow of Bihar', its floods and embankment failures, depicted in poems like 'Kosīme Samāel Jinagī' (Life swallowed by the Koshi)",
+                "The Yamuna drought",
+                "The Brahmaputra erosion"
+            ],
+            correct: 1,
+            explanation: "Nixon's 'slow violence' – gradual, invisible environmental destruction – maps onto the Koshi's annual floods, riparian erosion, and the disappearing biodiversity. Sahu's poetry registers this as lyric mourning and documentary witness."
+        },
+        {
+            text: "Sahu's poem 'Mithilāk Piyās' (Mithila's Thirst) diagnoses the internal divisions among Maithili speakers. What is the poem's central argument?",
+            options: [
+                "Mithila needs more rainfall",
+                "'So long as Maithili is not the language of all people in Mithila / Mithila's thirst will not be quenched' – the failure of linguistic unity and the persistence of internal caste/class divisions prevent the language's flourishing",
+                "Maithili should be replaced by Hindi",
+                "Maithili is already unified"
+            ],
+            correct: 1,
+            explanation: "The poem is a postcolonial manifesto: internal divisions among Maithili speakers (caste, class, dialect) are not natural but produced by structures of domination. Linguistic solidarity is a political project, not a given fact."
+        }
+    ];
+
+    let userAnswers = new Array(questions.length).fill(null);
+    const quizBody = document.getElementById('quizBody');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const checkBtn = document.getElementById('checkBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    function renderQuiz() {
+        quizBody.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.setAttribute('data-qidx', idx);
+
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qText);
+
+            const optionsList = document.createElement('ul');
+            optionsList.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const li = document.createElement('li');
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q${idx}`;
+                radio.value = optIdx;
+                radio.id = `q${idx}_opt${optIdx}`;
+                if (userAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    userAnswers[idx] = parseInt(e.target.value);
+                    const oldFeedback = card.querySelector('.feedback');
+                    const oldExpl = card.querySelector('.explanation');
+                    if (oldFeedback) oldFeedback.remove();
+                    if (oldExpl) oldExpl.remove();
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q${idx}_opt${optIdx}`;
+                label.innerText = opt;
+                li.appendChild(radio);
+                li.appendChild(label);
+                optionsList.appendChild(li);
+            });
+            card.appendChild(optionsList);
+            quizBody.appendChild(card);
+        });
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    function evaluateQuiz() {
+        // sync current selections
+        for (let i = 0; i < questions.length; i++) {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selected) {
+                userAnswers[i] = parseInt(selected.value);
+            } else {
+                if (userAnswers[i] !== null) userAnswers[i] = null;
+            }
+        }
+
+        let correctCount = 0;
+        // clear old feedback
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const oldFeedback = card.querySelector('.feedback');
+            const oldExpl = card.querySelector('.explanation');
+            if (oldFeedback) oldFeedback.remove();
+            if (oldExpl) oldExpl.remove();
+        }
+
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const userChoice = userAnswers[i];
+            const isCorrect = (userChoice !== null && userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+
+            const feedbackSpan = document.createElement('div');
+            feedbackSpan.className = 'feedback';
+            if (userChoice === null) {
+                feedbackSpan.innerText = '⚠️ Not answered';
+                feedbackSpan.classList.add('wrong');
+            } else if (isCorrect) {
+                feedbackSpan.innerText = '✓ Correct';
+                feedbackSpan.classList.add('correct');
+            } else {
+                const correctLetter = String.fromCharCode(65 + questions[i].correct);
+                const correctText = questions[i].options[questions[i].correct];
+                feedbackSpan.innerText = `✗ Incorrect. Correct: ${correctLetter}. ${correctText.substring(0, 100)}${correctText.length > 100 ? '…' : ''}`;
+                feedbackSpan.classList.add('wrong');
+            }
+
+            const explDiv = document.createElement('div');
+            explDiv.className = 'explanation';
+            explDiv.innerHTML = `📖 ${questions[i].explanation}`;
+            card.appendChild(feedbackSpan);
+            card.appendChild(explDiv);
+        }
+        scoreDisplay.innerText = `Score: ${correctCount} / ${questions.length}`;
+    }
+
+    function resetQuiz() {
+        for (let i = 0; i < questions.length; i++) userAnswers[i] = null;
+        renderQuiz();
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    checkBtn.addEventListener('click', evaluateQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+
+    renderQuiz();
+</script>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>

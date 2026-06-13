@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Quiz: Contemporary Mithila Artists | Videha Parallel History</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f5efe6;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #2c2b28;
+      padding: 2rem 1rem;
+      line-height: 1.4;
+    }
+
+    .quiz-container {
+      max-width: 950px;
+      margin: 0 auto;
+      background: #fffef7;
+      border-radius: 28px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      border: 1px solid #e2dcd0;
+    }
+
+    .quiz-header {
+      background: #8b2c1d;
+      color: #fef0e0;
+      padding: 1.8rem 2rem;
+      text-align: center;
+    }
+
+    .quiz-header h1 {
+      font-size: 1.9rem;
+      letter-spacing: -0.3px;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .quiz-header p {
+      font-size: 1rem;
+      font-style: italic;
+      opacity: 0.85;
+    }
+
+    .quiz-body {
+      padding: 2rem 2rem 1.5rem;
+    }
+
+    .question-card {
+      background: #ffffff;
+      border-radius: 24px;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      border: 1px solid #ede6db;
+      transition: all 0.2s ease;
+    }
+
+    .question-text {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #3a2c1f;
+      border-left: 5px solid #c0704d;
+      padding-left: 1rem;
+    }
+
+    .options {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    .options li {
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .options input[type="radio"] {
+      margin-top: 0.2rem;
+      accent-color: #b3452a;
+      width: 1.1rem;
+      height: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .options label {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #2c3e2f;
+      font-weight: 500;
+    }
+
+    .feedback {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 30px;
+      display: inline-block;
+      background: #faf6ed;
+    }
+
+    .feedback.correct {
+      color: #2b6e3c;
+      background: #e2f3e4;
+      border-left: 3px solid #2b6e3c;
+      padding-left: 0.8rem;
+    }
+
+    .feedback.incorrect {
+      color: #a03d2c;
+      background: #ffe6e1;
+      border-left: 3px solid #a03d2c;
+    }
+
+    .btn-submit {
+      background: #8b2c1d;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 600;
+      padding: 0.8rem 2rem;
+      border-radius: 48px;
+      cursor: pointer;
+      font-family: inherit;
+      display: inline-block;
+      margin-top: 1rem;
+      transition: background 0.2s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .btn-submit:hover {
+      background: #6b2217;
+    }
+
+    .score-area {
+      text-align: center;
+      padding: 1.5rem;
+      background: #f7f2e9;
+      border-radius: 48px;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .reset-btn {
+      background: #cdb28b;
+      margin-left: 1rem;
+      box-shadow: none;
+    }
+
+    .reset-btn:hover {
+      background: #b89a6c;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 0.75rem;
+      border-top: 1px solid #e9dfd1;
+      color: #6b5b47;
+      background: #fffcf5;
+    }
+
+    @media (max-width: 650px) {
+      .quiz-body {
+        padding: 1.2rem;
+      }
+      .question-text {
+        font-size: 1.1rem;
+      }
+    }
+  
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<div class="quiz-container">
+  <div class="quiz-header">
+    <h1>🎨 Mithila’s Modern Masters</h1>
+    <p>Chapter 76 · Contemporary Mithila Artists | Critical Analysis</p>
+    <p style="font-size:0.85rem;">Based on Videha Parallel History – Tome IV</p>
+  </div>
+  <div class="quiz-body" id="quizBody">
+    <!-- questions will be injected via js, but we can also write static html and manage with js -->
+  </div>
+  <div class="score-area" id="scoreArea">
+    <button class="btn-submit" id="submitBtn">✓ Submit answers</button>
+    <button class="btn-submit reset-btn" id="resetBtn">⟳ Reset quiz</button>
+    <div id="scoreDisplay" style="margin-top: 15px; font-size: 1.1rem;"></div>
+  </div>
+  
+</div>
+
+<script>
+  // --------------------------------------------------------------
+  // QUIZ DATA – strictly from Chapter 76 (Contemporary Mithila Artists)
+  // --------------------------------------------------------------
+  const questions = [
+    {
+      text: "Which contemporary Mithila artist is described as the 'first artist from the Mithila painting tradition to enter modern art practice' and has works in the National Gallery of Modern Art (NGMA), New Delhi?",
+      options: [
+        "Mr Krishna Kumar Kashyap",
+        "Mrs Sweta Jha Chaudhary",
+        "Mrs Sanju Das",
+        "Mr S.C. Suman"
+      ],
+      correct: 2  // zero-indexed: Sanju Das
+    },
+    {
+      text: "According to the chapter, which theoretical framework is most productively used to analyze Sanju Das’s work and her challenge to the 'obscenity' discourse?",
+      options: [
+        "Postcolonial Aesthetics",
+        "Feminist Art Theory",
+        "Formalist and Iconographic Analysis",
+        "Political Economy of Art"
+      ],
+      correct: 1  // Feminist Art Theory
+    },
+    {
+      text: "Which artist duo is noted for the collaborative practice where 'there is no surviving painting by Kashyap that was not made jointly by Kashyap and Shashi Bala'?",
+      options: [
+        "Sanju Das & Ravindra Kumar Das",
+        "Mr S.C. Suman & Dhirendra Premrishi",
+        "Krishna Kumar Kashyap & Shashi Bala",
+        "Sweta Jha Chaudhary & Shashi Bala"
+      ],
+      correct: 2  // Krishna Kumar Kashyap & Shashi Bala
+    },
+    {
+      text: "What unique pedagogy did Krishna Kumar Kashyap develop for marginalised women in Mithila?",
+      options: [
+        "Teaching classical dance through painting",
+        "Teaching literacy through geometric forms of Mithila art and traditional tattoo (godna) body painting",
+        "Vedic chant memorisation using Madhubani motifs",
+        "Sanskrit grammar through Kohbar imagery"
+      ],
+      correct: 1  // literacy through geometric forms and godna
+    },
+    {
+      text: "S.C. Suman, a Nepal-based Mithila painter, is described as someone who keeps the formal tradition alive while expanding its visual vocabulary. Which critical framework is primarily used to analyze his art in the chapter?",
+      options: [
+        "Marxist art criticism",
+        "Postcolonial pedagogy",
+        "Formalism and the Mithila Aesthetic",
+        "Feminist iconography"
+      ],
+      correct: 2  // Formalism and the Mithila Aesthetic
+    },
+    {
+      text: "Mrs Sweta Jha Chaudhary’s painting of the paddy harvest and the doli (palanquin) are examined through which primary theoretical framework?",
+      options: [
+        "Navya Nyaya epistemology",
+        "Iconography and the sacred everyday",
+        "Kama-Shastra tradition",
+        "Magic realism"
+      ],
+      correct: 1  // Iconography and the sacred everyday (Panofsky)
+    },
+    {
+      text: "According to the comparative analysis, which two artists have directly faced charges of 'obscenity' for depicting sacred-erotic themes derived from Geet Govind, Khajuraho, and the kohbar tradition?",
+      options: [
+        "S.C. Suman and Sweta Jha Chaudhary",
+        "Sanju Das and Krishna Kumar Kashyap",
+        "Krishna Kumar Kashyap and S.C. Suman",
+        "Sanju Das and Sweta Jha Chaudhary"
+      ],
+      correct: 1  // Sanju Das and Krishna Kumar Kashyap
+    },
+    {
+      text: "Which artist’s work explicitly bridges formal art education (BFA, Home Science) and folk tradition, and has been sponsored by corporate bodies such as TISCO and AISADA?",
+      options: [
+        "Mrs Sweta Jha Chaudhary",
+        "Mrs Sanju Das",
+        "Shashi Bala",
+        "Anamika Raj"
+      ],
+      correct: 0  // Sweta Jha Chaudhary
+    },
+    {
+      text: "What is the price range of S.C. Suman’s paintings as mentioned in the Videha 368 special art section?",
+      options: [
+        "₹5,000 – ₹10,000",
+        "₹17,000 – ₹80,000",
+        "₹80,000 – ₹2,00,000",
+        "₹1,00,000 – ₹5,00,000"
+      ],
+      correct: 1  // 17,000 to 80,000 rupees
+    },
+    {
+      text: "The editorial decision to restore Shashi Bala’s name as a co-creator in the Videha special issue is described as an act of:",
+      options: [
+        "Postcolonial mimicry",
+        "Art-historical feminist correction",
+        "Dalit affirmation",
+        "Market-driven branding"
+      ],
+      correct: 1  // feminist correction
+    },
+    {
+      text: "Sanju Das’s celebrated series that renders psychological interiority of female experience is titled:",
+      options: [
+        "Gamak Lok",
+        "Midnight Talk",
+        "Kohbar Ghar",
+        "Bloodstained Footprints"
+      ],
+      correct: 1  // Midnight Talk
+    },
+    {
+      text: "Which ancient Indian philosophical system, rooted in Mithila, is used as an epistemological tool in the Videha Parallel History Framework’s analysis of these artists?",
+      options: [
+        "Advaita Vedanta",
+        "Navya Nyaya (Gaṅgeśa Upādhyāya)",
+        "Samkhya Yoga",
+        "Purva Mimamsa"
+      ],
+      correct: 1  // Navya Nyaya
+    }
+  ];
+
+  // store user selections: array of selected index (null = not answered)
+  let userAnswers = new Array(questions.length).fill(null);
+  let quizSubmitted = false;
+  let score = 0;
+
+  // Helper: render the entire quiz
+  function renderQuiz() {
+    const container = document.getElementById('quizBody');
+    if (!container) return;
+    let html = '';
+    for (let i = 0; i < questions.length; i++) {
+      const q = questions[i];
+      const selectedIdx = userAnswers[i];
+      html += `
+        <div class="question-card" data-qidx="${i}">
+          <div class="question-text">${i+1}. ${q.text}</div>
+          <ul class="options">
+      `;
+      for (let optIdx = 0; optIdx < q.options.length; optIdx++) {
+        const opt = q.options[optIdx];
+        const isChecked = (selectedIdx === optIdx);
+        html += `
+          <li>
+            <input type="radio" name="q${i}" value="${optIdx}" id="q${i}_opt${optIdx}" ${isChecked ? 'checked' : ''} ${quizSubmitted ? 'disabled' : ''}>
+            <label for="q${i}_opt${optIdx}">${opt}</label>
+          </li>
+        `;
+      }
+      html += `</ul>`;
+      // feedback if quiz submitted
+      if (quizSubmitted) {
+        const isCorrect = (selectedIdx === q.correct);
+        const correctAnswerText = q.options[q.correct];
+        if (selectedIdx === null) {
+          html += `<div class="feedback incorrect">⚠️ Not answered. Correct answer: ${correctAnswerText}</div>`;
+        } else if (isCorrect) {
+          html += `<div class="feedback correct">✓ Correct! ${correctAnswerText}</div>`;
+        } else {
+          html += `<div class="feedback incorrect">✗ Incorrect. Correct answer: ${correctAnswerText}</div>`;
+        }
+      }
+      html += `</div>`;
+    }
+    container.innerHTML = html;
+
+    // attach event listeners to radio buttons if not submitted
+    if (!quizSubmitted) {
+      for (let i = 0; i < questions.length; i++) {
+        const radios = document.querySelectorAll(`input[name="q${i}"]`);
+        radios.forEach(radio => {
+          radio.removeEventListener('change', handleRadioChange);
+          radio.addEventListener('change', handleRadioChange);
+        });
+      }
+    }
+  }
+
+  function handleRadioChange(e) {
+    if (quizSubmitted) return;
+    const radio = e.target;
+    const nameAttr = radio.getAttribute('name'); // e.g., "q3"
+    const qIndex = parseInt(nameAttr.substring(1), 10);
+    const selectedVal = parseInt(radio.value, 10);
+    if (!isNaN(qIndex)) {
+      userAnswers[qIndex] = selectedVal;
+    }
+  }
+
+  function computeScore() {
+    let correctCount = 0;
+    for (let i = 0; i < questions.length; i++) {
+      if (userAnswers[i] !== null && userAnswers[i] === questions[i].correct) {
+        correctCount++;
+      }
+    }
+    return correctCount;
+  }
+
+  function updateScoreDisplay() {
+    const scoreDiv = document.getElementById('scoreDisplay');
+    if (!scoreDiv) return;
+    const correctCount = computeScore();
+    score = correctCount;
+    const total = questions.length;
+    scoreDiv.innerHTML = `📊 Your score: ${score} / ${total} (${Math.round(score/total*100)}%)`;
+    if (quizSubmitted && score === total) {
+      scoreDiv.innerHTML += `<br>🌟 Excellent! You know the parallel history of Mithila art.`;
+    } else if (quizSubmitted && score >= total-2) {
+      scoreDiv.innerHTML += `<br>🎨 Great understanding of contemporary Mithila artists.`;
+    } else if (quizSubmitted) {
+      scoreDiv.innerHTML += `<br>📖 Re-read the chapter — Mithila’s art theory awaits!`;
+    }
+  }
+
+  function submitQuiz() {
+    if (quizSubmitted) return;
+    // ensure all questions answered? optional, but we allow partial
+    quizSubmitted = true;
+    // Disable all radio buttons and re-render with feedback
+    renderQuiz();  // re-renders with disabled radios and feedback
+    updateScoreDisplay();
+    // also disable submit button style? keep but no double submit
+    const submitBtn = document.getElementById('submitBtn');
+    if (submitBtn) submitBtn.disabled = true;
+    // reset button remains active
+  }
+
+  function resetQuiz() {
+    quizSubmitted = false;
+    userAnswers.fill(null);
+    // re-enable submit button
+    const submitBtn = document.getElementById('submitBtn');
+    if (submitBtn) submitBtn.disabled = false;
+    // clear score display
+    const scoreDiv = document.getElementById('scoreDisplay');
+    if (scoreDiv) scoreDiv.innerHTML = '';
+    renderQuiz(); // fresh radios, no feedback
+  }
+
+  // initial render
+  renderQuiz();
+
+  // bind buttons
+  document.getElementById('submitBtn').addEventListener('click', submitQuiz);
+  document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+  // initial score display empty
+  updateScoreDisplay();
+</script>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>

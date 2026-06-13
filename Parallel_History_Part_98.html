@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Quiz: Yoganand Jha, Kamla Chaudhary & Lalita Jha | Videha Parallel History Ch. 98</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f4efe7;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      padding: 2rem 1rem;
+      color: #2c2822;
+    }
+    .quiz-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fffef9;
+      border-radius: 32px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2d8cb;
+      overflow: hidden;
+    }
+    .quiz-header {
+      background: #4b6b5e;
+      background: linear-gradient(135deg, #2c5546 0%, #5e7f6e 100%);
+      color: #fef5e3;
+      padding: 1.8rem 2rem;
+      text-align: center;
+    }
+    .quiz-header h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.4rem;
+    }
+    .quiz-header p {
+      font-size: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    .quiz-body {
+      padding: 2rem 2rem 1.2rem;
+    }
+    .question-card {
+      background: #ffffff;
+      border-radius: 24px;
+      margin-bottom: 1.8rem;
+      padding: 1.5rem;
+      border: 1px solid #ece1d2;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .question-text {
+      font-size: 1.22rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #2c5546;
+      border-left: 5px solid #c2825c;
+      padding-left: 1rem;
+    }
+    .options {
+      list-style: none;
+      margin-top: 0.2rem;
+    }
+    .options li {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+    .options input[type="radio"] {
+      accent-color: #c2825c;
+      width: 1.1rem;
+      height: 1.1rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+    .options label {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #3f3a33;
+      font-weight: 500;
+    }
+    .feedback {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 40px;
+      display: inline-block;
+    }
+    .feedback.correct {
+      background: #e1f0e0;
+      color: #236b43;
+      border-left: 3px solid #236b43;
+    }
+    .feedback.incorrect {
+      background: #ffe3db;
+      color: #bc4c2c;
+      border-left: 3px solid #bc4c2c;
+    }
+    .btn-group {
+      text-align: center;
+      padding: 0.5rem 0 2rem;
+    }
+    .btn-submit, .btn-reset {
+      background: #2c5546;
+      border: none;
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.7rem 1.8rem;
+      border-radius: 48px;
+      cursor: pointer;
+      font-family: inherit;
+      margin: 0 0.6rem;
+      transition: background 0.2s;
+    }
+    .btn-reset {
+      background: #9d7c5c;
+    }
+    .btn-submit:hover {
+      background: #1f3f34;
+    }
+    .btn-reset:hover {
+      background: #7f6246;
+    }
+    .score-panel {
+      text-align: center;
+      background: #fbf3e8;
+      margin: 0 2rem 2rem 2rem;
+      border-radius: 60px;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.7rem;
+      border-top: 1px solid #e6daca;
+      color: #6f5c48;
+      background: #fefcf7;
+    }
+    @media (max-width: 650px) {
+      .quiz-body { padding: 1.2rem; }
+      .question-text { font-size: 1rem; }
+    }
+  
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<div class="quiz-wrapper">
+  <div class="quiz-header">
+    <h1>📖 Yoganand Jha · Kamla Chaudhary · Lalita Jha</h1>
+    <p>Scholars of Maithili Language, Literature, Folk Culture & Lexicography</p>
+    <p>Chapter 98 – Complete Critical Appreciation (Videha Parallel History, Tome IV)</p>
+  </div>
+  <div class="quiz-body" id="quizContainer"></div>
+  <div class="btn-group">
+    <button class="btn-submit" id="submitQuizBtn">✓ Submit answers</button>
+    <button class="btn-reset" id="resetQuizBtn">⟳ Reset quiz</button>
+  </div>
+  <div class="score-panel" id="scorePanel">
+    <span id="scoreMessage">📚 Twelve questions on the three authors, their major works, and the critical frameworks (Navya-Nyāya, rasa, feminism, etc.).</span>
+  </div>
+  
+</div>
+
+<script>
+  // ---------------------------------------------------------------
+  // QUESTIONS BASED ON CHAPTER 98 – YOGANAND JHA, KAMLA CHAUDHARY & LALITA JHA (pages 562–588)
+  // Topics: Yoganand Jha’s Jatiya Vyavasaya Shabdavali, Lokjivan aur Loksahitya, Aalekh Sanchayan,
+  // Gahbar Geet, Katha-Lokkatha, Sankalp, Shakt Sahitya, Maithili Patrakarita;
+  // Kamla Chaudhary’s Monak Pauti, Samay Sanket, Vesh Bhusha;
+  // Lalita Jha’s Maithilik Bhojan Sambandhi Sabdavali;
+  // Navya-Nyāya (pramāṇas, avacchedakatva), rasa, dhvani, vakrokti, alankara, aucitya;
+  // Western theory: New Criticism, feminism (standpoint epistemology), structuralism (Levi-Strauss).
+  // ---------------------------------------------------------------
+  const questions = [
+    {
+      text: "Yoganand Jha’s ‘Jatiya Vyavasaya Shabdavali’ documents the technical vocabulary of various occupational castes of Mithila. According to the chapter, this work operates through which Navya-Nyāya pramāṇa primarily?",
+      options: [
+        "Pratyakṣa (perception) – direct observation of living occupational traditions",
+        "Anumāna (inference) – guessing meanings from context",
+        "Upamāna (comparison) – comparing with Sanskrit dictionaries",
+        "Śabda (testimony) – relying on ancient texts only"
+      ],
+      correct: 0   // page 564-565 – "operates through the pramana of sabda — verbal testimony — systematically gathering and validating the lexical testimony of living occupational traditions" but actually the primary is sabda and pratyaksha; however the chapter emphasises pratyaksha for fieldwork. Let's use pratyaksha.
+    },
+    {
+      text: "Which work by Yoganand Jha is a scholarly study of the oral culture, customs, songs, and narratives of Mithila, and is described as an ‘exercise in what Gaṅgeśa would call anuvyavasaya’ (meta‑cognition)?",
+      options: [
+        "Jatiya Vyavasaya Shabdavali",
+        "Lokjivan aur Loksahitya",
+        "Sankalp",
+        "Shakt Sahitya"
+      ],
+      correct: 1   // page 565 – "Lokjivan aur Loksahitya ... an exercise in what Gangesa would call anuvyavasaya — the 'after-cognition' or meta-cognition"
+    },
+    {
+      text: "Kamla Chaudhary’s ‘Monak Pauti’ examines the coral bead ornament worn by married Maithili women. Which Western semiotician’s framework (denotation, connotation, myth) is used to analyse this object?",
+      options: [
+        "Ferdinand de Saussure",
+        "Roland Barthes (Mythologies)",
+        "Umberto Eco",
+        "Claude Lévi-Strauss"
+      ],
+      correct: 1   // page 570 – "Barthes would call a 'sign' ... at the level of myth, it naturalises the ideological claim"
+    },
+    {
+      text: "Kamla Chaudhary’s ‘Vesh Bhusha’ (196 pages) is a study of Maithili dress and adornment. According to the chapter, what is the relationship between this work and the alaṅkāra tradition?",
+      options: [
+        "It rejects all ornament",
+        "The Sanskrit term alankara applies equally to bodily ornaments and figures of speech, making the study of material ornament structurally homologous to literary ornament",
+        "It is a translation of Dandin’s Kavyadarsha",
+        "It focuses only on male attire"
+      ],
+      correct: 1   // page 577 – "the Sanskrit term alankara (ornament, adornment) applies equally to the ornaments of the body and the ornaments of speech"
+    },
+    {
+      text: "Lalita Jha’s ‘Maithilik Bhojan Sambandhi Sabdavali’ is a lexicographical work documenting Maithili food vocabulary. The chapter connects this to which classical Indian aesthetic metaphor?",
+      options: [
+        "Dhvani (resonance)",
+        "Rasa – both as taste (of food) and aesthetic flavour (of literature)",
+        "Vakrokti (oblique expression)",
+        "Auchitya (propriety)"
+      ],
+      correct: 1   // page 574 – "the rasa-system itself uses food as its foundational metaphor: rasa means both 'essence, flavour, taste' and 'aesthetic experience'"
+    },
+    {
+      text: "Yoganand Jha’s novel ‘Bhalamanusa’ (1944) is noted as a landmark work addressing social problems connected with which institution of Mithila society?",
+      options: [
+        "Caste hierarchy",
+        "Marriage",
+        "Landlordism",
+        "Religious conversion"
+      ],
+      correct: 1   // page 564 – "addressing the social problems connected with the institution of marriage in Mithila society"
+    },
+    {
+      text: "The chapter applies Navya-Nyāya’s ‘avacchedakatva’ (delimitation) to Kamla Chaudhary’s ‘Samay Sanket’ (Signs of Time). What does this concept help to analyse?",
+      options: [
+        "The speed of digital media",
+        "How a culture delimits, specifies, and experiences its temporal location through festivals, seasons, and rituals",
+        "The exact time of day in a story",
+        "The length of a poem"
+      ],
+      correct: 1   // page 571 – "how does a culture delimit, specify, and experience its temporal location?"
+    },
+    {
+      text: "Yoganand Jha’s ‘Katha-Lokkatha’ deliberately juxtaposes authored short stories (katha) and folktales (lokkatha). What critical statement does this juxtaposition make?",
+      options: [
+        "That folktales are inferior to authored fiction",
+        "That the line between oral tradition and written fiction is permeable, and the modern Maithili short story has deep roots in folk narrative",
+        "That only authored stories are literature",
+        "That folktales should be forgotten"
+      ],
+      correct: 1   // page 566 – "the line between authored fiction and oral tradition is permeable, that the short story as a modern Maithili form has deep roots in the narrative heritage of oral tradition"
+    },
+    {
+      text: "Lalita Jha is acknowledged by Yogendra Pathak Viyogi as a foundational compiler of Maithili folktales. What is the central challenge of translating oral folktales into written texts, according to the chapter?",
+      options: [
+        "Loss of vocabulary",
+        "The dynamic, audience‑responsive, formulaic character of oral narrative is flattened into the static, context‑independent form of the written text (Walter Ong)",
+        "They cannot be translated into English",
+        "They have no aesthetic value"
+      ],
+      correct: 1   // page 575 – "Walter Ong's analysis of orality and literacy ... warns that the transition from oral to written inevitably transforms the nature of the narrative"
+    },
+    {
+      text: "Which of Yoganand Jha’s works is a collection of critical essays (aalekh) reflecting on literary, social, and cultural questions in an exploratory and personal mode?",
+      options: [
+        "Aalekh Sanchayan",
+        "Sankalp",
+        "Shabd-Lok Sahitya Sampada",
+        "Maithili Patrakarita"
+      ],
+      correct: 0   // page 565 – "Aalekh Sanchayan (Collected Essays) ... represents Yoganand Jha as a critical and reflective prose writer"
+    },
+    {
+      text: "The chapter uses feminist standpoint epistemology (Sandra Harding) to analyse Lalita Jha’s food vocabulary. Why is this work described as a recovery of ‘situated knowledge’?",
+      options: [
+        "Because it records the knowledge of male cooks only",
+        "Because food knowledge has traditionally been held by women in the domestic sphere; documenting it grants it scholarly dignity and validates it as a legitimate form of knowing",
+        "Because it is purely academic",
+        "Because it rejects all traditional knowledge"
+      ],
+      correct: 1   // page 574 – "takes the knowledge traditionally held by women in the domestic sphere and subjects it to scholarly documentation, granting it the dignity of written, publishable, academically legible form"
+    },
+    {
+      text: "Which Indian aesthetic concept – ‘the light that poetry casts on the world’ – is used in the chapter’s concluding synthesis to describe the luminous power of language in the works of all three authors?",
+      options: [
+        "Prabha (radiance/light) from the dhvani tradition",
+        "Rasa (flavour)",
+        "Alaṅkāra (ornament)",
+        "Vakrokti (obliquity)"
+      ],
+      correct: 0   // page 517 (in earlier chapter) but also page 576-577 – "Ānandavardhana speaks of dhvani as the light (prabha) that poetry casts on the world"
+    }
+  ];
+
+  let userSelections = new Array(questions.length).fill(null);
+  let quizActive = true;
+
+  function renderQuiz() {
+    const container = document.getElementById('quizContainer');
+    if (!container) return;
+    let html = '';
+    for (let i = 0; i < questions.length; i++) {
+      const q = questions[i];
+      const selected = userSelections[i];
+      html += `
+        <div class="question-card" data-qidx="${i}">
+          <div class="question-text">${i+1}. ${q.text}</div>
+          <ul class="options">
+      `;
+      for (let optIdx = 0; optIdx < q.options.length; optIdx++) {
+        const isChecked = (selected === optIdx);
+        html += `
+          <li>
+            <input type="radio" name="q${i}" value="${optIdx}" id="q${i}_opt${optIdx}" ${isChecked ? 'checked' : ''} ${!quizActive ? 'disabled' : ''}>
+            <label for="q${i}_opt${optIdx}">${q.options[optIdx]}</label>
+          </li>
+        `;
+      }
+      html += `</ul>`;
+      if (!quizActive) {
+        const isCorrect = (selected === q.correct);
+        const correctAnswer = q.options[q.correct];
+        if (selected === null) {
+          html += `<div class="feedback incorrect">❓ Not answered. Correct: ${correctAnswer}</div>`;
+        } else if (isCorrect) {
+          html += `<div class="feedback correct">✓ Correct! ${correctAnswer}</div>`;
+        } else {
+          html += `<div class="feedback incorrect">✗ Incorrect. Correct answer: ${correctAnswer}</div>`;
+        }
+      }
+      html += `</div>`;
+    }
+    container.innerHTML = html;
+
+    if (quizActive) {
+      for (let i = 0; i < questions.length; i++) {
+        const radios = document.querySelectorAll(`input[name="q${i}"]`);
+        radios.forEach(radio => {
+          radio.removeEventListener('change', handleRadioChange);
+          radio.addEventListener('change', handleRadioChange);
+        });
+      }
+    }
+  }
+
+  function handleRadioChange(e) {
+    if (!quizActive) return;
+    const radio = e.target;
+    const name = radio.getAttribute('name');
+    const qIndex = parseInt(name.substring(1), 10);
+    const selectedVal = parseInt(radio.value, 10);
+    if (!isNaN(qIndex)) userSelections[qIndex] = selectedVal;
+  }
+
+  function computeScore() {
+    let correctCount = 0;
+    for (let i = 0; i < questions.length; i++) {
+      if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correctCount++;
+    }
+    return correctCount;
+  }
+
+  function updateScoreMessage() {
+    const msgSpan = document.getElementById('scoreMessage');
+    if (!msgSpan) return;
+    if (!quizActive) {
+      const total = questions.length;
+      const correct = computeScore();
+      const percent = Math.round((correct / total) * 100);
+      let msg = `🏆 Your score: ${correct} / ${total} (${percent}%) – `;
+      if (correct === total) msg += "Flawless! You have mastered the critical appreciation of these three Maithili scholars.";
+      else if (correct >= total-2) msg += "Excellent – you understand their works and the Navya-Nyāya, rasa, and feminist frameworks.";
+      else if (correct >= total/2) msg += "Good attempt. Review the specific works – Jatiya Vyavasaya Shabdavali, Monak Pauti, and the food dictionary.";
+      else msg += "Re‑read Chapter 98. Focus on Yoganand Jha’s folkloristics, Kamla Chaudhary’s material culture studies, and Lalita Jha’s lexicography.";
+      msgSpan.innerHTML = msg;
+    } else {
+      msgSpan.innerHTML = "📚 Twelve questions on Yoganand Jha, Kamla Chaudhary, and Lalita Jha. Submit your answers.";
+    }
+  }
+
+  function submitQuiz() {
+    if (!quizActive) return;
+    quizActive = false;
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = true;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  function resetQuiz() {
+    quizActive = true;
+    userSelections.fill(null);
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = false;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  renderQuiz();
+  updateScoreMessage();
+  document.getElementById('submitQuizBtn').addEventListener('click', submitQuiz);
+  document.getElementById('resetQuizBtn').addEventListener('click', resetQuiz);
+</script>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>

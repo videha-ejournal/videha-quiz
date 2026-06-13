@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Quiz: Shivshankar Srinivas – Complete Critical Appreciation | Videha Parallel History (Ch. 85)</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f4efe7;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      padding: 2rem 1rem;
+      color: #2c2822;
+    }
+    .quiz-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fffdf9;
+      border-radius: 32px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e5dbce;
+      overflow: hidden;
+    }
+    .quiz-header {
+      background: #5c3d2e;
+      color: #fef5e3;
+      padding: 1.6rem 2rem;
+      text-align: center;
+    }
+    .quiz-header h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.4rem;
+    }
+    .quiz-header p {
+      font-size: 0.95rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    .quiz-body {
+      padding: 2rem 2rem 1.2rem;
+    }
+    .question-card {
+      background: #ffffff;
+      border-radius: 24px;
+      margin-bottom: 1.8rem;
+      padding: 1.5rem;
+      border: 1px solid #ece1d2;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .question-text {
+      font-size: 1.22rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #5c3d2e;
+      border-left: 5px solid #c2825c;
+      padding-left: 1rem;
+    }
+    .options {
+      list-style: none;
+      margin-top: 0.2rem;
+    }
+    .options li {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+    .options input[type="radio"] {
+      accent-color: #c2825c;
+      width: 1.1rem;
+      height: 1.1rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+    .options label {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #3f3a33;
+      font-weight: 500;
+    }
+    .feedback {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 40px;
+      display: inline-block;
+    }
+    .feedback.correct {
+      background: #e1f0e0;
+      color: #236b43;
+      border-left: 3px solid #236b43;
+    }
+    .feedback.incorrect {
+      background: #ffe3db;
+      color: #bc4c2c;
+      border-left: 3px solid #bc4c2c;
+    }
+    .btn-group {
+      text-align: center;
+      padding: 0.5rem 0 2rem;
+    }
+    .btn-submit, .btn-reset {
+      background: #5c3d2e;
+      border: none;
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.7rem 1.8rem;
+      border-radius: 48px;
+      cursor: pointer;
+      font-family: inherit;
+      margin: 0 0.6rem;
+      transition: background 0.2s;
+    }
+    .btn-reset {
+      background: #9d7c5c;
+    }
+    .btn-submit:hover {
+      background: #422a1f;
+    }
+    .btn-reset:hover {
+      background: #7f6246;
+    }
+    .score-panel {
+      text-align: center;
+      background: #fbf3e8;
+      margin: 0 2rem 2rem 2rem;
+      border-radius: 60px;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.7rem;
+      border-top: 1px solid #e6daca;
+      color: #6f5c48;
+      background: #fefcf7;
+    }
+    @media (max-width: 650px) {
+      .quiz-body { padding: 1.2rem; }
+      .question-text { font-size: 1rem; }
+    }
+  
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<div class="quiz-wrapper">
+  <div class="quiz-header">
+    <h1>📖 Shivshankar Srinivas</h1>
+    <p>Story Writer · Critic · Anthologist · Rural Chronicler of Mithila</p>
+    <p>Chapter 85 – A Complete Critical Appreciation (Videha Parallel History, Tome IV)</p>
+  </div>
+  <div class="quiz-body" id="quizContainer"></div>
+  <div class="btn-group">
+    <button class="btn-submit" id="submitQuizBtn">✓ Submit answers</button>
+    <button class="btn-reset" id="resetQuizBtn">⟳ Reset quiz</button>
+  </div>
+  <div class="score-panel" id="scorePanel">
+    <span id="scoreMessage">📚 Twelve questions on Shivshankar Srinivas’s fiction, critical works, and theoretical frameworks.</span>
+  </div>
+  
+</div>
+
+<script>
+  // ---------------------------------------------------------------
+  // QUESTIONS BASED ON CHAPTER 85 – SHIVSHANKAR SRINIVAS (Pages 183–199)
+  // Topics: biography, major works (Adahan, Gamak Lok, Guna Katha, Mati),
+  // key stories ('Sinurhar', 'Mati', 'Gamak Lok'), narrative craft,
+  // critical frameworks (Rasa, Dhvani, Navya-Nyāya, Western theories),
+  // comparisons with Kathakar Ashok and Kumar Pawan, and critical reception.
+  // ---------------------------------------------------------------
+  const questions = [
+    {
+      text: "Shivshankar Srinivas was born in which village of Madhubani district, Bihar, and attributes his earliest story‑listening instincts to which family member?",
+      options: [
+        "Lohana; his paternal grandmother Smt. Ram Pyari Devi",
+        "Lohana; his mother Jaya Devi",
+        "Darbhanga; his father Badrinath Jha",
+        "Madhubani; his grandfather"
+      ],
+      correct: 0   // page 184: "born in Lohana, Madhubani... from his paternal grandmother, Smt. Ram Pyari Devi"
+    },
+    {
+      text: "Srinivas’s first solo story collection (1991) is titled ‘Adahan’, which means ‘burning/smouldering’. According to the chapter, what does this title capture?",
+      options: [
+        "The literal fire of village hearths",
+        "The suppressed, slow‑burning social vision of rural Mithila – superstition, teacher exploitation, women’s condition",
+        "The excitement of urban migration",
+        "The brightness of Mithila painting"
+      ],
+      correct: 1   // page 186 – "the suppressed, slow‑burning nature of Srinivas's social vision"
+    },
+    {
+      text: "Which story from the collection ‘Gamak Lok’ (2005) dramatises the return of a remarried widow, Kalyani, to her natal home for a sacred thread ceremony, and explores the stigma of widow remarriage?",
+      options: [
+        "Gamak Lok",
+        "Sinurhar",
+        "Jamuniya Dhar",
+        "Baant Bakhara"
+      ],
+      correct: 1   // page 186 – "Sinurhar" (the story of Kalyani)
+    },
+    {
+      text: "Srinivas’s story ‘Mati’ (Soil) was translated into English by Ashutosh Kumar Thakur and published by Scroll.in. The central theme of ‘Mati’ is:",
+      options: [
+        "The industrialisation of farming",
+        "The protagonist’s inexplicable urge to return to the ancestral village, exploring memory, belonging, and the specific soil of Mithila",
+        "A political thriller",
+        "A ghost story"
+      ],
+      correct: 1   // page 187 – "the earth (mati) is not metaphor alone; it is literal soil"
+    },
+    {
+      text: "According to the chapter, Srinivas’s narrative craft is described as ‘observer‑narrator positioning’. Gajendra Thakur calls this the ‘Sanjay mode’. What does this mean?",
+      options: [
+        "The narrator actively intervenes in the plot",
+        "The narrator watches the drama from a detached position, limiting deep psychological interiority",
+        "The narrator uses first‑person confession",
+        "The narrator is omniscient and all‑knowing"
+      ],
+      correct: 1   // page 188 – "the detached observer position ... Thakur calls the 'Sanjay mode'"
+    },
+    {
+      text: "Which Indian aesthetic concept (rasa) is identified as the dominant emotional register in Srinivas’s stories, especially in depicting widows, displaced mothers, and social suffering?",
+      options: [
+        "Śṛṅgāra (erotic love)",
+        "Hāsya (comedy)",
+        "Karuṇa (pathos/compassion) tempered with Śānta (tranquillity)",
+        "Vīra (heroism)"
+      ],
+      correct: 2   // page 190 – "dominant rasa is karuna ... tempered by shanta"
+    },
+    {
+      text: "The critical appreciation applies Gaṅgeśa’s Navya-Nyāya framework to Srinivas’s fiction. Which pramāṇa corresponds to the village gossip about Kalyani’s remarriage in ‘Sinurhar’ – competing testimonies whose reliability the reader must judge?",
+      options: [
+        "Pratyakṣa (perception)",
+        "Anumāna (inference)",
+        "Upamāna (comparison)",
+        "Śabda (verbal testimony)"
+      ],
+      correct: 3   // page 192 – "shabda is dramatically present as competing testimonies"
+    },
+    {
+      text: "Srinivas edited the landmark anthology ‘Maithili Katha Sanchayan’ (2004) published by the National Book Trust. What is the significance of this work?",
+      options: [
+        "It is a collection of only his own stories",
+        "It selected 38 Maithili stories with Hindi translations, contributing to the canonisation and dissemination of Maithili fiction at the national level",
+        "It was banned by the Sahitya Akademi",
+        "It focuses exclusively on poetry"
+      ],
+      correct: 1   // page 185-186
+    },
+    {
+      text: "The chapter compares Srinivas with his contemporary Kathakar Ashok (Ashok Kumar Jha). What is the main contrast drawn between their narrative styles?",
+      options: [
+        "Ashok writes more prolifically; Srinivas writes fewer stories",
+        "Ashok’s stories have polished ‘punchline endings’ (panchlain-ending); Srinivas maintains a more detached observer‑narrator, often with quieter resolutions",
+        "Srinivas writes only in Hindi; Ashok only in Maithili",
+        "There is no difference"
+      ],
+      correct: 1   // page 193 – Ashok’s "panchlain‑ending" vs Srinivas’s "Sanjay distance"
+    },
+    {
+      text: "Which story by Srinivas, discussed in the chapter, portrays a mother’s nuanced psychology as her son climbs officialdom while her daughter‑in‑law treats her with contempt?",
+      options: [
+        "Guna Katha",
+        "Gamak Lok (title story)",
+        "Adahan",
+        "Baant Bakhara"
+      ],
+      correct: 1   // page 186 – "Gamak Lok portrays a mother's nuanced psychology"
+    },
+    {
+      text: "According to the chapter, Srinivas’s short story ‘Fatka’ (The Untouchable’s Rebuke) challenges social diminishment. What is the protagonist’s declaratory statement?",
+      options: [
+        "‘I live my own life; wherever your esteem is not preserved, understand that the difference between you and me is precisely there.’",
+        "‘Caste is a lie.’",
+        "‘I will burn your fields.’",
+        "‘The law will protect me.’"
+      ],
+      correct: 0   // page 187 – cited by Dr. Abha Jha
+    },
+    {
+      text: "Videha Issue 424 (August 2025) was a special issue dedicated to Shivshankar Srinivas, containing nineteen critical essays. What does the editor Gajendra Thakur identify as a structural weakness in Srinivas’s characterisation?",
+      options: [
+        "Excessive psychological complexity",
+        "Characters are one‑dimensional – good characters straightforwardly good, bad characters straightforwardly bad",
+        "Too many characters",
+        "Lack of dialogue"
+      ],
+      correct: 1   // page 188, 195 – "character one‑dimensionality"
+    }
+  ];
+
+  let userSelections = new Array(questions.length).fill(null);
+  let quizActive = true;
+
+  function renderQuiz() {
+    const container = document.getElementById('quizContainer');
+    if (!container) return;
+    let html = '';
+    for (let i = 0; i < questions.length; i++) {
+      const q = questions[i];
+      const selected = userSelections[i];
+      html += `
+        <div class="question-card" data-qidx="${i}">
+          <div class="question-text">${i+1}. ${q.text}</div>
+          <ul class="options">
+      `;
+      for (let optIdx = 0; optIdx < q.options.length; optIdx++) {
+        const isChecked = (selected === optIdx);
+        html += `
+          <li>
+            <input type="radio" name="q${i}" value="${optIdx}" id="q${i}_opt${optIdx}" ${isChecked ? 'checked' : ''} ${!quizActive ? 'disabled' : ''}>
+            <label for="q${i}_opt${optIdx}">${q.options[optIdx]}</label>
+          </li>
+        `;
+      }
+      html += `</ul>`;
+      if (!quizActive) {
+        const isCorrect = (selected === q.correct);
+        const correctAnswer = q.options[q.correct];
+        if (selected === null) {
+          html += `<div class="feedback incorrect">❓ Not answered. Correct: ${correctAnswer}</div>`;
+        } else if (isCorrect) {
+          html += `<div class="feedback correct">✓ Correct! ${correctAnswer}</div>`;
+        } else {
+          html += `<div class="feedback incorrect">✗ Incorrect. Correct answer: ${correctAnswer}</div>`;
+        }
+      }
+      html += `</div>`;
+    }
+    container.innerHTML = html;
+
+    if (quizActive) {
+      for (let i = 0; i < questions.length; i++) {
+        const radios = document.querySelectorAll(`input[name="q${i}"]`);
+        radios.forEach(radio => {
+          radio.removeEventListener('change', handleRadioChange);
+          radio.addEventListener('change', handleRadioChange);
+        });
+      }
+    }
+  }
+
+  function handleRadioChange(e) {
+    if (!quizActive) return;
+    const radio = e.target;
+    const name = radio.getAttribute('name');
+    const qIndex = parseInt(name.substring(1), 10);
+    const selectedVal = parseInt(radio.value, 10);
+    if (!isNaN(qIndex)) userSelections[qIndex] = selectedVal;
+  }
+
+  function computeScore() {
+    let correctCount = 0;
+    for (let i = 0; i < questions.length; i++) {
+      if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correctCount++;
+    }
+    return correctCount;
+  }
+
+  function updateScoreMessage() {
+    const msgSpan = document.getElementById('scoreMessage');
+    if (!msgSpan) return;
+    if (!quizActive) {
+      const total = questions.length;
+      const correct = computeScore();
+      const percent = Math.round((correct / total) * 100);
+      let msg = `🏆 Your score: ${correct} / ${total} (${percent}%) – `;
+      if (correct === total) msg += "Flawless! You have mastered the critical appreciation of Shivshankar Srinivas.";
+      else if (correct >= total-2) msg += "Excellent – you understand his major works, narrative style, and theoretical frameworks.";
+      else if (correct >= total/2) msg += "Good attempt. Review the stories ‘Sinurhar’, ‘Gamak Lok’, and the observer‑narrator mode.";
+      else msg += "Re‑read Chapter 85. Focus on his collections, the Navya-Nyāya analysis, and the Videha 424 special issue.";
+      msgSpan.innerHTML = msg;
+    } else {
+      msgSpan.innerHTML = "📖 Twelve questions on Shivshankar Srinivas: rural chronicler, critic, and subject of Videha 424. Submit your answers.";
+    }
+  }
+
+  function submitQuiz() {
+    if (!quizActive) return;
+    quizActive = false;
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = true;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  function resetQuiz() {
+    quizActive = true;
+    userSelections.fill(null);
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = false;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  renderQuiz();
+  updateScoreMessage();
+  document.getElementById('submitQuizBtn').addEventListener('click', submitQuiz);
+  document.getElementById('resetQuizBtn').addEventListener('click', resetQuiz);
+</script>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>

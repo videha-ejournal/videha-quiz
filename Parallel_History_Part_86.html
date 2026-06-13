@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Quiz: Nit Naval Subhash Chandra Yadav | Videha Parallel History (Ch. 86)</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f4efe7;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      padding: 2rem 1rem;
+      color: #2c2822;
+    }
+    .quiz-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fffdf9;
+      border-radius: 32px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e5dbce;
+      overflow: hidden;
+    }
+    .quiz-header {
+      background: #5a3e2b;
+      color: #fef5e3;
+      padding: 1.6rem 2rem;
+      text-align: center;
+    }
+    .quiz-header h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.4rem;
+    }
+    .quiz-header p {
+      font-size: 0.95rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    .quiz-body {
+      padding: 2rem 2rem 1.2rem;
+    }
+    .question-card {
+      background: #ffffff;
+      border-radius: 24px;
+      margin-bottom: 1.8rem;
+      padding: 1.5rem;
+      border: 1px solid #ece1d2;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .question-text {
+      font-size: 1.22rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #5a3e2b;
+      border-left: 5px solid #c2825c;
+      padding-left: 1rem;
+    }
+    .options {
+      list-style: none;
+      margin-top: 0.2rem;
+    }
+    .options li {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+    .options input[type="radio"] {
+      accent-color: #c2825c;
+      width: 1.1rem;
+      height: 1.1rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+    .options label {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #3f3a33;
+      font-weight: 500;
+    }
+    .feedback {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 40px;
+      display: inline-block;
+    }
+    .feedback.correct {
+      background: #e1f0e0;
+      color: #236b43;
+      border-left: 3px solid #236b43;
+    }
+    .feedback.incorrect {
+      background: #ffe3db;
+      color: #bc4c2c;
+      border-left: 3px solid #bc4c2c;
+    }
+    .btn-group {
+      text-align: center;
+      padding: 0.5rem 0 2rem;
+    }
+    .btn-submit, .btn-reset {
+      background: #5a3e2b;
+      border: none;
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.7rem 1.8rem;
+      border-radius: 48px;
+      cursor: pointer;
+      font-family: inherit;
+      margin: 0 0.6rem;
+      transition: background 0.2s;
+    }
+    .btn-reset {
+      background: #9d7c5c;
+    }
+    .btn-submit:hover {
+      background: #422a1f;
+    }
+    .btn-reset:hover {
+      background: #7f6246;
+    }
+    .score-panel {
+      text-align: center;
+      background: #fbf3e8;
+      margin: 0 2rem 2rem 2rem;
+      border-radius: 60px;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.7rem;
+      border-top: 1px solid #e6daca;
+      color: #6f5c48;
+      background: #fefcf7;
+    }
+    @media (max-width: 650px) {
+      .quiz-body { padding: 1.2rem; }
+      .question-text { font-size: 1rem; }
+    }
+  
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<div class="quiz-wrapper">
+  <div class="quiz-header">
+    <h1>📖 Nit Naval Subhash Chandra Yadav</h1>
+    <p>Writer’s Block · The Parallel Stream of Maithili Literature</p>
+    <p>Chapter 86 – Videha Parallel History (Tome IV)</p>
+  </div>
+  <div class="quiz-body" id="quizContainer"></div>
+  <div class="btn-group">
+    <button class="btn-submit" id="submitQuizBtn">✓ Submit answers</button>
+    <button class="btn-reset" id="resetQuizBtn">⟳ Reset quiz</button>
+  </div>
+  <div class="score-panel" id="scorePanel">
+    <span id="scoreMessage">📚 Twelve questions on Subhash Chandra Yadav: works, language, folk tales, and theoretical frameworks.</span>
+  </div>
+  
+</div>
+
+<script>
+  // ---------------------------------------------------------------
+  // QUESTIONS BASED ON CHAPTER 86 – NIT NAVAL SUBHASH CHANDRA YADAV (Pages 201–282)
+  // Topics: biography, Ghardekhiya (1983), Banait Bigadait, Gulo, Ramta Jogi, Madar, Bhot,
+  // Nit Naval Rajkamal (Rajkamal Chaudhary monograph), language controversy (Pachpania/Thethi),
+  // Julia Kristeva (intertextuality, longitudinal/vertical poles), Derrida (deconstruction, centre),
+  // folk tales ("Ekta Burhiya Rahay", "Ekta Chinama Khelai Rao Bhaiya"), gaslighting and story science.
+  // ---------------------------------------------------------------
+  const questions = [
+    {
+      text: "Subhash Chandra Yadav was born on 5 March 1948. Where is his maternal place (birthplace) located?",
+      options: [
+        "Balba-Menahi, Supaul",
+        "Diwangunj, Supaul",
+        "Janakpurdham, Nepal",
+        "Darbhanga, Bihar"
+      ],
+      correct: 1   // page 202: "born 05 March 1948, maternal place Diwangunj, Supaul"
+    },
+    {
+      text: "Yadav’s first published work of original Maithili writing was ‘Ghardekhiya’ (1983). After a long silence, his second phase began with which work, first e‑published in Videha (2008‑09) and then in book form?",
+      options: [
+        "Gulo",
+        "Banait Bigadait",
+        "Ramta Jogi",
+        "Madar"
+      ],
+      correct: 1   // page 203: "after 25 years, 'Banait Bigadait' was e-published in Videha in 2008-09"
+    },
+    {
+      text: "The chapter describes the psychological concept of ‘gaslighting’ as a tool used by the mainstream to demoralise writers like Yadav. What is the goal of gaslighting according to the text?",
+      options: [
+        "To increase the writer’s confidence",
+        "To make the straightforward person believe that their opposition is not real, and that they are opposing just to hide their own shortcomings",
+        "To encourage literary innovation",
+        "To promote translation"
+      ],
+      correct: 1   // page 204: "the straightforward person is made to believe that what you are opposing is not opposition... to hide your own shortcomings"
+    },
+    {
+      text: "Yadav’s novel ‘Gulo’ (2015) features a protagonist named Gulo Mandal. Who is the most active and central female character who begins and ends the novel?",
+      options: [
+        "Belawali (Gulo’s wife)",
+        "Riniya (Gulo’s youngest daughter)",
+        "Kandahawali (daughter‑in‑law)",
+        "Runiya (eldest daughter)"
+      ],
+      correct: 1   // page 246, 252-253 – novel begins with Riniya plastering the courtyard, ends with Riniya crying for her father
+    },
+    {
+      text: "In the novel ‘Madar’ (2021), the protagonist Madan murders his wife Radha out of suspicion. What does the writer use to try to prevent the murder?",
+      options: [
+        "A legal notice",
+        "The voice of Shanichari (daughter) saying ‘Don’t kill Mother, Papa’",
+        "Police intervention",
+        "A village panchayat"
+      ],
+      correct: 1   // page 268: "Shanichari forward – 'Don't kill Mother, Papa.'"
+    },
+    {
+      text: "Yadav’s novel ‘Bhot’ (2022) is set during an assembly election. Which candidate of the Grand Alliance (RJD, JDU, Congress) is the protagonist’s nephew?",
+      options: [
+        "Vijender Yadav",
+        "Yaduvansh Kumar Yadav",
+        "Vishwamohan",
+        "Satyanarayan Gupta"
+      ],
+      correct: 1   // page 262: "Yaduvansh Kumar Yadav is a candidate from the Pipra Legislative Assembly"
+    },
+    {
+      text: "In the travelogue ‘Ramta Jogi’ (2019), Yadav writes about his visit to Australia. He notes that homosexuality is legal there. Which Western critical concept is used to analyse this observation in the context of Maithili literature?",
+      options: [
+        "Hegel’s dialectics",
+        "Julia Kristeva’s semiotic and symbolic",
+        "Derrida’s deconstruction of centre",
+        "Freud’s psychoanalysis"
+      ],
+      correct: 2   // pages 257, 268-269 – Derrida's deconstruction; also earlier Kristeva, but the text explicitly uses Derrida for deconstruction of fixed meanings.
+    },
+    {
+      text: "Yadav analyses two Maithili folk tales – ‘Ekta Burhiya Rahay’ and ‘Ekta Chinama Khelai Rao Bhaiya’. What common theme do both tales discourse on, according to his analysis?",
+      options: [
+        "Romantic love",
+        "Justice – the old woman fighting for a lentil piece, and Muniya (sparrow) about to be executed for eating one chinam",
+        "The origin of the world",
+        "The importance of wealth"
+      ],
+      correct: 1   // pages 206-207 – "The discourse of both tales is centered on justice"
+    },
+    {
+      text: "The chapter invokes Julia Kristeva’s concept of ‘intertextuality’ and her two poles: the longitudinal (writer‑reader dialogue) and the vertical. What does the vertical pole represent?",
+      options: [
+        "Dialogue between writer and reader",
+        "Dialogue between the text and its context, and between one writer’s text and another writer’s text",
+        "The rhythm of language",
+        "The grammatical structure"
+      ],
+      correct: 1   // page 215 – "vertical relation pole, the 'text' dialogues with mainstream literature as well as with an event that occurred in a short period."
+    },
+    {
+      text: "Yadav’s style has been called ‘the Sage’s style’. His story ‘Kathak Banal Lok’ (The Man Who Became a Log) from ‘Ghardekhiya’ is about a mother Rami and her son Badariya. Why does the son become ‘like a log’?",
+      options: [
+        "He is physically paralysed",
+        "He suffers from extreme poverty and malnutrition, becoming blank and unresponsive",
+        "He is a political prisoner",
+        "He is a fictional log‑shaped creature"
+      ],
+      correct: 1   // page 223 – "Rami has to go to the Block ... her son Badariya has become like a log ... his eyes are sunken, all the bones of his chest are visible"
+    },
+    {
+      text: "Yadav’s monograph on Rajkamal Chaudhary was rejected by the Sahitya Akademi in January 1997. Later it was published as ‘Nit Naval Rajkamal’. Who was awarded the 1996 Maithili Sahitya Akademi Award in 1997, which the chapter links to this rejection?",
+      options: [
+        "Mohan Bhardwaj",
+        "Rajmohan Jha",
+        "Ramanath Jha",
+        "Gajendra Thakur"
+      ],
+      correct: 1   // page 230 – "for this act, Rajmohan Jha was awarded the 1996 Maithili Sahitya Akademi Award in 1997"
+    },
+    {
+      text: "In the preface to the Hindi translation of ‘Gulo’, translator Raman Kumar Singh translates ‘Tila Sakaranti’ as ‘Makar Sankranti’. The chapter criticises this as a loss of specificity. What does ‘Tila Sakaranti’ refer to in the Maithili context?",
+      options: [
+        "A different festival altogether",
+        "The specific Maithili name for Makar Sankranti, using ‘tila’ (sesame), which is culturally significant",
+        "A solar eclipse",
+        "A harvest festival of Assam"
+      ],
+      correct: 1   // page 238-239: criticism that the translator erased the Maithili specificity; Til Sakaranti is the Maithili term.
+    }
+  ];
+
+  let userSelections = new Array(questions.length).fill(null);
+  let quizActive = true;
+
+  function renderQuiz() {
+    const container = document.getElementById('quizContainer');
+    if (!container) return;
+    let html = '';
+    for (let i = 0; i < questions.length; i++) {
+      const q = questions[i];
+      const selected = userSelections[i];
+      html += `
+        <div class="question-card" data-qidx="${i}">
+          <div class="question-text">${i+1}. ${q.text}</div>
+          <ul class="options">
+      `;
+      for (let optIdx = 0; optIdx < q.options.length; optIdx++) {
+        const isChecked = (selected === optIdx);
+        html += `
+          <li>
+            <input type="radio" name="q${i}" value="${optIdx}" id="q${i}_opt${optIdx}" ${isChecked ? 'checked' : ''} ${!quizActive ? 'disabled' : ''}>
+            <label for="q${i}_opt${optIdx}">${q.options[optIdx]}</label>
+          </li>
+        `;
+      }
+      html += `</ul>`;
+      if (!quizActive) {
+        const isCorrect = (selected === q.correct);
+        const correctAnswer = q.options[q.correct];
+        if (selected === null) {
+          html += `<div class="feedback incorrect">❓ Not answered. Correct: ${correctAnswer}</div>`;
+        } else if (isCorrect) {
+          html += `<div class="feedback correct">✓ Correct! ${correctAnswer}</div>`;
+        } else {
+          html += `<div class="feedback incorrect">✗ Incorrect. Correct answer: ${correctAnswer}</div>`;
+        }
+      }
+      html += `</div>`;
+    }
+    container.innerHTML = html;
+
+    if (quizActive) {
+      for (let i = 0; i < questions.length; i++) {
+        const radios = document.querySelectorAll(`input[name="q${i}"]`);
+        radios.forEach(radio => {
+          radio.removeEventListener('change', handleRadioChange);
+          radio.addEventListener('change', handleRadioChange);
+        });
+      }
+    }
+  }
+
+  function handleRadioChange(e) {
+    if (!quizActive) return;
+    const radio = e.target;
+    const name = radio.getAttribute('name');
+    const qIndex = parseInt(name.substring(1), 10);
+    const selectedVal = parseInt(radio.value, 10);
+    if (!isNaN(qIndex)) userSelections[qIndex] = selectedVal;
+  }
+
+  function computeScore() {
+    let correctCount = 0;
+    for (let i = 0; i < questions.length; i++) {
+      if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correctCount++;
+    }
+    return correctCount;
+  }
+
+  function updateScoreMessage() {
+    const msgSpan = document.getElementById('scoreMessage');
+    if (!msgSpan) return;
+    if (!quizActive) {
+      const total = questions.length;
+      const correct = computeScore();
+      const percent = Math.round((correct / total) * 100);
+      let msg = `🏆 Your score: ${correct} / ${total} (${percent}%) – `;
+      if (correct === total) msg += "Flawless! You have mastered Subhash Chandra Yadav’s literary world and critical concepts.";
+      else if (correct >= total-2) msg += "Excellent – you understand his major novels, language politics, and theoretical frameworks.";
+      else if (correct >= total/2) msg += "Good attempt. Review the works ‘Gulo’, ‘Madar’, ‘Bhot’, and the sections on Kristeva and Derrida.";
+      else msg += "Re‑read Chapter 86. Focus on the author’s biography, the dialect controversy, and the analysis of folk tales.";
+      msgSpan.innerHTML = msg;
+    } else {
+      msgSpan.innerHTML = "📖 Twelve questions on Subhash Chandra Yadav: Ghardekhiya, Gulo, Madar, Bhot, story science, and deconstruction. Submit your answers.";
+    }
+  }
+
+  function submitQuiz() {
+    if (!quizActive) return;
+    quizActive = false;
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = true;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  function resetQuiz() {
+    quizActive = true;
+    userSelections.fill(null);
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = false;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  renderQuiz();
+  updateScoreMessage();
+  document.getElementById('submitQuizBtn').addEventListener('click', submitQuiz);
+  document.getElementById('resetQuizBtn').addEventListener('click', resetQuiz);
+</script>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>

@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Quiz: Umesh Paswan – Dalit Voice of Mithila | Videha Parallel History (Ch. 91)</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f3efe8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      padding: 2rem 1rem;
+      color: #2c2822;
+    }
+    .quiz-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fffef9;
+      border-radius: 32px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2d8cb;
+      overflow: hidden;
+    }
+    .quiz-header {
+      background: #4d3b2c;
+      background: linear-gradient(135deg, #3e2e22 0%, #6b5442 100%);
+      color: #fef5e3;
+      padding: 1.8rem 2rem;
+      text-align: center;
+    }
+    .quiz-header h1 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.4rem;
+    }
+    .quiz-header p {
+      font-size: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    .quiz-body {
+      padding: 2rem 2rem 1.2rem;
+    }
+    .question-card {
+      background: #ffffff;
+      border-radius: 24px;
+      margin-bottom: 1.8rem;
+      padding: 1.5rem;
+      border: 1px solid #ece1d2;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .question-text {
+      font-size: 1.22rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #4d3b2c;
+      border-left: 5px solid #c2825c;
+      padding-left: 1rem;
+    }
+    .options {
+      list-style: none;
+      margin-top: 0.2rem;
+    }
+    .options li {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+    .options input[type="radio"] {
+      accent-color: #c2825c;
+      width: 1.1rem;
+      height: 1.1rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+    .options label {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #3f3a33;
+      font-weight: 500;
+    }
+    .feedback {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 40px;
+      display: inline-block;
+    }
+    .feedback.correct {
+      background: #e1f0e0;
+      color: #236b43;
+      border-left: 3px solid #236b43;
+    }
+    .feedback.incorrect {
+      background: #ffe3db;
+      color: #bc4c2c;
+      border-left: 3px solid #bc4c2c;
+    }
+    .btn-group {
+      text-align: center;
+      padding: 0.5rem 0 2rem;
+    }
+    .btn-submit, .btn-reset {
+      background: #4d3b2c;
+      border: none;
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.7rem 1.8rem;
+      border-radius: 48px;
+      cursor: pointer;
+      font-family: inherit;
+      margin: 0 0.6rem;
+      transition: background 0.2s;
+    }
+    .btn-reset {
+      background: #9d7c5c;
+    }
+    .btn-submit:hover {
+      background: #322318;
+    }
+    .btn-reset:hover {
+      background: #7f6246;
+    }
+    .score-panel {
+      text-align: center;
+      background: #fbf3e8;
+      margin: 0 2rem 2rem 2rem;
+      border-radius: 60px;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.7rem;
+      border-top: 1px solid #e6daca;
+      color: #6f5c48;
+      background: #fefcf7;
+    }
+    @media (max-width: 650px) {
+      .quiz-body { padding: 1.2rem; }
+      .question-text { font-size: 1rem; }
+    }
+  
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<div class="quiz-wrapper">
+  <div class="quiz-header">
+    <h1>📖 Umesh Paswan</h1>
+    <p>Poet · Short Story Writer · Dalit Voice of Mithila</p>
+    <p>Chapter 91 – Complete Critical Appreciation (Videha Parallel History, Tome IV)</p>
+  </div>
+  <div class="quiz-body" id="quizContainer"></div>
+  <div class="btn-group">
+    <button class="btn-submit" id="submitQuizBtn">✓ Submit answers</button>
+    <button class="btn-reset" id="resetQuizBtn">⟳ Reset quiz</button>
+  </div>
+  <div class="score-panel" id="scorePanel">
+    <span id="scoreMessage">📚 Twelve questions on Umesh Paswan’s poetry, short fiction, Dalit aesthetics, and critical frameworks.</span>
+  </div>
+  
+</div>
+
+<script>
+  // ---------------------------------------------------------------
+  // QUESTIONS BASED ON CHAPTER 91 – UMESH PASWAN (pages 400–418)
+  // Topics: Paswan/Dusadh community, poetry collection Virnit Ras (2012),
+  // short story collection Mujrim (2026), themes of caste, water rights, gender,
+  // feminist intersectionality, Dalit aesthetics (Limbale), Navya-Nyāya pramāṇas,
+  // comparisons with Dalit writers (Valmiki, Dhasal, Bama), protest poetry tradition.
+  // ---------------------------------------------------------------
+  const questions = [
+    {
+      text: "Umesh Paswan belongs to which Dalit community of Mithila, historically assigned the role of village watchman (chaukidar)?",
+      options: [
+        "Musahar",
+        "Paswan (Dusadh)",
+        "Dom",
+        "Chamar"
+      ],
+      correct: 1   // page 401 – Paswan/Dusadh community
+    },
+    {
+      text: "Paswan’s poetry collection ‘Virnit Ras’ (2012) has a title that combines ‘virnit’ (extracted/distilled) and ‘ras’ (aesthetic essence). What does the title signify?",
+      options: [
+        "Extracting the essential emotional truth from Dalit social experience and transforming it into literary rasa",
+        "A recipe book",
+        "A collection of love poems",
+        "A technical manual"
+      ],
+      correct: 0   // page 401-402 – "extracting the essential emotional truth from the raw material of Dalit social experience"
+    },
+    {
+      text: "In the poem ‘Kagaz’ (Paper) from ‘Virnit Ras’, the blank paper is governed by a ‘multi‑coloured pen’. What does this metaphor represent?",
+      options: [
+        "The beauty of nature",
+        "The Dalit subject who is defined and controlled by others’ authority (the pen of multi‑coloured authority)",
+        "A child’s drawing",
+        "The printing industry"
+      ],
+      correct: 1   // page 403 – "the blank paper ... figures the Dalit who is defined and controlled by others' authority"
+    },
+    {
+      text: "Paswan’s short story collection is titled ‘Mujrim’ (The Accused/Guilty). According to the chapter, what is the central critical gesture of this title?",
+      options: [
+        "It accepts the label of criminal",
+        "It inverts the label: the real mujrim is the social system, not the Dalit person it accuses",
+        "It rejects all legal systems",
+        "It is a detective story"
+      ],
+      correct: 1   // page 405-406 – "he places the label 'criminal' not on the Dalit characters ... but on the social system"
+    },
+    {
+      text: "In the story ‘Solkanama Pokhar’ (The Solkanama Pond), a village faces a water crisis. The only source of water is a pond in the Dalit neighbourhood, which upper‑caste villagers had refused to use. What event forces them to use the pond?",
+      options: [
+        "A drought",
+        "A fire breaks out in the village, and the fire engine needs water from the Solkanama pond",
+        "A government order",
+        "The Dalits block all other wells"
+      ],
+      correct: 1   // page 406-407 – "fire breaks out in the village, and the fire engine needs water from — the Solkanama pond"
+    },
+    {
+      text: "Which story in ‘Mujrim’ features a Sanskrit scholar and saint‑figure named Tetar Das who is denied the position of Mahant because he is Dalit, leading him to withdraw from institutional recognition?",
+      options: [
+        "Sunanda",
+        "Girhast Ghar Par Giddh",
+        "Tetar Das",
+        "Bhagwanpur"
+      ],
+      correct: 2   // page 407-408 – "Tetar Das"
+    },
+    {
+      text: "The story ‘Girhast Ghar Par Giddh’ (Vultures Over the Landlord’s House) depicts Dalit youths beaten for entering a temple. How does the Dalit community respond?",
+      options: [
+        "They file a police complaint",
+        "They refuse to perform their traditional caste‑assigned service of removing dead cattle, and vultures circle the landlord’s house",
+        "They migrate to the city",
+        "They convert to another religion"
+      ],
+      correct: 1   // page 407 – "they refuse to perform their traditional caste-assigned service of removing dead cattle"
+    },
+    {
+      text: "The chapter applies Sharankumar Limbale’s Dalit aesthetic theory to Paswan’s work. According to Limbale, what defines Dalit literature?",
+      options: [
+        "Formal experimentation",
+        "Authenticity of experience and community autobiography – the individual’s story is the community’s story",
+        "Sanskritised vocabulary",
+        "Urban settings"
+      ],
+      correct: 1   // page 410 – "authenticity of experience' rather than formal aesthetic criteria ... community autobiography"
+    },
+    {
+      text: "Which Western protest poet is compared to Paswan for the strategy of claiming cultural belonging for a marginalised community (e.g., ‘I, too, am America’)?",
+      options: [
+        "Pablo Neruda",
+        "Langston Hughes",
+        "Allen Ginsberg",
+        "Maya Angelou"
+      ],
+      correct: 1   // page 411 – "Langston Hughes's strategy of claiming American cultural belonging ... has a direct parallel in Paswan's poetry"
+    },
+    {
+      text: "The chapter uses Kimberlé Crenshaw’s concept of intersectionality to analyse Paswan’s work. Which story best exemplifies the triple oppression of caste, class, and gender?",
+      options: [
+        "Kodar Chhap (the illiterate Dalit woman Fekhani who is exploited as a proxy candidate)",
+        "Tetar Das",
+        "Baghotiya",
+        "Ramta Jogi"
+      ],
+      correct: 0   // page 408 – "Fekhani the illiterate labour wife" – gender, illiteracy, exploitation
+    },
+    {
+      text: "In the comparative matrix of Dalit writers, Paswan is compared to Omprakash Valmiki (Hindi), Namdeo Dhasal (Marathi), and Bama (Tamil). What is the key difference in form between Paswan and Valmiki?",
+      options: [
+        "Valmiki wrote only poetry; Paswan wrote only prose",
+        "Valmiki’s major work is autobiography (Joothan); Paswan’s major works are a poetry collection and a short story collection",
+        "Paswan writes only in English",
+        "There is no difference"
+      ],
+      correct: 1   // page 414 – "Valmiki's most important work is the autobiography ... Paswan's most important works are a poetry collection and a short story collection"
+    },
+    {
+      text: "According to the chapter, what does the ‘Videha Parallel History Framework’ identify as the most urgent gap in the Maithili Dalit literary tradition?",
+      options: [
+        "Lack of poetry",
+        "The absence of Maithili Dalit women’s writing as published literary production",
+        "Lack of translation",
+        "Too many writers"
+      ],
+      correct: 1   // page 415 – "The absence of Maithili Dalit women's writing as published literary production is the most urgent gap"
+    }
+  ];
+
+  let userSelections = new Array(questions.length).fill(null);
+  let quizActive = true;
+
+  function renderQuiz() {
+    const container = document.getElementById('quizContainer');
+    if (!container) return;
+    let html = '';
+    for (let i = 0; i < questions.length; i++) {
+      const q = questions[i];
+      const selected = userSelections[i];
+      html += `
+        <div class="question-card" data-qidx="${i}">
+          <div class="question-text">${i+1}. ${q.text}</div>
+          <ul class="options">
+      `;
+      for (let optIdx = 0; optIdx < q.options.length; optIdx++) {
+        const isChecked = (selected === optIdx);
+        html += `
+          <li>
+            <input type="radio" name="q${i}" value="${optIdx}" id="q${i}_opt${optIdx}" ${isChecked ? 'checked' : ''} ${!quizActive ? 'disabled' : ''}>
+            <label for="q${i}_opt${optIdx}">${q.options[optIdx]}</label>
+          </li>
+        `;
+      }
+      html += `</ul>`;
+      if (!quizActive) {
+        const isCorrect = (selected === q.correct);
+        const correctAnswer = q.options[q.correct];
+        if (selected === null) {
+          html += `<div class="feedback incorrect">❓ Not answered. Correct: ${correctAnswer}</div>`;
+        } else if (isCorrect) {
+          html += `<div class="feedback correct">✓ Correct! ${correctAnswer}</div>`;
+        } else {
+          html += `<div class="feedback incorrect">✗ Incorrect. Correct answer: ${correctAnswer}</div>`;
+        }
+      }
+      html += `</div>`;
+    }
+    container.innerHTML = html;
+
+    if (quizActive) {
+      for (let i = 0; i < questions.length; i++) {
+        const radios = document.querySelectorAll(`input[name="q${i}"]`);
+        radios.forEach(radio => {
+          radio.removeEventListener('change', handleRadioChange);
+          radio.addEventListener('change', handleRadioChange);
+        });
+      }
+    }
+  }
+
+  function handleRadioChange(e) {
+    if (!quizActive) return;
+    const radio = e.target;
+    const name = radio.getAttribute('name');
+    const qIndex = parseInt(name.substring(1), 10);
+    const selectedVal = parseInt(radio.value, 10);
+    if (!isNaN(qIndex)) userSelections[qIndex] = selectedVal;
+  }
+
+  function computeScore() {
+    let correctCount = 0;
+    for (let i = 0; i < questions.length; i++) {
+      if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correctCount++;
+    }
+    return correctCount;
+  }
+
+  function updateScoreMessage() {
+    const msgSpan = document.getElementById('scoreMessage');
+    if (!msgSpan) return;
+    if (!quizActive) {
+      const total = questions.length;
+      const correct = computeScore();
+      const percent = Math.round((correct / total) * 100);
+      let msg = `🏆 Your score: ${correct} / ${total} (${percent}%) – `;
+      if (correct === total) msg += "Flawless! You have mastered Umesh Paswan’s Dalit literary voice.";
+      else if (correct >= total-2) msg += "Excellent – you understand his poetry, fiction, and the frameworks of Dalit aesthetics.";
+      else if (correct >= total/2) msg += "Good attempt. Review the stories ‘Solkanama Pokhar’, ‘Tetar Das’, and the title ‘Mujrim’.";
+      else msg += "Re‑read Chapter 91. Focus on the Paswan community, Virnit Ras poems, and the comparative Dalit literature section.";
+      msgSpan.innerHTML = msg;
+    } else {
+      msgSpan.innerHTML = "📚 Twelve questions on Umesh Paswan: poet, short story writer, and Dalit voice of Mithila. Submit your answers.";
+    }
+  }
+
+  function submitQuiz() {
+    if (!quizActive) return;
+    quizActive = false;
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = true;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  function resetQuiz() {
+    quizActive = true;
+    userSelections.fill(null);
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) submitBtn.disabled = false;
+    renderQuiz();
+    updateScoreMessage();
+  }
+
+  renderQuiz();
+  updateScoreMessage();
+  document.getElementById('submitQuizBtn').addEventListener('click', submitQuiz);
+  document.getElementById('resetQuizBtn').addEventListener('click', resetQuiz);
+</script>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>
