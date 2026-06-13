@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quiz 289 — Maithili → English Mega-Review — Set 38</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f5f0e8;color:#1a2744;margin:0;padding:0}
+h2{background:#1a2744;color:#c8973a;padding:14px 20px;margin:0;font-size:1.2em;border-bottom:4px solid #c8973a}
+h3{background:#eef2ff;color:#1a2744;padding:8px 20px;margin:0;font-size:1em;border-bottom:1px solid #c0cada}
+.meta{padding:6px 20px 4px;font-size:.82em;color:#5a6a8a;background:#f9f6f0;border-bottom:1px solid #ddd}
+table{width:100%;border-collapse:collapse;margin:0}
+tr{background:#d4c9b0}tr:hover{background:#fff8cc}
+td{padding:8px 10px;vertical-align:top;border-bottom:1px solid #bba}
+td.qnum{width:36px;font-weight:700;color:#9b1c2e;text-align:right;padding-right:8px;font-size:.95em}
+td.qword{font-size:1.08em;font-weight:700;min-width:140px}
+td.qword.dev{font-family:"Noto Serif Devanagari",Arial,sans-serif}
+td.pos{font-size:.78em;color:#7a8aaa;font-style:italic;width:60px}
+td.choices{padding:4px 6px}
+.choice-row{display:flex;align-items:center;gap:6px;padding:2px 0;font-size:.95em}
+.choice-row.dev{font-family:"Noto Serif Devanagari",Arial,sans-serif}
+input[type=radio]{cursor:pointer}
+.correct{color:green;background:#efffef}
+.wrong{color:red;background:#fff2f2}
+.correct2{color:green;background:#f2fff2}
+#evaluate_quiz_qn{display:block;margin:14px auto;padding:10px 30px;font-size:1.1em;font-weight:700;cursor:pointer;background:#1a2744;color:#c8973a;border:2px solid #c8973a;border-radius:30px;transition:.2s}
+#evaluate_quiz_qn:hover{background:#9b1c2e;border-color:#fff;border-radius:10px;box-shadow:0 0 10px #555}
+#t_header_0{color:#22f;background:#eef;padding:10px 20px;font-size:1.1em;font-weight:700;text-align:center;display:none}
+.footer{text-align:center;padding:10px;font-size:.8em;color:#7a8aaa;border-top:1px solid #ccc;margin-top:10px}
+.type-badge{display:inline-block;background:#1a2744;color:#c8973a;font-size:.68em;padding:1px 5px;border-radius:8px;margin-left:5px;font-weight:normal;vertical-align:middle}
+
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet"><script type="text/javascript">var is_ie=0;</script>
+<!--[if IE]><script type="text/javascript">is_ie=1;</script><![endif]-->
+<script type="text/javascript">
+function evaluate_quiz_qn(qn,qs,d,g){
+  var i,r=0;
+  for(i=1;i<=qs;i++){
+    var rds=document.getElementsByName('t_qn_'+i+'_');
+    for(var j=0;j<rds.length;j++)rds[j].disabled=true;
+    for(var j=0;j<rds.length;j++){
+      var rb=rds[j],row=document.getElementById('row_'+i+'_'+j);
+      var base='choice-row'+(row.className.indexOf('dev')>=0?' dev':'');
+      if(rb.getAttribute('data-correct')==='1'&&rb.checked){r++;row.className=base+' correct';}
+      else if(rb.getAttribute('data-correct')==='1'){row.className=base+' correct2';}
+      else if(rb.checked){row.className=base+' wrong';}
+    }
+  }
+  var h=document.getElementById('t_header_0');h.style.display='block';
+  var p=Math.round(r/qs*100);
+  var g=p>=90?'उत्कृष्ट! Excellent!':p>=70?'बहुत नीक! Very Good!':p>=50?'ठीकठाक। Fair.':'अभ्यास जारी राखू। Keep Practicing.';
+  h.innerHTML='Score: '+r+' / '+qs+' ('+p+'%) &mdash; '+g;
+}
+</script>
+</head>
+<body>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+<h2>मैथिली–अंग्रेजी शब्दावली प्रश्नोत्तरी &nbsp;|&nbsp; Maithili–English Vocabulary Quiz</h2>
+<h3>Sheet 289/338 &mdash; Maithili → English Mega-Review — Set 38</h3>
+<div class="meta">प्रश्न प्रकार: <strong>मैथिली → English — Mega-Review</strong> &nbsp;|&nbsp; 28 questions &nbsp;|&nbsp; Pool: 3328 &nbsp;|&nbsp; Videha eJournal (videha.co.in)</div>
+<div id="t_header_0"></div>
+<table>
+<tr><td class="qnum">1.</td><td class="qword dev">(कानून में) उपरि-वृद्धि कऽ अधिकार<span class="type-badge">Tech M→E</span></td><td class="pos">(n.)</td><td class="choices"><div class="choice-row" id="row_1_0"><input type="radio" name="t_qn_1_" id="t_qn_1_0" data-correct="1"> <label for="t_qn_1_0">Accession</label></div><div class="choice-row" id="row_1_1"><input type="radio" name="t_qn_1_" id="t_qn_1_1" data-correct="0"> <label for="t_qn_1_1">Abjection</label></div><div class="choice-row" id="row_1_2"><input type="radio" name="t_qn_1_" id="t_qn_1_2" data-correct="0"> <label for="t_qn_1_2">Absentaneous</label></div><div class="choice-row" id="row_1_3"><input type="radio" name="t_qn_1_" id="t_qn_1_3" data-correct="0"> <label for="t_qn_1_3">Absolvable</label></div></td></tr>
+<tr><td class="qnum">2.</td><td class="qword dev">निर्गम<span class="type-badge">IT M→E</span></td><td class="pos">(n)</td><td class="choices"><div class="choice-row" id="row_2_0"><input type="radio" name="t_qn_2_" id="t_qn_2_0" data-correct="0"> <label for="t_qn_2_0">Create Search Folder from Search</label></div><div class="choice-row" id="row_2_1"><input type="radio" name="t_qn_2_" id="t_qn_2_1" data-correct="1"> <label for="t_qn_2_1">Exit</label></div><div class="choice-row" id="row_2_2"><input type="radio" name="t_qn_2_" id="t_qn_2_2" data-correct="0"> <label for="t_qn_2_2">Binary Number</label></div><div class="choice-row" id="row_2_3"><input type="radio" name="t_qn_2_" id="t_qn_2_3" data-correct="0"> <label for="t_qn_2_3">Cancel</label></div></td></tr>
+<tr><td class="qnum">3.</td><td class="qword dev">सुखद<span class="type-badge">MS→EH</span></td><td class="pos"></td><td class="choices"><div class="choice-row" id="row_3_0"><input type="radio" name="t_qn_3_" id="t_qn_3_0" data-correct="0"> <label for="t_qn_3_0">absurd</label></div><div class="choice-row" id="row_3_1"><input type="radio" name="t_qn_3_" id="t_qn_3_1" data-correct="0"> <label for="t_qn_3_1">ambition</label></div><div class="choice-row" id="row_3_2"><input type="radio" name="t_qn_3_" id="t_qn_3_2" data-correct="1"> <label for="t_qn_3_2">amiable</label></div><div class="choice-row" id="row_3_3"><input type="radio" name="t_qn_3_" id="t_qn_3_3" data-correct="0"> <label for="t_qn_3_3">absolute</label></div></td></tr>
+<tr><td class="qnum">4.</td><td class="qword dev">अनंत तक<span class="type-badge">M→E</span></td><td class="pos">(adv)</td><td class="choices"><div class="choice-row" id="row_4_0"><input type="radio" name="t_qn_4_" id="t_qn_4_0" data-correct="0"> <label for="t_qn_4_0">Abdomen</label></div><div class="choice-row" id="row_4_1"><input type="radio" name="t_qn_4_" id="t_qn_4_1" data-correct="1"> <label for="t_qn_4_1">Adinfinitum</label></div><div class="choice-row" id="row_4_2"><input type="radio" name="t_qn_4_" id="t_qn_4_2" data-correct="0"> <label for="t_qn_4_2">accreditation</label></div><div class="choice-row" id="row_4_3"><input type="radio" name="t_qn_4_" id="t_qn_4_3" data-correct="0"> <label for="t_qn_4_3">Accelerator</label></div></td></tr>
+<tr><td class="qnum">5.</td><td class="qword dev">प्रवण<span class="type-badge">MS→EH</span></td><td class="pos"></td><td class="choices"><div class="choice-row" id="row_5_0"><input type="radio" name="t_qn_5_" id="t_qn_5_0" data-correct="0"> <label for="t_qn_5_0">absolve</label></div><div class="choice-row" id="row_5_1"><input type="radio" name="t_qn_5_" id="t_qn_5_1" data-correct="0"> <label for="t_qn_5_1">abuse</label></div><div class="choice-row" id="row_5_2"><input type="radio" name="t_qn_5_" id="t_qn_5_2" data-correct="1"> <label for="t_qn_5_2">addicted</label></div><div class="choice-row" id="row_5_3"><input type="radio" name="t_qn_5_" id="t_qn_5_3" data-correct="0"> <label for="t_qn_5_3">amiable</label></div></td></tr>
+<tr><td class="qnum">6.</td><td class="qword dev">good-naturल<span class="type-badge">MS→EH</span></td><td class="pos"></td><td class="choices"><div class="choice-row" id="row_6_0"><input type="radio" name="t_qn_6_" id="t_qn_6_0" data-correct="0"> <label for="t_qn_6_0">agree</label></div><div class="choice-row" id="row_6_1"><input type="radio" name="t_qn_6_" id="t_qn_6_1" data-correct="1"> <label for="t_qn_6_1">amiable</label></div><div class="choice-row" id="row_6_2"><input type="radio" name="t_qn_6_" id="t_qn_6_2" data-correct="0"> <label for="t_qn_6_2">abolish</label></div><div class="choice-row" id="row_6_3"><input type="radio" name="t_qn_6_" id="t_qn_6_3" data-correct="0"> <label for="t_qn_6_3">adherent</label></div></td></tr>
+<tr><td class="qnum">7.</td><td class="qword dev">एकत्र करए बला<span class="type-badge">M→E</span></td><td class="pos">(n.)</td><td class="choices"><div class="choice-row" id="row_7_0"><input type="radio" name="t_qn_7_" id="t_qn_7_0" data-correct="0"> <label for="t_qn_7_0">Accord</label></div><div class="choice-row" id="row_7_1"><input type="radio" name="t_qn_7_" id="t_qn_7_1" data-correct="0"> <label for="t_qn_7_1">Affectation n</label></div><div class="choice-row" id="row_7_2"><input type="radio" name="t_qn_7_" id="t_qn_7_2" data-correct="0"> <label for="t_qn_7_2">Abandonment</label></div><div class="choice-row" id="row_7_3"><input type="radio" name="t_qn_7_" id="t_qn_7_3" data-correct="1"> <label for="t_qn_7_3">Accumulator</label></div></td></tr>
+<tr><td class="qnum">8.</td><td class="qword dev">कम्प्युटर<span class="type-badge">IT M→E</span></td><td class="pos">(n)</td><td class="choices"><div class="choice-row" id="row_8_0"><input type="radio" name="t_qn_8_" id="t_qn_8_0" data-correct="1"> <label for="t_qn_8_0">Computer</label></div><div class="choice-row" id="row_8_1"><input type="radio" name="t_qn_8_" id="t_qn_8_1" data-correct="0"> <label for="t_qn_8_1">Display</label></div><div class="choice-row" id="row_8_2"><input type="radio" name="t_qn_8_" id="t_qn_8_2" data-correct="0"> <label for="t_qn_8_2">Analog Device</label></div><div class="choice-row" id="row_8_3"><input type="radio" name="t_qn_8_" id="t_qn_8_3" data-correct="0"> <label for="t_qn_8_3">Computation</label></div></td></tr>
+<tr><td class="qnum">9.</td><td class="qword dev">विषयाविलेख<span class="type-badge">IT M→E</span></td><td class="pos">(n)</td><td class="choices"><div class="choice-row" id="row_9_0"><input type="radio" name="t_qn_9_" id="t_qn_9_0" data-correct="0"> <label for="t_qn_9_0">Data Glove</label></div><div class="choice-row" id="row_9_1"><input type="radio" name="t_qn_9_" id="t_qn_9_1" data-correct="0"> <label for="t_qn_9_1">Delete Contents</label></div><div class="choice-row" id="row_9_2"><input type="radio" name="t_qn_9_" id="t_qn_9_2" data-correct="0"> <label for="t_qn_9_2">Array</label></div><div class="choice-row" id="row_9_3"><input type="radio" name="t_qn_9_" id="t_qn_9_3" data-correct="1"> <label for="t_qn_9_3">Entity-Relationship-Diagram-ERP</label></div></td></tr>
+<tr><td class="qnum">10.</td><td class="qword dev">tartता<span class="type-badge">MS→EH</span></td><td class="pos"></td><td class="choices"><div class="choice-row" id="row_10_0"><input type="radio" name="t_qn_10_" id="t_qn_10_0" data-correct="1"> <label for="t_qn_10_0">acrimony</label></div><div class="choice-row" id="row_10_1"><input type="radio" name="t_qn_10_" id="t_qn_10_1" data-correct="0"> <label for="t_qn_10_1">amend</label></div><div class="choice-row" id="row_10_2"><input type="radio" name="t_qn_10_" id="t_qn_10_2" data-correct="0"> <label for="t_qn_10_2">abstracted</label></div><div class="choice-row" id="row_10_3"><input type="radio" name="t_qn_10_" id="t_qn_10_3" data-correct="0"> <label for="t_qn_10_3">abolish</label></div></td></tr>
+<tr><td class="qnum">11.</td><td class="qword dev">(चिरई सभक) अण्डा सेबैत काल कऽ अवस्था<span class="type-badge">Tech M→E</span></td><td class="pos">(adv.)</td><td class="choices"><div class="choice-row" id="row_11_0"><input type="radio" name="t_qn_11_" id="t_qn_11_0" data-correct="0"> <label for="t_qn_11_0">Abhorrent</label></div><div class="choice-row" id="row_11_1"><input type="radio" name="t_qn_11_" id="t_qn_11_1" data-correct="1"> <label for="t_qn_11_1">Abrood</label></div><div class="choice-row" id="row_11_2"><input type="radio" name="t_qn_11_" id="t_qn_11_2" data-correct="0"> <label for="t_qn_11_2">Accession</label></div><div class="choice-row" id="row_11_3"><input type="radio" name="t_qn_11_" id="t_qn_11_3" data-correct="0"> <label for="t_qn_11_3">Abomination</label></div></td></tr>
+<tr><td class="qnum">12.</td><td class="qword dev">संत्याग करब<span class="type-badge">M→E</span></td><td class="pos">(v.)</td><td class="choices"><div class="choice-row" id="row_12_0"><input type="radio" name="t_qn_12_" id="t_qn_12_0" data-correct="1"> <label for="t_qn_12_0">Abjure</label></div><div class="choice-row" id="row_12_1"><input type="radio" name="t_qn_12_" id="t_qn_12_1" data-correct="0"> <label for="t_qn_12_1">Abreast</label></div><div class="choice-row" id="row_12_2"><input type="radio" name="t_qn_12_" id="t_qn_12_2" data-correct="0"> <label for="t_qn_12_2">Acrid</label></div><div class="choice-row" id="row_12_3"><input type="radio" name="t_qn_12_" id="t_qn_12_3" data-correct="0"> <label for="t_qn_12_3">acidify</label></div></td></tr>
+<tr><td class="qnum">13.</td><td class="qword dev">निगलब<span class="type-badge">MS→EH</span></td><td class="pos"></td><td class="choices"><div class="choice-row" id="row_13_0"><input type="radio" name="t_qn_13_" id="t_qn_13_0" data-correct="1"> <label for="t_qn_13_0">absorb</label></div><div class="choice-row" id="row_13_1"><input type="radio" name="t_qn_13_" id="t_qn_13_1" data-correct="0"> <label for="t_qn_13_1">antipathy</label></div><div class="choice-row" id="row_13_2"><input type="radio" name="t_qn_13_" id="t_qn_13_2" data-correct="0"> <label for="t_qn_13_2">absurd</label></div><div class="choice-row" id="row_13_3"><input type="radio" name="t_qn_13_" id="t_qn_13_3" data-correct="0"> <label for="t_qn_13_3">address</label></div></td></tr>
+<tr><td class="qnum">14.</td><td class="qword dev">पेट (उदर) सँ संबंधित<span class="type-badge">Tech M→E</span></td><td class="pos">(a.)</td><td class="choices"><div class="choice-row" id="row_14_0"><input type="radio" name="t_qn_14_" id="t_qn_14_0" data-correct="0"> <label for="t_qn_14_0">Absconder</label></div><div class="choice-row" id="row_14_1"><input type="radio" name="t_qn_14_" id="t_qn_14_1" data-correct="0"> <label for="t_qn_14_1">Abaiser</label></div><div class="choice-row" id="row_14_2"><input type="radio" name="t_qn_14_" id="t_qn_14_2" data-correct="1"> <label for="t_qn_14_2">Abdominal</label></div><div class="choice-row" id="row_14_3"><input type="radio" name="t_qn_14_" id="t_qn_14_3" data-correct="0"> <label for="t_qn_14_3">Accend</label></div></td></tr>
+<tr><td class="qnum">15.</td><td class="qword dev">relatन<span class="type-badge">MS→EH</span></td><td class="pos"></td><td class="choices"><div class="choice-row" id="row_15_0"><input type="radio" name="t_qn_15_" id="t_qn_15_0" data-correct="0"> <label for="t_qn_15_0">alternative</label></div><div class="choice-row" id="row_15_1"><input type="radio" name="t_qn_15_" id="t_qn_15_1" data-correct="1"> <label for="t_qn_15_1">analogy</label></div><div class="choice-row" id="row_15_2"><input type="radio" name="t_qn_15_" id="t_qn_15_2" data-correct="0"> <label for="t_qn_15_2">agent</label></div><div class="choice-row" id="row_15_3"><input type="radio" name="t_qn_15_" id="t_qn_15_3" data-correct="0"> <label for="t_qn_15_3">absurd</label></div></td></tr>
+<tr><td class="qnum">16.</td><td class="qword dev">मीठा<span class="type-badge">MS→EH</span></td><td class="pos"></td><td class="choices"><div class="choice-row" id="row_16_0"><input type="radio" name="t_qn_16_" id="t_qn_16_0" data-correct="1"> <label for="t_qn_16_0">amiable</label></div><div class="choice-row" id="row_16_1"><input type="radio" name="t_qn_16_" id="t_qn_16_1" data-correct="0"> <label for="t_qn_16_1">abhor</label></div><div class="choice-row" id="row_16_2"><input type="radio" name="t_qn_16_" id="t_qn_16_2" data-correct="0"> <label for="t_qn_16_2">amass</label></div><div class="choice-row" id="row_16_3"><input type="radio" name="t_qn_16_" id="t_qn_16_3" data-correct="0"> <label for="t_qn_16_3">abstract</label></div></td></tr>
+<tr><td class="qnum">17.</td><td class="qword dev">पिधान-पेटिका<span class="type-badge">IT M→E</span></td><td class="pos">(n)</td><td class="choices"><div class="choice-row" id="row_17_0"><input type="radio" name="t_qn_17_" id="t_qn_17_0" data-correct="1"> <label for="t_qn_17_0">Close-Box</label></div><div class="choice-row" id="row_17_1"><input type="radio" name="t_qn_17_" id="t_qn_17_1" data-correct="0"> <label for="t_qn_17_1">Bad-Track</label></div><div class="choice-row" id="row_17_2"><input type="radio" name="t_qn_17_" id="t_qn_17_2" data-correct="0"> <label for="t_qn_17_2">Display</label></div><div class="choice-row" id="row_17_3"><input type="radio" name="t_qn_17_" id="t_qn_17_3" data-correct="0"> <label for="t_qn_17_3">CD Player</label></div></td></tr>
+<tr><td class="qnum">18.</td><td class="qword dev">घटी<span class="type-badge">IT M→E</span></td><td class="pos">(n)</td><td class="choices"><div class="choice-row" id="row_18_0"><input type="radio" name="t_qn_18_" id="t_qn_18_0" data-correct="1"> <label for="t_qn_18_0">Clock</label></div><div class="choice-row" id="row_18_1"><input type="radio" name="t_qn_18_" id="t_qn_18_1" data-correct="0"> <label for="t_qn_18_1">Delete Manual Break</label></div><div class="choice-row" id="row_18_2"><input type="radio" name="t_qn_18_" id="t_qn_18_2" data-correct="0"> <label for="t_qn_18_2">Connect to Server</label></div><div class="choice-row" id="row_18_3"><input type="radio" name="t_qn_18_" id="t_qn_18_3" data-correct="0"> <label for="t_qn_18_3">Command</label></div></td></tr>
+<tr><td class="qnum">19.</td><td class="qword dev">जब्त करब<span class="type-badge">MA→EH</span></td><td class="pos"></td><td class="choices"><div class="choice-row" id="row_19_0"><input type="radio" name="t_qn_19_" id="t_qn_19_0" data-correct="0"> <label for="t_qn_19_0">apology</label></div><div class="choice-row" id="row_19_1"><input type="radio" name="t_qn_19_" id="t_qn_19_1" data-correct="0"> <label for="t_qn_19_1">antipathy</label></div><div class="choice-row" id="row_19_2"><input type="radio" name="t_qn_19_" id="t_qn_19_2" data-correct="1"> <label for="t_qn_19_2">allot</label></div><div class="choice-row" id="row_19_3"><input type="radio" name="t_qn_19_" id="t_qn_19_3" data-correct="0"> <label for="t_qn_19_3">accessory</label></div></td></tr>
+<tr><td class="qnum">20.</td><td class="qword dev">संगणकद्वारा-प्रशिक्षण<span class="type-badge">IT M→E</span></td><td class="pos">(n)</td><td class="choices"><div class="choice-row" id="row_20_0"><input type="radio" name="t_qn_20_" id="t_qn_20_0" data-correct="0"> <label for="t_qn_20_0">Administration</label></div><div class="choice-row" id="row_20_1"><input type="radio" name="t_qn_20_" id="t_qn_20_1" data-correct="1"> <label for="t_qn_20_1">Computer-Based-Training-CBT</label></div><div class="choice-row" id="row_20_2"><input type="radio" name="t_qn_20_" id="t_qn_20_2" data-correct="0"> <label for="t_qn_20_2">Comment</label></div><div class="choice-row" id="row_20_3"><input type="radio" name="t_qn_20_" id="t_qn_20_3" data-correct="0"> <label for="t_qn_20_3">End-Of-File-EOF</label></div></td></tr>
+<tr><td class="qnum">21.</td><td class="qword dev">साहसी<span class="type-badge">M→E</span></td><td class="pos">(n.)</td><td class="choices"><div class="choice-row" id="row_21_0"><input type="radio" name="t_qn_21_" id="t_qn_21_0" data-correct="1"> <label for="t_qn_21_0">Adventurer</label></div><div class="choice-row" id="row_21_1"><input type="radio" name="t_qn_21_" id="t_qn_21_1" data-correct="0"> <label for="t_qn_21_1">Admirable</label></div><div class="choice-row" id="row_21_2"><input type="radio" name="t_qn_21_" id="t_qn_21_2" data-correct="0"> <label for="t_qn_21_2">Accomplishment</label></div><div class="choice-row" id="row_21_3"><input type="radio" name="t_qn_21_" id="t_qn_21_3" data-correct="0"> <label for="t_qn_21_3">Abracadabra</label></div></td></tr>
+<tr><td class="qnum">22.</td><td class="qword dev">सक्रियता<span class="type-badge">M→E</span></td><td class="pos">(n.)</td><td class="choices"><div class="choice-row" id="row_22_0"><input type="radio" name="t_qn_22_" id="t_qn_22_0" data-correct="0"> <label for="t_qn_22_0">acidity</label></div><div class="choice-row" id="row_22_1"><input type="radio" name="t_qn_22_" id="t_qn_22_1" data-correct="0"> <label for="t_qn_22_1">added to</label></div><div class="choice-row" id="row_22_2"><input type="radio" name="t_qn_22_" id="t_qn_22_2" data-correct="1"> <label for="t_qn_22_2">Activism</label></div><div class="choice-row" id="row_22_3"><input type="radio" name="t_qn_22_" id="t_qn_22_3" data-correct="0"> <label for="t_qn_22_3">Adieu</label></div></td></tr>
+<tr><td class="qnum">23.</td><td class="qword dev">पहुँचब<span class="type-badge">MS→EH</span></td><td class="pos"></td><td class="choices"><div class="choice-row" id="row_23_0"><input type="radio" name="t_qn_23_" id="t_qn_23_0" data-correct="0"> <label for="t_qn_23_0">apiece</label></div><div class="choice-row" id="row_23_1"><input type="radio" name="t_qn_23_" id="t_qn_23_1" data-correct="0"> <label for="t_qn_23_1">allot</label></div><div class="choice-row" id="row_23_2"><input type="radio" name="t_qn_23_" id="t_qn_23_2" data-correct="1"> <label for="t_qn_23_2">address</label></div><div class="choice-row" id="row_23_3"><input type="radio" name="t_qn_23_" id="t_qn_23_3" data-correct="0"> <label for="t_qn_23_3">announce</label></div></td></tr>
+<tr><td class="qnum">24.</td><td class="qword dev">अपशकुन या शकुन<span class="type-badge">Tech M→E</span></td><td class="pos">(n.)</td><td class="choices"><div class="choice-row" id="row_24_0"><input type="radio" name="t_qn_24_" id="t_qn_24_0" data-correct="0"> <label for="t_qn_24_0">Acarid</label></div><div class="choice-row" id="row_24_1"><input type="radio" name="t_qn_24_" id="t_qn_24_1" data-correct="0"> <label for="t_qn_24_1">Accelerate</label></div><div class="choice-row" id="row_24_2"><input type="radio" name="t_qn_24_" id="t_qn_24_2" data-correct="1"> <label for="t_qn_24_2">Abodance</label></div><div class="choice-row" id="row_24_3"><input type="radio" name="t_qn_24_" id="t_qn_24_3" data-correct="0"> <label for="t_qn_24_3">Aby</label></div></td></tr>
+<tr><td class="qnum">25.</td><td class="qword dev">कटाइ<span class="type-badge">M→E</span></td><td class="pos">(noun)</td><td class="choices"><div class="choice-row" id="row_25_0"><input type="radio" name="t_qn_25_" id="t_qn_25_0" data-correct="1"> <label for="t_qn_25_0">ablation</label></div><div class="choice-row" id="row_25_1"><input type="radio" name="t_qn_25_" id="t_qn_25_1" data-correct="0"> <label for="t_qn_25_1">acoustics</label></div><div class="choice-row" id="row_25_2"><input type="radio" name="t_qn_25_" id="t_qn_25_2" data-correct="0"> <label for="t_qn_25_2">Adjudge</label></div><div class="choice-row" id="row_25_3"><input type="radio" name="t_qn_25_" id="t_qn_25_3" data-correct="0"> <label for="t_qn_25_3">adulthood</label></div></td></tr>
+<tr><td class="qnum">26.</td><td class="qword dev">अङ्कीय-दृश्य- वृत्तक<span class="type-badge">IT M→E</span></td><td class="pos">(n)</td><td class="choices"><div class="choice-row" id="row_26_0"><input type="radio" name="t_qn_26_" id="t_qn_26_0" data-correct="0"> <label for="t_qn_26_0">Animation</label></div><div class="choice-row" id="row_26_1"><input type="radio" name="t_qn_26_" id="t_qn_26_1" data-correct="0"> <label for="t_qn_26_1">Back</label></div><div class="choice-row" id="row_26_2"><input type="radio" name="t_qn_26_" id="t_qn_26_2" data-correct="1"> <label for="t_qn_26_2">DVD</label></div><div class="choice-row" id="row_26_3"><input type="radio" name="t_qn_26_" id="t_qn_26_3" data-correct="0"> <label for="t_qn_26_3">Cancel Button</label></div></td></tr>
+<tr><td class="qnum">27.</td><td class="qword dev">जोड़<span class="type-badge">M→E</span></td><td class="pos">(n.)</td><td class="choices"><div class="choice-row" id="row_27_0"><input type="radio" name="t_qn_27_" id="t_qn_27_0" data-correct="1"> <label for="t_qn_27_0">Addendum</label></div><div class="choice-row" id="row_27_1"><input type="radio" name="t_qn_27_" id="t_qn_27_1" data-correct="0"> <label for="t_qn_27_1">Acclamation</label></div><div class="choice-row" id="row_27_2"><input type="radio" name="t_qn_27_" id="t_qn_27_2" data-correct="0"> <label for="t_qn_27_2">Absenteeism</label></div><div class="choice-row" id="row_27_3"><input type="radio" name="t_qn_27_" id="t_qn_27_3" data-correct="0"> <label for="t_qn_27_3">Acrimony</label></div></td></tr>
+<tr><td class="qnum">28.</td><td class="qword dev">समायोज्य रिंच<span class="type-badge">M→E</span></td><td class="pos">(noun)</td><td class="choices"><div class="choice-row" id="row_28_0"><input type="radio" name="t_qn_28_" id="t_qn_28_0" data-correct="0"> <label for="t_qn_28_0">Abstruse</label></div><div class="choice-row" id="row_28_1"><input type="radio" name="t_qn_28_" id="t_qn_28_1" data-correct="1"> <label for="t_qn_28_1">adjustable spanner</label></div><div class="choice-row" id="row_28_2"><input type="radio" name="t_qn_28_" id="t_qn_28_2" data-correct="0"> <label for="t_qn_28_2">Able</label></div><div class="choice-row" id="row_28_3"><input type="radio" name="t_qn_28_" id="t_qn_28_3" data-correct="0"> <label for="t_qn_28_3">Acquittance</label></div></td></tr>
+</table>
+<div style="text-align:center;padding:14px"><button id="evaluate_quiz_qn" onclick="evaluate_quiz_qn(1,28,0,1)">मूल्यांकन करू / Evaluate Quiz</button></div>
+
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
+</html>

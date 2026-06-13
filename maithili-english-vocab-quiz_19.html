@@ -232,10 +232,74 @@ font-family: 'Noto Serif Devanagari', serif;
 font-size: 0.9em;
 color: #8B1A1A;
 }
+
+.vq-site-header {
+  background: #0a1628;
+  color: #fff;
+  padding: 14px 20px 11px;
+  text-align: center;
+  border-bottom: 4px solid #c49a3c;
+}
+.vq-site-header h1 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 1.35em;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  letter-spacing: .02em;
+}
+.vq-site-header .mai {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-site-header .sub {
+  font-size: .78em;
+  color: #c49a3c;
+  font-style: italic;
+  letter-spacing: .12em;
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin-top: 2px;
+}
+.vq-site-header p {
+  font-size: .75em;
+  color: #8aa0c8;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+.vq-site-header a {
+  color: #c49a3c;
+  text-decoration: none;
+}
+
+.vq-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: .82em;
+  background: #0a1628;
+  color: #8aa0c8;
+  border-top: 3px solid #c49a3c;
+  margin-top: 14px;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-footer a { color: #c49a3c; text-decoration: none; }
+.vq-back {
+  display: block;
+  text-align: center;
+  margin: 16px auto 8px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: .9em;
+  color: #8B1A1A;
+}
 </style>
 <script type="text/javascript">var is_ie = 0;</script></head>
 <body>
-<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<header class="vq-site-header">
+  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
+    <span class="sub">Videha eLearning Quiz</span>
+  </h1>
+  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+</header>
+
+
 <div class="rapid-container" id="rapidApp"> <div class="header"> <div class="title-row"> <div class="highscore-badge">🏆 हाईस्कोर: <span id="highscoreDisplay">0</span></div> </div> <div class="upload-area"> <span class="upload-btn" id="rapidUploadBtn">📂 Excel अपलोड</span> <input type="file" id="rapidExcel" accept=".xlsx, .xls" style="display: none;"> <span id="dataInfo">📘 नमूना डेटा</span> </div> </div> <div class="mode-tabs"> <button class="mode-tab active-tab" data-rapid-mode="en2ma">🇬🇧 → 🇮🇳 अंग्रेजी → मैथिली</button> <button class="mode-tab" data-rapid-mode="ma2en">🇮🇳 → 🇬🇧 मैथिली → अंग्रेजी</button> </div> <div class="game-panel"> <div class="timer-area"> <div class="timer-circle"> <svg width="90" height="90" viewBox="0 0 100 100"> <circle class="timer-bg" cx="50" cy="50" r="40" fill="none" stroke="#e2d4c2" stroke-width="8"/> <circle class="timer-fill" id="timerRing" cx="50" cy="50" r="40" fill="none" stroke="#b48b5a" stroke-width="8" stroke-linecap="round"/> </svg> <div class="timer-text" id="timerSeconds">10</div> </div> </div> <div class="question-area"> <div class="challenge-word" id="rapidWord">लोड होत...</div> <div class="pos-tag" id="rapidPos"></div> </div> <div id="optionsContainer" class="options-grid"></div> <div class="action-row"> <button id="nextRoundBtn" class="next-round">➡ अगिला प्रश्न</button> <button id="resetGameBtn" class="reset-game">🔄 रीसेट</button> </div> <div id="rapidFeedback" class="feedback" style="display: none;"></div> <div class="score-stats"> <span>🎯 स्कोर: <span id="currentScoreSpan">0</span></span> <span>🔥 स्ट्रीक: <span id="streakSpan">0</span></span> <span>⏳ समय: <span id="timeBonusSpan">+0</span></span> </div> </div>
 </div>
 <script>
@@ -597,5 +661,7 @@ color: #8B1A1A;
 
     init();
 
-</script></body>
+</script><a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+</body>
 </html>
