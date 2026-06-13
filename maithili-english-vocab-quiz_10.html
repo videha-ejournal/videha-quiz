@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मैथिली कोश – अष्टम क्विज़ | Timed Challenge — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: linear-gradient(135deg, #1e3a2f 0%, #2c5a4a 100%);
+font-family: 'Segoe UI', 'Poppins', 'Noto Sans Devanagari', system-ui, sans-serif;
+padding: 20px;
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.quiz-wrapper {
+max-width: 950px;
+width: 100%;
+margin: 0 auto;
+}
+.quiz-card {
+background: #fffcf5;
+border-radius: 56px;
+overflow: hidden;
+box-shadow: 0 30px 45px rgba(0, 0, 0, 0.3);
+}
+.quiz-header {
+background: #2c5a4a;
+padding: 1.2rem 2rem;
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+flex-wrap: wrap;
+gap: 1rem;
+color: #fef0df;
+}
+.title {
+font-size: 1.6rem;
+font-weight: 700;
+display: flex;
+align-items: center;
+gap: 12px;
+}
+.title span {
+background: #e6b85e;
+color: #2c4a3a;
+font-size: 0.8rem;
+padding: 4px 12px;
+border-radius: 40px;
+}
+.stats {
+display: flex;
+gap: 20px;
+background: #1f453b;
+padding: 6px 20px;
+border-radius: 40px;
+}
+.stat {
+font-weight: 500;
+}
+.stat strong {
+background: #ffdead;
+color: #3a2a1a;
+padding: 2px 10px;
+border-radius: 30px;
+margin-left: 8px;
+}
+.quiz-body {
+padding: 32px 28px 28px;
+}
+.word-card {
+background: #f3ecd9;
+border-radius: 48px;
+text-align: center;
+padding: 28px 16px;
+margin-bottom: 24px;
+box-shadow: 0 8px 0 #cfbfa0;
+}
+.maithili {
+font-size: 2.5rem;
+font-weight: 800;
+font-family: 'Noto Sans Devanagari', monospace;
+color: #2a5a44;
+letter-spacing: 1px;
+}
+.hint-light {
+font-size: 0.85rem;
+color: #aa8c64;
+margin-top: 10px;
+}
+.timer-bar {
+background: #e1cfb3;
+border-radius: 30px;
+height: 8px;
+width: 100%;
+margin: 15px 0 20px;
+overflow: hidden;
+}
+.timer-fill {
+background: #f3b33d;
+width: 100%;
+height: 100%;
+transition: width 0.05s linear;
+}
+.options-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 16px;
+margin: 20px 0 24px;
+}
+.opt {
+background: #fff7ed;
+border: 2px solid #e2cfb5;
+border-radius: 100px;
+padding: 12px 16px;
+display: flex;
+align-items: center;
+gap: 14px;
+cursor: pointer;
+transition: 0.2s;
+font-weight: 500;
+}
+.opt:hover:not(.disabled) {
+background: #ffe6cb;
+border-color: #c7a567;
+transform: translateX(4px);
+}
+.opt-letter {
+background: #dbc59e;
+width: 34px;
+height: 34px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 40px;
+font-weight: bold;
+color: #3c2c1a;
+}
+.opt.correct-highlight {
+background: #cbe6cb;
+border-color: #2a772a;
+pointer-events: none;
+}
+.opt.correct-highlight .opt-letter {
+background: #2a772a;
+color: white;
+}
+.opt.wrong-highlight {
+background: #f3d6d6;
+border-color: #bc5a5a;
+pointer-events: none;
+}
+.opt.wrong-highlight .opt-letter {
+background: #bc5a5a;
+color: white;
+}
+.disabled {
+pointer-events: none;
+opacity: 0.7;
+}
+.feedback {
+background: #e8dfd1;
+border-radius: 28px;
+padding: 14px 20px;
+margin: 12px 0 20px;
+text-align: center;
+}
+.actions {
+display: flex;
+gap: 15px;
+}
+.btn {
+flex: 1;
+border: none;
+padding: 14px 10px;
+border-radius: 60px;
+font-weight: 700;
+font-size: 1rem;
+cursor: pointer;
+transition: 0.2s;
+}
+.btn-primary {
+background: #2c5a4a;
+color: white;
+}
+.btn-primary:disabled {
+background: #aec0b8;
+cursor: default;
+}
+.btn-secondary {
+background: #b68948;
+color: white;
+}
+.btn:hover:not(:disabled) {
+filter: brightness(0.92);
+transform: scale(0.98);
+}
+.result-area {
+text-align: center;
+padding: 30px 20px;
+}
+.final-score {
+font-size: 3rem;
+font-weight: 800;
+color: #d98c2b;
+margin: 20px 0;
+}
+.miss-list {
+background: #f7f1e6;
+border-radius: 28px;
+padding: 18px;
+margin: 20px 0;
+text-align: left;
+max-height: 280px;
+overflow-y: auto;
+}
+footer {
+text-align: center;
+padding: 1rem;
+font-size: 0.7rem;
+background: #fffcf5;
+color: #9b886c;
+border-top: 1px solid #ece0ce;
+}
+@media (max-width: 600px) {
+.options-grid {
+grid-template-columns: 1fr;
+}
+.maithili {
+font-size: 1.9rem;
+}
+.quiz-body {
+padding: 20px;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="quiz-wrapper"> <div class="quiz-card" id="maithiliQuiz8"> <div class="quiz-header"> <div class="title">📖 मैथिली कोश <span>अष्टम क्विज़</span></div> <div class="stats"> <div class="stat">🎯 अंक <strong id="scoreDisplay">0</strong></div> <div class="stat">🔥 धारा <strong id="streakDisplay">0</strong></div> <div class="stat">📋 <strong id="qIdx">0</strong>/<strong id="qTot">0</strong></div> </div> </div> <div id="quizMain" class="quiz-body"></div> <footer class="vq-footer">© सम्पादक, videha.co.in</footer> </div>
+</div>
+<script>
+
+</script><script>
+
+    // --------------------------------------------------------------
+    // FRESH DATA – previously unused from the Maithili thesaurus
+    // (mix of nouns, verbs, adjectives, cultural terms)
+    // --------------------------------------------------------------
+    const WORD_BANK = [
+        { word: "अखबार", meaning: "newspaper", hint: "समाचारपत्र" },
+        { word: "अछोरब", meaning: "snatch", hint: "छीनब" },
+        { word: "अजब", meaning: "strange, wonderful", hint: "अद्भुत, विचित्र" },
+        { word: "अट्टहास", meaning: "laughter, roar", hint: "ठहाका" },
+        { word: "अनुभवी", meaning: "experienced", hint: "अनुभवबाला" },
+        { word: "अपराजित", meaning: "undefeated", hint: "अजेय" },
+        { word: "अमर", meaning: "immortal", hint: "नहि मुइनिहार" },
+        { word: "अर्ध", meaning: "half", hint: "आधा" },
+        { word: "अलग", meaning: "separate", hint: "पृथक" },
+        { word: "अवश्य", meaning: "certainly", hint: "निश्चय" },
+        { word: "आइना", meaning: "mirror", hint: "दर्पण" },
+        { word: "आँगन", meaning: "courtyard", hint: "प्राङ्गण" },
+        { word: "आज्ञा", meaning: "order", hint: "आदेश" },
+        { word: "इमान", meaning: "honesty", hint: "साधुता" },
+        { word: "उच्च", meaning: "high", hint: "ऊँच" },
+        { word: "उपयोग", meaning: "use", hint: "प्रयोग" },
+        { word: "ऊँट", meaning: "camel", hint: "रेगिस्तानी पशु" },
+        { word: "ऋतु", meaning: "season", hint: "मौसम" },
+        { word: "एकता", meaning: "unity", hint: "मेल" },
+        { word: "ऐतिहासिक", meaning: "historical", hint: "इतिहास सम्बन्धी" },
+        { word: "कच्चा", meaning: "raw", hint: "अपक्व" },
+        { word: "कटु", meaning: "bitter", hint: "तीत, कड़ु" },
+        { word: "कनिष्ठ", meaning: "youngest", hint: "सभसँ छोट" },
+        { word: "कपाट", meaning: "door", hint: "कबाड़" },
+        { word: "कमल", meaning: "lotus", hint: "पुड़इनि" },
+        { word: "करुणा", meaning: "compassion", hint: "दया" },
+        { word: "कलश", meaning: "pitcher", hint: "घैल" },
+        { word: "कवि", meaning: "poet", hint: "काव्य रचयिता" },
+        { word: "काठ", meaning: "wood", hint: "लकड़ी" },
+        { word: "किरण", meaning: "ray", hint: "प्रकाश-रेखा" },
+        { word: "कुकुर", meaning: "dog", hint: "कुत्ता" },
+        { word: "कूल्हा", meaning: "hip", hint: "जाँघक जोड़" },
+        { word: "केस", meaning: "hair", hint: "केश" },
+        { word: "कोलाहल", meaning: "uproar", hint: "हल्ला" },
+        { word: "गाँव", meaning: "village", hint: "ग्राम" }
+    ];
+
+    // Helper: shuffle array
+    function shuffleArray(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
+
+    // Get distractors (other meanings)
+    function getDistractors(correctMeaning, currentWord, fullList, count = 3) {
+        let candidates = fullList.filter(item => item.meaning !== correctMeaning && item.word !== currentWord)
+                                 .map(item => item.meaning);
+        candidates = [...new Set(candidates)];
+        if (candidates.length < count) {
+            const fallback = ["light", "dark", "peace", "war", "earth", "sky", "river", "mountain", "friend"];
+            candidates.push(...fallback);
+            candidates = [...new Set(candidates)];
+        }
+        return shuffleArray(candidates).slice(0, count);
+    }
+
+    // Build question bank
+    function buildQuestionBank() {
+        let bank = [];
+        for (let item of WORD_BANK) {
+            const correct = item.meaning;
+            const wrongs = getDistractors(correct, item.word, WORD_BANK, 3);
+            let options = [correct, ...wrongs];
+            options = shuffleArray(options);
+            bank.push({
+                maithili: item.word,
+                correct: correct,
+                options: options,
+                hint: item.hint
+            });
+        }
+        return shuffleArray(bank);
+    }
+
+    // State variables
+    let questions = [];
+    let currentIndex = 0;
+    let score = 0;
+    let streak = 0;
+    let answered = false;
+    let selectedValue = null;
+    let mistakes = [];
+    let total = 0;
+
+    // Timer variables
+    let timerInterval = null;
+    let timeLeft = 12;
+    const TIME_PER_QUESTION = 12;
+
+    // DOM elements
+    const mainDiv = document.getElementById("quizMain");
+    const scoreSpan = document.getElementById("scoreDisplay");
+    const streakSpan = document.getElementById("streakDisplay");
+    const qIdxSpan = document.getElementById("qIdx");
+    const qTotSpan = document.getElementById("qTot");
+
+    function updateHeader() {
+        scoreSpan.innerText = score;
+        streakSpan.innerText = streak;
+        qIdxSpan.innerText = currentIndex + 1;
+        qTotSpan.innerText = total;
+    }
+
+    function stopTimer() {
+        if (timerInterval) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+        }
+    }
+
+    function startTimer() {
+        stopTimer();
+        timeLeft = TIME_PER_QUESTION;
+        const timerFill = document.querySelector('.timer-fill');
+        if (timerFill) timerFill.style.width = "100%";
+        timerInterval = setInterval(() => {
+            if (answered) return; // already answered, don't auto-submit
+            if (timeLeft <= 0) {
+                // time's up – auto-mark as wrong if not answered
+                if (!answered) {
+                    const currentQ = questions[currentIndex];
+                    handleTimeout(currentQ);
+                }
+            } else {
+                timeLeft--;
+                const percent = (timeLeft / TIME_PER_QUESTION) * 100;
+                if (timerFill) timerFill.style.width = `${percent}%`;
+            }
+        }, 1000);
+    }
+
+    function handleTimeout(currentQ) {
+        if (answered) return;
+        answered = true;
+        selectedValue = null;
+        // no answer selected → wrong
+        streak = 0;
+        mistakes.push({
+            maithili: currentQ.maithili,
+            correct: currentQ.correct,
+            selected: "(समय समाप्त)",
+            hint: currentQ.hint
+        });
+        updateHeader();
+        stopTimer();
+        render(); // re-render with feedback showing correct answer
+    }
+
+    function render() {
+        if (!questions.length || currentIndex >= total) {
+            stopTimer();
+            showResult();
+            return;
+        }
+        const q = questions[currentIndex];
+        let optionsHtml = "";
+        const markers = ["𑂃", "𑂥", "𑂒", "𑂙"];
+        for (let i = 0; i < q.options.length; i++) {
+            let extraClass = "";
+            if (answered) {
+                if (q.options[i] === q.correct) extraClass = "correct-highlight";
+                else if (selectedValue === q.options[i] && selectedValue !== q.correct) extraClass = "wrong-highlight";
+                else extraClass = "disabled";
+            }
+            optionsHtml += `
+                <div class="opt ${extraClass}" data-choice="${escapeHtml(q.options[i])}">
+                    <div class="opt-letter">${markers[i]}</div>
+                    <div class="opt-text">${escapeHtml(q.options[i])}</div>
+                </div>
+            `;
+        }
+
+        let feedbackHtml = "";
+        if (answered) {
+            const isCorrect = (selectedValue === q.correct);
+            const timeMsg = selectedValue === null ? " (समय समाप्त)" : "";
+            feedbackHtml = `
+                <div class="feedback">
+                    ${isCorrect ? "✅ सही उत्तर! +1 अंक" : "❌ गलत" + timeMsg + "। सही अर्थ: <strong>" + escapeHtml(q.correct) + "</strong>"}
+                    <br><span style="font-size:0.85rem;">💡 ${escapeHtml(q.hint)}</span>
+                </div>
+            `;
+        } else {
+            feedbackHtml = `
+                <div class="feedback">
+                    🔍 <strong>${escapeHtml(q.hint)}</strong><br>
+                    ⏱️ बाँकी समय: <span id="timerDisplay">${timeLeft}</span> सेकण्ड
+                </div>
+            `;
+        }
+
+        const nextDisabled = answered ? "" : "disabled";
+        const actionsHtml = `
+            <div class="actions">
+                <button class="btn btn-primary" id="nextBtn" ${nextDisabled}>➡ अगला प्रश्न</button>
+                <button class="btn btn-secondary" id="refreshBtn">🔄 नवा सेट</button>
+            </div>
+        `;
+
+        const timerPercent = (timeLeft / TIME_PER_QUESTION) * 100;
+        const fullHtml = `
+            <div class="word-card">
+                <div class="maithili">${escapeHtml(q.maithili)}</div>
+                <div class="hint-light">✨ सही अंग्रेजी अर्थ चुनू</div>
+            </div>
+            <div class="timer-bar">
+                <div class="timer-fill" style="width: ${timerPercent}%;"></div>
+            </div>
+            <div class="options-grid" id="optionsContainer">
+                ${optionsHtml}
+            </div>
+            ${feedbackHtml}
+            ${actionsHtml}
+        `;
+        mainDiv.innerHTML = fullHtml;
+
+        // update timer display in feedback if not answered
+        if (!answered) {
+            const timerSpan = document.getElementById("timerDisplay");
+            if (timerSpan) {
+                const updateTimerSpan = () => {
+                    const span = document.getElementById("timerDisplay");
+                    if (span) span.innerText = timeLeft;
+                };
+                // hook into timer via a simple interval update (but timer already updates)
+                // we'll just rely on existing timer callback to update DOM? we'll do a small override
+                // but we'll handle via a separate observer? easier: the render already shows timeLeft.
+                // we'll call updateTimerDisplay manually within timer.
+            }
+        }
+
+        if (!answered) {
+            const choices = document.querySelectorAll('.opt');
+            choices.forEach(choice => {
+                choice.addEventListener('click', (e) => {
+                    if (answered) return;
+                    const chosen = choice.getAttribute('data-choice');
+                    handleAnswer(chosen);
+                });
+            });
+            startTimer();
+        } else {
+            stopTimer();
+        }
+
+        const nextBtn = document.getElementById('nextBtn');
+        if (nextBtn) nextBtn.addEventListener('click', () => nextQuestion());
+        const refreshBtn = document.getElementById('refreshBtn');
+        if (refreshBtn) refreshBtn.addEventListener('click', () => fullReset());
+    }
+
+    function handleAnswer(chosen) {
+        if (answered) return;
+        const q = questions[currentIndex];
+        stopTimer();
+        answered = true;
+        selectedValue = chosen;
+        if (chosen === q.correct) {
+            score++;
+            streak++;
+        } else {
+            streak = 0;
+            mistakes.push({
+                maithili: q.maithili,
+                correct: q.correct,
+                selected: chosen,
+                hint: q.hint
+            });
+        }
+        updateHeader();
+        render();
+    }
+
+    function nextQuestion() {
+        if (!answered) return;
+        if (currentIndex + 1 < total) {
+            currentIndex++;
+            answered = false;
+            selectedValue = null;
+            updateHeader();
+            render();
+        } else {
+            stopTimer();
+            showResult();
+        }
+    }
+
+    function showResult() {
+        const percent = total ? Math.round((score / total) * 100) : 0;
+        let message = "";
+        if (percent >= 80) message = "🎉 उत्कृष्ट! मैथिली विद्या में निपुण";
+        else if (percent >= 60) message = "👍 बढ़िया प्रयास, थोर अभ्यास आओर चाही";
+        else message = "📘 फेर कोशिश करू, थिसारस सहायक रहत";
+
+        let missHtml = "";
+        if (mistakes.length) {
+            missHtml = `<div class="miss-list"><h4 style="margin-bottom:10px;">📌 गलत/छूटल उत्तरक समीक्षा:</h4>`;
+            mistakes.forEach(m => {
+                missHtml += `<div class="miss-item">🔹 <strong>${escapeHtml(m.maithili)}</strong> – सही: "${escapeHtml(m.correct)}" · आप: "${escapeHtml(m.selected)}"<br><span style="font-size:0.7rem;">📖 ${escapeHtml(m.hint)}</span></div>`;
+            });
+            missHtml += `</div>`;
+        } else {
+            missHtml = `<div class="miss-list"><h4>✨ सब उत्तर सही! बहुत नीक</h4></div>`;
+        }
+
+        const finalHtml = `
+            <div class="result-area">
+                <h2>🏁 क्विज़ समाप्त</h2>
+                <div class="final-score">${score} / ${total}</div>
+                <p style="margin-bottom: 20px;">${message}</p>
+                ${missHtml}
+                <div class="actions" style="margin-top: 20px;">
+                    <button class="btn btn-primary" id="restartSame">🔄 फेर सुरु करू</button>
+                    <button class="btn btn-secondary" id="freshSetBtn">✨ नवा प्रश्न-सेट</button>
+                </div>
+            </div>
+        `;
+        mainDiv.innerHTML = finalHtml;
+        document.getElementById('restartSame')?.addEventListener('click', () => restartWithSame());
+        document.getElementById('freshSetBtn')?.addEventListener('click', () => fullReset());
+    }
+
+    function restartWithSame() {
+        stopTimer();
+        currentIndex = 0;
+        score = 0;
+        streak = 0;
+        answered = false;
+        selectedValue = null;
+        mistakes = [];
+        updateHeader();
+        render();
+    }
+
+    function fullReset() {
+        stopTimer();
+        questions = buildQuestionBank();
+        total = questions.length;
+        currentIndex = 0;
+        score = 0;
+        streak = 0;
+        answered = false;
+        selectedValue = null;
+        mistakes = [];
+        updateHeader();
+        render();
+    }
+
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        });
+    }
+
+    // Initialize
+    function init() {
+        questions = buildQuestionBank();
+        total = questions.length;
+        currentIndex = 0;
+        score = 0;
+        streak = 0;
+        answered = false;
+        selectedValue = null;
+        mistakes = [];
+        updateHeader();
+        render();
+    }
+    init();
+
+</script></body>
+</html>

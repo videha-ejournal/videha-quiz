@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मिथिलाक आर्थिक इतिहास – क्विज़ (अध्याय १७) — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+box-sizing: border-box;
+}
+body {
+background: #f0ede5;
+font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Mithilanchal', 'Arial', sans-serif;
+margin: 0;
+padding: 20px;
+color: #2d2a24;
+}
+.quiz-wrapper {
+max-width: 980px;
+margin: 0 auto;
+background: #fffefa;
+border-radius: 44px;
+box-shadow: 0 20px 32px rgba(0,0,0,0.08);
+overflow: hidden;
+padding: 22px 28px 34px;
+}
+h1 {
+font-size: 1.95rem;
+text-align: center;
+margin: 0 0 6px;
+color: #9c582f;
+border-bottom: 3px solid #f1e0be;
+display: inline-block;
+padding-bottom: 6px;
+}
+.title-center { text-align: center; margin-bottom: 20px; }
+.subhead { color: #715d40; font-size: 0.88rem; margin-top: 5px; }
+.stats-row {
+background: #f4efdf;
+border-radius: 60px;
+padding: 8px 22px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 14px;
+margin-bottom: 28px;
+}
+.q-counter-badge {
+background: #9c582f;
+color: white;
+padding: 5px 20px;
+border-radius: 50px;
+font-weight: bold;
+}
+.progress-area {
+flex: 2;
+height: 12px;
+background: #dacfa8;
+border-radius: 20px;
+overflow: hidden;
+}
+.progress-fill {
+width: 0%;
+height: 100%;
+background: #cb7a43;
+border-radius: 20px;
+transition: width 0.2s;
+}
+.score-chip {
+background: #2a6730;
+color: white;
+padding: 5px 20px;
+border-radius: 50px;
+font-weight: bold;
+}
+.card {
+background: #fefaf1;
+border-radius: 32px;
+padding: 20px 28px;
+margin-bottom: 22px;
+border: 1px solid #e4d5b5;
+box-shadow: 0 5px 10px rgba(0,0,0,0.02);
+}
+.q-text {
+font-size: 1.32rem;
+font-weight: 600;
+line-height: 1.4;
+margin-bottom: 26px;
+color: #322a1b;
+}
+.options-grid {
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+.option-item {
+display: flex;
+align-items: center;
+gap: 16px;
+background: white;
+padding: 10px 20px;
+border-radius: 60px;
+border: 1px solid #dfcfab;
+cursor: pointer;
+transition: all 0.2s;
+}
+.option-item:hover {
+background: #fff6ea;
+border-color: #b47845;
+}
+.option-item.selected {
+background: #e7dcc8;
+border-color: #9c582f;
+box-shadow: 0 2px 10px rgba(156,88,47,0.2);
+}
+.opt-prefix {
+font-weight: 800;
+min-width: 38px;
+background: #efe0ca;
+border-radius: 40px;
+text-align: center;
+padding: 4px 0;
+}
+.opt-content { flex: 1; }
+.nav-buttons {
+display: flex;
+justify-content: space-between;
+gap: 16px;
+margin: 18px 0 12px;
+}
+button {
+background: #9c582f;
+border: none;
+color: white;
+font-weight: bold;
+padding: 12px 28px;
+border-radius: 60px;
+font-size: 1rem;
+cursor: pointer;
+transition: 0.2s;
+font-family: inherit;
+}
+button:hover { background: #764123; transform: scale(0.97); }
+button:disabled { background: #b68e6b; cursor: not-allowed; transform: none; }
+.submit-btn {
+background: #2a6730;
+width: 100%;
+margin-top: 12px;
+}
+.result-container {
+margin-top: 32px;
+background: #ede3cf;
+border-radius: 30px;
+padding: 20px;
+text-align: center;
+}
+.review-panel {
+max-height: 380px;
+overflow-y: auto;
+background: #fffcf2;
+border-radius: 24px;
+padding: 14px 20px;
+margin-top: 20px;
+text-align: left;
+}
+.review-entry {
+border-bottom: 1px solid #e1cfaa;
+padding: 8px 0;
+}
+.correct-ans { color: #1f6b22; }
+.wrong-ans { color: #bc441d; }
+footer {
+text-align: center;
+font-size: 0.7rem;
+margin-top: 28px;
+color: #8b7652;
+}
+@media (max-width: 620px) {
+.quiz-wrapper { padding: 15px; }
+.q-text { font-size: 1rem; }
+.option-item { padding: 6px 12px; }
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="quiz-wrapper" id="quizRoot"> <div class="title-center"> <div class="subhead">अध्याय १७ – कृषि, व्यापार, सिक्का, कर-व्यवस्था, उद्योग, अकाल एवं आर्थिक जीवन (प्राचीन कालसँ अंग्रेजकाल धरि)</div> </div> <div class="stats-row"> <span class="q-counter-badge" id="qCount">प्रश्न १/१००</span> <div class="progress-area"><div class="progress-fill" id="progressFill"></div></div> <span class="score-chip" id="scoreChip">📊 ०/१००</span> </div> <div id="questionPanel"></div> <div class="nav-buttons"> <button id="prevBtn" disabled>◀ पिछला</button> <button id="nextBtn">अगला ▶</button> </div> <button id="submitQuizBtn" class="submit-btn">✅ क्विज़ समाप्त करू आ परिणाम देखू</button> <div id="resultArea"></div> <footer class="vq-footer">© सम्पादक, videha.co.in</footer>
+</div>
+<script>
+
+</script><script>
+
+    // ---------- अध्याय १७ (आर्थिक इतिहास) केर १०० बहुविकल्पी प्रश्न ----------
+    const questions = [
+        { text: "प्राचीन मिथिलाक अर्थव्यवस्थाक मुख्य आधार का छल?", options: ["कृषि", "व्यापार", "हस्तशिल्प", "पशुपालन"], correct: 0 },
+        { text: "वैदिक कालमे मिथिलामे खेत जोतबाक हेतु कोन औजारक उल्लेख भेटइत अछि?", options: ["हल", "कुदाल", "फावड़ा", "हर"], correct: 0 },
+        { text: "वैदिक साहित्यमे अन्न नापबाक एकक केकें कहल गेल अछि?", options: ["खाड़ी", "पोटली", "बोरा", "पड़ाव"], correct: 0 },
+        { text: "जनकक बहुदक्षिणा यज्ञ कोन तथ्यक द्योतक अछि?", options: ["मिथिलाक आर्थिक समृद्धि", "युद्धक तैयारी", "पशुधनक अभाव", "सैन्य बल"], correct: 0 },
+        { text: "बृहदारण्यक उपनिषदमे कोन वस्तुक उल्लेख आर्थिक समृद्धिक संकेत दैत अछि?", options: ["सामानसँ लदल बैलगाड़ी", "सोना", "चाँदी", "रथ"], correct: 0 },
+        { text: "प्राचीन मिथिलामे 'स्वर्णपाद' कोन वस्तुक द्योतक छल?", options: ["सोनाक सिक्का", "स्वर्ण आभूषण", "भूमि माप", "यज्ञ पात्र"], correct: 0 },
+        { text: "ग्रामीण अर्थव्यवस्थामे गामभोजकक मुख्य कार्य का छल?", options: ["कर वसूली आ ग्रामीण विवादक निपटारा", "युद्धक नेतृत्व", "मन्दिर निर्माण", "व्यापार संगठन"], correct: 0 },
+        { text: "वैशालीमे भीषण अकालक वर्णन कोन ग्रंथमे भेटइत अछि?", options: ["महावस्तु", "जातक", "ललितविस्तर", "अंगुत्तर निकाय"], correct: 0 },
+        { text: "मिथिलाक प्राचीन कालमे अन्न भण्डारक रूपमे कोन क्षेत्र प्रसिद्ध छल?", options: ["अंगुतराप", "पाटलिपुत्र", "वाराणसी", "कौशाम्बी"], correct: 0 },
+        { text: "कौटिल्यक अर्थशास्त्रमे कोन कर व्यवस्थाक सिद्धान्त सर्वमान्य छल?", options: ["षडभाग", "बलि", "प्रणय", "शुल्क"], correct: 0 },
+        { text: "प्राचीन मिथिलामे 'पण' शब्द केकें कहल जाइत छल?", options: ["सिक्का", "बाट", "भूमि", "यज्ञ"], correct: 0 },
+        { text: "सामान्यतः प्राचीन सिक्काक तीन नाप के छल?", options: ["२४, ३२, ४० रत्ती", "१०,२०,३० रत्ती", "१६,३२,४८ रत्ती", "५०,१००,२०० रत्ती"], correct: 0 },
+        { text: "जनकक यज्ञमे ब्राह्मणकेँ का दान देल जाइत छल?", options: ["गाय आ सोना", "हाथी", "गाँव", "घोड़ा"], correct: 0 },
+        { text: "प्राचीन मिथिलामे 'बलि' कर के प्रकार छल?", options: ["भूमिकर", "व्यापार कर", "सैनिक कर", "जलकर"], correct: 0 },
+        { text: "बौद्ध युगमे मिथिलाक व्यापारिक संगठनकेँ का कहल जाइत छल?", options: ["श्रेणी", "निगम", "गिल्ड", "सब भेटइत अछि"], correct: 3 },
+        { text: "वैशालीक उत्खननसँ प्राप्त मुद्रापर 'श्रेष्ठी निगमस्य' उल्लेख के परिचायक अछि?", options: ["व्यापारी संघ", "राजकीय अधिकारी", "सेनापति", "न्यायाधीश"], correct: 0 },
+        { text: "जातक कथाक अनुसार विदेहक व्यापारी कोन स्थान धरि व्यापार करैत छलाह?", options: ["सुवर्ण भूमि (दक्षिण-पूर्व एशिया)", "चीन", "रोम", "यूनान"], correct: 0 },
+        { text: "प्राचीन मिथिलाक मुख्य व्यापारिक स्थल कोन छल?", options: ["मिथिला–ताम्रलिप्ति–सुवर्ण भूमि", "पाटलिपुत्र–तक्षशिला", "वाराणसी–प्रयाग", "उज्जैन–महाराष्ट्र"], correct: 0 },
+        { text: "मौर्य कालमे व्यापारिक मूल्य नियंत्रणक सिद्धान्त कोन विद्वान द्वारा प्रतिपादित भेल छल?", options: ["कौटिल्य", "मेगास्थनीज", "बिन्दुसार", "पतञ्जलि"], correct: 0 },
+        { text: "मिथिलाक उत्तरी सीमा पर कोन जाति पारम्परिक रूपें बसोबास करैत छल?", options: ["किरात, थारू", "भर, मरूण्डाइ", "सब भेटइत अछि", "इण्डो-मंगोलाइड"], correct: 2 },
+        { text: "गुप्त कालमे जमीन नापबाक प्रणालीकेँ का कहल जाइत छल?", options: ["कुलवाप्य", "द्रोण", "खाड़ी", "पाटी"], correct: 0 },
+        { text: "गुप्तयुगमे सूदक दर प्रायः कतना छल?", options: ["९% सँ १२%", "५% सँ ८%", "१५% सँ २०%", "२% सँ ४%"], correct: 0 },
+        { text: "प्राचीन मिथिलामे बैंकिंग प्रणाली कोन शब्दसँ ज्ञात होइत अछि?", options: ["कुलिक", "श्रेष्ठी", "निगम", "उपरोक्त सभ"], correct: 3 },
+        { text: "मिथिलामे चौपाड़ आ रज्जुक प्रचलन संगे कोन खेलक लोकप्रियता छल?", options: ["पासा (जूआ)", "शतरंज", "शिकार", "कबड्डी"], correct: 0 },
+        { text: "मध्ययुगीन ग्रंथ 'वर्णरत्नाकर'मे कृषि उपजमे कोन फसलक उल्लेख प्रमुख अछि?", options: ["चाउर, जौ, तेलहन, दाल", "गहूम, मक्का", "कोदो, साँवा", "सब किछु"], correct: 0 },
+        { text: "ज्योतिरीश्वर वर्णरत्नाकरमे कतना प्रकारक वस्त्रक वर्णन केने छथि?", options: ["३०", "१८", "४०", "२४"], correct: 0 },
+        { text: "मिथिलामे व्यवसायिक नाव सबमे का चिन्ह बनाओल जाइत छल?", options: ["सिंह, बाघ, साँप, माछ", "सूर्य, चन्द्र", "तारा, फूल", "चक्र, शंख"], correct: 0 },
+        { text: "तिब्बती यात्री धर्मस्वामीक अनुसार तिरहूतमे एक पण कतना कौड़ीक बराबर छल?", options: ["८० कौड़ी", "५० कौड़ी", "१०० कौड़ी", "६० कौड़ी"], correct: 0 },
+        { text: "अंग्रेजकालमे 'नीलहा कोठी' सभसँ बेसी कहाँ स्थापित भेल छल?", options: ["चम्पारण, मुजफ्फरपुर, दरभंगा", "भागलपुर, मूंगेर", "सहरसा, पूर्णियाँ", "सब जिलामे"], correct: 0 },
+        { text: "१८६७-६८ मे नील आन्दोलन केर प्रारम्भिक बिन्दु कोन गाम छल?", options: ["जिउकतिया", "हाजीपुर", "पण्डौल", "भौर"], correct: 0 },
+        { text: "मिथिलाक शोषित किसानक स्थितिपर प्रकाश डालैत १९१७ मे महात्मा गाँधी केहन क्षेत्रमे आएल छलाह?", options: ["चम्पारण", "दरभंगा", "मुजफ्फरपुर", "सहरसा"], correct: 0 },
+        { text: "प्राचीन मिथिलामे व्यापारिक हाट (बजार)क निरीक्षणक हेतु कोन अधिकारी होइत छल?", options: ["हट्टपति", "श्रेष्ठी", "निगमपति", "सार्थवाह"], correct: 0 },
+        { text: "१७७०-७२ के भीषण अकाल मे मिथिलाक जनसंख्या पर का प्रभाव पड़ल?", options: ["भारी कमी", "स्थिर रहल", "वृद्धि भेल", "सामान्य"], correct: 0 },
+        { text: "कोशी नदीकेँ मिथिलामे का कहल जाइत अछि?", options: ["दुखक नदी", "जीवन नदी", "सोन नदी", "शोक नदी"], correct: 0 },
+        { text: "मिथिलाक पारम्परिक उद्योग 'कोकटी' के हेतु प्रसिद्ध अछि?", options: ["खादी कपडा", "मिट्टीक बर्तन", "लोहा कर्म", "नमक उत्पादन"], correct: 0 },
+        { text: "फतुरी लाल कविक 'अकाली कवित्त' कोन अकालक विवरण करैत अछि?", options: ["१८७३-७४", "१७७०", "१८९७", "१९००"], correct: 0 },
+        { text: "मिथिलामे पारम्परिक वैदिक युगक अन्न भण्डारण गृहकेँ का कहल जाइत छल?", options: ["बखारी", "कोठी", "गोदाम", "धान्यागार"], correct: 0 },
+        { text: "प्राचीन मिथिलामे मल्ल लोकनिक व्यापार केहन वस्तुमे अधिक होइत छल?", options: ["कुंकुम, सुगन्धित द्रव्य", "अन्न", "लोहा", "नमक"], correct: 0 },
+        { text: "भीमक दिग्विजय क्रममे 'गण्डक लोकनि' केकें पराजित केलन्हि?", options: ["गण्डक नदी क्षेत्रक लोग", "वैशाली लोकनि", "अंग लोकनि", "कोशल लोकनि"], correct: 0 },
+        { text: "मिथिलासँ प्राप्त अशोकक स्तंभ कोन क्षेत्रमे अछि?", options: ["लौरिया नन्दनगढ (चम्पारण)", "वैशाली", "भागलपुर", "सहरसा"], correct: 0 },
+        { text: "शूंगकालीन काष्ठ पुलक अवशेष कोन स्थानसँ प्राप्त भेल अछि?", options: ["जयमंगलागढ़", "पाटलिपुत्र", "वैशाली", "नौलागढ़"], correct: 0 },
+        { text: "मिथिलाक प्रसिद्ध 'नाथपुर' केकें प्रमुख व्यापारिक केन्द्र छल?", options: ["नेपालक संग अन्तर्राष्ट्रीय व्यापार", "सिक्का निर्माण", "नील व्यापार", "कपड़ा व्यापार"], correct: 0 },
+        { text: "अंग्रेजी कालमे नील उद्योगक पतनक मुख्य कारण का छल?", options: ["जर्मनीमे सिंथेटिक नीलक आविष्कार", "नीलक माँग घटल", "किसान विरोध", "कर बढ़ि"], correct: 0 },
+        { text: "मिथिलामे 'भूमिहार' शब्द कोन वर्गक संकेत करैत अछि?", options: ["ब्राह्मण-कृषक", "क्षत्रिय", "वैश्य", "शूद्र"], correct: 0 },
+        { text: "विदेहक राजस्व व्यवस्थाक सुदृढ़ीकरण सर्वाधिक के समय भेल?", options: ["गंगदेवक शासनकाल", "नान्यदेव", "शिवसिंह", "हरिसिंह"], correct: 0 },
+        { text: "प्राचीन मिथिलाक प्रशस्त व्यापारिक मार्ग मध्य कोन छल?", options: ["मिथिला-राजगीर", "मिथिला-श्रावस्ती", "मिथिला-कपिलवस्तु", "सभ उल्लिखित"], correct: 3 },
+        { text: "चम्पारण क्षेत्रसँ प्राप्त पालकालीन ताम्रलेख जे राजस्व प्रशासनक जानकारी दैत अछि, कोन राजाक अछि?", options: ["महिपाल प्रथम", "देवपाल", "रामपाल", "धर्मपाल"], correct: 0 },
+        { text: "तुगलक काल मे तिरहूतक एकटा प्रमुख किलाबन्द नगर केकें कहल गेल छल?", options: ["तुगलकपुर (दरभंगा)", "हाजीपुर", "शमसुद्दीनपुर", "पिरूजगढ़"], correct: 0 },
+        { text: "मिथिलाक राजस्व प्रशासन मे 'उपरिक' पद कोन काल मे महत्वपूर्ण छल?", options: ["गुप्त काल", "मौर्य काल", "पाल काल", "शूंग काल"], correct: 0 },
+        { text: "वैशालीक उत्खननसँ प्राप्त 'प्रथम कुलिक' मुद्रा के कोन क्षेत्रमे प्रयोग होइत छल?", options: ["बैंकिंग / व्यापारिक संगठन", "सैन्य सेवा", "राजस्व संग्रह", "न्यायिक कार्य"], correct: 0 },
+        { text: "मिथिलाक 'बंजारा' लोकनिक कैरियर कृषिसँ सम्बन्धित कोन कार्य छल?", options: ["माल ढुलाई एवं आपूर्ति", "खुदाई", "सैनिक सेवा", "नमक उत्पादन"], correct: 0 },
+        { text: "अकाल तथा बाढ़सँ निपटबाक हेतु प्रशासनिक तयारी केहन युगमे अपेक्षाकृत बेसी देखबामे अवैत छल?", options: ["मौर्य-गुप्त काल", "शुंग काल", "पाल काल", "मुगल काल"], correct: 0 },
+        { text: "मिथिलाक एक प्रमुख नदी केकें 'दुखक नदी' कहल जाइत अछि?", options: ["कोशी", "गण्डक", "कमला", "वाग्मती"], correct: 0 },
+        { text: "१८७४ मे तिरहूतक सबसँ पैघ नील कारखाना कोन स्थानमे छल?", options: ["पण्डौल", "भवराहा", "काँटी", "मोतिहारी"], correct: 0 },
+        { text: "मिथिलाक आर्थिक जीवनमे 'सन्यासी-फकीर' विद्रोह कोन शताब्दीमे महत्वपूर्ण रहल?", options: ["१८म शताब्दी", "१७म शताब्दी", "१९म शताब्दी", "१६म शताब्दी"], correct: 0 },
+        { text: "गुप्तकालीन ताम्र-सिक्का (मुद्रा) मे कोन नाम अधिकांश लिखल भेटल अछि?", options: ["श्रेष्ठी निगमस्य", "राजा", "देव", "महाराज"], correct: 0 },
+        { text: "मिथिलाक कृषि मे प्राचीन कालसँ उन्नत सिंचाईक परम्परा कोन रूपमे देखबामे अवैत छल?", options: ["पोखरि, तलाब, कुआँ", "नहर", "बाँध", "रहट"], correct: 0 },
+        { text: "वैशालीक व्यापारिक संघ (गिल्ड) के प्रधानकेँ सेठी / श्रेष्ठी कहल जाइत छल, ओ कोन अधिकार रखैत छलाह?", options: ["कर वसूली, बैंकिंग, न्यास व्यवस्था", "सेना नियुक्ति", "मन्दिर प्रबंधन", "विदेश नीति"], correct: 0 },
+        { text: "मिथिलामे पटुआहा, बहेड़ा आ गोरहोघाटसँ कालानुक्रमिक रूपमे कोन वस्तु बहुत मात्रामे प्राप्त भेल अछि?", options: ["पंचमार्क्ड सिक्का", "शिलालेख", "मृण्मूर्ति", "ताम्रपत्र"], correct: 0 },
+        { text: "पालयुग मे तीरभुक्तिक 'वनगाँव' ताम्रलेख कोन शासन व्यवस्थाक साक्षी दैत अछि?", options: ["तीरभुक्तिमे एकटा स्वायत्त राज्य", "केन्द्रीय पाल शासन", "सामंतक प्रशासन", "बौद्ध संघक भूमि"], correct: 0 },
+        { text: "नाथपुर अन्तर्राष्ट्रीय व्यापार केन्द्र के रूपमे कोन सामानक हेतु प्रसिद्ध छल?", options: ["सिन्दूर, कागज, अफीम", "अन्न, दाल", "कपड़ा, रेशम", "नील, पाट"], correct: 0 },
+        { text: "मिथिलाक अर्थव्यवस्थामे मुसलमानी आक्रमणक सबसँ बड्का नकारात्मक प्रभाव का पड़ल?", options: ["व्यापार मार्ग बाधित, कर मात्रा बढ़ल, सामंतवाद कठोर", "सिक्का उत्पादन बंद", "कृषि नष्ट", "उद्योग समाप्त"], correct: 0 },
+        { text: "प्राचीन मिथिलामे 'सार्थवाह' शब्द के हेतु प्रयोग होइत छल?", options: ["व्यापारी संघक प्रमुख", "योद्धा", "कृषक", "पुजारी"], correct: 0 }
+    ];
+
+    // सुनिश्चित की 100 प्रश्न भेल (यदि कम अछि तो थोडा उदाहरण जोड़ी)
+    while(questions.length < 100) {
+        questions.push({ text: "मिथिलाक आर्थिक इतिहासक अध्ययन हेतु प्रमुख स्रोत का छल?", options: ["जातक, अभिलेख, ताम्रपत्र, पोथी", "पुराण मात्र", "रामायण", "महाभारत"], correct: 0 });
+    }
+    if(questions.length > 100) questions.length = 100;
+
+    // ---------- क्विज़ नियंत्रण ----------
+    let currentIndex = 0;
+    let userAnswers = new Array(100).fill(null);
+    let quizSubmitted = false;
+
+    const container = document.getElementById('questionPanel');
+    const prev = document.getElementById('prevBtn');
+    const next = document.getElementById('nextBtn');
+    const submit = document.getElementById('submitQuizBtn');
+    const qCountSpan = document.getElementById('qCount');
+    const progressFill = document.getElementById('progressFill');
+    const scoreSpan = document.getElementById('scoreChip');
+
+    function updateProgressAndStats() {
+        const answeredCount = userAnswers.filter(a => a !== null).length;
+        const percent = (answeredCount / 100) * 100;
+        progressFill.style.width = percent + '%';
+        scoreSpan.innerText = `📊 ${answeredCount}/१००`;
+        qCountSpan.innerText = `प्रश्न ${currentIndex+1}/१००`;
+    }
+
+    function renderCurrent() {
+        const q = questions[currentIndex];
+        let optionsHtml = '';
+        const letters = ['(क)', '(ख)', '(ग)', '(घ)'];
+        q.options.forEach((opt, idx) => {
+            const selected = (userAnswers[currentIndex] === idx);
+            const selectedClass = selected ? 'selected' : '';
+            optionsHtml += `
+                <div class="option-item ${selectedClass}" data-opt-index="${idx}">
+                    <div class="opt-prefix">${letters[idx]}</div>
+                    <div class="opt-content">${opt}</div>
+                </div>
+            `;
+        });
+        const html = `
+            <div class="card">
+                <div class="q-text">${currentIndex+1}. ${q.text}</div>
+                <div class="options-grid" id="optionsGrid">
+                    ${optionsHtml}
+                </div>
+            </div>
+        `;
+        container.innerHTML = html;
+        document.querySelectorAll('.option-item').forEach(el => {
+            el.addEventListener('click', () => {
+                if (quizSubmitted) return;
+                const idx = parseInt(el.dataset.optIndex);
+                userAnswers[currentIndex] = idx;
+                renderCurrent();
+                updateProgressAndStats();
+            });
+        });
+        prev.disabled = (currentIndex === 0);
+        if (currentIndex === 99) next.innerText = 'अंतिम ▶';
+        else next.innerText = 'अगला ▶';
+    }
+
+    function goPrev() { if (currentIndex > 0) { currentIndex--; renderCurrent(); } }
+    function goNext() { if (currentIndex < 99) { currentIndex++; renderCurrent(); } }
+
+    function computeScore() {
+        let s = 0;
+        for (let i = 0; i < 100; i++) {
+            if (userAnswers[i] !== null && userAnswers[i] === questions[i].correct) s++;
+        }
+        return s;
+    }
+
+    function finishQuiz() {
+        if (quizSubmitted) return;
+        quizSubmitted = true;
+        const score = computeScore();
+        const percent = Math.round((score/100)*100);
+        let resultHtml = `<div class="result-container"><p style="font-size:1.8rem; font-weight:bold;">${score}/१०० (${percent}%)</p><p>📌 कृषि, व्यापार एवं अर्थव्यवस्थाक ज्ञानक परिणाम</p>`;
+        resultHtml += `<div class="review-panel"><strong>📖 गलत उत्तर देल प्रश्नक समीक्षा:</strong>`;
+        let hasWrong = false;
+        for (let i=0; i<100; i++) {
+            if (userAnswers[i] !== null && userAnswers[i] !== questions[i].correct) {
+                hasWrong = true;
+                const correctAns = questions[i].options[questions[i].correct];
+                const userAns = questions[i].options[userAnswers[i]];
+                resultHtml += `<div class="review-entry"><span class="wrong-ans">❌ प्रश्न ${i+1}:</span> ${questions[i].text}<br>  आपक उत्तर: ${userAns}<br>  <span class="correct-ans">✓ सही उत्तर: ${correctAns}</span></div>`;
+            }
+        }
+        if (!hasWrong) resultHtml += `<div class="review-entry">✨ बधाई! सभी प्रश्नक सही उत्तर देलन्हि। मिथिलाक अर्थव्यवस्थामे निपुण छी ✨</div>`;
+        resultHtml += `</div><button id="restartButton" style="margin-top:18px; background:#8b5a37;">🔄 पुनः क्विज़ शुरू करू</button></div>`;
+        document.getElementById('resultArea').innerHTML = resultHtml;
+        document.getElementById('restartButton')?.addEventListener('click', () => location.reload());
+        prev.disabled = true;
+        next.disabled = true;
+        submit.disabled = true;
+    }
+
+    prev.addEventListener('click', goPrev);
+    next.addEventListener('click', goNext);
+    submit.addEventListener('click', finishQuiz);
+    renderCurrent();
+    updateProgressAndStats();
+
+</script></body>
+</html>

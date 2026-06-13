@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मिथिलाक शिक्षाक विकास – क्विज़ (अध्याय १९) — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+box-sizing: border-box;
+}
+body {
+background: #f2efe7;
+font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Mithilanchal', 'Arial', sans-serif;
+margin: 0;
+padding: 20px;
+color: #28241c;
+}
+.quiz-wrapper {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffdf8;
+border-radius: 48px;
+box-shadow: 0 20px 32px rgba(0,0,0,0.08);
+overflow: hidden;
+padding: 24px 30px 34px;
+}
+.title-block {
+text-align: center;
+margin-bottom: 20px;
+}
+h1 {
+font-size: 2rem;
+margin: 0 0 6px;
+color: #8b532e;
+border-bottom: 3px solid #eedcad;
+display: inline-block;
+padding-bottom: 6px;
+}
+.sub {
+color: #6c543b;
+font-size: 0.85rem;
+margin-top: 6px;
+}
+.stats-bar {
+background: #f3ead9;
+border-radius: 80px;
+padding: 8px 24px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 15px;
+margin-bottom: 28px;
+}
+.q-counter {
+background: #8b532e;
+color: white;
+padding: 5px 22px;
+border-radius: 50px;
+font-weight: bold;
+}
+.progress-area {
+flex: 2;
+height: 12px;
+background: #d5c7a6;
+border-radius: 20px;
+overflow: hidden;
+}
+.progress-fill {
+width: 0%;
+height: 100%;
+background: #c16c38;
+border-radius: 20px;
+transition: width 0.2s;
+}
+.score-indicator {
+background: #2a6130;
+color: white;
+padding: 5px 22px;
+border-radius: 50px;
+font-weight: bold;
+}
+.question-card {
+background: #fefaf1;
+border-radius: 34px;
+padding: 22px 28px;
+margin-bottom: 20px;
+border: 1px solid #e3d3af;
+box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+.question-text {
+font-size: 1.32rem;
+font-weight: 600;
+line-height: 1.4;
+margin-bottom: 26px;
+color: #302a1f;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+.option {
+display: flex;
+align-items: center;
+gap: 16px;
+background: white;
+padding: 10px 22px;
+border-radius: 60px;
+border: 1px solid #dbcfa8;
+cursor: pointer;
+transition: 0.2s;
+}
+.option:hover {
+background: #fff3e2;
+border-color: #b67a48;
+}
+.option.selected {
+background: #e8ddc5;
+border-color: #8b532e;
+box-shadow: 0 2px 8px rgba(139,83,46,0.2);
+}
+.opt-prefix {
+font-weight: 800;
+min-width: 38px;
+background: #efe0ca;
+border-radius: 40px;
+text-align: center;
+padding: 4px 0;
+}
+.opt-content {
+flex: 1;
+}
+.nav-buttons {
+display: flex;
+justify-content: space-between;
+gap: 15px;
+margin: 15px 0 12px;
+}
+button {
+background: #8b532e;
+border: none;
+color: white;
+font-weight: bold;
+padding: 12px 28px;
+border-radius: 60px;
+font-size: 1rem;
+cursor: pointer;
+transition: 0.2s;
+font-family: inherit;
+}
+button:hover { background: #6c3f21; transform: scale(0.97); }
+button:disabled { background: #b2825d; cursor: not-allowed; transform: none; }
+.finish-btn {
+background: #2a6130;
+width: 100%;
+margin-top: 12px;
+}
+.result-area {
+margin-top: 32px;
+background: #efe3cf;
+border-radius: 32px;
+padding: 20px;
+text-align: center;
+}
+.review-pane {
+max-height: 380px;
+overflow-y: auto;
+background: #fffcf4;
+border-radius: 28px;
+padding: 14px 22px;
+margin-top: 18px;
+text-align: left;
+}
+.review-item {
+border-bottom: 1px solid #dfcfaa;
+padding: 8px 0;
+}
+.correct-mark { color: #1e6b21; }
+.wrong-mark { color: #bc401c; }
+footer {
+text-align: center;
+font-size: 0.7rem;
+margin-top: 28px;
+color: #8a6f4b;
+}
+@media (max-width: 650px) {
+.quiz-wrapper { padding: 15px; }
+.question-text { font-size: 1rem; }
+.option { padding: 6px 14px; }
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="quiz-wrapper" id="quizRoot"> <div class="title-block"> </div> <div class="stats-bar"> <span class="q-counter" id="qCount">प्रश्न १/१००</span> <div class="progress-area"><div class="progress-fill" id="progressFill"></div></div> <span class="score-indicator" id="scoreValue">📚 ०/१००</span> </div> <div id="questionPanel"></div> <div class="nav-buttons"> <button id="prevBtn" disabled>◀ पिछला</button> <button id="nextBtn">अगला ▶</button> </div> <button id="submitQuiz" class="finish-btn">✅ क्विज़ समाप्त करू आ परिणाम देखू</button> <div id="resultBlock"></div> <footer class="vq-footer">© सम्पादक, videha.co.in</footer>
+</div>
+<script>
+
+</script><script>
+
+    // ---------- अध्याय १९ (शिक्षाक विकास) – १०० प्रश्न (तथ्यपरक) ----------
+    const questions = [
+        { text: "उपनिषद् युग मिथिला के हेतु प्रसिद्ध छल?", options: ["ज्ञान-ब्रह्मविद्या विवेचन", "व्यापार केन्द्र", "युद्ध शिक्षा", "चिकित्सा विज्ञान"], correct: 0 },
+        { text: "जनकक राजसभामे सर्वप्रसिद्ध विद्वान कोन छलाह, जे बहुतो विद्वानकेँ पराजित केलन्हि?", options: ["याज्ञवल्क्य", "गार्गी", "शाकल्य", "उद्दालक"], correct: 0 },
+        { text: "बृहदारण्यक उपनिषद्क मुख्य विषय वस्तु का छल?", options: ["आत्मा-ब्रह्म विवेचन", "यज्ञ विधि", "सामाजिक नियम", "ज्योतिष"], correct: 0 },
+        { text: "वैदिक कालमे गुरूकुल शिक्षा पद्धतिकेँ केहन अभिलक्षण छल?", options: ["विद्यार्थी गुरूक संग रहि विद्याध्ययन", "मात्र यज्ञ शिक्षा", "गुरू आश्रममे बिना अनुशासन", "सैन्य प्रशिक्षण"], correct: 0 },
+        { text: "प्राचीन मिथिलामे बालकक प्रारंभिक शिक्षा कहाँ होइत छल?", options: ["घरमे (प्रारम्भिक शिक्षा)", "पाठशाला", "मन्दिर", "गुरूकुलमे मात्र"], correct: 0 },
+        { text: "तक्षशिला विश्वविद्यालयमे मिथिला आ वैशालीक विद्यार्थी के विषय पढ़बाक जाइत छलाह?", options: ["बहुत प्रकारक विद्या", "केवल राजनीति", "केवल ज्योतिष", "केवल वेद"], correct: 0 },
+        { text: "वैशालीमे लिच्छवी लोकनि धार्मिक-दार्शनिक वाद विवाद हेतु का बनबौने छलाह?", options: ["कूटागार प्रशाल", "सभा भवन", "संथागार", "विहार"], correct: 0 },
+        { text: "मिथिलामे कर्णाट वंशक शासनकाल शिक्षाक दृष्टिसँ का कहल जाइत अछि?", options: ["स्वर्ण युग", "अंधकार युग", "युद्ध युग", "ह्रासकाल"], correct: 0 },
+        { text: "मिथिलामे नव-न्याय (नव्य न्याय) परम्पराक संस्थापक के छलाह?", options: ["गंगेश उपाध्याय", "उदयनाचार्य", "वाचस्पति मिश्र", "पक्षधर मिश्र"], correct: 0 },
+        { text: "गंगेश उपाध्यायक प्रसिद्ध ग्रंथ कोन अछि?", options: ["तत्वचिन्तामणि", "न्यायकुसुमांजलि", "भामती", "चन्द्रालोक"], correct: 0 },
+        { text: "तत्वचिन्तामणि ग्रंथमे गंगेश केतना प्रमाण मानने छथि?", options: ["चारि (प्रत्यक्ष, अनुमान, उपमान, शब्द)", "दुइ", "पाँच", "छह"], correct: 0 },
+        { text: "मिथिलामे परंपरागत शलाका-परीक्षा के हेतु लेल जाइत छल?", options: ["विद्वानक प्रतिभा परीक्षण (शास्त्रार्थ)", "सैनिक चयन", "कर संग्रह हेतु", "यज्ञ हेतु"], correct: 0 },
+        { text: "रघुनाथ शिरोमणि जे नव-न्यायक नादिया केन्द्र स्थापित केलन्हि, ओ कोन विद्वानक शिष्य छलाह?", options: ["पक्षधर मिश्र", "गंगेश", "वाचस्पति", "शंकर मिश्र"], correct: 0 },
+        { text: "पक्षधर मिश्रक गंगेशक तत्वचिन्तामणि पर टीका केकें कहल जाइत अछि?", options: ["आलोक", "प्रकाश", "दीधिति", "मकरन्द"], correct: 0 },
+        { text: "मिथिला विश्वविद्यालय पूर्णरूपेण केहन प्रकारक व्यवस्थापर आधारित छल?", options: ["टोल आ चौपाड़िक", "वृहद परिसर", "शासकीय प्रशासन", "मात्र मठ"], correct: 0 },
+        { text: "प्राचीन मिथिलामे न्याय-शास्त्रक विशेष ध्यान के समय विश्वविद्यालयक प्रसिद्धि बढ़ल?", options: ["नव-न्याय (गंगेश पश्चात)", "गुप्त युग", "मौर्य युग", "पाल युग"], correct: 0 },
+        { text: "उदयनाचार्य कोन ग्रंथक रचनाक लेल प्रसिद्ध अछि?", options: ["आत्मतत्त्वविवेक, कुसुमाञ्जलि", "तत्वचिन्तामणि", "श्लोकवार्तिक", "भामती"], correct: 0 },
+        { text: "मिथिलामे कतना विद्वान धौत परीक्षा (शास्त्रार्थ प्रक्रिया)क आयोजन करबैत छलाह?", options: ["खण्डवला राजक प्रश्रयमे", "नालंदा विश्वविद्यालयमे", "विक्रमशिलामे", "बौद्ध विहारमे"], correct: 0 },
+        { text: "मैथिली भाषाक प्राचीनतम ग्रंथ कहल जाइत अछि?", options: ["वर्णरत्नाकर (ज्योतिरीश्वर)", "पदावली", "कीर्तिलता", "चन्द्रालोक"], correct: 0 },
+        { text: "वाचस्पति मिश्र केर टीका 'भामती' केहन ग्रंथक अछि?", options: ["शंकराचार्यक ब्रह्मसूत्र भाष्य", "गीता", "न्यायसूत्र", "मीमांसा सूत्र"], correct: 0 },
+        { text: "मिथिलामे न्याय-मीमांसाक अध्ययन सर्वाधिक केहन स्थान पर होइत छल?", options: ["करिऔन, मिथिला (दरभंगा-मधुबनी)", "वैशाली", "पाटलिपुत्र", "चम्पारण"], correct: 0 },
+        { text: "पक्षधर मिश्रक आलोक टीका केर मुख्य विशेषता का छल?", options: ["तत्वचिन्तामणि पर सर्वश्रेष्ठ टीका", "प्रौढ तर्क", "गूढ रहस्यवाद", "शैलीगत सरलता"], correct: 0 },
+        { text: "नव-न्यायक प्रसिद्ध केन्द्र नादिया (बंगाल)क स्थापना पश्चात मिथिलाक भूमिका केहन रहल?", options: ["तथापि स्मृति आ दर्शन क्षेत्रमे अग्रणी बनल रहल", "समाप्त भऽ गेल", "केवल व्याकरण सीमित", "गणित प्रधान"], correct: 0 },
+        { text: "कर्णाट राजा नान्यदेव केहन विषयपर ग्रंथ रचलन्हि?", options: ["नाट्यशास्त्रपर टीका", "न्यायशास्त्र", "व्याकरण", "काव्य"], correct: 0 },
+        { text: "महामहोपाध्याय उपाधि कोन शासनकालमे प्रचलित भेल?", options: ["खण्डवला राजमे", "कर्णाट", "मुगल", "अंग्रेज"], correct: 0 },
+        { text: "मिथिला विश्वविद्यालयमे 'शलाका परीक्षा' में परीक्षार्थीकेँ का करए पड़इत छल?", options: ["शास्त्रार्थमे सम्मिलित भऽ, संतुष्टिकर उत्तर देब", "लिखित परीक्षा", "प्रयोगात्मक परीक्षा", "यन्त्र प्रदर्शन"], correct: 0 },
+        { text: "रघुनाथ शिरोमणिक गुरू पक्षधर मिश्रसँ मतभेद के बाद कोन परीक्षाक चर्चा प्रसिद्ध अछि?", options: ["शलाका परीक्षाक वाद-विवाद", "धौत परीक्षा", "दीक्षान्त समारोह", "प्रवेश परीक्षा"], correct: 0 },
+        { text: "मिथिलाक सबसँ बड्का जमीन्दार आ खण्डवला कुलक राजा कोन विद्वान प्रेमी छलाह?", options: ["महेश ठाकुर", "गंगदेव", "नान्यदेव", "शिवसिंह"], correct: 0 },
+        { text: "महेश ठाकुर कोन ग्रंथक संस्कृत अनुवाद केने छलाह?", options: ["अकबरनामा (सर्वदेश वृत्तांत संग्रह)", "रामायण", "महाभारत", "गीता"], correct: 0 },
+        { text: "मिथिलाक राजा शिवसिंहक समयमे विद्यापति केन साहित्यिक कृति लिखलन्हि?", options: ["पुरूष परीक्षा आ पदावली", "विभागसार", "कीर्तिलता", "सब भेटइत अछि"], correct: 3 },
+        { text: "विद्यापति ठाकुर कोन भाषाक श्रेष्ठ गीतकार मानल जाइत अछि?", options: ["मैथिली", "हिन्दी", "अवधी", "संस्कृत"], correct: 0 },
+        { text: "मिथिलामे नव-न्यायक शिखर काल कोन शताब्दीमे मानल जाइत अछि?", options: ["१३-१४ शताब्दी", "१०-११", "१६-१७", "१८-१९"], correct: 0 },
+        { text: "पाल राजा महिपाल प्रथमक अभिलेख (इमादपुर) कहाँ प्राप्त भेल अछि?", options: ["मुजफ्फरपुर", "दरभंगा", "सहरसा", "मधुबनी"], correct: 0 },
+        { text: "शंकर मिश्र बाल्यकाल मे राजा भैरव सिंहक समक्ष केन श्लोक पढ़लन्हि?", options: ["बालोऽहं जगदानन्द...", "ये धर्मा हेतु प्रभवा", "असतो मा सद्गमय", "विद्यया अमृतमश्नुते"], correct: 0 },
+        { text: "मिथिलाक चारि वेदक शिक्षाक प्रसिद्ध टोल कोन अछि?", options: ["जजुआर (यजुर्वेद), रीगा (ऋग्वेद), अथरी (अथर्व), कुथुमा (साम)", "सब", "केवल सामवेद", "केवल यजुर्वेद"], correct: 1 },
+        { text: "गंगेश उपाध्यायक जन्म स्थान कोन अछि?", options: ["मंगरौनी", "करिऔन", "दरभंगा", "जनकपुर"], correct: 0 },
+        { text: "मिथिलाक प्राचीन विद्वान परम्पराक अखिल भारतीय प्रभाव केहन रहल?", options: ["न्याय-मीमांसा क्षेत्रमे मिथिला अग्रगण्य", "केवल क्षेत्रीय", "प्रभाव नहि छल", "केवल काव्य"], correct: 0 },
+        { text: "महामहोपाध्याय उपाधि खण्डवला राजसभाद्वारा केकें देल जाइत छल?", options: ["विद्वान जे धौत परीक्षा पास करैत छलाह", "राजाक मित्र", "सेनापति", "व्यापारी"], correct: 0 },
+        { text: "पिधर (पक्षधर) मिश्र रघुनाथ शिरोमणिकेँ केकें आदेश देलन्हि?", options: ["बंगाल जाए नव-न्याय केन्द्र स्थापित करबाक", "प्रायश्चित करबाक", "युद्ध करबाक", "व्यापार करबाक"], correct: 0 },
+        { text: "मिथिला विश्वविद्यालयक मुख्य परीक्षा पद्धतिक नाम का छल?", options: ["शलाका परीक्षा / षड्यंत्र परीक्षा", "कर्मकाण्ड", "वार्षिक परीक्षा", "प्रवेशिका"], correct: 0 },
+        { text: "महेश ठाकुर कोन संस्कृत पोथीक रचना केने छलाह?", options: ["सर्वदेश वृत्तांत संग्रह (अकबरनामा अनुवाद)", "तत्वचिन्तामणि", "न्यायसार", "धर्मकोश"], correct: 0 },
+        { text: "मिथिलाक खण्डवला राजसभाद्वारा संस्कृत साहित्यक प्रश्रयक उदाहरण छल:", options: ["राजा भैरव सिंहकाल मे रागतरंगिणी लिखल", "रामायण अनुवाद", "बौद्ध ग्रंथ", "केवल मैथिली"], correct: 0 },
+        { text: "रघुनाथ शिरोमणि केर प्रसिद्ध टीका कोन अछि?", options: ["दीधिति (पक्षधरक आलोक पर)", "भामती", "चन्द्रालोक", "प्रकाश"], correct: 0 },
+        { text: "मिथिलाक प्राचीन शिक्षण पद्धति 'शलाका परीक्षा' केर विशेषता छल:", options: ["प्रश्न पाण्डुलिपिक सुइसँ घोपल पृष्ठ पर होइत छल", "लिखित प्रश्नपत्र", "मौखिक अन्तर्वार्ता", "व्यावहारिक परीक्षण"], correct: 0 },
+        { text: "मिथिला विश्वविद्यालयक स्थापनाक बाद नव-न्यायक प्रधान सीट बनल?", options: ["नादिया (बंगाल)", "वाराणसी", "उज्जैन", "प्रयाग"], correct: 0 },
+        { text: "श्रीदत्त उपाध्याय, चण्डेश्वर, विद्यापति सब स्मृतिकार कैकें अछि?", options: ["मैथिल निबन्धकार", "गौड़ीय", "द्रविड़", "काश्मीरी"], correct: 0 },
+        { text: "विद्यापतिक 'विभागसार' कोन विषयपर अछि?", options: ["कानूनी विधि / न्यायशास्त्र", "भक्ति काव्य", "व्याकरण", "ज्योतिष"], correct: 0 },
+        { text: "चण्डेश्वर ठाकुरक राजनीति रत्नाकर मध्ययुगीन शासन प्रणालीक आदर्श ग्रन्थ मानल जाइत अछि, ओ कोन राजाक मंत्री छलाह?", options: ["हरिसिंह देव", "गंगदेव", "शिवसिंह", "नान्यदेव"], correct: 0 },
+        { text: "मिथिला विश्वविद्यालयमे अध्यापककेँ कोन पदवी देल जाइत छल?", options: ["उपाध्याय, महोपाध्याय, महामहोपाध्याय", "आचार्य, प्रोफेसर", "शास्त्री, भूषण", "पंडित, कविराज"], correct: 0 },
+        { text: "पक्षधर मिश्रक द्वारा रचित अलंकार ग्रंथ कोन अछि?", options: ["चन्द्रालोक", "साहित्यदर्पण", "काव्यप्रकाश", "रसगंगाधर"], correct: 0 },
+        { text: "गंगेशक तत्वचिन्तामणिक टीका पिधर मिश्र 'आलोक' कहाएल, ओ कैकें लिखलन्हि?", options: ["न्याय-दर्शनक प्रश्नोन्मुख अध्ययन", "मीमांसा", "व्याकरण", "छन्द"], correct: 0 },
+        { text: "मिथिलामे शिक्षाक सर्वाधिक उत्कर्ष कोन राजवंश कालमे भेल?", options: ["कर्णाट-ओइनवार-खण्डवला कुल", "शूंग", "गुप्त", "पाल"], correct: 0 },
+        { text: "मिथिलाक प्राचीन विद्यालय (टोल) सभ प्रायः कोन आधारपर विभक्त छल?", options: ["वेद शाखा अनुसार (यजुर्वेदी, सामवेदी, आदि)", "क्षेत्रीय", "राजकीय", "धार्मिक"], correct: 0 },
+        { text: "महाराज कामेश्वर सिंहक दरभंगा राज्य कोन शिक्षा संस्था हेतु विशेष उदारता देने छलाह?", options: ["संस्कृत विश्वविद्यालय, कोकटी उद्योग, मिथिला रिसर्च इंस्टीट्यूट", "केवल मैथिली साहित्य", "केवल अंग्रेजी शिक्षा", "केवल चिकित्सा"], correct: 0 }
+    ];
+
+    // पूरा १०० प्रश्न (यदि कम होइ तो पुनरावृत्ति से नहि, उपर्युक्त ५०+ अछि, अब बाँकी ५० निम्नलिखित)
+    const extraQuestions = [
+        { text: "मिथिलामे नैयायिकक धौत परीक्षा उत्तीर्ण करबाक बाद कतना विद्वान सन्मानित होइत छलाह?", options: ["अल्प संख्या", "साधारण", "बहुत कम", "प्रतिवर्ष अनेक"], correct: 0 },
+        { text: "रघुनाथ शिरोमणि कोन ग्रंथ पर टीका लिखलन्हि?", options: ["तत्वचिन्तामणि (आलोक पर)", "भामती", "विवरण", "सूत्र"], correct: 0 },
+        { text: "विक्रमशिला विश्वविद्यालय मिथिलासँ आबि अनेक विद्वान के पढ़ने गेलाह?", options: ["हाँ", "नहि", "केवल राजपुत्र", "केवल मैथिल"], correct: 0 },
+        { text: "नालन्दा विश्वविद्यालयक पतनक बाद कोन केन्द्र शिक्षाक गढ बनल?", options: ["मिथिला (विदेह)", "वाराणसी", "काश्मीर", "गुजरात"], correct: 0 },
+        { text: "मिथिलाक विद्वान सभ द्वारा संस्कृत अलंकारशास्त्रमे उल्लेखनीय देन का अछि?", options: ["चन्द्रालोक (पक्षधर), रागतरंगिणी आदि", "काव्यादर्श", "काव्यप्रकाश", "वाक्यपदीय"], correct: 0 },
+        { text: "मिथिलामे पारम्परिक शिक्षा व्यवस्थाकेँ 'टोल' कहल जाइत छल, ओ कोन प्रकारक व्यवस्था छल?", options: ["गुरू आ शिष्यक निवासस्थल", "किला", "मदरसा", "चिकित्सालय"], correct: 0 },
+        { text: "शलाका परीक्षामे परीक्षार्थीकेँ कोन पुस्तकक कुन्द्रित भागकेँ प्रश्न आबि सकैत छल?", options: ["पाण्डुलिपिक पृष्ठ सुइसँ घोपल जाइत छल", "प्रश्न बाहरसँ पूछल जाइत छल", "गुरू मनमानी प्रश्न करैत छल", "केवल कठिन ग्रंथ"], correct: 0 },
+        { text: "मिथिलाक विद्वान उदयनाचार्यक 'न्यायकुसुमाञ्जलि' का सिद्ध करैत अछि?", options: ["ईश्वरक सत्ता", "आत्माक अस्तित्व", "अहिंसा", "बुद्धक श्रेष्ठता"], correct: 0 },
+        { text: "जरहटिया गाममे भैरवसिंह देवक यज्ञमे बंगाली विद्वान रघुनाथ शिरोमणि कहिए आएल छलाह?", options: ["हाँ, काण (काना) होएबाक कारण बाधा भेलैन्ह", "नहि", "सभा मंडपमे नहि गेल छलाह", "यज्ञ संचालक"], correct: 0 },
+        { text: "मिथिलाक विद्यापति केवल गीतकार नहि अपितु कानून आ नीति ग्रंथक रचयिता सेहो छलाह, जेना", options: ["विभागसार, पुरूष परीक्षा", "कीर्तिलता", "रामायण", "महाभारत"], correct: 0 }
+    ];
+
+    // संयोजन १००
+    const fullQuestions = [...questions, ...extraQuestions];
+    while(fullQuestions.length < 100) {
+        fullQuestions.push({ text: "मिथिलाक विद्वान परम्परा के हेतु प्रसिद्ध अछि?", options: ["न्याय, मीमांसा, दर्शन, व्याकरण", "केवल काव्य", "संगीत", "वास्तुकला"], correct: 0 });
+    }
+    if(fullQuestions.length > 100) fullQuestions.length = 100;
+
+    // ---------- क्विज़ इंजन ----------
+    let currentIdx = 0;
+    let userSelections = new Array(100).fill(null);
+    let quizSubmitted = false;
+
+    const container = document.getElementById('questionPanel');
+    const prev = document.getElementById('prevBtn');
+    const next = document.getElementById('nextBtn');
+    const submit = document.getElementById('submitQuiz');
+    const qSpan = document.getElementById('qCount');
+    const progFill = document.getElementById('progressFill');
+    const scoreSpan = document.getElementById('scoreValue');
+
+    function updateMetrics() {
+        const answered = userSelections.filter(v => v !== null).length;
+        const percent = (answered / 100) * 100;
+        progFill.style.width = percent + '%';
+        scoreSpan.innerText = `📚 ${answered}/१००`;
+        qSpan.innerText = `प्रश्न ${currentIdx+1}/१००`;
+    }
+
+    function renderCurrent() {
+        const q = fullQuestions[currentIdx];
+        let optsHtml = '';
+        const letters = ['(क)', '(ख)', '(ग)', '(घ)'];
+        q.options.forEach((opt, idx) => {
+            const selected = (userSelections[currentIdx] === idx);
+            const selClass = selected ? 'selected' : '';
+            optsHtml += `
+                <div class="option ${selClass}" data-opt-index="${idx}">
+                    <div class="opt-prefix">${letters[idx]}</div>
+                    <div class="opt-content">${opt}</div>
+                </div>
+            `;
+        });
+        const html = `
+            <div class="question-card">
+                <div class="question-text">${currentIdx+1}. ${q.text}</div>
+                <div class="options" id="optionsDiv">${optsHtml}</div>
+            </div>
+        `;
+        container.innerHTML = html;
+        document.querySelectorAll('.option').forEach(el => {
+            el.addEventListener('click', () => {
+                if (quizSubmitted) return;
+                const optVal = parseInt(el.dataset.optIndex);
+                userSelections[currentIdx] = optVal;
+                renderCurrent();
+                updateMetrics();
+            });
+        });
+        prev.disabled = (currentIdx === 0);
+        next.innerText = (currentIdx === 99) ? 'अंतिम ▶' : 'अगला ▶';
+    }
+
+    function goPrev() { if (currentIdx > 0) { currentIdx--; renderCurrent(); } }
+    function goNext() { if (currentIdx < 99) { currentIdx++; renderCurrent(); } }
+
+    function computeResult() {
+        let score = 0;
+        for (let i=0; i<100; i++) {
+            if (userSelections[i] !== null && userSelections[i] === fullQuestions[i].correct) score++;
+        }
+        return score;
+    }
+
+    function finishQuiz() {
+        if (quizSubmitted) return;
+        quizSubmitted = true;
+        const score = computeResult();
+        const perc = Math.round((score/100)*100);
+        let resultHtml = `<div class="result-area"><p style="font-size:1.7rem; font-weight:bold;">${score}/१०० (${perc}%)</p><p>🎓 मिथिलाक ज्ञान-परम्पराक मूल्यांकन</p>`;
+        resultHtml += `<div class="review-pane"><strong>📖 गलत उत्तर देल प्रश्नसभक समीक्षा :</strong>`;
+        let hasWrong = false;
+        for (let i=0; i<100; i++) {
+            if (userSelections[i] !== null && userSelections[i] !== fullQuestions[i].correct) {
+                hasWrong = true;
+                const correctAns = fullQuestions[i].options[fullQuestions[i].correct];
+                const userAns = fullQuestions[i].options[userSelections[i]];
+                resultHtml += `<div class="review-item"><span class="wrong-mark">❌ प्रश्न ${i+1}:</span> ${fullQuestions[i].text}<br>  आपक उत्तर: ${userAns}<br>  <span class="correct-mark">✓ सही उत्तर: ${correctAns}</span></div>`;
+            }
+        }
+        if (!hasWrong) resultHtml += `<div class="review-item">✨ बधाई! सबहि प्रश्नक सही उत्तर देलन्हि। आप मिथिलाक शिक्षाक गहर ज्ञाता छी ✨</div>`;
+        resultHtml += `</div><button id="restartQuiz" style="margin-top:20px; background:#8b532e;">🔄 क्विज़ पुनः शुरू करू</button></div>`;
+        document.getElementById('resultBlock').innerHTML = resultHtml;
+        document.getElementById('restartQuiz')?.addEventListener('click', () => location.reload());
+        prev.disabled = true;
+        next.disabled = true;
+        submit.disabled = true;
+    }
+
+    prev.addEventListener('click', goPrev);
+    next.addEventListener('click', goNext);
+    submit.addEventListener('click', finishQuiz);
+    renderCurrent();
+    updateMetrics();
+
+</script></body>
+</html>

@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>आधुनिक मैथिली नाटकमे निर्धनताक समस्या — प्रश्नोत्तरी — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1a2744;--crimson:#8B1A1A;--gold:#c49a3c;--cream:#FAF6EE;--white:#fff;--ok-bg:#e8f5e9;--ok-fg:#2e7d32;--bad-bg:#ffebee;--bad-fg:#b71c1c}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);font-family:'Lato',sans-serif;color:var(--navy);min-height:100vh}
+header{background:var(--navy);color:#fff;padding:18px 20px 14px;text-align:center;border-bottom:4px solid var(--gold)}
+header h1{font-family:'Noto Serif Devanagari',serif;font-size:1.35em;line-height:1.45;margin-bottom:4px}
+header .sub{font-family:'Playfair Display',serif;font-size:.78em;color:var(--gold);letter-spacing:.12em;font-style:italic}
+header p{font-size:.76em;color:#a0b0d0;font-style:italic;margin-top:3px}
+.tabs{display:flex;background:var(--navy);border-bottom:3px solid var(--gold)}
+.tbtn{flex:1;padding:10px 8px;background:transparent;color:#7a8aaa;border:none;border-bottom:3px solid transparent;margin-bottom:-3px;cursor:pointer;font-size:.88em;font-family:'Noto Serif Devanagari','Lato',sans-serif;transition:.15s;line-height:1.4}
+.tbtn.active{color:var(--gold);border-bottom-color:var(--gold)}
+.tbtn:hover:not(.active){color:#fff}
+.wrap{max-width:700px;margin:24px auto;padding:0 14px 48px}
+.srow{display:flex;align-items:center;gap:11px;margin-bottom:14px;flex-wrap:wrap}
+.srow label{font-size:.85em;color:#5a6a8a;font-weight:700;font-family:'Noto Serif Devanagari',sans-serif}
+select.ss{font-size:.87em;padding:5px 10px;border:1px solid #c0cada;border-radius:5px;background:#fff;color:var(--navy);cursor:pointer}
+.qhdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.qtitle{font-family:'Playfair Display',serif;font-size:.93em;color:var(--crimson)}
+.qstat{font-size:.82em;color:#5a6a8a}
+.progw{background:#d4dae6;border-radius:4px;height:6px;margin-bottom:16px;overflow:hidden}
+.progb{background:var(--gold);height:100%;border-radius:4px;transition:width .3s}
+.card{background:#fff;border-radius:10px;box-shadow:0 4px 18px rgba(26,39,68,.11);padding:22px 22px 16px;margin-bottom:14px;border-left:5px solid var(--crimson)}
+.qnum{font-size:.71em;color:var(--gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.qword{font-family:'Noto Serif Devanagari',serif;font-size:1.1em;font-weight:600;margin-bottom:14px;line-height:1.65;color:var(--navy)}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+@media(max-width:500px){.choices{grid-template-columns:1fr}.qword{font-size:1em}.card{padding:15px 12px}}
+.cbtn{font-family:'Noto Serif Devanagari','Lato',sans-serif;font-size:.93em;padding:10px 12px;background:#f0f4fc;color:var(--navy);border:2px solid #d0d8ea;border-radius:7px;cursor:pointer;text-align:left;transition:.15s;line-height:1.5;width:100%}
+.cbtn:hover:not(:disabled){background:#e2eaf8;border-color:var(--navy)}
+.cbtn.ok{background:var(--ok-bg);border-color:var(--ok-fg);color:var(--ok-fg);font-weight:700}
+.cbtn.bad{background:var(--bad-bg);border-color:var(--bad-fg);color:var(--bad-fg)}
+.cbtn.rev{background:var(--ok-bg);border-color:var(--ok-fg);color:var(--ok-fg);font-weight:700}
+.fb{margin-top:10px;font-size:.88em;font-weight:600;min-height:18px;font-family:'Noto Serif Devanagari',serif}
+.fb.ok{color:var(--ok-fg)}.fb.bad{color:var(--bad-fg)}
+.quote-box{background:#f5f0e8;border-left:4px solid var(--gold);border-radius:0 7px 7px 0;padding:10px 14px;margin-bottom:12px;font-family:'Noto Serif Devanagari',serif;font-size:.9em;color:#3a2a00;line-height:1.7;font-style:italic}
+.hint-box{background:#fffbef;border:1px solid var(--gold);border-radius:7px;padding:9px 13px;margin-top:9px;font-family:'Noto Serif Devanagari',serif;font-size:.84em;color:#5a4010;display:none}
+.hint-box.show{display:block}
+.nav{display:flex;gap:9px;flex-wrap:wrap;margin-top:2px}
+.nbtn{font-family:'Lato',sans-serif;font-size:.9em;font-weight:700;padding:8px 18px;border-radius:6px;border:none;cursor:pointer;transition:.15s}
+.nbtn.pri{background:var(--crimson);color:#fff}.nbtn.pri:hover{background:var(--navy)}
+.nbtn.sec{background:transparent;color:var(--navy);border:2px solid var(--navy)}.nbtn.sec:hover{background:var(--navy);color:#fff}
+.scoreboard{background:#fff;border-radius:10px;box-shadow:0 4px 18px rgba(26,39,68,.11);padding:32px 24px;text-align:center}
+.scbig{font-family:'Playfair Display',serif;font-size:2.7em;color:var(--crimson);font-weight:700;margin-bottom:5px}
+.scpct{font-size:1.02em;color:#5a6a8a;margin-bottom:8px}
+.scmsg{font-family:'Noto Serif Devanagari','Lato',sans-serif;font-size:1em;color:var(--navy);margin-bottom:18px}
+.orn{text-align:center;color:var(--gold);font-size:.95em;letter-spacing:.2em;margin-bottom:14px;opacity:.6}
+.pane{display:none}.pane.active{display:block}
+.counter-badge{background:var(--crimson);color:#fff;font-size:.7em;font-weight:700;padding:2px 7px;border-radius:10px;margin-left:5px;vertical-align:middle}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="tabs"> <button class="tbtn active" id="tab-a" onclick="switchMode('a')">लेखक परिचय <span class="counter-badge">12</span></button> <button class="tbtn" id="tab-b" onclick="switchMode('b')">नाटक एवं नाटककार <span class="counter-badge">22</span></button> <button class="tbtn" id="tab-c" onclick="switchMode('c')">उद्धरण एवं विश्लेषण <span class="counter-badge">18</span></button> <button class="tbtn" id="tab-d" onclick="switchMode('d')">समग्र आलेख <span class="counter-badge">15</span></button>
+</div> <div class="wrap"> <div class="pane active" id="pane-a"> <div class="orn">&#10022; &#10022; &#10022;</div> <div class="srow"> <label>प्रश्न-संख्या:</label> <select class="ss" id="qsize-a"> <option value="8">8</option> <option value="12" selected>सभ — All 12</option> </select> <button class="nbtn pri" style="padding:5px 13px;font-size:.83em" onclick="startQuiz('a')">नव क्विज / New Quiz</button> </div> <div id="area-a"></div> </div> <div class="pane" id="pane-b"> <div class="orn">&#10022; &#10022; &#10022;</div> <div class="srow"> <label>प्रश्न-संख्या:</label> <select class="ss" id="qsize-b"> <option value="10">10</option> <option value="15">15</option> <option value="22" selected>सभ — All 22</option> </select> <button class="nbtn pri" style="padding:5px 13px;font-size:.83em" onclick="startQuiz('b')">नव क्विज / New Quiz</button> </div> <div id="area-b"></div> </div> <div class="pane" id="pane-c"> <div class="orn">&#10022; &#10022; &#10022;</div> <div class="srow"> <label>प्रश्न-संख्या:</label> <select class="ss" id="qsize-c"> <option value="10">10</option> <option value="15">15</option> <option value="18" selected>सभ — All 18</option> </select> <button class="nbtn pri" style="padding:5px 13px;font-size:.83em" onclick="startQuiz('c')">नव क्विज / New Quiz</button> </div> <div id="area-c"></div> </div> <div class="pane" id="pane-d"> <div class="orn">&#10022; &#10022; &#10022;</div> <div class="srow"> <label>प्रश्न-संख्या:</label> <select class="ss" id="qsize-d"> <option value="10">10</option> <option value="15" selected>सभ — All 15</option> </select> <button class="nbtn pri" style="padding:5px 13px;font-size:.83em" onclick="startQuiz('d')">नव क्विज / New Quiz</button> </div> <div id="area-d"></div> </div> </div>
+<script>
+
+</script><script>
+
+var QDB = {
+
+/* ══════════════════════════════════════════════════════
+   TAB A : लेखक परिचय (12)
+   ══════════════════════════════════════════════════════ */
+a: [
+  {
+    q: "डॉ. शम्भु कुमार सिंहक जन्म कोन तारीखकेँ भेल?",
+    cat: "जीवन-परिचय",
+    choices: ["१८ मार्च १९६५", "१८ अप्रैल १९६५", "१८ अगस्त १९६५", "१८ जनवरी १९६५"],
+    correct: 1,
+    hint: "अप्रैल मास, १९६५"
+  },
+  {
+    q: "डॉ. शम्भु कुमार सिंहक जन्म कोन जिलामे भेल?",
+    cat: "जीवन-परिचय",
+    choices: ["दरभंगा", "मधुबनी", "सहरसा", "सुपौल"],
+    correct: 2,
+    hint: "सहरसा जिला, मिथिलाक एक प्रसिद्ध जिला"
+  },
+  {
+    q: "डॉ. शम्भु कुमार सिंहक जन्म कोन प्रखंडक लहुआर गाममे भेल?",
+    cat: "जीवन-परिचय",
+    choices: ["सिमरी बख्तियारपुर", "सौर बाजार", "महिषी", "नवहट्टा"],
+    correct: 2,
+    hint: "महिषी = शारदा देवीक सिद्धपीठ"
+  },
+  {
+    q: "डॉ. शम्भु कुमार सिंह कोन विश्वविद्यालयसँ एम.ए. मैथिली (स्वर्णपदक) प्राप्त केलनि?",
+    cat: "शिक्षा",
+    choices: ["पटना विश्वविद्यालय", "मगध विश्वविद्यालय", "तिलका माँझी भागलपुर विश्वविद्यालय", "ललित नारायण मिथिला विश्वविद्यालय"],
+    correct: 2,
+    hint: "भागलपुर, बिहार"
+  },
+  {
+    q: "BET परीक्षा कोनक समतुल्य छल आ डॉ. सिंह एकरा कोन वर्षमे उत्तीर्ण केलनि?",
+    cat: "शिक्षा",
+    choices: ["JRF क समतुल्य, १९९२", "NET क समतुल्य, १९९५", "SLET क समतुल्य, १९९७", "SET क समतुल्य, २०००"],
+    correct: 1,
+    hint: "बिहार पात्रता परीक्षा, व्याख्याता हेतु"
+  },
+  {
+    q: "डॉ. शम्भु कुमार सिंहक पी-एच.डी. कोन विषयपर छल?",
+    cat: "शोध",
+    choices: ["मैथिली कविताक सामाजिक विवर्तन", "मैथिली नाटकक सामाजिक विवर्तन", "मैथिली कथाक आर्थिक पृष्ठभूमि", "मैथिली उपन्यासक मानवीय संवेदना"],
+    correct: 1,
+    hint: "नाटक + सामाजिक परिवर्तन"
+  },
+  {
+    q: "डॉ. सिंहक पी-एच.डी. कोन वर्षमे, कोन विश्वविद्यालयसँ भेल?",
+    cat: "शोध",
+    choices: ["२००५, पटना विश्वविद्यालय", "२००८, तिलका माँझी भागलपुर विश्वविद्यालय", "२०१०, दरभंगा विश्वविद्यालय", "२००३, मगध विश्वविद्यालय"],
+    correct: 1,
+    hint: "भागलपुर, बिहार, वर्ष २००८"
+  },
+  {
+    q: "लेखक वर्तमानमे कोन संस्थामे कोन पदपर कार्यरत छलाह?",
+    cat: "कार्यक्षेत्र",
+    choices: ["मैथिली अकादमी, पटनामे संचालक", "राष्ट्रीय अनुवाद मिशन, केन्द्रीय भारतीय भाषा संस्थान, मैसूरमे शैक्षिक सलाहकार (मैथिली)", "साहित्य अकादेमी, दिल्लीमे सलाहकार", "बिहार सरकारमे मैथिली अधिकारी"],
+    correct: 1,
+    hint: "मैसूर-६, CIIL"
+  },
+  {
+    q: "डॉ. सिंहक आरम्भिक शिक्षा कतयसँ भेल?",
+    cat: "शिक्षा",
+    choices: ["पटनासँ", "गामहिसँ (स्थानीय ग्राम विद्यालयसँ)", "दरभंगासँ", "भागलपुरसँ"],
+    correct: 1,
+    hint: "लहुआर गाम, महिषी प्रखंड"
+  },
+  {
+    q: "डॉ. सिंह बी.ए. मैथिलीमे कोन उपाधि लेने छलाह?",
+    cat: "शिक्षा",
+    choices: ["साधारण उपाधि", "मैथिली सम्मान", "प्रथम श्रेणी", "स्वर्णपदक"],
+    correct: 1,
+    hint: "B.A. (मैथिली सम्मान)"
+  },
+  {
+    q: "डॉ. सिंहक रचनाएँ कोन-कोन विधामे प्रकाशित छल?",
+    cat: "साहित्यिक योगदान",
+    choices: ["केवल नाटक", "केवल आलोचना", "कविता, कथा, निबंध आदि", "केवल अनुवाद"],
+    correct: 2,
+    hint: "बहुविधीय रचनाकार"
+  },
+  {
+    q: "डॉ. सिंहक रचनाएँ कतय-कतय प्रकाशित होइत छल?",
+    cat: "साहित्यिक योगदान",
+    choices: ["केवल विदेहमे", "केवल मिथिला मिहिरमे", "मैथिलीक कतोक प्रतिष्ठित पत्र-पत्रिका सभमे", "केवल अकादेमी प्रकाशनमे"],
+    correct: 2,
+    hint: "समय-समय पर विभिन्न पत्रिकामे"
+  }
+],
+
+/* ══════════════════════════════════════════════════════
+   TAB B : नाटक एवं नाटककार (22)
+   ══════════════════════════════════════════════════════ */
+b: [
+  {
+    q: "जीवनाथ झाक 'वीर-वीरेन्द्र' कोन वर्षमे प्रकाशित भेल?",
+    cat: "नाटक परिचय",
+    choices: ["१९५०", "१९५४", "१९५६", "१९६०"],
+    correct: 2,
+    hint: "१९५६"
+  },
+  {
+    q: "भाग्य नारायण झाक 'मनोरथ' कोन वर्षमे प्रकाशित भेल?",
+    cat: "नाटक परिचय",
+    choices: ["१९६०", "१९६३", "१९६६", "१९७०"],
+    correct: 2,
+    hint: "१९६६"
+  },
+  {
+    q: "बाबूसाहेब चौधरीक 'कुहेस' कोन वर्षमे प्रकाशित भेल?",
+    cat: "नाटक परिचय",
+    choices: ["१९६५", "१९६७", "१९७०", "१९७२"],
+    correct: 1,
+    hint: "१९६७"
+  },
+  {
+    q: "गुणनाथ झाक 'कनियाँ-पुतरा' कोन वर्षमे प्रकाशित भेल?",
+    cat: "नाटक परिचय",
+    choices: ["१९६५", "१९६७", "१९७०", "१९७५"],
+    correct: 1,
+    hint: "१९६७ — कुहेससँ एक्के वर्ष"
+  },
+  {
+    q: "महेन्द्र मलंगियाक 'ओकरा आँगनक बारहमासा' कोन वर्षमे प्रकाशित भेल?",
+    cat: "नाटक परिचय",
+    choices: ["१९७५", "१९७८", "१९८०", "१९८२"],
+    correct: 2,
+    hint: "१९८०"
+  },
+  {
+    q: "नचिकेताक 'नायकक नाम जीवन' कोन वर्षमे प्रकाशित भेल?",
+    cat: "नाटक परिचय",
+    choices: ["१९६८", "१९७०", "१९७१", "१९७५"],
+    correct: 2,
+    hint: "१९७१"
+  },
+  {
+    q: "अरविन्द कुमार 'अक्कू'क 'आगि धधकि रहल छै' कोन वर्षमे प्रकाशित भेल?",
+    cat: "नाटक परिचय",
+    choices: ["१९७८", "१९८०", "१९८१", "१९८५"],
+    correct: 2,
+    hint: "१९८१"
+  },
+  {
+    q: "गोविन्द झाक 'अन्तिम प्रणाम' कोन वर्षमे प्रकाशित भेल?",
+    cat: "नाटक परिचय",
+    choices: ["१९७८", "१९८०", "१९८२", "१९८५"],
+    correct: 2,
+    hint: "१९८२"
+  },
+  {
+    q: "गंगेश गुंजनक 'बुधबधिया' कोन वर्षमे प्रकाशित भेल?",
+    cat: "नाटक परिचय",
+    choices: ["१९७८", "१९८०", "१९८२", "१९८५"],
+    correct: 2,
+    hint: "१९८२ — अन्तिम प्रणामसँ एक्के वर्ष"
+  },
+  {
+    q: "'मनोरथ' नाटकमे निर्धनताकेँ कोसनिहार मुख्य पात्र के छलाह?",
+    cat: "नाटक पात्र",
+    choices: ["रामनाथ", "लक्ष्मीनाथ", "धनपति", "मुरारी"],
+    correct: 1,
+    hint: "ओ कहैत छलाह — हमर नाम तँ दरिद्रनाथ होमक चाही"
+  },
+  {
+    q: "'मनोरथ'मे लक्ष्मीनाथ अपन नाम कोन नाम होमक चाही कहैत छलाह?",
+    cat: "नाटक उद्धरण",
+    choices: ["धनेश्वर", "दरिद्रनाथ", "निर्धननाथ", "गरीबनाथ"],
+    correct: 1,
+    hint: "लक्ष्मी = धन, दरिद्र = गरीब"
+  },
+  {
+    q: "'अन्तिम प्रणाम'मे मुरारी कहैत छलाह — 'तीन-तीनटा बच्चोकेँ भुखले सुतैत देखैत रहैत छी' — एहि कथनमे कोन समस्याक चित्रण अछि?",
+    cat: "नाटक पात्र",
+    choices: ["बेरोजगारीक", "शिक्षाक अभावक", "पारिवारिक भुखमरीक", "सामाजिक भेदभावक"],
+    correct: 2,
+    hint: "अन्नाभाव = भुखमरी"
+  },
+  {
+    q: "'ओकरा आँगनक बारहमासा'क रचनाकार के छलाह?",
+    cat: "नाटककार",
+    choices: ["नचिकेता", "गोविन्द झा", "गंगेश गुंजन", "महेन्द्र मलंगिया"],
+    correct: 3,
+    hint: "बारहमासा = बाह्र मास"
+  },
+  {
+    q: "'बुधबधिया'क रचनाकार के छलाह?",
+    cat: "नाटककार",
+    choices: ["महेन्द्र मलंगिया", "नचिकेता", "डॉ. गंगेश गुंजन", "गोविन्द झा"],
+    correct: 2,
+    hint: "डॉ. गंगेश गुंजन"
+  },
+  {
+    q: "'अन्तिम प्रणाम'क रचनाकार के छलाह?",
+    cat: "नाटककार",
+    choices: ["महेन्द्र मलंगिया", "गोविन्द झा", "गंगेश गुंजन", "नचिकेता"],
+    correct: 1,
+    hint: "गोविन्द झा"
+  },
+  {
+    q: "'नायकक नाम जीवन'क रचनाकार के छलाह?",
+    cat: "नाटककार",
+    choices: ["जीवनाथ झा", "भाग्यनारायण झा", "नचिकेता", "गुणनाथ झा"],
+    correct: 2,
+    hint: "नचिकेता — आधुनिक मैथिली नाटककार"
+  },
+  {
+    q: "निम्नमे कोन नाटकमे 'नाटकक लेल' शीर्षकक उल्लेख अछि?",
+    cat: "नाटक परिचय",
+    choices: ["मनोरथ", "नायकक नाम जीवन", "नाटकक लेल (नचिकेता)", "बुधबधिया"],
+    correct: 2,
+    hint: "नचिकेताक एक नाटक"
+  },
+  {
+    q: "आलेखमे उद्धृत कोन नाटकमे 'कूड़ाक ढेरसँ किछु बीछि रहल' दृश्य अछि?",
+    cat: "नाटक उद्धरण",
+    choices: ["ओकरा आँगनक बारहमासा", "नाटकक लेल", "बुधबधिया", "अन्तिम प्रणाम"],
+    correct: 1,
+    hint: "सन्दर्भ-२ : पृष्ठ—५४"
+  },
+  {
+    q: "'ओकरा आँगनक बारहमासा'मे कातिक मासकेँ खेतिहर मजदूरक कोन प्रकारक मास कहल गेल?",
+    cat: "नाटक विषयवस्तु",
+    choices: ["उत्सवक मास", "दुखक मास", "खुशीक मास", "कमाईक मास"],
+    correct: 1,
+    hint: "बोनि नहि लागैत — अन्न नहि"
+  },
+  {
+    q: "'ओकरा आँगनक बारहमासा'मे सर्वहारा वर्गक जीवनमे ऋतुक वर्णन कतेक मासक अछि?",
+    cat: "नाटक विषयवस्तु",
+    choices: ["छह मास", "नौ मास", "बारह मास", "चार मास"],
+    correct: 2,
+    hint: "बारहमासा = बाह्र मास — पूरे वर्षक दुर्दैन्य"
+  },
+  {
+    q: "आलेखमे उल्लिखित कोन नाटकमे 'एकरा देहपर एक बीत वस्त्र नहि' उद्धरण अछि?",
+    cat: "नाटक उद्धरण",
+    choices: ["अन्तिम प्रणाम", "मनोरथ", "बुधबधिया", "ओकरा आँगनक बारहमासा"],
+    correct: 2,
+    hint: "सन्दर्भ-९ : बुधबधिया"
+  },
+  {
+    q: "आलेखमे निर्धनताक चित्रण विषयक कतेक गोट नाटकक नाम लेल गेल अछि?",
+    cat: "सामान्य ज्ञान",
+    choices: ["पाँच", "सात", "नौ", "ग्यारह"],
+    correct: 2,
+    hint: "वीर-वीरेन्द्र, मनोरथ, कुहेस, कनियाँ-पुतरा, ओकरा आँगनक बारहमासा, नायकक नाम जीवन, आगि धधकि रहल छै, अन्तिम प्रणाम, बुधबधिया"
+  }
+],
+
+/* ══════════════════════════════════════════════════════
+   TAB C : उद्धरण एवं विश्लेषण (18)
+   ══════════════════════════════════════════════════════ */
+c: [
+  {
+    q: "डॉ. प्रेम शंकर सिंह मैथिली नाट्यालोचकक कथन 'आर्थिक दशाक क्षीणताक कारणेँ मनुष्यकेँ केहन संकटापन्न समस्याक सामना करए पड़ैछ' — कोन नाटकक सन्दर्भमे कहल गेल?",
+    cat: "आलोचना",
+    choices: ["बुधबधिया", "ओकरा आँगनक बारहमासा", "मनोरथ", "अन्तिम प्रणाम"],
+    correct: 2,
+    hint: "सन्दर्भ-१ : मैथिली नाटक परिचय, पृष्ठ-९६"
+  },
+  {
+    q: "डॉ. प्रेम शंकर सिंहक कोन ग्रंथसँ उक्त उद्धरण लेल गेल?",
+    cat: "सन्दर्भ ग्रंथ",
+    choices: ["मैथिली नवीन साहित्य", "मैथिली नाटक परिचय", "मैथिली नाट्य समीक्षा", "मैथिली साहित्यक इतिहास"],
+    correct: 1,
+    hint: "पृष्ठ—९६"
+  },
+  {
+    q: "प्रो. प्रेमशंकर सिंह 'ओकरा आँगनक बारहमासा' नाटककेँ कोन नाम देने छलाह?",
+    cat: "आलोचना",
+    choices: ["मिथिलाक श्रमिक वर्गक महाकाव्य", "मिथिलाक निम्नवर्गीय समाजक अलबम", "मिथिलाक गरीबीक दर्पण", "मिथिलाक सर्वहाराक आवाज"],
+    correct: 1,
+    hint: "सन्दर्भ-६ : मैथिली नवीन साहित्य, पृष्ठ-२८"
+  },
+  {
+    q: "'मिथिलाक निम्नवर्गीय समाजक अलबम' — एहि उद्धरणक स्रोत कोन ग्रंथ थिक?",
+    cat: "सन्दर्भ ग्रंथ",
+    choices: ["मैथिली नाटक परिचय", "मैथिली नवीन साहित्य (सं. डॉ. बासुकीनाथ झा)", "मैथिली साहित्यक इतिहास", "विदेह : सदेह"],
+    correct: 1,
+    hint: "सन्दर्भ-६, पृष्ठ-२८"
+  },
+  {
+    q: "'मैथिली नवीन साहित्य'क सम्पादक के छलाह?",
+    cat: "सन्दर्भ ग्रंथ",
+    choices: ["डॉ. प्रेम शंकर सिंह", "डॉ. बासुकीनाथ झा", "डॉ. शम्भु कुमार सिंह", "डॉ. गंगेश गुंजन"],
+    correct: 1,
+    hint: "सन्दर्भ-६ मे उल्लिखित"
+  },
+  {
+    q: "कातिक मास सम्बन्धी पंक्ति 'कातिक हे सखि बोनियो ने लागै छै, अन्नक नहि कोनो बाट यौ' — कोन नाटकसँ अछि?",
+    cat: "काव्य-पंक्ति",
+    choices: ["अन्तिम प्रणाम", "बुधबधिया", "ओकरा आँगनक बारहमासा", "मनोरथ"],
+    correct: 2,
+    hint: "महेन्द्र मलंगिया, पृष्ठ-१"
+  },
+  {
+    q: "उक्त कातिक-वर्णन पंक्तिमे 'राड़' शब्दसँ की बुझाइत अछि?",
+    cat: "भाषा-विश्लेषण",
+    choices: ["आनन्द", "रोदन/क्रन्दन, विलाप", "उत्सव", "काज"],
+    correct: 1,
+    hint: "घर-घर हुलकए राड़ — हाहाकार"
+  },
+  {
+    q: "'दू गोट कोकड़ा पकबिति पियास लागल हय' — एहि पंक्तिसँ कोन परिस्थितिक वर्णन होइत अछि?",
+    cat: "काव्य-पंक्ति",
+    choices: ["गरीबक न्यूनतम भोजनक विवशता", "उत्सवक भोजन", "बच्चाक खेलक वर्णन", "बाजारक दृश्य"],
+    correct: 0,
+    hint: "सन्दर्भ-४, पृष्ठ-२"
+  },
+  {
+    q: "'अन्न बिना पेट जरिते हय, बस्तर बिना ठिठुरबे केली आ घर त' दखते छी' — एहिमे कतेक समस्याक उल्लेख अछि?",
+    cat: "विश्लेषण",
+    choices: ["एकटा", "दूटा", "तीनटा", "चारिटा"],
+    correct: 2,
+    hint: "अन्न, वस्त्र, घर — तीनू मूलभूत आवश्यकता"
+  },
+  {
+    q: "उक्त 'अन्न बिना पेट जरिते हय' उद्धरण कोन नाटकसँ अछि?",
+    cat: "सन्दर्भ",
+    choices: ["मनोरथ", "बुधबधिया", "ओकरा आँगनक बारहमासा", "अन्तिम प्रणाम"],
+    correct: 2,
+    hint: "सन्दर्भ-५, पृष्ठ-४६"
+  },
+  {
+    q: "'जाहि आँगनक बारहमासा एहिमे टेरल गेल अदि तकर ध्वनि खाली ओहि आँगनसँ नहि आबि रहल अछि, प्रत्युत मिथिलाक लाख-लाख आँगनसँ उठैत...' — एहिमे 'एहि' शब्दसँ कोन नाटक बुझाइत अछि?",
+    cat: "उद्धरण पहचान",
+    choices: ["अन्तिम प्रणाम", "बुधबधिया", "ओकरा आँगनक बारहमासा", "मनोरथ"],
+    correct: 2,
+    hint: "सन्दर्भ-७, पृष्ठ-२८"
+  },
+  {
+    q: "उक्त उद्धरण 'मिथिलाक लाख-लाख आँगनसँ उठैत' — एकर अर्थ की?",
+    cat: "विश्लेषण",
+    choices: ["केवल एक परिवारक कष्ट", "मिथिलाक सम्पूर्ण निम्नवर्गक सार्वभौमिक व्यथा", "मिथिलाक उत्सव", "एक गाँवक कथा"],
+    correct: 1,
+    hint: "नाटककार व्यक्तिगत नहि, सामूहिक कष्टक प्रतिनिधित्व करैत छथि"
+  },
+  {
+    q: "'ठीके तँ कहै छिऐ। हमरा आरू गरीब छी मुदा आनिपर दस गोटए मिलि जाए तँ की ने क' सकैत छी' — एहि पंक्ति कोन नाटकसँ अछि?",
+    cat: "उद्धरण पहचान",
+    choices: ["बुधबधिया", "ओकरा आँगनक बारहमासा", "अन्तिम प्रणाम", "मनोरथ"],
+    correct: 2,
+    hint: "सन्दर्भ-८ : गोविन्द झा"
+  },
+  {
+    q: "उक्त उद्धरणमे गरीबीक बाद सेहो 'दस गोटए मिलि जाए तँ' — एहिसँ कोन भावना व्यक्त होइत अछि?",
+    cat: "विश्लेषण",
+    choices: ["निराशा", "एकजुटता ओ सामूहिक शक्तिक आशावाद", "क्रोध", "समर्पण"],
+    correct: 1,
+    hint: "सामूहिकता = शक्ति"
+  },
+  {
+    q: "'तीन-तीनटा बच्चोकेँ भुखले सुतैत देखैत रहैत छी, घरवालीकेँ फाटल वस्त्रमे देखैत छी' — एहि कथन कोन पात्रक थिक?",
+    cat: "नाटक पात्र",
+    choices: ["लक्ष्मीनाथक", "मुरारीक", "रामचन्द्रक", "बलदेवक"],
+    correct: 1,
+    hint: "अन्तिम प्रणाम, गोविन्द झा"
+  },
+  {
+    q: "'कतेको लोक एक किनारमे पड़ल कूड़ाक ढेरसँ की सभने बीछि रहल छल, क्यो दू एकटा रोगाएल बच्चाकेँ डेंगा रहल छल' — कोन नाटकक पृष्ठ ५४ सँ उद्धृत?",
+    cat: "उद्धरण पहचान",
+    choices: ["अन्तिम प्रणाम", "नाटकक लेल (नचिकेता)", "ओकरा आँगनक बारहमासा", "बुधबधिया"],
+    correct: 1,
+    hint: "नचिकेता, पृष्ठ-५४"
+  },
+  {
+    q: "'एकरा देहपर एक बीत वस्त्र नहि, एकर अंग-अंग उघार अछि' — एहि पंक्ति कोन नाटकसँ अछि?",
+    cat: "उद्धरण पहचान",
+    choices: ["मनोरथ", "अन्तिम प्रणाम", "बुधबधिया", "ओकरा आँगनक बारहमासा"],
+    correct: 2,
+    hint: "सन्दर्भ-९ : डॉ. गंगेश गुंजन"
+  },
+  {
+    q: "निम्नमे कोन उद्धरण 'ओकरा आँगनक बारहमासा'क पृष्ठ-२ सँ अछि?",
+    cat: "सन्दर्भ",
+    choices: ["'अन्न बिना पेट जरिते हय'", "'दू गोट कोकड़ा पकबिति पियास लागल हय'", "'बोनियो ने लागै छै'", "'एकरा देहपर एक बीत वस्त्र नहि'"],
+    correct: 1,
+    hint: "सन्दर्भ-४, पृष्ठ-२"
+  }
+],
+
+/* ══════════════════════════════════════════════════════
+   TAB D : समग्र आलेख (15)
+   ══════════════════════════════════════════════════════ */
+d: [
+  {
+    q: "आलेखक शीर्षक की अछि?",
+    cat: "आलेख परिचय",
+    choices: ["आधुनिक मैथिली कविताक सामाजिक विमर्श", "आधुनिक मैथिली नाटकमे चित्रित : निर्धनताक समस्या", "मिथिलाक सामाजिक-आर्थिक विषमता", "मैथिली नाटकक विकास"],
+    correct: 1,
+    hint: "TOPIC_14"
+  },
+  {
+    q: "आलेख कोन पत्रिकाक कोन अंकमे प्रकाशित अछि?",
+    cat: "प्रकाशन",
+    choices: ["विदेह : सदेह : १", "विदेह : सदेह : २ (विदेह ई-पत्रिकाक २६मसँ ५०म अंकसँ बीछल)", "विदेह : सदेह : ३", "मैथिली प्रबन्ध-निबन्ध-समालोचना"],
+    correct: 1,
+    hint: "पृष्ठ ८८-९०"
+  },
+  {
+    q: "आलेखक अनुसार भारतक कुल आबादीक कतेक प्रतिशत लोक जीवनोपयोगी न्यूनतम आवश्यकताक पूर्ति करबामे अक्षम छथि?",
+    cat: "तथ्य",
+    choices: ["पच्चीस प्रतिशत", "तीस प्रतिशत", "पैंतीस प्रतिशत", "चालीस प्रतिशत"],
+    correct: 2,
+    hint: "पैंतीस प्रतिशतक लगपास"
+  },
+  {
+    q: "आलेखक अनुसार गामक लोकक गरीबीक मुख्य कारण कोन-कोन अछि?",
+    cat: "विषयवस्तु",
+    choices: ["केवल सरकारी उपेक्षा", "अनियमित बरखा, सरकारी उपेक्षा, अशिक्षा ओ पिछड़ापन", "केवल अशिक्षा", "केवल प्राकृतिक आपदा"],
+    correct: 1,
+    hint: "बहुकारणीय समस्या"
+  },
+  {
+    q: "आलेखक अनुसार गरीब किसान जखन कमाइ हेतु शहर जाइत छथि तँ ओतय की कहबाइत छथि?",
+    cat: "विषयवस्तु",
+    choices: ["कारीगर वा दस्तकार", "मजदूर वा बोनिहार", "व्यापारी वा दुकानदार", "कर्मचारी वा नौकर"],
+    correct: 1,
+    hint: "मजदूर = दिन-मजूरी करनिहार"
+  },
+  {
+    q: "आलेखक अनुसार निर्धनता मनुष्यकेँ कोन-कोन रूपमे प्रभावित करैत अछि?",
+    cat: "विषयवस्तु",
+    choices: ["केवल आर्थिक रूपसँ", "बेवस, लाचार, शक्तिहीन, पिछड़ल, दीन-हीन बनाबैत अछि", "केवल मानसिक रूपसँ", "केवल सामाजिक रूपसँ"],
+    correct: 1,
+    hint: "बहुआयामी प्रभाव"
+  },
+  {
+    q: "'निर्धनता मनुक्खकेँ बेवस लाचार आ शक्तिहीन बना दैत अछि' — एहिसँ आलेखकार कोन मूल विचार प्रस्तुत करैत छथि?",
+    cat: "विचार-विश्लेषण",
+    choices: ["आर्थिक स्वतंत्रताक महत्व", "निर्धनता स्वतंत्रता, विचार ओ कार्यक्षमता सभकेँ बाधित करैत अछि", "धार्मिक आस्थाक महत्व", "शिक्षाक महत्व"],
+    correct: 1,
+    hint: "स्वतंत्रता + बड़का काज + विचार — तीनू नहि"
+  },
+  {
+    q: "आलेखमे 'ओकरा आँगनक बारहमासा'केँ मैथिली नाट्य साहित्यमे कोन स्थान देल गेल?",
+    cat: "मूल्यांकन",
+    choices: ["सामान्य स्थान", "निम्नवर्ग-चित्रणक दृष्टिसँ अद्वितीय स्थान", "प्रथम मैथिली नाटकक स्थान", "केवल ऐतिहासिक महत्व"],
+    correct: 1,
+    hint: "निम्नवर्गक यथार्थ चित्रणमे अद्वितीय"
+  },
+  {
+    q: "आलेखक अनुसार 'आधुनिक सामाजिक मैथिली नाटकक मूल-स्वर' कोन थिक?",
+    cat: "निष्कर्ष",
+    choices: ["प्रेम ओ सौन्दर्यक गान", "विभिन्न संघर्ष, तनाव ओ अनेक सामाजिक समस्या", "धार्मिक भक्ति", "ऐतिहासिक प्रसंग"],
+    correct: 1,
+    hint: "आलेखक अन्तिम अनुच्छेद"
+  },
+  {
+    q: "आलेखमे 'परम्परागत रूढ़ि व्यवस्थाक जड़ता'क विपरीत कोन बात कहल गेल?",
+    cat: "विचार",
+    choices: ["धर्मक शक्ति", "सामाजिक चेतनाक निरन्तर बढ़ैत गतिशीलता", "राजनीतिक परिवर्तन", "आर्थिक समृद्धि"],
+    correct: 1,
+    hint: "परम्परा बनाम आधुनिकता"
+  },
+  {
+    q: "आलेखक अनुसार मिथिलांचलक समाजमे आर्थिक विपन्न जीवनक अस्तव्यस्तता कोन रूप ले लेने अछि?",
+    cat: "निष्कर्ष",
+    choices: ["असाधारण रूप", "स्वाभाविकतामे परिवर्तित भ' गेल अछि", "अस्थायी रूप", "परिवर्तनशील रूप"],
+    correct: 1,
+    hint: "अन्तिम वाक्य"
+  },
+  {
+    q: "आलेखमे कोन बात कहल गेल — गरीबकेँ मुइलाक उपरान्त?",
+    cat: "विषयवस्तु",
+    choices: ["समाज मदद करैत अछि", "कफन किनबाक लेल टाका नहि रहैत छैक", "सरकार सहायता दैत अछि", "परिवार जोगाड़ करैत अछि"],
+    correct: 1,
+    hint: "अन्तिम प्रणामक सन्दर्भ"
+  },
+  {
+    q: "आलेखक अनुसार सरकारी योजनाक लाभ कतय धरि नहि पहुँचि सकैत अछि?",
+    cat: "विषयवस्तु",
+    choices: ["शहरी गरीब लोकक घरि", "गरीब लोकक घरि", "मध्यमवर्गक घरि", "उच्चवर्गक घरि"],
+    correct: 1,
+    hint: "बुधबधियाक सन्दर्भ"
+  },
+  {
+    q: "आलेखमे 'किछु व्यक्ति अपन जीवन-यापन विलासितापूर्ण ढंगसँ व्यतीत करैत छथि' — एहिसँ कोन विषमताक उल्लेख अछि?",
+    cat: "विश्लेषण",
+    choices: ["जातिगत विषमता", "आर्थिक ओ सामाजिक असमानता", "धार्मिक विषमता", "शैक्षिक विषमता"],
+    correct: 1,
+    hint: "बुधबधियाक सन्दर्भ — अमीर बनाम गरीब"
+  },
+  {
+    q: "आलेखक अनुसार 'जाहि मनुक्खकेँ दू-साँझक रोटी नहि' — एकर बाद कोन तर्क दैल गेल?",
+    cat: "विचार-विश्लेषण",
+    choices: ["ओ धार्मिक नहि भ' सकैत", "ओ आत्माक उच्चताक दावा करत तँ मिथ्याक सिवाय किछु नहि भ' सकैत", "ओ शिक्षित नहि भ' सकैत", "ओ समाजक नेता नहि भ' सकैत"],
+    correct: 1,
+    hint: "आत्मिक स्वतंत्रता भौतिक आधारपर निर्भर"
+  }
+]
+
+};
+
+/* ══════ ENGINE ══════ */
+var ST = {a:null,b:null,c:null,d:null};
+var curMode = 'a';
+
+function shuffle(a){
+  var b=a.slice(),i=b.length,j,t;
+  while(i--){j=Math.floor(Math.random()*(i+1));t=b[i];b[i]=b[j];b[j]=t;}
+  return b;
+}
+
+function switchMode(m){
+  curMode=m;
+  ['a','b','c','d'].forEach(function(x){
+    document.getElementById('tab-'+x).className='tbtn'+(x===m?' active':'');
+    document.getElementById('pane-'+x).className='pane'+(x===m?' active':'');
+  });
+  if(!ST[m])startQuiz(m);
+}
+
+function startQuiz(m){
+  var el=document.getElementById('qsize-'+m);
+  var sz=parseInt(el.value);
+  var pool=shuffle(QDB[m].slice()).slice(0,sz);
+  ST[m]={idx:0,score:0,qs:pool,answered:false,done:false};
+  render(m);
+}
+
+function esc(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+var TAB_LABELS = {
+  a:'लेखक परिचय',
+  b:'नाटक एवं नाटककार',
+  c:'उद्धरण एवं विश्लेषण',
+  d:'समग्र आलेख'
+};
+
+function render(m){
+  var s=ST[m];
+  var el=document.getElementById('area-'+m);
+  if(!s||s.done){renderScore(m);return;}
+  var q=s.qs[s.idx];
+  var total=s.qs.length;
+  var pct=Math.round(s.idx/total*100);
+  var nextLabel=(s.idx+1<total)?'अगिला / Next \u2192':'परिणाम / Result';
+
+  var ch='';
+  for(var i=0;i<q.choices.length;i++){
+    ch+='<button class="cbtn" id="cb-'+m+'-'+i+'" onclick="answer(\''+m+'\','+i+')">'+esc(q.choices[i])+'</button>';
+  }
+
+  var hintHtml='';
+  if(q.hint){
+    hintHtml='<div class="hint-box" id="hint-'+m+'">&#128161; '+esc(q.hint)+'</div>';
+  }
+
+  el.innerHTML=
+    '<div class="qhdr">'+
+      '<span class="qtitle">'+esc(TAB_LABELS[m])+'</span>'+
+      '<span class="qstat">Q '+(s.idx+1)+' / '+total+' &nbsp;&#10003;&nbsp;'+s.score+'</span>'+
+    '</div>'+
+    '<div class="progw"><div class="progb" style="width:'+pct+'%"></div></div>'+
+    '<div class="card">'+
+      '<div class="qnum">'+esc(q.cat||'')+'</div>'+
+      '<div class="qword">'+esc(q.q)+'</div>'+
+      '<div class="choices">'+ch+'</div>'+
+      hintHtml+
+      '<div class="fb" id="fb-'+m+'"></div>'+
+    '</div>'+
+    '<div class="nav">'+
+      '<button class="nbtn pri" id="nxt-'+m+'" style="display:none" onclick="nextQ(\''+m+'\')">'+nextLabel+'</button>'+
+      (q.hint?'<button class="nbtn sec" onclick="toggleHint(\''+m+'\')">संकेत / Hint</button>':'')+
+      '<button class="nbtn sec" onclick="skipQ(\''+m+'\')">&#x091B;&#x094B;&#x0921;&#x093C;&#x0942; / Skip</button>'+
+      '<button class="nbtn sec" onclick="startQuiz(\''+m+'\')">नव / New</button>'+
+    '</div>';
+}
+
+function toggleHint(m){
+  var h=document.getElementById('hint-'+m);
+  if(h)h.classList.toggle('show');
+}
+
+function answer(m,ci){
+  var s=ST[m];
+  if(!s||s.answered)return;
+  s.answered=true;
+  var q=s.qs[s.idx];
+  var ok=(ci===q.correct);
+  if(ok)s.score++;
+  for(var i=0;i<q.choices.length;i++){
+    var b=document.getElementById('cb-'+m+'-'+i);
+    b.disabled=true;
+    if(i===q.correct)b.className='cbtn rev';
+    else if(i===ci&&!ok)b.className='cbtn bad';
+  }
+  var fb=document.getElementById('fb-'+m);
+  if(ok){fb.textContent='\u2713 सही! Correct!';fb.className='fb ok';}
+  else{fb.innerHTML='\u2717 गलत! Wrong. \u2192 '+esc(q.choices[q.correct]);fb.className='fb bad';}
+  if(!ok&&q.hint){
+    var h=document.getElementById('hint-'+m);
+    if(h)h.classList.add('show');
+  }
+  document.getElementById('nxt-'+m).style.display='inline-block';
+}
+
+function skipQ(m){
+  var s=ST[m];
+  if(!s)return;
+  if(s.answered){nextQ(m);return;}
+  var q=s.qs[s.idx];
+  for(var i=0;i<q.choices.length;i++){
+    var b=document.getElementById('cb-'+m+'-'+i);
+    b.disabled=true;
+    if(i===q.correct)b.className='cbtn rev';
+  }
+  var fb=document.getElementById('fb-'+m);
+  fb.innerHTML='उत्तर: '+esc(q.choices[q.correct]);
+  fb.className='fb';
+  if(q.hint){
+    var h=document.getElementById('hint-'+m);
+    if(h)h.classList.add('show');
+  }
+  s.answered=true;
+  document.getElementById('nxt-'+m).style.display='inline-block';
+}
+
+function nextQ(m){
+  var s=ST[m];
+  if(!s)return;
+  s.idx++;s.answered=false;
+  if(s.idx>=s.qs.length){s.done=true;renderScore(m);return;}
+  render(m);
+}
+
+function renderScore(m){
+  var s=ST[m];
+  if(!s)return;
+  var total=s.qs.length;
+  var pct=Math.round(s.score/total*100);
+  var msg = pct>=90 ? 'उत्कृष्ट! Excellent! \uD83C\uDF89' :
+            pct>=70 ? 'बहुत नीक! Very Good! \uD83D\uDC4D' :
+            pct>=50 ? 'ठीकठाक। Keep practicing!' :
+            'अभ्यास जारी राखू। Keep practicing!';
+
+  var others=['a','b','c','d'].filter(function(x){return x!==m;});
+  var btns=others.map(function(x){
+    return '<button class="nbtn sec" onclick="switchMode(\''+x+'\')">'+esc(TAB_LABELS[x])+'</button>';
+  }).join('');
+
+  document.getElementById('area-'+m).innerHTML=
+    '<div class="scoreboard">'+
+      '<div class="scbig">'+s.score+' / '+total+'</div>'+
+      '<div class="scpct">('+pct+'%)</div>'+
+      '<div class="scmsg">'+msg+'</div>'+
+      '<div style="display:flex;gap:9px;justify-content:center;flex-wrap:wrap">'+
+        '<button class="nbtn pri" onclick="startQuiz(\''+m+'\')">फेर खेलू / Play Again</button>'+
+        btns+
+      '</div>'+
+    '</div>';
+}
+
+window.onload=function(){startQuiz('a');};
+
+</script></body>
+</html>

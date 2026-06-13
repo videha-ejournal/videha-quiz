@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>क्विज़: यूट्यूब आ मैथिली (अध्याय १३)</title> <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet"> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: linear-gradient(125deg, #1a2a2f 0%, #102126 100%);
+font-family: 'Noto Sans Devanagari', 'Segoe UI', system-ui, sans-serif;
+padding: 2rem 1rem;
+color: #f0ede8;
+}
+.quiz-wrapper {
+max-width: 1000px;
+margin: 0 auto;
+background: #fef7e8;
+border-radius: 2.5rem;
+box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 215, 150, 0.3);
+overflow: hidden;
+color: #2c1a0c;
+}
+.header {
+background: #cc3b1c;
+background-image: linear-gradient(135deg, #b12a0c, #e05a2c);
+padding: 1.8rem 2rem;
+text-align: center;
+color: white;
+}
+.header h1 {
+font-size: 2rem;
+font-weight: 800;
+letter-spacing: -0.5px;
+text-shadow: 2px 2px 0 #6b2a0b;
+margin-bottom: 0.5rem;
+}
+.header h1 i {
+font-style: normal;
+display: inline-block;
+}
+.header p {
+font-size: 1.1rem;
+font-weight: 500;
+opacity: 0.95;
+border-top: 1px solid #ffbc7a;
+display: inline-block;
+padding-top: 0.5rem;
+}
+.chapter-tag {
+background: #f5c542;
+color: #5a2a0e;
+display: inline-block;
+padding: 0.3rem 1.2rem;
+border-radius: 40px;
+font-weight: bold;
+font-size: 0.85rem;
+margin-top: 0.8rem;
+box-shadow: inset 0 -1px 0 #d9a314, 0 2px 6px rgba(0,0,0,0.2);
+}
+.quiz-body {
+padding: 2rem 2rem 1rem;
+}
+.question-card {
+background: white;
+border-radius: 1.8rem;
+margin-bottom: 2rem;
+padding: 1.3rem 1.8rem 1rem 1.8rem;
+box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+transition: all 0.2s;
+border: 1px solid #fad6a5;
+}
+.question-card:hover {
+transform: translateY(-3px);
+box-shadow: 0 14px 26px rgba(0, 0, 0, 0.12);
+border-color: #dd9f60;
+}
+.q-text {
+font-size: 1.28rem;
+font-weight: 700;
+color: #7b3418;
+margin-bottom: 1.2rem;
+display: flex;
+align-items: baseline;
+gap: 12px;
+flex-wrap: wrap;
+}
+.q-num {
+background: #cc3b1c;
+width: 34px;
+height: 34px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+border-radius: 60px;
+color: white;
+font-weight: bold;
+font-size: 1rem;
+box-shadow: inset 0 -1px 0 #872a10;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.8rem;
+padding-left: 0.5rem;
+}
+.opt-item {
+display: flex;
+align-items: center;
+gap: 0.9rem;
+background: #fef4e6;
+padding: 0.6rem 1rem;
+border-radius: 50px;
+border: 1px solid #f3e0c4;
+cursor: pointer;
+transition: background 0.2s;
+}
+.opt-item:hover {
+background: #fff3e0;
+border-color: #cd9462;
+}
+input[type="radio"] {
+accent-color: #cc3b1c;
+width: 1.2rem;
+height: 1.2rem;
+cursor: pointer;
+}
+.opt-item label {
+font-size: 1rem;
+font-weight: 500;
+color: #2c1a0c;
+cursor: pointer;
+flex: 1;
+letter-spacing: 0.2px;
+}
+.action-bar {
+display: flex;
+justify-content: center;
+gap: 1.5rem;
+margin: 1rem 2rem 2rem;
+flex-wrap: wrap;
+}
+button {
+font-family: inherit;
+font-weight: 700;
+font-size: 1.1rem;
+padding: 0.8rem 2rem;
+border: none;
+border-radius: 60px;
+cursor: pointer;
+transition: all 0.2s;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.submit-btn {
+background: #cc3b1c;
+color: white;
+border: 1px solid #f09560;
+}
+.submit-btn:hover {
+background: #a52e12;
+transform: scale(0.97);
+}
+.reset-btn {
+background: #6c4e34;
+color: #fce6cf;
+border: 1px solid #b28a62;
+}
+.reset-btn:hover {
+background: #543d28;
+transform: scale(0.97);
+}
+.result-panel {
+background: #fff3e2;
+margin: 0 2rem 2rem;
+border-radius: 2rem;
+padding: 1.5rem;
+text-align: center;
+border: 1px solid #ffdcb5;
+}
+.score-big {
+font-size: 2.2rem;
+font-weight: 800;
+color: #cc3b1c;
+margin: 0.3rem 0;
+}
+.feedback-list {
+text-align: left;
+background: #fffbf5;
+border-radius: 1.5rem;
+padding: 1rem 1.8rem;
+margin-top: 1rem;
+max-height: 350px;
+overflow-y: auto;
+font-size: 0.95rem;
+color: #2e241d;
+}
+.fb-entry {
+margin: 0.8rem 0;
+border-left: 4px solid;
+padding-left: 1rem;
+}
+.fb-correct {
+border-left-color: #2f7d2f;
+background-color: #f0f9ea;
+}
+.fb-wrong {
+border-left-color: #c23b22;
+background-color: #fee9e6;
+}
+hr {
+margin: 1rem 0;
+border: none;
+height: 1px;
+background: linear-gradient(to right, #f0d3b0, transparent);
+}
+footer {
+text-align: center;
+font-size: 0.75rem;
+padding: 1rem 2rem 1.5rem;
+color: #bb9e7a;
+background: #fff6ec;
+border-top: 1px solid #f5e2cb;
+}
+@media (max-width: 650px) {
+.quiz-body {
+padding: 1.5rem;
+}
+.question-card {
+padding: 1rem;
+}
+.q-text {
+font-size: 1.1rem;
+}
+.opt-item label {
+font-size: 0.9rem;
+}
+button {
+padding: 0.6rem 1.2rem;
+font-size: 1rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-wrapper"> <div class="header"> <h1>🎬 यूट्यूब आ मैथिली</h1> <p>मैथिली वेब पत्रकारिताक इतिहास — अध्याय १३</p> <div class="chapter-tag">📺 पहिल मैथिली चैनल, तारीख, व्यक्तित्व</div> </div> <div class="quiz-body" id="quizBody"> <div class="question-card" data-qidx="0"> <div class="q-text"><span class="q-num">१</span> मैथिली भाषाक पहिल उपलब्ध यूट्यूब चैनल केर नाम की छल?</div> <div class="options"> <div class="opt-item"><input type="radio" name="q0" value="ggajendra71"> <label>ggajendra71</label></div> <div class="opt-item"><input type="radio" name="q0" value="vijay7701"> <label>vijay7701</label></div> <div class="opt-item"><input type="radio" name="q0" value="rustymind1"> <label>rustymind1</label></div> <div class="opt-item"><input type="radio" name="q0" value="rajnipallavi"> <label>rajnipallavi</label></div> </div> </div> <div class="question-card" data-qidx="1"> <div class="q-text"><span class="q-num">२</span> vijay7701 चैनल केर स्थापना (शुरू) कहिया भेल छल?</div> <div class="options"> <div class="opt-item"><input type="radio" name="q1" value="3Feb2007"> <label>३ फरवरी २००७</label></div> <div class="opt-item"><input type="radio" name="q1" value="10Apr2008"> <label>१० अप्रैल २००८</label></div> <div class="opt-item"><input type="radio" name="q1" value="22Aug2009"> <label>२२ अगस्त २००९</label></div> <div class="opt-item"><input type="radio" name="q1" value="8Jun2010"> <label>८ जून २०१०</label></div> </div> </div> <div class="question-card" data-qidx="2"> <div class="q-text"><span class="q-num">३</span> vijay7701 चैनल पर पहिल मैथिली भिडियो (गीत) कहिया अपलोड कएल गेल?</div> <div class="options"> <div class="opt-item"><input type="radio" name="q2" value="3Jun2007"> <label>३ जून २००७</label></div> <div class="opt-item"><input type="radio" name="q2" value="27Apr2008"> <label>२७ अप्रैल २००८</label></div> <div class="opt-item"><input type="radio" name="q2" value="20Jul2008"> <label>२० जुलाई २००८</label></div> <div class="opt-item"><input type="radio" name="q2" value="1Sep2010"> <label>१ सितम्बर २०१०</label></div> </div> </div> <div class="question-card" data-qidx="3"> <div class="q-text"><span class="q-num">४</span> गजेन्द्र ठाकुर जी (विदेहक संस्थापक) केर यूट्यूब चैनल कोन छल?</div> <div class="options"> <div class="opt-item"><input type="radio" name="q3" value="vijay7701"> <label>vijay7701</label></div> <div class="opt-item"><input type="radio" name="q3" value="ggajendra71"> <label>ggajendra71</label></div> <div class="opt-item"><input type="radio" name="q3" value="ashishanchinhar"> <label>ashishanchinhar</label></div> <div class="opt-item"><input type="radio" name="q3" value="premarshii"> <label>premarshii</label></div> </div> </div> <div class="question-card" data-qidx="4"> <div class="q-text"><span class="q-num">५</span> गजेन्द्र ठाकुर जी केर चैनल (ggajendra71) केर पहिल भिडियो कहिया प्रकाशित भेल?</div> <div class="options"> <div class="opt-item"><input type="radio" name="q4" value="3Jun2007"> <label>३ जून २००७</label></div> <div class="opt-item"><input type="radio" name="q4" value="27Apr2008"> <label>२७ अप्रैल २००८</label></div> <div class="opt-item"><input type="radio" name="q4" value="20Jul2008"> <label>२० जुलाई २००८</label></div> <div class="opt-item"><input type="radio" name="q4" value="28Apr2008"> <label>२८ अप्रैल २००८</label></div> </div> </div> <div class="question-card" data-qidx="5"> <div class="q-text"><span class="q-num">६</span> रजनी पल्लवी जी केर यूट्यूब चैनल केर पहिल भिडियो कहिया अपलोड भेल छल?</div> <div class="options"> <div class="opt-item"><input type="radio" name="q5" value="20Jul2008"> <label>२० जुलाई २००८</label></div> <div class="opt-item"><input type="radio" name="q5" value="10Apr2008"> <label>१० अप्रैल २००८</label></div> <div class="opt-item"><input type="radio" name="q5" value="22Aug2009"> <label>२२ अगस्त २००९</label></div> <div class="opt-item"><input type="radio" name="q5" value="8Jun2010"> <label>८ जून २०१०</label></div> </div> </div> <div class="question-card" data-qidx="6"> <div class="q-text"><span class="q-num">७</span> “टी-सीरीज़ (T-series)” केर यूट्यूब चैनल स्थापना कहिया भेल छल? (पोथी अनुसार)</div> <div class="options"> <div class="opt-item"><input type="radio" name="q6" value="13Mar2006"> <label>१३ मार्च २००६</label></div> <div class="opt-item"><input type="radio" name="q6" value="3Feb2007"> <label>३ फरवरी २००७</label></div> <div class="opt-item"><input type="radio" name="q6" value="13Mar2008"> <label>१३ मार्च २००८</label></div> <div class="opt-item"><input type="radio" name="q6" value="1Jan2006"> <label>१ जनवरी २००६</label></div> </div> </div> <div class="question-card" data-qidx="7"> <div class="q-text"><span class="q-num">८</span> आशीष अनचिन्हार केर यूट्यूब चैनल कहिया बनाएल गेल छल?</div> <div class="options"> <div class="opt-item"><input type="radio" name="q7" value="22Aug2009"> <label>२२ अगस्त २००९</label></div> <div class="opt-item"><input type="radio" name="q7" value="10Apr2008"> <label>१० अप्रैल २००८</label></div> <div class="opt-item"><input type="radio" name="q7" value="8Jun2010"> <label>८ जून २०१०</label></div> <div class="opt-item"><input type="radio" name="q7" value="3Feb2007"> <label>३ फरवरी २००७</label></div> </div> </div> <div class="question-card" data-qidx="8"> <div class="q-text"><span class="q-num">९</span> धीरेन्द्र प्रेमर्षि जी केर यूट्यूब चैनल (premarshii) शुरू कहिया भेल छल?</div> <div class="options"> <div class="opt-item"><input type="radio" name="q8" value="8Jun2010"> <label>८ जून २०१०</label></div> <div class="opt-item"><input type="radio" name="q8" value="22Aug2009"> <label>२२ अगस्त २००९</label></div> <div class="opt-item"><input type="radio" name="q8" value="20Jul2008"> <label>२० जुलाई २००८</label></div> <div class="opt-item"><input type="radio" name="q8" value="27Apr2008"> <label>२७ अप्रैल २००८</label></div> </div> </div> <div class="question-card" data-qidx="9"> <div class="q-text"><span class="q-num">१०</span> “JM News” यूट्यूब चैनल के बारेमे अध्याय 13 मे की कहल गेल अछि?</div> <div class="options"> <div class="opt-item"><input type="radio" name="q9" value="bothhindi"> <label>हिंदी आ मैथिली दुनूमे मैथिल-मिथिला संबंधी तथ्य पहुँचावै छै</label></div> <div class="opt-item"><input type="radio" name="q9" value="onlymaithili"> <label>मात्र मैथिली गीत-संगीत चैनल अछि</label></div> <div class="opt-item"><input type="radio" name="q9" value="political"> <label>पूर्णतः राजनीतिक चैनल अछि</label></div> <div class="opt-item"><input type="radio" name="q9" value="kids"> <label>बाल साहित्य समर्पित चैनल अछि</label></div> </div> </div> </div> <div class="action-bar"> <button class="submit-btn" id="submitQuiz">✅ उत्तर जाँचू</button> <button class="reset-btn" id="resetQuiz">🔄 सब साफ़ करू</button> </div> <div id="resultContainer" class="result-panel" style="display: none;"> <div class="score-big" id="scoreDisplay">-- / १०</div> <div id="detailedFeedback" class="feedback-list"></div> </div> </div>
+<script>
+    // सही उत्तर मैपिंग
+    const correctAnswers = {
+        q0: 'vijay7701',
+        q1: '3Feb2007',
+        q2: '3Jun2007',
+        q3: 'ggajendra71',
+        q4: '27Apr2008',
+        q5: '20Jul2008',
+        q6: '13Mar2006',
+        q7: '22Aug2009',
+        q8: '8Jun2010',
+        q9: 'bothhindi'
+    };
+
+    // प्रश्नों के group name (q0 to q9)
+    const questionNames = ['q0', 'q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9'];
+
+    // प्रश्नों का मूल पाठ (feedback के लिए)
+    const questionTexts = {
+        q0: "मैथिलीक पहिल उपलब्ध यूट्यूब चैनल?",
+        q1: "vijay7701 चैनल केर स्थापना तिथि?",
+        q2: "vijay7701 पर पहिल मैथिली भिडियो कहिया?",
+        q3: "गजेन्द्र ठाकुर जी केर यूट्यूब चैनल?",
+        q4: "ggajendra71 चैनल केर पहिल भिडियो तिथि?",
+        q5: "रजनी पल्लवी जी केर पहिल भिडियो कहिया?",
+        q6: "T-series चैनल स्थापना तिथि (पोथी अनुसार)?",
+        q7: "आशीष अनचिन्हार केर चैनल कहिया बनल?",
+        q8: "धीरेन्द्र प्रेमर्षि जी केर चैनल शुरू तिथि?",
+        q9: "JM News के बारेमे सही कथन?"
+    };
+
+    // प्रदर्शन योग्य विकल्प मैप (मानवीय स्वरूप)
+    const displayMap = {
+        vijay7701: "vijay7701",
+        ggajendra71: "ggajendra71",
+        rustymind1: "rustymind1 (gopal yadav)",
+        rajnipallavi: "rajnipallavi",
+        ashishanchinhar: "ashishanchinhar",
+        premarshii: "premarshii",
+        '3Feb2007': "३ फरवरी २००७",
+        '10Apr2008': "१० अप्रैल २००८",
+        '22Aug2009': "२२ अगस्त २००९",
+        '8Jun2010': "८ जून २०१०",
+        '3Jun2007': "३ जून २००७",
+        '27Apr2008': "२७ अप्रैल २००८",
+        '20Jul2008': "२० जुलाई २००८",
+        '28Apr2008': "२८ अप्रैल २००८",
+        '1Sep2010': "१ सितम्बर २०१०",
+        '13Mar2006': "१३ मार्च २००६",
+        '13Mar2008': "१३ मार्च २००८",
+        '1Jan2006': "१ जनवरी २००६",
+        bothhindi: "हिंदी आ मैथिली दुनूमे मैथिल-मिथिला संबंधी तथ्य पहुँचावै छै",
+        onlymaithili: "मात्र मैथिली गीत-संगीत चैनल अछि",
+        political: "पूर्णतः राजनीतिक चैनल अछि",
+        kids: "बाल साहित्य समर्पित चैनल अछि"
+    };
+
+    function getSelectedValue(name) {
+        const radios = document.querySelectorAll(`input[name="${name}"]`);
+        for (let radio of radios) {
+            if (radio.checked) return radio.value;
+        }
+        return null;
+    }
+
+    function resetQuiz() {
+        for (let name of questionNames) {
+            const radios = document.querySelectorAll(`input[name="${name}"]`);
+            radios.forEach(r => r.checked = false);
+        }
+        const resultDiv = document.getElementById('resultContainer');
+        resultDiv.style.display = 'none';
+        // remove any background style on cards
+        document.querySelectorAll('.question-card').forEach(card => {
+            card.style.borderLeft = '';
+            card.style.backgroundColor = '';
+        });
+    }
+
+    function evaluateQuiz() {
+        let score = 0;
+        const results = [];
+        let allAnswered = true;
+
+        for (let name of questionNames) {
+            const selected = getSelectedValue(name);
+            if (!selected) {
+                allAnswered = false;
+                results.push({
+                    qName: name,
+                    selected: null,
+                    correct: correctAnswers[name],
+                    isCorrect: false,
+                    unanswered: true
+                });
+            } else {
+                const isCorr = (selected === correctAnswers[name]);
+                if (isCorr) score++;
+                results.push({
+                    qName: name,
+                    selected: selected,
+                    correct: correctAnswers[name],
+                    isCorrect: isCorr,
+                    unanswered: false
+                });
+            }
+        }
+
+        if (!allAnswered) {
+            alert("कृपया सब १० प्रश्न के उत्तर दियौ। किछु प्रश्न अनुत्तरित अछि।");
+            return;
+        }
+
+        // Generate feedback HTML
+        let feedbackHtml = `<strong>🎯 कुल स्कोर: ${score} / १०</strong><hr>`;
+        for (let res of results) {
+            const qText = questionTexts[res.qName];
+            const userVal = res.selected ? (displayMap[res.selected] || res.selected) : "कोनो उत्तर नै देल";
+            const correctVal = displayMap[res.correct] || res.correct;
+            let statusIcon = res.isCorrect ? "✅" : "❌";
+            let extraClass = res.isCorrect ? "fb-correct" : "fb-wrong";
+            feedbackHtml += `
+                <div class="fb-entry ${extraClass}">
+                    <strong>${statusIcon} ${qText}</strong><br>
+                    <span>➤ आपन उत्तर: ${userVal}</span><br>
+                    <span>➤ सही उत्तर: ${correctVal}</span>
+                </div>
+            `;
+        }
+        feedbackHtml += `<hr><small>📖 स्रोत: अध्याय १३ (यूट्यूब आ मैथिली) — पोथी अनुसार तिथि, चैनल नाम आ JM News वर्णन।</small>`;
+
+        document.getElementById('scoreDisplay').innerHTML = `${score} / १०`;
+        document.getElementById('detailedFeedback').innerHTML = feedbackHtml;
+        document.getElementById('resultContainer').style.display = 'block';
+
+        // highlight cards on UI for better visual
+        document.querySelectorAll('.question-card').forEach((card, idx) => {
+            const qname = questionNames[idx];
+            const selected = getSelectedValue(qname);
+            const isCorrect = (selected === correctAnswers[qname]);
+            if (selected && isCorrect) {
+                card.style.borderLeft = '6px solid #2f7d2f';
+                card.style.backgroundColor = '#f4fbf0';
+            } else if (selected && !isCorrect) {
+                card.style.borderLeft = '6px solid #c23b22';
+                card.style.backgroundColor = '#fff1ef';
+            } else {
+                card.style.borderLeft = '';
+                card.style.backgroundColor = '';
+            }
+        });
+
+        // scroll to results
+        document.getElementById('resultContainer').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    // make whole option div clickable
+    document.querySelectorAll('.opt-item').forEach(opt => {
+        opt.addEventListener('click', function(e) {
+            const radio = this.querySelector('input[type="radio"]');
+            if (radio && !radio.checked) {
+                radio.checked = true;
+            }
+        });
+    });
+
+    document.getElementById('submitQuiz').addEventListener('click', evaluateQuiz);
+    document.getElementById('resetQuiz').addEventListener('click', () => {
+        resetQuiz();
+        document.getElementById('resultContainer').style.display = 'none';
+    });
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>अध्याय १४: मैथिली विकिपीडिया - शुरुआत आ एप्रूभल | प्रश्नोत्तरी</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: linear-gradient(145deg, #e9eef3 0%, #dde1e8 100%);
+font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Mukta', 'Poppins', system-ui, sans-serif;
+padding: 2rem 1rem;
+color: #1e2a32;
+}
+.quiz-container {
+max-width: 950px;
+margin: 0 auto;
+background: #fffffffb;
+border-radius: 2.8rem;
+box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.25);
+overflow: hidden;
+transition: all 0.2s;
+}
+.quiz-header {
+background: #1f5e3a;
+background-image: linear-gradient(125deg, #236b42, #13452a);
+padding: 2rem 2rem 1.8rem;
+color: #fef5e6;
+text-align: center;
+border-bottom: 6px solid #efb87e;
+}
+.quiz-header h1 {
+font-size: 1.9rem;
+font-weight: 800;
+letter-spacing: -0.3px;
+margin-bottom: 0.6rem;
+text-shadow: 2px 2px 0 #0a2e1c;
+}
+.quiz-header h1 span {
+font-size: 2rem;
+display: inline-block;
+}
+.quiz-header p {
+font-size: 1.05rem;
+background: #fef5e630;
+display: inline-block;
+padding: 0.3rem 1.3rem;
+border-radius: 40px;
+backdrop-filter: blur(2px);
+font-weight: 500;
+}
+.chapter-badge {
+background: #efb87e;
+color: #2a3b1f;
+border-radius: 100px;
+padding: 0.25rem 1.2rem;
+font-size: 0.85rem;
+font-weight: bold;
+display: inline-block;
+margin-top: 0.8rem;
+}
+.quiz-body {
+padding: 2rem 2rem 1rem;
+}
+.question-card {
+background: #fefbf2;
+border-radius: 1.8rem;
+margin-bottom: 1.8rem;
+padding: 1.2rem 1.5rem;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+border: 1px solid #e6dbbc;
+transition: 0.1s;
+}
+.question-text {
+font-size: 1.28rem;
+font-weight: 700;
+margin-bottom: 1rem;
+color: #2d422c;
+display: flex;
+align-items: baseline;
+gap: 8px;
+flex-wrap: wrap;
+}
+.q-num {
+background: #ca6e3c;
+color: white;
+width: 32px;
+height: 32px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+border-radius: 60px;
+font-size: 1rem;
+font-weight: bold;
+margin-right: 10px;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.8rem;
+margin-left: 0.5rem;
+}
+.option {
+display: flex;
+align-items: center;
+gap: 12px;
+background: #ffffff;
+padding: 0.6rem 0.9rem;
+border-radius: 2rem;
+border: 1px solid #e0cfab;
+transition: all 0.1s;
+cursor: pointer;
+}
+.option:hover {
+background: #fef3e0;
+border-color: #b78d5a;
+}
+input[type="radio"] {
+accent-color: #2a764b;
+width: 1.2rem;
+height: 1.2rem;
+cursor: pointer;
+}
+.option label {
+font-size: 1rem;
+font-weight: 500;
+color: #2c2b28;
+width: 100%;
+cursor: pointer;
+letter-spacing: 0.2px;
+}
+.action-buttons {
+display: flex;
+gap: 1.2rem;
+justify-content: center;
+margin: 2rem 0 1.2rem;
+flex-wrap: wrap;
+}
+button {
+background: #2a764b;
+border: none;
+padding: 0.8rem 2rem;
+font-size: 1.1rem;
+font-weight: bold;
+border-radius: 3rem;
+color: white;
+cursor: pointer;
+transition: 0.15s;
+font-family: inherit;
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+button:hover {
+background: #3f9668;
+transform: translateY(-2px);
+}
+button.reset-btn {
+background: #8b6b42;
+}
+button.reset-btn:hover {
+background: #a88657;
+}
+.result-area {
+background: #f4efdf;
+border-radius: 2rem;
+padding: 1.3rem 1.8rem;
+margin: 1rem 0 1.8rem;
+border-left: 8px solid #ca6e3c;
+font-weight: 500;
+}
+.score-badge {
+font-size: 1.8rem;
+font-weight: 800;
+background: #1f5e3a;
+display: inline-block;
+padding: 0.2rem 1.2rem;
+border-radius: 40px;
+color: #f9eec1;
+margin-bottom: 0.8rem;
+}
+.feedback-list {
+margin-top: 1rem;
+max-height: 450px;
+overflow-y: auto;
+padding-right: 6px;
+}
+.feedback-item {
+border-bottom: 1px dashed #cdbc8b;
+padding: 0.6rem 0;
+font-size: 0.95rem;
+}
+.correct-feedback {
+color: #1c6e2f;
+font-weight: 600;
+}
+.wrong-feedback {
+color: #b3402c;
+}
+footer {
+text-align: center;
+padding: 1.2rem;
+font-size: 0.8rem;
+background: #f8f4e8;
+color: #5a4a32;
+border-top: 1px solid #e2d3b6;
+}
+@media (max-width: 600px) {
+.quiz-body {
+padding: 1.5rem;
+}
+.question-text {
+font-size: 1.1rem;
+}
+.option label {
+font-size: 0.9rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <div class="quiz-header"> <h1>🌐 अध्याय १४ <span>❯</span> प्रश्नोत्तरी</h1> <p>मैथिली विकिपीडिया : शुरुआत (२००८) सँ एप्रूभल (२०१४) धरि</p> <div class="chapter-badge">📘 “मैथिली वेब पत्रकारिताक इतिहास” • अध्याय १४</div> </div> <div class="quiz-body"> <form id="quizForm"> <div class="question-card"> <div class="question-text"> <span class="q-num">१</span> मैथिली विकिपीडिया लेल पहिल बेर Request for new language कोन देने छलाह ?
+</div> <div class="options"> <div class="option"><input type="radio" name="q1" value="0" id="q1a"><label for="q1a"> गजेन्द्र ठाकुर</label></div> <div class="option"><input type="radio" name="q1" value="1" id="q1b"><label for="q1b"> बिप्लब आनंद</label></div> <div class="option"><input type="radio" name="q1" value="2" id="q1c"><label for="q1c"> राजेश रंजन</label></div> <div class="option"><input type="radio" name="q1" value="3" id="q1d"><label for="q1d"> रोशन चौधरी</label></div> </div> </div> <div class="question-card"> <div class="question-text"> <span class="q-num">२</span> मैथिली विकिपीडिया केर औपचारिक एप्रूभल (approval) कोन बर्ष भेल ?
+</div> <div class="options"> <div class="option"><input type="radio" name="q2" value="0" id="q2a"><label for="q2a"> २०१०</label></div> <div class="option"><input type="radio" name="q2" value="1" id="q2b"><label for="q2b"> २०१२</label></div> <div class="option"><input type="radio" name="q2" value="2" id="q2c"><label for="q2c"> २०१४</label></div> <div class="option"><input type="radio" name="q2" value="3" id="q2d"><label for="q2d"> २०१६</label></div> </div> </div> <div class="question-card"> <div class="question-text"> <span class="q-num">३</span> मैथिली विकिपीडिया (Community project) लेल प्रारंभिक अनुवाद आ काज मुख्यतः कोन संस्था/समूह द्वारा भेल ?
+</div> <div class="options"> <div class="option"><input type="radio" name="q3" value="0" id="q3a"><label for="q3a"> विदेह आ एकर सदस्य</label></div> <div class="option"><input type="radio" name="q3" value="1" id="q3b"><label for="q3b"> साहित्य अकादमी</label></div> <div class="option"><input type="radio" name="q3" value="2" id="q3c"><label for="q3c"> नेपाली मैथिल संघ</label></div> <div class="option"><input type="radio" name="q3" value="3" id="q3d"><label for="q3d"> मिथिला मिरर</label></div> </div> </div> <div class="question-card"> <div class="question-text"> <span class="q-num">४</span> गजेन्द्र ठाकुर आ राजेश रंजनक सहमतिसँ मैथिली विकिपीडिया केर पहिल प्रशासक (Admin) के बनल ?
+</div> <div class="options"> <div class="option"><input type="radio" name="q4" value="0" id="q4a"><label for="q4a"> बिप्लब आनंद</label></div> <div class="option"><input type="radio" name="q4" value="1" id="q4b"><label for="q4b"> उमेश मंडल</label></div> <div class="option"><input type="radio" name="q4" value="2" id="q4c"><label for="q4c"> प्रणव झा</label></div> <div class="option"><input type="radio" name="q4" value="3" id="q4d"><label for="q4d"> रामलोचन ठाकुर</label></div> </div> </div> <div class="question-card"> <div class="question-text"> <span class="q-num">५</span> २०११ मे Gerard.M अपन ब्लागपर कोन भाषा विकिपीडिया केर बारेमे चर्चा केलाहि जे “वास्तव में भोजपुरीमे लिखल अछि” ?
+</div> <div class="options"> <div class="option"><input type="radio" name="q5" value="0" id="q5a"><label for="q5a"> Bihari Wikipedia</label></div> <div class="option"><input type="radio" name="q5" value="1" id="q5b"><label for="q5b"> मैथिली Wikipedia</label></div> <div class="option"><input type="radio" name="q5" value="2" id="q5c"><label for="q5c"> संस्कृत विकिपीडिया</label></div> <div class="option"><input type="radio" name="q5" value="3" id="q5d"><label for="q5d"> भोजपुरी विकिपीडिया</label></div> </div> </div> <div class="question-card"> <div class="question-text"> <span class="q-num">६</span> मैथिली विकिपीडिया लेल २००८ मे अनुवाद भेलाक बाद सन् २०११ मे ओकरा रिजेक्ट केने छल ? मुदा बादमे कोन व्यक्तित्वक संलग्नता सँ पुनः काज तीव्र भेल ?
+</div> <div class="options"> <div class="option"><input type="radio" name="q6" value="0" id="q6a"><label for="q6a"> राजेश रंजन</label></div> <div class="option"><input type="radio" name="q6" value="1" id="q6b"><label for="q6b"> जितमोहन झा</label></div> <div class="option"><input type="radio" name="q6" value="2" id="q6c"><label for="q6c"> रमानाथ झा</label></div> <div class="option"><input type="radio" name="q6" value="3" id="q6d"><label for="q6d"> आशीष अनचिन्हार</label></div> </div> </div> <div class="question-card"> <div class="question-text"> <span class="q-num">७</span> मैथिली विकिपीडिया केर शुरुआती ७०% पृष्ठ कोन यूजर केर नामसँ बनल छल ?
+</div> <div class="options"> <div class="option"><input type="radio" name="q7" value="0" id="q7a"><label for="q7a"> Umeshberma (उमेश मंडल)</label></div> <div class="option"><input type="radio" name="q7" value="1" id="q7b"><label for="q7b"> Rajesh Ranjan</label></div> <div class="option"><input type="radio" name="q7" value="2" id="q7c"><label for="q7c"> Gajendra Thakur</label></div> <div class="option"><input type="radio" name="q7" value="3" id="q7d"><label for="q7d"> Biplab Anand</label></div> </div> </div> <div class="question-card"> <div class="question-text"> <span class="q-num">८</span> अध्याय १४ के अनुसार मैथिली विकिपीडिया अक्टूबर २०१४ मे लाइव भेल, ताहिसँ पहिने कोन मेलिंग लिस्ट / पहल अक्टूबर २०१४ केर पुष्टि सँ पूरा काज भेल ?
+</div> <div class="options"> <div class="option"><input type="radio" name="q8" value="0" id="q8a"><label for="q8a"> विदेहक सदस्य सभक सहयोग, गजेन्द्र ठाकुर आ राजेश रंजनक अग्रिम भूमिका</label></div> <div class="option"><input type="radio" name="q8" value="1" id="q8b"><label for="q8b"> केवल विकिमीडिया फाउंडेशन द्वारा</label></div> <div class="option"><input type="radio" name="q8" value="2" id="q8c"><label for="q8c"> नेपाल सरकारक अनुदान</label></div> <div class="option"><input type="radio" name="q8" value="3" id="q8d"><label for="q8d"> कोनो आन प्रक्रिया नै छल</label></div> </div> </div> <div class="action-buttons"> <button type="button" id="submitBtn">📝 उत्तर जाँचू</button> <button type="button" id="resetBtn" class="reset-btn">🗑️ सब साफ़ करू</button> </div> </form> <div id="resultBox" class="result-area" style="display: none;"></div> </div> </div>
+<script>
+    // सही उत्तर (मान: विकल्प इंडेक्स 0 से शुरू)
+    const correctAnswers = {
+        q1: "0",   // गजेन्द्र ठाकुर
+        q2: "2",   // २०१४
+        q3: "0",   // विदेह आ एकर सदस्य
+        q4: "0",   // बिप्लब आनंद
+        q5: "0",   // Bihari Wikipedia (लेखमे उल्लेख "Bihari Wikipedia is actually written in Bhojpuri")
+        q6: "0",   // राजेश रंजन (पाठ: राजेश रंजनजीक जोड़ी एहि बेर सफल भेल)
+        q7: "0",   // Umeshberma (उमेश मंडल)
+        q8: "0"    // विदेहक सदस्य, गजेन्द्र ठाकुर आ राजेश रंजनक अग्रिम भूमिका
+    };
+
+    // विकल्प टेक्स्ट डिस्प्ले खातिर
+    const optionsText = {
+        q1: ["गजेन्द्र ठाकुर", "बिप्लब आनंद", "राजेश रंजन", "रोशन चौधरी"],
+        q2: ["२०१०", "२०१२", "२०१४", "२०१६"],
+        q3: ["विदेह आ एकर सदस्य", "साहित्य अकादमी", "नेपाली मैथिल संघ", "मिथिला मिरर"],
+        q4: ["बिप्लब आनंद", "उमेश मंडल", "प्रणव झा", "रामलोचन ठाकुर"],
+        q5: ["Bihari Wikipedia", "मैथिली Wikipedia", "संस्कृत विकिपीडिया", "भोजपुरी विकिपीडिया"],
+        q6: ["राजेश रंजन", "जितमोहन झा", "रमानाथ झा", "आशीष अनचिन्हार"],
+        q7: ["Umeshberma (उमेश मंडल)", "Rajesh Ranjan", "Gajendra Thakur", "Biplab Anand"],
+        q8: ["विदेहक सदस्य सभक सहयोग, गजेन्द्र ठाकुर आ राजेश रंजनक अग्रिम भूमिका", "केवल विकिमीडिया फाउंडेशन द्वारा", "नेपाल सरकारक अनुदान", "कोनो आन प्रक्रिया नै छल"]
+    };
+
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const resultBox = document.getElementById('resultBox');
+
+    function resetQuiz() {
+        const allRadios = document.querySelectorAll('input[type="radio"]');
+        allRadios.forEach(radio => radio.checked = false);
+        resultBox.style.display = 'none';
+        resultBox.innerHTML = '';
+    }
+
+    function evaluateQuiz() {
+        let score = 0;
+        const total = 8;
+        const feedbackList = [];
+
+        for (let i = 1; i <= total; i++) {
+            const qName = `q${i}`;
+            const selectedRadio = document.querySelector(`input[name="${qName}"]:checked`);
+            const selectedValue = selectedRadio ? selectedRadio.value : null;
+            const isCorrect = (selectedValue === correctAnswers[qName]);
+            
+            if (isCorrect && selectedValue !== null) score++;
+            
+            const correctIdx = parseInt(correctAnswers[qName]);
+            const correctAnswerText = optionsText[qName][correctIdx];
+            let userAnswerText = "कोनो विकल्प नै चुनल गेल";
+            if (selectedValue !== null) {
+                userAnswerText = optionsText[qName][parseInt(selectedValue)];
+            }
+            
+            let statusHtml = "";
+            if (selectedValue === null) {
+                statusHtml = `<span class="wrong-feedback">❌ नै देल गेल</span>`;
+            } else if (isCorrect) {
+                statusHtml = `<span class="correct-feedback">✅ सही</span>`;
+            } else {
+                statusHtml = `<span class="wrong-feedback">❌ गलत</span>`;
+            }
+            
+            feedbackList.push({
+                num: i,
+                statusHtml: statusHtml,
+                correct: correctAnswerText,
+                user: userAnswerText
+            });
+        }
+        
+        const percentage = Math.round((score / total) * 100);
+        let resultHtml = `
+            <div style="text-align:center;">
+                <div class="score-badge">📊 ${score} / ${total}  (${percentage}%)</div>
+                <p style="margin-bottom: 8px; font-weight:500;">🌐 मैथिली विकिपीडिया केर यात्रा पर परीक्षा परिणाम</p>
+            </div>
+            <div class="feedback-list">
+        `;
+        
+        feedbackList.forEach(item => {
+            resultHtml += `
+                <div class="feedback-item">
+                    <strong>प्रश्न ${item.num}:</strong> ${item.statusHtml}<br>
+                    <span style="font-size:0.85rem;">✓ सही उत्तर: ${item.correct}<br>
+                    ✎ आपन देलक: ${item.user}</span>
+                </div>
+            `;
+        });
+        
+        resultHtml += `</div><p style="margin-top:14px; font-size:0.8rem; border-top: 1px solid #ddd; padding-top: 8px;">📖 संदर्भ: ‘मैथिली वेब पत्रकारिताक इतिहास’ अध्याय १४ – २००८ सँ अक्टूबर २०१४ धरिक मैथिली विकिपीडिया केर ऐतिहासिक प्रक्रिया।</p>`;
+        resultBox.innerHTML = resultHtml;
+        resultBox.style.display = 'block';
+        resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    submitBtn.addEventListener('click', evaluateQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

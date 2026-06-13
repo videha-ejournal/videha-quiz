@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मैथिली साहित्यक इतिहास – अध्याय ६ : प्राचीन गीत-परम्परा (बहुविकल्पीय प्रश्नोत्तरी) — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #f3efdf;
+font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Mukta', 'Poppins', sans-serif;
+padding: 25px 20px;
+color: #2c2418;
+}
+.quiz-container {
+max-width: 1200px;
+margin: 0 auto;
+background: #fffffb;
+border-radius: 56px;
+box-shadow: 0 25px 40px -12px rgba(0,0,0,0.25);
+padding: 25px 30px 45px;
+border: 1px solid #ecdcaa;
+}
+h1 {
+text-align: center;
+color: #963c24;
+font-size: 1.9rem;
+background: #fff3e6;
+display: inline-block;
+width: auto;
+margin: 0 auto 10px;
+padding: 8px 25px;
+border-radius: 60px;
+border-bottom: 3px solid #dc9c4a;
+}
+.subhead {
+text-align: center;
+background: #fbf2e1;
+padding: 8px 20px;
+border-radius: 40px;
+margin-bottom: 25px;
+color: #6b4c2a;
+font-weight: 500;
+}
+.score-panel {
+background: #2a6d52;
+color: #fff2cf;
+border-radius: 50px;
+padding: 12px 24px;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: baseline;
+gap: 12px;
+margin-bottom: 30px;
+font-weight: bold;
+}
+.score-badge {
+background: #f2a155;
+padding: 6px 18px;
+border-radius: 40px;
+color: #251f15;
+}
+.question-card {
+background: white;
+border-radius: 32px;
+margin-bottom: 28px;
+padding: 18px 24px;
+box-shadow: 0 6px 12px rgba(0,0,0,0.04);
+border: 1px solid #ecdbaa;
+}
+.q-text {
+font-size: 1.2rem;
+font-weight: 700;
+background: #fff2e2;
+padding: 10px 18px;
+border-radius: 50px;
+margin-bottom: 18px;
+color: #2e402f;
+}
+.opts-list {
+display: flex;
+flex-direction: column;
+gap: 10px;
+margin-left: 12px;
+}
+.opt-item {
+display: flex;
+align-items: center;
+gap: 14px;
+background: #fefaf4;
+padding: 6px 16px;
+border-radius: 40px;
+cursor: pointer;
+transition: 0.1s;
+}
+.opt-item:hover {
+background: #f7ecd9;
+}
+input[type="radio"] {
+width: 18px;
+height: 18px;
+accent-color: #b6492c;
+cursor: pointer;
+}
+.feedback {
+margin-top: 14px;
+padding: 6px 18px;
+border-radius: 32px;
+font-size: 0.9rem;
+display: inline-block;
+}
+.fb-correct {
+background: #e4f3e2;
+color: #197a3c;
+border-left: 5px solid #2b8b49;
+}
+.fb-wrong {
+background: #ffe2db;
+color: #bd462b;
+border-left: 5px solid #c94424;
+}
+button {
+background: #9b412b;
+border: none;
+color: white;
+padding: 12px 30px;
+font-size: 1.1rem;
+border-radius: 50px;
+font-weight: bold;
+cursor: pointer;
+font-family: inherit;
+transition: 0.2s;
+margin: 6px 8px;
+}
+button:hover {
+background: #7a2f1d;
+transform: scale(0.98);
+}
+.reset-btn {
+background: #5c5542;
+}
+.btn-group {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 20px;
+margin-top: 25px;
+}
+.footer {
+text-align: center;
+font-size: 0.8rem;
+margin-top: 35px;
+color: #be9468;
+}
+@media (max-width: 650px) {
+.quiz-container {
+padding: 15px;
+}
+.q-text {
+font-size: 1rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="quiz-container"> <div style="text-align: center;"> <div class="subhead">षष्ठ प्रकरण – विद्यापति-पश्चात् मैथिली गीति-काव्य, नेपाल, असम आर प्रमुख कवि</div> </div> <div class="score-panel"> <span>📖 कुल प्रश्न : <span id="totalQ">0</span></span> <span>✅ सही उत्तर : <span id="scoreCount">0</span></span> <span class="score-badge" id="percentBox">0%</span> </div> <div id="questionsArea"></div> <div class="btn-group"> <button id="submitBtn">⚡ उत्तर जाँचू (Submit)</button> <button id="resetBtn" class="reset-btn">🔄 पुनः आरम्भ करू</button> </div> <div class="vq-footer">© सम्पादक, videha.co.in</div>
+</div>
+<script>
+
+</script><script>
+
+    // ---------- अध्याय ६ (प्राचीन गीत-परम्परा) पर ५० प्रश्न ----------
+    const questions = [
+        { text: "विद्यापति-पश्चात् मैथिली प्राचीन गीत-परम्पराक मुख्य प्रवर्तक कोन छथि ?", options: ["उगापति (उमापति)", "गोविन्ददास", "नन्दीपति", "रत्नपाणि"], correct: 0 },
+        { text: "'पारिजातहरण' नाटकक रचयिता कोन अछि ?", options: ["उगापति उपाध्याय", "गोविन्ददास", "विद्यापति", "धनुर्धर झा"], correct: 0 },
+        { text: "गोविन्ददास के सम्बन्ध मे कोन कथन सत्य अछि ?", options: ["मैथिल ब्राह्मण, बंगालमे सेहो प्रसिद्ध", "केवल असमीया कवि", "नेपाली राजा", "फारसी कवि"], correct: 0 },
+        { text: "मैथिली संगीत-शास्त्रक प्रसिद्ध ग्रन्थ 'रागतरंगिणी' के रचयिता कोन अछि ?", options: ["लोचन (कवि)", "जगज्योतिर्मल्ल", "उगापति", "गोविन्ददास"], correct: 0 },
+        { text: "लोचन के 'रागतरंगिणी' मे मुख्यतः कोन कविक पद सङ्कलित अछि ?", options: ["विद्यापति", "उगापति", "गोविन्ददास", "नन्दीपति"], correct: 0 },
+        { text: "नेपालक मल्ल राजसभामे मैथिली गीत-नाट्यक प्रसार कोन राजाक समयमे भेल ?", options: ["जगज्योतिर्मल्ल (1613-37)", "प्रतापमल्ल", "शिवसिंह", "हरिसिंहदेव"], correct: 0 },
+        { text: "जगज्योतिर्मल्ल रचित 'हरगौरीविवाह' कोन प्रकारक रचना अछि ?", options: ["नाटक (मैथिली गद्य-पद्य)", "महाकाव्य", "कथा-संग्रह", "व्याकरण"], correct: 0 },
+        { text: "मैथिली कवि 'उगापति उपाध्याय' के समय कोन शताब्दी मानल जाइत अछि ?", options: ["१६वीं सदीक अन्त-१७वीं सदीक आरम्भ", "१५वीं सदी", "१८वीं सदी", "१४वीं सदी"], correct: 0 },
+        { text: "उगापति के अतिरिक्त प्राचीन गीत-परम्पराक अन्य प्रमुख कवि छथि ?", options: ["नन्दीपति, गोविन्ददास, लोचन", "चन्द्राझा", "ज्योतिरीश्वर", "विद्यापति"], correct: 0 },
+        { text: "नेपालक राजा 'प्रतापमल्ल' (१६४१-७४) के कोन उपाधि प्रसिद्ध अछि ?", options: ["कवीन्द्र", "महाकवि", "अभिनवजयदेव", "कविराज"], correct: 0 },
+        { text: "मैथिली भाषा-साहित्यक विकासमे नेपालक सर्वाधिक योगदान कोन राजवंशकालमे भेल ?", options: ["मल्लवंश", "शाहवंश", "गुप्तवंश", "सेनवंश"], correct: 0 },
+        { text: "'गीतपद्याशिक' (गुटिका) के रचनाकार कोन अछि ?", options: ["जगज्योतिर्मल्ल", "प्रतापमल्ल", "सिद्धिनरसिंह", "भूपालेन्द्र मल्ल"], correct: 0 },
+        { text: "असममे मैथिली पदावलीक प्रसारकर्ता मुख्यतः कोन सम्प्रदाय छल ?", options: ["शंकरदेवक वैष्णव (एकशरण)", "शैव", "शाक्त", "बौद्ध"], correct: 0 },
+        { text: "शंकरदेव के मैथिलीमे रचित 'अंकीयानाट' कोन प्रकारक अछि ?", options: ["गीति-नाट्य (पदप्रधान)", "गद्य नाटक", "हास्य-व्यंग्य", "दरबारी नाटक"], correct: 0 },
+        { text: "मैथिली प्राचीन गीत-परम्परामे 'भनिता' प्रयोग कोनक द्वारा प्रचलित भेल ?", options: ["विद्यापति", "ज्योतिरीश्वर", "उगापति", "लोचन"], correct: 0 },
+        { text: "विद्यापति-सम्प्रदायक कवि 'नन्दीपति' के रचना कोन अछि ?", options: ["कृष्णकिरिटिनी (नाटक)", "पारिजातहरण", "कीर्तिलता", "रसकौस्तुभ"], correct: 0 },
+        { text: "प्राचीन गीत-परम्पराक कवि 'गोविन्ददास' के पद संग्रह कोन नामसँ प्रकाशित भेल ?", options: ["शृंगार-मंजरी-गीतावली", "विद्यापति पदावली", "कीर्तिपताका", "रागमाला"], correct: 0 },
+        { text: "नेपालक राजा 'सिद्धिनरसिंह मल्ल' (१६२०-५७) कोन क्षेत्रक राजा छलाह ?", options: ["ललितपुर (पाटन)", "कान्तिपुर", "भक्तपुर", "गोरखपुर"], correct: 0 },
+        { text: "सिद्धिनरसिंह मल्ल रचित प्रसिद्ध मैथिली पद कोन अछि ?", options: ["हरिपद जुग भजन गुप", "जय जय शंकर", "कानु हेरब", "बहु सुखसार"], correct: 0 },
+        { text: "प्राचीन गीत-परम्परामे 'धनुर्धर झा' के कोन उपाधि हल ?", options: ["कविरत्न", "महाकवि", "अभिनव विद्यापति", "कवीश्वर"], correct: 0 },
+        { text: "नेपालमे मैथिली गीति-नाट्यक सर्वाधिक पोषक राजा कोन छलाह ?", options: ["जगतप्रकाशमल्ल (कान्तिपुर)", "जयप्रकाश मल्ल", "राजेन्द्र मल्ल", "अमर मल्ल"], correct: 0 },
+        { text: "जगतप्रकाशमल्ल के रचित 'उपाहरण नाटक' कोन भाषामे अछि ?", options: ["मैथिली (गद्य-पद्य)", "संस्कृत", "नेवारी", "हिन्दी"], correct: 0 },
+        { text: "प्राचीन गीत-परम्पराक कवि 'रत्नपाणि' के प्रसिद्ध नाटक कोन अछि ?", options: ["उपाहरण", "प्रभावतीहरण", "मदालसा नाटक", "गीतगोविन्द"], correct: 0 },
+        { text: "प्रो. रमानाथ झा के अनुसार मैथिली प्राचीन गीत-परम्पराक अन्तिम महत्त्वपूर्ण कवि कोन छथि ?", options: ["हर्षनाथ झा (उन्नीसवीं शताब्दी)", "चन्द्राझा", "गोविन्ददास", "नन्दीपति"], correct: 0 },
+        { text: "लोचन के 'रागतरंगिणी' मे कोन-कोन कविक पद अहि ?", options: ["विद्यापति, उगापति, गोविन्ददास, नन्दीपति", "केवल विद्यापति", "केवल नवीन कवि", "केवल लोचन स्वयं"], correct: 0 },
+        { text: "मैथिली प्राचीन गीतक 'नेपाली पदावली' के सबसँ प्राचीन संग्रह कोन अछि ?", options: ["नेपाल दरबार पदावली", "रामभद्रपुर पदावली", "तरीनी पदावली", "भाषापीत संग्रह"], correct: 0 },
+        { text: "शंकरदेव के 'अंकीयानाट' मे प्रयुक्त भाषा मैथिली कहल जाइत अछि, कारण ?", options: ["मैथिलीक माधुर्य आ राधाकृष्ण भक्ति", "राजाज्ञा", "विद्यापति परम्परा", "असमीया मैथिलीसँ मिलैत"], correct: 0 },
+        { text: "प्राचीन गीत-परम्परामे 'गीतपद्याशिक' के महत्व अछि ?", options: ["नद्यारी गीतक व्यापक अर्थ स्पष्ट करैत अछि", "प्रथम मैथिली व्याकरण", "काव्यशास्त्र", "नाट्य सिद्धान्त"], correct: 0 },
+        { text: "मैथिली कवि 'उगापति' के नाटक 'पारिजातहरण' मे कोन रस प्रधान अछि ?", options: ["शृंगार, भक्ति", "वीर, रौद्र", "हास्य", "शान्त"], correct: 0 },
+        { text: "नेपालक मल्ल शासक 'सिद्धिनरसिंह' के प्रसिद्ध मैथिली पद 'हरिपद जुग भजन' के विशेषता अछि ?", options: ["विरही नायिकाक मार्मिकता", "शिव स्तुति", "दार्शनिकता", "वीर रस"], correct: 0 },
+        { text: "प्राचीन गीत-परम्पराक कवि 'हर्षनाथ झा' के रचना 'उषाहरण' कोन विधामे अछि ?", options: ["नाटिका (मैथिली-संस्कृत)", "गीतिकाव्य", "महाकाव्य", "व्याकरण"], correct: 0 },
+        { text: "मैथिली प्राचीन गीत मे 'गोविन्ददास' के पद मुख्यतः कोन रस प्रधान अछि ?", options: ["शृंगार (राधा-कृष्ण)", "भक्ति", "वात्सल्य", "शान्त"], correct: 0 },
+        { text: "नेपालमे मैथिली गीति-नाट्य परम्पराक सर्वाधिक फसल उपजाएबिहारु राजा कोन छलाह ?", options: ["जगतप्रकाशमल्ल", "यक्षमल्ल", "प्रतापमल्ल", "रत्नमल्ल"], correct: 0 },
+        { text: "जगतप्रकाशमल्ल के समय रचित 'नलीयनाटकम्' (१६७०) कोन विषय पर अछि ?", options: ["नल-दमयन्ती कथा", "रामायण", "महाभारत", "कृष्णलीला"], correct: 0 },
+        { text: "प्राचीन गीत-परम्पराक कवि 'नन्दीपति' अपन नाटक 'कृष्णकिरिटिनी' मे कतय कवित्व प्रदर्शित केलनि ?", options: ["प्रेम-पूर्वराग आ प्रवास वर्णन", "युद्ध वर्णन", "हास्य", "अलंकारिकता"], correct: 0 },
+        { text: "मैथिली साहित्यमे 'साहेबरामदास' कविक प्रसिद्धि कोन रुपमे अछि ?", options: ["वैष्णव भजन-पद (मधुर भक्ति)", "शृंगार कवि", "शैव कवि", "नाटककार"], correct: 0 },
+        { text: "असमीय शंकरदेव परम्परा में मैथिली पद रचना करेवाला अन्य कवि छथि ?", options: ["माधवदेव, गोपालदेव", "बंगमणि झा", "विद्यापति", "जगज्योतिर्मल्ल"], correct: 0 },
+        { text: "प्राचीन गीत-परम्पराक कवि 'छक्याणि' के उल्लेख वैष्णव भजनमे अछि, हिनकर रचना प्रायः कोन विषयक अछि ?", options: ["शृंगार (अभिसारिका)", "वीर रस", "वैराग्य", "भक्ति-निरूपण"], correct: 0 },
+        { text: "लोचन कवि के 'रागतरंगिणी' मे विद्यापतिक पद रागबद्ध गाबाक प्रणाली के देखौने अछि, एहि सँ कया सिद्ध होइत अछि ?", options: ["मैथिली संगीत परम्पराक प्रामाणिकता", "नाट्य सिद्धान्त", "राजाश्रय", "विद्यापतिक प्रभाव"], correct: 0 },
+        { text: "प्राचीन गीत-परम्पराक अन्तर्गत 'रामभद्रपुर पदावली' के प्राप्ति कतय भेल ?", options: ["पटना विश्वविद्यालय", "नेपाल", "दरभंगा राजपुस्तकालय", "बंगाल लाइब्रेरी"], correct: 0 },
+        { text: "मैथिली गीत-परम्परामे 'कंसनारायण' के पदक लक्षण कोन अछि ?", options: ["नखशिख सौन्दर्य वर्णन", "वीर रस", "वियोग", "बालचरित"], correct: 0 },
+        { text: "प्राचीन गीत-परम्पराक नेपाली राजा 'भूपतीन्द्र मल्ल' (१६९५-१७२२) के समय कोन नाटक लिखल गेल ?", options: ["कौलासुरवधोपाख्यान", "हरगौरीविवाह", "उपाहरण", "गीतगोविन्द"], correct: 0 },
+        { text: "मैथिली प्राचीन गीतक कवि 'हर्षनाथ झा' के अन्य रचना मे 'माधवानन्द' नाटिका के उद्देश्य छल ?", options: ["राधाकृष्ण प्रणय-लीला चित्रण", "शिव भक्ति", "राजप्रशस्ति", "दार्शनिक विवेचन"], correct: 0 },
+        { text: "प्राचीन गीत-परम्पराक प्रायः सभ कवि के गीत कोन राग-रागिणी बद्ध प्रयोग करैत छल ?", options: ["हाँ, संगीतबद्ध गीत", "केवल मुक्तक", "केवल छन्द", "वार्णिक छन्द"], correct: 0 },
+        { text: "नेपालक मल्ल राजसभा मे मैथिली नाटकक शिल्प पर कोन भाषाक प्रभाव देखल जाइत अछि ?", options: ["संस्कृत आ स्थानीय नेवारी", "फारसी", "तुर्की", "अंग्रेजी"], correct: 0 },
+        { text: "लोचन के 'रागतरंगिणी' के रचना काल कोन शताब्दी मानल जाइत अछि ?", options: ["१७वीं शताब्दीक उत्तरार्ध (१६८० के आसपास)", "१५वीं सदी", "१६वीं सदी", "१८वीं सदी"], correct: 0 },
+        { text: "प्राचीन गीत-परम्पराक कवि 'उमापति' (उगापति) के पद सभ मे प्रयुक्त भाषा कोन दिशाक सङ्केत करैत अछि ?", options: ["परिमार्जित, पाण्डित्यपूर्ण कोमल शैली", "ठेट ग्रामीण", "संस्कृतनिष्ठ", "फारसी मिश्रित"], correct: 0 },
+        { text: "प्रसिद्ध विद्वान डा. जयकान्त मिश्र के अनुसार प्राचीन गीत-परम्परा कोन कालखण्ड धरि सक्रिय छल ?", options: ["१७०० ई. धरि", "१८०० ई. धरि", "१६०० ई. धरि", "१५०० ई. धरि"], correct: 0 },
+        { text: "मैथिली प्राचीन गीत-परम्पराक कवि 'गोविन्ददास' के वंश परिचय अनुसार हिनक गोत्र अछि ?", options: ["काश्यप गोत्र", "भारद्वाज", "वशिष्ठ", "गौतम"], correct: 0 },
+        { text: "नेपाली मल्ल राजा 'जगज्योतिर्मल्ल' के 'गीतपद्याशिक' मे संगीत के साथ मैथिली गीत प्रस्तुति के विधान अछि, तहि सँ कया सिद्ध होइत अछि ?", options: ["मैथिली नद्यारी गीति-नाट्य परिपाटी", "मैथिली गद्य विकास", "केवल कथोपकथन", "कोनो नहि"], correct: 0 },
+        { text: "प्राचीन गीत-परम्पराक सबसँ अन्तिम महत्वपूर्ण कवि 'हर्षनाथ झा' के समयक मिथिलाक राजा कोन छल ?", options: ["लक्ष्मीश्वर सिंह", "शिवसिंह", "नान्यदेव", "हरिसिंहदेव"], correct: 0 }
+    ];
+
+    const totalQ = questions.length;
+    let userSelections = new Array(totalQ).fill(null);
+    let submitted = false;
+
+    const container = document.getElementById('questionsArea');
+    const totalSpan = document.getElementById('totalQ');
+    const scoreSpan = document.getElementById('scoreCount');
+    const percentSpan = document.getElementById('percentBox');
+
+    function renderQuiz() {
+        container.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.dataset.qid = idx;
+            const qDiv = document.createElement('div');
+            qDiv.className = 'q-text';
+            qDiv.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qDiv);
+            const optsDiv = document.createElement('div');
+            optsDiv.className = 'opts-list';
+            q.options.forEach((opt, optIdx) => {
+                const label = document.createElement('label');
+                label.className = 'opt-item';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${idx}`;
+                radio.value = optIdx;
+                radio.disabled = submitted;
+                if (userSelections[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    if (!submitted) {
+                        userSelections[idx] = parseInt(e.target.value);
+                        updateStats();
+                        showFeedback(idx, card);
+                    }
+                });
+                const span = document.createElement('span');
+                span.innerText = `${String.fromCharCode(65+optIdx)}. ${opt}`;
+                label.appendChild(radio);
+                label.appendChild(span);
+                optsDiv.appendChild(label);
+            });
+            card.appendChild(optsDiv);
+            const fbDiv = document.createElement('div');
+            fbDiv.className = 'feedback';
+            fbDiv.id = `fb_${idx}`;
+            card.appendChild(fbDiv);
+            container.appendChild(card);
+            if (submitted) showFeedback(idx, card);
+        });
+        totalSpan.innerText = totalQ;
+        updateStats();
+    }
+
+    function showFeedback(qid, cardDiv) {
+        const fbDiv = cardDiv.querySelector('.feedback');
+        const selected = userSelections[qid];
+        const correctIdx = questions[qid].correct;
+        if (selected === null) {
+            fbDiv.innerHTML = '';
+            fbDiv.className = 'feedback';
+            return;
+        }
+        if (selected === correctIdx) {
+            fbDiv.innerHTML = '✅ सही उत्तर।';
+            fbDiv.className = 'feedback fb-correct';
+        } else {
+            const correctLetter = String.fromCharCode(65+correctIdx);
+            fbDiv.innerHTML = `❌ अशुद्ध। सही उत्तर : ${correctLetter}. ${questions[qid].options[correctIdx]}`;
+            fbDiv.className = 'feedback fb-wrong';
+        }
+    }
+
+    function updateStats() {
+        let correct = 0;
+        for (let i=0; i<totalQ; i++) {
+            if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correct++;
+        }
+        if (!submitted) {
+            scoreSpan.innerText = `${correct}/${totalQ}`;
+            let perc = Math.round((correct/totalQ)*100);
+            percentSpan.innerText = `${perc}% (प्रगति)`;
+        } else {
+            scoreSpan.innerText = `${correct}/${totalQ}`;
+            let perc = Math.round((correct/totalQ)*100);
+            percentSpan.innerText = `${perc}% ${perc>=60 ? '🏆 प्राचीन गीत-रसिक' : '📖 पुनः पठन'}`;
+        }
+    }
+
+    function evaluateAll() {
+        if (submitted) {
+            alert("पहिने जाँच होइ चुकल अछि। पुनः आरम्भ कए नव उत्तर दी।");
+            return;
+        }
+        let unanswered = [];
+        for (let i=0; i<totalQ; i++) if (userSelections[i] === null) unanswered.push(i+1);
+        if (unanswered.length > 0) {
+            if (!confirm(`⚠️ ${unanswered.length} प्रश्न अनुत्तरित अछि (जेना प्र. ${unanswered.slice(0,12).join(',')}...). जाँच करब तौ?`)) return;
+        }
+        submitted = true;
+        const allRadios = document.querySelectorAll('input[type="radio"]');
+        allRadios.forEach(radio => radio.disabled = true);
+        let finalCorrect = 0;
+        for (let i=0; i<totalQ; i++) {
+            const card = document.querySelector(`.question-card[data-qid='${i}']`);
+            if (card) showFeedback(i, card);
+            if (userSelections[i] !== null && userSelections[i] === questions[i].correct) finalCorrect++;
+        }
+        scoreSpan.innerText = `${finalCorrect}/${totalQ}`;
+        let perc = Math.round((finalCorrect/totalQ)*100);
+        percentSpan.innerText = `${perc}% ${perc>=60 ? '🎶 गीत-परम्पराक जानकार' : '📚 प्राचीन पद स्मरण करू'}`;
+    }
+
+    function resetQuiz() {
+        submitted = false;
+        userSelections = new Array(totalQ).fill(null);
+        const radios = document.querySelectorAll('input[type="radio"]');
+        radios.forEach(r => { r.checked = false; r.disabled = false; });
+        renderQuiz();
+    }
+
+    document.getElementById('submitBtn').addEventListener('click', evaluateAll);
+    document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+    renderQuiz();
+
+</script></body>
+</html>

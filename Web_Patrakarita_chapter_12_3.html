@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>क्विज़: सोशल मीडिया यात्रा (अध्याय १२)</title> <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet"> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: linear-gradient(135deg, #131e29 0%, #1e2f3a 100%);
+font-family: 'Noto Sans Devanagari', 'Segoe UI', sans-serif;
+padding: 2rem 1rem;
+color: #efe6d7;
+}
+.quiz-container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fefaf0;
+border-radius: 2.5rem;
+box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3), 0 0 0 1px #ffddb0;
+overflow: hidden;
+color: #2c1a0c;
+}
+.quiz-header {
+background: #1f6392;
+background-image: linear-gradient(145deg, #0f4e73, #267cac);
+padding: 1.6rem 2rem;
+text-align: center;
+color: white;
+}
+.quiz-header h1 {
+font-size: 1.9rem;
+font-weight: 800;
+letter-spacing: -0.3px;
+margin-bottom: 0.5rem;
+text-shadow: 2px 2px 0 #063753;
+}
+.quiz-header p {
+font-size: 1rem;
+font-weight: 500;
+opacity: 0.9;
+border-top: 1px solid #ffc48a;
+display: inline-block;
+padding-top: 0.5rem;
+}
+.chapter-badge {
+background: #f7b32b;
+color: #2c4b2f;
+display: inline-block;
+padding: 0.25rem 1.2rem;
+border-radius: 40px;
+font-weight: bold;
+font-size: 0.85rem;
+margin-top: 0.8rem;
+box-shadow: inset 0 -1px 0 #dc9512;
+}
+.questions-area {
+padding: 2rem 2rem 1rem;
+}
+.question-card {
+background: white;
+border-radius: 1.8rem;
+margin-bottom: 1.8rem;
+padding: 1.2rem 1.5rem 1rem 1.8rem;
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+transition: 0.2s;
+border: 1px solid #ffdead;
+}
+.question-card:hover {
+transform: translateY(-2px);
+box-shadow: 0 12px 22px rgba(0, 0, 0, 0.1);
+border-color: #c9a86a;
+}
+.question-text {
+font-size: 1.25rem;
+font-weight: 700;
+color: #5c2b10;
+margin-bottom: 1rem;
+display: flex;
+align-items: baseline;
+gap: 12px;
+flex-wrap: wrap;
+}
+.q-num {
+background: #1f6392;
+width: 34px;
+height: 34px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+border-radius: 60px;
+color: white;
+font-weight: bold;
+font-size: 1rem;
+box-shadow: inset 0 -1px 0 #0a3f5a;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+padding-left: 0.5rem;
+}
+.option {
+display: flex;
+align-items: center;
+gap: 0.9rem;
+background: #fef5e9;
+padding: 0.6rem 1rem;
+border-radius: 60px;
+border: 1px solid #f1e0ca;
+cursor: pointer;
+transition: background 0.2s;
+}
+.option:hover {
+background: #fff1df;
+border-color: #daa86a;
+}
+input[type="radio"] {
+accent-color: #1f6392;
+width: 1.2rem;
+height: 1.2rem;
+cursor: pointer;
+}
+.option label {
+font-size: 0.98rem;
+font-weight: 500;
+color: #2c1a0c;
+cursor: pointer;
+flex: 1;
+letter-spacing: 0.2px;
+}
+.action-buttons {
+display: flex;
+justify-content: center;
+gap: 1.5rem;
+margin: 0.5rem 2rem 2rem;
+flex-wrap: wrap;
+}
+button {
+font-family: inherit;
+font-weight: 700;
+font-size: 1.05rem;
+padding: 0.75rem 2rem;
+border: none;
+border-radius: 60px;
+cursor: pointer;
+transition: 0.2s;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.submit-btn {
+background: #1f6392;
+color: white;
+border: 1px solid #65b4df;
+}
+.submit-btn:hover {
+background: #0f4e73;
+transform: scale(0.97);
+}
+.reset-btn {
+background: #796045;
+color: #fef0e0;
+border: 1px solid #b6936b;
+}
+.reset-btn:hover {
+background: #5e4832;
+transform: scale(0.97);
+}
+.result-area {
+background: #f3ede2;
+margin: 0 2rem 2rem;
+border-radius: 1.8rem;
+padding: 1.5rem;
+text-align: center;
+border: 1px solid #eadbbc;
+}
+.score-text {
+font-size: 2rem;
+font-weight: 800;
+color: #1f6392;
+margin: 0.3rem 0;
+}
+.feedback {
+text-align: left;
+background: #fffbf2;
+border-radius: 1.2rem;
+padding: 1rem 1.5rem;
+margin-top: 1rem;
+max-height: 360px;
+overflow-y: auto;
+font-size: 0.92rem;
+}
+.feedback p {
+margin: 0.7rem 0;
+border-left: 4px solid;
+padding-left: 1rem;
+}
+.correct-fb {
+border-left-color: #2f7d2f;
+background: #ecf7e6;
+}
+.wrong-fb {
+border-left-color: #b13b22;
+background: #ffe8e4;
+}
+hr {
+margin: 0.8rem 0;
+border: none;
+height: 1px;
+background: #eedbba;
+}
+footer {
+text-align: center;
+font-size: 0.72rem;
+padding: 1rem 2rem 1.5rem;
+color: #ab8b64;
+background: #fff7ed;
+border-top: 1px solid #f3e2cf;
+}
+@media (max-width: 650px) {
+.questions-area {
+padding: 1.2rem;
+}
+.question-card {
+padding: 1rem;
+}
+.question-text {
+font-size: 1.05rem;
+}
+.option label {
+font-size: 0.85rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <div class="quiz-header"> <h1>📱 जियोसिटीजसँ सोशल मीडिया धरि</h1> <p>अध्याय १२ : मैथिलीक इंटरनेट यात्रा</p> <div class="chapter-badge">🌐 फेसबुक, ट्विटर, ह्वाट्सएप आ चंडालचौकड़ी</div> </div> <div class="questions-area" id="questionsArea"> <div class="question-card"> <div class="question-text"><span class="q-num">१</span> अध्याय १२ मे सोशल मीडिया केर तुलना कोना कएल गेल अछि?</div> <div class="options"> <div class="option"><input type="radio" name="q0" value="chandala"> <label>गामक चंडालचौकड़ी</label></div> <div class="option"><input type="radio" name="q0" value="bajar"> <label>साप्ताहिक हाट बाजार</label></div> <div class="option"><input type="radio" name="q0" value="akhar"> <label>लेखन मंच</label></div> <div class="option"><input type="radio" name="q0" value="pustakalaya"> <label>डिजिटल पुस्तकालय</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">२</span> फेसबुक केर शुरूआत कोन वर्ष भेल छल?</div> <div class="options"> <div class="option"><input type="radio" name="q1" value="2004"> <label>२००४</label></div> <div class="option"><input type="radio" name="q1" value="2006"> <label>२००६</label></div> <div class="option"><input type="radio" name="q1" value="2008"> <label>२००८</label></div> <div class="option"><input type="radio" name="q1" value="2010"> <label>२०१०</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">३</span> फेसबुकपर मैथिलीक पहिल ग्रुप कोन छल आ कहिया बनल?</div> <div class="options"> <div class="option"><input type="radio" name="q2" value="9feb2008"> <label>Videha e Journal – ९ फरवरी २००८</label></div> <div class="option"><input type="radio" name="q2" value="7jul2008"> <label>Maithili Sangam – ७ जुलाई २००८</label></div> <div class="option"><input type="radio" name="q2" value="15aug2008"> <label>Mithila Mirror – १५ अगस्त २००८</label></div> <div class="option"><input type="radio" name="q2" value="1jan2009"> <label>Videha group – १ जनवरी २००९</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">४</span> फेसबुक 'People You May Know' के बारेमे अध्याय १२ मे की कहल गेल अछि?</div> <div class="options"> <div class="option"><input type="radio" name="q3" value="myth"> <label>ई भ्रम छै जे कोनो प्रोफाइल देखलासँ आबै छै</label></div> <div class="option"><input type="radio" name="q3" value="true"> <label>प्रोफाइल नुका कए देखेला परे ही सुझाव आबै छै</label></div> <div class="option"><input type="radio" name="q3" value="paid"> <label>केवल पेड सेवा लेलाहक लग देखाइत अछि</label></div> <div class="option"><input type="radio" name="q3" value="onlyfriends"> <label>केवल पहिनेसँ मित्र बना लोकक सुझाव दैत अछि</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">५</span> फेसबुक कोन सुविधा अप्रैल २०१६ मे शुरू केलक जे मैथिली गीत-संगीत लेल अमृत समान भेल?</div> <div class="options"> <div class="option"><input type="radio" name="q4" value="live"> <label>फेसबुक लाइभ</label></div> <div class="option"><input type="radio" name="q4" value="stories"> <label>स्टोरी (Stories)</label></div> <div class="option"><input type="radio" name="q4" value="reels"> <label>रील्स (Reels)</label></div> <div class="option"><input type="radio" name="q4" value="marketplace"> <label>मार्केटप्लेस</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">६</span> अध्याय १२ अनुसार, फेसबुक 'प्रोफाइल रीच' (पोस्ट पहुँच) कम होएबाक मुख्य कारण की बताओल गेल अछि?</div> <div class="options"> <div class="option"><input type="radio" name="q5" value="not_engage"> <label>हम आन लोकक पोस्टपर नै जाइत छी (कम सक्रियता)</label></div> <div class="option"><input type="radio" name="q5" value="algorithm"> <label>सरकार द्वारा फेसबुकमे कृत्रिम अवरोध</label></div> <div class="option"><input type="radio" name="q5" value="paid_promotion"> <label>खाली पेड प्रमोशन लेलाहक पोस्ट देखाइत अछि</label></div> <div class="option"><input type="radio" name="q5" value="less_likes"> <label>पोस्टमे लाइक कम होएबाक कारण</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">७</span> निम्नलिखित में सँ कोन श्रेणी सोशल मीडिया केर प्रकारक रूपमे अध्याय १२ मे नै अछि?</div> <div class="options"> <div class="option"><input type="radio" name="q6" value="socialnets"> <label>Social networks (फेसबुक, ट्विटर)</label></div> <div class="option"><input type="radio" name="q6" value="media_sharing"> <label>Media sharing networks (यूट्यूब, इंस्टाग्राम)</label></div> <div class="option"><input type="radio" name="q6" value="consumer_review"> <label>Consumer review networks (येल्प, ज़ोमैटो)</label></div> <div class="option"><input type="radio" name="q6" value="paid_news"> <label>Paid news networks</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">८</span> फेसबुक ह्वाट्सएप केर अधिग्रहण (खरीद) कोन वर्ष केलक?</div> <div class="options"> <div class="option"><input type="radio" name="q7" value="2012"> <label>२०१२</label></div> <div class="option"><input type="radio" name="q7" value="2014"> <label>२०१४</label></div> <div class="option"><input type="radio" name="q7" value="2016"> <label>२०१६</label></div> <div class="option"><input type="radio" name="q7" value="2018"> <label>२०१८</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">९</span> फेसबुकपर पहिल मैथिली ग्रुप केर पहिल पोस्ट (पहिला पोस्ट) केर लिंक कोन अछि? (अध्याय १२ अनुसार)</div> <div class="options"> <div class="option"><input type="radio" name="q8" value="link1"> <label>https://www.facebook.com/groups/7436498043/permalink/10150562846913044</label></div> <div class="option"><input type="radio" name="q8" value="link2"> <label>https://www.facebook.com/groups/videha</label></div> <div class="option"><input type="radio" name="q8" value="link3"> <label>https://www.facebook.com/groups/maithili</label></div> <div class="option"><input type="radio" name="q8" value="link4"> <label>https://www.facebook.com/groups/samadiya</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">१०</span> अध्याय १२ मे 'ट्विटर' के बारेमे की कहल गेल अछि? (सबसं उपयुक्त)</div> <div class="options"> <div class="option"><input type="radio" name="q9" value="twitter_info"> <label>राजनीतिक आ सामाजिक संगठन लेल बेसी प्रयोग होइए, हैशटैग ट्रेंड करबाक सुविधा</label></div> <div class="option"><input type="radio" name="q9" value="only_fun"> <label>केवल मनोरंजन लेल अछि</label></div> <div class="option"><input type="radio" name="q9" value="no_maithili"> <label>मैथिली ट्विटरपर बिल्कुल नै अछि</label></div> <div class="option"><input type="radio" name="q9" value="business"> <label>सिर्फ व्यापारिक प्रचार लेल अछि</label></div> </div> </div> </div> <div class="action-buttons"> <button class="submit-btn" id="submitQuiz">✅ उत्तर जाँचू</button> <button class="reset-btn" id="resetQuiz">🔄 सब साफ़ करू</button> </div> <div id="resultPanel" class="result-area" style="display: none;"> <div class="score-text" id="scoreValue">--/१०</div> <div id="feedbackDetail" class="feedback"></div> </div> </div>
+<script>
+    // सही उत्तर मैपिंग
+    const correctMap = {
+        q0: 'chandala',          // चंडालचौकड़ी
+        q1: '2004',             // 2004
+        q2: '9feb2008',         // 9 फरवरी 2008, Videha e Journal
+        q3: 'myth',             // भ्रम
+        q4: 'live',             // फेसबुक लाइभ
+        q5: 'not_engage',       // हम आन लोकक पोस्टपर नै जाइत छी
+        q6: 'paid_news',        // Paid news networks (उल्लेख नै अछि)
+        q7: '2014',             // 2014
+        q8: 'link1',            // पहिला पोस्ट लिंक (7436498043/permalink/...)
+        q9: 'twitter_info'      // Twitter केर प्रयोग राजनीतिक आ सामाजिक संगठन लेल
+    };
+
+    const questionNames = ['q0', 'q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9'];
+
+    const questionTexts = {
+        q0: "सोशल मीडिया केर तुलना (चंडालचौकड़ी)",
+        q1: "फेसबुक केर शुरूआत वर्ष",
+        q2: "पहिल मैथिली फेसबुक ग्रुप आ तारीख",
+        q3: "'People You May Know' के बारेमे तथ्य",
+        q4: "अप्रैल २०१६ मे आएल फेसबुक सुविधा (गीत-संगीत लेल)",
+        q5: "प्रोफाइल रीच कमी केर मुख्य कारण",
+        q6: "सोशल मीडिया प्रकार (जे अध्याय मे नै अछि)",
+        q7: "फेसबुक द्वारा ह्वाट्सएप अधिग्रहण वर्ष",
+        q8: "पहिल मैथिली ग्रुप केर पहिल पोस्टक लिंक (जकर उल्लेख अछि)",
+        q9: "ट्विटर संबंधी सही कथन"
+    };
+
+    // उत्तर प्रदर्शन हेतु मैप
+    const displayMap = {
+        chandala: "गामक चंडालचौकड़ी",
+        '2004': "२००४",
+        '9feb2008': "Videha e Journal – ९ फरवरी २००८",
+        myth: "ई भ्रम छै जे कोनो प्रोफाइल देखलासँ आबै छै",
+        live: "फेसबुक लाइभ",
+        not_engage: "हम आन लोकक पोस्टपर नै जाइत छी (कम सक्रियता)",
+        paid_news: "Paid news networks (अध्यायमे नै अछि)",
+        '2014': "२०१४",
+        link1: "https://www.facebook.com/groups/7436498043/permalink/10150562846913044",
+        twitter_info: "राजनीतिक आ सामाजिक संगठन लेल बेसी प्रयोग होइए, हैशटैग ट्रेंड करबाक सुविधा"
+    };
+
+    function getSelectedValue(name) {
+        const radios = document.querySelectorAll(`input[name="${name}"]`);
+        for (let radio of radios) {
+            if (radio.checked) return radio.value;
+        }
+        return null;
+    }
+
+    function resetQuiz() {
+        for (let name of questionNames) {
+            const radios = document.querySelectorAll(`input[name="${name}"]`);
+            radios.forEach(r => r.checked = false);
+        }
+        document.getElementById('resultPanel').style.display = 'none';
+        document.querySelectorAll('.question-card').forEach(card => {
+            card.style.borderLeft = '';
+            card.style.backgroundColor = '';
+        });
+    }
+
+    function evaluateQuiz() {
+        let allAnswered = true;
+        let score = 0;
+        const results = [];
+
+        for (let name of questionNames) {
+            const selected = getSelectedValue(name);
+            if (!selected) {
+                allAnswered = false;
+                results.push({ qName: name, selected: null, correct: correctMap[name], isCorrect: false });
+            } else {
+                const isCorrect = (selected === correctMap[name]);
+                if (isCorrect) score++;
+                results.push({ qName: name, selected, correct: correctMap[name], isCorrect });
+            }
+        }
+
+        if (!allAnswered) {
+            alert("कृपया सब १० प्रश्न के उत्तर दियौ। कोनो प्रश्न अनुत्तरित अछि।");
+            return;
+        }
+
+        // generate feedback
+        let feedbackHtml = `<strong>🎯 परिणाम : ${score} / १० सही</strong><hr>`;
+        for (let res of results) {
+            const qText = questionTexts[res.qName];
+            const userVal = res.selected ? (displayMap[res.selected] || res.selected) : "कोनो उत्तर नै देल";
+            const correctVal = displayMap[res.correct] || res.correct;
+            let icon = res.isCorrect ? "✅" : "❌";
+            let fbClass = res.isCorrect ? "correct-fb" : "wrong-fb";
+            feedbackHtml += `
+                <p class="${fbClass}">
+                    <strong>${icon} ${qText}</strong><br>
+                    <span>✍️ आपन उत्तर: ${userVal}</span><br>
+                    <span>📖 सही उत्तर: ${correctVal}</span>
+                </p>
+            `;
+        }
+        feedbackHtml += `<hr><small>📌 अध्याय १२ पर आधारित: सोशल मीडिया = चंडालचौकड़ी, फेसबुक लाइभ २०१६, रीच कमी = आपन दूसरक पोस्टपर नै जाबाक कारण।</small>`;
+
+        document.getElementById('scoreValue').innerHTML = `${score} / १०`;
+        document.getElementById('feedbackDetail').innerHTML = feedbackHtml;
+        document.getElementById('resultPanel').style.display = 'block';
+
+        // highlight question cards
+        document.querySelectorAll('.question-card').forEach((card, idx) => {
+            const qname = questionNames[idx];
+            const selected = getSelectedValue(qname);
+            const isCorrect = (selected === correctMap[qname]);
+            if (selected && isCorrect) {
+                card.style.borderLeft = '6px solid #2c7a2c';
+                card.style.backgroundColor = '#f2f9ef';
+            } else if (selected && !isCorrect) {
+                card.style.borderLeft = '6px solid #b84c2c';
+                card.style.backgroundColor = '#fff2ef';
+            } else {
+                card.style.borderLeft = '';
+                card.style.backgroundColor = '';
+            }
+        });
+
+        document.getElementById('resultPanel').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    // event listeners
+    document.getElementById('submitQuiz').addEventListener('click', evaluateQuiz);
+    document.getElementById('resetQuiz').addEventListener('click', resetQuiz);
+
+    // make whole option clickable
+    document.querySelectorAll('.option').forEach(opt => {
+        opt.addEventListener('click', function(e) {
+            const radio = this.querySelector('input[type="radio"]');
+            if (radio && !radio.checked) {
+                radio.checked = true;
+            }
+        });
+    });
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

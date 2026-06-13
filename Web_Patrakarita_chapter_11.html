@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>मैथिली क्विज़ - अध्याय ११ | मिथिला विरासत</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: linear-gradient(135deg, #1e3c2c 0%, #0a281b 100%);
+font-family: 'Segoe UI', 'Poppins', 'Noto Sans Devanagari', 'Mukta', 'Kalam', system-ui, sans-serif;
+min-height: 100vh;
+padding: 2rem 1rem;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.quiz-container {
+max-width: 950px;
+width: 100%;
+background: #fffaf2;
+border-radius: 2.5rem;
+box-shadow: 0 30px 45px rgba(0, 0, 0, 0.3), 0 0 0 1px #f5d88f inset;
+overflow: hidden;
+transition: all 0.2s;
+}
+/* मैथिली शैली हेडर */
+.quiz-header {
+background: linear-gradient(105deg, #d48d2b, #b45f1b);
+padding: 1.5rem 2rem;
+text-align: center;
+border-bottom: 5px solid #7a3e0f;
+}
+.quiz-header h1 {
+font-size: 2.3rem;
+font-weight: 800;
+color: #2b1b0a;
+text-shadow: 2px 2px 0 #ffdd99;
+letter-spacing: -0.5px;
+}
+.quiz-header h1 small {
+font-size: 1.3rem;
+background: #2d2418;
+color: #ffefc0;
+padding: 0.2rem 1.1rem;
+border-radius: 40px;
+display: inline-block;
+margin-top: 0.4rem;
+}
+.chapter-badge {
+background: #7a3e0f;
+color: #fde8c8;
+display: inline-block;
+padding: 0.25rem 1.2rem;
+border-radius: 30px;
+font-size: 0.85rem;
+font-weight: 600;
+margin-top: 0.6rem;
+}
+/* प्रश्न क्षेत्र */
+.quiz-body {
+padding: 2rem 2rem 1rem 2rem;
+}
+.question-card {
+background: #fffcf3;
+border-radius: 1.8rem;
+padding: 1.2rem 1.5rem;
+margin-bottom: 2rem;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+border-left: 8px solid #e2863b;
+transition: 0.1s;
+}
+.question-text {
+font-size: 1.55rem;
+font-weight: 650;
+color: #2a5a2e;
+line-height: 1.4;
+margin-bottom: 1.2rem;
+padding-right: 0.3rem;
+}
+.options-list {
+display: flex;
+flex-direction: column;
+gap: 0.8rem;
+margin-top: 0.4rem;
+}
+.option-item {
+display: flex;
+align-items: center;
+gap: 0.9rem;
+background: white;
+border: 2px solid #eedbba;
+border-radius: 60px;
+padding: 0.7rem 1.3rem;
+cursor: pointer;
+transition: all 0.2s ease;
+font-size: 1.05rem;
+font-weight: 500;
+color: #2d422a;
+}
+.option-item:hover {
+background: #fff3e0;
+border-color: #f3a55a;
+transform: scale(0.99);
+}
+.prefix-circle {
+background: #e7bc7e;
+width: 34px;
+height: 34px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+font-weight: bold;
+color: #382812;
+}
+input[type="radio"] {
+width: 20px;
+height: 20px;
+accent-color: #e76f51;
+cursor: pointer;
+margin-right: 4px;
+}
+/* बटन पैनल */
+.action-bar {
+display: flex;
+justify-content: space-between;
+gap: 1rem;
+margin: 1rem 2rem 1.8rem 2rem;
+flex-wrap: wrap;
+}
+button {
+background: #2d6a3b;
+border: none;
+padding: 0.8rem 2rem;
+border-radius: 50px;
+font-size: 1rem;
+font-weight: bold;
+color: white;
+font-family: inherit;
+cursor: pointer;
+transition: 0.2s;
+display: inline-flex;
+align-items: center;
+gap: 0.6rem;
+box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+button:hover {
+background: #c46d2e;
+transform: translateY(-2px);
+}
+#submitBtn {
+background: #e76f51;
+box-shadow: 0 4px 0 #9c3c1a;
+}
+#resetBtn {
+background: #5f6c3e;
+}
+/* रिजल्ट क्षेत्र */
+.result-area {
+margin: 0 2rem 2rem 2rem;
+background: #fef2e2;
+border-radius: 1.8rem;
+padding: 1.2rem 1.5rem;
+text-align: center;
+border: 1px solid #f4cf9c;
+}
+.score-display {
+font-size: 2rem;
+font-weight: 800;
+color: #c25d2e;
+}
+.feedback-msg {
+font-size: 1.1rem;
+margin-top: 0.5rem;
+font-weight: 500;
+color: #2a5736;
+}
+.correct-option {
+background: #d7f0ca !important;
+border-color: #2b7d3a !important;
+}
+.wrong-option {
+background: #ffe0db !important;
+border-color: #e35f4b !important;
+}
+.disabled-opt {
+pointer-events: none;
+opacity: 0.9;
+}
+.footer-note {
+background: #f7efdf;
+text-align: center;
+padding: 0.8rem;
+font-size: 0.8rem;
+color: #8b6e42;
+border-top: 1px solid #f5e2c1;
+}
+@media (max-width: 560px) {
+.quiz-body {
+padding: 1rem;
+}
+.question-text {
+font-size: 1.2rem;
+}
+.option-item {
+font-size: 0.9rem;
+padding: 0.5rem 1rem;
+}
+.quiz-header h1 {
+font-size: 1.5rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <div class="quiz-header"> <h1>📖 मैथिली क्विज़ <small>अध्याय ११</small></h1> <div class="chapter-badge">🎋 पाठ : मिथिलाक लोककथा आ संस्कार परंपरा</div> </div> <div class="quiz-body" id="quizBodyContainer"> </div> <div class="action-bar"> <button id="submitBtn">✅ उत्तर जमा करू (सबमिट)</button> <button id="resetBtn">🔄 पुनः प्रयास / रीसेट</button> </div> </div>
+<script>
+    // ================================
+    // अध्याय ११ के प्रश्न (मैथिली भाषा में)
+    // विषय : मैथिल लोककथा, संस्कार, लोक विश्वास, नीति शिक्षा
+    // ================================
+    const quizQuestions = [
+        {
+            text: "१. अध्याय ११ के अनुसार, प्रचलित मैथिल लोककथा 'राजा सल्हेश' सँ का सीख मिलैत अछि?",
+            options: ["सत्यनिष्ठा आ करुणा", "धन संग्रहक उपाय", "युद्ध कला", "छल-कपट"],
+            correct: 0
+        },
+        {
+            text: "२. मिथिलाक 'माँ विद्यापति' परंपरा कोन संस्कार सँ जुड़ल अछि? (अध्याय ११)",
+            options: ["विद्यारंभ संस्कार", "विवाह संस्कार", "श्राद्ध कर्म", "नामकरण"],
+            correct: 0
+        },
+        {
+            text: "३. अध्याय ११ के अनुसार, 'मैथिल पंचांग' में केतिहुँ मिथिलाक प्रमुख पर्व 'जीवित्पुत्रिका' मनाएल जाइत अछि?",
+            options: ["आश्विन कृष्ण अष्टमी", "कार्तिक शुक्ल एकादशी", "भादो पूर्णिमा", "फाल्गुन अमावस्या"],
+            correct: 0
+        },
+        {
+            text: "४. मैथिली गद्य-पद्य में कवि 'कोकिल' वंदना कोन रस प्रधान होइत अछि? (अध्याय ११ के सन्दर्भ)",
+            options: ["शृंगार आ भक्ति रस", "वीर रस", "हास्य रस", "रौद्र रस"],
+            correct: 0
+        },
+        {
+            text: "५. अध्याय ११ के एक लोक कथा 'बुद्धिमान मैथिल ब्राह्मण' अनुसार, सच्चा पंडित कोन होइत अछि?",
+            options: ["जे दयालु आ ज्ञानी होइत अछि", "जे ढेर पैसा रखैत अछि", "जे झगड़ा करैत अछि", "जे मंत्र पढ़ैत अछि"],
+            correct: 0
+        },
+        {
+            text: "६. मैथिल संस्कृति में 'सूर्य शक्ति' पर्व 'छठ' के अवसर पर कौन विशेष अर्घ्य दिआएल जाइत अछि? (अध्याय ११)",
+            options: ["पूरब आ पच्छिम दुनू दिशा के सूर्य", "केवल उदयाचल", "केवल अस्ताचल", "मध्याह्न सूर्य"],
+            correct: 0
+        },
+        {
+            text: "७. अध्याय ११ में वर्णित 'मैथिल शादी' गीत सामूहिक रूप से कोन अवसर पर गाएल जाइत अछि?",
+            options: ["हरिदत्त-हरियर गीत (विवाह संस्कार)", "कठगीत", "सोहर गीत", "सामा गीत"],
+            correct: 2   // सोहर गीत (बिहार/मिथिला विवाह में लोकप्रिय)
+        },
+        {
+            text: "८. मैथिल लोक कथा 'लौरिका-मंजरी' नायिका कोन गुण के लेल प्रसिद्ध अछि?",
+            options: ["साहस आ प्रेम", "धनवानी", "रुपवती मात्र", "विद्रोह"],
+            correct: 0
+        }
+    ];
+
+    // उत्तर संग्रह (null मतलब अनुत्तरित)
+    let userSelections = new Array(quizQuestions.length).fill(null);
+    let quizActive = false;   // false = not submitted, true = submitted
+
+    const container = document.getElementById('quizBodyContainer');
+
+    // HTML escape helper
+    function escapeHtml(str) {
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+            return c;
+        });
+    }
+
+    // Render full quiz (with highlights if submitted)
+    function renderQuiz() {
+        if (!container) return;
+        let html = '';
+
+        for (let i = 0; i < quizQuestions.length; i++) {
+            const q = quizQuestions[i];
+            const selectedIdx = userSelections[i];
+            html += `<div class="question-card" data-index="${i}">`;
+            html += `<div class="question-text">${escapeHtml(q.text)}</div>`;
+            html += `<div class="options-list" id="optionsList-${i}">`;
+
+            for (let optIdx = 0; optIdx < q.options.length; optIdx++) {
+                const optText = q.options[optIdx];
+                const isChecked = (selectedIdx === optIdx);
+                let additionalClass = '';
+                let disabledAttr = '';
+                let radioDisabled = false;
+
+                if (quizActive === true) {
+                    // सबमिट भेल बाद सब विकल्प अक्षम + हाइलाइट
+                    disabledAttr = 'disabled';
+                    radioDisabled = true;
+                    additionalClass = 'disabled-opt';
+                    if (optIdx === q.correct) {
+                        additionalClass += ' correct-option';
+                    }
+                    if (isChecked && optIdx !== q.correct) {
+                        additionalClass += ' wrong-option';
+                    }
+                    if (isChecked && optIdx === q.correct) {
+                        additionalClass += ' correct-option';
+                    }
+                }
+
+                const prefixLetter = String.fromCharCode(65 + optIdx); // A, B, C, D
+                html += `
+                    <label class="option-item ${additionalClass}" style="cursor:${quizActive ? 'default' : 'pointer'}">
+                        <input type="radio" name="q${i}" value="${optIdx}" ${isChecked ? 'checked' : ''} ${radioDisabled ? 'disabled' : ''} data-qidx="${i}" data-optidx="${optIdx}">
+                        <span class="prefix-circle">${prefixLetter}</span>
+                        <span>${escapeHtml(optText)}</span>
+                    </label>
+                `;
+            }
+            html += `</div></div>`;
+        }
+
+        container.innerHTML = html;
+
+        // जखन quiz सबमिट नहि भेल तब radio पर change event लगाब
+        if (!quizActive) {
+            for (let i = 0; i < quizQuestions.length; i++) {
+                const radios = document.querySelectorAll(`input[name="q${i}"]`);
+                radios.forEach(radio => {
+                    radio.addEventListener('change', (e) => {
+                        if (quizActive) return;
+                        const qIdx = parseInt(e.target.getAttribute('data-qidx'));
+                        const selectedVal = parseInt(e.target.value);
+                        if (!isNaN(qIdx) && !isNaN(selectedVal)) {
+                            userSelections[qIdx] = selectedVal;
+                        }
+                    });
+                });
+            }
+        }
+    }
+
+    // स्कोर गणना करू
+    function calculateScore() {
+        let correctTotal = 0;
+        for (let i = 0; i < quizQuestions.length; i++) {
+            if (userSelections[i] !== null && userSelections[i] === quizQuestions[i].correct) {
+                correctTotal++;
+            }
+        }
+        return correctTotal;
+    }
+
+    // रिजल्ट बक्सा डिस्प्ले
+    function showResult() {
+        const oldResult = document.querySelector('.result-area');
+        if (oldResult) oldResult.remove();
+
+        const totalQuestions = quizQuestions.length;
+        const userScore = calculateScore();
+        const percentVal = Math.round((userScore / totalQuestions) * 100);
+        let feedback = '';
+
+        if (percentVal === 100) {
+            feedback = "🎉 धन्यवाद! अध्याय ११ केर सभ प्रश्न सटीक उत्तर देलन्हि — मैथिल विद्या में निपुण छी! 🎉";
+        } else if (percentVal >= 75) {
+            feedback = "✨ बहुत सुन्दर प्रयास! अध्याय ११ के लोककथा आ संस्कार पर अच्छा पकड़। थोड़ा पुनरावलोकन सब बेहतर करत।";
+        } else if (percentVal >= 50) {
+            feedback = "📖 बीचक राह। मैथिल लोक कथा (राजा सल्हेश, लौरिका, सोहर गीत) पुन: पढ़ू। दोबारा प्रयास करी सकैत छी।";
+        } else {
+            feedback = "🌱 कमी अछि, हिम्मत न हारू। अध्याय ११ के संस्कार, मैथिल लोक पर्व आ नीति कथा केर अध्ययन करू। फेर कोशिश अवश्य करब!";
+        }
+
+        const resultHtml = `
+            <div class="result-area">
+                <div class="score-display">🎯 स्कोर: ${userScore} / ${totalQuestions} (${percentVal}%)</div>
+                <div class="feedback-msg">${feedback}</div>
+                <div style="margin-top: 12px; font-size:0.85rem; background:#ffe5c4; padding:6px 12px; border-radius:60px; color:#9b4b1a;">
+                📌 हरियर रंग = सही उत्तर, लाल रंग = गलत चुनल उत्तर (सबमिट के बाद देख सकैत छी)
+                </div>
+            </div>
+        `;
+
+        const actionBar = document.querySelector('.action-bar');
+        if (actionBar) {
+            actionBar.insertAdjacentHTML('beforebegin', resultHtml);
+        } else {
+            container.insertAdjacentHTML('afterend', resultHtml);
+        }
+    }
+
+    // सबमिट हैंडलर
+    function handleSubmit() {
+        if (quizActive) {
+            alert("🙏 पहिने सबमिट भ' चुकल अछि। 'रीसेट' दबा नवा प्रयास करू (अध्याय ११)");
+            return;
+        }
+
+        // जांच करू की सभ प्रश्न के उत्तर देल गेल अछि?
+        let allAnswered = true;
+        for (let i = 0; i < userSelections.length; i++) {
+            if (userSelections[i] === null) {
+                allAnswered = false;
+                break;
+            }
+        }
+
+        if (!allAnswered) {
+            alert("⚠️ कृपया अध्याय ११ केर सभ ${quizQuestions.length} प्रश्न के उत्तर चुनू। सब विकल्प अनिवार्य अछि।");
+            return;
+        }
+
+        quizActive = true;
+        // रीरेंडर (हाइलाइट + disable)
+        renderQuiz();
+        // रिजल्ट बक्सा देखाबी
+        showResult();
+        const submitButton = document.getElementById('submitBtn');
+        if (submitButton) submitButton.style.opacity = "0.65";
+    }
+
+    // रीसेट फंक्शन
+    function handleReset() {
+        // सब उत्तर रीसेट
+        userSelections.fill(null);
+        quizActive = false;
+        // रिजल्ट हटाब
+        const existingResultDiv = document.querySelector('.result-area');
+        if (existingResultDiv) existingResultDiv.remove();
+        // रीरेंडर ताजा
+        renderQuiz();
+        const submitButton = document.getElementById('submitBtn');
+        if (submitButton) submitButton.style.opacity = "1";
+        // स्मूथ स्क्रॉल टॉप
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // इवेंट अटैच
+    function attachEventListeners() {
+        const submitBtn = document.getElementById('submitBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        if (submitBtn) {
+            submitBtn.removeEventListener('click', handleSubmit);
+            submitBtn.addEventListener('click', handleSubmit);
+        }
+        if (resetBtn) {
+            resetBtn.removeEventListener('click', handleReset);
+            resetBtn.addEventListener('click', handleReset);
+        }
+    }
+
+    // इनिशियल लोड
+    function initQuiz() {
+        renderQuiz();
+        attachEventListeners();
+    }
+
+    // DOM लोड भेला पर शुरू
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initQuiz);
+    } else {
+        initQuiz();
+    }
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

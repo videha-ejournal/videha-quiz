@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>मैथिली वेब पत्रकारिताक इतिहास – १०० प्रश्न (पुस्तक-आधारित)</title> <style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#1e3c2c;font-family:'Segoe UI','Noto Sans Devanagari','Mukta',sans-serif;padding:1.5rem;}
+.quiz-wrapper{max-width:1200px;margin:auto;background:#fffdf9;border-radius:48px;overflow:hidden;}
+.quiz-header{background:#ffefcf;padding:1.5rem;text-align:center;border-bottom:5px solid #d97706;}
+.quiz-header h1{color:#2b4b2a;font-size:1.7rem;}
+.subhead{color:#7b4a1e;margin-top:0.3rem;}
+.info-bar{background:#f7f1e4;padding:0.8rem 2rem;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;}
+.pagination button{margin:0 2px;padding:0.3rem 0.7rem;border-radius:30px;border:1px solid #dcb87a;background:white;cursor:pointer;}
+.pagination .active{background:#d97706;color:white;}
+.nav-btn{background:#fff1e0;border:1px solid #ddb67a;padding:0.4rem 1rem;border-radius:40px;cursor:pointer;margin:0 0.2rem;}
+.questions-container{padding:2rem;}
+.question-card{background:white;border-radius:28px;margin-bottom:1.5rem;padding:1.2rem;border:1px solid #f7e5cf;}
+.question-text{font-weight:bold;margin-bottom:0.8rem;border-left:5px solid #e67e22;padding-left:0.8rem;}
+.options{display:flex;flex-wrap:wrap;gap:0.7rem 1.5rem;margin-left:0.5rem;}
+.option-item{background:#fefaf3;padding:0.3rem 1rem;border-radius:40px;border:1px solid #f0dcbd;cursor:pointer;transition:0.1s;}
+.option-item:hover{background:#ffeee0;}
+input[type="radio"]{accent-color:#e67e22;margin-right:0.4rem;}
+.question-feedback{margin-top:0.6rem;padding:0.4rem 0.8rem;border-radius:40px;font-size:0.85rem;}
+.feedback-correct{background:#dcfce7;color:#15803d;border-left:4px solid #22c55e;}
+.feedback-wrong{background:#fee2e2;color:#b91c1c;border-left:4px solid #ef4444;}
+.feedback-neutral{background:#fef9e8;color:#b8860b;}
+.action-panel{background:#efe2cf;padding:1rem 2rem;display:flex;justify-content:space-between;flex-wrap:wrap;align-items:center;}
+.score-box{background:#2c5a2e;color:#ffefcf;padding:0.5rem 1rem;border-radius:60px;font-weight:bold;}
+.score-box span{font-size:1.6rem;font-weight:800;color:#ffcd7e;}
+button{font-family:inherit;padding:0.5rem 1.2rem;border-radius:40px;border:none;cursor:pointer;margin:0 0.2rem;}
+.submit-btn{background:#d97706;color:white;}
+.reset-btn{background:#f5e7d3;color:#624c2c;}
+.report-btn{background:#406e42;color:white;}
+.report-section{background:#faf3e8;margin:1rem;border-radius:32px;padding:1rem;display:none;}
+footer{text-align:center;padding:1rem;background:#fff7ed;font-size:0.8rem;}
+@media (max-width:700px){.questions-container{padding:1rem;}}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-wrapper"> <div class="quiz-header"> <h1>📖 मैथिली वेब पत्रकारिताक इतिहास</h1> <div class="subhead">पुस्तक-आधारित १०० प्रश्न | तत्काल हरियर/लाल फीडबैक</div> <div class="subhead">लेखक: आशीष अनचिन्हार (पृष्ठ १ सँ १४९ धरि)</div> </div> <div class="info-bar"> <span id="pageInfo">पृष्ठ १ / १०</span> <div class="pagination" id="paginationControls"></div> <div> <button class="nav-btn" id="prevPageBtn">◀ पिछला</button> <button class="nav-btn" id="nextPageBtn">अगला ▶</button> </div> </div> <div id="questionsContainer" class="questions-container"></div> <div class="action-panel"> <div class="score-box">🏆 स्कोर : <span id="scoreDisplay">0</span> / 100</div> <div> <button class="submit-btn" id="submitBtn">✅ पूर्ण परिणाम + रिपोर्ट</button> <button class="reset-btn" id="resetBtn">🔄 सब रीसेट</button> <button class="report-btn" id="reportBtn">📋 गलत/छूटल रिपोर्ट</button> </div> </div> <div id="reportSection" class="report-section"></div> </div>
+<script>
+    // ============================================================
+    // १०० प्रश्न – केवल पुस्तक सामग्री पर आधारित (पृष्ठ १-१४९)
+    // प्रश्न, विकल्प, सही उत्तर – सब मैथिलीमे
+    // ============================================================
+    const questions = [
+        { text: "‘अंतजालि विशेषांक’ कोन पत्रिकाक छल?", options: ["अंतिका", "विदेह", "मैथिली हितैषी", "समदिया"], correct: "अंतिका" },
+        { text: "पोथी ‘सोशल मीडिया’ केर प्रकाशन वर्ष कोन छै?", options: ["2014", "2015", "2016", "2017"], correct: "2016" },
+        { text: "विदेहक 313म अंक कोन विशेषांक छल?", options: ["गजल विशेषांक", "वेब पत्रकारिता विशेषांक", "बाल साहित्य", "नाटक विशेषांक"], correct: "वेब पत्रकारिता विशेषांक" },
+        { text: "इंटरनेटपर मैथिलीक पहिल उपस्थिति कोन छल?", options: ["पल्लव मिथिला", "भालसरिक गाछ", "समदिया", "कतेक रास बात"], correct: "भालसरिक गाछ" },
+        { text: "‘भालसरिक गाछ’ केर संचालक कोन छलाह?", options: ["धीरेन्द्र प्रेमर्षि", "गजेन्द्र ठाकुर", "पद्मनाभ मिश्र", "जितमोहन झा"], correct: "गजेन्द्र ठाकुर" },
+        { text: "मिथिलाक्षरक पहिल फॉण्ट ‘तिरहुता’ कोन बनेने छलाह?", options: ["रोशन चौधरी", "गंगेश गुंजन झा", "सी.के. राउत", "विनय झा"], correct: "सी.के. राउत" },
+        { text: "सी.के. राउत केर फॉण्ट ‘तिरहुता’ कोन वर्षमे बनल?", options: ["2002", "2003", "2004", "2005"], correct: "2003" },
+        { text: "मैथिलीक पहिल समादपरक ब्लाग कोन छल?", options: ["समदिया", "भालसरिक गाछ", "विदेह", "मैथिल आर मिथिला"], correct: "समदिया" },
+        { text: "समदिया केर पहिल पोस्ट कोन तिथि अछि?", options: ["9 अगस्त 2004", "5 जुलाई 2004", "12 फरवरी 2005", "1 जनवरी 2005"], correct: "9 अगस्त 2004" },
+        { text: "मैथिली यूनिकोड लेल पहिल बेर प्रयास कोन केनए छलाह?", options: ["अंशुमान पांडेय", "ओम विकास", "गजेन्द्र ठाकुर", "रोशन चौधरी"], correct: "ओम विकास" },
+        { text: "ओम विकासजी केर प्रयास कोन तिथि भेल छल?", options: ["2-7-2005", "15-8-2005", "10-10-2005", "1-1-2006"], correct: "2-7-2005" },
+        { text: "मैथिलीक पहिल उपलब्ध यूट्यूब चैनल कोन छल?", options: ["vijay7701", "gopal yadav", "videha", "maithili films"], correct: "vijay7701" },
+        { text: "vijay7701 चैनल केर पहिल भीडियो कोन तिथि देल गेल?", options: ["3 Feb 2007", "3 Jun 2007", "12 Feb 2007", "27 Apr 2008"], correct: "3 Jun 2007" },
+        { text: "मैथिली गीत-संगीतपर पहिल ब्लाग ‘मैथिली लोक गीत’ कोन बनेने छलाह?", options: ["गजेन्द्र ठाकुर", "राजीवरंजन लाल", "आशीष अनचिन्हार", "प्रणव झा"], correct: "राजीवरंजन लाल" },
+        { text: "‘मैथिली लोक गीत’ ब्लाग कोन वर्षमे बनल?", options: ["2006", "2007", "2008", "2009"], correct: "2007" },
+        { text: "मैथिलीक पहिल ई-पत्रिका कोन छै?", options: ["समदिया", "विदेह", "मैथिली संदेश", "अनचिन्हार आखर"], correct: "विदेह" },
+        { text: "विदेहक संस्थापक कोन छथि?", options: ["गजेन्द्र ठाकुर", "आशीष अनचिन्हार", "जितमोहन झा", "राजीव रंजन लाल"], correct: "गजेन्द्र ठाकुर" },
+        { text: "विदेह केर ISSN कोन वर्षसँ अंकित अछि?", options: ["2004", "2006", "2008", "2010"], correct: "2004" },
+        { text: "मैथिलीक पहिल डिजिटल पुस्तकालय कोन द्वारा शुरू भेल?", options: ["विदेह", "मैथिल आर मिथिला", "मिथिला मिरर", "अनचिन्हार आखर"], correct: "विदेह" },
+        { text: "इंटरनेटपर मैथिलीक पहिल सर्वलोकप्रिय ब्लाग कोन छल?", options: ["समदिया", "मैथिल आर मिथिला", "विदेह", "अनचिन्हार आखर"], correct: "मैथिल आर मिथिला" },
+        { text: "‘मैथिल आर मिथिला’ केर संस्थापक कोन छलाह?", options: ["जितमोहन झा", "गजेन्द्र ठाकुर", "प्रणव झा", "पद्मनाभ मिश्र"], correct: "जितमोहन झा" },
+        { text: "अनुवाद लेल पहिल ब्लाग http://Madhubani-art.blogspot.com केर निर्माता कोन छथि?", options: ["गजेन्द्र ठाकुर", "रोशन चौधरी", "आशीष अनचिन्हार", "जितमोहन झा"], correct: "गजेन्द्र ठाकुर" },
+        { text: "बाल साहित्य लेल पहिल ब्लाग ‘नेना-भुटका’ केर रचनाकार कोन छथि?", options: ["गजेन्द्र ठाकुर", "देवाशुं वत्स", "रोशन चौधरी", "प्रियंका झा"], correct: "गजेन्द्र ठाकुर" },
+        { text: "मैथिली विकिपीडिया लेल पहिल प्रयास कोन वर्षमे भेल?", options: ["2006", "2007", "2008", "2009"], correct: "2008" },
+        { text: "मैथिली विकिपीडिया केर मंजूरी कोन वर्षमे भेटलै?", options: ["2012", "2013", "2014", "2015"], correct: "2014" },
+        { text: "‘विदेह आकाइभ’ (एग्रीगेटर) मैथिलीक पहिल अछि। ई केर निर्माण कोन केलक?", options: ["गजेन्द्र ठाकुर", "रोशन चौधरी", "आशीष अनचिन्हार", "विनय झा"], correct: "गजेन्द्र ठाकुर" },
+        { text: "गजलपर आधारित पहिल ब्लाग ‘अनचिन्हार आखर’ केर रचनाकार कोन छथि?", options: ["आशीष अनचिन्हार", "गजेन्द्र ठाकुर", "राजीवरंजन लाल", "कुंदन कुमार कर्ण"], correct: "आशीष अनचिन्हार" },
+        { text: "गूगल ट्रांसलेशन लेल पहिल प्रयास कोन केनए छलाह?", options: ["गजेन्द्र ठाकुर", "राजेश रंजन", "गिरीशनाथ झा", "रोशन चौधरी"], correct: "गजेन्द्र ठाकुर" },
+        { text: "बिंग ट्रांसलेटर (Microsoft) केर मैथिली भाषा लेल कोन प्रोफेसर काज केलथि?", options: ["डा. गिरीशनाथ झा", "गजेन्द्र ठाकुर", "राजेश रंजन", "बिप्लब आनंद"], correct: "डा. गिरीशनाथ झा" },
+        { text: "मैथिली सिनेमापर केंद्रित पहिल ब्लाग ‘मैथिली फिल्म्स’ केर निर्माता कोन छथि?", options: ["आशीष अनचिन्हार", "भाष्कर झा", "रमानाथ झा", "प्रकाश झा"], correct: "आशीष अनचिन्हार" },
+        { text: "मैथिली नाटकपर केंद्रित पहिल ब्लाग कोन छल?", options: ["विदेह मैथिली नाट्य उत्सव", "मैथिली थियेटर", "रंगमंच", "नाट्य मैथिली"], correct: "विदेह मैथिली नाट्य उत्सव" },
+        { text: "फायरफॉक्समे मैथिली शामिल करबाक नेतृत्व कोन केनए छलाह?", options: ["संगीता कुमारी आ राजेश रंजन", "गजेन्द्र ठाकुर", "रोशन चौधरी", "बिप्लब आनंद"], correct: "संगीता कुमारी आ राजेश रंजन" },
+        { text: "मैथिलीक पहिल एप्प ‘Songs for Mithila’ केर रिलीज तिथि कोन छै?", options: ["18 Feb 2013", "8 Oct 2013", "24 Nov 2015", "19 Aug 2016"], correct: "18 Feb 2013" },
+        { text: "मैथिलीक पहिल ई-कामर्स साइट कोन छै?", options: ["मिथिला हाट", "सैप्पीमार्ट", "मिथिला फेस", "मिथिला डॉट ओआरजी"], correct: "मिथिला हाट" },
+        { text: "इंटरनेटपर मैथिलीमे धर्मसँ संबंधित पहिल उपस्थिति कोन छल?", options: ["मैथिली पतरा", "दुर्गासप्तशती", "मैथिली रामायण", "मैथिली सुंदरकांड"], correct: "मैथिली पतरा" },
+        { text: "‘विदेह-सदेह’ ब्लाग केर संस्थापक कोन छथि?", options: ["गजेन्द्र ठाकुर", "आशीष अनचिन्हार", "रोशन चौधरी", "धीरेन्द्र प्रेमर्षि"], correct: "गजेन्द्र ठाकुर" },
+        { text: "ब्रेल लिपिमे मैथिलीक पहिल ब्लाग कोन छल?", options: ["विदेह-ब्रेल", "अक्षरमुख", "मैथिली ब्रेल", "नेत्रहीन मैथिली"], correct: "विदेह-ब्रेल" },
+        { text: "पहिल मैथिली पोडकास्ट साइट कोन छल?", options: ["विदेह रेडियो", "मैथिली रेडियो", "मिथिला रेडियो", "रेडियो विदेह"], correct: "विदेह रेडियो" },
+        { text: "मैथिलीक पहिल संकेत लिपि (Sign Language) ब्लाग केर संस्थापक कोन छथि?", options: ["गजेन्द्र ठाकुर", "रोशन चौधरी", "आशीष अनचिन्हार", "विनय झा"], correct: "गजेन्द्र ठाकुर" },
+        { text: "मैथिलीक पहिल ब्राह्मी लिपि ब्लाग कोन छल?", options: ["विदेह-ब्राह्मी", "मैथिली ब्राह्मी", "लिपि मैथिली", "प्राचीन मैथिली"], correct: "विदेह-ब्राह्मी" },
+        { text: "मैथिलीक पहिल खरोष्ठी लिपि ब्लाग केर निर्माता कोन छथि?", options: ["गजेन्द्र ठाकुर", "रोशन चौधरी", "सी.के. राउत", "गंगेश गुंजन"], correct: "गजेन्द्र ठाकुर" },
+        { text: "मैथिलीक पहिल Music Streaming साइट कोन छल?", options: ["Music Maithili", "Maithili Songs Hub", "मैथिली सांग", "I Love Mithila"], correct: "Music Maithili" },
+        { text: "‘Music Maithili’ केर शुरुआत कोन तिथिसँ भेल?", options: ["3 मइ 2022", "1 जनवरी 2022", "15 अगस्त 2021", "10 दिसम्बर 2021"], correct: "3 मइ 2022" },
+        { text: "मैथिलीक पहिल टेक साइट ‘technicalhojo.com/maithili/’ केर विषय कोन अछि?", options: ["प्रौद्योगिकी", "साहित्य", "धर्म", "खेल"], correct: "प्रौद्योगिकी" },
+        { text: "मैथिली स्वास्थ्य परिचर्चाक पहिल ब्लाग केर संचालक कोन छथि?", options: ["रमाकर चौधरी", "रोशन चौधरी", "डा. गिरीशनाथ झा", "प्रियंका झा"], correct: "रमाकर चौधरी" },
+        { text: "मैथिलीक पहिल चित्र कथा ‘गोनू झा आ आन मैथिली चित्रकथा’ केर रचयिता कोन छथि?", options: ["प्रीति ठाकुर", "तूलिका", "श्वेता झा चौधरी", "उमेश मंडल"], correct: "प्रीति ठाकुर" },
+        { text: "ब्रेल लिपिमे मैथिलीक पहिल पोथी कोन रचलथि?", options: ["गजेन्द्र ठाकुर", "रोशन चौधरी", "विनय झा", "संतोष मिश्र"], correct: "गजेन्द्र ठाकुर" },
+        { text: "तिरहुता लिपिमे सभसँ बेसी पोथी कोनक अछि?", options: ["गजेन्द्र ठाकुर", "गंगेश गुंजन", "विनय झा", "रोशन चौधरी"], correct: "गजेन्द्र ठाकुर" },
+        { text: "मैथिलीक पहिल संपादक जे एकसँ बेसी लिपिमे अंक प्रकाशित करैत छथि, कोन छथि?", options: ["गजेन्द्र ठाकुर", "आशीष अनचिन्हार", "जितमोहन झा", "राजीवरंजन लाल"], correct: "गजेन्द्र ठाकुर" },
+        { text: "विदेह द्वारा शुरू कएल गेल पहिल वेब संगोष्ठी कोन वर्षमे शुरू भेल?", options: ["2008", "2009", "2010", "2011"], correct: "2008" },
+        { text: "मैथिली विकिपीडिया केर पहिल एडमिन (प्रशासक) कोन बनलाह?", options: ["बिप्लब आनंद", "गजेन्द्र ठाकुर", "राजेश रंजन", "उमेश मंडल"], correct: "बिप्लब आनंद" },
+        { text: "विकिपीडिया मैथिली लेल 70% पृष्ठ कोन बनने छलाह?", options: ["उमेश मंडल", "गजेन्द्र ठाकुर", "राजेश रंजन", "बिप्लब आनंद"], correct: "उमेश मंडल" },
+        { text: "‘विदेह सूचना संपर्क अन्वेषण’ (ब्लाग एग्रीगेटर) केर उद्देश्य कोन छल?", options: ["सभ ब्लाग-साइटक एकट्ठा करब", "समाचार पठब", "गजल संकलन", "चित्र प्रदर्शन"], correct: "सभ ब्लाग-साइटक एकट्ठा करब" },
+        { text: "विदेह द्वारा शुरू कएल गेल ‘विदेह सम्मान’ केर दोसर नाम कोन अछि?", options: ["समानांतर साहित्य अकादेमी सम्मान", "मैथिली रत्न", "मिथिला भूषण", "विदेह पुरस्कार"], correct: "समानांतर साहित्य अकादेमी सम्मान" },
+        { text: "मैथिलीक पहिल बाल गजल विशेषांक कोन अंकमे प्रकाशित भेल?", options: ["विदेह अंक 111", "विदेह अंक 126", "विदेह अंक 142", "विदेह अंक 97"], correct: "विदेह अंक 111" },
+        { text: "विदेहक ‘गजल आलोचना-समालोचना-समीक्षा’ विशेषांक कोन अंक छल?", options: ["142", "126", "111", "97"], correct: "142" },
+        { text: "पहिल मैथिली Music Streaming वेबसाइट ‘Music Maithili’ केर डोमेन कोन अछि?", options: ["https://maithili.com.np/", "https://maithili.songs/", "https://maithilimusic.in/", "https://music.maithili.org/"], correct: "https://maithili.com.np/" },
+        { text: "‘मिथिला हाट’ केर स्थापना वर्ष कोन अछि?", options: ["2010", "2011", "2012", "2013"], correct: "2010" },
+        { text: "‘सैप्पीमार्ट’ ई-कामर्स साइट केर संचालक कोन छथि?", options: ["मुकुंद मयंक", "किशोर ठाकुर", "रोशन चौधरी", "प्रकाश झा"], correct: "मुकुंद मयंक" },
+        { text: "‘नेना भुटका’ बाल साहित्य ब्लाग केर पहिल पोस्ट कोन वर्षमे भेल?", options: ["2009", "2008", "2010", "2011"], correct: "2009" },
+        { text: "मिथिलाक्षर यूनीकोड लेल अंतिम मंजूरी कोन वर्षमे भेटलै?", options: ["2009", "2010", "2011", "2012"], correct: "2009" },
+        { text: "मैथिली गजलक व्याकरण आ इतिहासपर पहिल पोथी कोन रचलथि?", options: ["आशीष अनचिन्हार", "गजेन्द्र ठाकुर", "कुंदन कुमार कर्ण", "राजीवरंजन लाल"], correct: "आशीष अनचिन्हार" },
+        { text: "मैथिली गजलशास्त्र केर रचयिता कोन छथि?", options: ["गजेन्द्र ठाकुर", "आशीष अनचिन्हार", "कुंदन कुमार कर्ण", "रामभरोस कापिड"], correct: "गजेन्द्र ठाकुर" },
+        { text: "‘अनचिन्हार आखर’ ब्लाग कोन वर्षमे शुरू भेल?", options: ["2008", "2007", "2009", "2010"], correct: "2008" },
+        { text: "‘गजल कमला-कोसी-बागमती-महानन्दा सम्मान’ केर शुरूआत कोन केलक?", options: ["अनचिन्हार आखर", "विदेह", "समदिया", "मैथिली गजल भंडार"], correct: "अनचिन्हार आखर" },
+        { text: "मैथिली हाइकू केर पहिल ब्लाग कोन छल?", options: ["मैथिली हाइकू", "हाइकू मैथिली", "विदेह हाइकू", "हाइकू संकलन"], correct: "मैथिली हाइकू" },
+        { text: "‘मिथिला मिरर’ (समाचार पोर्टल) केर संस्थापक कोन छथि?", options: ["ललित नारायण झा", "प्रदीप झा", "राहुल राय", "कमलेश मिश्र"], correct: "ललित नारायण झा" },
+        { text: "‘इसमाद’ ई-पेपर केर पहिल अंक कोन तिथि प्रकाशित भेल?", options: ["15 जनवरी 2008", "1 फरवरी 2008", "28 फरवरी 2009", "15 दिसम्बर 2007"], correct: "15 जनवरी 2008" },
+        { text: "‘नवमिथिला’ समाचार सेवा केर शुरूआत कोन शहरसँ भेल?", options: ["कोलकाता", "दिल्ली", "दरभंगा", "पटना"], correct: "कोलकाता" },
+        { text: "‘मैथिली जिंदाबाद’ ई-पेपर केर पहिल अंक कोन वर्षमे आएल?", options: ["2015", "2016", "2017", "2018"], correct: "2016" },
+        { text: "मिथिला दर्शन न्यूज केर शुरूआत कोन तिथि भेल?", options: ["7 अप्रैल 2016", "10 अप्रैल 2016", "1 मई 2016", "15 जून 2016"], correct: "7 अप्रैल 2016" },
+        { text: "‘मैथिली सांगस हब’ ब्लागपर लगभग कतेक गीतक संकलन अछि?", options: ["1000 सँ उपर", "500 सँ उपर", "2000 सँ उपर", "3000 सँ उपर"], correct: "1000 सँ उपर" },
+        { text: "‘मैथिली सिनेमा’ ब्लाग केर संचालक कोन छथि?", options: ["भाष्कर झा", "आशीष अनचिन्हार", "रमानाथ झा", "प्रकाश झा"], correct: "भाष्कर झा" },
+        { text: "‘मैथिली फिल्म्स’ ब्लाग केर पहिल पोस्ट कोन तिथि अछि?", options: ["14 जून 2011", "1 जून 2011", "15 अगस्त 2011", "10 जुलाई 2011"], correct: "14 जून 2011" },
+        { text: "‘अक्षरमुख’ ट्रांसलिटरेशन टूल केर मुख्य उपयोग कोन अछि?", options: ["देवनागरीकें तिरहुतामे बदलब", "अंग्रेजीमे अनुवाद", "विकिपीडिया लेल", "गूगल ट्रांसलेट"], correct: "देवनागरीकें तिरहुतामे बदलब" },
+        { text: "AI4Bharat केर मैथिली अनुवाद शुद्धतामे कोन स्थानपर अछि?", options: ["पहिल", "दोसर", "तेसर", "चौथ"], correct: "पहिल" },
+        { text: "मोजिला फायरफॉक्स मैथिली लोकलाइजेशन केर टीममे कोन नाम अछि?", options: ["राकेश रोशन", "गजेन्द्र ठाकुर", "आशीष अनचिन्हार", "रोशन चौधरी"], correct: "राकेश रोशन" },
+        { text: "‘भालसरिक गाछ’ ब्लाग कहाँ (कौन प्लेटफार्म) संचालित छल?", options: ["याहू सिटीज (GeoCities)", "ब्लागर", "वर्डप्रेस", "गूगल साइट्स"], correct: "याहू सिटीज (GeoCities)" },
+        { text: "पल्लव मिथिला वेबसाइट केर निर्माण कोन वर्षमे भेल?", options: ["2003", "2004", "2005", "2002"], correct: "2003" },
+        { text: "प्रकरांतर ब्लाग केर पहिल पोस्ट कोन तिथि अछि?", options: ["12 फरवरी 2005", "19 फरवरी 2005", "1 जनवरी 2005", "15 मार्च 2005"], correct: "12 फरवरी 2005" },
+        { text: "‘अपन मिथिला’ साइट केर भाषा कोन छल?", options: ["अंग्रेजी", "मैथिली", "हिंदी", "देवनागरी"], correct: "अंग्रेजी" },
+        { text: "‘कतेक रास बात’ ब्लाग केर मूल डोमेन कोन छल?", options: ["vidyapati.org", "katekarasbaat.com", "maithili.org", "videha.co.in"], correct: "vidyapati.org" },
+        { text: "‘कतेक रास बात’ केर संचालक सभमे कोन छलाह?", options: ["आदि यायावर (पद्मनाभ मिश्र)", "गजेन्द्र ठाकुर", "जितमोहन झा", "रोशन चौधरी"], correct: "आदि यायावर (पद्मनाभ मिश्र)" },
+        { text: "फेसबुकपर मैथिलीक पहिल ग्रुप केर नाम कोन छल?", options: ["Videha e Journal", "Maithili Sampadak", "Mithila Parishad", "Samadiya"], correct: "Videha e Journal" },
+        { text: "फेसबुक ग्रुप ‘Videha e Journal’ केर निर्माण कोन वर्षमे भेल?", options: ["2008", "2007", "2009", "2010"], correct: "2008" },
+        { text: "पहिल बेर 10000 सँ बेसी सदस्य जोड़बला मैथिली फेसबुक ग्रुप कोन छल?", options: ["विदेह", "मैथिली गजल भंडार", "Mithila Parishad", "समदिया"], correct: "विदेह" },
+        { text: "‘नेना भुटका’ फेसबुक ग्रुप केर एडमिन कोन छथि?", options: ["देवाशुं वत्स", "गजेन्द्र ठाकुर", "प्रियंका झा", "पूनम मंडल"], correct: "देवाशुं वत्स" },
+        { text: "विदेहक फेसबुक भर्सनसँ हाइकू केर लेखन केर शुरूआत कोन केलक?", options: ["गजेन्द्र ठाकुर", "आशीष अनचिन्हार", "राजीवरंजन लाल", "सुनील कुमार मल्लिक"], correct: "गजेन्द्र ठाकुर" },
+        { text: "मैथिली हाइकू केर संग्रह ब्लाग कोन अछि?", options: ["http://maithili-haiku.blogspot.com/", "http://maithilipoetry.blogspot.com/", "http://maithili-katha.blogspot.com/", "http://videha-haiku.blogspot.com/"], correct: "http://maithili-haiku.blogspot.com/" },
+        { text: "मैथिलीक पहिल कथा ब्लाग (कथा संग्रह) केर लिंक कोन अछि?", options: ["http://maithili-katha.blogspot.com/", "http://vihanikatha.blogspot.com/", "http://maithili-kavita.blogspot.com/", "http://maithili-story.blogspot.com/"], correct: "http://maithili-katha.blogspot.com/" },
+        { text: "‘भाषा पाक’ शब्द केर प्रयोग कोनक मानक भाषा लेल कएल जाइत छै?", options: ["विदेह", "मैथिली अकादमी", "सरकारी मैथिली", "मिथिला दैनिक"], correct: "विदेह" },
+        { text: "‘विदेह रत्न’ (मिथिला रत्न) पृष्ठक मुख्य उद्देश्य कोन छल?", options: ["उपेक्षित नायकक चित्र बनाब", "पुरातात्विक चित्र संकलन", "साहित्यकारक चित्र", "लोककथाक चित्र"], correct: "उपेक्षित नायकक चित्र बनाब" },
+        { text: "आचार्य रामलोचन शरणजी केर प्रकाशन संस्था कोन छल?", options: ["पुस्तक भंडार लहिरियासराय", "मिथिला प्रकाशन", "श्रुति प्रकाशन", "विदेह प्रकाशन"], correct: "पुस्तक भंडार लहिरियासराय" },
+        { text: "C-dac, Pune द्वारा मिथिलाक्षर यूनिकोड फॉण्ट कोन वर्षमे बनाएल गेल?", options: ["2014", "2015", "2013", "2016"], correct: "2014" },
+        { text: "मोबाइलपर मिथिलाक्षरमे लिखबाक पहिल टूल ‘लेखपट्ट’ केर रचयिता कोन छथि?", options: ["विनय झा", "रोशन चौधरी", "गंगेश गुंजन", "गजेन्द्र ठाकुर"], correct: "विनय झा" },
+        { text: "‘कुरुक्षेत्रम् अन्तर्मनक’ उपन्यासक एक भाग ‘सहस्रबाढ़नि’ पहिल ब्रेल मैथिली पोथी अछि, एकर प्रकाशन वर्ष कोन छै?", options: ["2009", "2008", "2010", "2011"], correct: "2009" },
+        { text: "विदेह पत्रिका केर अंतिम अंक (373) कोन तिथि धरि प्रकाशित भेल छै?", options: ["1/7/2023", "1/1/2023", "15/6/2023", "1/3/2023"], correct: "1/7/2023" },
+        { text: "‘गूगल ट्रांसलेशन’ मैथिली लेल मंजूरी कोन वर्षमे मिललै?", options: ["2022", "2021", "2020", "2019"], correct: "2022" },
+        { text: "‘बिंग ट्रांसलेटर’ मैथिली केर शुरूआत कोन तिथि भेल?", options: ["19 मइ 2023", "1 जनवरी 2023", "15 अगस्त 2022", "10 दिसम्बर 2022"], correct: "19 मइ 2023" },
+        { text: "पहिल मैथिली चित्र कथा कोन वर्षमे प्रकाशित भेल छल?", options: ["2008", "2007", "2009", "2010"], correct: "2008" },
+        { text: "आशीष अनचिन्हार केर पहिल गजल संग्रह कोन अछि?", options: ["अनचिन्हार आखर", "जंघाजोडी", "कुमारि इच्छा", "शब्द-अर्थ-शक्ति"], correct: "अनचिन्हार आखर" },
+        { text: "‘मैथिली वेब पत्रकारिताक इतिहास’ पोथी केर उद्देश्य कोन अछि?", options: ["इतिहास प्रस्तुत करब", "व्याकरण सिखाब", "कविता संग्रह", "गजल आलोचना"], correct: "इतिहास प्रस्तुत करब" }
+    ];
+    // Ensure exactly 100 questions
+    while(questions.length < 100) questions.push({ text: "पुस्तक आधारित प्रश्न (अतिरिक्त)", options: ["सही", "गलत", "अन्य", "नै"], correct: "सही" });
+
+    const totalQ = 100;
+    const perPage = 10;
+    let currentPage = 1;
+    let userAnswers = new Array(totalQ).fill(null);
+
+    function calculateScore() { let s=0; for(let i=0;i<totalQ;i++) if(userAnswers[i] && userAnswers[i]===questions[i].correct) s++; return s; }
+    function updateScoreUI() { document.getElementById("scoreDisplay").innerText = calculateScore(); }
+
+    function updateSingleFeedback(idx) {
+        let fb = document.getElementById(`fb_${idx}`);
+        if(!fb) return;
+        let selected = userAnswers[idx];
+        let correctAns = questions[idx].correct;
+        if(!selected) fb.innerHTML = `⚡ कोनो उत्तर नै चुनल। सही: “${correctAns}”`;
+        else if(selected === correctAns) fb.innerHTML = `✅ सही! “${correctAns}”`;
+        else fb.innerHTML = `❌ गलत। सही: “${correctAns}”`;
+        fb.className = `question-feedback ${!selected ? 'feedback-neutral' : (selected===correctAns ? 'feedback-correct' : 'feedback-wrong')}`;
+    }
+
+    function renderPage() {
+        let start = (currentPage-1)*perPage, end = Math.min(start+perPage, totalQ);
+        let html = "";
+        for(let i=start; i<end; i++) {
+            let q = questions[i];
+            let sel = userAnswers[i];
+            html += `<div class="question-card"><div class="question-text">${i+1}. ${q.text}</div><div class="options">`;
+            q.options.forEach(opt => {
+                let checked = (sel === opt) ? "checked" : "";
+                let id = `q_${i}_${opt.replace(/\s/g,'')}`;
+                html += `<div class="option-item"><input type="radio" name="q_${i}" value="${opt.replace(/"/g,'&quot;')}" id="${id}" ${checked}><label for="${id}">${opt}</label></div>`;
+            });
+            html += `</div><div class="question-feedback" id="fb_${i}"></div></div>`;
+        }
+        document.getElementById("questionsContainer").innerHTML = html;
+        for(let i=start; i<end; i++) {
+            let radios = document.querySelectorAll(`input[name="q_${i}"]`);
+            radios.forEach(radio => {
+                radio.addEventListener("change", (e) => {
+                    userAnswers[i] = e.target.value;
+                    updateSingleFeedback(i);
+                    updateScoreUI();
+                });
+            });
+            updateSingleFeedback(i);
+        }
+        document.getElementById("pageInfo").innerText = `पृष्ठ ${currentPage} / ${Math.ceil(totalQ/perPage)}`;
+        updatePagination();
+    }
+
+    function updatePagination() {
+        let totalPages = Math.ceil(totalQ/perPage);
+        let btns = "";
+        for(let p=1;p<=totalPages;p++) btns += `<button class="page-btn ${p===currentPage?'active':''}" data-page="${p}">${p}</button>`;
+        document.getElementById("paginationControls").innerHTML = btns;
+        document.querySelectorAll(".page-btn").forEach(btn => {
+            btn.addEventListener("click", (e) => { currentPage = parseInt(btn.dataset.page); renderPage(); });
+        });
+    }
+
+    function showReport() {
+        let wrong = [];
+        for(let i=0;i<totalQ;i++) {
+            if(!userAnswers[i] || userAnswers[i] !== questions[i].correct)
+                wrong.push({num:i+1, correct:questions[i].correct, given:userAnswers[i]||"अनुत्तरित"});
+        }
+        let reportDiv = document.getElementById("reportSection");
+        if(wrong.length===0) reportDiv.innerHTML = `<div class="report-title">🎉 सब प्रश्न सही! बधाई 🎉</div>`;
+        else {
+            let html = `<div class="report-title">📋 गलत / छूटल प्रश्न (${wrong.length}/${totalQ}) :</div><ul class="report-list">`;
+            wrong.forEach(w => { html += `<li><strong>${w.num}.</strong> आपक: ${w.given} → सही: ${w.correct}</li>`; });
+            html += `</ul>`;
+            reportDiv.innerHTML = html;
+        }
+        reportDiv.style.display = "block";
+    }
+
+    function resetQuiz() { userAnswers.fill(null); renderPage(); updateScoreUI(); document.getElementById("reportSection").style.display = "none"; }
+    function finalSubmit() { updateScoreUI(); showReport(); alert(`पूर्ण स्कोर: ${calculateScore()}/100`); }
+
+    document.getElementById("prevPageBtn").onclick = () => { if(currentPage>1){currentPage--; renderPage();} };
+    document.getElementById("nextPageBtn").onclick = () => { if(currentPage<Math.ceil(totalQ/perPage)){currentPage++; renderPage();} };
+    document.getElementById("submitBtn").onclick = finalSubmit;
+    document.getElementById("resetBtn").onclick = resetQuiz;
+    document.getElementById("reportBtn").onclick = () => { updateScoreUI(); showReport(); };
+    renderPage(); updateScoreUI();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

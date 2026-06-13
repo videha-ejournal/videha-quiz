@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मैथिली साहित्यक इतिहास – अध्याय १: पृष्ठभूमि (बहुविकल्पीय प्रश्नोत्तरी) — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+box-sizing: border-box;
+}
+body {
+background: linear-gradient(145deg, #f8f3e0 0%, #f0e9d6 100%);
+font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Mukta', 'Poppins', system-ui, -apple-system, sans-serif;
+margin: 0;
+padding: 25px 20px;
+color: #2e241f;
+}
+.quiz-container {
+max-width: 1100px;
+margin: 0 auto;
+background: #fffef7;
+border-radius: 48px;
+box-shadow: 0 25px 45px -12px rgba(0,0,0,0.3);
+overflow: hidden;
+padding: 25px 30px 45px;
+border: 1px solid #e8dbbc;
+}
+h1 {
+text-align: center;
+font-size: 2rem;
+color: #9b2c1d;
+border-bottom: 3px solid #e2c792;
+display: inline-block;
+width: auto;
+margin: 0 auto 15px;
+padding-bottom: 8px;
+letter-spacing: -0.3px;
+}
+.subhead {
+text-align: center;
+font-size: 1.05rem;
+background: #fcf8e8;
+padding: 10px;
+border-radius: 60px;
+margin-bottom: 25px;
+color: #5a3e2b;
+border: 1px solid #eedfa0;
+}
+.score-area {
+background: #2e5c4b;
+color: #fef1cf;
+padding: 12px 20px;
+border-radius: 60px;
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+flex-wrap: wrap;
+gap: 12px;
+margin-bottom: 30px;
+font-weight: bold;
+}
+.score-badge {
+background: #f7b05e;
+color: #2a2b12;
+padding: 6px 18px;
+border-radius: 40px;
+font-size: 1.3rem;
+}
+.question-card {
+background: #ffffff;
+border-radius: 28px;
+margin-bottom: 26px;
+padding: 18px 25px;
+box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+border: 1px solid #efdfb0;
+transition: all 0.2s;
+}
+.question-text {
+font-size: 1.25rem;
+font-weight: 600;
+margin-bottom: 16px;
+background: #fff3df;
+padding: 12px 18px;
+border-radius: 40px;
+color: #3b2a1f;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 12px;
+padding-left: 12px;
+}
+.option {
+display: flex;
+align-items: center;
+gap: 14px;
+cursor: pointer;
+padding: 8px 12px;
+border-radius: 50px;
+background: #fefaf2;
+transition: 0.1s ease;
+}
+.option:hover {
+background: #faf0df;
+}
+input[type="radio"] {
+width: 18px;
+height: 18px;
+accent-color: #9b2c1d;
+cursor: pointer;
+}
+.feedback {
+margin-top: 12px;
+padding: 8px 16px;
+border-radius: 36px;
+font-size: 0.9rem;
+background: #f4f0e4;
+display: inline-block;
+}
+.correct-feedback {
+background: #d9ecda;
+color: #1a5a2e;
+border-left: 5px solid #2c7840;
+}
+.wrong-feedback {
+background: #ffe2df;
+color: #b13e2d;
+border-left: 5px solid #c23b22;
+}
+button {
+background: #a7371f;
+color: white;
+border: none;
+padding: 14px 32px;
+font-size: 1.2rem;
+font-weight: bold;
+border-radius: 60px;
+cursor: pointer;
+transition: 0.2s;
+margin-top: 20px;
+width: 100%;
+font-family: inherit;
+letter-spacing: 1px;
+}
+button:hover {
+background: #7f2a17;
+transform: scale(0.98);
+box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+}
+.reset-btn {
+background: #5e5b4b;
+margin-top: 8px;
+width: auto;
+padding: 10px 25px;
+display: inline-block;
+}
+.footer {
+text-align: center;
+margin-top: 30px;
+font-size: 0.85rem;
+color: #aa9f7e;
+}
+@media (max-width: 650px) {
+.quiz-container {
+padding: 15px 18px;
+}
+.question-text {
+font-size: 1rem;
+}
+.option {
+font-size: 0.9rem;
+}
+}
+hr {
+border-color: #eedfb0;
+margin: 12px 0;
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="quiz-container"> <div style="text-align: center;"> <div class="subhead">प्रथम प्रकरण : मैथिली साहित्यक पृष्ठभूमि — बहुविकल्पीय प्रश्नोत्तरी</div> </div> <div class="score-area"> <span>🏆 कुल प्रश्न : <span id="totalQ">0</span></span> <span>✅ सही उत्तर : <span id="scoreCount">0</span></span> <span class="score-badge" id="percentageShow">0%</span> </div> <div id="questionsContainer"></div> <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;"> <button id="submitBtn">⚡ उत्तर जाँचू (Check Answers)</button> <button id="resetBtn" class="reset-btn">🔄 पुनः आरम्भ करू</button> </div> <div class="vq-footer">© सम्पादक, videha.co.in</div>
+</div>
+<script>
+
+</script><script>
+
+    // --------------------------------------------------------------
+    // प्रश्न संग्रह – अध्याय १ के मुख्य तथ्य पर आधारित (मैथिली भाषामे)
+    // --------------------------------------------------------------
+    const questions = [
+        { text: "परम्परागत मिथिलाक सीमा केकर नदी सँ निर्धारित अछि ? (उत्तर–हिमालय, दक्षिण–गंगा, पूर्व–कोशी, पश्चिम–?)", 
+          options: ["गण्डकी (शालग्रामी)", "गंडकी नहि, बागमती", "महानन्दा", "सोन नदी"], correct: 0 },
+        { text: "मिथिलाक प्राचीनतम् नाम में सँ कोन नाम 'विदेह' राज्यक सँ जुड़ल अछि ?", 
+          options: ["तिरहुत", "गौरभूखि", "विदेह आ मिथिला", "जनकपुर"], correct: 2 },
+        { text: "'तिरहुत' नामक प्रथम उल्लेख कोन ग्रन्थमे भेटैत अछि ?", 
+          options: ["बाल्मीकि रामायण", "पुरुषोत्तमदेवक 'त्रिकाण्डेश्वर'", "विष्णुपुराण", "भविष्य पुराण"], correct: 1 },
+        { text: "मिथिलाक ‘गौरभूखि’ नामक अर्थ का अछि ?", 
+          options: ["गौर (गोरु) आर भूखि (भूमि) अर्थात् गो-भूमि", "गौरवशाली भूमि", "गंगा-कोशी-गण्डकी बीच बनल देश", "गौर वर्णक लोकक भूमि"], correct: 2 },
+        { text: "सर्वप्रथम मिथिलामे कर्णाट वंशक स्थापना कोन नरपति केलनि ?", 
+          options: ["हरिसिंहदेव", "नान्यदेव (1097 ई.)", "शिवसिंह", "महेश ठाकुर"], correct: 1 },
+        { text: "संगीतशास्त्रक प्राचीन ग्रन्थ 'सरस्वतीहृदयालंकार' के लिखलनि ?", 
+          options: ["विद्यापति", "जयदेव", "नान्यदेव", "ज्योतिरीश्वर ठाकुर"], correct: 2 },
+        { text: "मिथिलामे विशेष प्रचलित धार्मिक मान्यता अनुसार शिव, शक्ति आ विष्णु में कोनक उपासना प्रबल अछि ?", 
+          options: ["केवल विष्णु", "शिव आ शक्ति दुनू (शाक्त-शैव प्रधानता)", "केवल शक्ति (तान्त्रिक)", "केवल सूर्य उपासना"], correct: 1 },
+        { text: "‘अभिनवजयदेव’ कहि कोन महाकवि के सम्मानित कएल जाइत अछि ?", 
+          options: ["विद्यापति", "जयदेव", "लोचन", "चन्द्राझा"], correct: 0 },
+        { text: "मैथिली गीतकाव्यक तिरहुति विधा के अन्तर्गत मुख्य भेद में सँ 'बटगवनी' कोन अर्थमे गाओल जाइत अछि ?", 
+          options: ["विवाह गीत", "नाच-गीत विशेष (सामूहिक)", "शिव-विवाह गीत", "विरह गीत"], correct: 1 },
+        { text: "मैथिली भाषाक प्राचीनतम स्वरूप में सँ कोन अपभ्रंश के संकेत करैत अछि ?", 
+          options: ["शौरसेनी", "मागधी प्राकृत आ मिथिलापभ्रंश", "पैशाची", "महाराष्ट्री"], correct: 1 },
+        { text: "मिथिलाक प्रसिद्ध अक्षर लिपि केकर नाम सँ जानल जाइत अछि ?", 
+          options: ["देवनागरी", "तिरहुता (मिथिलाक्षर)", "कैथी", "बंगाली लिपि"], correct: 1 },
+        { text: "मिथिलाक पूर्वी बोली के 'अंगिका' कहल जाइत अछि, एकर केन्द्र कते अछि ?", 
+          options: ["मुंगेर", "भागलपुर", "दरभंगा", "सहरसा"], correct: 1 },
+        { text: "मैथिलीक उत्तर क्षेत्रीय बोली कते बाजल जाइत अछि ?", 
+          options: ["नेपालक तराई क्षेत्र (सप्तरी, मोरंग आदि)", "असम", "पूर्णिया", "बंगाल"], correct: 0 },
+        { text: "प्राचीन भारतीय आर्यभाषाक प्रथम अवस्था केका रूपमे जानल जाइत अछि ?", 
+          options: ["वैदिक भाषा", "प्राकृत", "पालि", "अपभ्रंश"], correct: 0 },
+        { text: "मागधी प्राकृतक प्रमुख विशेषता छी – 'श' के स्थान पर केकर प्रयोग बेसी होइत अछि ?", 
+          options: ["स्", "क्ष्", "ष्", "ख्"], correct: 0 },
+        { text: "मिथिला क्षेत्रक प्राचीन शक्तिपीठ में सँ कोन मधुबनी जिलामे अछि ?", 
+          options: ["जयमंगला", "उग्रतारा (भवानीपुर)", "कालीस्थान", "वैजनाथ"], correct: 1 },
+        { text: "मिथिलाक सामाजिक जीवनमे ‘पंजी व्यवस्था’क सुव्यवस्थापक कोन राजा छलाह ?", 
+          options: ["नान्यदेव", "हरिसिंहदेव (1326 ई.)", "शिवसिंह", "रामसिंह"], correct: 1 },
+        { text: "विद्यापति के 'मैथिली कविक कोकिल' या 'अभिनव जयदेव' कहल जाइत अछि, हुनकर प्रसिद्ध पद संग्रह कोन अछि ?", 
+          options: ["गीतगोविन्द", "पदावली (विद्यापति पद)", "कीर्तिलता", "वर्णरत्नाकर"], correct: 1 },
+        { text: "तिरहुता लिपिक बारे मे प्राचीनतम प्रमाण कतय उपलब्ध अछि ?", 
+          options: ["हर्षवर्धनक शिलालेख", "नान्यदेवक अभिलेख (1097 ई.)", "अशोकक स्तम्भ", "समुद्रगुप्तक प्रयाग प्रशस्ति"], correct: 1 },
+        { text: "मैथिली भाषाक प्रथम व्याकरणीय प्रयास ‘मैथिली-साहित्य-पत्र’ द्वारा नहि, बल्कि कोन पत्रिका गद्य शैली स्थिर करबाक श्रेय पाबैत अछि ?", 
+          options: ["मिथिलामिहिर", "भोद", "मैथिली-साहित्य-पत्र (प्रो. रमानाथ झा)", "वैदेही"], correct: 2 },
+        { text: "प्राचीन मैथिलीक आरम्भिक गद्य नमूना 'कर्णरत्नाकर' के रचयिता छथि ?", 
+          options: ["विद्यापति", "ज्योतिरीश्वर ठाकुर", "चन्द्राझा", "लोचन"], correct: 1 },
+        { text: "मैथिली गीत-साहित्यक संगीत परम्पराक प्राचीनतम ग्रन्थ ‘सरस्वतीहृदयालंकार’ सँ पुष्टि होइत अछि, जे कोन शताब्दीक रचना अछि ?", 
+          options: ["12वीं शताब्दी", "11वीं शताब्दी (नान्यदेव, 1097)", "14वीं शताब्दी", "9वीं शताब्दी"], correct: 1 },
+        { text: "मिथिलाक धार्मिक चिह्न ‘त्रिपुण्ड’ (भभूत) आ श्रीवत्स चिह्न मुख्य रूपसँ कोन देवता के संकेत अछि ?", 
+          options: ["विष्णु-शिव आ शक्तिक सम्मिलित भाव", "केवल सूर्य", "गणेश", "ब्रह्मा"], correct: 0 },
+        { text: "मैथिलीक उपभाषा 'बज्जिका' मुख्य रूप सँ कोन क्षेत्रम बाजल जाइत अछि ?", 
+          options: ["पूर्वी चम्पारण आ मुजफ्फरपुर", "दरभंगा", "भागलपुर", "समस्तीपुर"], correct: 0 },
+        { text: "बौद्ध-गान एवं दोहाकोष (चर्यापद) के भाषा कोन मानल जाइत अछि ?", 
+          options: ["पालि", "प्राचीन बंगला", "मैथिली आ अपभ्रंशक प्राचीन रूप", "शौरसेनी"], correct: 2 },
+        { text: "मिथिलाक प्रमुख संगीतज्ञ नान्यदेवक राज्यकाल (1097 ई.) सँ प्राप्त संगीतग्रन्थक संग 'गीतगोविन्द' के प्रसिद्ध कवि जयदेव कोन शताब्दीक छथि ?", 
+          options: ["12वीं शताब्दी (लगभग 1120 ई.)", "13वीं", "10वीं", "14वीं"], correct: 0 },
+        { text: "मिथिला क्षेत्रक पवित्र नदी सभ में सँ 'धेमुहा आ विभाणा' के उल्लेख कतय अछि ?", 
+          options: ["महाभारत", "मैथिली लोकगाथा", "वर्णरत्नाकर", "रामायण"], correct: 2 },  // Based on text: करणरत्नाकर
+        { text: "मैथिलीक ऐतिहासिक नाम 'मिथिलाभाषा' कहि प्रयोग कोन प्रसिद्ध विद्वान करैत छलाह ?", 
+          options: ["प्रो. रमानाथ झा", "म.म. मुकुन्द झा", "डा. सुनीति कुमार चटर्जी", "ग्रियर्सन साहेब"], correct: 1 },
+        { text: "मैथिली भाषाक सर्वाधिक प्राचीनतम रचना 'चर्यापद' के रचियता सिद्ध लोकनि कोन धर्मक अनुयायी छलाह ?", 
+          options: ["शैव", "बौद्ध (सिद्धाचार्य)", "वैष्णव", "जैन"], correct: 1 }
+    ];
+
+    // total 30 questions प्रदर्शित करबाक लेल उपर्युक्त प्रश्न पर्याप्त अछि
+    // किन्तु अओर विविधता लेल आओर एक दुई जोडू (ध्यान राखैत कि कुछ अतिरिक्त भी रहि सकैत अछि)
+    // अही सभ प्रश्न पर्याप्त अछि (३० टा)
+    
+    let userSelections = new Array(questions.length).fill(null);
+    let submitted = false;
+
+    function renderQuestions() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const qDiv = document.createElement('div');
+            qDiv.className = 'question-card';
+            qDiv.dataset.qid = idx;
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            qDiv.appendChild(qText);
+            
+            const optsDiv = document.createElement('div');
+            optsDiv.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const optLabel = document.createElement('label');
+                optLabel.className = 'option';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q${idx}`;
+                radio.value = optIdx;
+                radio.disabled = submitted;
+                if (userSelections[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    if (!submitted) {
+                        userSelections[idx] = parseInt(e.target.value);
+                        updateStatsDisplay();
+                        // हरेक चयन पर फीडबैक नहि हटाब, लेकिन scoreCount अस्थायी रूप सँ update
+                        displaySingleFeedback(idx, qDiv);
+                    }
+                });
+                const span = document.createElement('span');
+                span.innerText = `${String.fromCharCode(65+optIdx)}. ${opt}`;
+                optLabel.appendChild(radio);
+                optLabel.appendChild(span);
+                optsDiv.appendChild(optLabel);
+            });
+            qDiv.appendChild(optsDiv);
+            const feedbackDiv = document.createElement('div');
+            feedbackDiv.className = 'feedback';
+            feedbackDiv.id = `fb-${idx}`;
+            qDiv.appendChild(feedbackDiv);
+            container.appendChild(qDiv);
+            if (submitted) displaySingleFeedback(idx, qDiv);
+        });
+        document.getElementById('totalQ').innerText = questions.length;
+        updateStatsDisplay();
+    }
+
+    function displaySingleFeedback(qid, qDiv) {
+        const fbDiv = qDiv.querySelector('.feedback');
+        const selected = userSelections[qid];
+        const correctIdx = questions[qid].correct;
+        if (selected === null) {
+            fbDiv.innerHTML = '';
+            fbDiv.className = 'feedback';
+            return;
+        }
+        if (selected === correctIdx) {
+            fbDiv.innerHTML = '✅ सही उत्तर!';
+            fbDiv.className = 'feedback correct-feedback';
+        } else {
+            const correctLetter = String.fromCharCode(65+correctIdx);
+            const correctText = questions[qid].options[correctIdx];
+            fbDiv.innerHTML = `❌ गलत। सही उत्तर : ${correctLetter}. ${correctText}`;
+            fbDiv.className = 'feedback wrong-feedback';
+        }
+    }
+
+    function updateStatsDisplay() {
+        if (!submitted) {
+            let answered = userSelections.filter(s => s !== null).length;
+            // बिना सबमिट भेल केवल उत्तर देलक संख्या देखाब
+            let tempCorrect = 0;
+            for(let i=0; i<questions.length; i++) {
+                if(userSelections[i] !== null && userSelections[i] === questions[i].correct) tempCorrect++;
+            }
+            document.getElementById('scoreCount').innerText = `${tempCorrect}/${questions.length}`;
+            let percent = Math.round((tempCorrect/questions.length)*100);
+            document.getElementById('percentageShow').innerText = `${percent}% (आंशिक)`;
+        } else {
+            let correctCount = 0;
+            for(let i=0; i<questions.length; i++) {
+                if(userSelections[i] !== null && userSelections[i] === questions[i].correct) correctCount++;
+            }
+            document.getElementById('scoreCount').innerText = `${correctCount}/${questions.length}`;
+            let percent = Math.round((correctCount/questions.length)*100);
+            document.getElementById('percentageShow').innerHTML = `${percent}% ${percent>=60 ? '🎉' : '📖'}`;
+        }
+    }
+
+    function evaluateAll() {
+        submitted = true;
+        // सब रेडियो disable करू
+        const allRadios = document.querySelectorAll('input[type="radio"]');
+        allRadios.forEach(radio => radio.disabled = true);
+        
+        let correctTotal = 0;
+        for(let i=0; i<questions.length; i++) {
+            const isCorrect = (userSelections[i] !== null && userSelections[i] === questions[i].correct);
+            if(isCorrect) correctTotal++;
+            const qDiv = document.querySelector(`.question-card[data-qid='${i}']`);
+            if(qDiv) displaySingleFeedback(i, qDiv);
+        }
+        document.getElementById('scoreCount').innerText = `${correctTotal}/${questions.length}`;
+        let percent = Math.round((correctTotal/questions.length)*100);
+        document.getElementById('percentageShow').innerHTML = `${percent}% ${percent>=60 ? '🚩 बधाई' : 'पुन: अध्ययन करू'}`;
+        // स्कोर क्षेत्र में अब पूर्ण अंक
+    }
+
+    function resetQuiz() {
+        submitted = false;
+        userSelections = new Array(questions.length).fill(null);
+        const allRadios = document.querySelectorAll('input[type="radio"]');
+        allRadios.forEach(radio => {
+            radio.checked = false;
+            radio.disabled = false;
+        });
+        renderQuestions(); // पूर्ण पुन: रेंडर
+        document.getElementById('scoreCount').innerHTML = `0/${questions.length}`;
+        document.getElementById('percentageShow').innerHTML = '0%';
+    }
+
+    document.getElementById('submitBtn').addEventListener('click', () => {
+        if(submitted) {
+            alert("प्रश्नोत्तरी पहिने सँ जाँचल गेल अछि, 'पुनः आरम्भ' कए नव उत्तर दी।");
+            return;
+        }
+        // आश्वस्त करब जे सभ प्रश्न के उत्तर देल गेल या नहि
+        let unanswered = [];
+        for(let i=0; i<questions.length; i++) {
+            if(userSelections[i] === null) unanswered.push(i+1);
+        }
+        if(unanswered.length > 0) {
+            if(confirm(`⚠️ ${unanswered.length} प्रश्न अनुत्तरित अछि (प्रश्न क्र. ${unanswered.join(', ')}). तथापि जाँच करब चाही?`)) {
+                evaluateAll();
+            }
+        } else {
+            evaluateAll();
+        }
+    });
+    
+    document.getElementById('resetBtn').addEventListener('click', () => {
+        resetQuiz();
+    });
+    
+    // initial render
+    renderQuestions();
+
+</script></body>
+</html>

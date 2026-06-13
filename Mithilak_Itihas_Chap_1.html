@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मिथिलाक इतिहास - अध्याय १ क्विज़ | मैथिली मे क्विज़ — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: 'Segoe UI', 'Nirmala UI', 'Mukta', 'Poppins', 'Noto Sans Devanagari', sans-serif;
+background: linear-gradient(145deg, #f5f0e7 0%, #e8dfd1 100%);
+color: #2c241a;
+padding: 1.5rem;
+line-height: 1.5;
+}
+.container {
+max-width: 900px;
+margin: 0 auto;
+background: #fffef7;
+border-radius: 2rem;
+box-shadow: 0 25px 45px -12px rgba(0,0,0,0.3);
+overflow: hidden;
+padding: 2rem 1.8rem;
+border: 1px solid #f0e2c5;
+}
+h1 {
+font-size: 1.9rem;
+text-align: center;
+color: #a52a1f;
+border-bottom: 3px solid #e4c9a7;
+display: inline-block;
+width: auto;
+margin: 0 auto 0.5rem auto;
+padding-bottom: 0.25rem;
+font-weight: 700;
+}
+.title-block {
+text-align: center;
+margin-bottom: 1.5rem;
+}
+.subhead {
+text-align: center;
+font-size: 1rem;
+color: #5e4b34;
+background: #f9f2e6;
+display: inline-block;
+padding: 0.3rem 1.2rem;
+border-radius: 40px;
+margin-top: 0.3rem;
+}
+.quiz-intro {
+background: #fdf7ef;
+padding: 1rem 1.2rem;
+border-radius: 1.5rem;
+margin-bottom: 1.8rem;
+border-left: 8px solid #b86b2c;
+font-size: 1rem;
+color: #2e241b;
+}
+.question-card {
+background: #ffffff;
+border-radius: 1.4rem;
+box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+margin-bottom: 1.8rem;
+padding: 1.2rem 1.4rem;
+border: 1px solid #eeddc5;
+transition: 0.2s;
+}
+.question-text {
+font-size: 1.2rem;
+font-weight: 600;
+color: #402e1e;
+margin-bottom: 1rem;
+padding-left: 0.3rem;
+border-left: 5px solid #ca7a3e;
+padding-left: 0.9rem;
+}
+.options {
+list-style: none;
+padding-left: 0.5rem;
+}
+.options li {
+margin-bottom: 0.7rem;
+display: flex;
+align-items: flex-start;
+gap: 0.6rem;
+flex-wrap: wrap;
+}
+.options li label {
+font-size: 1rem;
+color: #2c241a;
+font-weight: 500;
+cursor: pointer;
+flex: 1;
+}
+input[type="radio"] {
+margin-top: 0.2rem;
+accent-color: #b86b2c;
+width: 1.1rem;
+height: 1.1rem;
+flex-shrink: 0;
+}
+.btn-group {
+display: flex;
+justify-content: center;
+gap: 1.2rem;
+margin: 2rem 0 1rem;
+flex-wrap: wrap;
+}
+button {
+background: #b86b2c;
+border: none;
+padding: 0.8rem 2rem;
+font-size: 1rem;
+font-weight: bold;
+color: white;
+border-radius: 3rem;
+cursor: pointer;
+transition: 0.2s;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+font-family: inherit;
+}
+button:hover {
+background: #9c551f;
+transform: scale(0.98);
+}
+.reset-btn {
+background: #4f6d7a;
+}
+.reset-btn:hover {
+background: #3a535e;
+}
+.result-area {
+background: #e8ddce;
+border-radius: 1.5rem;
+padding: 1.2rem;
+margin-top: 1.8rem;
+text-align: center;
+font-size: 1.2rem;
+font-weight: bold;
+color: #2c241a;
+}
+.score-highlight {
+background: #2c5e2e;
+color: white;
+padding: 0.2rem 0.7rem;
+border-radius: 40px;
+display: inline-block;
+margin: 0 0.3rem;
+}
+.answer-key {
+background: #faf3ea;
+margin-top: 1.2rem;
+padding: 1rem;
+border-radius: 1.2rem;
+font-size: 0.9rem;
+text-align: left;
+border-top: 2px dashed #dbbd93;
+}
+.answer-key details {
+cursor: pointer;
+}
+.answer-key summary {
+font-weight: bold;
+color: #7a4c24;
+margin-bottom: 0.5rem;
+}
+footer {
+text-align: center;
+margin-top: 2rem;
+font-size: 0.75rem;
+color: #8b7552;
+}
+@media (max-width: 600px) {
+.container {
+padding: 1.2rem;
+}
+.question-text {
+font-size: 1rem;
+}
+.options li label {
+font-size: 0.9rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="container"> <div class="title-block"> <div class="subhead">अध्याय १ · वैदिक युगक भूमिका</div> </div> <div class="quiz-intro">
+🌾 नमस्कार! ई क्विज़ «मिथिलाक इतिहास» (प्राचीन वैदिक साहित्य आ मिथिलाक प्रारंभिक इतिहास)  
+पर आधारित अछि। सभ प्रश्न पहिल अध्याय (भूमिका) सँ लेल गेल अछि।  
+सही विकल्प चुनू आ आपन ज्ञान परखू।
+</div> <form id="quizForm"> <div class="question-card" data-qid="1"> <div class="question-text">१. ऋग्वेद के हिस्सा (खण्ड) मे 'कीकट' नामक स्थानक उल्लेख अछि ?</div> <ul class="options"> <li><input type="radio" name="q1" value="A"> <label>(A) तेसर अष्टकक ५३म सूक्तक चौदहम ऋचा मे</label></li> <li><input type="radio" name="q1" value="B"> <label>(B) पहिल अष्टकक २०म सूक्त मे</label></li> <li><input type="radio" name="q1" value="C"> <label>(C) दोसर अष्टकक ४०म सूक्त मे</label></li> <li><input type="radio" name="q1" value="D"> <label>(D) दसरम अष्टकक १२म सूक्त मे</label></li> </ul> </div> <div class="question-card" data-qid="2"> <div class="question-text">२. 'कीकट' देशक राजा के छलाह ?</div> <ul class="options"> <li><input type="radio" name="q2" value="A"> <label>(A) सायणाचार्य</label></li> <li><input type="radio" name="q2" value="B"> <label>(B) प्रमगन्द</label></li> <li><input type="radio" name="q2" value="C"> <label>(C) यास्क</label></li> <li><input type="radio" name="q2" value="D"> <label>(D) माथव विदेघ</label></li> </ul> </div> <div class="question-card" data-qid="3"> <div class="question-text">३. यास्कक अनुसार 'कीकट' देशक निवासी के रूप मे जानल जाइत छल ?</div> <ul class="options"> <li><input type="radio" name="q3" value="A"> <label>(A) आस्तिकवादी</label></li> <li><input type="radio" name="q3" value="B"> <label>(B) भौतिकवादी (नास्तिक)</label></li> <li><input type="radio" name="q3" value="C"> <label>(C) योगी</label></li> <li><input type="radio" name="q3" value="D"> <label>(D) ब्रह्मवादी</label></li> </ul> </div> <div class="question-card" data-qid="4"> <div class="question-text">४. आर्य लोकनि कोन नदी पार कए मिथिला क्षेत्र मे प्रवेश केलन्हि ? (शतपथ ब्राह्मण अनुसार)</div> <ul class="options"> <li><input type="radio" name="q4" value="A"> <label>(A) गंगा</label></li> <li><input type="radio" name="q4" value="B"> <label>(B) कोशी</label></li> <li><input type="radio" name="q4" value="C"> <label>(C) सदानीरा (गण्डकी)</label></li> <li><input type="radio" name="q4" value="D"> <label>(D) कौशिकी</label></li> </ul> </div> <div class="question-card" data-qid="5"> <div class="question-text">५. विदेघ माथवक पुरोहित (ऋत्विज) के छलाह ?</div> <ul class="options"> <li><input type="radio" name="q5" value="A"> <label>(A) याज्ञवल्क्य</label></li> <li><input type="radio" name="q5" value="B"> <label>(B) गौतम राहुगण</label></li> <li><input type="radio" name="q5" value="C"> <label>(C) वशिष्ठ</label></li> <li><input type="radio" name="q5" value="D"> <label>(D) विश्वामित्र</label></li> </ul> </div> <div class="question-card" data-qid="6"> <div class="question-text">६. शतपथ ब्राह्मण अनुसार सदानीरा (गण्डकी) केक सीमा रेखा छल ?</div> <ul class="options"> <li><input type="radio" name="q6" value="A"> <label>(A) मिथिला आ मगधक</label></li> <li><input type="radio" name="q6" value="B"> <label>(B) विदेह आ कोशलक</label></li> <li><input type="radio" name="q6" value="C"> <label>(C) अंग आ वंगक</label></li> <li><input type="radio" name="q6" value="D"> <label>(D) वैशाली आ पाटलिपुत्रक</label></li> </ul> </div> <div class="question-card" data-qid="7"> <div class="question-text">७. राजा जनकक दरबार मे ब्रह्मज्ञानक गोष्ठी मे सभ विद्वानकेँ पराजित करि प्रसिद्धि पाओनिहार ऋषि के छलाह ?</div> <ul class="options"> <li><input type="radio" name="q7" value="A"> <label>(A) उद्दालक आरूणि</label></li> <li><input type="radio" name="q7" value="B"> <label>(B) गार्गी</label></li> <li><input type="radio" name="q7" value="C"> <label>(C) याज्ञवल्क्य</label></li> <li><input type="radio" name="q7" value="D"> <label>(D) अश्वल</label></li> </ul> </div> <div class="question-card" data-qid="8"> <div class="question-text">८. जनकक दरबार मे यज्ञ-गोष्ठी मे कुरू–पाँचाल अतिरिक्त आर कोन-कोन देशक ब्राह्मण आबैत छलाह ?</div> <ul class="options"> <li><input type="radio" name="q8" value="A"> <label>(A) अंग</label></li> <li><input type="radio" name="q8" value="B"> <label>(B) मगध</label></li> <li><input type="radio" name="q8" value="C"> <label>(C) काशी</label></li> <li><input type="radio" name="q8" value="D"> <label>(D) उपरोक्त सभ</label></li> </ul> </div> <div class="question-card" data-qid="9"> <div class="question-text">९. भविष्य पुराणक अनुसार ‘मिथिला’ नगरीक संस्थापक के छलाह ? (निमि के पुत्र)</div> <ul class="options"> <li><input type="radio" name="q9" value="A"> <label>(A) मनु</label></li> <li><input type="radio" name="q9" value="B"> <label>(B) मिथि</label></li> <li><input type="radio" name="q9" value="C"> <label>(C) जनक</label></li> <li><input type="radio" name="q9" value="D"> <label>(D) सीरध्वज</label></li> </ul> </div> <div class="question-card" data-qid="10"> <div class="question-text">१०. ‘जनक’ शब्दक अर्थ (नामकरण) कारण की बताओल गेल अछि ?</div> <ul class="options"> <li><input type="radio" name="q10" value="A"> <label>(A) योगी हेवाक कारणे</label></li> <li><input type="radio" name="q10" value="B"> <label>(B) पुरी जनन समर्थ (नगरक जन्मदाता) कारणे</label></li> <li><input type="radio" name="q10" value="C"> <label>(C) ब्रह्मज्ञानी हेवाक कारणे</label></li> <li><input type="radio" name="q10" value="D"> <label>(D) विदेह राज्यक संस्थापक हेवाक कारणे</label></li> </ul> </div> <div class="question-card" data-qid="11"> <div class="question-text">११. प्राचीन मिथिलाक भौगोलिक सीमाक सम्बन्ध मे सही विकल्प चुनू (दस्तावेज अनुसार)।</div> <ul class="options"> <li><input type="radio" name="q11" value="A"> <label>(A) उत्तर–गंगा, दक्षिण–हिमालय, पूर्व–गण्डकी, पश्चिम–कौशिकी</label></li> <li><input type="radio" name="q11" value="B"> <label>(B) उत्तर–हिमालय, दक्षिण–गंगा, पूर्व–कौशिकी, पश्चिम–गण्डकी</label></li> <li><input type="radio" name="q11" value="C"> <label>(C) उत्तर–नेपाल, दक्षिण–पाटलिपुत्र, पूर्व–महानंदा, पश्चिम–सरयू</label></li> <li><input type="radio" name="q11" value="D"> <label>(D) उत्तर–तीस्ता, दक्षिण–गंगा, पूर्व–ब्रह्मपुत्र, पश्चिम–गण्डकी</label></li> </ul> </div> <div class="question-card" data-qid="12"> <div class="question-text">१२. ‘तीरभुक्ति’ शब्दक (जे मिथिलाक प्राचीन नाम अछि) मूल अर्थ की छल ?</div> <ul class="options"> <li><input type="radio" name="q12" value="A"> <label>(A) नदीक तीरसँ भुक्ति (सुरक्षित प्रदेश)</label></li> <li><input type="radio" name="q12" value="B"> <label>(B) तीन वेदक आहुति (त्रि-आहुति → तिरहुत)</label></li> <li><input type="radio" name="q12" value="C"> <label>(C) तीरु – भुक्ति (यज्ञ भूमि)</label></li> <li><input type="radio" name="q12" value="D"> <label>(D) उपरोक्त B आ नदी बाहुल्य – दुनू मान्यता अछि</label></li> </ul> </div> <div class="question-card" data-qid="13"> <div class="question-text">१३. वायुपुराणक गया माहात्म्य मे ‘कीकट’ के प्रति का कहल गेल अछि ?</div> <ul class="options"> <li><input type="radio" name="q13" value="A"> <label>(A) कीकट पापक स्थान छल</label></li> <li><input type="radio" name="q13" value="B"> <label>(B) गया कीकट मे एक पवित्र तीर्थ अछि</label></li> <li><input type="radio" name="q13" value="C"> <label>(C) कीकट देश अज्ञात छल</label></li> <li><input type="radio" name="q13" value="D"> <label>(D) कीकट मे कोनो पवित्र स्थान नहि</label></li> </ul> </div> <div class="question-card" data-qid="14"> <div class="question-text">१४. शतपथ ब्राह्मण अनुसार विदेघ माथव कोन अग्निक अनुशरण कए सदानीरा पार केलन्हि ?</div> <ul class="options"> <li><input type="radio" name="q14" value="A"> <label>(A) गार्हपत्य</label></li> <li><input type="radio" name="q14" value="B"> <label>(B) वैश्वानर अग्नि</label></li> <li><input type="radio" name="q14" value="C"> <label>(C) आहवनीय</label></li> <li><input type="radio" name="q14" value="D"> <label>(D) दक्षिणाग्नि</label></li> </ul> </div> <div class="question-card" data-qid="15"> <div class="question-text">१५. बृहदारण्यकोपनिषद् अनुसार जनकक दरबार मे ब्रह्मविद्याक लेल विचार-विमर्श करबिहार विद्वान मे के-के छलाह ? (प्रसिद्ध नाम)</div> <ul class="options"> <li><input type="radio" name="q15" value="A"> <label>(A) याज्ञवल्क्य, गार्गी, उद्दालक, शाकल्य आदि</label></li> <li><input type="radio" name="q15" value="B"> <label>(B) केवल याज्ञवल्क्य</label></li> <li><input type="radio" name="q15" value="C"> <label>(C) केवल गार्गी आ मैत्रेयी</label></li> <li><input type="radio" name="q15" value="D"> <label>(D) कोनो विद्वान नहि छल</label></li> </ul> </div> </form> <div class="btn-group"> <button type="button" id="submitBtn">✅ उत्तर जमा करू</button> <button type="button" id="resetBtn" class="reset-btn">🔄 सब साफ करू</button> </div> <div id="resultArea" class="result-area" style="display: none;"> </div> <footer class="vq-footer">© सम्पादक, videha.co.in</footer>
+</div>
+<script>
+
+</script><script>
+
+    // सही उत्तर कुंजी (प्रश्न क्रम 1 से 15)
+    const correctAnswers = {
+        q1: "A",
+        q2: "B",
+        q3: "B",
+        q4: "C",
+        q5: "B",
+        q6: "B",
+        q7: "C",
+        q8: "D",
+        q9: "B",
+        q10: "B",
+        q11: "B",
+        q12: "D",    // दोनो व्याख्या : तीर + त्रि-आहुति प्रचलित, D सर्वाधिक उपयुक्त
+        q13: "B",
+        q14: "B",
+        q15: "A"
+    };
+
+    // प्रश्नोंक व्याख्या (ऐच्छिक)
+    const explanations = {
+        q1: "ऋग्वेदक तेसर अष्टकक ५३म सूक्तक १४म ऋचा मे ‘कीकट’क उल्लेख अछि।",
+        q2: "ऋग्वेदक उक्त सूक्त मे कीकट देशक राजाक नाम ‘प्रमगन्द’ बताओल गेल अछि।",
+        q3: "यास्कक अनुसार कीकट देशक निवासी नास्तिक (भौतिकवादी) छलाह, परलोक मे विश्वास नहि छल।",
+        q4: "शतपथ ब्राह्मण अनुसार आर्य सदानीरा (गण्डकी) पार कए विदेह मे प्रवेश केलन्हि।",
+        q5: "विदेघ माथवक पुरोहित गौतम राहुगण छलाह।",
+        q6: "सदानीरा विदेह आ कोशलक बीच सीमा रेखा छल।",
+        q7: "राजा जनकक दरबार मे याज्ञवल्क्य सभ विद्वानकेँ पराजित कएने छलाह।",
+        q8: "कुरू-पाँचालक अतिरिक्त काशी, कोशल, मगध, अंग आदि देशसँ विद्वान आबैत छलाह।",
+        q9: "भविष्य पुराण अनुसार निमिक पुत्र ‘मिथि’ नगरक निर्माण केलन्हि, जे मिथिला कहाओल।",
+        q10: "पुरी जननक समर्थता के कारणे (जनक शब्दक व्युत्पत्ति) ‘जनक’ कहल गेल।",
+        q11: "प्राचीन मिथिलाक सीमा – उत्तर हिमालय, दक्षिण गंगा, पूर्व कौशिकी, पश्चिम गण्डकी छल।",
+        q12: "तीरभुक्ति नदी तीरसँ भुक्ति (सिंचित) सेहो, आ तीन वेदक आहुति (त्रि-आहुति) सेहो बुझल जाइत छल। एहि लेल दुनू मान्यता अछि।",
+        q13: "वायुपुराण कहैछ – ‘कीकटेषु गया पुण्या’ यानी कीकट देश मे गया पवित्र तीर्थ अछि।",
+        q14: "विदेघ माथव ‘वैश्वानर अग्नि’क अनुशरण केलन्हि।",
+        q15: "बृहदारण्यकोपनिषद मे याज्ञवल्क्य, गार्गी, उद्दालक, शाकल्य आदि कैक विद्वानक उल्लेख अछि।"
+    };
+
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const resultArea = document.getElementById('resultArea');
+
+    function calculateScore() {
+        let score = 0;
+        let total = Object.keys(correctAnswers).length;
+        let userAnswers = {};
+        for (let key in correctAnswers) {
+            let selected = document.querySelector(`input[name="${key}"]:checked`);
+            if (selected) {
+                userAnswers[key] = selected.value;
+                if (selected.value === correctAnswers[key]) {
+                    score++;
+                }
+            } else {
+                userAnswers[key] = null;
+            }
+        }
+        return { score, total, userAnswers };
+    }
+
+    function displayResult() {
+        const { score, total, userAnswers } = calculateScore();
+        let resultHtml = `<div style="font-size:1.2rem; margin-bottom:0.5rem;">🏆 आपक स्कोर : <span class="score-highlight">${score}/${total}</span></div>`;
+        resultHtml += `<div>📚 सम्पूर्ण अध्याय-१ पर आधारित क्विज़ मे सहभागिता लेल धन्यवाद ।</div>`;
+        
+        // उत्तर कुंजी आ संक्षिप्त व्याख्या collapsible
+        resultHtml += `<div class="answer-key" style="margin-top:1rem;"><details><summary>🔍 सही उत्तर आ व्याख्या देखू</summary>`;
+        for (let i = 1; i <= total; i++) {
+            let qKey = `q${i}`;
+            let correctVal = correctAnswers[qKey];
+            let userVal = userAnswers[qKey];
+            let statusIcon = (userVal === correctVal) ? '✅' : (userVal ? '❌' : '⚠️ अनुत्तरित');
+            let userDisplay = userVal ? ` (आपक उत्तर: ${userVal})` : ` (कोनो उत्तर नहि)`;
+            resultHtml += `<p><strong>प्रश्न ${i}</strong> : सही उत्तर — ${correctVal} ${statusIcon}${userDisplay}<br><span style="font-size:0.85rem; color:#4a3b2a;">📖 ${explanations[qKey] || ''}</span></p>`;
+        }
+        resultHtml += `</details></div>`;
+        resultHtml += `<div style="margin-top:0.8rem; font-size:0.85rem;">📌 नोट: ई क्विज़ केवल अध्याय-१ (भूमिका) पर आधारित अछि।</div>`;
+        resultArea.innerHTML = resultHtml;
+        resultArea.style.display = "block";
+        // स्क्रोल स्मूद
+        resultArea.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function resetQuiz() {
+        const allRadios = document.querySelectorAll('input[type="radio"]');
+        allRadios.forEach(radio => radio.checked = false);
+        resultArea.style.display = "none";
+        // optionally clear result content
+        resultArea.innerHTML = "";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    submitBtn.addEventListener('click', displayResult);
+    resetBtn.addEventListener('click', resetQuiz);
+
+</script></body>
+</html>

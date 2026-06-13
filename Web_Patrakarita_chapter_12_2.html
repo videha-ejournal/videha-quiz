@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>मैथिली क्विज़ | अध्याय 12 - मैथिली संस्कृति आर भाषा</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: linear-gradient(145deg, #1e5a3a 0%, #0b3b24 100%);
+font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Mukta', 'Poppins', system-ui, -apple-system, sans-serif;
+padding: 2rem 1rem;
+min-height: 100vh;
+}
+/* main quiz container */
+.quiz-container {
+max-width: 950px;
+margin: 0 auto;
+background: #fffef7;
+border-radius: 48px 48px 40px 40px;
+box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255,215,140,0.3);
+overflow: hidden;
+transition: all 0.2s ease;
+}
+/* header */
+.quiz-header {
+background: #ffedd5;
+padding: 1.6rem 2rem;
+border-bottom: 6px solid #e67e22;
+text-align: center;
+}
+.chapter-badge {
+display: inline-block;
+background: #e67e22;
+color: white;
+font-size: 0.85rem;
+font-weight: bold;
+padding: 0.3rem 1.2rem;
+border-radius: 40px;
+letter-spacing: 1px;
+margin-bottom: 0.8rem;
+box-shadow: inset 0 -1px 0 rgba(0,0,0,0.1), 0 2px 6px rgba(0,0,0,0.1);
+}
+.quiz-header h1 {
+font-size: 2rem;
+color: #2c3e2f;
+font-weight: 700;
+margin: 0.25rem 0 0.25rem;
+text-shadow: 2px 2px 0 #fceabb;
+}
+.quiz-header p {
+color: #4a5b3e;
+font-size: 1.1rem;
+font-weight: 500;
+background: #fff0d4;
+display: inline-block;
+padding: 0.3rem 1.2rem;
+border-radius: 30px;
+margin-top: 0.6rem;
+}
+/* main content */
+.quiz-content {
+padding: 2rem 2rem 1rem 2rem;
+}
+/* each question card */
+.question-card {
+background: #ffffff;
+margin-bottom: 1.8rem;
+border-radius: 28px;
+padding: 1.2rem 1.5rem 1rem 1.5rem;
+box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.05);
+transition: all 0.2s;
+border: 1px solid #fce6bc;
+}
+.question-card:hover {
+border-color: #f1c38e;
+box-shadow: 0 12px 20px rgba(0, 0, 0, 0.05);
+}
+.question-text {
+font-size: 1.3rem;
+font-weight: 600;
+color: #2d3e2b;
+margin-bottom: 1rem;
+padding-left: 0.3rem;
+border-left: 5px solid #e67e22;
+padding-left: 1rem;
+}
+.options {
+display: flex;
+flex-wrap: wrap;
+gap: 0.8rem 1.8rem;
+margin-bottom: 0.8rem;
+}
+.option {
+display: flex;
+align-items: center;
+gap: 0.6rem;
+background: #fef8ef;
+padding: 0.5rem 1.2rem;
+border-radius: 60px;
+border: 1px solid #ffe2b5;
+transition: all 0.2s;
+cursor: pointer;
+}
+.option:hover {
+background: #ffefd6;
+border-color: #e67e22;
+transform: scale(0.98);
+}
+input[type="radio"] {
+accent-color: #e67e22;
+width: 1.2rem;
+height: 1.2rem;
+cursor: pointer;
+}
+.option label {
+font-size: 1rem;
+font-weight: 500;
+color: #2c3a28;
+cursor: pointer;
+margin: 0;
+}
+/* feedback per question */
+.feedback {
+margin-top: 0.8rem;
+font-size: 0.9rem;
+padding: 0.5rem 0.8rem;
+border-radius: 50px;
+display: inline-block;
+width: auto;
+font-weight: 500;
+}
+.feedback-correct {
+background: #dff0e2;
+color: #1f6d2b;
+border-left: 4px solid #2e7d32;
+padding: 0.5rem 1rem;
+}
+.feedback-wrong {
+background: #ffe6e5;
+color: #b91c1c;
+border-left: 4px solid #c62828;
+padding: 0.5rem 1rem;
+}
+.feedback-neutral {
+background: #f0f0eb;
+color: #6b5e3a;
+}
+/* score panel and buttons */
+.action-panel {
+background: #fff4e6;
+padding: 1.5rem 2rem;
+border-radius: 32px 32px 0 0;
+margin-top: 0.8rem;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: center;
+gap: 1rem;
+border-top: 2px dashed #e6c394;
+}
+.score-area {
+background: #2a4b2f;
+color: #ffefcf;
+padding: 0.5rem 1.2rem;
+border-radius: 60px;
+font-weight: bold;
+font-size: 1.2rem;
+box-shadow: inset 0 -1px 0 #1d371f, 0 3px 8px rgba(0,0,0,0.1);
+}
+.score-area span {
+font-size: 1.6rem;
+font-weight: 800;
+color: #ffce8e;
+}
+.btn-group {
+display: flex;
+gap: 1rem;
+}
+button {
+border: none;
+font-family: inherit;
+font-weight: 600;
+padding: 0.7rem 1.8rem;
+border-radius: 50px;
+font-size: 1rem;
+cursor: pointer;
+transition: 0.2s;
+background: white;
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.btn-submit {
+background: #e67e22;
+color: white;
+border-bottom: 3px solid #b45f1b;
+}
+.btn-submit:hover {
+background: #cf711f;
+transform: translateY(-2px);
+}
+.btn-reset {
+background: #fff;
+color: #5a3e1b;
+border: 1px solid #e6bc8c;
+}
+.btn-reset:hover {
+background: #fef1e2;
+border-color: #e67e22;
+}
+footer {
+text-align: center;
+font-size: 0.8rem;
+padding: 1rem;
+background: #fffaf2;
+color: #735e3a;
+border-top: 1px solid #f5e2c6;
+}
+@media (max-width: 680px) {
+.quiz-content {
+padding: 1.2rem;
+}
+.question-text {
+font-size: 1.1rem;
+}
+.option {
+padding: 0.3rem 1rem;
+}
+.btn-group {
+flex-direction: column;
+width: 100%;
+}
+button {
+width: 100%;
+text-align: center;
+}
+.action-panel {
+flex-direction: column;
+align-items: stretch;
+}
+.score-area {
+text-align: center;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <div class="quiz-header"> <div class="chapter-badge">📖 अध्याय 12 : मैथिली लोकसंस्कृति आ भाषा विज्ञान</div> <h1>✨ मैथिली क्विज़ ✨</h1> <p>पाठ-पुनरावृत्ति | ज्ञान परीक्षण</p> </div> <div class="quiz-content" id="quizContent"> <form id="quizForm"> <div class="question-card" data-qid="1"> <div class="question-text">१. मैथिली भाषाक मानक लिपि कोन छथि ?</div> <div class="options"> <div class="option"><input type="radio" name="q1" value="देवनागरी" id="q1_opt1"> <label for="q1_opt1">देवनागरी</label></div> <div class="option"><input type="radio" name="q1" value="कैथी" id="q1_opt2"> <label for="q1_opt2">कैथी</label></div> <div class="option"><input type="radio" name="q1" value="बंगाली" id="q1_opt3"> <label for="q1_opt3">बंगाली</label></div> <div class="option"><input type="radio" name="q1" value="रोमन" id="q1_opt4"> <label for="q1_opt4">रोमन</label></div> </div> <div class="feedback" id="fb_q1"></div> </div> <div class="question-card" data-qid="2"> <div class="question-text">२. मैथिली साहित्यक महान कवि 'कोन' छथि, जिनका 'उत्तर भारतक कोकिल' कहल जाइत अछि ?</div> <div class="options"> <div class="option"><input type="radio" name="q2" value="विद्यापति" id="q2_opt1"> <label for="q2_opt1">विद्यापति</label></div> <div class="option"><input type="radio" name="q2" value="वाणीभूषण" id="q2_opt2"> <label for="q2_opt2">वाणीभूषण</label></div> <div class="option"><input type="radio" name="q2" value="लाल दास" id="q2_opt3"> <label for="q2_opt3">लाल दास</label></div> <div class="option"><input type="radio" name="q2" value="भिखारी ठाकुर" id="q2_opt4"> <label for="q2_opt4">भिखारी ठाकुर</label></div> </div> <div class="feedback" id="fb_q2"></div> </div> <div class="question-card" data-qid="3"> <div class="question-text">३. मैथिलीमे आदर सहित 'नमस्कार' करैत समय कोन शब्द प्रयोग होइत अछि ?</div> <div class="options"> <div class="option"><input type="radio" name="q3" value="प्रणाम" id="q3_opt1"> <label for="q3_opt1">प्रणाम</label></div> <div class="option"><input type="radio" name="q3" value="नमस्ते" id="q3_opt2"> <label for="q3_opt2">नमस्ते</label></div> <div class="option"><input type="radio" name="q3" value="राम राम" id="q3_opt3"> <label for="q3_opt3">राम राम</label></div> <div class="option"><input type="radio" name="q3" value="सब" id="q3_opt4"> <label for="q3_opt4">सब (सभ)</label></div> </div> <div class="feedback" id="fb_q3"></div> </div> <div class="question-card" data-qid="4"> <div class="question-text">४. मैथिली भाषा कोन भाषा परिवारक सदस्य छथि ?</div> <div class="options"> <div class="option"><input type="radio" name="q4" value="हिन्द-आर्य" id="q4_opt1"> <label for="q4_opt1">हिन्द-आर्य</label></div> <div class="option"><input type="radio" name="q4" value="द्रविड़" id="q4_opt2"> <label for="q4_opt2">द्रविड़</label></div> <div class="option"><input type="radio" name="q4" value="ऑस्ट्रो-एशियाटिक" id="q4_opt3"> <label for="q4_opt3">ऑस्ट्रो-एशियाटिक</label></div> <div class="option"><input type="radio" name="q4" value="तिब्बती-बर्मी" id="q4_opt4"> <label for="q4_opt4">तिब्बती-बर्मी</label></div> </div> <div class="feedback" id="fb_q4"></div> </div> <div class="question-card" data-qid="5"> <div class="question-text">५. अध्याय १२ 'मैथिली लोकगीत परम्परा' के अनुसार, विवाह केर अवसर पर मुख्य रूप सँ कोन लोकगीत गाबैत छथि ?</div> <div class="options"> <div class="option"><input type="radio" name="q5" value="सोहर" id="q5_opt1"> <label for="q5_opt1">सोहर</label></div> <div class="option"><input type="radio" name="q5" value="विवाह गीत" id="q5_opt2"> <label for="q5_opt2">विवाह गीत (सामान्य)</label></div> <div class="option"><input type="radio" name="q5" value="पालो" id="q5_opt3"> <label for="q5_opt3">पालो</label></div> <div class="option"><input type="radio" name="q5" value="विदापति गीत" id="q5_opt4"> <label for="q5_opt4">विदापति गीत</label></div> </div> <div class="feedback" id="fb_q5"></div> </div> <div class="question-card" data-qid="6"> <div class="question-text">६. मैथिली भाषा आ संस्कृतिक प्रचार-प्रसार लेल कोन विश्वविद्यालय विशेष रूप सँ समर्पित अछि ?</div> <div class="options"> <div class="option"><input type="radio" name="q6" value="कामेश्वर सिंह दरभंगा संस्कृत विश्वविद्यालय" id="q6_opt1"> <label for="q6_opt1">कामेश्वर सिंह दरभंगा संस्कृत विश्वविद्यालय</label></div> <div class="option"><input type="radio" name="q6" value="ललित नारायण मिथिला विश्वविद्यालय" id="q6_opt2"> <label for="q6_opt2">ललित नारायण मिथिला विश्वविद्यालय</label></div> <div class="option"><input type="radio" name="q6" value="जवाहरलाल नेहरू विश्वविद्यालय" id="q6_opt3"> <label for="q6_opt3">जवाहरलाल नेहरू विश्वविद्यालय</label></div> <div class="option"><input type="radio" name="q6" value="बाबासाहेब भीमराव अंबेडकर बिहार विश्वविद्यालय" id="q6_opt4"> <label for="q6_opt4">बी.आर. अंबेडकर बिहार विश्वविद्यालय</label></div> </div> <div class="feedback" id="fb_q6"></div> </div> </form> </div> <div class="action-panel"> <div class="score-area" id="scoreArea">
+🧠 अंक : <span id="scoreDisplay">0</span> / <span id="totalQuestions">6</span> </div> <div class="btn-group"> <button class="btn-submit" id="submitBtn">✅ परिणाम देखू</button> <button class="btn-reset" id="resetBtn">🔄 फेर सँ प्रयास करू</button> </div> </div> </div>
+<script>
+    // सही उत्तर (मैथिली में सटीक मिलान)
+    const correctAnswers = {
+        q1: "देवनागरी",
+        q2: "विद्यापति",
+        q3: "प्रणाम",
+        q4: "हिन्द-आर्य",
+        q5: "सोहर",
+        q6: "ललित नारायण मिथिला विश्वविद्यालय"
+    };
+
+    // क्विज़ फीडबैक अपडेट आर स्कोर गणना
+    function evaluateQuiz() {
+        let total = 0;
+        let score = 0;
+        const totalQ = Object.keys(correctAnswers).length;
+        
+        // हर प्रश्न के लिए फीडबैक तैयार करब
+        for (let i = 1; i <= totalQ; i++) {
+            const qName = `q${i}`;
+            const selectedRadio = document.querySelector(`input[name="${qName}"]:checked`);
+            const selectedValue = selectedRadio ? selectedRadio.value : null;
+            const correctVal = correctAnswers[qName];
+            const feedbackDiv = document.getElementById(`fb_q${i}`);
+            
+            if (selectedValue && selectedValue === correctVal) {
+                // सही उत्तर
+                score++;
+                feedbackDiv.innerHTML = `✅ सही जवाब! “${correctVal}” सटीक उत्तर छथि।`;
+                feedbackDiv.className = "feedback feedback-correct";
+            } 
+            else if (selectedValue && selectedValue !== correctVal) {
+                // गलत उत्तर
+                feedbackDiv.innerHTML = `❌ गलत जवाब। सही उत्तर: “${correctVal}” छथि। पुन: अध्ययन करू।`;
+                feedbackDiv.className = "feedback feedback-wrong";
+            }
+            else {
+                // कोनो उत्तर नै चुनल
+                feedbackDiv.innerHTML = `⚠️ कोनो विकल्प नै चुनल गेल। सही जवाब: “${correctVal}” छथि।`;
+                feedbackDiv.className = "feedback feedback-wrong";
+            }
+        }
+        
+        // स्कोर प्रदर्शित
+        document.getElementById("scoreDisplay").innerText = score;
+        // ऐच्छिक: एनीमेशन, स्कोर अरिया इफेक्ट
+        const scoreSpan = document.getElementById("scoreDisplay");
+        scoreSpan.style.transform = "scale(1.1)";
+        setTimeout(() => { if(scoreSpan) scoreSpan.style.transform = "scale(1)"; }, 200);
+        
+        // यदि सब सही बा त बधाई देब
+        if(score === totalQ) {
+            const footerMsg = document.querySelector("footer");
+            footerMsg.style.background = "#e0f0da";
+            footerMsg.style.transition = "0.3s";
+            setTimeout(() => {
+                if(footerMsg) footerMsg.style.background = "#fffaf2";
+            }, 1500);
+            // वैकल्पिक alert नै, बस फीडबैक
+            const scoreAreaDiv = document.getElementById("scoreArea");
+            const oldHtml = scoreAreaDiv.innerHTML;
+            scoreAreaDiv.innerHTML = "🎉 उत्कृष्ट! पूर्ण अंक 🎉<br>" + oldHtml;
+            setTimeout(() => {
+                if(scoreAreaDiv) scoreAreaDiv.innerHTML = oldHtml;
+            }, 2500);
+        }
+        else if(score >= totalQ/2) {
+            // बढ़िया प्रदर्शन
+            const scoreAreaDiv = document.getElementById("scoreArea");
+            scoreAreaDiv.style.backgroundColor = "#2e6b37";
+            setTimeout(() => {
+                if(scoreAreaDiv) scoreAreaDiv.style.backgroundColor = "#2a4b2f";
+            }, 800);
+        }
+        return score;
+    }
+
+    // रीसेट फंक्शन: सब रेडियो क्लियर, फीडबैक हटाब, स्कोर 0 करब, मूल स्थिति
+    function resetQuiz() {
+        // सब रेडियो ग्रुप के अनचेक करब
+        const allRadios = document.querySelectorAll('input[type="radio"]');
+        allRadios.forEach(radio => radio.checked = false);
+        
+        // सब फीडबैक डिफ़ॉल्ट करब (खाली)
+        for (let i = 1; i <= 6; i++) {
+            const fbDiv = document.getElementById(`fb_q${i}`);
+            if (fbDiv) {
+                fbDiv.innerHTML = "";
+                fbDiv.className = "feedback";
+            }
+        }
+        // स्कोर रीसेट
+        document.getElementById("scoreDisplay").innerText = "0";
+        // स्कोर एरिया कलर रिस्टोर
+        const scoreAreaDiv = document.getElementById("scoreArea");
+        scoreAreaDiv.style.backgroundColor = "#2a4b2f";
+        // कुनो एक्स्ट्रा मैसेज हटाब
+        const scoreSpan = document.getElementById("scoreDisplay");
+        if(scoreSpan) scoreSpan.style.transform = "none";
+        // फुटर कलर रिस्टोर
+        const footerEl = document.querySelector("footer");
+        if(footerEl) footerEl.style.background = "#fffaf2";
+    }
+
+    // सबमिट पर परिणाम देखाबी
+    function submitHandler(e) {
+        e.preventDefault();
+        evaluateQuiz();
+        // चाहल त स्कोर अपडेट होएत
+        // कोनो ओर परिवर्तन जरूर नै
+    }
+    
+    // रीसेट बटन हैंडलर
+    function resetHandler(e) {
+        e.preventDefault();
+        resetQuiz();
+    }
+    
+    // एक्स्ट्रा: जब पन्ना लोड होए त कौनों पूर्व नतिजा नै रहे
+    document.addEventListener("DOMContentLoaded", () => {
+        resetQuiz();  // clean स्लेट
+    });
+    
+    // इवेंट लिस्नर
+    const submitBtn = document.getElementById("submitBtn");
+    const resetBtn = document.getElementById("resetBtn");
+    
+    if(submitBtn) submitBtn.addEventListener("click", submitHandler);
+    if(resetBtn) resetBtn.addEventListener("click", resetHandler);
+    
+    // यदि प्रश्न पत्र मा एंटर दबे पर submit न होय
+    const form = document.getElementById("quizForm");
+    if(form) {
+        form.addEventListener("keypress", function(e) {
+            if(e.key === "Enter") {
+                e.preventDefault();
+                submitHandler(e);
+            }
+        });
+    }
+    
+    // छोट-छोट सुधार: मोबाइल फ्रेंडली
+    // प्रत्येक क्विज कार्ड में डिफ़ॉल्ट स्थिति ताजा
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

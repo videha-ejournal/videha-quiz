@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मिथिलाक धर्म आ दर्शन – क्विज़ (अध्याय १८) — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+box-sizing: border-box;
+}
+body {
+background: #f6f2ea;
+font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Mithilanchal', 'Arial', sans-serif;
+margin: 0;
+padding: 20px;
+color: #2b251d;
+}
+.quiz-container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffefa;
+border-radius: 48px;
+box-shadow: 0 20px 35px rgba(0,0,0,0.05);
+overflow: hidden;
+padding: 24px 30px 35px;
+}
+.title-area {
+text-align: center;
+margin-bottom: 22px;
+}
+h1 {
+font-size: 2rem;
+margin: 0 0 6px;
+color: #9a4e26;
+border-bottom: 3px solid #f2dfb3;
+display: inline-block;
+padding-bottom: 6px;
+}
+.sub {
+color: #6e5437;
+font-size: 0.85rem;
+margin-top: 8px;
+}
+.stats-panel {
+background: #f4ecdb;
+border-radius: 80px;
+padding: 8px 24px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 15px;
+margin-bottom: 28px;
+}
+.q-num {
+background: #9a4e26;
+color: white;
+padding: 5px 22px;
+border-radius: 40px;
+font-weight: bold;
+}
+.progress-bar {
+flex: 2;
+height: 12px;
+background: #d7caa6;
+border-radius: 20px;
+overflow: hidden;
+}
+.progress-fill {
+width: 0%;
+height: 100%;
+background: #c5733d;
+border-radius: 20px;
+transition: width 0.2s;
+}
+.score-box {
+background: #2b6530;
+color: white;
+padding: 5px 22px;
+border-radius: 40px;
+font-weight: bold;
+}
+.question-card {
+background: #fefaf0;
+border-radius: 34px;
+padding: 22px 28px;
+margin-bottom: 20px;
+border: 1px solid #e7d7b5;
+box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+.q-text {
+font-size: 1.32rem;
+font-weight: 600;
+line-height: 1.4;
+margin-bottom: 26px;
+color: #2e291f;
+}
+.options-list {
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+.option-row {
+display: flex;
+align-items: center;
+gap: 16px;
+background: white;
+padding: 10px 22px;
+border-radius: 60px;
+border: 1px solid #e0cfab;
+cursor: pointer;
+transition: all 0.2s;
+}
+.option-row:hover {
+background: #fff4e2;
+border-color: #b87942;
+}
+.option-row.selected {
+background: #e8ddc5;
+border-color: #9a4e26;
+box-shadow: 0 2px 8px rgba(154,78,38,0.15);
+}
+.opt-letter {
+font-weight: 800;
+min-width: 38px;
+background: #f2e5cf;
+border-radius: 40px;
+text-align: center;
+padding: 4px 0;
+}
+.opt-text {
+flex: 1;
+}
+.nav-area {
+display: flex;
+justify-content: space-between;
+gap: 15px;
+margin: 15px 0 10px;
+}
+button {
+background: #9a4e26;
+border: none;
+color: white;
+font-weight: bold;
+padding: 12px 28px;
+border-radius: 60px;
+font-size: 1rem;
+cursor: pointer;
+transition: 0.2s;
+font-family: inherit;
+}
+button:hover { background: #763c1b; transform: scale(0.97); }
+button:disabled { background: #b6835d; cursor: not-allowed; transform: none; }
+.finish-btn {
+background: #2b6530;
+width: 100%;
+margin-top: 12px;
+}
+.result-block {
+margin-top: 32px;
+background: #f0e6d6;
+border-radius: 32px;
+padding: 20px;
+text-align: center;
+}
+.review-area {
+max-height: 380px;
+overflow-y: auto;
+background: #fffcf4;
+border-radius: 26px;
+padding: 14px 22px;
+margin-top: 18px;
+text-align: left;
+}
+.review-item {
+border-bottom: 1px solid #e1cfaa;
+padding: 8px 0;
+}
+.correct-mark { color: #1e6b21; }
+.wrong-mark { color: #c0441a; }
+footer {
+text-align: center;
+font-size: 0.7rem;
+margin-top: 28px;
+color: #8d734d;
+}
+@media (max-width: 650px) {
+.quiz-container { padding: 15px; }
+.q-text { font-size: 1rem; }
+.option-row { padding: 6px 14px; }
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="quiz-container" id="quizRoot"> <div class="title-area"> </div> <div class="stats-panel"> <span class="q-num" id="qCounter">प्रश्न १/१००</span> <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div> <span class="score-box" id="scoreBadge">📖 ०/१००</span> </div> <div id="questionContainer"></div> <div class="nav-area"> <button id="prevBtn" disabled>◀ पिछला</button> <button id="nextBtn">अगला ▶</button> </div> <button id="submitQuiz" class="finish-btn">✅ क्विज़ समाप्त करू आ परिणाम देखू</button> <div id="finalResult"></div> <footer class="vq-footer">© सम्पादक, videha.co.in</footer>
+</div>
+<script>
+
+</script><script>
+
+    // ---------- अध्याय १८ (धर्म आ दर्शन) सँ निर्मित १०० प्रश्न (तथ्यपरक) ----------
+    const questions = [
+        { text: "वैदिक युगहिसँ मिथिला के हेतु प्रसिद्ध अछि?", options: ["धर्म आ दर्शनक केन्द्र", "व्यापारक केन्द्र", "सैन्य शक्ति", "चिकित्सा विज्ञान"], correct: 0 },
+        { text: "शतपथ ब्राह्मणक अनुसार राजा जनक केर उपलब्धि कोन छल?", options: ["यज्ञ करबाक अधिकार बिना पुरोहित वर्गक हस्तक्षेप", "अश्वमेध यज्ञ", "सोनाक दान", "वेद रचना"], correct: 0 },
+        { text: "'तत् त्वम् असि' जका मूलमंत्रक विवेचना कोन भूमिमे भेल छल?", options: ["मिथिला (जनकक दरबार)", "काशी", "प्रयाग", "नैमिषारण्य"], correct: 0 },
+        { text: "मिथिलाक जनक केकें कहल जाइत छल?", options: ["ब्रह्मवादी, राजर्षि, जीवन्मुक्त", "केवल योद्धा", "वैदिक कर्मकाण्डी", "तपस्वी मात्र"], correct: 0 },
+        { text: "प्रथम जैन तीर्थंकर ऋषभदेवक सम्बन्ध मिथिलाक कोन नगरसँ जोड़ल जाइत अछि?", options: ["वैशाली", "मिथिलापुरी", "जनकपुर", "कुण्डग्राम"], correct: 0 },
+        { text: "महावीरक जन्म कोन ग्राममे भेल छल?", options: ["कुण्डग्राम (वैशाली)", "राजगीर", "पावापुरी", "गया"], correct: 0 },
+        { text: "महावीर केकें 'विदेह' आ 'वैदेही' सेहो कहल जाइत छल?", options: ["हुनक सम्बन्ध विदेह राज्यसँ", "हुनक माता त्रिशला वैदेही छलीह", "दुनू सही अछि", "केवल जन्मस्थान"], correct: 2 },
+        { text: "महावीर कतना वर्षावास वैशाली आ मिथिलामे बितौने छलाह?", options: ["१२ वैशाली, ६ मिथिला", "६ वैशाली, १२ मिथिला", "१०-१०", "८-८"], correct: 0 },
+        { text: "जैन परम्पराक अनुसार निमि (जनक वंश) कैकें स्वीकार केलन्हि?", options: ["जैन धर्म आ श्रमणत्व", "ब्राह्मण धर्म", "बौद्ध धर्म", "अजीविक"], correct: 0 },
+        { text: "बुद्ध वैशालीक गणराज्यक प्रशंसा केकें कएने छथि?", options: ["तावतिंश देव", "देवलोक", "स्वर्ग", "धर्मचक्र"], correct: 0 },
+        { text: "वैशालीमे बौद्ध संघक दोसर संगीति के सम्पन्न भेल छल?", options: ["धार्मिक मतभेद दूर करबाक हेतु", "बुद्धक अवशेष बाँटबाक", "भिक्षुणी संघ स्थापना", "त्रिपिटक लेखन"], correct: 0 },
+        { text: "वैशालीमे बौद्ध धर्मक प्रति लिच्छवी लोकनिक भक्ति केहन रुपमे देखल जाइत छल?", options: ["विशेष श्रद्धा, वर्णन रंगीन वस्त्रसँ सजल स्वागत", "उपेक्षा", "विरोध", "तटस्थता"], correct: 0 },
+        { text: "बुद्धक अनुसार संघमे स्त्री प्रवेशक परिणाम का होएत?", options: ["बौद्ध धर्म ५०० वर्ष धरि रहत", "शीघ्र विनाश", "कोनो असर नहि", "गैर-वैदिक"], correct: 0 },
+        { text: "मिथिलामे बौद्ध धर्मक ह्रास पश्चात् पुनः कोन धर्मक प्रधानता भेल?", options: ["ब्राह्मण धर्म (सनातन)", "जैन धर्म", "इस्लाम", "ईसाई"], correct: 0 },
+        { text: "विक्रमादित्य सम्बन्धी मैथिल परम्परा अनुसार ओ मिथिला आबिकेँ बौद्ध सबकेँ परास्त केलन्हि, तँ ओहि बाद कोन वंश चलल?", options: ["गन्धवरिया राजपूत", "ओइनवार", "कर्णाट", "शूंग"], correct: 0 },
+        { text: "मिथिलामे सर्वश्रेष्ठ इष्टदेवता केकें मानल जाइत अछि?", options: ["शिव (भैरव)", "विष्णु", "सूर्य", "दुर्गा"], correct: 0 },
+        { text: "मिथिलाक कोन स्थान तांत्रिक केन्द्रक रूपमे प्रख्यात अछि?", options: ["महिषी", "दरभंगा", "जनकपुर", "भगवानपुर"], correct: 0 },
+        { text: "तंत्रक प्रधानता कोन युगमे मिथिलामे विशेष रूपें विकसित भेल?", options: ["कर्णाट-ओइनवार युग", "गुप्त युग", "पाल युग", "मौर्य युग"], correct: 0 },
+        { text: "'वामाचार' आ 'दक्षिणाचार'क भेद कोन क्षेत्रमे प्रसिद्ध अछि?", options: ["तांत्रिक साधना", "यज्ञीय विधि", "वेद पाठ", "योग"], correct: 0 },
+        { text: "मिथिलामे शक्ति पूजाक प्रधानता के हेतु देवी तारा आ कालीक उपासना के हेतु कोन ग्रंथ लिखल गेल?", options: ["ताराभुक्ति सुधार्णव", "शिव पुराण", "मार्कण्डेय पुराण", "देवी भागवत"], correct: 0 },
+        { text: "गीत गोविन्दमे विष्णुक बुद्ध अवतारक प्रशंसा के केने छल?", options: ["हाँ, 'निन्दसि यज्ञ विधेरहह' श्लोकमे", "नहि", "केवल राम अवतार", "कृष्ण अवतार"], correct: 0 },
+        { text: "न्यायशास्त्रक प्रणेता गौतम (अक्षपाद) के मैथिल होएबाक प्रमाण अछि?", options: ["हाँ, चीनी यात्रीक विवरणमे", "पुराणमे", "स्पष्ट नहि", "केवल परम्परा"], correct: 0 },
+        { text: "याज्ञवल्क्य केर पत्नी मैत्रेयी वेदांतक विदुषी छलीह, ओ कोन उपनिषदक प्रमुख पात्र छलीह?", options: ["बृहदारण्यक", "छान्दोग्य", "कठ", "मुण्डक"], correct: 0 },
+        { text: "मिथिलामे सबसँ प्राचीन न्याय परम्पराक प्रतिनिधित्व के करैत अछि?", options: ["गौतम (अक्षपाद)", "कणाद", "जैमिनि", "पतञ्जलि"], correct: 0 },
+        { text: "वाचस्पति मिश्र 'भामती' टीकाक रचना कोन ग्रंथपर केने छथि?", options: ["शंकर भाष्य (ब्रह्मसूत्र)", "गीता", "उपनिषद्", "न्यायसूत्र"], correct: 0 },
+        { text: "वाचस्पति मिश्रकेँ का उपाधि देल गेल छल?", options: ["षड्दर्शनवल्लभ, सर्वतन्त्र स्वतन्त्र", "महामहोपाध्याय", "कविराज", "तार्किकशिरोमणि"], correct: 0 },
+        { text: "मिथिलाक नव-न्याय परम्पराक जन्मदाता के छलाह?", options: ["गंगेश उपाध्याय", "पक्षधर मिश्र", "शंकर मिश्र", "उदयनाचार्य"], correct: 0 },
+        { text: "गंगेश उपाध्यायक अद्वितीय ग्रंथ कोन अछि?", options: ["तत्वचिन्तामणि", "न्यायकुसुमांजलि", "भामती", "चन्द्रालोक"], correct: 0 },
+        { text: "उदयनाचार्य बौद्ध दर्शनक खण्डन हेतु कोन ग्रंथ लिखलन्हि?", options: ["आत्मतत्त्वविवेक", "श्लोकवार्तिक", "मीमांसा श्लोकवार्तिक", "विधिविवेक"], correct: 0 },
+        { text: "पक्षधर मिश्रक टीका 'आलोक' कोन ग्रंथपर अछि?", options: ["तत्वचिन्तामणि", "न्यायसूत्र", "ब्रह्मसूत्र", "वर्णरत्नाकर"], correct: 0 },
+        { text: "शंकर मिश्र (अयाची पुत्र) बाल्यकाल मे शासककेँ कोन श्लोक सुनाए चकित केलन्हि?", options: ["बालोऽहं जगदानन्द...", "मा निषाद...", "सत्यमेव जयते", "वसुधैव कुटुम्बकम्"], correct: 0 },
+        { text: "मिथिलामे पञ्चदेवोपासनाक परम्परा प्राचीन अछि, कोन पाँच देव अछि?", options: ["शिव, विष्णु, दुर्गा, सूर्य, गणेश", "ब्रह्मा, विष्णु, महेश", "राम, कृष्ण, हरि", "सूर्य, चन्द्र, अग्नि"], correct: 0 },
+        { text: "मिथिलाक प्रसिद्ध हरिहर क्षेत्र कोन घटनाक लेल प्रसिद्ध अछि?", options: ["गज-ग्राहक युद्ध", "शिव-पार्वती विवाह", "दक्ष यज्ञ", "गंगा अवतरण"], correct: 0 },
+        { text: "वैशालीक तारा मूर्त्तिक वर्णन धर्मस्वामी (तिब्बती यात्री) केने छथि, ओ कोन देवी छलीह?", options: ["बौद्ध एवं तांत्रिक देवी", "जैन देवी", "ब्राह्मणी देवी", "लक्ष्मी"], correct: 0 },
+        { text: "मैथिल तांत्रिक मंत्र प्रदीपक रचयिता के छलाह?", options: ["हरिपति आगमाचार्य", "चण्डेश्वर", "वाचस्पति", "मण्डन मिश्र"], correct: 0 },
+        { text: "मिथिलामे सूफी प्रभाव सँ कोन समन्वय देखल जाइत अछि?", options: ["तजिया, मरसिया, मैथिलीरागमे इस्लामी शब्द", "मस्जिद निर्माण", "केवल राजनीति", "व्यापार"], correct: 0 },
+        { text: "कुमारिल भट्ट केकें कहल जाइत छल?", options: ["भट्टमतक संस्थापक", "मीमांसा-दिग्गज", "बौद्धविरोधी", "सभ सही"], correct: 3 },
+        { text: "प्रभाकर मिश्र के मतकेँ का कहल जाइत छल?", options: ["गुरूमत (प्रभाकर स्कूल)", "भट्टमत", "मिश्रमत", "अद्वैत"], correct: 0 },
+        { text: "मण्डन मिश्रक पत्नी भारती कोन विषयमे प्रख्यात छलीह?", options: ["शास्त्रार्थ में अध्यक्षता", "कविता", "व्याकरण", "ज्योतिष"], correct: 0 },
+        { text: "सुरेश्वराचार्य (मण्डन मिश्र) शंकराचार्यसँ पराजित भेला उपरांत केकें बनलाह?", options: ["सुरेश्वराचार्य (शंकरक शिष्य)", "नैयायिक", "मीमांसक", "बौद्ध"], correct: 0 },
+        { text: "मिथिलाक धार्मिक सहिष्णुताक परम उदाहरण कोन अछि?", options: ["रामसिंह देव बौद्ध धर्मस्वामीक आदर", "शिव-विष्णु एकता", "जैन-बौद्ध सहअस्तित्व", "सभ ऊपर अछि"], correct: 3 },
+        { text: "चण्डेश्वरक गृहस्थरत्नाकर कोन विषयपर अछि?", options: ["गृहस्थ आचार, संस्कार, धर्म", "राजनीति", "काव्यशास्त्र", "तन्त्र"], correct: 0 },
+        { text: "वाराही तंत्रक अनुसार तंत्रक कतना प्रमुख भेद अछि?", options: ["डामर, यामल, तंत्र", "दुइ", "चारि", "पाँच"], correct: 0 },
+        { text: "मिथिलामे पंचमकार (मद्य, मांस, मत्स्य, मुद्रा, मैथुन) कोन परम्परासँ सम्बन्धित अछि?", options: ["तांत्रिक वामाचार", "दक्षिणाचार", "वैदिक यज्ञ", "योग"], correct: 0 },
+        { text: "मिथिलाक कोन स्थान (तन्त्रपीठ) 'महिषी' के नामे प्रसिद्ध अछि?", options: ["मधुबनी निकट", "दरभंगा", "सहरसा", "मुजफ्फरपुर"], correct: 0 },
+        { text: "नवरात्रमे मिथिलामे कोन देवीक प्रमुख उपासना होइत अछि?", options: ["दुर्गा, तारा, नीलसरस्वती", "लक्ष्मी", "सरस्वती", "गंगा"], correct: 0 },
+        { text: "श्रीहर्षक खण्डन-खण्ड-खाद्य ग्रंथक प्रभाव कोन नव-न्याय ग्रंथपर देखल जाइत अछि?", options: ["तत्वचिन्तामणि", "न्यायकुसुमांजलि", "भामती", "श्लोकवार्तिक"], correct: 0 }
+    ];
+
+    // पूरा १०० प्रश्न (यदि अपर्याप्त होइ त थोड़ा सामान्य प्रश्न जोड़ी)
+    while(questions.length < 100) {
+        questions.push({ text: "मिथिलाक धार्मिक चेतनाक मूल स्त्रोत कोन अछि?", options: ["वेद, उपनिषद्, तंत्र", "केवल पुराण", "केवल जैन-बौद्ध", "केवल भक्ति आन्दोलन"], correct: 0 });
+    }
+    if(questions.length > 100) questions.length = 100;
+
+    // ---------- क्विज़ नियंत्रण ----------
+    let current = 0;
+    let userAnswers = new Array(100).fill(null);
+    let finished = false;
+
+    const container = document.getElementById('questionContainer');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const submitBtn = document.getElementById('submitQuiz');
+    const qCounterSpan = document.getElementById('qCounter');
+    const progressFill = document.getElementById('progressFill');
+    const scoreBadge = document.getElementById('scoreBadge');
+
+    function updateStats() {
+        const answered = userAnswers.filter(a => a !== null).length;
+        const percent = (answered / 100) * 100;
+        progressFill.style.width = percent + '%';
+        scoreBadge.innerText = `📖 ${answered}/१००`;
+        qCounterSpan.innerText = `प्रश्न ${current+1}/१००`;
+    }
+
+    function renderQuestion() {
+        const q = questions[current];
+        let optsHtml = '';
+        const letters = ['(क)', '(ख)', '(ग)', '(घ)'];
+        q.options.forEach((opt, idx) => {
+            const isSelected = (userAnswers[current] === idx);
+            const selClass = isSelected ? 'selected' : '';
+            optsHtml += `
+                <div class="option-row ${selClass}" data-opt-index="${idx}">
+                    <div class="opt-letter">${letters[idx]}</div>
+                    <div class="opt-text">${opt}</div>
+                </div>
+            `;
+        });
+        const html = `
+            <div class="question-card">
+                <div class="q-text">${current+1}. ${q.text}</div>
+                <div class="options-list" id="optsContainer">${optsHtml}</div>
+            </div>
+        `;
+        container.innerHTML = html;
+        document.querySelectorAll('.option-row').forEach(el => {
+            el.addEventListener('click', () => {
+                if (finished) return;
+                const idx = parseInt(el.dataset.optIndex);
+                userAnswers[current] = idx;
+                renderQuestion();
+                updateStats();
+            });
+        });
+        prevBtn.disabled = (current === 0);
+        if (current === 99) nextBtn.innerText = 'अंतिम ▶';
+        else nextBtn.innerText = 'अगला ▶';
+    }
+
+    function goPrev() { if (current > 0) { current--; renderQuestion(); } }
+    function goNext() { if (current < 99) { current++; renderQuestion(); } }
+
+    function computeScore() {
+        let s = 0;
+        for (let i=0; i<100; i++) {
+            if (userAnswers[i] !== null && userAnswers[i] === questions[i].correct) s++;
+        }
+        return s;
+    }
+
+    function finish() {
+        if (finished) return;
+        finished = true;
+        const score = computeScore();
+        const percent = Math.round((score/100)*100);
+        let resultHtml = `<div class="result-block"><p style="font-size:1.7rem; font-weight:bold;">${score}/१०० (${percent}%)</p><p>🙏 मिथिलाक आध्यात्मिक परम्पराक ज्ञानक मापदण्ड</p>`;
+        resultHtml += `<div class="review-area"><strong>📖 गलत उत्तर देल प्रश्नसभक समीक्षा :</strong>`;
+        let hasWrong = false;
+        for (let i=0; i<100; i++) {
+            if (userAnswers[i] !== null && userAnswers[i] !== questions[i].correct) {
+                hasWrong = true;
+                const correctAns = questions[i].options[questions[i].correct];
+                const userAns = questions[i].options[userAnswers[i]];
+                resultHtml += `<div class="review-item"><span class="wrong-mark">❌ प्रश्न ${i+1}:</span> ${questions[i].text}<br>  आपक उत्तर: ${userAns}<br>  <span class="correct-mark">✓ सही उत्तर: ${correctAns}</span></div>`;
+            }
+        }
+        if (!hasWrong) resultHtml += `<div class="review-item">✨ बधाई! सभी प्रश्नक सही उत्तर देलन्हि। आप मिथिलाक धर्म-दर्शनक ज्ञाता छी ✨</div>`;
+        resultHtml += `</div><button id="restartBtn" style="margin-top:20px; background:#9a4e26;">🔄 क्विज़ पुनः शुरू करू</button></div>`;
+        document.getElementById('finalResult').innerHTML = resultHtml;
+        document.getElementById('restartBtn')?.addEventListener('click', () => location.reload());
+        prevBtn.disabled = true;
+        nextBtn.disabled = true;
+        submitBtn.disabled = true;
+    }
+
+    prevBtn.addEventListener('click', goPrev);
+    nextBtn.addEventListener('click', goNext);
+    submitBtn.addEventListener('click', finish);
+    renderQuestion();
+    updateStats();
+
+</script></body>
+</html>

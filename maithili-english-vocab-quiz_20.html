@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मैथिली मास्टर | शब्दकोश + क्विज़ + फ्लैशकार्ड — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: linear-gradient(145deg, #e6d9c8, #cfbea8);
+min-height: 100vh;
+font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+padding: 20px;
+}
+.master-container {
+max-width: 1100px;
+margin: 0 auto;
+}
+/* header */
+.master-header {
+background: #2c3e2a;
+border-radius: 48px 48px 32px 32px;
+padding: 20px 28px;
+color: #fef0df;
+margin-bottom: 24px;
+box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+}
+.title-row {
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 12px;
+margin-bottom: 12px;
+}
+h1 {
+font-size: 1.9rem;
+display: flex;
+align-items: center;
+gap: 12px;
+}
+.stats-badge {
+background: #e2b87a;
+color: #1e2e1b;
+padding: 8px 20px;
+border-radius: 60px;
+font-weight: 700;
+}
+.upload-group {
+display: flex;
+gap: 12px;
+flex-wrap: wrap;
+align-items: center;
+font-size: 0.8rem;
+}
+.upload-btn {
+background: #5a7856;
+padding: 6px 18px;
+border-radius: 60px;
+cursor: pointer;
+transition: 0.2s;
+}
+/* tabs */
+.mode-tabs {
+display: flex;
+gap: 12px;
+background: #fffaf2;
+padding: 12px 24px;
+border-radius: 80px;
+margin-bottom: 28px;
+justify-content: center;
+flex-wrap: wrap;
+}
+.tab-btn {
+background: #e2d4c4;
+border: none;
+padding: 10px 28px;
+border-radius: 60px;
+font-weight: 600;
+cursor: pointer;
+transition: 0.2s;
+}
+.tab-btn.active {
+background: #7f5d3e;
+color: white;
+box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+/* main grid */
+.dashboard {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 24px;
+margin-bottom: 24px;
+}
+.card {
+background: #fffdf8;
+border-radius: 40px;
+padding: 24px;
+box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+.card h3 {
+color: #4a5e44;
+margin-bottom: 16px;
+font-size: 1.3rem;
+border-left: 4px solid #b48b5a;
+padding-left: 14px;
+}
+.progress-circle {
+width: 100%;
+display: flex;
+justify-content: center;
+margin: 15px 0;
+}
+.stats-grid {
+display: flex;
+justify-content: space-around;
+text-align: center;
+margin-top: 16px;
+}
+.stat-number {
+font-size: 2rem;
+font-weight: 800;
+color: #2c3e2a;
+}
+/* flashcard area */
+.flashcard-area {
+background: #fffaf2;
+border-radius: 48px;
+padding: 30px;
+text-align: center;
+margin-bottom: 28px;
+cursor: pointer;
+transition: 0.2s;
+box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.flash-word {
+font-size: 2.5rem;
+font-weight: 800;
+color: #2c3e2a;
+margin: 20px 0;
+}
+.flash-hint {
+color: #b48b5a;
+font-size: 0.9rem;
+}
+/* quiz area */
+.quiz-area {
+background: #fffdf8;
+border-radius: 40px;
+padding: 28px;
+}
+.quiz-question {
+font-size: 1.5rem;
+font-weight: 600;
+margin-bottom: 24px;
+}
+.quiz-options {
+display: flex;
+flex-direction: column;
+gap: 12px;
+margin: 20px 0;
+}
+.quiz-opt {
+background: white;
+border: 1px solid #e2cfbc;
+border-radius: 80px;
+padding: 14px 20px;
+cursor: pointer;
+transition: 0.1s;
+}
+.quiz-opt:hover {
+background: #fff0e2;
+}
+.quiz-feedback {
+background: #efe6dc;
+border-radius: 40px;
+padding: 12px;
+margin: 15px 0;
+text-align: center;
+}
+.btn-group {
+display: flex;
+gap: 15px;
+margin-top: 20px;
+}
+.primary-btn {
+background: #6f8f6b;
+border: none;
+flex: 1;
+padding: 12px;
+border-radius: 60px;
+font-weight: bold;
+color: white;
+cursor: pointer;
+}
+.secondary-btn {
+background: #c1a074;
+border: none;
+flex: 1;
+padding: 12px;
+border-radius: 60px;
+font-weight: bold;
+cursor: pointer;
+}
+@media (max-width: 750px) {
+.dashboard {
+grid-template-columns: 1fr;
+}
+.flash-word { font-size: 1.8rem; }
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="master-container"> <div class="master-header"> <div class="title-row"> <div class="stats-badge">📊 अध्ययन प्रगति</div> </div> <div class="upload-group"> <span class="upload-btn" id="masterUploadBtn">📂 अपन Excel अपलोड करू</span> <input type="file" id="masterExcel" accept=".xlsx, .xls" style="display: none;"> <span id="dataStatus">📘 नमूना डेटा सक्रिय</span> </div> </div> <div class="mode-tabs"> <button class="tab-btn active" data-mode="flashcard">🃏 फ्लैशकार्ड</button> <button class="tab-btn" data-mode="quiz">📝 क्विज़ (बहुविकल्पी)</button> </div> <div class="dashboard"> <div class="card"> <div class="progress-circle"> <svg width="120" height="120" viewBox="0 0 120 120"> <circle cx="60" cy="60" r="52" fill="none" stroke="#e2d4c2" stroke-width="10"/> <circle id="progressCircle" cx="60" cy="60" r="52" fill="none" stroke="#b48b5a" stroke-width="10" stroke-linecap="round" stroke-dasharray="327" stroke-dashoffset="327"/> </svg> </div> <div class="stats-grid"> <div><div class="stat-number" id="masteredCount">0</div><div>निपुण</div></div> <div><div class="stat-number" id="learningCount">0</div><div>सीखल</div></div> <div><div class="stat-number" id="totalWordsCount">0</div><div>कुल शब्द</div></div> </div> </div> <div class="card"> <div style="margin-top: 20px;"> <div id="achievementMsg" style="background:#efe6dc; padding:20px; border-radius:32px; text-align:center;">
+🌟 कोनो शब्द सीखू आ स्ट्रीक बनाउ
+</div> </div> </div> </div> <div id="dynamicPanel"></div>
+</div>
+<script>
+
+</script><script>
+
+    // ---------- DATA MODEL ----------
+    let dictionary = [];           // [{ english, maithili1, pos }]
+    let wordMastery = new Map();   // key: wordId (index), value: mastery level 0=learning, 1=mastered
+    let currentMode = "flashcard";
+    let currentCardIndex = 0;
+    let cardFlipped = false;
+    let quizQuestions = [];
+    let quizIndex = 0;
+    let quizScore = 0;
+    let quizAnswered = false;
+
+    // DOM elements
+    const dynamicPanel = document.getElementById("dynamicPanel");
+    const masteredSpan = document.getElementById("masteredCount");
+    const learningSpan = document.getElementById("learningCount");
+    const totalWordsSpan = document.getElementById("totalWordsCount");
+    const progressCircle = document.getElementById("progressCircle");
+    const achievementMsg = document.getElementById("achievementMsg");
+    const uploadBtn = document.getElementById("masterUploadBtn");
+    const excelInput = document.getElementById("masterExcel");
+    const dataStatusSpan = document.getElementById("dataStatus");
+    const tabBtns = document.querySelectorAll(".tab-btn");
+
+    // ---------- SAMPLE DATA (rich) ----------
+    const SAMPLE_WORDS = [
+        { english: "abandon", maithili1: "छोड़ब / त्याग करब", pos: "v." },
+        { english: "able", maithili1: "समर्थ", pos: "adj." },
+        { english: "beautiful", maithili1: "सुन्दर", pos: "adj." },
+        { english: "begin", maithili1: "शुरू करब", pos: "v." },
+        { english: "big", maithili1: "बड़का", pos: "adj." },
+        { english: "brave", maithili1: "वीर", pos: "adj." },
+        { english: "bright", maithili1: "चमकीला", pos: "adj." },
+        { english: "broad", maithili1: "चौड़ा", pos: "adj." },
+        { english: "busy", maithili1: "व्यस्त", pos: "adj." },
+        { english: "calm", maithili1: "शान्त", pos: "a." },
+        { english: "cheap", maithili1: "सस्ता", pos: "adj." },
+        { english: "cold", maithili1: "ठंडा", pos: "a." },
+        { english: "courage", maithili1: "साहस", pos: "n." },
+        { english: "deep", maithili1: "गहरा", pos: "adj." },
+        { english: "easy", maithili1: "आसान", pos: "adj." },
+        { english: "enemy", maithili1: "दुश्मन", pos: "n." },
+        { english: "forget", maithili1: "भूलब", pos: "v." },
+        { english: "generous", maithili1: "उदार", pos: "adj." },
+        { english: "happy", maithili1: "खुश", pos: "adj." },
+        { english: "humble", maithili1: "विनम्र", pos: "adj." }
+    ];
+
+    // Helper: update mastery stats & progress ring
+    function updateMasteryUI() {
+        const total = dictionary.length;
+        let mastered = 0;
+        for (let i = 0; i < total; i++) {
+            if (wordMastery.get(i) === 1) mastered++;
+        }
+        const learning = total - mastered;
+        masteredSpan.innerText = mastered;
+        learningSpan.innerText = learning;
+        totalWordsSpan.innerText = total;
+        const percent = total ? (mastered / total) * 100 : 0;
+        const circumference = 2 * Math.PI * 52;
+        const offset = circumference - (percent / 100) * circumference;
+        progressCircle.style.strokeDasharray = circumference;
+        progressCircle.style.strokeDashoffset = offset;
+        if (mastered === total && total > 0) {
+            achievementMsg.innerHTML = "🎉 शानदार! सब शब्द निपुण। 🎉";
+        } else if (mastered > total * 0.7) {
+            achievementMsg.innerHTML = "🔥 बहुत बढ़िया! 70% से अधिक निपुण।";
+        } else if (mastered > total * 0.3) {
+            achievementMsg.innerHTML = "📈 अच्छा प्रयास! और अभ्यास करू।";
+        } else {
+            achievementMsg.innerHTML = "🌟 नया शब्द सीखे लेल फ्लैशकार्ड घुमाउ।";
+        }
+    }
+
+    // mark current word as mastered (or toggle)
+    function markCurrentWordAsMastered(index) {
+        if (wordMastery.get(index) !== 1) {
+            wordMastery.set(index, 1);
+            updateMasteryUI();
+            showTemporaryMessage("✅ निपुण! शब्द सीखल गेल।", 1200);
+        }
+    }
+
+    function showTemporaryMessage(msg, duration = 1500) {
+        const oldMsg = achievementMsg.innerHTML;
+        achievementMsg.innerHTML = msg;
+        setTimeout(() => {
+            if (achievementMsg.innerHTML === msg) {
+                const mastered = Array.from(wordMastery.values()).filter(v => v === 1).length;
+                const total = dictionary.length;
+                if (mastered === total && total > 0) achievementMsg.innerHTML = "🎉 शानदार! सब शब्द निपुण। 🎉";
+                else if (mastered > total * 0.7) achievementMsg.innerHTML = "🔥 बहुत बढ़िया! 70% से अधिक निपुण।";
+                else if (mastered > total * 0.3) achievementMsg.innerHTML = "📈 अच्छा प्रयास! और अभ्यास करू।";
+                else achievementMsg.innerHTML = "🌟 नया शब्द सीखे लेल फ्लैशकार्ड घुमाउ।";
+            }
+        }, duration);
+    }
+
+    // ----- FLASHCARD MODE -----
+    function renderFlashcard() {
+        if (!dictionary.length) {
+            dynamicPanel.innerHTML = `<div class="flashcard-area"><div class="flash-word">कोनो डेटा नहि अछि</div><div>कृपया Excel फाइल अपलोड करू</div></div>`;
+            return;
+        }
+        const word = dictionary[currentCardIndex];
+        const displayWord = word.english;
+        const translation = word.maithili1;
+        const pos = word.pos || '';
+        const isMastered = wordMastery.get(currentCardIndex) === 1;
+        dynamicPanel.innerHTML = `
+            <div class="flashcard-area" id="flashcardZone">
+                <div class="flash-word" id="flashWord">${cardFlipped ? translation : displayWord}</div>
+                <div class="flash-hint" id="flashHint">${cardFlipped ? `(${pos})` : '💡 क्लिक करू ↔️ अर्थ देखू'}</div>
+                <div style="margin-top: 20px;">
+                    <button id="prevCardBtn" class="secondary-btn" style="margin-right:10px;">◀ पिछला</button>
+                    <button id="nextCardBtn" class="secondary-btn">अगला ▶</button>
+                </div>
+                <div style="margin-top: 20px;">
+                    <button id="masterBtn" class="primary-btn" style="background:#7f5d3e;">✨ निपुण चिन्हित करू</button>
+                </div>
+                <div id="cardFeedback" style="margin-top: 15px; font-size:0.85rem;"></div>
+            </div>
+        `;
+        const cardDiv = document.getElementById("flashcardZone");
+        cardDiv.addEventListener("click", (e) => {
+            if (e.target.id !== "prevCardBtn" && e.target.id !== "nextCardBtn" && e.target.id !== "masterBtn") {
+                cardFlipped = !cardFlipped;
+                renderFlashcard();
+            }
+        });
+        document.getElementById("prevCardBtn").addEventListener("click", (e) => {
+            e.stopPropagation();
+            if (dictionary.length) {
+                currentCardIndex = (currentCardIndex - 1 + dictionary.length) % dictionary.length;
+                cardFlipped = false;
+                renderFlashcard();
+            }
+        });
+        document.getElementById("nextCardBtn").addEventListener("click", (e) => {
+            e.stopPropagation();
+            if (dictionary.length) {
+                currentCardIndex = (currentCardIndex + 1) % dictionary.length;
+                cardFlipped = false;
+                renderFlashcard();
+            }
+        });
+        document.getElementById("masterBtn").addEventListener("click", (e) => {
+            e.stopPropagation();
+            markCurrentWordAsMastered(currentCardIndex);
+            const msgDiv = document.getElementById("cardFeedback");
+            msgDiv.innerText = "✓ निपुण चिन्हित कएल गेल। अगला शब्द देखू।";
+            setTimeout(() => { msgDiv.innerText = ""; }, 1500);
+        });
+    }
+
+    // ----- QUIZ MODE (multiple choice, 5 questions, random) -----
+    function generateQuizQuestions() {
+        if (!dictionary.length) return [];
+        const shuffled = [...dictionary];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        const selected = shuffled.slice(0, Math.min(8, dictionary.length));
+        const questions = [];
+        for (let item of selected) {
+            const correct = item.maithili1;
+            let distractorPool = dictionary.filter(d => d.maithili1 !== correct).map(d => d.maithili1);
+            distractorPool = [...new Set(distractorPool)];
+            let distractors = [];
+            while (distractors.length < 3 && distractorPool.length) {
+                let d = distractorPool.shift();
+                distractors.push(d);
+            }
+            while (distractors.length < 3) distractors.push(correct);
+            let options = [correct, ...distractors];
+            for (let i = options.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [options[i], options[j]] = [options[j], options[i]];
+            }
+            questions.push({
+                word: item.english,
+                correct: correct,
+                options: options,
+                pos: item.pos || ''
+            });
+        }
+        return questions;
+    }
+
+    function renderQuiz() {
+        if (!dictionary.length) {
+            dynamicPanel.innerHTML = `<div class="quiz-area"><div class="quiz-question">कोनो डेटा नहि अछि</div><div>Excel अपलोड करू</div></div>`;
+            return;
+        }
+        if (quizQuestions.length === 0 || quizIndex >= quizQuestions.length) {
+            // show result or generate new
+            if (quizQuestions.length && quizIndex >= quizQuestions.length) {
+                dynamicPanel.innerHTML = `
+                    <div class="quiz-area">
+                        <div class="quiz-question">🎉 क्विज़ समाप्त!</div>
+                        <div>आपक स्कोर: ${quizScore}/${quizQuestions.length}</div>
+                        <div class="btn-group">
+                            <button id="restartQuizBtn" class="primary-btn">🔄 फिनु क्विज़</button>
+                            <button id="newQuizBtn" class="secondary-btn">🎲 नया सेट</button>
+                        </div>
+                    </div>
+                `;
+                document.getElementById("restartQuizBtn")?.addEventListener("click", () => {
+                    quizIndex = 0;
+                    quizScore = 0;
+                    quizQuestions = generateQuizQuestions();
+                    quizAnswered = false;
+                    renderQuiz();
+                });
+                document.getElementById("newQuizBtn")?.addEventListener("click", () => {
+                    quizQuestions = generateQuizQuestions();
+                    quizIndex = 0;
+                    quizScore = 0;
+                    quizAnswered = false;
+                    renderQuiz();
+                });
+                return;
+            }
+            // generate fresh
+            quizQuestions = generateQuizQuestions();
+            quizIndex = 0;
+            quizScore = 0;
+            quizAnswered = false;
+        }
+        const q = quizQuestions[quizIndex];
+        const optionsHtml = q.options.map((opt, idx) => `<div class="quiz-opt" data-opt="${escapeHtml(opt)}">${String.fromCharCode(65+idx)}. ${escapeHtml(opt)}</div>`).join('');
+        dynamicPanel.innerHTML = `
+            <div class="quiz-area">
+                <div class="quiz-question">“${escapeHtml(q.word)}” (${q.pos}) केर मैथिली अनुवाद की अछि?</div>
+                <div class="quiz-options" id="quizOptsContainer">${optionsHtml}</div>
+                <div id="quizFeedback" class="quiz-feedback" style="display: none;"></div>
+                <div class="btn-group">
+                    <button id="submitQuizBtn" class="primary-btn">✅ उत्तर दिये</button>
+                    <button id="skipQuizBtn" class="secondary-btn">⏭ छोड़ी</button>
+                </div>
+            </div>
+        `;
+        // attach option listeners
+        document.querySelectorAll(".quiz-opt").forEach(opt => {
+            opt.addEventListener("click", () => {
+                document.querySelectorAll(".quiz-opt").forEach(o => o.style.background = "white");
+                opt.style.background = "#fce5cd";
+                opt.setAttribute("data-selected", "true");
+            });
+        });
+        document.getElementById("submitQuizBtn").addEventListener("click", () => {
+            if (quizAnswered) return;
+            const selected = document.querySelector(".quiz-opt[data-selected='true']");
+            if (!selected) {
+                const fb = document.getElementById("quizFeedback");
+                fb.style.display = "block";
+                fb.innerHTML = "⚠️ कृपया कोनो विकल्प चुनू।";
+                return;
+            }
+            const userAnswer = selected.getAttribute("data-opt");
+            const isCorrect = (userAnswer === q.correct);
+            quizAnswered = true;
+            const fb = document.getElementById("quizFeedback");
+            fb.style.display = "block";
+            if (isCorrect) {
+                quizScore++;
+                fb.innerHTML = "✅ सही! +1 अंक";
+                fb.style.background = "#e0f0dc";
+                // mark word as learned if not already? optional but adds motivation
+                const wordIndex = dictionary.findIndex(w => w.english === q.word);
+                if (wordIndex !== -1 && wordMastery.get(wordIndex) !== 1) {
+                    wordMastery.set(wordIndex, 1);
+                    updateMasteryUI();
+                    showTemporaryMessage("✨ शब्द निपुण भेल!", 1000);
+                }
+            } else {
+                fb.innerHTML = `❌ गलत। सही उत्तर: "${escapeHtml(q.correct)}"`;
+                fb.style.background = "#ffe0e0";
+            }
+            document.querySelectorAll(".quiz-opt").forEach(o => o.style.pointerEvents = "none");
+            document.getElementById("submitQuizBtn").disabled = true;
+            document.getElementById("skipQuizBtn").disabled = true;
+            setTimeout(() => {
+                quizIndex++;
+                quizAnswered = false;
+                renderQuiz();
+            }, 1500);
+        });
+        document.getElementById("skipQuizBtn").addEventListener("click", () => {
+            if (quizAnswered) return;
+            quizAnswered = true;
+            const fb = document.getElementById("quizFeedback");
+            fb.style.display = "block";
+            fb.innerHTML = `⏩ छोड़ल गेल। सही उत्तर: "${escapeHtml(q.correct)}"`;
+            fb.style.background = "#f9efde";
+            document.querySelectorAll(".quiz-opt").forEach(o => o.style.pointerEvents = "none");
+            document.getElementById("submitQuizBtn").disabled = true;
+            document.getElementById("skipQuizBtn").disabled = true;
+            setTimeout(() => {
+                quizIndex++;
+                quizAnswered = false;
+                renderQuiz();
+            }, 1200);
+        });
+    }
+
+    // helper escape
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        });
+    }
+
+    // ----- Excel parsing -----
+    function parseExcelToDict(buffer) {
+        const wb = XLSX.read(buffer, { type: 'array' });
+        const sheet = wb.Sheets[wb.SheetNames[0]];
+        const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
+        if (!rows || rows.length < 2) return [];
+        const header = rows[0].map(c => String(c || "").trim().toLowerCase());
+        const engIdx = header.findIndex(h => h.includes("english word"));
+        const maiIdx = header.findIndex(h => h.includes("maithili meaning 1"));
+        const posIdx = header.findIndex(h => h.includes("pos"));
+        if (engIdx === -1 || maiIdx === -1) return [];
+        const dict = [];
+        for (let i = 1; i < rows.length; i++) {
+            const row = rows[i];
+            if (!row || !row[engIdx]) continue;
+            const eng = String(row[engIdx]).trim();
+            const mai = String(row[maiIdx]).trim();
+            if (eng && mai) {
+                dict.push({
+                    english: eng,
+                    maithili1: mai,
+                    pos: posIdx !== -1 ? String(row[posIdx] || "").trim() : ""
+                });
+            }
+        }
+        return dict;
+    }
+
+    function loadExcelAndReset(file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const parsed = parseExcelToDict(e.target.result);
+            if (parsed.length === 0) {
+                alert("Excel पार्स नहि भेल। नमूना डेटा लोड होत।");
+                setSampleData();
+            } else {
+                dictionary = parsed;
+                dataStatusSpan.innerText = `📁 ${file.name} (${dictionary.length})`;
+                resetApp();
+            }
+        };
+        reader.readAsArrayBuffer(file);
+    }
+
+    function setSampleData() {
+        dictionary = [...SAMPLE_WORDS];
+        dataStatusSpan.innerText = "📘 नमूना डेटा";
+        resetApp();
+    }
+
+    function resetApp() {
+        // reset mastery map
+        wordMastery.clear();
+        for (let i = 0; i < dictionary.length; i++) {
+            wordMastery.set(i, 0);
+        }
+        currentCardIndex = 0;
+        cardFlipped = false;
+        quizQuestions = [];
+        quizIndex = 0;
+        quizScore = 0;
+        quizAnswered = false;
+        updateMasteryUI();
+        if (currentMode === "flashcard") renderFlashcard();
+        else renderQuiz();
+    }
+
+    function switchMode(mode) {
+        currentMode = mode;
+        tabBtns.forEach(btn => {
+            if (btn.getAttribute("data-mode") === mode) btn.classList.add("active");
+            else btn.classList.remove("active");
+        });
+        if (mode === "flashcard") {
+            cardFlipped = false;
+            renderFlashcard();
+        } else {
+            quizQuestions = generateQuizQuestions();
+            quizIndex = 0;
+            quizScore = 0;
+            quizAnswered = false;
+            renderQuiz();
+        }
+    }
+
+    // event binding
+    function init() {
+        setSampleData();
+        uploadBtn.addEventListener("click", () => excelInput.click());
+        excelInput.addEventListener("change", (e) => {
+            if (e.target.files && e.target.files[0]) loadExcelAndReset(e.target.files[0]);
+        });
+        tabBtns.forEach(btn => {
+            btn.addEventListener("click", () => switchMode(btn.getAttribute("data-mode")));
+        });
+    }
+
+    init();
+
+</script></body>
+</html>

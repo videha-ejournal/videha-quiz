@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मिथिला इतिहास : खण्डवला वंश परीक्षा | Khandavala Dynasty Quiz — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: linear-gradient(145deg, #f8f1e0 0%, #f3e9d2 100%);
+font-family: 'Segoe UI', 'Poppins', 'Noto Sans', system-ui, -apple-system, 'Maitree', serif;
+padding: 2rem 1rem;
+color: #2e241f;
+}
+.quiz-container {
+max-width: 950px;
+margin: 0 auto;
+background: #fffef7;
+border-radius: 2.5rem;
+box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 6px 12px rgba(0, 0, 0, 0.05);
+overflow: hidden;
+padding: 1.8rem 2rem 2.5rem;
+transition: all 0.2s;
+}
+h1 {
+font-size: 1.9rem;
+font-weight: 700;
+background: linear-gradient(135deg, #b4511b, #7a2e0a);
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+text-align: center;
+margin-bottom: 0.5rem;
+letter-spacing: -0.3px;
+}
+.subhead {
+text-align: center;
+font-size: 1rem;
+color: #7b5a3c;
+border-bottom: 2px solid #f0e2cc;
+display: inline-block;
+width: auto;
+margin: 0 auto 1.8rem auto;
+padding-bottom: 0.5rem;
+font-weight: 500;
+}
+.title-decoration {
+text-align: center;
+}
+.question-card {
+background: #fefaf2;
+border-radius: 1.8rem;
+padding: 1.4rem 1.8rem;
+margin-bottom: 1.6rem;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+border: 1px solid #f0e2cf;
+transition: all 0.2s;
+}
+.question-text {
+font-size: 1.25rem;
+font-weight: 600;
+margin-bottom: 1.2rem;
+color: #4a2c1a;
+line-height: 1.4;
+padding-right: 0.5rem;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.75rem;
+margin-left: 0.5rem;
+}
+.option {
+display: flex;
+align-items: center;
+gap: 0.8rem;
+cursor: pointer;
+font-size: 1rem;
+padding: 0.5rem 0.8rem;
+border-radius: 3rem;
+background: #ffffff;
+transition: background 0.2s, transform 0.05s;
+border: 1px solid #e9dccf;
+}
+.option:hover {
+background: #f9efdf;
+border-color: #d9b48b;
+}
+input[type="radio"] {
+accent-color: #b85c1a;
+width: 1.2rem;
+height: 1.2rem;
+cursor: pointer;
+}
+.option label {
+flex: 1;
+cursor: pointer;
+font-weight: 450;
+color: #3e2a1d;
+}
+.button-group {
+display: flex;
+justify-content: center;
+gap: 1.5rem;
+margin: 2rem 0 1.5rem;
+flex-wrap: wrap;
+}
+button {
+background: #8b4513;
+border: none;
+padding: 0.85rem 2rem;
+font-size: 1.1rem;
+font-weight: 600;
+border-radius: 3rem;
+color: white;
+cursor: pointer;
+transition: all 0.2s;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+font-family: inherit;
+}
+button:hover {
+background: #a55118;
+transform: translateY(-2px);
+box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+#resetBtn {
+background: #6c4a2e;
+}
+#resetBtn:hover {
+background: #5a3b22;
+}
+.score-area {
+background: #e7dcc8;
+border-radius: 3rem;
+padding: 0.8rem 1.5rem;
+text-align: center;
+margin-top: 1rem;
+font-weight: bold;
+font-size: 1.3rem;
+color: #4a2a12;
+}
+.feedback {
+text-align: center;
+margin-top: 1.2rem;
+font-size: 1rem;
+font-weight: 500;
+color: #2d5e2c;
+}
+footer {
+text-align: center;
+margin-top: 2rem;
+font-size: 0.8rem;
+color: #a78663;
+}
+@media (max-width: 680px) {
+.quiz-container {
+padding: 1.2rem;
+}
+.question-card {
+padding: 1rem;
+}
+.question-text {
+font-size: 1.05rem;
+}
+.option label {
+font-size: 0.9rem;
+}
+button {
+padding: 0.6rem 1.3rem;
+font-size: 1rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="quiz-container"> <div class="title-decoration"> <div class="subhead">⚡ मिथिलाक गौरवमय राजवंश · दरभंगा राज्यक कथा</div> </div> <div id="quizApp"> <div id="questionsContainer"></div> <div class="button-group"> <button id="submitBtn">✅ उत्तर जाँच करू</button> <button id="resetBtn">🔄 पुनः प्रयास करू</button> </div> <div id="scoreDisplay" class="score-area"></div> <div id="feedbackMsg" class="feedback"></div> </div> <footer class="vq-footer">© सम्पादक, videha.co.in</footer>
+</div>
+<script>
+
+</script><script>
+
+    // ------------------------------------------------------------
+    // प्रश्नावली – खण्डवला वंश (अध्याय ९) पर आधारित 15 MCQ
+    // ------------------------------------------------------------
+    const questions = [
+        {
+            text: "खण्डवला वंशक संस्थापक कोन छलाह?",
+            options: ["गोपाल ठाकुर", "महेश ठाकुर", "शुभंकर ठाकुर", "नरपति ठाकुर"],
+            correct: 1  // महेश ठाकुर (index 1)
+        },
+        {
+            text: "महेश ठाकुरकेँ मिथिलाक राज्य के सँ प्राप्त भेल छल?",
+            options: ["शेरशाह सूरी", "मुगल सम्राट अकबर", "औरंगजेब", "जहाँगीर"],
+            correct: 1
+        },
+        {
+            text: "खण्डवला वंश द्वारा चलाओल गेल प्रसिद्ध परीक्षा पद्धति कोन छल?",
+            options: ["षडयंत्र परीक्षा", "शलाका परीक्षा", "धौत परीक्षा", "अग्नि परीक्षा"],
+            correct: 2
+        },
+        {
+            text: "'राहू पराग पंजी' नामक ग्रंथक रचना काल कोन व्यक्ति केने छल?",
+            options: ["हेमांगद ठाकुर", "गोपाल ठाकुर", "महिनाथ ठाकुर", "राघव सिंह"],
+            correct: 0
+        },
+        {
+            text: "कोन शासक स्थायी रूपें दरभंगाकेँ अपन राजधानी बनौलन्हि?",
+            options: ["प्रताप सिंह", "माधव सिंह", "नरेन्द्र सिंह", "रामेश्वर सिंह"],
+            correct: 1
+        },
+        {
+            text: "नरेन्द्र सिंहक प्रसिद्ध युद्ध कोन छल, जे बलान नदीक तटपर भेल छल?",
+            options: ["बक्सरक लड़ाइ", "कन्दर्पी घाटक लड़ाइ", "पलासीक युद्ध", "सुगौलीक संधि"],
+            correct: 1
+        },
+        {
+            text: "महिनाथ ठाकुरक दरबारमे कोन प्रसिद्ध संगीतज्ञ आ कवि छलाह?",
+            options: ["विद्यापति", "लोचन", "चन्दा झा", "जयदेव"],
+            correct: 1
+        },
+        {
+            text: "राघव सिंह 'ठाकुर'क स्थानपर कोन पदवी धारण केलन्हि?",
+            options: ["राय", "मल्ल", "सिंह", "देव"],
+            correct: 2
+        },
+        {
+            text: "नरपति ठाकुर कोन परगन्नाकेँ लूटि मकवानी राजाक विरुद्ध अभियान चलौलन्हि?",
+            options: ["भौर", "सरैसा", "फरकिया", "हरावत"],
+            correct: 2
+        },
+        {
+            text: "दरभंगा राजकेँ 'महाराज बहादुर' क पदवी कोन शासककेँ भेटल छल? (नेपाल युद्धक समय सहायता हेतु)",
+            options: ["रुद्र सिंह", "छत्रसिंह", "महेश्वर सिंह", "लक्ष्मीश्वर सिंह"],
+            correct: 1
+        },
+        {
+            text: "कोन महाराज के कालमे सिपाही विद्रोह (१८५७) भेल छल आ ओ अंग्रेजकेँ सहायता केने छलाह?",
+            options: ["महेश्वर सिंह", "रामेश्वर सिंह", "कामेश्वर सिंह", "माधव सिंह"],
+            correct: 0
+        },
+        {
+            text: "खण्डवला वंशक अंतिम शासक के छथि जिनक मृत्यु १९६२मे भेलन्हि आ ओ संतानहीन छलाह?",
+            options: ["रामेश्वर सिंह", "कामेश्वर सिंह", "लक्ष्मीश्वर सिंह", "विशेश्वर सिंह"],
+            correct: 1
+        },
+        {
+            text: "महेश ठाकुरक अनुवाद कएल गेल अकबरनामाक संस्कृत संस्करणक नाम कोन छल?",
+            options: ["राजतरंगिणी", "सर्वदेश वृत्तांत संग्रह", "अकबर विजय", "मिथिला महात्म्य"],
+            correct: 1
+        },
+        {
+            text: "शुभंकर ठाकुरक बाद हुनक पुत्र कोन शासक भेलाह, जे धोखासँ मारल गेलाह?",
+            options: ["नारायण ठाकुर", "पुरूषोत्तम ठाकुर", "सुन्दर ठाकुर", "महिनाथ ठाकुर"],
+            correct: 1
+        },
+        {
+            text: "कोन शासकक शासनकालमे दरभंगामे 'लेडी डफरिन अस्पताल' आ राज स्कूलक स्थापना भेल?",
+            options: ["रामेश्वर सिंह", "लक्ष्मीश्वर सिंह", "कामेश्वर सिंह", "प्रताप सिंह"],
+            correct: 1
+        }
+    ];
+
+    // ---------- DOM elements ----------
+    let questionsContainer = document.getElementById("questionsContainer");
+    let submitBtn = document.getElementById("submitBtn");
+    let resetBtn = document.getElementById("resetBtn");
+    let scoreDisplay = document.getElementById("scoreDisplay");
+    let feedbackMsg = document.getElementById("feedbackMsg");
+
+    // store selected answers (array of selected indices, -1 = not selected)
+    let userSelections = new Array(questions.length).fill(-1);
+
+    // render all questions
+    function renderQuiz() {
+        if (!questionsContainer) return;
+        let html = "";
+        questions.forEach((q, idx) => {
+            let qNumber = idx + 1;
+            html += `<div class="question-card" data-qidx="${idx}">
+                        <div class="question-text">${qNumber}. ${q.text}</div>
+                        <div class="options">`;
+            q.options.forEach((opt, optIdx) => {
+                let isChecked = (userSelections[idx] === optIdx);
+                let checkedAttr = isChecked ? 'checked' : '';
+                html += `<div class="option" data-qidx="${idx}" data-optidx="${optIdx}">
+                            <input type="radio" name="q${idx}" id="q${idx}_opt${optIdx}" value="${optIdx}" ${checkedAttr}>
+                            <label for="q${idx}_opt${optIdx}">${opt}</label>
+                        </div>`;
+            });
+            html += `</div></div>`;
+        });
+        questionsContainer.innerHTML = html;
+
+        // attach event listeners to each option div for better UX
+        document.querySelectorAll('.option').forEach(optDiv => {
+            const radio = optDiv.querySelector('input[type="radio"]');
+            if (radio) {
+                radio.addEventListener('change', (e) => {
+                    e.stopPropagation();
+                    const qIdx = parseInt(optDiv.dataset.qidx);
+                    const optIdx = parseInt(optDiv.dataset.optidx);
+                    if (!isNaN(qIdx) && !isNaN(optIdx) && radio.checked) {
+                        userSelections[qIdx] = optIdx;
+                    }
+                });
+            }
+            // click on div also triggers radio
+            optDiv.addEventListener('click', (e) => {
+                const radioInput = optDiv.querySelector('input[type="radio"]');
+                if (radioInput && !radioInput.checked) {
+                    radioInput.checked = true;
+                    const qIdx = parseInt(optDiv.dataset.qidx);
+                    const optIdx = parseInt(optDiv.dataset.optidx);
+                    if (!isNaN(qIdx) && !isNaN(optIdx)) {
+                        userSelections[qIdx] = optIdx;
+                        // trigger change event for consistency
+                        const changeEvent = new Event('change', { bubbles: true });
+                        radioInput.dispatchEvent(changeEvent);
+                    }
+                }
+            });
+        });
+    }
+
+    // calculate score and show result with correct/wrong feedback (optional highlight)
+    function checkAnswers() {
+        let score = 0;
+        let resultsHtml = "";
+        for (let i = 0; i < questions.length; i++) {
+            const selected = userSelections[i];
+            const correctIdx = questions[i].correct;
+            const isCorrect = (selected === correctIdx);
+            if (isCorrect) score++;
+            // build per-question status for feedback modal? Instead we show total score with message.
+        }
+        // display score
+        scoreDisplay.innerHTML = `✨ आपक स्कोर : ${score} / ${questions.length} ✨`;
+        if (score === questions.length) {
+            feedbackMsg.innerHTML = "🎉 उत्तम ! आप खण्डवला वंशक विशेषज्ञ छी । 🎉";
+            feedbackMsg.style.color = "#1f6d2b";
+        } else if (score >= 11) {
+            feedbackMsg.innerHTML = "📚 बहुत नीक ! थोड़क अध्ययन आवश्यक, मुदा आप इतिहासप्रेमी छी ।";
+            feedbackMsg.style.color = "#b45f1b";
+        } else if (score >= 7) {
+            feedbackMsg.innerHTML = "📖 ठीक अछि, पुनः प्रयास करू आ अधिक जानकारी जमा करू ।";
+            feedbackMsg.style.color = "#b45f1b";
+        } else {
+            feedbackMsg.innerHTML = "📜 पुनः प्रयास करू, खण्डवला वंशक इतिहास रोचक अछि, अध्ययन करू ।";
+            feedbackMsg.style.color = "#a1311b";
+        }
+        // highlight correct count and give subtle remark
+        // additional: scroll to score
+        scoreDisplay.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    // reset all selections and clear feedback, re-render
+    function resetQuiz() {
+        userSelections.fill(-1);
+        renderQuiz();
+        scoreDisplay.innerHTML = "📌 उत्तर चुनू आ 'उत्तर जाँच करू' पर क्लिक करू ।";
+        feedbackMsg.innerHTML = "";
+        feedbackMsg.style.color = "#2d5e2c";
+    }
+
+    // Initial render
+    renderQuiz();
+    scoreDisplay.innerHTML = "📌 उत्तर चुनू आ 'उत्तर जाँच करू' पर क्लिक करू ।";
+
+    // Event listeners
+    if (submitBtn) submitBtn.addEventListener("click", checkAnswers);
+    if (resetBtn) resetBtn.addEventListener("click", resetQuiz);
+
+    // optional: update userSelections if any radio already pre-selected (but initial all -1)
+    function syncSelectionsFromDOM() {
+        for (let i = 0; i < questions.length; i++) {
+            const selectedRadio = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selectedRadio) {
+                const val = parseInt(selectedRadio.value);
+                if (!isNaN(val)) userSelections[i] = val;
+            } else {
+                userSelections[i] = -1;
+            }
+        }
+    }
+    // sync before submit
+    if (submitBtn) {
+        submitBtn.addEventListener("click", () => {
+            syncSelectionsFromDOM();
+            checkAnswers();
+        });
+    }
+    // sync on reset also already reset
+    window.syncSelectionsFromDOM = syncSelectionsFromDOM;
+    // ensure live sync when radio changes via manual (already event)
+
+</script></body>
+</html>

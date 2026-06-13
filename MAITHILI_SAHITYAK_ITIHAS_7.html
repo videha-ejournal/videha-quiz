@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मैथिली साहित्यक इतिहास – अध्याय ७ : नवीन काव्यधारा (बहुविकल्पीय प्रश्नोत्तरी) — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #f3efdf;
+font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Mukta', 'Poppins', sans-serif;
+padding: 25px 20px;
+color: #2c2418;
+}
+.quiz-container {
+max-width: 1200px;
+margin: 0 auto;
+background: #fffffb;
+border-radius: 56px;
+box-shadow: 0 25px 40px -12px rgba(0,0,0,0.25);
+padding: 25px 30px 45px;
+border: 1px solid #ecdcaa;
+}
+h1 {
+text-align: center;
+color: #963c24;
+font-size: 1.9rem;
+background: #fff3e6;
+display: inline-block;
+width: auto;
+margin: 0 auto 10px;
+padding: 8px 25px;
+border-radius: 60px;
+border-bottom: 3px solid #dc9c4a;
+}
+.subhead {
+text-align: center;
+background: #fbf2e1;
+padding: 8px 20px;
+border-radius: 40px;
+margin-bottom: 25px;
+color: #6b4c2a;
+font-weight: 500;
+}
+.score-panel {
+background: #2a6d52;
+color: #fff2cf;
+border-radius: 50px;
+padding: 12px 24px;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: baseline;
+gap: 12px;
+margin-bottom: 30px;
+font-weight: bold;
+}
+.score-badge {
+background: #f2a155;
+padding: 6px 18px;
+border-radius: 40px;
+color: #251f15;
+}
+.question-card {
+background: white;
+border-radius: 32px;
+margin-bottom: 28px;
+padding: 18px 24px;
+box-shadow: 0 6px 12px rgba(0,0,0,0.04);
+border: 1px solid #ecdbaa;
+}
+.q-text {
+font-size: 1.2rem;
+font-weight: 700;
+background: #fff2e2;
+padding: 10px 18px;
+border-radius: 50px;
+margin-bottom: 18px;
+color: #2e402f;
+}
+.opts-list {
+display: flex;
+flex-direction: column;
+gap: 10px;
+margin-left: 12px;
+}
+.opt-item {
+display: flex;
+align-items: center;
+gap: 14px;
+background: #fefaf4;
+padding: 6px 16px;
+border-radius: 40px;
+cursor: pointer;
+transition: 0.1s;
+}
+.opt-item:hover {
+background: #f7ecd9;
+}
+input[type="radio"] {
+width: 18px;
+height: 18px;
+accent-color: #b6492c;
+cursor: pointer;
+}
+.feedback {
+margin-top: 14px;
+padding: 6px 18px;
+border-radius: 32px;
+font-size: 0.9rem;
+display: inline-block;
+}
+.fb-correct {
+background: #e4f3e2;
+color: #197a3c;
+border-left: 5px solid #2b8b49;
+}
+.fb-wrong {
+background: #ffe2db;
+color: #bd462b;
+border-left: 5px solid #c94424;
+}
+button {
+background: #9b412b;
+border: none;
+color: white;
+padding: 12px 30px;
+font-size: 1.1rem;
+border-radius: 50px;
+font-weight: bold;
+cursor: pointer;
+font-family: inherit;
+transition: 0.2s;
+margin: 6px 8px;
+}
+button:hover {
+background: #7a2f1d;
+transform: scale(0.98);
+}
+.reset-btn {
+background: #5c5542;
+}
+.btn-group {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 20px;
+margin-top: 25px;
+}
+.footer {
+text-align: center;
+font-size: 0.8rem;
+margin-top: 35px;
+color: #be9468;
+}
+@media (max-width: 650px) {
+.quiz-container {
+padding: 15px;
+}
+.q-text {
+font-size: 1rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="quiz-container"> <div style="text-align: center;"> <div class="subhead">सप्तम प्रकरण – आधुनिक मैथिली कविताक प्रवृत्ति, प्रगतिवाद, प्रयोगवाद आर नवीन गीत-काव्य</div> </div> <div class="score-panel"> <span>📖 कुल प्रश्न : <span id="totalQ">0</span></span> <span>✅ सही उत्तर : <span id="scoreCount">0</span></span> <span class="score-badge" id="percentBox">0%</span> </div> <div id="questionsArea"></div> <div class="btn-group"> <button id="submitBtn">⚡ उत्तर जाँचू (Submit)</button> <button id="resetBtn" class="reset-btn">🔄 पुनः आरम्भ करू</button> </div> <div class="vq-footer">© सम्पादक, videha.co.in</div>
+</div>
+<script>
+
+</script><script>
+
+    // ---------- अध्याय ७ (नवीन काव्यधारा) पर ५२ प्रश्न ----------
+    const questions = [
+        { text: "मैथिली साहित्यमे नवीन गीतकाव्यक आरम्भ कोन दशकक आसपास मानल जाइत अछि ?", options: ["१९१०", "१९२५", "१९३५", "१९५०"], correct: 1 },
+        { text: "नवीन गीतकाव्यक प्रवर्तक मुख्य कवि कोन छलाह ?", options: ["भुवनजी (मुख्येश्वर सिंह 'भुवन')", "चन्द्राझा", "प्रो. ईशनाथ झा", "यात्रीजी"], correct: 0 },
+        { text: "भुवनजीक प्रथम कविता-संग्रह कोन अछि ?", options: ["आषाढ़ (१९३६)", "स्मृति", "विरहिणी व्रजान", "शिवा"], correct: 0 },
+        { text: "भुवनजी के समय मैथिली कवितामे नवीन प्रवृत्तिक प्रमुख लक्षण छल ?", options: ["आत्मानुभूतिपूर्ण रागात्मकता", "प्राचीन शैलीक अनुसरण", "केवल हास्य", "दार्शनिक कविता"], correct: 0 },
+        { text: "‘यात्रीजी’ (श्रीनिवास झा) के कोन कविता-संग्रह साहित्य अकादेमी पुरस्कृत अछि ?", options: ["शिवा (१९४९)", "परशीर नगन माही", "कवि स्वयं", "माला"], correct: 0 },
+        { text: "नवीन गीत-काव्यमे प्रगतिवादी दृष्टिकोणक प्रवर्तक मुख्य कवि कोन छथि ?", options: ["यात्रीजी", "प्रो. ईशनाथ झा", "सुमनजी", "भुवनजी"], correct: 0 },
+        { text: "प्रो. ईशनाथ झा के प्रकाशित कविता-संग्रह कोन अछि ?", options: ["माला", "अर्घ", "स्वर्ण रेखा", "पूजाक फूल"], correct: 0 },
+        { text: "सुमनजी (सुरेन्द्र झा) के साहित्य अकादमी पुरस्कृत कविता-संग्रह कोन अछि ?", options: ["परश्यामी (१९६९)", "शिवा", "परशीर नगन माही", "किरण कवितावली"], correct: 0 },
+        { text: "नवीन काव्यधारा मे ‘प्रयोगवाद’ कविताक श्रीगणेश कोन सँ मानल जाइत अछि ?", options: ["राजकमलक ‘स्वरगन्धा’ (१९५८) सँ", "चन्द्राझाक रामायण सँ", "गोविन्ददास सँ", "विद्यापति सँ"], correct: 0 },
+        { text: "नवीन गीत-काव्यक कवितामे प्रमुखता केकर दिहल गेल ?", options: ["व्यक्तिगत अनुभूति आ लयात्मकता", "सामूहिक जागरण", "पौराणिक कथा", "ऐतिहासिक घटना"], correct: 0 },
+        { text: "प्रगतिवादी मैथिली कविताक मुख्य विषय कोन रहल ?", options: ["सामाजिक विषमता, देश-दशा, शोषण", "प्रकृति सौन्दर्य", "प्रेम-विलास", "भक्ति-रस"], correct: 0 },
+        { text: "भुवनजी के ‘आषाढ़’ कविता-संग्रहक भूमिका मे कोन प्रवृत्तिक घोषणा केनए छल ?", options: ["नवीन प्रवाह, हृदयक व्यथा", "प्राचीन शैलीक पालन", "संस्कृत शब्दावली", "ग्राम्य गीत"], correct: 0 },
+        { text: "यात्रीजी के प्रसिद्ध प्रगतिवादी कविता कोन अछि ?", options: ["‘कवि स्वयं’ (१९४१)", "माला", "शिवा", "बुद्ध वर्ष"], correct: 0 },
+        { text: "नवीन काव्यधारामे ‘सुमनजी’ के शिल्पक विशेषता कोन अछि ?", options: ["आरोप-प्रत्यारोप, नवीन उक्ति, बिम्ब-विधान", "सरल लोकगीत", "शुद्ध गीति-काव्य", "केवल हास्य"], correct: 0 },
+        { text: "प्रो. ईशनाथ झा के कवितामे कोन पक्ष प्रबल अछि ?", options: ["संस्कृतानिष्ठता, अलंकारप्रियता, गम्भीरता", "लोकभाषा", "व्यंग्य", "नारी-शिक्षा"], correct: 0 },
+        { text: "नवीन गीत-काव्यक अन्तर्गत ‘आरसीप्रसाद सिंह’ के प्रथम संग्रह कोन अछि ?", options: ["शेगालिका", "पूजाक फूल", "सूर्यमुखी", "किमति"], correct: 0 },
+        { text: "‘सूर्यमुखी’ (आरसीप्रसाद सिंह) के कोन पुरस्कार प्राप्त भेल ?", options: ["साहित्य अकादेमी पुरस्कार (१९८४)", "मैथिली संस्थान पुरस्कार", "उपेन्द्र ठाकुर पुरस्कार", "कोनो नहि"], correct: 0 },
+        { text: "उपेन्द्रठाकुर ‘मोहन’ के पुरस्कृत कविता-संग्रह कोन अछि ?", options: ["बाजि उठल मुरली (१९७७)", "फुलझारी", "हितश्री", "प्रतीक"], correct: 0 },
+        { text: "नवीन काव्यधारा मे ‘गजल’ विधाक प्रवर्तक मुख्य रूपसँ कोन अछि ?", options: ["विमूहत आनन्द (‘ठठा रहल घोष तिहिर’)", "कलानन्द झा", "रामभरोस कापड़ी", "नरेन्द्र"], correct: 0 },
+        { text: "नवीनतम प्रयोगवादी मैथिली कविताक उदाहरण अछि – ‘नव्योत्तिष’ धाराक प्रतिनिधि कवि कोन ?", options: ["डा. कुलानन्द झा ‘प्रवासी’", "डा. बुद्धिनाथ झा ‘भास्कर’", "शेखरजी", "गोविन्दजी"], correct: 0 },
+        { text: "नवीन गीत-काव्यक प्रवृत्ति ‘प्रकृतिक अप्रस्तुत-प्रशंसा’ मे कोन कवि अग्रण्य छल ?", options: ["प्रो. ईशनाथ झा", "यात्रीजी", "सुमनजी", "आरसीप्रसाद"], correct: 0 },
+        { text: "मैथिली कवितामे हास्य-व्यंग्यक प्रमुख प्रवर्तक कोन छलाह ?", options: ["प्रो. हरिगोहन झा ‘हँसी’", "भुवनजी", "अमरजी", "मधुरजी"], correct: 0 },
+        { text: "‘किरणजी’ (केदारनाथ झा) के प्रसिद्ध कविता-संग्रह कोन अछि ?", options: ["किरण कवितावली", "केतक दिनक बाद", "मधुपर्क", "रात्रि-शेष"], correct: 0 },
+        { text: "नवीन काव्यधारा मे ‘प्रगीत’ के लेल कोन कवि ‘प्रकृति-गीति’ हेतु प्रसिद्ध भेल ?", options: ["गोविन्दजी", "मायानन्द मिश्र", "शेखरजी", "बहेडजी"], correct: 0 },
+        { text: "सुमनजी के नाटक-साहित्य सेहो अछि, मुदा कविताक दृष्टिसँ हुनक कोन सङ्ग्रह साहित्य अकादमी पुरस्कृत भेल ?", options: ["परश्यामी", "अर्घ", "शिवा", "माला"], correct: 0 },
+        { text: "प्रो. रमानाथ झा के अनुसार मैथिलीमे ‘प्रगतिवाद’ कविताक प्रथम घोषणा यात्रीजी कोन कवितामे केनए छल ?", options: ["‘कवि स्वयं’ (१९४१)", "शिवा", "आषाढ़", "अर्घ"], correct: 0 },
+        { text: "‘रमाकरजी’ (रामकृष्ण सिंह) के कविता मुख्यतः कोन रस प्रधान अछि ?", options: ["दार्शनिक आ चिन्तनपरक", "शृंगार", "हास्य", "वीर"], correct: 0 },
+        { text: "नवीन काव्यधारा अन्तर्गत ‘शेखरजी’ (शेखर चौधरी) के कोन कविता-संग्रह प्रसिद्ध अछि ?", options: ["स्वरगन्धा", "आलोक", "नक्षत्र", "रजनी"], correct: 0 },
+        { text: "मैथिली कविता मे ‘जनवादी’ स्वर के सशक्त कवि कोन छथि ?", options: ["यात्रीजी", "मोहनजी", "प्रभासकुमार चौधरी", "अमरजी"], correct: 0 },
+        { text: "प्रो. तन्ननाथ झा (प्रो. तन्ननाथ झा) के प्रसिद्ध महाकाव्य ‘कीचकवध’ कोन विषय पर अछि ?", options: ["महाभारतक प्रसंग", "रामायण", "बौद्ध कथा", "ऐतिहासिक"], correct: 0 },
+        { text: "नवीन गीत-काव्यक दूसर उत्थान १९५० के बाद मे ‘मिहिर’ पत्रिकाक प्रकाशन सँ भेल, एकर सम्पादक कोन छलाह ?", options: ["प्रो. रमानाथ झा", "शेखरजी", "सुमनजी", "अमरजी"], correct: 0 },
+        { text: "नवीन काव्यधारा मे ‘प्रयोगवाद’ के उत्कर्ष काल कोन शताब्दीक सातम दशकमे भेल ?", options: ["१९६०-७०", "१९५०-६०", "१९४०-५०", "१९७०-८०"], correct: 0 },
+        { text: "नवीन काव्यधाराक कवि ‘व्यासजी’ (उपेन्द्रनाथ झा) के प्रसिद्ध कविता-संग्रह कोन अछि ?", options: ["‘प्रतीक’, ‘गीता’ अनुवाद आ ‘आमि धर्मक रहल अहि’", "बाजि उठल मुरली", "स्वरगन्धा", "परशीर"], correct: 0 },
+        { text: "गोविन्दजी (गोविन्द झा) के कविता-संग्रह ‘आत्मनेपद’ (१९७२) क प्रवृत्ति कोन अछि ?", options: ["आत्मनिष्ठ भावुक गीति-काव्य", "प्रगतिवादी", "हास्य-व्यंग्य", "दार्शनिक"], correct: 0 },
+        { text: "नवीन काव्यधारा मे ‘नव्योत्तिष’ प्रयोगवादी कविताक विशेषता छी ?", options: ["बिम्ब, प्रतीक, अमूर्त अभिव्यक्ति", "कथा-प्रधानता", "छन्दबद्धता", "रागानुगति"], correct: 0 },
+        { text: "‘अमरजी’ (कृष्णानन्द सिंह) के प्रसिद्ध हास्य-व्यंग्य कविता-संग्रह कोन अछि ?", options: ["‘मृदुगुर्फी’, ‘सुगबश्व’", "माला", "आषाढ़", "शिवा"], correct: 0 },
+        { text: "नवीन काव्यधारा मे ‘विद्यापति शैली’ के आधुनिक निर्वाह कोन कवि करैत छलाह ?", options: ["प्रो. ईशनाथ झा", "यात्रीजी", "सुमनजी", "भुवनजी"], correct: 0 },
+        { text: "मैथिली कविता मे ‘अंग्रेजी प्रभावित प्रगीत’ सर्वप्रथम कोन रचनाकार छलाह ?", options: ["भुवनजी", "यात्रीजी", "सुमनजी", "प्रो. ईशनाथ झा"], correct: 0 },
+        { text: "‘राजकमल’ चौधरी के प्रसिद्ध कविता-संग्रह कोन अछि ?", options: ["‘स्वरमध्या’, ‘स्वरगन्धा’", "माला", "किरण कवितावली", "प्रतीक"], correct: 0 },
+        { text: "नवीन काव्यधारा मे स्त्री कविक प्रवेश कोनक द्वारा भेल ?", options: ["श्रीमती कमला चौधरी, श्रीमती ज्योत्स्ना आनन्द", "सुमित्रा कुमारी", "श्यामा देवी", "नूतन देवी"], correct: 0 },
+        { text: "मैथिली कविता मे गजल विधाक लेल डा. बिमूहत आनन्द के अलावा कोनक संग्रह ‘अबान्तर’ अछि ?", options: ["डा. कलानन्द झा", "श्यामानन्द सिंह", "हरिजी", "रामदयाल राकेश"], correct: 0 },
+        { text: "प्रो. हरिगोहन झा के कविता ‘टीपाटी’, ‘ढालाझा’ मुख्यतः कोन श्रेणीमे आबैत अछि ?", options: ["हास्य-व्यंग्य (व्यंग्य कविता)", "भक्ति", "शृंगार", "वीर"], correct: 0 },
+        { text: "नवीन काव्यधारा मे ‘बहेडजी’ (राधाकृष्ण झा) के कविताक विशेषता कोन अछि ?", options: ["वातावरणिक सजीवता, लोकभाषा", "संस्कृत निष्ठा", "पाण्डित्यपूर्ण शैली", "दीर्घ महाकाव्य"], correct: 0 },
+        { text: "नवीन काव्यधाराक कवि ‘मधुरजी’ (मधुरानन्द चौधरी) के कविता ‘राधा-विरह’ के प्रकृति कोन अछि ?", options: ["महाकाव्य (शृंगारपरक)", "खण्डकाव्य", "गीति-काव्य", "हास्य-रस"], correct: 0 },
+        { text: "प्रसिद्ध कवि ‘यात्रीजी’ के पुरस्कृत रचना ‘शिवा’ के प्रकाशन वर्ष अछि ?", options: ["१३५७ साल (१९४९ ई.)", "१९३६", "१९४४", "१९५२"], correct: 0 },
+        { text: "नवीन काव्यधाराक एक प्रमुख प्रवृत्ति ‘प्रयोगवाद’ के बारे मे लेखक (दुर्गानाथ झा) का कहल अछि ?", options: ["प्रयोगक हेतु सिद्धान्त, किन्तु जन-जीवन सँ दूर", "अत्यधिक लोकप्रिय", "प्राचीन शैलीक पुनरुद्धार", "भक्ति परक"], correct: 0 },
+        { text: "मैथिली कविताक नवीनतम धारा ‘हाइकु’, ‘सॉनेट’ प्रभृति के प्रयोग कोन कवि केलनि ?", options: ["डा. कुलानन्द झा ‘प्रवासी’, श्रीकान्त छठ", "भुवनजी", "प्रो. ईशनाथ झा", "सुमनजी"], correct: 0 },
+        { text: "लेखक अनुसार सन् १९२५-३० के बाद मैथिली आधुनिक काव्यधारा दुई श्रेणीमे बाँटल जा सकैत अछि – प्रगीत-काव्य आ ?", options: ["न्यतम प्रयोगवादी काव्य", "महाकाव्य", "नाट्य-काव्य", "लोक-गीत"], correct: 0 },
+        { text: "प्रगीत-काव्यक प्रमुख कवि लोकनिमे कोन गणना नहि होइत ?", options: ["चन्द्राझा", "भुवनजी", "यात्रीजी", "प्रो. ईशनाथ झा"], correct: 0 },
+        { text: "नवीन काव्यधारा अन्तर्गत ‘कवि तारानन्द तरुण’ के केर प्रसिद्धि अछि ?", options: ["गजल आ आधुनिक प्रयोग", "प्राचीन गीति", "शिव भक्ति", "वीर रस"], correct: 0 },
+        { text: "मैथिली कवितामे ‘अकविता’ (महल स्तोन) प्रयोग कोन कालमे देखल गेल ?", options: ["प्रयोगवादी कविता प्रवृत्ति (१९५८ के बाद)", "विद्यापति काल", "भक्ति काल", "प्राचीन गीत परम्परा"], correct: 0 },
+        { text: "नवीन काव्यधाराक प्रथम सशक्त गीत-संग्रह ‘आषाढ़’ (१९३६) के रचियता कोन छथि ?", options: ["भुवनजी", "यात्रीजी", "सुमनजी", "प्रो. ईशनाथ झा"], correct: 0 },
+        { text: "प्रो. ईशनाथ झा के ‘कीचकवध’ महाकाव्य के अलावा हुनकर दोसर महाकाव्य कोन अछि ?", options: ["कृष्णचरित (१९७४-७५)", "एकावलीपरिणय", "सुभद्राहरण", "रुक्मिणी परिणय"], correct: 0 }
+    ];
+
+    const totalQ = questions.length;
+    let userSelections = new Array(totalQ).fill(null);
+    let submitted = false;
+
+    const container = document.getElementById('questionsArea');
+    const totalSpan = document.getElementById('totalQ');
+    const scoreSpan = document.getElementById('scoreCount');
+    const percentSpan = document.getElementById('percentBox');
+
+    function renderQuiz() {
+        container.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.dataset.qid = idx;
+            const qDiv = document.createElement('div');
+            qDiv.className = 'q-text';
+            qDiv.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qDiv);
+            const optsDiv = document.createElement('div');
+            optsDiv.className = 'opts-list';
+            q.options.forEach((opt, optIdx) => {
+                const label = document.createElement('label');
+                label.className = 'opt-item';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${idx}`;
+                radio.value = optIdx;
+                radio.disabled = submitted;
+                if (userSelections[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    if (!submitted) {
+                        userSelections[idx] = parseInt(e.target.value);
+                        updateStats();
+                        showFeedback(idx, card);
+                    }
+                });
+                const span = document.createElement('span');
+                span.innerText = `${String.fromCharCode(65+optIdx)}. ${opt}`;
+                label.appendChild(radio);
+                label.appendChild(span);
+                optsDiv.appendChild(label);
+            });
+            card.appendChild(optsDiv);
+            const fbDiv = document.createElement('div');
+            fbDiv.className = 'feedback';
+            fbDiv.id = `fb_${idx}`;
+            card.appendChild(fbDiv);
+            container.appendChild(card);
+            if (submitted) showFeedback(idx, card);
+        });
+        totalSpan.innerText = totalQ;
+        updateStats();
+    }
+
+    function showFeedback(qid, cardDiv) {
+        const fbDiv = cardDiv.querySelector('.feedback');
+        const selected = userSelections[qid];
+        const correctIdx = questions[qid].correct;
+        if (selected === null) {
+            fbDiv.innerHTML = '';
+            fbDiv.className = 'feedback';
+            return;
+        }
+        if (selected === correctIdx) {
+            fbDiv.innerHTML = '✅ सही उत्तर।';
+            fbDiv.className = 'feedback fb-correct';
+        } else {
+            const correctLetter = String.fromCharCode(65+correctIdx);
+            fbDiv.innerHTML = `❌ अशुद्ध। सही उत्तर : ${correctLetter}. ${questions[qid].options[correctIdx]}`;
+            fbDiv.className = 'feedback fb-wrong';
+        }
+    }
+
+    function updateStats() {
+        let correct = 0;
+        for (let i=0; i<totalQ; i++) {
+            if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correct++;
+        }
+        if (!submitted) {
+            scoreSpan.innerText = `${correct}/${totalQ}`;
+            let perc = Math.round((correct/totalQ)*100);
+            percentSpan.innerText = `${perc}% (उत्तर चुनल)`;
+        } else {
+            scoreSpan.innerText = `${correct}/${totalQ}`;
+            let perc = Math.round((correct/totalQ)*100);
+            percentSpan.innerText = `${perc}% ${perc>=60 ? '🎉 नवीन रसिक' : '📖 नवीन काव्य पढू'}`;
+        }
+    }
+
+    function evaluateAll() {
+        if (submitted) {
+            alert("पहिने जाँच होइ चुकल अछि। पुनः आरम्भ कए नव उत्तर दी।");
+            return;
+        }
+        let unanswered = [];
+        for (let i=0; i<totalQ; i++) if (userSelections[i] === null) unanswered.push(i+1);
+        if (unanswered.length > 0) {
+            if (!confirm(`⚠️ ${unanswered.length} प्रश्न अनुत्तरित अछि (जेना प्र. ${unanswered.slice(0,12).join(',')}...). जाँच करब तौ?`)) return;
+        }
+        submitted = true;
+        const allRadios = document.querySelectorAll('input[type="radio"]');
+        allRadios.forEach(radio => radio.disabled = true);
+        let finalCorrect = 0;
+        for (let i=0; i<totalQ; i++) {
+            const card = document.querySelector(`.question-card[data-qid='${i}']`);
+            if (card) showFeedback(i, card);
+            if (userSelections[i] !== null && userSelections[i] === questions[i].correct) finalCorrect++;
+        }
+        scoreSpan.innerText = `${finalCorrect}/${totalQ}`;
+        let perc = Math.round((finalCorrect/totalQ)*100);
+        percentSpan.innerText = `${perc}% ${perc>=60 ? '🏆 आधुनिक कविताक ज्ञाता' : '📚 पुनरावलोकन जरूरी'}`;
+    }
+
+    function resetQuiz() {
+        submitted = false;
+        userSelections = new Array(totalQ).fill(null);
+        const radios = document.querySelectorAll('input[type="radio"]');
+        radios.forEach(r => { r.checked = false; r.disabled = false; });
+        renderQuiz();
+    }
+
+    document.getElementById('submitBtn').addEventListener('click', evaluateAll);
+    document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+    renderQuiz();
+
+</script></body>
+</html>

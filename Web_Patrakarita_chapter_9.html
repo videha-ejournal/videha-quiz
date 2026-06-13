@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>मैथिली वेब पत्रकारिता - अध्याय ९ क्विज़ (नाटक, फिल्म एवं संगीत)</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: linear-gradient(145deg, #f0ede3 0%, #e2d9c8 100%);
+font-family: 'Segoe UI', 'Nirmala UI', 'Mukta', 'Noto Sans Devanagari', 'Poppins', system-ui, sans-serif;
+padding: 30px 20px;
+color: #2c2b28;
+}
+.quiz-container {
+max-width: 950px;
+margin: 0 auto;
+background-color: #fffef7;
+border-radius: 48px;
+box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.35);
+overflow: hidden;
+padding: 2rem 2rem 2.5rem;
+border: 1px solid #ecd9b0;
+}
+h1 {
+font-size: 1.9rem;
+color: #9b2e1b;
+border-left: 8px solid #c06a3e;
+padding-left: 1.2rem;
+margin-bottom: 0.5rem;
+font-weight: 700;
+}
+.sub {
+font-size: 1rem;
+color: #7e5a41;
+margin-bottom: 2rem;
+border-bottom: 2px dashed #eedcb3;
+padding-bottom: 0.9rem;
+padding-left: 1.5rem;
+}
+.book-chapter {
+background: #f3e5cf;
+display: inline-block;
+padding: 0.3rem 1rem;
+border-radius: 40px;
+font-size: 0.8rem;
+font-weight: 600;
+color: #a1512a;
+margin-bottom: 1rem;
+}
+.question-card {
+background: #ffffff;
+border-radius: 28px;
+padding: 1.5rem 1.8rem;
+margin-bottom: 1.7rem;
+box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
+border: 1px solid #f0e2c2;
+transition: 0.2s;
+}
+.question-text {
+font-size: 1.3rem;
+font-weight: 600;
+color: #3b2a21;
+line-height: 1.4;
+margin-bottom: 1.2rem;
+display: flex;
+align-items: baseline;
+gap: 10px;
+flex-wrap: wrap;
+}
+.q-num {
+background: #e8cfa6;
+padding: 0.2rem 0.8rem;
+border-radius: 60px;
+font-size: 0.85rem;
+font-weight: bold;
+color: #4b2f1d;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.75rem;
+margin-left: 0.5rem;
+}
+.option {
+display: flex;
+align-items: flex-start;
+gap: 12px;
+cursor: pointer;
+padding: 0.5rem 0.8rem;
+border-radius: 60px;
+transition: background 0.2s;
+font-size: 1rem;
+}
+.option:hover {
+background: #faf2e4;
+}
+input[type="radio"] {
+accent-color: #c06a3e;
+width: 18px;
+height: 18px;
+margin-top: 3px;
+flex-shrink: 0;
+}
+label {
+font-weight: 500;
+color: #2f2a24;
+line-height: 1.4;
+cursor: pointer;
+width: 100%;
+}
+.btn-submit {
+background: #9b2e1b;
+border: none;
+padding: 14px 30px;
+font-size: 1.2rem;
+font-weight: bold;
+color: white;
+border-radius: 50px;
+width: 100%;
+cursor: pointer;
+transition: 0.2s;
+margin-top: 1rem;
+font-family: inherit;
+box-shadow: 0 5px 10px rgba(155, 46, 27, 0.3);
+}
+.btn-submit:hover {
+background: #7e2b1a;
+transform: scale(0.98);
+}
+.result-area {
+margin-top: 2rem;
+background: #ede3cf;
+border-radius: 32px;
+padding: 1.3rem 1.8rem;
+text-align: center;
+font-size: 1.2rem;
+font-weight: bold;
+color: #3d2a1b;
+}
+.feedback {
+margin-top: 20px;
+background: #fff2e2;
+border-radius: 24px;
+padding: 1rem 1.5rem;
+font-size: 0.95rem;
+color: #5f3e2c;
+border-left: 5px solid #c06a3e;
+}
+footer {
+text-align: center;
+font-size: 0.75rem;
+margin-top: 2rem;
+color: #866e50;
+}
+@media (max-width: 650px) {
+.quiz-container { padding: 1.2rem; }
+.question-card { padding: 1rem; }
+.question-text { font-size: 1.1rem; }
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <div class="book-chapter">🎭 अध्याय ९ : नाटक, फिल्म एवं संगीत (मैथिली वेब पत्रकारिता)</div> <h1>🎬 मैथिली सिनेमा, गीत-संगीत आ नाट्य उत्सव क्विज़</h1> <div class="sub">📍 पोथी “मैथिली वेब पत्रकारिताक इतिहास” के अध्याय ९ (पृष्ठ ८४-८७) पर आधारित। जानू पहिल गीत-संगीत ब्लाग, फिल्म पोर्टल, नाट्य उत्सव आ Music Streaming सेवा केर विवरण।</div> <form id="quizForm"> <div class="question-card"> <div class="question-text"><span class="q-num">प्रश्न १</span> “मैथिली लोक गीत” (maithilivideos.blogspot.com) नामक ब्लाग केर संचालक कोन छलाह ?</div> <div class="options"> <div class="option"><input type="radio" name="q1" value="A" id="q1_a"><label for="q1_a">(क) राजीव रंजन लाल</label></div> <div class="option"><input type="radio" name="q1" value="B" id="q1_b"><label for="q1_b">(ख) गजेन्द्र ठाकुर</label></div> <div class="option"><input type="radio" name="q1" value="C" id="q1_c"><label for="q1_c">(ग) रोशन चौधरी</label></div> <div class="option"><input type="radio" name="q1" value="D" id="q1_d"><label for="q1_d">(घ) आशीष अनचिन्हार</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">प्रश्न २</span> “मैथिली सांगस हब” (Maithili Songs Hub) ब्लागपर अंतिम पोस्ट कोन वर्ष आएल छल ?</div> <div class="options"> <div class="option"><input type="radio" name="q2" value="A" id="q2_a"><label for="q2_a">(क) २०१३</label></div> <div class="option"><input type="radio" name="q2" value="B" id="q2_b"><label for="q2_b">(ख) २०१४</label></div> <div class="option"><input type="radio" name="q2" value="C" id="q2_c"><label for="q2_c">(ग) २०१५</label></div> <div class="option"><input type="radio" name="q2" value="D" id="q2_d"><label for="q2_d">(घ) २०१६</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">प्रश्न ३</span> “मैथिली फिल्म्स” (maithilifilms.blogspot.com) ब्लाग केर संस्थापक कोन छथि ?</div> <div class="options"> <div class="option"><input type="radio" name="q3" value="A" id="q3_a"><label for="q3_a">(क) भाष्कर झा</label></div> <div class="option"><input type="radio" name="q3" value="B" id="q3_b"><label for="q3_b">(ख) आशीष अनचिन्हार</label></div> <div class="option"><input type="radio" name="q3" value="C" id="q3_c"><label for="q3_c">(ग) प्रकाश झा</label></div> <div class="option"><input type="radio" name="q3" value="D" id="q3_d"><label for="q3_d">(घ) राजीव रंजन लाल</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">प्रश्न ४</span> “विदेह मैथिली नाट्य उत्सव” ब्लाग कोन मास (वर्ष २०११) मे शुरू भेल छल ?</div> <div class="options"> <div class="option"><input type="radio" name="q4" value="A" id="q4_a"><label for="q4_a">(क) जनवरी</label></div> <div class="option"><input type="radio" name="q4" value="B" id="q4_b"><label for="q4_b">(ख) जून</label></div> <div class="option"><input type="radio" name="q4" value="C" id="q4_c"><label for="q4_c">(ग) अगस्त</label></div> <div class="option"><input type="radio" name="q4" value="D" id="q4_d"><label for="q4_d">(घ) दिसम्बर</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">प्रश्न ५</span> “मैथिली सिनेमा” ब्लागक संचालक भाष्कर झा कोन भ्रम फैलैत छलाह ?</div> <div class="options"> <div class="option"><input type="radio" name="q5" value="A" id="q5_a"><label for="q5_a">(क) हमर ब्लाग सभसँ पुरान गजल ब्लाग अछि</label></div> <div class="option"><input type="radio" name="q5" value="B" id="q5_b"><label for="q5_b">(ख) हमर ब्लाग मैथिली फिल्म-संगीतक पहिल पोर्टल अछि</label></div> <div class="option"><input type="radio" name="q5" value="C" id="q5_c"><label for="q5_c">(ग) हमर ब्लाग पर पहिल बेर गीत डाउनलोड सुविधा अछि</label></div> <div class="option"><input type="radio" name="q5" value="D" id="q5_d"><label for="q5_d">(घ) हमर ब्लाग एकमात्र नाटक समर्पित अछि</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">प्रश्न ६</span> मैथिलीक पहिल Music Streaming साइट “Music Maithili” (वेब आ एप दूनू) कोन तिथिकें शुरू भेल छल ?</div> <div class="options"> <div class="option"><input type="radio" name="q6" value="A" id="q6_a"><label for="q6_a">(क) ३ मई २०२१</label></div> <div class="option"><input type="radio" name="q6" value="B" id="q6_b"><label for="q6_b">(ख) ३ मई २०२२</label></div> <div class="option"><input type="radio" name="q6" value="C" id="q6_c"><label for="q6_c">(ग) ३ जून २०२२</label></div> <div class="option"><input type="radio" name="q6" value="D" id="q6_d"><label for="q6_d">(घ) ३ मई २०२३</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">प्रश्न ७</span> “मैथिली लोक गीत” ब्लागक पहिल (आ अंतिम) पोस्ट कोन वर्ष भेल छल ?</div> <div class="options"> <div class="option"><input type="radio" name="q7" value="A" id="q7_a"><label for="q7_a">(क) २००५</label></div> <div class="option"><input type="radio" name="q7" value="B" id="q7_b"><label for="q7_b">(ख) २००६</label></div> <div class="option"><input type="radio" name="q7" value="C" id="q7_c"><label for="q7_c">(ग) २००७</label></div> <div class="option"><input type="radio" name="q7" value="D" id="q7_d"><label for="q7_d">(घ) २००८</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">प्रश्न ८</span> २००८ मे शुरू भेल http://maithili.tv/ साइट केर वर्तमान स्थिति की अछि (लेखक अनुसार) ?</div> <div class="options"> <div class="option"><input type="radio" name="q8" value="A" id="q8_a"><label for="q8_a">(क) सक्रिय अछि</label></div> <div class="option"><input type="radio" name="q8" value="B" id="q8_b"><label for="q8_b">(ख) बंद अछि, सामग्री अज्ञात</label></div> <div class="option"><input type="radio" name="q8" value="C" id="q8_c"><label for="q8_c">(ग) मैथिली टी.भी. सेहो Music Streaming दे छै</label></div> <div class="option"><input type="radio" name="q8" value="D" id="q8_d"><label for="q8_d">(घ) ई नेपाली भाषामे परिवर्तित भेल</label></div> </div> </div> </form> <button type="button" class="btn-submit" id="submitQuiz">🎭 उत्तर जाँचू | परिणाम देखू</button> <div id="resultDisplay" class="result-area" style="display: none;"></div> <div id="feedbackArea" class="feedback" style="display: none;"></div> </div>
+<script>
+    // सही उत्तर (अध्याय ९ के अनुसार)
+    const correctAnswers = {
+        q1: "A",   // राजीव रंजन लाल
+        q2: "C",   // 2015
+        q3: "B",   // आशीष अनचिन्हार
+        q4: "C",   // अगस्त
+        q5: "B",   // हमर ब्लाग मैथिली फिल्म-संगीतक पहिल पोर्टल अछि
+        q6: "B",   // ३ मई २०२२
+        q7: "C",   // 2007
+        q8: "B"    // बंद अछि, सामग्री अज्ञात
+    };
+
+    // व्याख्या मैथिलीमे (अध्याय ९ सन्दर्भ)
+    const explanations = {
+        q1: "✅ पृष्ठ ८४: 'मैथिली लोक गीत- http://maithilivideos.blogspot.com/2007/ - ई ब्लाग राजीव रंजन लाल ई द्वारा संचालित छल'",
+        q2: "✅ पृष्ठ ८४: 'मैथिली सांगस हब ... एहि ब्लागपर अंतिम पोस्ट अगस्त २०१५ केर अछि।'",
+        q3: "✅ पृष्ठ ८५: 'मैथिली फिल्म्स (http://maithilifilms.blogspot.com/) - ई ब्लाग हमरा द्वारा जून २०११मे शुरू भेल छल' (हमरा = आशीष अनचिन्हार)",
+        q4: "✅ पृष्ठ ८५: 'विदेह मैथिली नाट्य उत्सव (http://maithili-drama.blogspot.com/)-- ई ब्लाग अगस्त २०११मे शुरू भेल'",
+        q5: "✅ पृष्ठ ८५-८६: 'भाष्कर झा एकरा "First Portal of Maithili Films, Artists, Songs, Music..." मानै छथि। मुदा उपरमे हम सभ देखि चुकल छी जे मैथिली गीत-संगीत अधारित ब्लाग २००७ मे बनि चुकल अछि। तँइ ई दावा इतिहासकँ झूठ करबाक एकटा साजिश अछि।'",
+        q6: "✅ पृष्ठ ८७: 'Music Maithili मैथिलीक पहिल Music Streaming अछि जे कि वेब आ एप दूनू रूपमे ३ मइ २०२२ सँ उपलब्ध अछि।'",
+        q7: "✅ पृष्ठ ८४: 'मैथिली लोक गीत ... जकर पहिल आ अंतिम पोस्ट रवि, २५ मार्च २००७ के भेल।'",
+        q8: "✅ पृष्ठ ८७: '२००८ मे http://maithili.tv/ नामक साइट छल मुदा ओ आब बंद अछि तँइ एकर सामग्री की छल से अज्ञात अछि।'"
+    };
+
+    const submitBtn = document.getElementById('submitQuiz');
+    const resultDiv = document.getElementById('resultDisplay');
+    const feedbackDiv = document.getElementById('feedbackArea');
+
+    submitBtn.addEventListener('click', function() {
+        let userAnswers = {
+            q1: document.querySelector('input[name="q1"]:checked')?.value,
+            q2: document.querySelector('input[name="q2"]:checked')?.value,
+            q3: document.querySelector('input[name="q3"]:checked')?.value,
+            q4: document.querySelector('input[name="q4"]:checked')?.value,
+            q5: document.querySelector('input[name="q5"]:checked')?.value,
+            q6: document.querySelector('input[name="q6"]:checked')?.value,
+            q7: document.querySelector('input[name="q7"]:checked')?.value,
+            q8: document.querySelector('input[name="q8"]:checked')?.value
+        };
+
+        let allAttempted = true;
+        for (let key in userAnswers) {
+            if (!userAnswers[key]) { allAttempted = false; break; }
+        }
+
+        if (!allAttempted) {
+            resultDiv.style.display = "block";
+            resultDiv.innerHTML = "⚠️ कृपया सबटा प्रश्न के उत्तर दियौ (८ प्रश्न अछि) । कोनो प्रश्न छुटल अछि।";
+            feedbackDiv.style.display = "none";
+            return;
+        }
+
+        const qMeta = {
+            q1: { text: "मैथिली लोक गीत ब्लागक संचालक?", correct: "A", correctText: "(क) राजीव रंजन लाल" },
+            q2: { text: "मैथिली सांगस हबक अंतिम पोस्ट वर्ष?", correct: "C", correctText: "(ग) २०१५" },
+            q3: { text: "मैथिली फिल्म्स ब्लागक संस्थापक?", correct: "B", correctText: "(ख) आशीष अनचिन्हार" },
+            q4: { text: "विदेह मैथिली नाट्य उत्सव ब्लागक शुरुआत माह?", correct: "C", correctText: "(ग) अगस्त" },
+            q5: { text: "भाष्कर झा केर गलत दावा?", correct: "B", correctText: "(ख) हमर ब्लाग मैथिली फिल्म-संगीतक पहिल पोर्टल अछि" },
+            q6: { text: "Music Maithili केर शुरू तिथि?", correct: "B", correctText: "(ख) ३ मई २०२२" },
+            q7: { text: "मैथिली लोक गीत ब्लागक पहिल पोस्ट वर्ष?", correct: "C", correctText: "(ग) २००७" },
+            q8: { text: "maithili.tv साइटक वर्तमान स्थिति?", correct: "B", correctText: "(ख) बंद अछि, सामग्री अज्ञात" }
+        };
+
+        const optionMaps = {
+            q1: { A: "(क) राजीव रंजन लाल", B: "(ख) गजेन्द्र ठाकुर", C: "(ग) रोशन चौधरी", D: "(घ) आशीष अनचिन्हार" },
+            q2: { A: "(क) २०१३", B: "(ख) २०१४", C: "(ग) २०१५", D: "(घ) २०१६" },
+            q3: { A: "(क) भाष्कर झा", B: "(ख) आशीष अनचिन्हार", C: "(ग) प्रकाश झा", D: "(घ) राजीव रंजन लाल" },
+            q4: { A: "(क) जनवरी", B: "(ख) जून", C: "(ग) अगस्त", D: "(घ) दिसम्बर" },
+            q5: { A: "(क) पहिल गजल ब्लाग", B: "(ख) पहिल फिल्म-संगीत पोर्टल", C: "(ग) पहिल डाउनलोड सुविधा", D: "(घ) एकमात्र नाटक ब्लाग" },
+            q6: { A: "(क) ३ मई २०२१", B: "(ख) ३ मई २०२२", C: "(ग) ३ जून २०२२", D: "(घ) ३ मई २०२३" },
+            q7: { A: "(क) २००५", B: "(ख) २००६", C: "(ग) २००७", D: "(घ) २००८" },
+            q8: { A: "(क) सक्रिय अछि", B: "(ख) बंद अछि, सामग्री अज्ञात", C: "(ग) Music Streaming दे छै", D: "(घ) नेपालीमे परिवर्तित" }
+        };
+
+        let score = 0;
+        let detailsHtml = `<div><strong>📖 अध्याय ९ – नाटक, फिल्म एवं संगीत खंड केर तथ्य:</strong></div><ul style="margin-top: 12px; padding-left: 20px;">`;
+
+        for (let i = 1; i <= 8; i++) {
+            let qKey = `q${i}`;
+            let userVal = userAnswers[qKey];
+            let correctVal = qMeta[qKey].correct;
+            let isCorrect = (userVal === correctVal);
+            if (isCorrect) score++;
+
+            let userOptionText = optionMaps[qKey][userVal] || "अनुत्तरित";
+            let correctTextDisplay = qMeta[qKey].correctText;
+            let statusIcon = isCorrect ? "✅" : "❌";
+            detailsHtml += `<li style="margin-bottom: 14px;"><strong>प्रश्न ${i}: ${qMeta[qKey].text}</strong><br> 
+                            ${statusIcon} अहाँक उत्तर: ${userOptionText}<br>
+                            📗 सही उत्तर: ${correctTextDisplay}<br>
+                            <span style="font-size:0.85rem; color:#7c5a42;">📖 व्याख्या: ${explanations[qKey]}</span></li>`;
+        }
+        detailsHtml += `</ul>`;
+
+        const percentage = (score / 8) * 100;
+        let starMsg = "";
+        if (percentage === 100) starMsg = "🎉 बहुत बढ़िया! अध्याय ९ केर सम्पूर्ण जानकारी – मैथिली गीत-संगीत, फिल्म ब्लाग, नाट्य उत्सव, Music Streaming सब बुझलहुँ।";
+        else if (percentage >= 75) starMsg = "👍 उत्तम! मैथिली वेब सिनेमा आ संगीतक इतिहास स्पष्ट अछि।";
+        else if (percentage >= 50) starMsg = "📚 ठीक अछि, मुदा अध्याय ९ पुनः पढ़ू – एतय पहिल गीत ब्लाग, Music Streaming आ दावा-प्रतिदावा सब महत्वपूर्ण अछि।";
+        else starMsg = "📖 कृपया अध्याय ९ ध्यान सँ पढ़ू। ई मैथिलीकेर सांस्कृतिक वेब उपस्थिति केर अध्याय छै।";
+
+        resultDiv.style.display = "block";
+        resultDiv.innerHTML = `
+            <div style="font-size: 1.8rem; font-weight: bold;">🏆 ${score} / ८ सही उत्तर</div>
+            <div style="margin: 12px 0;">${starMsg}</div>
+            <div style="background: #e7dac4; border-radius: 40px; padding: 8px 12px; display: inline-block; font-size:1rem;">📊 स्कोर: ${Math.round(percentage)}%</div>
+        `;
+
+        feedbackDiv.style.display = "block";
+        feedbackDiv.innerHTML = detailsHtml;
+        feedbackDiv.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

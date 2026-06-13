@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मैथिली लोक-साहित्य – अध्याय २ (बहुविकल्पीय प्रश्नोत्तरी) — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+box-sizing: border-box;
+}
+body {
+background: #f7f2e0;
+font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Mukta', 'Poppins', sans-serif;
+margin: 0;
+padding: 20px;
+color: #2c241a;
+}
+.quiz-wrapper {
+max-width: 1200px;
+margin: 0 auto;
+background: #fffdf7;
+border-radius: 48px;
+box-shadow: 0 20px 35px -10px rgba(0,0,0,0.2);
+padding: 20px 28px 40px;
+border: 1px solid #eedbaa;
+}
+h1 {
+text-align: center;
+font-size: 1.9rem;
+color: #8b2c1a;
+border-left: 6px solid #c28135;
+border-right: 6px solid #c28135;
+display: inline-block;
+width: auto;
+margin: 0 auto 10px;
+padding: 6px 20px;
+background: #fff2e0;
+border-radius: 60px;
+}
+.subh {
+text-align: center;
+background: #f9efdb;
+padding: 8px 15px;
+border-radius: 50px;
+margin-bottom: 25px;
+color: #5e3a1f;
+font-weight: 500;
+}
+.score-panel {
+background: #2b5f4b;
+color: #fff1cf;
+padding: 12px 25px;
+border-radius: 50px;
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 10px;
+margin-bottom: 30px;
+font-weight: bold;
+}
+.score-badge {
+background: #f0a34b;
+padding: 5px 20px;
+border-radius: 40px;
+color: #2a2418;
+}
+.question-card {
+background: #ffffff;
+border-radius: 28px;
+margin-bottom: 28px;
+padding: 18px 22px;
+box-shadow: 0 6px 14px rgba(0,0,0,0.04);
+border: 1px solid #eeddae;
+}
+.q-text {
+font-size: 1.2rem;
+font-weight: 700;
+background: #fff0df;
+padding: 10px 18px;
+border-radius: 40px;
+margin-bottom: 15px;
+color: #3d2b1c;
+}
+.options-list {
+display: flex;
+flex-direction: column;
+gap: 10px;
+padding-left: 12px;
+}
+.opt-item {
+display: flex;
+align-items: center;
+gap: 14px;
+cursor: pointer;
+background: #fefaf2;
+padding: 7px 14px;
+border-radius: 40px;
+transition: 0.1s;
+}
+.opt-item:hover {
+background: #f6ebd5;
+}
+input[type="radio"] {
+width: 18px;
+height: 18px;
+accent-color: #a5422a;
+}
+.feedback {
+margin-top: 12px;
+padding: 6px 16px;
+border-radius: 32px;
+font-size: 0.9rem;
+display: inline-block;
+}
+.correct-fb {
+background: #deecda;
+color: #1b6b2f;
+border-left: 5px solid #2a7a3b;
+}
+.wrong-fb {
+background: #ffe0db;
+color: #bb3e2a;
+border-left: 5px solid #c63a20;
+}
+button {
+background: #a13e28;
+border: none;
+color: white;
+padding: 12px 28px;
+font-size: 1.1rem;
+border-radius: 60px;
+font-weight: bold;
+cursor: pointer;
+font-family: inherit;
+transition: 0.2s;
+margin: 8px 5px;
+}
+button:hover {
+background: #7f2f1d;
+transform: scale(0.98);
+}
+.reset-btn {
+background: #5c5542;
+}
+.btn-group {
+display: flex;
+justify-content: center;
+gap: 18px;
+flex-wrap: wrap;
+margin-top: 25px;
+}
+.footer {
+text-align: center;
+font-size: 0.8rem;
+margin-top: 30px;
+color: #b19465;
+}
+@media (max-width: 650px) {
+.quiz-wrapper {
+padding: 15px;
+}
+.q-text {
+font-size: 1rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="quiz-wrapper"> <div style="text-align: center;"> <div class="subh">द्वितीय प्रकरण – लोकगीत, लोकनाट्य, कथा आर परम्परा (बहुविकल्पी)</div> </div> <div class="score-panel"> <span>📚 कुल प्रश्न : <span id="totalQ">0</span></span> <span>✅ सही उत्तर : <span id="scoreCount">0</span></span> <span class="score-badge" id="percentShow">0%</span> </div> <div id="questionsArea"></div> <div class="btn-group"> <button id="checkBtn">🔍 उत्तर जाँचू</button> <button id="resetBtn" class="reset-btn">🔄 पुनः आरम्भ</button> </div> <div class="vq-footer">© सम्पादक, videha.co.in</div>
+</div>
+<script>
+
+</script><script>
+
+    // ------------------- अध्याय २ पर आधारित 45 प्रश्न (विस्तृत) -------------------
+    const questions = [
+        { text: "'लोक-साहित्य' शब्द मूलतः कोन भाषाक अनुवाद अछि ?", options: ["संस्कृत", "अंग्रेजी (Folk literature)", "हिन्दी", "फारसी"], correct: 1 },
+        { text: "लोक-साहित्यक रचना मुख्य रूप सँ कोन होइत अछि ?", options: ["पण्डित वर्ग", "राज दरबार", "अज्ञात-अपरिचित जनसामान्य", "वैदिक ऋषि"], correct: 2 },
+        { text: "मैथिली साहित्यक आदिम उद्गम के रुपमे कोन प्रधान अछि ?", options: ["संस्कृत नाटक", "लोकसाहित्य (गीत, कथा)", "अपभ्रंश काव्य", "प्राकृत गाथा"], correct: 1 },
+        { text: "'कर्णरत्नाकर' मे ज्योतिरीश्वर ठाकुर केने-केने लोक-गायन विधाक उल्लेख केनए अछि ?", options: ["विरहा, चाँदवि, लोरिक नाच, लमानी", "छप्पय, दोहा, सोरठा", "गज्जल, कवित्त", "थुमरी, दादरा"], correct: 0 },
+        { text: "लोकसाहित्यक अन्तर्गत ‘लोक-गाय-काव्य’ सँ का अभिप्रेत अछि ?", options: ["गद्य कथा", "गीतात्मक लोकप्रिय रचना (गान योग्य)", "दार्शनिक निबन्ध", "शास्त्रीय नाटक"], correct: 1 },
+        { text: "मैथिली लोक-गीतक प्रमुख शैली ‘तिरहूति’ कोन कारणे प्रसिद्ध अछि ?", options: ["अलंकारिकता", "मधुर गीति-प्रवाह आ ‘चा’, ‘हो’, ‘उ’, ‘गज्जी’ जकाँ अन्तरा", "वैदिक मन्त्र", "वीर रस"], correct: 1 },
+        { text: "'बटगवनी' लोकगीतक प्रमुख प्रयोग के अवसर पर होइत अछि ?", options: ["पूजा-पाठ", "विवाह/ सामूहिक नाच-गीत विशेष", "शवयात्रा", "अनुष्ठान"], correct: 1 },
+        { text: "'गोआवर्ग' लोकगीत मुख्यतः कोन विषय पर आधारित अछि ?", options: ["गोपालक प्रेम-वियोग", "राजा-प्रशस्ति", "युद्धगाथा", "ऋतु वर्णन"], correct: 0 },
+        { text: "जग्म (लोकगीत प्रभेद) मे कोन भाषाक प्रभाव स्पष्ट अछि ?", options: ["फारसी", "अवहट्ट/द्विभाषिकता", "उर्दू", "तिब्बती"], correct: 1 },
+        { text: "'नद्यारी' लोकगीत विधा के विषय मे विद्यापति के का कहल अछि ?", options: ["केवल शिव-भक्ति", "प्रेमक हिंस्रता (Violence of Passion of love)", "वीरगाथा", "हास्य रस"], correct: 1 },
+        { text: "'गीतपद्याशिक' (1628 ई.) मे जगज्योतिर्मल्ल नद्यारीक व्यापक अर्थ बुझौने अछि, एहि मे कोन-कोन विषय पर नद्यारी अहि ?", options: ["कृष्ण, शिव, शक्ति, सूर्य", "केवल रामकथा", "केवल दुर्गा स्तुति", "केवल मुक्ति मार्ग"], correct: 0 },
+        { text: "मैथिली लोकनाट्यक सर्वाधिक प्रचलित रूप कोन अछि ?", options: ["प्रश्नानात्मक नाट्य", "लीला-नाट्य (भवित-भावाधित, सीतानाट्य)", "ऐतिहासिक नाटक", "गीति नाटक"], correct: 1 },
+        { text: "'जट-जटिन' नाट्य कोन श्रेणीक अन्तर्गत आबैत अछि ?", options: ["प्रश्नानात्मक नाट्य", "प्रभावशानुभूतक लोकनाट्य", "रासलीला", "कीर्तनिया नाटक"], correct: 1 },
+        { text: "जट-जटिन नाट्यक मुख्य उद्देश्य का अछि ?", options: ["दार्शनिक ज्ञान", "नर-नारीक मनोभाव आ सामाजिक मर्यादाक चित्रण", "राजनीतिक व्यंग्य", "अभिषेक अनुष्ठान"], correct: 1 },
+        { text: "मैथिली लोक-कथाक प्रसिद्ध संग्रहकर्ता हरप्रसादशास्त्री (ग्रियर्सन) के नामे प्रसिद्ध ‘सल्हेस’ के संबंधमे का उल्लेख अछि ?", options: ["काव्यक संग्रह मात्र", "लोकवीर गाथा ‘सल्हेस’ लोकगाथा छी", "नाटक", "शास्त्र"], correct: 1 },
+        { text: "लोक-साहित्य के अन्तर्गत ‘फकवा’ (चुट्कुला) आ ‘वयन’ के स्थान कोन अछि ?", options: ["लोक-कथाक प्रकार", "लोक-नाट्यक अंग", "पहेली आ व्यंग्य (हास्य-रस)", "व्रतकथा"], correct: 2 },
+        { text: "मैथिली लोक-साहित्यक व्यवस्थित संकलन हेतु सर्वाधिक आग्रह कोन विद्वान केनए छल ?", options: ["प्रो. रमानाथ झा", "डा. जयकान्त मिश्र", "ग्रियर्सन", "म. म. परमेश्वर झा"], correct: 0 },
+        { text: "'तिरहूति गीत' के पहिचान कोन विशेष लय अथवा अन्तरा सँ होइत अछि ?", options: ["‘हो’, ‘चा’, ‘उ’ प्रयोग", "शुद्ध संस्कृत पद", "उर्दू शेर", "ओजपूर्ण छन्द"], correct: 0 },
+        { text: "लोकगीत ‘बटगवनी’ के सम्बन्ध कोन कथन सत्य अछि ?", options: ["एक बाजन (नाच) में गाएल जाइत अछि", "केवल बटुकक गीत", "रात्रि जागरण में गाएल", "सीता-हरण प्रसंग"], correct: 0 },
+        { text: "'गोआवर्ग’ लोकगीत के उदाहरण कोन अछि ?", options: ["नन्दीपात्र गोआलक गीत", "दुर्गा भजन", "विद्यापति पद", "वैदिक सूक्त"], correct: 0 },
+        { text: "मैथिली लोकनाट्य ‘सीतानाट्य’ के मुख्य पात्र केकरा बनाओल जाइत अछि ?", options: ["देवता, अप्सरा, लोकनायक", "राम-सीता", "शिव-पार्वती", "जट-जटिन"], correct: 0 },
+        { text: "'लोक' शब्दक अर्थ वेदव्यास के महाभारत मे कोन अर्थमे प्रयुक्त अछि ?", options: ["जनसामान्य", "तीनों लोक", "आकाश", "स्वर्ग"], correct: 0 },
+        { text: "मैथिली लोकसाहित्य मे ‘लोकगीत’ के अतिरिक्त ‘लोककथा’, ‘लोकनाट्य’, ‘फकवा’ सभक समावेश अछि, एहि कारण लोकसाहित्य शिष्ट साहित्य सं कोना भिन्न अछि ?", options: ["व्याकरणबद्ध नहि, मौखिक, परिवर्तनशील", "अत्यधिक शास्त्रीय", "केवल संस्कृतमे लिखल", "केवल राजाश्रित"], correct: 0 },
+        { text: "मैथिलीक ‘जग्म’ लोकगीत मुख्यतः कोन अवसर पर गाओल जाइत अछि ?", options: ["शोक गीत", "शृंगारिक प्रेम-विरह", "विवाह संस्कार", "यात्रा गीत"], correct: 1 },
+        { text: "ज्योतिरीश्वर ठाकुर ‘कर्णरत्नाकर’ मे ‘विरहा, चाँदवि, लोरिक नाच’ जका उल्लेख करैत अछि, तहि सँ का प्रमाणित होइत अछि ?", options: ["ई सब १३-१४वीं शताब्दी मे प्रचलित मैथिली लोकसाहित्य छल", "ई शास्त्रीय नृत्य छल", "ई बौद्ध गान छल", "ई फारसी गीत छल"], correct: 0 },
+        { text: "‘नद्यारी’ शब्दक व्यापक अर्थ ‘गीतपद्याशिक’ मे जगज्योतिर्मल्ल केनए अछि, तँ एहि मे शिव, कृष्ण, शक्ति आदिक भजन शामिल अछि, तहि सँ नद्यारी के अर्थ स्पष्ट होइत अछि ?", options: ["केवल शिव-भक्ति", "भक्ति-रस-प्रधान गीति नाट्य विधा", "युद्ध गीत", "फसल कटनी गीत"], correct: 1 },
+        { text: "मैथिली लोकनाट्य ‘प्रश्नानात्मक नाट्य’ मे मुख्य विशेषता छी ?", options: ["प्रश्न-उत्तर शैली पर अभिनय", "गम्भीर शोक", "शिव के नृत्य", "वैज्ञानिक प्रयोग"], correct: 0 },
+        { text: "लोककथा के क्षेत्र मे ‘सल्हेस’ वीरगाथा के संकलनकर्ता ग्रियर्सन के अतिरिक्त डा. रामदेव झा आ श्री विभूति आनन्द के नाम उल्लेखनीय अछि, तथापि प्रायः लोकसाहित्यक संकलन मे समस्या छी ?", options: ["अप्रकाशित रहि जाएत", "संकलन शैली अवैज्ञानिक", "प्रायः विलुप्त होएत", "एहि सब सत्य अछि"], correct: 3 },
+        { text: "जट-जटिन लोकनाट्य मे ‘जटिन’ कते समाजक प्रतिनिधित्व करैत अछि ?", options: ["पुरुष-प्रधान समाज", "नारीक विवशता आ प्रेम-प्रतिकार", "सामन्ती शोषण", "वैदिक यज्ञ"], correct: 1 },
+        { text: "‘गोआवर्ग’ गीत मे प्रमुखता कोनक अछि ?", options: ["गायक गोपाल", "यजमान", "बालक", "भिक्षुक"], correct: 0 },
+        { text: "मैथिली लोकसाहित्य मे ‘लोक-गाय-काव्य’ के अन्तर्गत लमानी, विरहा प्रकार अछि, एहि सब के परम्परा कोन विद्वान अपन इतिहास मे उद्धृत केलनि ?", options: ["डा. जयकान्त मिश्र", "प्रो. रमानाथ झा", "हेमराज शर्मा", "डा. उमेश मिश्र"], correct: 1 },
+        { text: "‘तिरहूति गीत’ के सन्दर्भ मे ‘पूर्वी’ और ‘पश्चिमी’ भेद सर्वाधिक स्पष्ट होइत अछि ?", options: ["तिरहूति शैली एकरूप अहि", "तिरहूति मे ढप, चाल अन्तर मिथिलाक विभिन्न क्षेत्र मे", "तिरहूति केवल दरभंगा मे बाजैत अछि", "एहि पर संस्कृत प्रभाव"], correct: 1 },
+        { text: "‘नद्यारी’ शैली के आधुनिक परिप्रेक्ष्य मे केओ-केओ एकरा मैथिली लोक ‘ओपेरा’ कहैत अछि, कारण ?", options: ["गीत, वाद्य आ नृत्य तीनुक समावेश", "केवल संवाद", "केवल एकल गायन", "बिना संगीत"], correct: 0 },
+        { text: "लोकसाहित्यक निर्माण मूलतः कोन हेतु भेल ?", options: ["धार्मिक उपदेश", "जनमनोरंजन आ उपकारी क्रियाक रूप मे", "राज्याश्रय", "व्याकरण शिक्षा"], correct: 1 },
+        { text: "मैथिली लोकनाट्य के प्राचीनतम स्वरूप ‘सीतानाट्य’ या ‘रामलीला’ के रुपमे प्रचलित, मुदा ‘जट-जटिन’ मे नारी पात्रक भाषा आ व्यवहार सहज अछि, कोन दृष्टिकोण विशेष अछि ?", options: ["व्यंग्य आ नारी विरोध", "स्त्री-पुरुष सम्बन्धक आदर्श आ यथार्थ चित्रण", "केवल शिव-पार्वती कथा", "उपहास"], correct: 1 },
+        { text: "प्रो. रमानाथ झाक अनुसार मैथिली लोक-साहित्यक व्यवस्थित संकलन आ प्रकाशन न भेलाक मुख्य कारण छी ?", options: ["सरकारी विरोध", "अपर्याप्त अनुदान आ योजनाक अभाव", "प्रतिभाक अभाव", "भाषाक मृत्यु"], correct: 1 },
+        { text: "लोकगीत ‘लमनी’ के सम्बन्ध मे कोन कथन सही अछि (प्राचीन सन्दर्भमे) ?", options: ["लोक नृत्य गीत", "वीर गाथा", "संस्कृत हाइकु", "ऋतु विज्ञान"], correct: 0 },
+        { text: "‘गीतपद्याशिक’ (गुटिका) के रचयिता जगज्योतिर्मल्ल ने तीर्थकिर / नद्यारी के प्रसार हेतु नाट्य रचना केलनि, एकरा का कहल जाए सकैत अछि ?", options: ["मैथिली आ नेपाली संगीत समन्वय", "गीति-नाट्य परम्पराक प्रमाण", "मल्लकालक कला", "ई सब सही अछि"], correct: 3 },
+        { text: "मैथिली लोकसाहित्य मे ‘छप्पय, दोहा’ के स्थान शास्त्रीय छन्द अछि, किन्तु प्राकृतिक लोक गीतमे ढिला छन्द प्रयोग, एहि सँ ज्ञात होइत अछि जे…", options: ["लोकसाहित्य नियममुक्त होइत अछि", "शास्त्रीय गीत बेसी मान्य", "विद्वान लोकगीत नहि गावैत", "कोनो मतलब नहि"], correct: 0 },
+        { text: "लोकनाट्य ‘जट-जटिन’ के अभिनय मे जट (पति) आ जटिन (पत्नी) के संवाद बहु प्रसिद्ध अछि, ई नाट्यक मुख्य सन्देश कोन अछि ?", options: ["पत्नीक परम अधीनता", "पारिवारिक मर्यादा आ प्रेमक संतुलन", "स्त्री-पुरुष संघर्ष", "केवल मनोरंजन"], correct: 1 },
+        { text: "'बटगवनी' लोकगीत सामूहिक रुपमे गाएबाक रीति प्रचलित अछि, ई कारण एकरा कवि विशेषक संज्ञा नहि देल जाइत। एहि सँ लोकसाहित्यक महत्वपूर्ण विशेषता अछि ?", options: ["सामूहिक स्वामित्व, अज्ञात रचनाकार", "राजकीय प्रश्रय", "वैयक्तिक प्रतिभा", "व्यावसायिक गायन"], correct: 0 },
+        { text: "'सल्हेस' लोक कथा के संदर्भमे ग्रियर्सन महोदय के योगदान के अछि ?", options: ["पहिल बेर मैथिली लोकगाथाक संकलन", "नाटक लिखलनि", "पद्य रूप देनाइ", "केवल अनुवाद"], correct: 0 },
+        { text: "मैथिली लोककथाक श्रेणीमे 'गोनुहा' चरित्र प्रख्यात अछि, ई कोन प्रकारक कथा अछि ?", options: ["पशुकथा", "व्यंग्य/हास्य कथा, सामाजिक चालाकी", "पौराणिक आख्यान", "प्रेतकथा"], correct: 1 },
+        { text: "लोकसाहित्यक अन्तर्गत 'वयन' (बयान) कोन अर्थमे प्रयुक्त होइत अछि ?", options: ["लम्बी मौखिक कथा अथवा बखान", "नाटकीय एकाङ्की", "कविता पाठ", "व्रत कथा"], correct: 0 },
+        { text: "मैथिली लोक नाट्य परम्परा मे 'प्रश्नानात्मक नाट्य' के उदाहरण कोन अछि ?", options: ["विपक्षक अभिनय (पहेली-प्रश्नोत्तरी)", "हरिश्चन्द्र नाटक", "गीत गोविन्द", "छठ गीत"], correct: 0 },
+        { text: "तिरहूति गीत मे ‘गज्जीग’ प्रवृत्ति केका कहल जाइत अछि ?", options: ["एक प्रकारक स्वरलय आ नृत्य मुद्रा", "गीतक शीर्षक", "वाद्य", "कविक नाम"], correct: 0 },
+        { text: "प्राचीन मैथिली लोकगीत ‘जग्म’ के रचयिता सामान्यतः कोन भेल ?", options: ["राजकवि", "लोककवि (सार्वजनिक)", "संत", "महिला"], correct: 1 }
+    ];
+
+    // 45 से अधिक प्रश्न (यत्नपूर्वक 45 प्रश्न)
+    // सुनिश्चित करब जे questions.length पर्याप्त अछि
+    const totalQuestions = questions.length;
+    let userAnswers = new Array(totalQuestions).fill(null);
+    let isSubmitted = false;
+
+    const container = document.getElementById('questionsArea');
+    const totalSpan = document.getElementById('totalQ');
+    const scoreSpan = document.getElementById('scoreCount');
+    const percentSpan = document.getElementById('percentShow');
+
+    function renderAll() {
+        container.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const qDiv = document.createElement('div');
+            qDiv.className = 'question-card';
+            qDiv.dataset.qid = idx;
+            const qTextDiv = document.createElement('div');
+            qTextDiv.className = 'q-text';
+            qTextDiv.innerText = `${idx+1}. ${q.text}`;
+            qDiv.appendChild(qTextDiv);
+            const optsContainer = document.createElement('div');
+            optsContainer.className = 'options-list';
+            q.options.forEach((opt, optIdx) => {
+                const label = document.createElement('label');
+                label.className = 'opt-item';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `lq${idx}`;
+                radio.value = optIdx;
+                radio.disabled = isSubmitted;
+                if (userAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    if (!isSubmitted) {
+                        userAnswers[idx] = parseInt(e.target.value);
+                        updateStatsPreview();
+                        // एक साथ मेरी फीडबैक नहि, लेकिन प्रतिक्रिया दिखाब माटे लेटर
+                        showSingleFeedback(idx, qDiv);
+                    }
+                });
+                const spanText = document.createElement('span');
+                spanText.innerText = `${String.fromCharCode(65+optIdx)}. ${opt}`;
+                label.appendChild(radio);
+                label.appendChild(spanText);
+                optsContainer.appendChild(label);
+            });
+            qDiv.appendChild(optsContainer);
+            const fbDiv = document.createElement('div');
+            fbDiv.className = 'feedback';
+            fbDiv.id = `fb-${idx}`;
+            qDiv.appendChild(fbDiv);
+            container.appendChild(qDiv);
+            if (isSubmitted) showSingleFeedback(idx, qDiv);
+        });
+        totalSpan.innerText = totalQuestions;
+        updateStatsPreview();
+    }
+
+    function showSingleFeedback(qid, cardDiv) {
+        const fb = cardDiv.querySelector('.feedback');
+        const selected = userAnswers[qid];
+        const correct = questions[qid].correct;
+        if (selected === null) {
+            fb.innerHTML = '';
+            fb.className = 'feedback';
+            return;
+        }
+        if (selected === correct) {
+            fb.innerHTML = '✔️ सही जबाब।';
+            fb.className = 'feedback correct-fb';
+        } else {
+            const correctLetter = String.fromCharCode(65+correct);
+            fb.innerHTML = `❌ अशुद्ध। सही उत्तर : ${correctLetter}. ${questions[qid].options[correct]}`;
+            fb.className = 'feedback wrong-fb';
+        }
+    }
+
+    function updateStatsPreview() {
+        if (!isSubmitted) {
+            let answered = userAnswers.filter(v => v !== null).length;
+            let tempCorrect = 0;
+            for(let i=0; i<totalQuestions; i++) {
+                if(userAnswers[i] !== null && userAnswers[i] === questions[i].correct) tempCorrect++;
+            }
+            scoreSpan.innerText = `${tempCorrect}/${totalQuestions}`;
+            let per = Math.round((tempCorrect/totalQuestions)*100);
+            percentSpan.innerText = `${per}% (प्रगति)`;
+        } else {
+            let finalCorrect = 0;
+            for(let i=0; i<totalQuestions; i++) {
+                if(userAnswers[i] !== null && userAnswers[i] === questions[i].correct) finalCorrect++;
+            }
+            scoreSpan.innerText = `${finalCorrect}/${totalQuestions}`;
+            let per = Math.round((finalCorrect/totalQuestions)*100);
+            percentSpan.innerText = `${per}%`;
+        }
+    }
+
+    function finalCheck() {
+        if (isSubmitted) {
+            alert("पहिने ही परिणाम जाँचल गेल अछि। नव उत्तर देवाक लेल पुनः आरम्भ करू।");
+            return;
+        }
+        let unanswered = [];
+        for(let i=0; i<totalQuestions; i++) {
+            if(userAnswers[i] === null) unanswered.push(i+1);
+        }
+        if(unanswered.length > 0) {
+            if(!confirm(`⚠️ ${unanswered.length} प्रश्न अनुत्तरित अछि (${unanswered.slice(0,20).join(',')}...). तथापि जाँच करब?`)) return;
+        }
+        isSubmitted = true;
+        const allRadios = document.querySelectorAll('input[type="radio"]');
+        allRadios.forEach(radio => radio.disabled = true);
+        for(let i=0; i<totalQuestions; i++) {
+            const card = document.querySelector(`.question-card[data-qid='${i}']`);
+            if(card) showSingleFeedback(i, card);
+        }
+        let correctCount = 0;
+        for(let i=0; i<totalQuestions; i++) {
+            if(userAnswers[i] !== null && userAnswers[i] === questions[i].correct) correctCount++;
+        }
+        scoreSpan.innerText = `${correctCount}/${totalQuestions}`;
+        let per = Math.round((correctCount/totalQuestions)*100);
+        percentSpan.innerText = `${per}% ${per>=60 ? '🎊 शाबाश' : '📖 पुन: पढू'}`;
+    }
+
+    function resetFull() {
+        isSubmitted = false;
+        userAnswers = new Array(totalQuestions).fill(null);
+        const radios = document.querySelectorAll('input[type="radio"]');
+        radios.forEach(r => { r.checked = false; r.disabled = false; });
+        renderAll(); // पुन: रेंडर
+    }
+
+    document.getElementById('checkBtn').addEventListener('click', finalCheck);
+    document.getElementById('resetBtn').addEventListener('click', resetFull);
+
+    // आरम्भ
+    renderAll();
+
+</script></body>
+</html>

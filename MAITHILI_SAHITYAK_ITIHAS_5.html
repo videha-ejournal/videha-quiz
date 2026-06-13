@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मैथिली साहित्यक इतिहास – अध्याय ५ : महाकवि विद्यापति (बहुविकल्पीय प्रश्नोत्तरी) — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #f3efdf;
+font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Mukta', 'Poppins', sans-serif;
+padding: 25px 20px;
+color: #2c2418;
+}
+.quiz-container {
+max-width: 1200px;
+margin: 0 auto;
+background: #fffffb;
+border-radius: 56px;
+box-shadow: 0 25px 40px -12px rgba(0,0,0,0.25);
+padding: 25px 30px 45px;
+border: 1px solid #ecdcaa;
+}
+h1 {
+text-align: center;
+color: #963c24;
+font-size: 1.9rem;
+background: #fff3e6;
+display: inline-block;
+width: auto;
+margin: 0 auto 10px;
+padding: 8px 25px;
+border-radius: 60px;
+border-bottom: 3px solid #dc9c4a;
+}
+.subhead {
+text-align: center;
+background: #fbf2e1;
+padding: 8px 20px;
+border-radius: 40px;
+margin-bottom: 25px;
+color: #6b4c2a;
+font-weight: 500;
+}
+.score-panel {
+background: #2a6d52;
+color: #fff2cf;
+border-radius: 50px;
+padding: 12px 24px;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: baseline;
+gap: 12px;
+margin-bottom: 30px;
+font-weight: bold;
+}
+.score-badge {
+background: #f2a155;
+padding: 6px 18px;
+border-radius: 40px;
+color: #251f15;
+}
+.question-card {
+background: white;
+border-radius: 32px;
+margin-bottom: 28px;
+padding: 18px 24px;
+box-shadow: 0 6px 12px rgba(0,0,0,0.04);
+border: 1px solid #ecdbaa;
+}
+.q-text {
+font-size: 1.2rem;
+font-weight: 700;
+background: #fff2e2;
+padding: 10px 18px;
+border-radius: 50px;
+margin-bottom: 18px;
+color: #2e402f;
+}
+.opts-list {
+display: flex;
+flex-direction: column;
+gap: 10px;
+margin-left: 12px;
+}
+.opt-item {
+display: flex;
+align-items: center;
+gap: 14px;
+background: #fefaf4;
+padding: 6px 16px;
+border-radius: 40px;
+cursor: pointer;
+transition: 0.1s;
+}
+.opt-item:hover {
+background: #f7ecd9;
+}
+input[type="radio"] {
+width: 18px;
+height: 18px;
+accent-color: #b6492c;
+cursor: pointer;
+}
+.feedback {
+margin-top: 14px;
+padding: 6px 18px;
+border-radius: 32px;
+font-size: 0.9rem;
+display: inline-block;
+}
+.fb-correct {
+background: #e4f3e2;
+color: #197a3c;
+border-left: 5px solid #2b8b49;
+}
+.fb-wrong {
+background: #ffe2db;
+color: #bd462b;
+border-left: 5px solid #c94424;
+}
+button {
+background: #9b412b;
+border: none;
+color: white;
+padding: 12px 30px;
+font-size: 1.1rem;
+border-radius: 50px;
+font-weight: bold;
+cursor: pointer;
+font-family: inherit;
+transition: 0.2s;
+margin: 6px 8px;
+}
+button:hover {
+background: #7a2f1d;
+transform: scale(0.98);
+}
+.reset-btn {
+background: #5c5542;
+}
+.btn-group {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 20px;
+margin-top: 25px;
+}
+.footer {
+text-align: center;
+font-size: 0.8rem;
+margin-top: 35px;
+color: #be9468;
+}
+@media (max-width: 650px) {
+.quiz-container {
+padding: 15px;
+}
+.q-text {
+font-size: 1rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="quiz-container"> <div style="text-align: center;"> <div class="subhead">पञ्चम प्रकरण – जीवन, रचना, काव्य-वैशिष्ट्य आर प्रभाव</div> </div> <div class="score-panel"> <span>📖 कुल प्रश्न : <span id="totalQ">0</span></span> <span>✅ सही उत्तर : <span id="scoreCount">0</span></span> <span class="score-badge" id="percentBox">0%</span> </div> <div id="questionsArea"></div> <div class="btn-group"> <button id="submitBtn">⚡ उत्तर जाँचू (Submit)</button> <button id="resetBtn" class="reset-btn">🔄 पुनः आरम्भ करू</button> </div> <div class="vq-footer">© सम्पादक, videha.co.in</div>
+</div>
+<script>
+
+</script><script>
+
+    // ---------- अध्याय ५ (महाकवि विद्यापति) पर ४८ प्रश्न ----------
+    const questions = [
+        { text: "विद्यापति के पूर्वज चण्डेश्वर ठाकुर के प्रसिद्ध ग्रन्थ कोन अछि ?", options: ["कीर्तिलता", "कृत्यरत्नाकर", "पुरुषपरीक्षा", "गीतगोविन्द"], correct: 1 },
+        { text: "विद्यापतिक जन्म कोन शताब्दीमे मानल जाइत अछि (लगभग) ?", options: ["१३५० ई.", "१४०० ई.", "१४५० ई.", "१४८० ई."], correct: 0 },
+        { text: "विद्यापति मुख्य रुपसँ कोन राजाक आश्रित छलाह ?", options: ["नान्यदेव", "शिवसिंह", "हरिसिंहदेव", "महेश ठाकुर"], correct: 1 },
+        { text: "विद्यापतिक सर्वाधिक प्रसिद्ध रचना कोन अछि ?", options: ["कीर्तिलता", "मैथिली पदावली (शृंगार-भक्ति गीत)", "पुरुषपरीक्षा", "भागवत प्रतिलिपि"], correct: 1 },
+        { text: "विद्यापति के 'कीर्तिलता' के भाषा के का कहल गेल अछि ?", options: ["देशिल ब्रह्मा (अवहट्ट)", "मागधी", "शौरसेनी", "पैशाची"], correct: 0 },
+        { text: "विद्यापतिक कृति 'गोरक्षविजय' कोन विधाक अछि ?", options: ["महाकाव्य", "संस्कृत नाटक (मैथिली पदसहित)", "गीतिकाव्य", "लोकगाथा"], correct: 1 },
+        { text: "मिथिला राज्यक पंजी व्यवस्थाक सुदृढीकरणमे विद्यापतिक पूर्वज केकर योगदान रहल ?", options: ["चण्डेश्वर ठाकुर", "हरिसिंहदेव", "नान्यदेव", "शिवसिंह"], correct: 0 },
+        { text: "विद्यापतिक उपाधि 'अभिनवजयदेव' केकर स्मरण दिलाबैत अछि ?", options: ["जयदेवक गीतगोविन्द परम्परा", "कालिदास", "भवभूति", "बाणभट्ट"], correct: 0 },
+        { text: "विद्यापतिक मृत्यु के सम्बन्धमे प्रसिद्ध श्रुति अनुसार हिनका कोन नारी (रानी) के सती होएबाक दृश्य देखि प्रभावित भेलाह ?", options: ["लक्ष्मणा देवी", "लखिमा", "सोनिया", "विद्यावती"], correct: 1 },
+        { text: "विद्यापति अपन पदमे 'भनिता' प्रयोग के अन्तर्गत कोनक नाम लिखैत छथि ?", options: ["आश्रयदाता राजा आ हुनक पत्नी", "अपन गुरु", "अपन पिता", "देवता"], correct: 0 },
+        { text: "विद्यापतिक पदावलीक सर्वाधिक लोकप्रियता कोन प्रान्तमे भेल ?", options: ["मिथिला", "बंगाल (वैष्णव सम्प्रदाय)", "असम", "उड़ीसा"], correct: 1 },
+        { text: "महाप्रभु चैतन्य विद्यापतिक पद के कोन दृष्टिसँ ग्रहण केलनि ?", options: ["आध्यात्मिक राधाकृष्ण लीला", "लौकिक प्रेम", "वीर रस", "शान्त रस"], correct: 0 },
+        { text: "विद्यापति के रचनामे प्रमुख रस कोन अछि ?", options: ["शृंगार (संयोग-वियोग)", "वीर", "हास्य", "भयानक"], correct: 0 },
+        { text: "विद्यापति के अनुसार 'नद्यारी' गीत के विषय का अछि ?", options: ["प्रेमक हिंस्रता (Violence of passion)", "शिव स्तुति", "विवाह गीत", "कृष्णलीला"], correct: 0 },
+        { text: "विद्यापतिक पद संग्रह 'विशुद्ध विद्यापति-पदावली' कोन शताब्दीक संकलन मानल जाइत अछि ?", options: ["१५वीं शताब्दी", "१६वीं शताब्दी", "१८वीं शताब्दी", "२०वीं शताब्दी"], correct: 2 },
+        { text: "विद्यापतिक रचनामे कतय-कतय संस्कृत शब्दक प्रयोग कम कएल गेल, कारण छी ?", options: ["जनसामान्यक हेतु रचना", "प्राकृत प्रभाव", "फारसी प्रभाव", "कोनो नहि"], correct: 0 },
+        { text: "विद्यापति के पिता के नाम का अछि ?", options: ["गणपति ठाकुर", "धीरेश्वर ठाकुर", "चण्डेश्वर", "शिवसिंह"], correct: 1 },
+        { text: "विद्यापति के 'कीर्तिलता' मे मुसलमान शासक के प्रति कोन दृष्टिकोण अभिव्यक्त अछि ?", options: ["अत्याचार आ अन्यायक चित्रण", "प्रशंसा", "तटस्थता", "सहयोग"], correct: 0 },
+        { text: "विद्यापति कविक रुपमे कोन भाषा-शैलीक प्रयोग करैत छथि ?", options: ["लोकभाषा (ठेठ मैथिली)", "संस्कृतनिष्ठ पद्य", "हिन्दी मिश्रित", "फारसी"], correct: 0 },
+        { text: "विद्यापतिक 'पुरुषपरीक्षा' कोन भाषामे अछि ?", options: ["मैथिली गद्य-पद्य मिश्रित", "संस्कृत", "अवहट्ट", "हिन्दी"], correct: 1 },
+        { text: "विद्यापतिक काव्यमे कोन अलंकार प्रमुख रुपमे देखल जाइत अछि ?", options: ["उपमा आ रूपक स्वाभाविक", "अनुप्रास बाहुल्य", "यमक", "श्लेष"], correct: 0 },
+        { text: "विद्यापति के समय मिथिलाक राजधानी कतय छल ?", options: ["दरभंगा", "मधुबनी", "समस्तीपुर", "सीतामढी"], correct: 0 },
+        { text: "विद्यापतिक रचनाक आधुनिक संकलन 'भाषा-गीत-संग्रह' के सम्पादक छथि ?", options: ["प्रो. रमानाथ झा", "डा. जयकान्त मिश्र", "डा. उमेश मिश्र", "पं. शशिनाथ झा"], correct: 0 },
+        { text: "महाकवि विद्यापति के सर्वाधिक मौलिक योगदान कोन क्षेत्रमे अछि ?", options: ["लोकभाषामे शृंगारी आ भक्ति गीति साहित्य", "संस्कृत नाटक", "व्याकरण", "दर्शन"], correct: 0 },
+        { text: "विद्यापति के पदावलीक भाषा बंगाल, असम मे सेहो लोकप्रिय भेल, एकर कारण अछि ?", options: ["वैष्णव पदावलीक प्रभाव", "राजाश्रय", "व्यापारिक सम्पर्क", "कोनो नहि"], correct: 0 },
+        { text: "विद्यापति के 'कीर्तिपताका' ग्रन्थ कोन विषय पर अघारित अछि ?", options: ["राजा शिवसिंहक प्रशस्ति", "वैष्णव भक्ति", "शिवमहिमा", "प्रेम कथा"], correct: 0 },
+        { text: "विद्यापति के रचित गीतसभक मूल-पाठ निर्णय मे समस्या छी काहेंकि ?", options: ["पाण्डुलिपि भिन्नता आ लोककण्ठ परिवर्तन", "भाषा बदल गेल", "लेखक कोनो नाम नहि", "ई सब"], correct: 3 },
+        { text: "विद्यापति के 'गोरक्षविजय' नाटकक मुख्य कथा कोन अछि ?", options: ["गोरक्षनाथ आ मछेन्द्रनाथ", "रामकथा", "कृष्णलीला", "हरिश्चन्द्र"], correct: 0 },
+        { text: "विद्यापति के व्यक्तित्व के विशेषता छी ?", options: ["राजनीतिज्ञ, सामाजिक सुधारक आ सुकवि", "केवल कवि", "केवल मन्त्री", "केवल पण्डित"], correct: 0 },
+        { text: "विद्यापति के पदमे अधिकांश नायिका-नायक कोन अछि ?", options: ["राधा-कृष्ण", "सीता-राम", "शिव-पार्वती", "उमा-महेश"], correct: 0 },
+        { text: "विद्यापति के धार्मिक सम्प्रदायक सम्बन्ध मे कोन मत अधिक उचित मानल जाइत अछि ?", options: ["उदार सार्वधार्मिक (शिव, शक्ति, विष्णु सभक गुणगान)", "केवल वैष्णव", "केवल शाक्त", "केवल शैव"], correct: 0 },
+        { text: "विद्यापति अपन पदमे राधाक प्रेम-विह्वलता के साथ कोन तत्व पर बल देने छथि ?", options: ["मनोवैज्ञानिक यथार्थ", "धार्मिक रहस्य", "व्यंग्य", "उपदेश"], correct: 0 },
+        { text: "विद्यापति की शिक्षा कतय भेल मानल जाइत अछि ?", options: ["मिथिलाक नैमिषारण्य", "काशी", "नालन्दा", "विक्रमशिला"], correct: 0 },
+        { text: "विद्यापति के प्रसिद्ध शैव पद में सँ कोन अछि ?", options: ["जय जय भैरवि असुर भयादिति", "बहु सुखसार पाओल तुझ तीर", "हम सेस्कल महेस", "सभी ठीक अछि"], correct: 3 },
+        { text: "विद्यापति के 'भनिता' प्रयोग के शिल्प परवर्ती मैथिल कविलोकनि केनाए अनुसरण केलनि। ई परम्पराक श्रेय कोनके जाइत अछि ?", options: ["विद्यापति", "चण्डेश्वर", "ज्योतिरीश्वर", "गोविन्ददास"], correct: 0 },
+        { text: "विद्यापति के समयक राजा शिवसिंह के मृत्यु के बाद मिथिलामे कोन कठिन परिस्थिति उत्पन्न भेल ?", options: ["मुसलमान आक्रमण आ राजनीतिक अराजकता", "अकाल", "बाढ़", "प्लेग"], correct: 0 },
+        { text: "विद्यापति के 'शैवसर्वस्वसार' ग्रन्थ के विषय अछि ?", options: ["शिव तत्त्व आ भक्ति", "वेदान्त", "व्याकरण", "न्याय"], correct: 0 },
+        { text: "विद्यापति के मैथिली पदावली के गीत विशेषता अछि ?", options: ["राग-रागिणी बद्ध (संगीतबद्ध)", "केवल वाचिक", "छन्दमुक्त", "शुद्ध गद्य"], correct: 0 },
+        { text: "विद्यापति के साहित्यमे लोकोक्तिक प्रयोग (जेना 'आकर वेदन नहि बुझ आन') के कारण अछि ?", options: ["जनजीवन सजीव बनाबाक हेतु", "संस्कृत प्रभाव", "फारसी अलंकार", "कोनो नहि"], correct: 0 },
+        { text: "प्रसिद्ध विद्वान ग्रियर्सन विद्यापति के साहित्यिक महत्व के बारे मे का कहल अछि ?", options: ["Unparallel in history of literature", "छोटु कवि", "क्षेत्रीय कवि", "साधारण कवि"], correct: 0 },
+        { text: "विद्यापति अपन पद मे 'अपन संगीत के लोकप्रियता' हेतु केकर सहायता लेने छथि ?", options: ["संगीत-ताल आ रागक प्रयोग", "कठिन शब्द", "दीर्घ वर्णन", "विदेशी शैली"], correct: 0 },
+        { text: "विद्यापति के काव्यक मुख्य विशेषता छी ?", options: ["भावाभिव्यक्तिक सरलता, संगीतात्मकता आ लोकमाधुर्य", "पाण्डित्यपूर्ण जटिलता", "विदेशी शब्द बाहुल्य", "शुष्क उपदेश"], correct: 0 },
+        { text: "विद्यापति के 'भागवत' प्रतिलिपि लिखने के प्रसंग सं कोन प्रमाण मिलैत अछि ?", options: ["हुनक विद्वत्ता आ शास्त्रीय रुचि", "वैष्णव धर्मक समर्थन", "राजाज्ञा", "कोनो नहि"], correct: 0 },
+        { text: "विद्यापति के युगक सामाजिक पुनर्संघटनमे पंजी व्यवस्थाक महत्व छल, एकर श्रेय केकर दैत छथि ?", options: ["चण्डेश्वर ठाकुर आ हरिसिंहदेव", "विद्यापति स्वयम्", "शिवसिंह", "नान्यदेव"], correct: 0 },
+        { text: "विद्यापति के 'कीर्तिलता' मे मिथिलाक तत्कालीन दुरवस्था के चित्रण अछि – कोन पंक्ति एहि कथनक पुष्टि करैत अछि ?", options: ["ठाकुर ठग भरैं येल घोरैं ...", "जय जय भैरवि", "हम सेस्कल महेसे", "बहु सुखसार"], correct: 0 },
+        { text: "आइनी-अकबरी (सन् १५९८) मे विद्यापति के नद्यारी गीतक चर्चा कोन रुपमे अछि ?", options: ["प्रेमक विकार व्यञ्जक", "भक्ति गीत", "विवाह गीत", "युद्ध गीत"], correct: 0 },
+        { text: "विद्यापति के पदावली संग्रह 'रामभद्रपुर-पदावली' कतय उपलब्ध अछि ?", options: ["पटना विश्वविद्यालय पुस्तकालय", "नेपाल दरबार", "दरभंगा संग्रह", "कोलकाता"], correct: 0 },
+        { text: "विद्यापति के रचनाकाल में मिथिलाक राजा शिवसिंह के प्रेरणा सँ हुनक रचना 'गोरक्षविजय' के लिखल गेल – एहि नाटकक उद्देश्य छल ?", options: ["राजदम्पतिक प्रसन्नता आ धार्मिक प्रचार", "केवल मनोरंजन", "व्याकरण निर्धारण", "इतिहास लेखन"], correct: 0 },
+        { text: "विद्यापति के समग्र कृतिक संकलनक मुख्य स्रोत पदावली आ कीर्तिलता अतिरिक्त कोन अछि ?", options: ["रागतरंगिणी (लोचनकृत)", "कर्णरत्नाकर", "प्राकृतपैंगलम", "सरस्वतीहृदयालंकार"], correct: 0 }
+    ];
+
+    const totalQ = questions.length;
+    let userSelections = new Array(totalQ).fill(null);
+    let submitted = false;
+
+    const container = document.getElementById('questionsArea');
+    const totalSpan = document.getElementById('totalQ');
+    const scoreSpan = document.getElementById('scoreCount');
+    const percentSpan = document.getElementById('percentBox');
+
+    function renderQuiz() {
+        container.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.dataset.qid = idx;
+            const qDiv = document.createElement('div');
+            qDiv.className = 'q-text';
+            qDiv.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qDiv);
+            const optsDiv = document.createElement('div');
+            optsDiv.className = 'opts-list';
+            q.options.forEach((opt, optIdx) => {
+                const label = document.createElement('label');
+                label.className = 'opt-item';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${idx}`;
+                radio.value = optIdx;
+                radio.disabled = submitted;
+                if (userSelections[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    if (!submitted) {
+                        userSelections[idx] = parseInt(e.target.value);
+                        updateStats();
+                        showFeedback(idx, card);
+                    }
+                });
+                const span = document.createElement('span');
+                span.innerText = `${String.fromCharCode(65+optIdx)}. ${opt}`;
+                label.appendChild(radio);
+                label.appendChild(span);
+                optsDiv.appendChild(label);
+            });
+            card.appendChild(optsDiv);
+            const fbDiv = document.createElement('div');
+            fbDiv.className = 'feedback';
+            fbDiv.id = `fb_${idx}`;
+            card.appendChild(fbDiv);
+            container.appendChild(card);
+            if (submitted) showFeedback(idx, card);
+        });
+        totalSpan.innerText = totalQ;
+        updateStats();
+    }
+
+    function showFeedback(qid, cardDiv) {
+        const fbDiv = cardDiv.querySelector('.feedback');
+        const selected = userSelections[qid];
+        const correctIdx = questions[qid].correct;
+        if (selected === null) {
+            fbDiv.innerHTML = '';
+            fbDiv.className = 'feedback';
+            return;
+        }
+        if (selected === correctIdx) {
+            fbDiv.innerHTML = '✅ सही उत्तर।';
+            fbDiv.className = 'feedback fb-correct';
+        } else {
+            const correctLetter = String.fromCharCode(65+correctIdx);
+            fbDiv.innerHTML = `❌ अशुद्ध। सही उत्तर : ${correctLetter}. ${questions[qid].options[correctIdx]}`;
+            fbDiv.className = 'feedback fb-wrong';
+        }
+    }
+
+    function updateStats() {
+        let correct = 0;
+        for (let i=0; i<totalQ; i++) {
+            if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correct++;
+        }
+        if (!submitted) {
+            scoreSpan.innerText = `${correct}/${totalQ}`;
+            let perc = Math.round((correct/totalQ)*100);
+            percentSpan.innerText = `${perc}% (उत्तर दिहल)`;
+        } else {
+            scoreSpan.innerText = `${correct}/${totalQ}`;
+            let perc = Math.round((correct/totalQ)*100);
+            percentSpan.innerText = `${perc}% ${perc>=60 ? '🎉 विद्यापति योग्य' : '📖 पुनः पढू'}`;
+        }
+    }
+
+    function evaluateAll() {
+        if (submitted) {
+            alert("पहिने जाँच होइ चुकल अछि। पुनः आरम्भ कए नव उत्तर दी।");
+            return;
+        }
+        let unanswered = [];
+        for (let i=0; i<totalQ; i++) if (userSelections[i] === null) unanswered.push(i+1);
+        if (unanswered.length > 0) {
+            if (!confirm(`⚠️ ${unanswered.length} प्रश्न अनुत्तरित अछि (जेना प्र. ${unanswered.slice(0,12).join(',')}...). जाँच करब तौ?`)) return;
+        }
+        submitted = true;
+        const allRadios = document.querySelectorAll('input[type="radio"]');
+        allRadios.forEach(radio => radio.disabled = true);
+        let finalCorrect = 0;
+        for (let i=0; i<totalQ; i++) {
+            const card = document.querySelector(`.question-card[data-qid='${i}']`);
+            if (card) showFeedback(i, card);
+            if (userSelections[i] !== null && userSelections[i] === questions[i].correct) finalCorrect++;
+        }
+        scoreSpan.innerText = `${finalCorrect}/${totalQ}`;
+        let perc = Math.round((finalCorrect/totalQ)*100);
+        percentSpan.innerText = `${perc}% ${perc>=60 ? '🏆 कोकिल कवि' : '📚 विद्यापति हमर सबक अग्रज'}`;
+    }
+
+    function resetQuiz() {
+        submitted = false;
+        userSelections = new Array(totalQ).fill(null);
+        const radios = document.querySelectorAll('input[type="radio"]');
+        radios.forEach(r => { r.checked = false; r.disabled = false; });
+        renderQuiz();
+    }
+
+    document.getElementById('submitBtn').addEventListener('click', evaluateAll);
+    document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+    renderQuiz();
+
+</script></body>
+</html>

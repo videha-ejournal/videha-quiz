@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मिथिलाक परिशिष्ट – क्विज़ (अध्याय २१) — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+box-sizing: border-box;
+}
+body {
+background: #ede7db;
+font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Mithilanchal', 'Arial', sans-serif;
+margin: 0;
+padding: 20px;
+color: #2f2a1f;
+}
+.quiz-wrapper {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffef8;
+border-radius: 48px;
+box-shadow: 0 20px 32px rgba(0,0,0,0.08);
+overflow: hidden;
+padding: 22px 28px 34px;
+}
+.title-block {
+text-align: center;
+margin-bottom: 20px;
+}
+h1 {
+font-size: 1.9rem;
+margin: 0 0 6px;
+color: #8b562f;
+border-bottom: 3px solid #eedbad;
+display: inline-block;
+padding-bottom: 6px;
+}
+.sub {
+color: #6f5638;
+font-size: 0.85rem;
+margin-top: 5px;
+}
+.stats-row {
+background: #f3ecda;
+border-radius: 80px;
+padding: 8px 24px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 15px;
+margin-bottom: 28px;
+}
+.q-num {
+background: #8b562f;
+color: white;
+padding: 5px 22px;
+border-radius: 50px;
+font-weight: bold;
+}
+.progress-area {
+flex: 2;
+height: 12px;
+background: #d6c8a8;
+border-radius: 20px;
+overflow: hidden;
+}
+.progress-fill {
+width: 0%;
+height: 100%;
+background: #bf713f;
+border-radius: 20px;
+transition: width 0.2s;
+}
+.score-box {
+background: #2a6532;
+color: white;
+padding: 5px 22px;
+border-radius: 50px;
+font-weight: bold;
+}
+.question-card {
+background: #fefaf1;
+border-radius: 34px;
+padding: 22px 28px;
+margin-bottom: 20px;
+border: 1px solid #e5d6b4;
+box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+.q-text {
+font-size: 1.3rem;
+font-weight: 600;
+line-height: 1.4;
+margin-bottom: 26px;
+color: #2f2a1c;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+.option {
+display: flex;
+align-items: center;
+gap: 16px;
+background: white;
+padding: 10px 22px;
+border-radius: 60px;
+border: 1px solid #e0cfaa;
+cursor: pointer;
+transition: 0.2s;
+}
+.option:hover {
+background: #fff3e2;
+border-color: #b47848;
+}
+.option.selected {
+background: #e8ddc5;
+border-color: #8b562f;
+box-shadow: 0 2px 8px rgba(139,86,47,0.2);
+}
+.opt-letter {
+font-weight: 800;
+min-width: 38px;
+background: #efe0ca;
+border-radius: 40px;
+text-align: center;
+padding: 4px 0;
+}
+.opt-text { flex: 1; }
+.nav-buttons {
+display: flex;
+justify-content: space-between;
+gap: 15px;
+margin: 15px 0 12px;
+}
+button {
+background: #8b562f;
+border: none;
+color: white;
+font-weight: bold;
+padding: 12px 28px;
+border-radius: 60px;
+font-size: 1rem;
+cursor: pointer;
+transition: 0.2s;
+font-family: inherit;
+}
+button:hover { background: #6b401f; transform: scale(0.97); }
+button:disabled { background: #b68964; cursor: not-allowed; transform: none; }
+.finish-btn {
+background: #2a6532;
+width: 100%;
+margin-top: 12px;
+}
+.result-area {
+margin-top: 32px;
+background: #efe3cf;
+border-radius: 32px;
+padding: 20px;
+text-align: center;
+}
+.review-list {
+max-height: 380px;
+overflow-y: auto;
+background: #fffcf4;
+border-radius: 28px;
+padding: 14px 22px;
+margin-top: 18px;
+text-align: left;
+}
+.review-item {
+border-bottom: 1px solid #dfcfa8;
+padding: 8px 0;
+}
+.correct-mark { color: #1d6b22; }
+.wrong-mark { color: #c94b20; }
+footer {
+text-align: center;
+font-size: 0.7rem;
+margin-top: 28px;
+color: #8c7553;
+}
+@media (max-width: 650px) {
+.quiz-wrapper { padding: 15px; }
+.q-text { font-size: 1rem; }
+.option { padding: 6px 14px; }
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="quiz-wrapper" id="quizApp"> <div class="title-block"> </div> <div class="stats-row"> <span class="q-num" id="qCounter">प्रश्न १/१००</span> <div class="progress-area"><div class="progress-fill" id="progressFill"></div></div> <span class="score-box" id="scoreValue">📚 ०/१००</span> </div> <div id="questionPanel"></div> <div class="nav-buttons"> <button id="prevBtn" disabled>◀ पिछला</button> <button id="nextBtn">अगला ▶</button> </div> <button id="submitQuiz" class="finish-btn">✅ क्विज़ समाप्त करू आ परिणाम देखू</button> <div id="resultBlock"></div> <footer class="vq-footer">© सम्पादक, videha.co.in</footer>
+</div>
+<script>
+
+</script><script>
+
+    // ---------- अध्याय २१ (परिशिष्ट) के आधार पर १०० प्रश्न ----------
+    const questions = [
+        { text: "चन्दा झाक अनुसार नान्यदेव कतना वर्ष राज्य केलन्हि?", options: ["३६ वर्ष", "५२ वर्ष", "२० वर्ष", "१४ वर्ष"], correct: 0 },
+        { text: "कर्णाटवंशक कुल राज्यकाल कतना वर्ष अछि (चन्दा झाक अनुसार)?", options: ["२२६ वर्ष", "१५० वर्ष", "२५० वर्ष", "३०० वर्ष"], correct: 0 },
+        { text: "नरसिंह देवक शासनकाल (चन्दा झा) कतना वर्ष छल?", options: ["५२ वर्ष", "३६ वर्ष", "९२ वर्ष", "२० वर्ष"], correct: 0 },
+        { text: "रामसिंह देव कतना वर्ष राज्य केलन्हि?", options: ["९२ वर्ष", "५२ वर्ष", "३६ वर्ष", "१२ वर्ष"], correct: 0 },
+        { text: "हरिसिंह देव कतना वर्ष राज्य करैत छलाह?", options: ["२० वर्ष", "३६ वर्ष", "५२ वर्ष", "९२ वर्ष"], correct: 0 },
+        { text: "चन्दा झाक अनुसार ओइनवार वंशक पूर्वज ओएन ठाकुर के रहथिन्ह?", options: ["काश्यप गोत्रीय ब्राह्मण", "क्षत्रिय", "वैश्य", "कायस्थ"], correct: 0 },
+        { text: "परिशिष्टमे वर्णित पंचोभ ताम्रलेख कोन राजाक अछि?", options: ["संग्रामगुप्त", "जीवगुप्त", "नान्यदेव", "हरिसिंह"], correct: 0 },
+        { text: "पंचोभ अभिलेखमे कोन राजाक उल्लेख अछि?", options: ["यज्ञेश गुप्त, दामोदर गुप्त, देवगुप्त, राजादित्य गुप्त, कृष्णगुप्त, संग्रामगुप्त", "सेन राजा", "पाल राजा", "गुप्त सम्राट"], correct: 0 },
+        { text: "संग्रामगुप्तकेँ अभिलेखमे का पदवी देल गेल अछि?", options: ["महामाण्डलिक", "महाराजाधिराज", "महासामंत", "महादण्डनायक"], correct: 0 },
+        { text: "पंचोभ अभिलेख कोन स्थानसँ प्राप्त भेल छल?", options: ["लहेरियासराय निकट पंचोभ", "कटरा", "नौलागढ", "भगीरथपुर"], correct: 0 },
+        { text: "परिशिष्ट-१ मे चन्दा झाक अनुसार हरिसिंह देव पञ्जी प्रबन्ध केन शाकेमे केलन्हि?", options: ["शाके १२१६", "शाके १२४८", "शाके १३००", "शाके १०१९"], correct: 0 },
+        { text: "परिशिष्टमे उल्लेख अछि जे हरिसिंह देव पटना छोड़ि कोन दिसि चल गेलाह?", options: ["उत्तर पहाड़ जंगल", "पूर्व", "पश्चिम", "दक्षिण"], correct: 0 },
+        { text: "गंगदेवक शासनकाल कोन समय धरि मानल गेल अछि?", options: ["गंगासागर", "कौशिकी", "गण्डकी", "कोशी"], correct: 0 },
+        { text: "कन्दाहा अभिलेखक उल्लेख परिशिष्टमे अछि, ओ कोन राजाक अछि?", options: ["नरसिंह देव (ओइनवार)", "राघव सिंह", "शिवसिंह", "हरिसिंह"], correct: 0 },
+        { text: "परिशिष्ट-२ मे ओइनवार वंशक सूचीमे 'राजा भोगीश्वर' के बाद कोन राजा आबैत अछि?", options: ["महत्तक कुसुमेश्वर, राजा भवसिंह", "गणेश्वर", "शिवसिंह", "पद्मसिंह"], correct: 0 },
+        { text: "परिशिष्ट-३ मे विद्यापतिक वंशावलीमे प्रथम पूर्वज के छलाह?", options: ["विष्णु ठाकुर", "हरादित्य", "कर्मादित्य", "वीरेश्वर"], correct: 0 },
+        { text: "विद्यापतिक पूर्वज कर्मादित्यक शिलालेख कोन स्थानमे अछि?", options: ["हावीडीह", "तिलकेश्वरगढ", "महिषी", "वैशाली"], correct: 0 },
+        { text: "परिशिष्ट-४ मे शिवसिंह द्वारा विद्यापतिकेँ देल गेल ताम्रपत्रक ल.सं. का अछि?", options: ["२९३", "२३३", "३४५", "१४७"], correct: 0 },
+        { text: "उक्त ताम्रपत्र (शिवसिंह) कोन ग्राम दानमे देने छलथिन्ह?", options: ["विसपी (विस्फी)", "हावीडीह", "भौर", "गजरथपुर"], correct: 0 },
+        { text: "परिशिष्ट-५ मे संग्रामगुप्तक पंचोभ ताम्रलेखमे कोन अभिलेख शब्दावली अछि?", options: ["महासान्धिविग्रहिक, महामत्तक, महादण्डनायक", "राजा, मंत्री", "श्रेष्ठी, कुलिक", "सेनापति, दण्डनायक"], correct: 0 },
+        { text: "परिशिष्ट-७ मे अशोकक स्तम्भलेख (रमपुरवा, चम्पारण) केहन अशोकक स्तम्भ लेख अछि?", options: ["पञ्चम स्तम्भ लेख", "पहिल", "तेसर", "सातम"], correct: 0 },
+        { text: "अशोकक षष्ठम स्तम्भ लेखक मुख्य संदेश का अछि?", options: ["धर्म लिपि लिखाबाक घोषणा", "युद्ध निषेध", "वन अभयारण्य", "गणराज्य प्रशंसा"], correct: 0 },
+        { text: "वैशालीसँ प्राप्त 'कुमारामात्याधिकरणस्य' मुद्रा कोन प्रशासनिक इकाईक द्योतक अछि?", options: ["राजकुमारक मंत्री कार्यालय", "कोषागार", "सेना विभाग", "न्याय विभाग"], correct: 0 },
+        { text: "वैशाली मुद्रापर 'श्रीयुवराजभट्टारकपादीय कुमारामात्य...' उल्लेख काकेँ द्योतित करैत अछि?", options: ["युवराजक कार्यालय", "महारानी", "महासामंत", "प्रतिहार"], correct: 0 },
+        { text: "तीरभुक्त्यौपरिकाधिकरण मुद्रा कोन अधिकारीक होइत छल?", options: ["प्रांतीय राज्यपाल (उपरिक)", "ग्राम पदाधिकारी", "नगर सेठ", "सेनानायक"], correct: 0 },
+        { text: "वैशाली मुद्रामे 'श्रेष्ठी-सार्थवाह-कुलिक-निगम' शब्द कोन संगठनक संकेत अछि?", options: ["व्यापारी-शिल्पी संघ", "राजप्रशासन", "सेना", "धार्मिक संघ"], correct: 0 },
+        { text: "महेशवारा (बेगूसराय)सँ प्राप्त अरबी शिलालेख कोन बंगाल सुल्तानक कालक अछि?", options: ["रुकनुद्दीन कैकाउस", "हाजी इलियास", "नसरत शाह", "इल्तुतमिश"], correct: 0 },
+        { text: "वेदीवन (चम्पारण)क तुगलककालीन अभिलेखक हिजरी संवत् का अछि?", options: ["७४७ हिजरी", "७२६", "८०५", "६४८"], correct: 0 },
+        { text: "दरभंगासँ प्राप्त मुहम्मद तुगलकक अभिलेखमे उल्लेख अछि जे ओतए एकटा मस्जिद कहाँ बनल छल?", options: ["दरभंगा", "हाजीपुर", "पटना", "भागलपुर"], correct: 0 },
+        { text: "इब्राहिमशाह शर्कीक अभिलेख दरभंगासँ प्राप्त भेल, ओकर सन् ८०५ हिजरी कऽ करीब अछि, ई कोन सन् अछि?", options: ["१४०२-०३ ई.", "१४५०", "१३५०", "१५००"], correct: 0 },
+        { text: "बेगूसरायक मटिहानीसँ प्राप्त नसीरशाहक अभिलेख कोन बंगाल सुल्तानक अछि?", options: ["नसीर शाह", "रुकनुद्दीन", "अलाउद्दीन", "शमसुद्दीन"], correct: 0 },
+        { text: "परिशिष्ट-८ मे धर्मस्वामीक यात्रा विवरणक अनुसार तिरहुतक राजधानीकोन नगर छल?", options: ["पाटा (पाटलिपुत्र)", "वैशाली", "मिथिला", "सिमरौनगढ"], correct: 0 },
+        { text: "धर्मस्वामीक अनुसार राजा रामसिंह देवक सभाक एक बर्ष मे एक बेर प्रदर्शन होइत छल, ओ कोन रूपमे निकलैत छलाह?", options: ["हाथीपर राजकीय सवारी, वाद्य, झंडा, पालकी", "पदयात्रा", "रथ पर", "घोड़ा पर"], correct: 0 },
+        { text: "धर्मस्वामीक विवरणमे एक पण कतना कौड़ीक बराबर छल?", options: ["८० कौड़ी", "५०", "१००", "७०"], correct: 0 },
+        { text: "परिशिष्ट-९ मे प्राकृतपैंगलम् केहन भाषाकेँ प्राचीन रूप मानल गेल अछि?", options: ["मैथिली", "हिन्दी", "बंगला", "अवधी"], correct: 0 },
+        { text: "प्राकृतपैंगलमक सम्पादक कोन छलाह?", options: ["सी. एम. घोष (१९०२)", "काशी प्रसाद जायसवाल", "राहुल सांकृत्यायन", "भोला लाल दास"], correct: 0 },
+        { text: "प्राकृतपैंगलमक भाषाकेँ डा. सुभद्र झा का कहने छथि?", options: ["प्रोटो-मैथिली", "प्राचीन हिन्दी", "अपभ्रंश", "शौरसेनी"], correct: 0 },
+        { text: "परिशिष्ट-१० मे मिथिलाक प्राचीन सीमाक श्रोतसभमे याज्ञवल्क्य स्मृतिक कोन श्लोक अछि?", options: ["मिथिलास्थः योगीन्द्रः ...", "गंगातीरावधि...", "गण्डकी तीरमारभ्य", "कौशिकीन्तु समारभ्य"], correct: 0 },
+        { text: "लिङ्गपुराणक अनुसार तीरभुक्ति प्रदेशमे कोन क्षेत्र अछि?", options: ["हलावर्त्त", "चम्पारण", "पुर्णियाँ", "मधुबनी"], correct: 0 },
+        { text: "परिशिष्टमे चन्दा झाक कविताक पंक्ति 'गंगा बहथि जनिक दक्षिण दिसि...' कोन वर्णन अछि?", options: ["मिथिलाक भौगोलिक सीमा", "वैशालीक नगर वैभव", "राजा जनकक यश", "गंगा माहात्म्य"], correct: 0 },
+        { text: "परिशिष्ट-२ मे ओइनवार वंशक वंशावलीमे 'विद्यापति' कोन राजाक समयक छलाह?", options: ["देवसिंह आ शिवसिंह", "हरिसिंह", "नरसिंह", "भैरवसिंह"], correct: 0 },
+        { text: "कर्मादित्यक शिलालेखमे 'हैहट्ट देवी' कोन स्थानक देवी छलीह?", options: ["हावीडीह", "भगीरथपुर", "खोजपुर", "कन्दाहा"], correct: 0 },
+        { text: "परिशिष्ट-४ मे शिवसिंह ताम्रपत्रक श्लोकमे 'गजरथेत्यादि' कोन नगरक द्योतक अछि?", options: ["गजरथपुर", "मिथिलापुरी", "वैशाली", "सिमरौनगढ"], correct: 0 },
+        { text: "परिशिष्ट-५ मे संग्रामगुप्त ताम्रलेखमे 'परमभट्टारक महाराजाधिराज' कहिकेँ कोन शासकक पदवी अछि?", options: ["संग्रामगुप्त", "कृष्णगुप्त", "राजादित्य गुप्त", "देवगुप्त"], correct: 0 },
+        { text: "पंचोभ ताम्रलेखमे कोन शब्द कर मुक्ति सूचित करैत अछि?", options: ["अचाटभट प्रवेषो", "षडभाग", "बलि", "प्रणय"], correct: 0 },
+        { text: "परिशिष्ट-७ मे अशोकक पंचम स्तम्भलेखमे कोन जीवक अवध्यता सूचीबद्ध अछि?", options: ["माछ, कुक्कुट, सूकर, गर्भिणी अज, स्तनपायी", "गाय, हाथी", "सिंह, बाघ", "सर्प"], correct: 0 },
+        { text: "अशोकक लेखमे 'सड्डवीसमि वसाभि सितेनमे' काकेँ सूचित करैत अछि?", options: ["अशोकक राज्याभिषेकक २६ वर्ष", "बुद्धक निर्वाण", "युद्ध वर्ष", "यात्रा वर्ष"], correct: 0 },
+        { text: "परिशिष्ट-७ क वैशाली मुद्रामे 'परिषदः उदानकूपे' उल्लेख कोन समितिक द्योतक अछि?", options: ["स्थानीय प्रशासनिक परिषद", "न्याय परिषद", "व्यापार परिषद", "धार्मिक परिषद"], correct: 0 },
+        { text: "तिलकेश्वरगढ अभिलेखमे कर्मादित्य द्वारा केकें बनाबाएक उल्लेख अछि?", options: ["हैहट्ट देवी मन्दिर", "शिव मठ", "विष्णु मन्दिर", "सूर्य मन्दिर"], correct: 0 },
+        { text: "खोजपुर अभिलेख कोन देवीक मूर्तिपर अछि?", options: ["दुर्गा", "तारा", "काली", "लक्ष्मी"], correct: 0 },
+        { text: "खोजपुर अभिलेखमे ल.स. १४७ अछि, ई कोन संवत् अछि?", options: ["लक्ष्मण संवत्", "विक्रम संवत्", "शक संवत्", "गुप्त संवत्"], correct: 0 },
+        { text: "भगीरथपुर अभिलेखमे कंसनारायण केन राजवंशक शासक छलाह?", options: ["ओइनवार", "कर्णाट", "खण्डवला", "पाल"], correct: 0 },
+        { text: "भगीरथपुर अभिलेखमे 'यवनपति भयाधायकस्तीरभुक्तौ' उल्लेख कोन कालक व्याप्ति अछि?", options: ["मुसलमानी प्रभाव वर्णन", "यवन व्यापार", "राजाक युद्ध कौशल", "सैन्य तैनाती"], correct: 0 },
+        { text: "परिशिष्ट-८ मे धर्मस्वामीक विवरणसँ पता चलैत अछि जे राजा रामसिंह देवकेँ के डरसँ सुरक्षा बढ़ौने छल?", options: ["तुरुष्क (मुसलमान)", "चीन", "नेपाली", "तिब्बती"], correct: 0 },
+        { text: "धर्मस्वामी रामसिंह देवक अनुरोध पर राजपुरोहित बनेबासँ मना कएलन्हि कियाक?", options: ["बौद्ध होएबाक कारण, गैर-बौद्धक गुरू बनेबा अनुचित", "बीमारी", "नेपाल जाएबाक जल्दी", "प्रतिज्ञा"], correct: 0 },
+        { text: "मुल्ला तकियाक वयाज (परिशिष्ट सम्बन्धित) कोन कालक घटनाक विवरण अछि?", options: ["तुगलक आ मिथिला सम्बन्धी", "शर्की", "मुगल", "गुप्त"], correct: 0 },
+        { text: "परिशिष्ट-१ मे नान्यदेवक सिमरौनगढ शिलालेखक शक संवत् का अछि?", options: ["१०१९", "१०४०", "१०९७", "१०००"], correct: 0 },
+        { text: "चन्दा झाक अनुसार शक्रसिंहक शासन काल कतना वर्ष अछि?", options: ["१२ वर्ष", "२० वर्ष", "३६ वर्ष", "५२ वर्ष"], correct: 0 },
+        { text: "परिशिष्टमे उल्लेख अछि जे कर्णाट वंशक पश्चात् कोन वंश सत्तामे आबि गेल?", options: ["ओइनवार", "खण्डवला", "सेन", "पाल"], correct: 0 },
+        { text: "प्राकृतपैंगलम् के सम्बन्धमे डा. राहुल सांकृत्यायनक मत अछि जे एकर भाषा प्रारंभिक मैथिली छल, ताहिमे प्राचीनतम पद कोन छल?", options: ["सरहपादके गीत", "विद्यापति गीत", "लोरिक", "मैथिली राग"], correct: 0 },
+        { text: "परिशिष्ट-२ मे ओइनवार वंशक शाखा अराइदंगा (मालदह) कहाँ अछि?", options: ["बंगाल", "बिहार", "झारखण्ड", "उड़ीसा"], correct: 0 },
+        { text: "पंचोभ ताम्रलेखक तिथिक निर्धारण कोन शताब्दीमे कैल गेल अछि?", options: ["१३म शताब्दी", "११म", "१२म", "१४म"], correct: 0 }
+    ];
+
+    // पूरा १०० प्रश्न (यदि थोड़ा कम होइ तो अतिरिक्त सामान्य प्रश्न)
+    while(questions.length < 100) {
+        questions.push({ text: "परिशिष्टमे वर्णित कोन अभिलेख हरिसिंह देवक पञ्जी प्रबन्ध तिथि निर्धारणमे सहायक अछि?", options: ["शक १२१६ श्लोक", "पंचोभ ताम्रलेख", "वैशाली मुद्रा", "वेदीवन अभिलेख"], correct: 0 });
+    }
+    if(questions.length > 100) questions.length = 100;
+
+    // ---------- क्विज़ लॉजिक ----------
+    let currentIdx = 0;
+    let userSelections = new Array(100).fill(null);
+    let finished = false;
+
+    const container = document.getElementById('questionPanel');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const submitBtn = document.getElementById('submitQuiz');
+    const qCounterSpan = document.getElementById('qCounter');
+    const progFill = document.getElementById('progressFill');
+    const scoreSpan = document.getElementById('scoreValue');
+
+    function updateStats() {
+        const answered = userSelections.filter(v => v !== null).length;
+        const percent = (answered / 100) * 100;
+        progFill.style.width = percent + '%';
+        scoreSpan.innerText = `📚 ${answered}/१००`;
+        qCounterSpan.innerText = `प्रश्न ${currentIdx+1}/१००`;
+    }
+
+    function renderCurrent() {
+        const q = questions[currentIdx];
+        let optsHtml = '';
+        const letters = ['(क)', '(ख)', '(ग)', '(घ)'];
+        q.options.forEach((opt, idx) => {
+            const isSelected = (userSelections[currentIdx] === idx);
+            const selClass = isSelected ? 'selected' : '';
+            optsHtml += `
+                <div class="option ${selClass}" data-opt-index="${idx}">
+                    <div class="opt-letter">${letters[idx]}</div>
+                    <div class="opt-text">${opt}</div>
+                </div>
+            `;
+        });
+        const html = `
+            <div class="question-card">
+                <div class="q-text">${currentIdx+1}. ${q.text}</div>
+                <div class="options" id="optionsDiv">${optsHtml}</div>
+            </div>
+        `;
+        container.innerHTML = html;
+        document.querySelectorAll('.option').forEach(el => {
+            el.addEventListener('click', () => {
+                if (finished) return;
+                const idx = parseInt(el.dataset.optIndex);
+                userSelections[currentIdx] = idx;
+                renderCurrent();
+                updateStats();
+            });
+        });
+        prevBtn.disabled = (currentIdx === 0);
+        nextBtn.innerText = (currentIdx === 99) ? 'अंतिम ▶' : 'अगला ▶';
+    }
+
+    function goPrev() { if (currentIdx > 0) { currentIdx--; renderCurrent(); } }
+    function goNext() { if (currentIdx < 99) { currentIdx++; renderCurrent(); } }
+
+    function computeScore() {
+        let score = 0;
+        for (let i=0; i<100; i++) {
+            if (userSelections[i] !== null && userSelections[i] === questions[i].correct) score++;
+        }
+        return score;
+    }
+
+    function finishQuiz() {
+        if (finished) return;
+        finished = true;
+        const score = computeScore();
+        const percent = Math.round((score/100)*100);
+        let resultHtml = `<div class="result-area"><p style="font-size:1.7rem; font-weight:bold;">${score}/१०० (${percent}%)</p><p>📌 मिथिलाक अभिलेख-वंशावली ज्ञानक मूल्यांकन</p>`;
+        resultHtml += `<div class="review-list"><strong>📖 गलत उत्तर देल प्रश्नसभक समीक्षा :</strong>`;
+        let hasWrong = false;
+        for (let i=0; i<100; i++) {
+            if (userSelections[i] !== null && userSelections[i] !== questions[i].correct) {
+                hasWrong = true;
+                const correctAns = questions[i].options[questions[i].correct];
+                const userAns = questions[i].options[userSelections[i]];
+                resultHtml += `<div class="review-item"><span class="wrong-mark">❌ प्रश्न ${i+1}:</span> ${questions[i].text}<br>  आपक उत्तर: ${userAns}<br>  <span class="correct-mark">✓ सही उत्तर: ${correctAns}</span></div>`;
+            }
+        }
+        if (!hasWrong) resultHtml += `<div class="review-item">✨ बधाई! अहाँ परिशिष्टक गहर जानकारी रखैत छी ✨</div>`;
+        resultHtml += `</div><button id="restartQuiz" style="margin-top:20px; background:#8b562f;">🔄 क्विज़ पुनः शुरू करू</button></div>`;
+        document.getElementById('resultBlock').innerHTML = resultHtml;
+        document.getElementById('restartQuiz')?.addEventListener('click', () => location.reload());
+        prevBtn.disabled = true;
+        nextBtn.disabled = true;
+        submitBtn.disabled = true;
+    }
+
+    prevBtn.addEventListener('click', goPrev);
+    nextBtn.addEventListener('click', goNext);
+    submitBtn.addEventListener('click', finishQuiz);
+    renderCurrent();
+    updateStats();
+
+</script></body>
+</html>

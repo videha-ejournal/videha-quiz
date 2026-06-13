@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>️ मैथिली योद्धा | पात्र स्तरीय क्विज़ — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: linear-gradient(135deg, #1f2b1a, #2a3a24);
+min-height: 100vh;
+font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+padding: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.warrior-container {
+max-width: 750px;
+width: 100%;
+background: #fefaf2;
+border-radius: 64px;
+overflow: hidden;
+box-shadow: 0 30px 40px rgba(0, 0, 0, 0.4);
+}
+/* header */
+.warrior-header {
+background: #2c3e2a;
+padding: 22px 28px;
+color: #fbefdb;
+}
+.title-row {
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 12px;
+margin-bottom: 12px;
+}
+h1 {
+font-size: 1.8rem;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.lives {
+background: #4a2e2a;
+padding: 6px 20px;
+border-radius: 60px;
+font-weight: bold;
+}
+.upload-group {
+display: flex;
+gap: 12px;
+flex-wrap: wrap;
+font-size: 0.75rem;
+align-items: center;
+}
+.upload-btn {
+background: #5a7856;
+padding: 5px 16px;
+border-radius: 60px;
+cursor: pointer;
+}
+/* progress & level */
+.progress-section {
+background: #e9dfcf;
+padding: 12px 24px;
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 12px;
+border-bottom: 1px solid #d6c5b2;
+}
+.level-badge {
+background: #b48b5a;
+padding: 5px 18px;
+border-radius: 60px;
+font-weight: bold;
+color: white;
+}
+.xp-bar-bg {
+background: #cfbeab;
+border-radius: 30px;
+height: 12px;
+width: 180px;
+overflow: hidden;
+}
+.xp-fill {
+background: #6f8f6b;
+width: 0%;
+height: 100%;
+transition: width 0.3s;
+}
+/* main quiz */
+.quiz-area {
+padding: 32px 30px;
+}
+.question-card {
+background: #fffaf3;
+border-radius: 48px;
+padding: 28px 24px;
+text-align: center;
+margin-bottom: 28px;
+box-shadow: inset 0 0 0 1px #fffdf9, 0 8px 18px rgba(0,0,0,0.05);
+}
+.question-word {
+font-size: 2rem;
+font-weight: 800;
+color: #2b4127;
+margin: 12px 0;
+}
+.options-grid {
+display: flex;
+flex-direction: column;
+gap: 12px;
+margin: 24px 0;
+}
+.opt-btn {
+background: white;
+border: 1px solid #e2cfbc;
+border-radius: 80px;
+padding: 14px 20px;
+cursor: pointer;
+transition: 0.1s;
+font-weight: 500;
+}
+.opt-btn:hover {
+background: #fff0e2;
+border-color: #c9a86e;
+}
+.disabled-opt {
+pointer-events: none;
+opacity: 0.6;
+}
+.feedback {
+background: #efe6dc;
+border-radius: 40px;
+padding: 12px 20px;
+margin: 15px 0;
+text-align: center;
+}
+.action-buttons {
+display: flex;
+gap: 15px;
+margin-top: 15px;
+}
+.next-btn {
+background: #6f8f6b;
+border: none;
+flex: 1;
+padding: 14px;
+border-radius: 60px;
+font-weight: bold;
+color: white;
+cursor: pointer;
+}
+.reset-btn {
+background: #c1a074;
+border: none;
+flex: 0.6;
+padding: 14px;
+border-radius: 60px;
+font-weight: bold;
+cursor: pointer;
+}
+.stats-footer {
+background: #e7dacb;
+padding: 14px 24px;
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 12px;
+font-weight: 600;
+}
+@media (max-width: 550px) {
+.question-word { font-size: 1.5rem; }
+.quiz-area { padding: 20px; }
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script><script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script><script src="thesaurus_data.js"></script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="warrior-container"> <div class="warrior-header"> <div class="title-row"> <div class="lives">❤️ <span id="livesCount">3</span></div> </div> <div class="upload-group"> <span class="upload-btn" id="warriorUploadBtn">📂 Excel अपलोड</span> <input type="file" id="warriorExcel" accept=".xlsx, .xls" style="display: none;"> <span id="dataInfo">📘 नमूना डेटा</span> </div> </div> <div class="progress-section"> <div class="level-badge" id="levelDisplay">स्तर 1</div> <div class="xp-bar-bg"><div class="xp-fill" id="xpFill"></div></div> <div>🏆 स्कोर: <span id="totalScore">0</span></div> </div> <div class="quiz-area"> <div class="question-card"> <div class="question-word" id="questionWord">लोड होत...</div> <div class="options-grid" id="optionsGrid"></div> </div> <div id="feedbackMsg" class="feedback" style="display: none;"></div> <div class="action-buttons"> <button id="nextLevelBtn" class="next-btn">➡ अगिला प्रश्न</button> <button id="resetWarriorBtn" class="reset-btn">🔄 रीसेट</button> </div> <div class="vq-footer">© सम्पादक, videha.co.in</div> </div>
+</div>
+<script>
+
+</script><span id="levelProgress" style="display:none">0</span>
+<span id="levelTotal" style="display:none">0</span>
+<span id="correctWarrior" style="display:none">0</span>
+<script>
+
+    // ---------- DATA ----------
+    let dictionary = [];          // [{ english, maithili1, pos }]
+    let currentLevel = 1;
+    let levelQuestions = [];       // array of question objects for current level
+    let currentQIndex = 0;
+    let lives = 3;
+    let totalScore = 0;
+    let levelCorrect = 0;
+    let gameActive = true;
+    let waitingNext = false;
+    let currentQuestionObj = null;
+    let currentOptions = [];
+
+    // DOM elements
+    const levelDisplaySpan = document.getElementById("levelDisplay");
+    const livesSpan = document.getElementById("livesCount");
+    const totalScoreSpan = document.getElementById("totalScore");
+    const levelProgressSpan = document.getElementById("levelProgress");
+    const levelTotalSpan = document.getElementById("levelTotal");
+    const correctWarriorSpan = document.getElementById("correctWarrior");
+    const xpFill = document.getElementById("xpFill");
+    const questionWordSpan = document.getElementById("questionWord");
+    const optionsDiv = document.getElementById("optionsGrid");
+    const feedbackDiv = document.getElementById("feedbackMsg");
+    const nextBtn = document.getElementById("nextLevelBtn");
+    const resetBtn = document.getElementById("resetWarriorBtn");
+    const uploadBtn = document.getElementById("warriorUploadBtn");
+    const excelInput = document.getElementById("warriorExcel");
+    const dataInfoSpan = document.getElementById("dataInfo");
+
+    // ---------- SAMPLE DATA (20 words) ----------
+    // THESAURUS_DATA loaded from thesaurus_data.js
+    const SAMPLE_WORDS = THESAURUS_DATA;
+
+    // Helper: normalize answer
+    function normalize(str) {
+        return str.trim().toLowerCase().replace(/[.,!?;:]/g, '').replace(/\s+/g, ' ').trim();
+    }
+
+    // Generate 4 options for a given question (English word -> Maithili)
+    function generateOptions(correctAnswer) {
+        let pool = dictionary.filter(d => d.maithili1 !== correctAnswer).map(d => d.maithili1);
+        pool = [...new Set(pool)];
+        let distractors = [];
+        while (distractors.length < 3 && pool.length) {
+            let rand = pool.splice(Math.floor(Math.random() * pool.length), 1)[0];
+            distractors.push(rand);
+        }
+        while (distractors.length < 3) distractors.push(correctAnswer);
+        let opts = [correctAnswer, ...distractors];
+        for (let i = opts.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [opts[i], opts[j]] = [opts[j], opts[i]];
+        }
+        return opts;
+    }
+
+    // Generate 5 questions for a level (difficulty scales with level)
+    function generateLevelQuestions(level) {
+        if (!dictionary.length) return [];
+        // difficulty: higher level uses less common words? we'll just randomize but ensure variety
+        let shuffled = [...dictionary];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        // take first 5 (or 8 if needed)
+        const selected = shuffled.slice(0, 5);
+        const questions = [];
+        for (let item of selected) {
+            const correct = item.maithili1;
+            const options = generateOptions(correct);
+            questions.push({
+                word: item.english,
+                pos: item.pos || '',
+                correct: correct,
+                options: options
+            });
+        }
+        return questions;
+    }
+
+    // Load level (reset level stats, generate new questions)
+    function loadLevel() {
+        if (!dictionary.length) {
+            questionWordSpan.innerText = "कोनो डेटा नहि अछि। फाइल अपलोड करू।";
+            optionsDiv.innerHTML = "";
+            return false;
+        }
+        levelQuestions = generateLevelQuestions(currentLevel);
+        if (levelQuestions.length === 0) return false;
+        currentQIndex = 0;
+        levelCorrect = 0;
+        updateLevelUI();
+        renderCurrentQuestion();
+        gameActive = true;
+        waitingNext = false;
+        return true;
+    }
+
+    function updateLevelUI() {
+        levelDisplaySpan.innerText = `स्तर ${currentLevel}`;
+        levelTotalSpan.innerText = levelQuestions.length;
+        levelProgressSpan.innerText = levelCorrect;
+        const xpPercent = (levelCorrect / levelQuestions.length) * 100;
+        xpFill.style.width = `${xpPercent}%`;
+        totalScoreSpan.innerText = totalScore;
+        correctWarriorSpan.innerText = totalScore;
+        livesSpan.innerText = lives;
+    }
+
+    function renderCurrentQuestion() {
+        if (currentQIndex >= levelQuestions.length) {
+            // level complete
+            completeLevel();
+            return;
+        }
+        const q = levelQuestions[currentQIndex];
+        currentQuestionObj = q;
+        questionWordSpan.innerHTML = `“${escapeHtml(q.word)}”${q.pos ? ` (${q.pos})` : ''} केर मैथिली अनुवाद की अछि?`;
+        let optionsHtml = "";
+        q.options.forEach((opt, idx) => {
+            optionsHtml += `<div class="opt-btn" data-opt="${escapeHtml(opt)}">${String.fromCharCode(65+idx)}. ${escapeHtml(opt)}</div>`;
+        });
+        optionsDiv.innerHTML = optionsHtml;
+        // attach click listeners
+        document.querySelectorAll(".opt-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                if (!gameActive || waitingNext) return;
+                document.querySelectorAll(".opt-btn").forEach(b => b.style.background = "white");
+                btn.style.background = "#fce5cd";
+                btn.setAttribute("data-selected", "true");
+            });
+        });
+        feedbackDiv.style.display = "none";
+        waitingNext = false;
+    }
+
+    function checkAnswer(selectedOpt) {
+        if (!gameActive || waitingNext) return;
+        const isCorrect = (selectedOpt === currentQuestionObj.correct);
+        if (isCorrect) {
+            // correct answer
+            levelCorrect++;
+            totalScore += 10 * currentLevel; // more points for higher levels
+            updateLevelUI();
+            feedbackDiv.style.display = "block";
+            feedbackDiv.innerHTML = "✅ सही! +" + (10 * currentLevel) + " अंक";
+            feedbackDiv.style.background = "#e0f0dc";
+            // move to next question
+            waitingNext = true;
+            disableOptions();
+            setTimeout(() => {
+                currentQIndex++;
+                if (currentQIndex < levelQuestions.length) {
+                    renderCurrentQuestion();
+                } else {
+                    completeLevel();
+                }
+            }, 1000);
+        } else {
+            // wrong answer: lose a life
+            lives--;
+            updateLevelUI();
+            feedbackDiv.style.display = "block";
+            feedbackDiv.innerHTML = `❌ गलत। सही उत्तर: "${escapeHtml(currentQuestionObj.correct)}" बाँकी जीवन: ${lives}`;
+            feedbackDiv.style.background = "#ffe0e0";
+            if (lives <= 0) {
+                gameActive = false;
+                feedbackDiv.innerHTML += "<br>💀 आप हार गेल! 'रीसेट' दबू नया शुरू करबाक लेल।";
+                disableOptions();
+                return;
+            }
+            waitingNext = true;
+            disableOptions();
+            setTimeout(() => {
+                currentQIndex++;
+                if (currentQIndex < levelQuestions.length) {
+                    renderCurrentQuestion();
+                } else {
+                    completeLevel();
+                }
+            }, 1500);
+        }
+    }
+
+    function disableOptions() {
+        document.querySelectorAll(".opt-btn").forEach(btn => {
+            btn.style.pointerEvents = "none";
+        });
+    }
+
+    function completeLevel() {
+        if (levelCorrect === levelQuestions.length && lives > 0) {
+            // perfect level? bonus
+            totalScore += 50 * currentLevel;
+            feedbackDiv.style.display = "block";
+            feedbackDiv.innerHTML = `🎉 स्तर ${currentLevel} पूर्ण! +${50 * currentLevel} बोनस। 🎉`;
+            feedbackDiv.style.background = "#d4e2d0";
+            updateLevelUI();
+        } else if (levelCorrect >= Math.ceil(levelQuestions.length / 2)) {
+            feedbackDiv.style.display = "block";
+            feedbackDiv.innerHTML = `📈 स्तर ${currentLevel} पार! अगला स्तर शुरू होत।`;
+            feedbackDiv.style.background = "#f0e8dc";
+        } else {
+            feedbackDiv.style.display = "block";
+            feedbackDiv.innerHTML = `⚠️ स्तर ${currentLevel} पूरा, लेकिन कमजोर प्रदर्शन। फिनु कोसिस करू।`;
+            feedbackDiv.style.background = "#fff0cc";
+        }
+        waitingNext = true;
+        disableOptions();
+        setTimeout(() => {
+            if (currentLevel < 5) {
+                currentLevel++;
+                loadLevel();
+            } else {
+                // BOSS LEVEL CELEBRATION
+                if (lives > 0 && levelCorrect >= levelQuestions.length) {
+                    feedbackDiv.style.display = "block";
+                    feedbackDiv.innerHTML = "🏆 बधाई! आप महायोद्धा बनल। सब स्तर जीतल। 🏆";
+                    feedbackDiv.style.background = "#f9e0a0";
+                    gameActive = false;
+                } else {
+                    feedbackDiv.innerHTML = "✨ स्तर 5 समाप्त। रीसेट दबू नया चुनौती लेल।";
+                    gameActive = false;
+                }
+            }
+        }, 1800);
+    }
+
+    function resetGame() {
+        lives = 3;
+        totalScore = 0;
+        currentLevel = 1;
+        gameActive = true;
+        waitingNext = false;
+        loadLevel();
+    }
+
+    // Event: next button triggers answer if selected, or skip?
+    // Actually we handle answer via option click. Next button will be used to manually advance? Better: 
+    // We'll let options handle answer; next button could be used to skip if no answer? But we keep it simple: 
+    // Next button only advances after answer (or skip). We'll implement skip functionality.
+    function skipToNext() {
+        if (!gameActive || waitingNext) return;
+        // treat as wrong
+        lives--;
+        updateLevelUI();
+        feedbackDiv.style.display = "block";
+        feedbackDiv.innerHTML = `⏩ छोड़ल गेल। सही उत्तर: "${escapeHtml(currentQuestionObj.correct)}" जीवन: ${lives}`;
+        feedbackDiv.style.background = "#f9efde";
+        if (lives <= 0) {
+            gameActive = false;
+            feedbackDiv.innerHTML += "<br>💀 खेल समाप्त। रीसेट करू।";
+            disableOptions();
+            return;
+        }
+        waitingNext = true;
+        disableOptions();
+        setTimeout(() => {
+            currentQIndex++;
+            if (currentQIndex < levelQuestions.length) {
+                renderCurrentQuestion();
+            } else {
+                completeLevel();
+            }
+        }, 1200);
+    }
+
+    // Option click delegation (live)
+    function bindOptionDelegation() {
+        optionsDiv.addEventListener("click", (e) => {
+            const optDiv = e.target.closest(".opt-btn");
+            if (!optDiv) return;
+            if (!gameActive || waitingNext) return;
+            const selected = optDiv.getAttribute("data-opt");
+            if (selected) {
+                checkAnswer(selected);
+            }
+        });
+    }
+
+    // ----- Excel parsing -----
+    function parseExcelToDict(buffer) {
+        const wb = XLSX.read(buffer, { type: 'array' });
+        const sheet = wb.Sheets[wb.SheetNames[0]];
+        const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
+        if (!rows || rows.length < 2) return [];
+        const header = rows[0].map(c => String(c || "").trim().toLowerCase());
+        const engIdx = header.findIndex(h => h.includes("english word"));
+        const maiIdx = header.findIndex(h => h.includes("maithili meaning 1"));
+        const posIdx = header.findIndex(h => h.includes("pos"));
+        if (engIdx === -1 || maiIdx === -1) return [];
+        const dict = [];
+        for (let i = 1; i < rows.length; i++) {
+            const row = rows[i];
+            if (!row || !row[engIdx]) continue;
+            const eng = String(row[engIdx]).trim();
+            const mai = String(row[maiIdx]).trim();
+            if (eng && mai) {
+                dict.push({
+                    english: eng,
+                    maithili1: mai,
+                    pos: posIdx !== -1 ? String(row[posIdx] || "").trim() : ""
+                });
+            }
+        }
+        return dict;
+    }
+
+    function loadExcelAndReset(file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const parsed = parseExcelToDict(e.target.result);
+            if (parsed.length === 0) {
+                alert("Excel में वैध डेटा नहि अछि। नमूना लोड रहल।");
+                setSampleData();
+            } else {
+                dictionary = parsed;
+                dataInfoSpan.innerText = `📁 ${file.name} (${dictionary.length})`;
+                resetGame();
+            }
+        };
+        reader.readAsArrayBuffer(file);
+    }
+
+    function setSampleData() {
+        dictionary = [...SAMPLE_WORDS];
+        dataInfoSpan.innerText = "📘 नमूना डेटा";
+        resetGame();
+    }
+
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        });
+    }
+
+    // Initialization
+    function init() {
+        setSampleData();
+        bindOptionDelegation();
+        uploadBtn.addEventListener("click", () => excelInput.click());
+        excelInput.addEventListener("change", (e) => {
+            if (e.target.files && e.target.files[0]) loadExcelAndReset(e.target.files[0]);
+        });
+        nextBtn.addEventListener("click", skipToNext);
+        resetBtn.addEventListener("click", resetGame);
+    }
+
+    init();
+
+</script></body>
+</html>

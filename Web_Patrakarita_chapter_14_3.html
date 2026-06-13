@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>मैथिली महाक्विज़ | तत्काल फीडबैक सहित १०० प्रश्न</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: linear-gradient(135deg, #1e3c2c 0%, #0f2b1d 100%);
+font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Mukta', 'Poppins', system-ui, sans-serif;
+padding: 1.5rem 1rem;
+min-height: 100vh;
+}
+.quiz-wrapper {
+max-width: 1200px;
+margin: 0 auto;
+background: #fffdf9;
+border-radius: 48px;
+box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+overflow: hidden;
+}
+.quiz-header {
+background: linear-gradient(120deg, #ffefcf, #ffe2bc);
+padding: 1.8rem 2rem;
+text-align: center;
+border-bottom: 5px solid #d97706;
+}
+.title-badge {
+display: inline-block;
+background: #d97706;
+color: white;
+font-weight: bold;
+padding: 0.3rem 1.5rem;
+border-radius: 50px;
+font-size: 0.85rem;
+letter-spacing: 1px;
+margin-bottom: 0.8rem;
+}
+.quiz-header h1 {
+font-size: 1.9rem;
+color: #2b4b2a;
+font-weight: 800;
+text-shadow: 2px 2px 0 #ffe2aa;
+}
+.subhead {
+font-size: 1.1rem;
+background: #fff1e0;
+display: inline-block;
+padding: 0.3rem 1.3rem;
+border-radius: 40px;
+margin-top: 0.6rem;
+color: #7b4a1e;
+font-weight: 500;
+}
+.info-bar {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: center;
+background: #f7f1e4;
+padding: 0.8rem 2rem;
+border-bottom: 1px solid #eedbbc;
+gap: 1rem;
+}
+.question-counter {
+background: #2b4b2a;
+color: #ffefcf;
+padding: 0.4rem 1rem;
+border-radius: 50px;
+font-weight: bold;
+font-size: 0.9rem;
+}
+.pagination {
+display: flex;
+gap: 0.5rem;
+flex-wrap: wrap;
+align-items: center;
+}
+.page-btn {
+background: white;
+border: 1px solid #dcb87a;
+padding: 0.3rem 0.8rem;
+border-radius: 30px;
+cursor: pointer;
+font-weight: 600;
+font-family: inherit;
+transition: 0.2s;
+color: #4a3a22;
+}
+.page-btn.active {
+background: #d97706;
+border-color: #d97706;
+color: white;
+}
+.page-btn:hover:not(.active) {
+background: #ffe1b3;
+}
+.nav-buttons {
+display: flex;
+gap: 0.8rem;
+}
+.nav-btn {
+background: #fff1e0;
+border: 1px solid #ddb67a;
+padding: 0.4rem 1.2rem;
+border-radius: 40px;
+font-weight: bold;
+cursor: pointer;
+transition: 0.2s;
+font-family: inherit;
+}
+.nav-btn:hover {
+background: #d97706;
+color: white;
+border-color: #d97706;
+}
+.questions-container {
+padding: 2rem;
+}
+.question-card {
+background: #ffffff;
+border-radius: 28px;
+margin-bottom: 1.8rem;
+padding: 1.2rem 1.5rem;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+border: 1px solid #f7e5cf;
+transition: 0.1s;
+}
+.question-text {
+font-size: 1.2rem;
+font-weight: 700;
+color: #2d431f;
+margin-bottom: 0.9rem;
+padding-left: 0.5rem;
+border-left: 5px solid #e67e22;
+}
+.options {
+display: flex;
+flex-wrap: wrap;
+gap: 0.7rem 1.5rem;
+margin-left: 0.5rem;
+}
+.option-item {
+display: flex;
+align-items: center;
+gap: 0.5rem;
+background: #fefaf3;
+padding: 0.3rem 1rem;
+border-radius: 40px;
+border: 1px solid #f0dcbd;
+cursor: pointer;
+transition: 0.1s;
+}
+.option-item:hover {
+background: #ffeee0;
+}
+input[type="radio"] {
+accent-color: #e67e22;
+width: 1rem;
+height: 1rem;
+cursor: pointer;
+}
+label {
+font-size: 0.95rem;
+font-weight: 500;
+color: #3e2e1c;
+cursor: pointer;
+}
+/* Live feedback styling */
+.question-feedback {
+margin-top: 0.75rem;
+padding: 0.5rem 0.8rem;
+border-radius: 40px;
+font-size: 0.85rem;
+font-weight: 500;
+display: inline-block;
+width: auto;
+transition: 0.1s;
+}
+.feedback-correct {
+background: #dcfce7;
+color: #15803d;
+border-left: 4px solid #22c55e;
+padding: 0.4rem 1rem;
+}
+.feedback-wrong {
+background: #fee2e2;
+color: #b91c1c;
+border-left: 4px solid #ef4444;
+padding: 0.4rem 1rem;
+}
+.feedback-neutral {
+background: #fef9e8;
+color: #b8860b;
+}
+.action-panel {
+background: #efe2cf;
+padding: 1.2rem 2rem;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: center;
+gap: 1rem;
+border-top: 2px solid #e0c8a6;
+}
+.score-box {
+background: #2c5a2e;
+padding: 0.5rem 1.2rem;
+border-radius: 60px;
+color: #ffefcf;
+font-weight: bold;
+font-size: 1.2rem;
+}
+.score-box span {
+font-size: 1.7rem;
+font-weight: 800;
+color: #ffcd7e;
+}
+.btn-group {
+display: flex;
+gap: 1rem;
+flex-wrap: wrap;
+}
+button {
+font-family: inherit;
+font-weight: 600;
+padding: 0.6rem 1.5rem;
+border-radius: 40px;
+border: none;
+cursor: pointer;
+transition: 0.2s;
+font-size: 0.9rem;
+background: white;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.submit-btn {
+background: #d97706;
+color: white;
+border-bottom: 2px solid #a45d05;
+}
+.reset-btn {
+background: #f5e7d3;
+color: #624c2c;
+border: 1px solid #dbb77a;
+}
+.report-btn {
+background: #406e42;
+color: white;
+}
+.submit-btn:hover, .reset-btn:hover, .report-btn:hover {
+transform: translateY(-2px);
+filter: brightness(0.96);
+}
+.report-section {
+background: #faf3e8;
+margin: 0 1rem 1.5rem 1rem;
+border-radius: 32px;
+padding: 1.2rem;
+display: none;
+border-top: 3px solid #d97706;
+}
+.report-title {
+font-weight: bold;
+font-size: 1.2rem;
+margin-bottom: 0.8rem;
+color: #543a1a;
+}
+.report-list {
+max-height: 300px;
+overflow-y: auto;
+font-size: 0.85rem;
+list-style: none;
+}
+.report-list li {
+padding: 0.3rem 0;
+border-bottom: 1px solid #eedbbc;
+}
+footer {
+text-align: center;
+font-size: 0.75rem;
+padding: 1rem;
+background: #fff7ed;
+color: #876b42;
+}
+@media (max-width: 700px) {
+.questions-container { padding: 1rem; }
+.question-text { font-size: 1rem; }
+.options { gap: 0.5rem; }
+.option-item { padding: 0.2rem 0.8rem; }
+.pagination { order: 1; width: 100%; justify-content: center; }
+.info-bar { flex-direction: column; align-items: stretch; }
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-wrapper"> <div class="quiz-header"> <div class="title-badge">📖 सम्पूर्ण पुस्तक अवलोकन | तत्काल फीडबैक</div> <h1>🎯 मैथिली महाक्विज़ 🎯</h1> <div class="subhead">१०० प्रश्न | उत्तर देतहि फेरंत फीडबैक (हरियर = सही, लाल = गलत)</div> </div> <div class="info-bar"> <div class="question-counter" id="pageInfo">पृष्ठ १ / १०</div> <div class="pagination" id="paginationControls"></div> <div class="nav-buttons"> <button class="nav-btn" id="prevPageBtn">◀ पिछला</button> <button class="nav-btn" id="nextPageBtn">अगला ▶</button> </div> </div> <div id="questionsContainer" class="questions-container"></div> <div class="action-panel"> <div class="score-box">🏆 लाइव स्कोर : <span id="totalScoreDisplay">0</span> / 100</div> <div class="btn-group"> <button class="submit-btn" id="finalSubmitBtn">✅ पूर्ण परिणाम + रिपोर्ट</button> <button class="reset-btn" id="resetAllBtn">🔄 सब रीसेट करू</button> <button class="report-btn" id="showReportBtn">📋 विस्तृत रिपोर्ट (गलत/छूटल)</button> </div> </div> <div id="reportSection" class="report-section"></div> </div>
+<script>
+    // ---------- १०० प्रश्न (पूर्ण पुस्तक अवलोकन) ----------
+    const allQuestions = [];
+
+    // श्रेणी १: साहित्य इतिहास (१-१०)
+    const cat1 = [
+        { text: "मैथिली भाषाक सबसे पुरान प्रमाणित कवि कोन छथि?", options: ["विद्यापति", "ज्योतिरीश्वर", "वाणीभूषण", "लालदास"], correct: "विद्यापति" },
+        { text: "'वर्ण रत्नाकर' के रचनाकार छथि?", options: ["ज्योतिरीश्वर ठाकुर", "विद्यापति", "महेश ठाकुर", "चन्द्रशेखर"], correct: "ज्योतिरीश्वर ठाकुर" },
+        { text: "मैथिली केर प्रथम आधुनिक कवि के रूप मे कोन प्रसिद्ध अछि?", options: ["रामानन्द राय", "रामधारी सिंह 'दिनकर'", "हरिमोहन झा", "नन्दकिशोर सिंह"], correct: "रामधारी सिंह 'दिनकर'" },
+        { text: "'मिथिला मिहिर' के नाम सँ कोन साहित्यकार प्रसिद्ध छथि?", options: ["पं. हरिमोहन झा", "महाकवि कोदन", "रामवृक्ष बेनीपुरी", "सुरेन्द्र झा 'सुमन'"], correct: "पं. हरिमोहन झा" },
+        { text: "मैथिली महाकाव्य 'मिथिला विभूति' के लेखक छथि?", options: ["बिहारी लाल दास", "देवेन्द्रनाथ झा", "ललित किशोर सिंह", "रामनन्दन ठाकुर"], correct: "ललित किशोर सिंह" },
+        { text: "मैथिली केर प्रसिद्ध गीत 'मिथिला मधुरिमा' के रचयिता छथि?", options: ["श्यामलाल शर्मा", "महेन्द्र मिश्र", "रामेश्वर झा", "सूर्यकान्त महापात्र"], correct: "महेन्द्र मिश्र" },
+        { text: "'किरातार्जुनीय' मैथिली अनुवाद कोन कवि केनए छलथि?", options: ["गंगानाथ झा", "नरपति सिंह", "भैरव लाल", "शिवनाथ सिंह"], correct: "गंगानाथ झा" },
+        { text: "मैथिली लेखक 'उमानाथ झा' कि रचना प्रसिद्ध अछि?", options: ["मैथिली व्याकरण", "मिथिला दर्पण", "मैथिली काव्यप्रभा", "लोकजीवन"], correct: "मैथिली व्याकरण" },
+        { text: "'मैथिली सेवा समिति' के संस्थापक छथि?", options: ["काशीप्रसाद जायसवाल", "भूपेन्द्र नारायण सिंह", "विद्यापति परिषद", "रामनाथ ठाकुर"], correct: "काशीप्रसाद जायसवाल" },
+        { text: "कोन ठाम 'मैथिली अकादमी' स्थित अछि?", options: ["पटना", "दरभंगा", "मुजफ्फरपुर", "मधुबनी"], correct: "पटना" }
+    ];
+    cat1.forEach(q => allQuestions.push(q));
+
+    // श्रेणी २: विद्यापति (११-२०)
+    const vidya = [
+        { text: "विद्यापति कोन शताब्दी के महान कवि छथि?", options: ["१४वीं", "१५वीं", "१३वीं", "१६वीं"], correct: "१४वीं" },
+        { text: "विद्यापति केर राजाश्रय कोन राजा देनए छलनि?", options: ["शिवसिंह", "भूपतिसिंह", "हरिसिंह देव", "नरसिंह देव"], correct: "शिवसिंह" },
+        { text: "विद्यापति रचित 'पदावली' कोन भावधारा पर आधारित अछि?", options: ["शृंगार रस", "भक्ति रस", "वीर रस", "हास्य रस"], correct: "शृंगार रस" },
+        { text: "विद्यापति केर प्रसिद्ध दोहावली के नाम अछि?", options: ["कीर्तिलता", "पुरुष परीक्षा", "भूपरिक्रमा", "लिखनावली"], correct: "कीर्तिलता" },
+        { text: "विद्यापति रचित संस्कृत ग्रन्थ छथि?", options: ["पुरुष परीक्षा", "गंगावाक्यावली", "दानवाक्यावली", "शैवागम"], correct: "पुरुष परीक्षा" },
+        { text: "विद्यापति केर जन्म कोन गाम मे भेल छल?", options: ["बिसफी", "तिरहुत", "बनौली", "बिसपी"], correct: "बिसफी" },
+        { text: "विद्यापति कोन लिपि के प्रयोग केलथि?", options: ["मैथिली (तिरहुता)", "देवनागरी", "कैथी", "बंगाली"], correct: "मैथिली (तिरहुता)" },
+        { text: "'विद्यापति पदावली' केर मुख्य नायिका छथि?", options: ["राधा", "द्रौपदी", "सीता", "लक्ष्मी"], correct: "राधा" },
+        { text: "विद्यापति केर पिता नाम छल?", options: ["गणपति ठाकुर", "वीरपति ठाकुर", "श्रीपति ठाकुर", "धीरपति"], correct: "गणपति ठाकुर" },
+        { text: "कोन रचना विद्यापति द्वारा नै लिखल गेल?", options: ["कीर्तिपताका", "पुरुष परीक्षा", "भूपरिक्रमा", "गोरक्ष विजय"], correct: "गोरक्ष विजय" }
+    ];
+    vidya.forEach(q => allQuestions.push(q));
+
+    // श्रेणी ३: आधुनिक साहित्यकार (२१-३०)
+    const modern = [
+        { text: "'मैथिली नवजागरण' के प्रणेता छथि?", options: ["पं. काशीप्रसाद जायसवाल", "बाबू भोला झा", "रामानन्द राय", "सुरेश्वर झा"], correct: "पं. काशीप्रसाद जायसवाल" },
+        { text: "मैथिली नाटक 'मैथिली कल्याण' के रचयिता छथि?", options: ["ललित किशोर सिंह", "रामनन्दन सिंह", "नन्दकिशोर सिंह", "शिवनन्द ठाकुर"], correct: "नन्दकिशोर सिंह" },
+        { text: "मैथिली कवयित्री 'उषा किरण' के वास्तविक नाम अछि?", options: ["डॉ. उषा किरण", "गिरिजा देवी", "मीरा देवी", "सरोजिनी"], correct: "डॉ. उषा किरण" },
+        { text: "हाल ही मे 'साहित्य अकादमी पुरस्कार' मैथिली लेल कोन कवि के मिलल?", options: ["सोहन राही", "हरिमोहन झा", "मोहन भारद्वाज", "सुधांशु शेखर"], correct: "सोहन राही" },
+        { text: "प्रसिद्ध मैथिली कहानी 'बिटिया' के लेखिका छथि?", options: ["इंदिरा देवी", "योगेन्द्र ठाकुर", "गिरिजा किरण", "कुमारी चन्दा"], correct: "इंदिरा देवी" },
+        { text: "'भीखारी ठाकुर' मैथिली के कोन विधा मे प्रसिद्ध छथि?", options: ["लोक नाट्य", "कविता", "निबन्ध", "उपन्यास"], correct: "लोक नाट्य" },
+        { text: "'मैथिली मुक्तक' के जन्मदाता कोन छथि?", options: ["महेन्द्र मल्ल", "गंगा सहाय", "जीवनाथ झा", "केदारनाथ सिंह"], correct: "महेन्द्र मल्ल" },
+        { text: "'धरती धोराई' उपन्यास के लेखक छथि?", options: ["पं. रामनाथ झा", "गोविन्द झा", "मंगलेश", "हरेकृष्ण झा"], correct: "गोविन्द झा" },
+        { text: "मैथिली मे 'प्रेमघन' छद्द कोन रचलथि?", options: ["देवेन्द्रनाथ झा", "श्यामलाल", "मधुकर झा", "राजकुमार ठाकुर"], correct: "देवेन्द्रनाथ झा" },
+        { text: "'चाणक्य' मैथिली भाषा मे कविता लिखल छथि?", options: ["गोपाल जी", "सीताराम", "आनन्द", "रघुनाथ"], correct: "आनन्द" }
+    ];
+    modern.forEach(q => allQuestions.push(q));
+
+    // श्रेणी ४: व्याकरण (३१-४०)
+    const grammar = [
+        { text: "मैथिली मे कति विभक्ति होइत अछि?", options: ["८", "६", "७", "९"], correct: "८" },
+        { text: "मैथिली भाषा केर आधार लिपि कोन छल?", options: ["तिरहुता", "देवनागरी", "कैथी", "मिथिलाक्षर"], correct: "तिरहुता" },
+        { text: "मैथिली क्रिया मे काल कोन-कोन होइत अछि?", options: ["वर्तमान, भूत, भविष्य", "सिर्फ वर्तमान", "अन्य", "तीनू"], correct: "तीनू" },
+        { text: "'पटना' के मैथिली रूप कोन अछि?", options: ["पटना", "पाटलीपुत्र", "कुशस्थली", "एहि मे सब"], correct: "पटना" },
+        { text: "मैथिली मे सर्वनाम कति प्रकार के छथि?", options: ["६", "५", "४", "७"], correct: "६" },
+        { text: "मैथिली भाषिका के उपभाषा कोन अछि?", options: ["सोरठी", "मधुबनी", "दरभंगा", "तिरहुती"], correct: "तिरहुती" },
+        { text: "'लिखने छलू' मे कोन काल अछि?", options: ["आसन्न भूत", "अपूर्ण भूत", "पूर्ण भूत", "सामान्य भूत"], correct: "अपूर्ण भूत" },
+        { text: "मैथिली मे लिंग निर्धारण किस पर होइत छैक?", options: ["प्रत्यय", "वचन", "कारक", "स्वर"], correct: "प्रत्यय" },
+        { text: "'चिड़िया' के मैथिली शब्द छथि?", options: ["चिड़िया", "चिरैया", "पक्षी", "चिड़क"], correct: "चिरैया" },
+        { text: "'हम्म' सर्वनाम केर श्रेणी छथि?", options: ["उत्तम पुरुष", "मध्यम", "अन्य", "निजवाचक"], correct: "उत्तम पुरुष" }
+    ];
+    grammar.forEach(q => allQuestions.push(q));
+
+    // श्रेणी ५: संस्कृति (४१-५०)
+    const culture = [
+        { text: "मैथिली विवाह मे 'सोहर' गीत कब गाबैत छथि?", options: ["वर आगमन", "द्वार पूजा", "मण्डप में", "विदाई"], correct: "वर आगमन" },
+        { text: "समा चकवा मैथिली कोन पर्व छथि?", options: ["चैती छठ", "दीपावली", "होली", "मकर संक्रांति"], correct: "चैती छठ" },
+        { text: "मैथिली लोकगीत 'निर्गुन' के गायक कोन होइत छथि?", options: ["दलित समुदाय", "ब्राह्मण", "राजपूत", "यादव"], correct: "दलित समुदाय" },
+        { text: "'पटना डोम' नृत्य कोन अवसर पर होइत अछि?", options: ["मुख्य रूप से शादी में", "चैत्र नवरात्र", "दुर्गापूजा", "बिहुला"], correct: "मुख्य रूप से शादी में" },
+        { text: "कोन नदी मिथिलाक सीता केर जन्मस्थान मानल जाइत अछि?", options: ["जानकी नगरी", "गंगा", "कोशी", "बागमती"], correct: "जानकी नगरी" },
+        { text: "'मिथिला पेंटिंग' मधुबनी चित्रकला के कोन नाम सँ जानल जाइत अछि?", options: ["मिथिला कला", "मधुबनी कला", "अरबी कला", "ललित कला"], correct: "मधुबनी कला" },
+        { text: "'मिथिला माछ-भात' केर प्रसिद्धि छथि?", options: ["बिहारी भोजन", "मिथिला व्यंजन", "भारतीय", "उड़िया"], correct: "मिथिला व्यंजन" },
+        { text: "मैथिली में 'स्वास्थ्यानुवाद' के कोन शब्द प्रचलित अछि?", options: ["कुशल-मंगल", "नमस्ते", "जय मैथिली", "राम राम"], correct: "कुशल-मंगल" },
+        { text: "भारत नेपाल सीमावर्ती क्षेत्र मे मैथिलीक प्रभाव कोन जिला मे अधिक अछि?", options: ["सप्तरी", "सिरहा", "झापा", "मोरङ"], correct: "सिरहा" },
+        { text: "मैथिल मिथिला के प्रसिद्ध मेला कोन अछि?", options: ["नागपंचमी मेला", "जलेश्वर", "सीता मेला", "मधुबनी मेला"], correct: "जलेश्वर" }
+    ];
+    culture.forEach(q => allQuestions.push(q));
+
+    // श्रेणी ६: नाटक-चलचित्र (५१-६०)
+    const drama = [
+        { text: "मैथिली भाषा केर पहिल फिल्म कोन छल?", options: ["मैथिली मुक्ति", "सीता सब", "कन्यादान", "मिथिला मैया"], correct: "कन्यादान" },
+        { text: "'मैथिली नाट्य परिषद' के स्थापना कोन जिला मे भेल?", options: ["दरभंगा", "मुजफ्फरपुर", "सीतामढी", "मधुबनी"], correct: "दरभंगा" },
+        { text: "भीखारी ठाकुर केर प्रसिद्ध लोकनाट्य छथि?", options: ["बिदेही", "विदापति विवाह", "गोपीचन्द", "बिटिया बिरह"], correct: "बिदेही" },
+        { text: "मैथिली फिल्म 'मिथिला माटी' के निर्देशक छथि?", options: ["राजन झा", "प्रदीप कुमार", "अरुण राय", "दीपक झा"], correct: "राजन झा" },
+        { text: "मैथिली मे 'कोन पहिल उपन्यास' छपल छल?", options: ["पराधीनता", "बनैया", "मिथिला दर्शन", "कीर्तिनाथ"], correct: "पराधीनता" },
+        { text: "'लोककला मंच' मैथिली नाट्य समूह कोन राज्य मे सक्रिय अछि?", options: ["दिल्ली", "बिहार", "झारखण्ड", "पश्चिम बंगाल"], correct: "बिहार" },
+        { text: "डॉ. बिनोद बिहारी झा कोन विधा के प्रख्यात नाटककार छथि?", options: ["एकांकी", "पूर्ण नाटक", "गीति नाट्य", "रेडियो नाटक"], correct: "एकांकी" },
+        { text: "मैथिली फिल्म 'मैं हूँ विद्यापति' मे मुख्य भूमिका के छल?", options: ["मिथिलेश कुमार", "रवि किशन", "पंकज सिंह", "सुभाष"], correct: "पंकज सिंह" },
+        { text: "'अनामिका' मैथिली उपन्यास के लेखक छथि?", options: ["रामेश्वर झा", "केदारनाथ सिंह", "सीता राम", "महेश्वर चौधरी"], correct: "रामेश्वर झा" },
+        { text: "मैथिली टेलीफिल्म 'जननी' के विषय छथि?", options: ["नारी सशक्तिकरण", "प्रेम", "बाल विवाह", "किसान"], correct: "नारी सशक्तिकरण" }
+    ];
+    drama.forEach(q => allQuestions.push(q));
+
+    // श्रेणी ७: पर्व-त्योहार (६१-७०)
+    const festivals = [
+        { text: "मैथिली मे 'दिपावली' के कोन नाम सँ जानल जाइत छैक?", options: ["दियारी", "रोशनी", "दीपोत्सव", "दीपमाला"], correct: "दियारी" },
+        { text: "मिथिला में 'सामा-चकेवा' कब मनाबैत छथि?", options: ["कार्तिक शुक्ला", "भादो", "आश्विन", "माघ"], correct: "कार्तिक शुक्ला" },
+        { text: "मैथिली लोकगीत 'जिउतिया' पर्व कोन कथा पर आधारित अछि?", options: ["जीमूतवाहन", "श्रवण कुमार", "गोपीचन्द", "सत्यवान"], correct: "जीमूतवाहन" },
+        { text: "होली के मैथिली नाम कोन छैक?", options: ["फगुआ", "रंगोत्सव", "फागु", "होरा"], correct: "फगुआ" },
+        { text: "मैथिली मे 'ठेठरा' कोन पर्व मे बजैत छथि?", options: ["नाच-गान", "विवाह", "छठ", "श्राद्ध"], correct: "विवाह" },
+        { text: "रक्षाबन्धन के मैथिली मे कोन कहल जाइत अछि?", options: ["राखी", "सलोणा", "भाई दूज", "नवछोर"], correct: "सलोणा" },
+        { text: "मैथिल महिला 'जीवित्पुत्रिका व्रत' कखन करैत छथि?", options: ["अश्विन कृष्ण", "भाद्रपद", "कातिक", "मार्गशीर्ष"], correct: "अश्विन कृष्ण" },
+        { text: "'बकरी ईद' के मैथिली मे कोन कहल जाइत अछि?", options: ["ईद-उल-जुहा", "बकरीद", "कोरबानी", "ईद-उल-फितर"], correct: "बकरीद" },
+        { text: "मैथिली मे 'भाई दूज' के स्थानीय नाम अछि?", options: ["द्वितिया", "भैयादूज", "यम द्वितीया", "भइया दोसर"], correct: "भइया दोसर" },
+        { text: "कजरी नृत्य कोन पर्व से जुड़ल अछि?", options: ["सावन", "भादों", "चैत्र", "फागुन"], correct: "सावन" }
+    ];
+    festivals.forEach(q => allQuestions.push(q));
+
+    // श्रेणी ८: आन्दोलन (७१-८०)
+    const movement = [
+        { text: "मैथिली केर भारतीय संविधान की ८वीं अनुसूची मे स्थान कब मिलल?", options: ["२००३", "१९९२", "२०११", "२००१"], correct: "२००३" },
+        { text: "मैथिली भाषा आन्दोलन के प्रमुख नेता छथि?", options: ["बाबू भोला झा", "काशीप्रसाद", "रामदयालु", "शिवप्रसाद"], correct: "बाबू भोला झा" },
+        { text: "मैथिली-भाषी क्षेत्र सँ 'ज्ञानपीठ' पुरस्कार प्राप्त कोन साहित्यकार अछि?", options: ["नागार्जुन", "रामधारी सिंह दिनकर", "महादेवी वर्मा", "फणीश्वर नाथ रेणु"], correct: "रामधारी सिंह दिनकर" },
+        { text: "मैथिलीको 'बिहार राजभाषा' का दर्जा कब मिलल?", options: ["२०१३", "२०१८", "२०१५", "२०२१"], correct: "२०१८" },
+        { text: "मैथिली अकादमी, दिल्ली के स्थापना कब भेल?", options: ["२००८", "२०१०", "२०१२", "२०१५"], correct: "२००८" },
+        { text: "कोन विश्वविद्यालय मैथिली मे पीएचडी कराबैत अछि?", options: ["LNMU", "MU", "BHU", "D.U."], correct: "LNMU" },
+        { text: "नेपाल मे मैथिली केर आधिकारिक दर्जा प्राप्त अछि?", options: ["हाँ", "नहि", "प्रदेश स्तर", "स्थानीय"], correct: "प्रदेश स्तर" },
+        { text: "मैथिली विकास केर लेल 'मैथिली मंच' के संस्थापक छथि?", options: ["दीप नारायण", "राजकुमार", "सुभाष", "अजय झा"], correct: "दीप नारायण" },
+        { text: "मैथिली मे प्रकाशित पहिल समाचार पत्र छल?", options: ["मैथिली संदेश", "मिथिला मिरर", "मैथिली हितैषी", "जनमैथिली"], correct: "मैथिली हितैषी" },
+        { text: "मैथिली विश्वकोश के प्रकाशन शुरू कोन संस्था केनए?", options: ["मिथिला शोध संस्थान", "केन्द्रीय मैथिली संस्थान", "बिहार सरकार", "साहित्य अकादमी"], correct: "मिथिला शोध संस्थान" }
+    ];
+    movement.forEach(q => allQuestions.push(q));
+
+    // अंतिम २० प्रश्न (८१-१००)
+    const extra = [
+        { text: "मैथिली मे 'नमस्कार' केर आदर सम्मान रूप अछि?", options: ["प्रणाम", "जोहार", "राम राम", "अदाब"], correct: "प्रणाम" },
+        { text: "कोन प्रसिद्ध संगीतकार मैथिली लोकगीत के संजोएनए छथि?", options: ["भूपेन हजारिका", "शारदा सिन्हा", "मालिनी अवस्थी", "लक्ष्मी शंकर"], correct: "शारदा सिन्हा" },
+        { text: "मैथिली लोकनृत्य 'झिझिया' कब कएल जाइत अछि?", options: ["श्रावणी मेला", "दुर्गाष्टमी", "छठ", "होली"], correct: "श्रावणी मेला" },
+        { text: "'बाल-बोधिनी' पत्रिका केर भाषा छथि?", options: ["मैथिली", "हिन्दी", "उर्दू", "अंग्रेजी"], correct: "मैथिली" },
+        { text: "मैथिली मे 'पुनर्जागरण' काल कोन गिनावल जाइत अछि?", options: ["२०वीं शताब्दी आरम्भ", "१८५७", "१९४७", "१९६०"], correct: "२०वीं शताब्दी आरम्भ" },
+        { text: "कवि कोदन केर जन्म स्थान छथि?", options: ["मधुबनी", "दरभंगा", "सीतामढी", "सहरसा"], correct: "मधुबनी" },
+        { text: "मैथिली बाल साहित्य के जनक कोन छथि?", options: ["शिवकुमार मिश्र", "रामकुमार झा", "नन्दलाल", "विनोद बिहारी"], correct: "शिवकुमार मिश्र" },
+        { text: "'दीर्घ दृष्टि' उपन्यास के लेखक छथि?", options: ["सुरेन्द्र झा 'सुमन'", "अभय कुमार", "श्याम सुन्दर", "उमाकांत"], correct: "सुरेन्द्र झा 'सुमन'" },
+        { text: "मैथिली के उच्चारण कोन क्षेत्र मे मधुर मानल जाइत अछि?", options: ["दरभंगा", "मुजफ्फरपुर", "सीतामढी", "मधुबनी"], correct: "मधुबनी" },
+        { text: "कोन प्रसिद्ध मैथिली फिल्म गीत 'मिथिला कन्या' हिट भेल?", options: ["जानकी", "मिथिला मैया", "विद्यापति", "सीतायन"], correct: "विद्यापति" },
+        { text: "मैथिली व्याकरण केर प्रथम व्यवस्थित ग्रन्थ कोन छल?", options: ["मैथिली भाषा-विज्ञान", "तिरहुत व्याकरण", "मिथिला प्रकाश", "मैथिली प्रभा"], correct: "तिरहुत व्याकरण" },
+        { text: "कोन प्रसिद्ध मैथिल कवि केर समाधि जानकी मन्दिर परिसर मे अछि?", options: ["विद्यापति", "भिखारी ठाकुर", "नरपति सिंह", "रामानन्द राय"], correct: "विद्यापति" },
+        { text: "मैथिली सिनेमा के पहिल सुपरहिट चलचित्र कोन छल?", options: ["सीता सब", "कन्यादान", "मिथिला मैया", "जानकी"], correct: "कन्यादान" },
+        { text: "विद्यापति रचित 'भूपरिक्रमा' कोन भाषा मे अछि?", options: ["संस्कृत", "मैथिली", "अपभ्रंश", "प्राकृत"], correct: "संस्कृत" },
+        { text: "मैथिली में 'रस्का' कोन व्यंजन छथि?", options: ["दही-बड़ा", "चावल", "रोटी", "दाल"], correct: "दही-बड़ा" },
+        { text: "मिथिला के कोन राजा मैथिली के संरक्षक छल?", options: ["हरिसिंह देव", "राजा शिवसिंह", "राजा नानक", "गंगेश्वर"], correct: "हरिसिंह देव" },
+        { text: "मैथिली मे पत्रिका 'मिथिला मिहिर' के प्रकाशक छथि?", options: ["रामानन्द राय", "पं. हरिमोहन झा", "गिरिजा देवी", "बाबू भोला झा"], correct: "पं. हरिमोहन झा" },
+        { text: "शैली के दृष्टि सँ मैथिली कोन भाषा सँ प्रभावित अछि?", options: ["संस्कृत", "फारसी", "तुर्की", "अरबी"], correct: "संस्कृत" },
+        { text: "मैथिली मे 'गद्य लेखन' के शुरुआत कोन शताब्दी सँ भेल?", options: ["१९वीं", "१८वीं", "२०वीं", "१७वीं"], correct: "१९वीं" },
+        { text: "मैथिली भाषा केर कोड (ISO 639-2) कोन अछि?", options: ["mai", "mit", "mth", "mlt"], correct: "mai" }
+    ];
+    extra.forEach(q => allQuestions.push(q));
+
+    // वास्तव में 100 प्रश्न सुनिश्चित
+    const totalQ = allQuestions.length; // 100
+    const perPage = 10;
+    let currentPage = 1;
+    let userAnswers = new Array(totalQ).fill(null);
+
+    const container = document.getElementById("questionsContainer");
+    const pageInfoSpan = document.getElementById("pageInfo");
+    const paginationDiv = document.getElementById("paginationControls");
+    const prevBtn = document.getElementById("prevPageBtn");
+    const nextBtn = document.getElementById("nextPageBtn");
+    const finalSubmitBtn = document.getElementById("finalSubmitBtn");
+    const resetAllBtn = document.getElementById("resetAllBtn");
+    const showReportBtn = document.getElementById("showReportBtn");
+    const totalScoreSpan = document.getElementById("totalScoreDisplay");
+
+    // लाइव स्कोर अपडेट
+    function calculateScore() {
+        let score = 0;
+        for (let i = 0; i < totalQ; i++) {
+            if (userAnswers[i] && userAnswers[i] === allQuestions[i].correct) score++;
+        }
+        return score;
+    }
+    function updateLiveScore() {
+        totalScoreSpan.innerText = calculateScore();
+    }
+
+    // एकल प्रश्न के फीडबैक अपडेट (बिना री-रेंडर के)
+    function updateSingleFeedback(qIdx) {
+        const fbDiv = document.getElementById(`fb_${qIdx}`);
+        if (!fbDiv) return;
+        const selected = userAnswers[qIdx];
+        const correctAns = allQuestions[qIdx].correct;
+        if (!selected) {
+            fbDiv.innerHTML = `⚡ कोनो उत्तर नै चुनल गेल। सही उत्तर: "${correctAns}"।`;
+            fbDiv.className = "question-feedback feedback-neutral";
+        } else if (selected === correctAns) {
+            fbDiv.innerHTML = `✅ सही उत्तर! “${correctAns}” सटीक जवाब छथि।`;
+            fbDiv.className = "question-feedback feedback-correct";
+        } else {
+            fbDiv.innerHTML = `❌ गलत। सही उत्तर: “${correctAns}” छथि। पुन: चिन्तन करू।`;
+            fbDiv.className = "question-feedback feedback-wrong";
+        }
+    }
+
+    // पूरा पेज रेंडर (फीडबैक सहित)
+    function renderPage() {
+        const start = (currentPage - 1) * perPage;
+        const end = Math.min(start + perPage, totalQ);
+        let html = "";
+        for (let i = start; i < end; i++) {
+            const q = allQuestions[i];
+            const selectedVal = userAnswers[i];
+            html += `<div class="question-card" data-qidx="${i}">
+                        <div class="question-text">${i+1}. ${q.text}</div>
+                        <div class="options">`;
+            q.options.forEach(opt => {
+                const checkedAttr = (selectedVal === opt) ? "checked" : "";
+                const safeId = `q_${i}_${opt.replace(/\s/g, '')}`;
+                html += `<div class="option-item">
+                            <input type="radio" name="q_${i}" value="${opt.replace(/"/g, '&quot;')}" id="${safeId}" ${checkedAttr}>
+                            <label for="${safeId}">${opt}</label>
+                         </div>`;
+            });
+            html += `</div><div class="question-feedback" id="fb_${i}"></div></div>`;
+        }
+        container.innerHTML = html;
+
+        // अटैच इवेंट & फीडबैक पुनर्स्थापित
+        for (let i = start; i < end; i++) {
+            const radios = document.querySelectorAll(`input[name="q_${i}"]`);
+            radios.forEach(radio => {
+                radio.addEventListener("change", (e) => {
+                    userAnswers[i] = e.target.value;
+                    updateSingleFeedback(i);
+                    updateLiveScore();
+                });
+            });
+            // प्रारंभिक फीडबैक
+            updateSingleFeedback(i);
+        }
+        pageInfoSpan.innerText = `पृष्ठ ${currentPage} / ${Math.ceil(totalQ/perPage)} (प्रति पृष्ठ १० प्रश्न)`;
+        updatePaginationButtons();
+    }
+
+    function updatePaginationButtons() {
+        const totalPages = Math.ceil(totalQ/perPage);
+        let btnsHtml = "";
+        for(let p = 1; p <= totalPages; p++) {
+            btnsHtml += `<button class="page-btn ${p === currentPage ? 'active' : ''}" data-page="${p}">${p}</button>`;
+        }
+        paginationDiv.innerHTML = btnsHtml;
+        document.querySelectorAll(".page-btn").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                currentPage = parseInt(btn.dataset.page);
+                renderPage();
+            });
+        });
+    }
+
+    function showFullReport() {
+        const score = calculateScore();
+        let wrongList = [];
+        for (let i = 0; i < totalQ; i++) {
+            if (!userAnswers[i] || userAnswers[i] !== allQuestions[i].correct) {
+                wrongList.push({num: i+1, correct: allQuestions[i].correct, given: userAnswers[i] || "अनुत्तरित"});
+            }
+        }
+        const reportDiv = document.getElementById("reportSection");
+        if(wrongList.length === 0) {
+            reportDiv.innerHTML = `<div class="report-title">🎉 साधुवाद! सम्पूर्ण १०० प्रश्न सही। आप मैथिली प्रवीण छी 🎉</div>`;
+        } else {
+            let listHtml = `<div class="report-title">📋 गलत / अनुत्तरित प्रश्न (${wrongList.length}/${totalQ}) :</div><ul class="report-list">`;
+            wrongList.forEach(w => {
+                listHtml += `<li><strong>प्रश्न ${w.num}</strong> — आपक उत्तर: ${w.given} | सही: ${w.correct}</li>`;
+            });
+            listHtml += `</ul>`;
+            reportDiv.innerHTML = listHtml;
+        }
+        document.getElementById("reportSection").style.display = "block";
+    }
+
+    function resetQuiz() {
+        userAnswers.fill(null);
+        renderPage();
+        updateLiveScore();
+        document.getElementById("reportSection").style.display = "none";
+    }
+
+    function finalSubmitHandler() {
+        const score = calculateScore();
+        showFullReport();
+        alert(`✨ अंतिम स्कोर: ${score} / 100 ✨\nविस्तृत रिपोर्ट नीचा देख सकैत छी।`);
+    }
+
+    // नेविगेशन
+    prevBtn.addEventListener("click", () => { if(currentPage > 1) { currentPage--; renderPage(); } });
+    nextBtn.addEventListener("click", () => { if(currentPage < Math.ceil(totalQ/perPage)) { currentPage++; renderPage(); } });
+    finalSubmitBtn.addEventListener("click", finalSubmitHandler);
+    resetAllBtn.addEventListener("click", resetQuiz);
+    showReportBtn.addEventListener("click", () => { updateLiveScore(); showFullReport(); });
+
+    // शुरू
+    renderPage();
+    updateLiveScore();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

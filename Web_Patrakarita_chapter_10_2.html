@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>मैथिली क्विज़ : अध्याय 10 - ई-कामर्स, बाल संबंधी, फाइन आर्ट, धर्म एवं अन्य विषय</title> <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet"> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: linear-gradient(145deg, #fef7e6 0%, #fff2df 100%);
+font-family: 'Noto Sans Devanagari', 'Segoe UI', system-ui, -apple-system, sans-serif;
+padding: 2rem 1rem;
+color: #2c1e12;
+}
+.quiz-container {
+max-width: 950px;
+margin: 0 auto;
+background: rgba(255, 252, 245, 0.95);
+border-radius: 2.5rem;
+box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.05);
+overflow: hidden;
+backdrop-filter: blur(2px);
+border: 1px solid #ffebcd;
+}
+.quiz-header {
+background: #b5451c;
+background-image: linear-gradient(135deg, #9e3a12, #c45a2c);
+padding: 1.8rem 2rem;
+color: white;
+text-align: center;
+}
+.quiz-header h1 {
+font-size: 1.9rem;
+font-weight: 700;
+letter-spacing: -0.3px;
+margin-bottom: 0.5rem;
+text-shadow: 2px 2px 0 #6b2a0b;
+}
+.quiz-header p {
+font-size: 1.05rem;
+opacity: 0.95;
+font-weight: 500;
+border-top: 1px solid rgba(255,255,240,0.3);
+display: inline-block;
+padding-top: 0.5rem;
+}
+.chapter-badge {
+background: #f7d44a;
+color: #5a2a0e;
+display: inline-block;
+padding: 0.3rem 1rem;
+border-radius: 40px;
+font-size: 0.85rem;
+font-weight: bold;
+margin-top: 0.75rem;
+box-shadow: inset 0 -1px 0 #e0b83a, 0 2px 6px rgba(0,0,0,0.1);
+}
+.questions-area {
+padding: 2rem 2rem 1.5rem;
+}
+.question-card {
+background: #ffffffea;
+border-radius: 1.8rem;
+margin-bottom: 2rem;
+padding: 1.2rem 1.5rem 1rem 1.8rem;
+box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0,0,0,0.1);
+transition: all 0.2s;
+border: 1px solid #ffe1b3;
+}
+.question-card:hover {
+transform: translateY(-2px);
+box-shadow: 0 14px 26px rgba(0, 0, 0, 0.08);
+border-color: #d9a066;
+}
+.question-text {
+font-size: 1.25rem;
+font-weight: 700;
+color: #3b1e0b;
+margin-bottom: 1rem;
+padding-right: 0.5rem;
+display: flex;
+align-items: baseline;
+gap: 10px;
+flex-wrap: wrap;
+}
+.q-num {
+background: #c45a2c;
+color: white;
+width: 32px;
+height: 32px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+border-radius: 60px;
+font-size: 0.95rem;
+font-weight: bold;
+box-shadow: inset 0 -1px 0 #863d18;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.75rem;
+margin-left: 0.2rem;
+padding-left: 0.5rem;
+}
+.option {
+display: flex;
+align-items: center;
+gap: 0.8rem;
+background: #fef7ef;
+padding: 0.6rem 1rem;
+border-radius: 60px;
+border: 1px solid #f3dfc2;
+transition: background 0.2s;
+cursor: pointer;
+}
+.option:hover {
+background: #fff1e2;
+border-color: #dba16d;
+}
+input[type="radio"] {
+accent-color: #b5451c;
+width: 1.2rem;
+height: 1.2rem;
+cursor: pointer;
+}
+.option label {
+font-size: 1rem;
+font-weight: 500;
+color: #2c1e12;
+cursor: pointer;
+flex: 1;
+letter-spacing: 0.2px;
+}
+.action-buttons {
+display: flex;
+justify-content: center;
+gap: 1.5rem;
+margin: 1rem 2rem 2rem;
+flex-wrap: wrap;
+}
+button {
+background: #b5451c;
+border: none;
+color: white;
+font-family: inherit;
+font-weight: 600;
+font-size: 1.1rem;
+padding: 0.8rem 2rem;
+border-radius: 3rem;
+cursor: pointer;
+transition: all 0.2s;
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+border: 1px solid #e7ac78;
+}
+button:hover {
+background: #923b18;
+transform: scale(0.97);
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.reset-btn {
+background: #6c4e34;
+border-color: #b19578;
+}
+.reset-btn:hover {
+background: #543d28;
+}
+.result-area {
+background: #f7eedb;
+margin: 0 2rem 2rem;
+border-radius: 2rem;
+padding: 1.5rem;
+text-align: center;
+border: 1px solid #ead5b6;
+}
+.score-text {
+font-size: 1.9rem;
+font-weight: 800;
+color: #b5451c;
+margin: 0.5rem 0;
+}
+.feedback {
+text-align: left;
+background: #fff7ed;
+padding: 1rem 1.5rem;
+border-radius: 1.5rem;
+margin-top: 1rem;
+max-height: 300px;
+overflow-y: auto;
+font-size: 0.95rem;
+}
+.feedback p {
+margin: 0.5rem 0;
+border-left: 4px solid #d69e5c;
+padding-left: 1rem;
+}
+.correct-highlight {
+background-color: #eaf7e6;
+border-left: 5px solid #2f7d2f;
+}
+.wrong-highlight {
+background-color: #ffe8e6;
+border-left: 5px solid #c23b22;
+}
+hr {
+margin: 1rem 0;
+border: 0;
+height: 1px;
+background: linear-gradient(to right, #f7e2c5, transparent);
+}
+footer {
+text-align: center;
+font-size: 0.75rem;
+padding: 1rem 2rem 1.5rem;
+color: #aa7f56;
+border-top: 1px solid #f3e1cd;
+}
+@media (max-width: 650px) {
+.questions-area {
+padding: 1.5rem;
+}
+.question-card {
+padding: 1rem;
+}
+.question-text {
+font-size: 1.1rem;
+}
+.option label {
+font-size: 0.9rem;
+}
+button {
+padding: 0.6rem 1.3rem;
+font-size: 1rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <div class="quiz-header"> <h1>📖 मैथिली वेब पत्रकारिताक इतिहास</h1> <p>ई-कामर्स, बाल साहित्य, कला, धर्म आ स्वास्थ्य</p> <div class="chapter-badge">⭐ अध्याय 10 ⭐</div> </div> <div class="questions-area" id="questionsArea"> <div class="question-card" data-qid="1"> <div class="question-text"><span class="q-num">१</span> मैथिली भाषामे सभसँ नीक ई-कामर्स (e-commerce) वेबसाइट कोन अछि, जे २०१० सँ सक्रिय अछि?</div> <div class="options"> <div class="option" data-opt="a"><input type="radio" name="q1" value="mithilahaat"> <label>मिथिला हाट (Mithila Haat)</label></div> <div class="option" data-opt="b"><input type="radio" name="q1" value="sappymart"> <label>सैप्पीमार्ट (Sappymart)</label></div> <div class="option" data-opt="c"><input type="radio" name="q1" value="mithilaface"> <label>मिथिला फेस</label></div> <div class="option" data-opt="d"><input type="radio" name="q1" value="mithilahost"> <label>मिथिला होस्ट</label></div> </div> </div> <div class="question-card" data-qid="2"> <div class="question-text"><span class="q-num">२</span> “मिथिला हाट” केर संचालक (मालिक) के छथि?</div> <div class="options"> <div class="option"><input type="radio" name="q2" value="kishor"> <label>किशोर ठाकुर</label></div> <div class="option"><input type="radio" name="q2" value="mukund"> <label>मुकुंद मयंक</label></div> <div class="option"><input type="radio" name="q2" value="roshan"> <label>रोशन चौधरी</label></div> <div class="option"><input type="radio" name="q2" value="gajendra"> <label>गजेन्द्र ठाकुर</label></div> </div> </div> <div class="question-card" data-qid="3"> <div class="question-text"><span class="q-num">३</span> बाल साहित्य (बच्चा सभ लेल) पर केंद्रित ब्लाग “नेना भुटका” के द्वारा संचालित अछि?</div> <div class="options"> <div class="option"><input type="radio" name="q3" value="gajendra"> <label>गजेन्द्र ठाकुर</label></div> <div class="option"><input type="radio" name="q3" value="ashish"> <label>आशीष अनचिन्हार</label></div> <div class="option"><input type="radio" name="q3" value="roshan"> <label>रोशन चौधरी</label></div> <div class="option"><input type="radio" name="q3" value="ramakar"> <label>रमाकर चौधरी</label></div> </div> </div> <div class="question-card" data-qid="4"> <div class="question-text"><span class="q-num">४</span> “मैथिली पतरा” (पंचांग संबंधी) वेबसाइट के बनौने छथि?</div> <div class="options"> <div class="option"><input type="radio" name="q4" value="roshan"> <label>रोशन चौधरी</label></div> <div class="option"><input type="radio" name="q4" value="kishor"> <label>किशोर ठाकुर</label></div> <div class="option"><input type="radio" name="q4" value="mukund"> <label>मुकुंद मयंक</label></div> <div class="option"><input type="radio" name="q4" value="pranav"> <label>प्रणव झा</label></div> </div> </div> <div class="question-card" data-qid="5"> <div class="question-text"><span class="q-num">५</span> मैथिली भाषामे टेक्नोलोजी (Technology) सम्बन्धी जानकारी लेल कोन साइट अछि?</div> <div class="options"> <div class="option"><input type="radio" name="q5" value="technicalhojo"> <label>technicalhojo.com/maithili/</label></div> <div class="option"><input type="radio" name="q5" value="mithiladainik"> <label>मिथिला दैनिक</label></div> <div class="option"><input type="radio" name="q5" value="maithilijokes"> <label>maithilijokes.blogspot.com</label></div> <div class="option"><input type="radio" name="q5" value="mithilaorg"> <label>मिथिला.ओआरजी</label></div> </div> </div> <div class="question-card" data-qid="6"> <div class="question-text"><span class="q-num">६</span> “मैथिली स्वास्थ्य परिचर्चा” (रोग आ निदान पर चर्चा) ब्लाग केर संचालक छथि?</div> <div class="options"> <div class="option"><input type="radio" name="q6" value="ramakar"> <label>रमाकर चौधरी</label></div> <div class="option"><input type="radio" name="q6" value="roshan"> <label>रोशन चौधरी</label></div> <div class="option"><input type="radio" name="q6" value="gajendra"> <label>गजेन्द्र ठाकुर</label></div> <div class="option"><input type="radio" name="q6" value="kishor"> <label>किशोर ठाकुर</label></div> </div> </div> <div class="question-card" data-qid="7"> <div class="question-text"><span class="q-num">७</span> “सैप्पीमार्ट” (Sappymart) ई-कामर्स साइट केर संचालक के छथि?</div> <div class="options"> <div class="option"><input type="radio" name="q7" value="mukund"> <label>मुकुंद मयंक</label></div> <div class="option"><input type="radio" name="q7" value="kishor"> <label>किशोर ठाकुर</label></div> <div class="option"><input type="radio" name="q7" value="roshan"> <label>रोशन चौधरी</label></div> <div class="option"><input type="radio" name="q7" value="prakash"> <label>प्रकाश झा</label></div> </div> </div> <div class="question-card" data-qid="8"> <div class="question-text"><span class="q-num">८</span> निम्नलिखित में सँ कोन वेबसाइट रोशन चौधरी द्वारा बनाएल गेल नहि अछि? (अध्याय 10 अनुसार)</div> <div class="options"> <div class="option"><input type="radio" name="q8" value="mithilahaat"> <label>मिथिला हाट</label></div> <div class="option"><input type="radio" name="q8" value="mithilapatra"> <label>मैथिली पतरा</label></div> <div class="option"><input type="radio" name="q8" value="mithilahost"> <label>मिथिला होस्ट</label></div> <div class="option"><input type="radio" name="q8" value="mithilaface"> <label>मिथिला फेस</label></div> </div> </div> <div class="question-card" data-qid="9"> <div class="question-text"><span class="q-num">९</span> बाल साहित्य ब्लाग “नेना भुटका” के वर्षमे शुरू भेल छल ? (पोथी अनुसार)</div> <div class="options"> <div class="option"><input type="radio" name="q9" value="2008"> <label>२००८</label></div> <div class="option"><input type="radio" name="q9" value="2009"> <label>२००९</label></div> <div class="option"><input type="radio" name="q9" value="2010"> <label>२०१०</label></div> <div class="option"><input type="radio" name="q9" value="2011"> <label>२०११</label></div> </div> </div> <div class="question-card" data-qid="10"> <div class="question-text"><span class="q-num">१०</span> मैथिली चुटकुला (हास्य-व्यंग्य) लेल कोन ब्लाग अछि जे अध्याय 10 मे उल्लेखित अछि?</div> <div class="options"> <div class="option"><input type="radio" name="q10" value="maithilijokes"> <label>maithilijokes.blogspot.com</label></div> <div class="option"><input type="radio" name="q10" value="hasya_maithili"> <label>maithili-hasya.blogspot.com</label></div> <div class="option"><input type="radio" name="q10" value="mithilamirth"> <label>mithilamirth.in</label></div> <div class="option"><input type="radio" name="q10" value="sagarraati"> <label>सगर राति दीप जरय</label></div> </div> </div> </div> <div class="action-buttons"> <button id="submitBtn">✅ उत्तर जाँचू</button> <button id="resetBtn" class="reset-btn">🔄 सब साफ़ करू</button> </div> <div id="resultArea" class="result-area" style="display: none;"> <div class="score-text" id="scoreDisplay">--/१०</div> <div id="detailedFeedback" class="feedback"></div> </div> </div>
+<script>
+    (function() {
+        // correct answers mapping (value attribute from radio inputs)
+        const correctMap = {
+            q1: 'mithilahaat',      // मिथिला हाट
+            q2: 'kishor',           // किशोर ठाकुर
+            q3: 'gajendra',         // गजेन्द्र ठाकुर (नेना भुटका)
+            q4: 'roshan',           // रोशन चौधरी (मैथिली पतरा)
+            q5: 'technicalhojo',    // technicalhojo.com/maithili/
+            q6: 'ramakar',          // रमाकर चौधरी (स्वास्थ्य परिचर्चा)
+            q7: 'mukund',           // मुकुंद मयंक (सैप्पीमार्ट)
+            q8: 'mithilahaat',      // मिथिला हाट (रोशन चौधरी द्वारा नहि, ई किशोर ठाकुरक)
+            q9: '2009',             // नेना भुटका 2009
+            q10: 'maithilijokes'    // maithilijokes.blogspot.com
+        };
+
+        // radio group names list
+        const questionNames = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10'];
+
+        // get selected value for a radio group
+        function getSelectedValue(name) {
+            const radios = document.querySelectorAll(`input[name="${name}"]`);
+            for (let radio of radios) {
+                if (radio.checked) return radio.value;
+            }
+            return null;
+        }
+
+        // clear all selections
+        function resetQuiz() {
+            for (let name of questionNames) {
+                const radios = document.querySelectorAll(`input[name="${name}"]`);
+                radios.forEach(radio => radio.checked = false);
+            }
+            const resultDiv = document.getElementById('resultArea');
+            resultDiv.style.display = 'none';
+            // remove extra highlight classes from cards if any (optional, just reset style)
+            document.querySelectorAll('.question-card').forEach(card => {
+                card.style.borderLeft = '';
+                card.style.backgroundColor = '';
+            });
+        }
+
+        // show result with score and feedback
+        function evaluateQuiz() {
+            let score = 0;
+            const results = [];
+            for (let name of questionNames) {
+                const selected = getSelectedValue(name);
+                const correctVal = correctMap[name];
+                const isCorrect = (selected === correctVal);
+                if (isCorrect && selected !== null) score++;
+                // store for feedback
+                results.push({
+                    qName: name,
+                    selected: selected,
+                    correct: correctVal,
+                    isCorrect: isCorrect
+                });
+            }
+
+            // check if any unanswered
+            const unanswered = results.filter(r => r.selected === null);
+            if (unanswered.length > 0) {
+                alert(`कृपया सब १० प्रश्न के उत्तर दियौ। ${unanswered.length} प्रश्न अधूरा अछि।`);
+                return;
+            }
+
+            // ---- generate feedback in Maithili ----
+            let feedbackHtml = `<strong>🎯 परिणाम : ${score} / १० सही</strong><br><hr>`;
+            const questionsText = {
+                q1: "१. मैथिलीक सभसँ नीक ई-कामर्स साइट?",
+                q2: "२. मिथिला हाट केर संचालक?",
+                q3: "३. 'नेना भुटका' बाल ब्लाग के संचालक?",
+                q4: "४. 'मैथिली पतरा' के बनौने छथि?",
+                q5: "५. मैथिली टेक साइट?",
+                q6: "६. 'मैथिली स्वास्थ्य परिचर्चा' केर संचालक?",
+                q7: "७. सैप्पीमार्ट केर संचालक?",
+                q8: "८. रोशन चौधरी द्वारा नहि बनल साइट?",
+                q9: "९. 'नेना भुटका' शुरू वर्ष?",
+                q10: "१०. मैथिली चुटकुला ब्लाग?"
+            };
+            const optionTextMap = {
+                mithilahaat: "मिथिला हाट", sappymart: "सैप्पीमार्ट", mithilaface: "मिथिला फेस", mithilahost: "मिथिला होस्ट",
+                kishor: "किशोर ठाकुर", mukund: "मुकुंद मयंक", roshan: "रोशन चौधरी", gajendra: "गजेन्द्र ठाकुर", ashish: "आशीष अनचिन्हार", ramakar: "रमाकर चौधरी", pranav: "प्रणव झा", prakash: "प्रकाश झा",
+                technicalhojo: "technicalhojo.com/maithili/", mithiladainik: "मिथिला दैनिक", maithilijokes: "maithilijokes.blogspot.com", mithilaorg: "मिथिला.ओआरजी",
+                '2008': "२००८", '2009': "२००९", '2010': "२०१०", '2011': "२०११",
+                hasya_maithili: "maithili-hasya.blogspot.com", mithilamirth: "mithilamirth.in", sagarraati: "सगर राति दीप जरय",
+                mithilapatra: "मैथिली पतरा"
+            };
+            function getDisplay(value) {
+                return optionTextMap[value] || (value ? value : "कोनो उत्तर नै देल");
+            }
+
+            for (let res of results) {
+                const qTitle = questionsText[res.qName];
+                const userAns = res.selected ? getDisplay(res.selected) : "नै देल गेल";
+                const correctAns = getDisplay(res.correct);
+                let statusIcon = res.isCorrect ? "✅" : "❌";
+                feedbackHtml += `<p><strong>${statusIcon} ${qTitle}</strong><br> 
+                <span style="font-size:0.9rem;">आपन उत्तर: ${userAns}<br>
+                सही उत्तर: ${correctAns}</span></p>`;
+            }
+            feedbackHtml += `<hr><small>📘 अध्याय 10 के आधारपर सही उत्तर सभ चिनिहल गेल अछि।</small>`;
+
+            const resultDiv = document.getElementById('resultArea');
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            scoreDisplay.innerText = `${score} / १०`;
+            document.getElementById('detailedFeedback').innerHTML = feedbackHtml;
+            resultDiv.style.display = 'block';
+
+            // optional: highlight correct/wrong on cards background (visual)
+            document.querySelectorAll('.question-card').forEach((card, idx) => {
+                const qname = questionNames[idx];
+                const selected = getSelectedValue(qname);
+                const isCorrect = (selected === correctMap[qname]);
+                if (isCorrect && selected) {
+                    card.style.borderLeft = '6px solid #2f7d2f';
+                    card.style.backgroundColor = '#fafff2';
+                } else if (selected && !isCorrect) {
+                    card.style.borderLeft = '6px solid #c23b22';
+                    card.style.backgroundColor = '#fff5f2';
+                } else {
+                    card.style.borderLeft = '';
+                    card.style.backgroundColor = '';
+                }
+            });
+            
+            // scroll to result
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // event listeners
+        document.getElementById('submitBtn').addEventListener('click', evaluateQuiz);
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            resetQuiz();
+            document.getElementById('resultArea').style.display = 'none';
+            document.querySelectorAll('.question-card').forEach(card => {
+                card.style.borderLeft = '';
+                card.style.backgroundColor = '';
+            });
+        });
+
+        // extra: click on option div also selects radio (better UX)
+        document.querySelectorAll('.option').forEach(opt => {
+            opt.addEventListener('click', function(e) {
+                const radio = this.querySelector('input[type="radio"]');
+                if (radio && !radio.checked) {
+                    radio.checked = true;
+                    // trigger change event? not needed
+                }
+            });
+        });
+    })();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

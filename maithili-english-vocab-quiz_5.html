@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मैथिली कोश – तृतीय क्विज़ | Maithili Vocabulary Master — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: linear-gradient(135deg, #171d2b 0%, #1f2e3a 100%);
+font-family: 'Inter', 'Segoe UI', 'Noto Sans Devanagari', system-ui, sans-serif;
+padding: 20px;
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.quiz-frame {
+max-width: 950px;
+width: 100%;
+margin: 0 auto;
+}
+/* main card */
+.quiz-card {
+background: #ffffff;
+border-radius: 48px;
+overflow: hidden;
+box-shadow: 0 30px 45px -20px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
+transition: all 0.2s;
+}
+.hero {
+background: #2d3f36;
+padding: 1.3rem 2rem;
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+flex-wrap: wrap;
+gap: 12px;
+}
+.hero h1 {
+font-size: 1.7rem;
+font-weight: 700;
+color: #f9e4bc;
+display: flex;
+align-items: center;
+gap: 12px;
+}
+.hero h1 small {
+font-size: 0.85rem;
+background: #1e2e26;
+padding: 4px 12px;
+border-radius: 40px;
+font-weight: normal;
+color: #e9cfa3;
+}
+.stats-row {
+display: flex;
+gap: 18px;
+background: #1f2e28;
+padding: 6px 18px;
+border-radius: 60px;
+}
+.stat {
+color: #ffecbf;
+font-weight: 600;
+font-size: 0.9rem;
+}
+.stat span {
+font-weight: 800;
+background: #e5b83c;
+color: #1f2b22;
+padding: 2px 10px;
+border-radius: 40px;
+margin-left: 6px;
+}
+/* content */
+.quiz-body {
+padding: 30px 28px 25px;
+background: #fefcf7;
+}
+.word-card {
+background: #f3ecd9;
+border-radius: 60px;
+text-align: center;
+padding: 28px 16px;
+margin-bottom: 32px;
+box-shadow: 0 6px 0 #cbbf9e;
+}
+.maithili-word {
+font-size: 2.8rem;
+font-weight: 800;
+font-family: 'Noto Sans Devanagari', 'Segoe UI', monospace;
+color: #2c4a32;
+letter-spacing: 2px;
+word-break: break-word;
+}
+.extra-hint {
+font-size: 0.9rem;
+color: #8f7a58;
+margin-top: 10px;
+border-top: 1px dashed #d6c6a8;
+display: inline-block;
+padding-top: 10px;
+}
+/* options grid */
+.options-area {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 15px;
+margin: 20px 0 24px;
+}
+.choice {
+background: #fff9ef;
+border: 2px solid #e2d1b6;
+border-radius: 80px;
+padding: 12px 16px;
+display: flex;
+align-items: center;
+gap: 15px;
+cursor: pointer;
+transition: 0.2s;
+font-weight: 500;
+}
+.choice:hover:not(.disabled-choice) {
+background: #ffefdb;
+border-color: #c7aa7a;
+transform: translateY(-2px);
+}
+.choice-letter {
+background: #ddd0b5;
+width: 36px;
+height: 36px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 60px;
+font-weight: bold;
+color: #3e3322;
+}
+.choice-text {
+flex: 1;
+font-size: 1rem;
+}
+.correct-choice {
+background: #cbe6cb !important;
+border-color: #2a6b2f !important;
+pointer-events: none;
+}
+.correct-choice .choice-letter {
+background: #2a6b2f;
+color: white;
+}
+.wrong-choice {
+background: #f4dbdb !important;
+border-color: #bc5a5a !important;
+pointer-events: none;
+}
+.wrong-choice .choice-letter {
+background: #bc5a5a;
+color: white;
+}
+.disabled-choice {
+pointer-events: none;
+opacity: 0.8;
+}
+.feedback {
+background: #e8ddcd;
+border-radius: 28px;
+padding: 14px 20px;
+margin: 15px 0 20px;
+text-align: center;
+}
+.streak-badge {
+background: #f3b33d20;
+display: inline-block;
+padding: 2px 12px;
+border-radius: 30px;
+font-size: 0.8rem;
+margin-bottom: 8px;
+}
+.action-bar {
+display: flex;
+gap: 15px;
+margin-top: 10px;
+}
+.btn {
+flex: 1;
+border: none;
+padding: 14px 8px;
+border-radius: 60px;
+font-weight: 700;
+font-size: 1rem;
+cursor: pointer;
+transition: 0.2s;
+}
+.btn-primary {
+background: #3b5c48;
+color: white;
+}
+.btn-primary:disabled {
+background: #b9cfc0;
+cursor: default;
+}
+.btn-secondary {
+background: #c7ac7a;
+color: #2a2b26;
+}
+.btn-secondary:hover, .btn-primary:hover:not(:disabled) {
+filter: brightness(0.94);
+transform: scale(0.98);
+}
+.result-container {
+text-align: center;
+padding: 30px 20px 40px;
+}
+.final-percent {
+font-size: 2.8rem;
+font-weight: 800;
+color: #e5b83c;
+margin: 15px 0;
+}
+footer {
+background: #fefcf7;
+text-align: center;
+font-size: 0.7rem;
+padding: 1rem;
+color: #8f846e;
+border-top: 1px solid #ebe0ce;
+}
+@media (max-width: 600px) {
+.options-area {
+grid-template-columns: 1fr;
+gap: 12px;
+}
+.maithili-word {
+font-size: 2rem;
+}
+.quiz-body {
+padding: 20px;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="quiz-frame"> <div class="quiz-card" id="maithiliQuizV3"> <div class="hero"> <div class="stats-row"> <div class="stat">🎯 स्कोर <span id="scoreValue">0</span></div> <div class="stat">🔥 धारा <span id="streakValue">0</span></div> <div class="stat">📋 <span id="currentIdx">0</span> / <span id="totalLen">0</span></div> </div> </div> <div id="quizMainBody"></div> <footer class="vq-footer">© सम्पादक, videha.co.in</footer> </div>
+</div>
+<script>
+
+</script><script>
+
+    // --------------------------------------------------------------
+    // DATA – fresh selection from the Maithili English Thesaurus
+    // (third quiz – using less common / previously untouched words)
+    // --------------------------------------------------------------
+    const FRESH_DATA = [
+        { maithili: "अँटकारब (aṅṭakārab)", english: "guess, reckon", hint: "अनुमान लगाएब" },
+        { maithili: "अँटकब (aṅṭakab)", english: "stay, linger", hint: "रुकब, ठहरब" },
+        { maithili: "अँचार (aṅchār)", english: "pickle", hint: "अमत फलक रीदमे सिझाए बनल" },
+        { maithili: "अगोरब (agorab)", english: "watch, guard", hint: "रखवारि करब" },
+        { maithili: "अघाएब (aghāeb)", english: "satiate, surfeit", hint: "पूर्ण तृप्त होएब" },
+        { maithili: "अङ्क (ank)", english: "mark, number", hint: "चिह्न, संख्या" },
+        { maithili: "अचल (achal)", english: "immovable, firm", hint: "स्थिर, नहि चले" },
+        { maithili: "अटपट (aṭapaṭ)", english: "absurd, nonsensical", hint: "अनगेल, अप्रासंगिक" },
+        { maithili: "अतीत (atīt)", english: "past", hint: "बीतल काल" },
+        { maithili: "अदृश्य (adrishya)", english: "invisible", hint: "दृष्टि से बाहर" },
+        { maithili: "अनमन (anaman)", english: "absent-minded", hint: "दूर में मन के रहैत" },
+        { maithili: "अपराध (aprādh)", english: "crime, offence", hint: "कसूर, दोष" },
+        { maithili: "अभय (abhay)", english: "fearless", hint: "डरहीन" },
+        { maithili: "अमृत (amrit)", english: "nectar", hint: "सुधा, पीयूष" },
+        { maithili: "अरुचि (aruchi)", english: "disgust, aversion", hint: "विरक्ति, अनिच्छा" },
+        { maithili: "अश्रु (ashru)", english: "tear", hint: "नोर, आँखिक जल" },
+        { maithili: "आकाश (ākāsh)", english: "sky", hint: "नभ, आसमान" },
+        { maithili: "आग्रह (āgrah)", english: "insistence, urge", hint: "हठ, जिद" },
+        { maithili: "आचरण (ācharaṇ)", english: "conduct, behaviour", hint: "चालि-चलन" },
+        { maithili: "आनन्द (ānand)", english: "joy", hint: "हर्ष, प्रसन्नता" },
+        { maithili: "इच्छा (ichchhā)", english: "desire", hint: "अभिलाषा, कामना" },
+        { maithili: "उपकार (upkār)", english: "help, favour", hint: "हितक चेष्टा" },
+        { maithili: "ऊँच (ū̃ch)", english: "high", hint: "उच्चत" },
+        { maithili: "एकता (ektā)", english: "unity", hint: "मेल, ऐक्य" },
+        { maithili: "ऐतिहासिक (aitihāsik)", english: "historical", hint: "इतिहास सम्बन्धी" },
+        { maithili: "कठिन (kaṭhin)", english: "difficult", hint: "कष्टसाध्य, जटिल" },
+        { maithili: "करब (karab)", english: "do", hint: "क्रियाक सम्पादन" },
+        { maithili: "कलह (kalah)", english: "quarrel", hint: "झगड़ा, विरोध" },
+        { maithili: "क्षमा (kṣamā)", english: "forgiveness", hint: "माफी, उदारता" },
+        { maithili: "गुप्त (gupt)", english: "secret, hidden", hint: "नुकाओल, छिपाओल" },
+        { maithili: "गृह (grih)", english: "house", hint: "घर, निवास" }
+    ];
+
+    // Helper: shuffle array
+    function shuffle(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
+
+    // Generate distractors from the same dataset (excluding current word's correct meaning)
+    function getDistractors(correctMeaning, currentWord, fullSet, count = 3) {
+        let candidates = fullSet.filter(item => item.english !== correctMeaning && item.maithili !== currentWord)
+                               .map(item => item.english);
+        candidates = [...new Set(candidates)];
+        if (candidates.length < count) {
+            const fallback = ["peace", "fire", "water", "earth", "wind", "king", "queen", "light", "darkness"];
+            candidates.push(...fallback);
+            candidates = [...new Set(candidates)];
+        }
+        return shuffle(candidates).slice(0, count);
+    }
+
+    // Build complete question bank with options
+    function buildQuestionBank() {
+        const bank = [];
+        for (let item of FRESH_DATA) {
+            const correctAns = item.english;
+            const wrongs = getDistractors(correctAns, item.maithili, FRESH_DATA, 3);
+            let options = [correctAns, ...wrongs];
+            options = shuffle(options);
+            bank.push({
+                maithili: item.maithili,
+                correct: correctAns,
+                options: options,
+                hint: item.hint
+            });
+        }
+        return shuffle(bank); // random order every time
+    }
+
+    // Global state
+    let questions = [];
+    let currentIndex = 0;
+    let score = 0;
+    let streak = 0;
+    let answered = false;
+    let selectedOption = null;
+    let totalQuestions = 0;
+
+    // DOM elements
+    const mainContainer = document.getElementById("quizMainBody");
+    const scoreSpan = document.getElementById("scoreValue");
+    const streakSpan = document.getElementById("streakValue");
+    const currentIdxSpan = document.getElementById("currentIdx");
+    const totalLenSpan = document.getElementById("totalLen");
+
+    function updateHeaderStats() {
+        scoreSpan.innerText = score;
+        streakSpan.innerText = streak;
+        currentIdxSpan.innerText = currentIndex + 1;
+        totalLenSpan.innerText = totalQuestions;
+    }
+
+    // Render the current question
+    function renderQuestion() {
+        if (!questions.length || currentIndex >= questions.length) {
+            showCompletionScreen();
+            return;
+        }
+        const q = questions[currentIndex];
+        let optionsHtml = "";
+        const letters = ["𑂃", "𑂥", "𑂒", "𑂙"]; // Kaithi style markers
+
+        for (let i = 0; i < q.options.length; i++) {
+            const opt = q.options[i];
+            let additionalClass = "";
+            if (answered) {
+                if (opt === q.correct) additionalClass = "correct-choice";
+                else if (selectedOption === opt && opt !== q.correct) additionalClass = "wrong-choice";
+                else additionalClass = "disabled-choice";
+            }
+            optionsHtml += `
+                <div class="choice ${additionalClass}" data-choice="${escapeHtml(opt)}">
+                    <div class="choice-letter">${letters[i]}</div>
+                    <div class="choice-text">${escapeHtml(opt)}</div>
+                </div>
+            `;
+        }
+
+        let feedbackHtml = "";
+        if (answered) {
+            const isCorrect = (selectedOption === q.correct);
+            const streakMsg = isCorrect ? (streak > 1 ? ` 🔥 धारा बढ़ि गेल (${streak})` : "") : " 😞 धारा टूटल";
+            feedbackHtml = `
+                <div class="feedback">
+                    ${isCorrect ? "✅ सही उत्तर! +1 अंक" : "❌ गलत! सही अर्थ है: <strong>" + escapeHtml(q.correct) + "</strong>"}
+                    <br><span style="font-size:0.85rem;">📖 संकेत: ${escapeHtml(q.hint)}</span>
+                    <div class="streak-badge">${streakMsg}</div>
+                </div>
+            `;
+        } else {
+            feedbackHtml = `
+                <div class="feedback">
+                    💡 <strong>${escapeHtml(q.hint)}</strong><br>
+                    ⚡ सही अंग्रेजी अर्थ चुनू
+                </div>
+            `;
+        }
+
+        const nextDisabled = answered ? "" : "disabled";
+        const nextButtonHtml = `
+            <div class="action-bar">
+                <button class="btn btn-primary" id="nextBtn" ${nextDisabled}>➡ अगला शब्द</button>
+                <button class="btn btn-secondary" id="resetBtn">🔄 नवीन प्रश्नसेट</button>
+            </div>
+        `;
+
+        const fullHtml = `
+            <div class="quiz-body">
+                <div class="word-card">
+                    <div class="maithili-word">${escapeHtml(q.maithili)}</div>
+                    <div class="extra-hint">🔍 मैथिली शब्द – अंग्रेजी पर्याय</div>
+                </div>
+                <div class="options-area" id="optionsArea">
+                    ${optionsHtml}
+                </div>
+                ${feedbackHtml}
+                ${nextButtonHtml}
+            </div>
+        `;
+        mainContainer.innerHTML = fullHtml;
+
+        // attach events
+        if (!answered) {
+            const choiceDivs = document.querySelectorAll('.choice');
+            choiceDivs.forEach(div => {
+                div.addEventListener('click', (e) => {
+                    if (answered) return;
+                    const chosen = div.getAttribute('data-choice');
+                    handleAnswer(chosen);
+                });
+            });
+        }
+        const nextBtn = document.getElementById('nextBtn');
+        if (nextBtn) nextBtn.addEventListener('click', () => goToNextQuestion());
+        const resetBtn = document.getElementById('resetBtn');
+        if (resetBtn) resetBtn.addEventListener('click', () => fullReset());
+    }
+
+    function handleAnswer(chosenMeaning) {
+        if (answered) return;
+        const currentQ = questions[currentIndex];
+        answered = true;
+        selectedOption = chosenMeaning;
+        const isCorrect = (chosenMeaning === currentQ.correct);
+        if (isCorrect) {
+            score++;
+            streak++;
+        } else {
+            streak = 0;
+        }
+        updateHeaderStats();
+        renderQuestion(); // re-render with feedback
+    }
+
+    function goToNextQuestion() {
+        if (!answered) return;
+        if (currentIndex + 1 < totalQuestions) {
+            currentIndex++;
+            answered = false;
+            selectedOption = null;
+            renderQuestion();
+            updateHeaderStats();
+        } else {
+            showCompletionScreen();
+        }
+    }
+
+    function showCompletionScreen() {
+        const percent = Math.round((score / totalQuestions) * 100);
+        let msg = "";
+        if (percent >= 80) msg = "🎉 ब्रह्मास्त्र! तू मैथिली के ज्ञाता छी 🎉";
+        else if (percent >= 55) msg = "👍 बेस-बेस, फेर कोशिश करू, शब्दकोश देखू";
+        else msg = "📗 पुन: प्रयास करू, हर क्विज़ नव शब्द सिखावैत अछि";
+        const resultHtml = `
+            <div class="quiz-body result-container">
+                <h2>🏁 क्विज़ समाप्त</h2>
+                <div class="final-percent">${score} / ${totalQuestions}</div>
+                <p style="margin: 16px 0;">${msg}</p>
+                <div class="action-bar" style="margin-top: 12px;">
+                    <button class="btn btn-primary" id="restartCompleteBtn">🔄 फेर सुरु करू</button>
+                    <button class="btn btn-secondary" id="newFreshBtn">✨ नवा प्रश्न-भण्डार</button>
+                </div>
+            </div>
+        `;
+        mainContainer.innerHTML = resultHtml;
+        const restartBtn = document.getElementById('restartCompleteBtn');
+        const freshBtn = document.getElementById('newFreshBtn');
+        if (restartBtn) restartBtn.addEventListener('click', () => fullReset());
+        if (freshBtn) freshBtn.addEventListener('click', () => generateNewSetAndRestart());
+    }
+
+    function fullReset() {
+        // reset with same questions but start from zero
+        currentIndex = 0;
+        score = 0;
+        streak = 0;
+        answered = false;
+        selectedOption = null;
+        updateHeaderStats();
+        renderQuestion();
+    }
+
+    function generateNewSetAndRestart() {
+        // build a brand new shuffled question set (distractors will vary)
+        questions = buildQuestionBank();
+        totalQuestions = questions.length;
+        currentIndex = 0;
+        score = 0;
+        streak = 0;
+        answered = false;
+        selectedOption = null;
+        updateHeaderStats();
+        renderQuestion();
+    }
+
+    // helper to escape HTML
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+            return c;
+        });
+    }
+
+    // initialization
+    function initQuiz() {
+        questions = buildQuestionBank();
+        totalQuestions = questions.length;
+        currentIndex = 0;
+        score = 0;
+        streak = 0;
+        answered = false;
+        selectedOption = null;
+        updateHeaderStats();
+        renderQuestion();
+    }
+
+    initQuiz();
+
+</script></body>
+</html>

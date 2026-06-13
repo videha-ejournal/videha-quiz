@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मैथिली साहित्यक इतिहास – अध्याय ८ : मैथिली नाट्य-साहित्य (बहुविकल्पीय प्रश्नोत्तरी) — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #f3efdf;
+font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Mukta', 'Poppins', sans-serif;
+padding: 25px 20px;
+color: #2c2418;
+}
+.quiz-container {
+max-width: 1200px;
+margin: 0 auto;
+background: #fffffb;
+border-radius: 56px;
+box-shadow: 0 25px 40px -12px rgba(0,0,0,0.25);
+padding: 25px 30px 45px;
+border: 1px solid #ecdcaa;
+}
+h1 {
+text-align: center;
+color: #963c24;
+font-size: 1.9rem;
+background: #fff3e6;
+display: inline-block;
+width: auto;
+margin: 0 auto 10px;
+padding: 8px 25px;
+border-radius: 60px;
+border-bottom: 3px solid #dc9c4a;
+}
+.subhead {
+text-align: center;
+background: #fbf2e1;
+padding: 8px 20px;
+border-radius: 40px;
+margin-bottom: 25px;
+color: #6b4c2a;
+font-weight: 500;
+}
+.score-panel {
+background: #2a6d52;
+color: #fff2cf;
+border-radius: 50px;
+padding: 12px 24px;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: baseline;
+gap: 12px;
+margin-bottom: 30px;
+font-weight: bold;
+}
+.score-badge {
+background: #f2a155;
+padding: 6px 18px;
+border-radius: 40px;
+color: #251f15;
+}
+.question-card {
+background: white;
+border-radius: 32px;
+margin-bottom: 28px;
+padding: 18px 24px;
+box-shadow: 0 6px 12px rgba(0,0,0,0.04);
+border: 1px solid #ecdbaa;
+}
+.q-text {
+font-size: 1.2rem;
+font-weight: 700;
+background: #fff2e2;
+padding: 10px 18px;
+border-radius: 50px;
+margin-bottom: 18px;
+color: #2e402f;
+}
+.opts-list {
+display: flex;
+flex-direction: column;
+gap: 10px;
+margin-left: 12px;
+}
+.opt-item {
+display: flex;
+align-items: center;
+gap: 14px;
+background: #fefaf4;
+padding: 6px 16px;
+border-radius: 40px;
+cursor: pointer;
+transition: 0.1s;
+}
+.opt-item:hover {
+background: #f7ecd9;
+}
+input[type="radio"] {
+width: 18px;
+height: 18px;
+accent-color: #b6492c;
+cursor: pointer;
+}
+.feedback {
+margin-top: 14px;
+padding: 6px 18px;
+border-radius: 32px;
+font-size: 0.9rem;
+display: inline-block;
+}
+.fb-correct {
+background: #e4f3e2;
+color: #197a3c;
+border-left: 5px solid #2b8b49;
+}
+.fb-wrong {
+background: #ffe2db;
+color: #bd462b;
+border-left: 5px solid #c94424;
+}
+button {
+background: #9b412b;
+border: none;
+color: white;
+padding: 12px 30px;
+font-size: 1.1rem;
+border-radius: 50px;
+font-weight: bold;
+cursor: pointer;
+font-family: inherit;
+transition: 0.2s;
+margin: 6px 8px;
+}
+button:hover {
+background: #7a2f1d;
+transform: scale(0.98);
+}
+.reset-btn {
+background: #5c5542;
+}
+.btn-group {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 20px;
+margin-top: 25px;
+}
+.footer {
+text-align: center;
+font-size: 0.8rem;
+margin-top: 35px;
+color: #be9468;
+}
+@media (max-width: 650px) {
+.quiz-container {
+padding: 15px;
+}
+.q-text {
+font-size: 1rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="quiz-container"> <div style="text-align: center;"> <div class="subhead">अष्टम प्रकरण – कीर्तनिया, नेपाल-आसाम मे नाटक, आधुनिक नाटककार आ एकांकी</div> </div> <div class="score-panel"> <span>📖 कुल प्रश्न : <span id="totalQ">0</span></span> <span>✅ सही उत्तर : <span id="scoreCount">0</span></span> <span class="score-badge" id="percentBox">0%</span> </div> <div id="questionsArea"></div> <div class="btn-group"> <button id="submitBtn">⚡ उत्तर जाँचू (Submit)</button> <button id="resetBtn" class="reset-btn">🔄 पुनः आरम्भ करू</button> </div> <div class="vq-footer">© सम्पादक, videha.co.in</div>
+</div>
+<script>
+
+</script><script>
+
+    // ---------- अध्याय ८ (मैथिली नाट्य-साहित्य) पर ५० प्रश्न ----------
+    const questions = [
+        { text: "मैथिली नाट्य-साहित्यक इतिहासमे 'कीर्तनिया नाटक' कोन श्रेणीक अन्तर्गत रखल जाइत अछि ?", options: ["प्राचीन गीत-नाट्य परम्परा", "संस्कृत शास्त्रीय नाटक", "लोक-नाट्य मात्र", "पारसी नाटक"], correct: 0 },
+        { text: "डा. जयकान्त मिश्र के अनुसार मिथिलामे 'कीर्तनिया नाटक' के प्रसार कोन परिवार (राज्यवंश) कालमे भेल ?", options: ["खण्डवला राज्यकुल", "ओइनवार वंश", "कर्णाट वंश", "गुप्त वंश"], correct: 0 },
+        { text: "प्रो. रमानाथ झा के अनुसार मिथिलामे कोनो मैथिली नाटकक अभिनव-परम्परा प्राचीन कालमे नहि छल, कारण छी ?", options: ["संस्कृत-प्राकृतमे नाटक लिखल जाइत छल, मैथिली गद्य अभिनव नहि", "रंगमंच नहि छल", "राजाश्रय अभाव", "कोनो नाटककार नहि छल"], correct: 0 },
+        { text: "प्रथम बेर मैथिली गद्य-प्रयोग भेल नाटक कोन अछि, जे नेपालमे रचित भेल ?", options: ["विद्याविलाप नाटक (रावमल्ल / विश्वमल्ल काल)", "हरगौरीविवाह", "पारिजातहरण", "गोरक्षविजय"], correct: 0 },
+        { text: "नेपालक मल्ल राजसभामे मैथिली नाट्य-परम्पराक सुव्यवस्थित विकास कोन राजाक कालमे भेल ?", options: ["जगज्योतिर्मल्ल (१६१३-३७)", "शिवसिंह", "नान्यदेव", "हरिसिंहदेव"], correct: 0 },
+        { text: "जगज्योतिर्मल्ल रचित 'हरगौरीविवाद' (१६२९) कोन विधाक अछि ?", options: ["गीति-नाट्य (मैथिली गद्य-पद्य)", "संस्कृत नाटक", "केवल नृत्य नाटिका", "एकांकी"], correct: 0 },
+        { text: "नेपालक राजा जगतप्रकाशमल्ल (१६३७-७२) के कोन नाटक मे मैथिली गद्य सेहो प्रयुक्त अछि ?", options: ["‘मलयगन्धिनी’, ‘उपाहरण’ आदि", "हरगौरीविवाह", "कौलासुरवधोपाख्यान", "रामचन्द्रवृत्त"], correct: 0 },
+        { text: "नेपालमे रचित प्राचीन मैथिली नाटकसभक मुख्य विशेषता छी ?", options: ["गीत-प्रधानता, गद्यक अभिनय हेतु प्रयोग", "शुद्ध गद्य नाटक", "केवल संस्कृत संवाद", "केवल हास्य"], correct: 0 },
+        { text: "आसाम (कामरूप) मे मैथिली नाटक परम्परा कोन सम्प्रदायक प्रभाव सँ विकसित भेल ?", options: ["शंकरदेवक वैष्णव ‘अंकीयानाट’", "शैव मत", "शाक्त मत", "बौद्ध मत"], correct: 0 },
+        { text: "शंकरदेव के प्रसिद्ध ‘अंकीयानाट’ के नाम अछि ?", options: ["कालीयदमन, रामविजय, परिजातहरण", "गीतगोविन्द", "उपाहरण", "पारिजातहरण (उमापति)"], correct: 0 },
+        { text: "आसामी अंकीयानाट मे प्रयुक्त भाषा कोन अछि ?", options: ["मैथिली मिश्रित असमीया (ब्रजबुली)", "शुद्ध मैथिली", "शुद्ध असमीया", "संस्कृत"], correct: 0 },
+        { text: "मिथिलामे आधुनिक मैथिली नाटकक प्रथम प्रयास कोनक रचना ‘सुन्दरसंयोग’ (१९०४) सँ भेल ?", options: ["पं. जीवनाथ झा", "गोविन्द झा", "हर्षनाथ झा", "कुमार गंगानन्द सिंह"], correct: 0 },
+        { text: "पं. जीवनाथ झा के अन्य नाटक कोन अछि ?", options: ["‘कर्मदासदटक’ (१९०६), ‘शकुन्तला’ अनुवाद", "राजा शिवसिंह", "कसात", "दीनाक लङ्घु"], correct: 0 },
+        { text: "प्रो. ईशनाथ झा के प्रसिद्ध नाटक ‘दीनाक लङ्घु’ के विषय वस्तु का अछि ?", options: ["सामाजिक विद्रूपता आ धूर्तताक व्यंग्य", "राजनीतिक घटना", "प्रेम कथा", "ऐतिहासिक"], correct: 0 },
+        { text: "प्रो. ईशनाथ झाक दोसर नाटक ‘उगना’ के कथा-वस्तु विद्यापति आ कोनक सम्बन्ध पर आधारित अछि ?", options: ["महादेव-पार्वती (शिव)", "राधा-कृष्ण", "राजा शिवसिंह", "लोचन"], correct: 0 },
+        { text: "मैथिली नाट्य-साहित्यमे पं. गोविन्द झा के सर्वश्रेष्ठ नाटक कोन अछि ?", options: ["‘कसात’ (सामाजिक)", "दीनाक लङ्घु", "राजा शिवसिंह", "अन्तिम प्रणाम"], correct: 0 },
+        { text: "‘कसात’ नाटकक मुख्य समस्या कोन अछि ?", options: ["नवीन आदर्श आ परम्परागत कुरीति (दहेज, भेदभाव)", "राजनीतिक षड्यन्त्र", "ऐतिहासिक विरोध", "प्रेम-त्रिकोण"], correct: 0 },
+        { text: "पं. शृङ्गी झा (शृङ्गी) के ‘मैथिली-नाटक’ के विशेषता कोन अछि ?", options: ["दार्शनिक जीवनवाद शैली", "प्राचीन रीतिक पुनरुद्धार", "हास्य-व्यंग्य", "गीति-नाट्य"], correct: 0 },
+        { text: "पं. शृङ्गी झा के ‘मैथिली नाटक’ के नायक पात्रक चरित्र के रुपमे कोन दर्शन देखौने अछि ?", options: ["जीवनवाद (Life-ism)", "प्रगतिवाद", "आदर्शवाद", "यथार्थवाद"], correct: 0 },
+        { text: "नेपालक मल्ल राजा ‘जगज्योतिर्मल्ल’ के नाट्य-रचनाक श्रेय ‘हरगौरीविवाह’ के अलावा आन कोन अछि ?", options: ["‘कुंजविहारनाटक’, ‘भुवनतकुवलयावर’", "राजा शिवसिंह", "दीनाक लङ्घु", "विद्यापति नाटक"], correct: 0 },
+        { text: "आसामक शंकरदेव के अंकीयानाट ‘कालीयदमन’ के भाषा-शैली मैथिली कहल जाइत अछि ?", options: ["हाँ, ब्रजबुली मैथिली प्रधान", "नहि, पूर्ण असमीया", "संस्कृत", "नेवारी"], correct: 0 },
+        { text: "मैथिली नाट्य-साहित्यमे ‘जीवनाथ झा’ कृत ‘वीर नरेन्द्र सिंह’ के विषय अछि ?", options: ["दरभंगा राजपरिवारक नरेन्द्र सिंहक जीवन", "रामायण", "महाभारत", "विद्यापति"], correct: 0 },
+        { text: "आधुनिक युगमे मैथिली नाटकक व्यावसायिक अभिनयक सूत्रपात कोन कम्पनी केलनि ?", options: ["उमाकान्त नाटक-कम्पनी (२०वीं शताब्दीक प्रारम्भ)", "पारसी कम्पनी", "बंगाल कम्पनी", "संस्कृत रंगमंच"], correct: 0 },
+        { text: "मैथिली नाट्य-लेखनमे ‘एकांकी’ विधाक विकास कोन कारणसँ भेल ?", options: ["स्थायी रंगमंचक अभाव, सरल अभिनय हेतु", "अंग्रेजी प्रभाव", "प्राचीन नाट्यशास्त्र", "राजाज्ञा"], correct: 0 },
+        { text: "प्रथम मैथिली एकांकी-संग्रहक रुपमे पं. शशिनाथ झा के ‘प्रायश्चित्त’ आदि रचना देल जाइत अछि। ई कोन दशकमे प्रकाशित भेल ?", options: ["१९६०-७०", "१९४०-५०", "१९२०-३०", "१९८०-९०"], correct: 0 },
+        { text: "मैथिली नाट्य-साहित्यक प्रो. रमानाथ झा के अनुसार कीर्तनिया नाट्य-परम्परा नेपाल प्रभाव सँ आरम्भ भेल, जतय मैथिली गद्यक प्रथम प्रयोग कोन नाटकमे भेटैत अछि ?", options: ["विद्याविलाप (१६वीं शताब्दी)", "हरगौरीविवाह", "पारिजातहरण", "गोरक्षविजय"], correct: 0 },
+        { text: "रत्नपाणि (बङ्गमणि झा) के ‘उपाहरण’ नाटक के विशेषता अछि ?", options: ["मैथिली-संस्कृत मिश्रित, शृंगारप्रधान", "केवल गद्य नाटक", "हास्य प्रधान", "वीर रस"], correct: 0 },
+        { text: "प्रो. चन्द्रकान्त झा के नाटक ‘आद्यार्य दोष’ (१९६१) कोन प्रकृतिक अछि ?", options: ["महाभारतक कथा पर आधारित (दुर्योधन)", "आधुनिक समस्या", "विद्यापति जीवनी", "लोककथा"], correct: 0 },
+        { text: "मैथिली नाटकमे ‘जयन्ती देवी’ (लेखिका) के नाट्य-रचना ‘अनुभूति’ (उपन्यास पाठ?) – प्रश्न : मैथिलीक प्रथम महिला नाटककार कोन छलैक ?", options: ["श्रीमती जयन्ती देवी", "श्रीमती कमला चौधरी", "श्रीमती इला रानी", "श्रीमती श्यामा झा"], correct: 0 },
+        { text: "हर्षनाथ झा (१९वीं शताब्दीक अन्त) के नाटक ‘उषाहरण’ (नाटिका) के भाषा शैली कोन अछि ?", options: ["संस्कृतनिष्ठ मैथिली, अलंकारिकता", "ठेट लोकभाषा", "हिन्दी प्रधान", "फारसी मिश्रित"], correct: 0 },
+        { text: "मैथिली नाट्य-साहित्य मे ‘राजा शिवसिंह’ नाटक (प. गोविन्द झा) के ऐतिहासिक महत्व अछि ?", options: ["विद्यापति के राजनैतिक भूमिका के चित्रण", "शिवसिंहक अन्तिम युद्ध", "दरभंगा राज्यक विलय", "सती प्रथा"], correct: 0 },
+        { text: "‘जुआएल कनकनी’ (नाटक) – श्री महेन्द्र मल्लिक के रचना कोन प्रकारक अछि ?", options: ["आधुनिक यथार्थवादी पारिवारिक नाटक", "ऐतिहासिक नाटक", "रूपक काव्य", "प्रहसन"], correct: 0 },
+        { text: "नेपालीय मैथिली नाटकक प्राचीनतम हस्तलेख कोन शताब्दीक अछि ?", options: ["१६वीं शताब्दी", "१४वीं शताब्दी", "१७वीं शताब्दी", "१८वीं शताब्दी"], correct: 0 },
+        { text: "आसामक ‘अंकीयानाट’ शैली के मैथिली संग सम्बन्ध स्थापित करैत कोन तत्व मुख्य अछि ?", options: ["वैष्णव पदावली (ब्रजबुली) आ राधाकृष्णलीला", "संगीतशास्त्र", "युद्ध कथा", "शिव स्तुति"], correct: 0 },
+        { text: "मल्ल राजा ‘सिद्धिनरसिंह’ (ललितपुर) के नाट्य-रचना ‘हरिश्चन्द्रवृत्त’ (१६५१) क कथावस्तु का अछि ?", options: ["हरिश्चन्द्रक दानशीलता आ त्याग", "रामकथा", "कृष्णलीला", "नल-दमयन्ती"], correct: 0 },
+        { text: "मैथिली नाटकमे ‘एकांकी’ के सबसँ सफल रचनाकार केरुपमे प्रो. चन्द्रकान्त झा के ‘कादचरौ’, ‘प्रायश्चित्त’ उल्लेखनीय अछि, एकर शैली कोन अछि ?", options: ["आधुनिक प्रयोगशील, मनोविश्लेषणात्मक", "पुरान ढाँचा", "केवल हास्य", "केवल शोक"], correct: 0 },
+        { text: "मैथिली नाट्य-साहित्यक इतिहासमे पं. शशिनाथ झा के ‘मदालसा’ नाटक कोन परम्पराक अछि ?", options: ["संस्कृत-मैथिली मिश्रित नाटक", "केवल मैथिली गद्य", "लोकनाट्य", "गीति-काव्य"], correct: 0 },
+        { text: "मिथिलामे प्राचीन ‘कीर्तनिया’ मण्डलीक नाट्य-प्रस्तुति मुख्यतः कोन हेतु होइत छल ?", options: ["धार्मिक प्रचार आ मनोरंजन (शिव-गीत, भागवत)", "राज्य-अभिषेक", "युद्ध कला", "व्यावसायिक स्टेज"], correct: 0 },
+        { text: "नेपालक राजा ‘प्रतापमल्ल’ के समय बङ्गमणि झा रचित ‘शीलदिगम्बर’ नाटक के मुख्य नायिका कोन अछि ?", options: ["शीलावती (प्रतीक)", "सीता", "राधा", "द्रौपदी"], correct: 0 },
+        { text: "प्रो. हरिगोहन झा (लेखक नाटककार नहि, किन्तु 'कन्यादान' उपन्यासलेखक छथि) – सही कथन : मैथिली नाटकमे ‘कन्यादान’ नाटक नहि अछि। मुदा कोन नाटक ‘समाज सुधार’ पर केन्द्रित अछि ?", options: ["प. गोविन्द झाक ‘कसात’", "प्रो. ईशनाथ झाक ‘दीनाक लङ्घु’", "शृङ्गी झाक ‘मैथिली नाटक’", "राजेश्वर झाक ‘कन्दपीठ’"], correct: 0 },
+        { text: "नेपाली राजा ‘जगतप्रकाशमल्ल’ रचित ‘उपाहरण’, ‘नलीयनाटकम्’ मे मैथिली गद्यक अभिनय निर्देश देबाक प्रणाली अछि, एकरा कहल जाइत अछि ?", options: ["नाट्य-शैलीक उदाहरण", "संकेत-लेख", "परम्परागत सूत्रधार", "कोनो नहि"], correct: 0 },
+        { text: "प्रो. रमानाथ झा के अनुसार मिथिलाक ‘कीर्तनिया नाटक’ वास्तविक अर्थमे नाटक नहि, बल्कि कोन अछि ?", options: ["गीति-नृत्य प्रधान अनुष्ठान", "गद्य नाटक", "शास्त्रीय नाट्य", "स्टेज नाटक"], correct: 0 },
+        { text: "‘गोरक्षविजय’ (विद्यापति) आ ‘धूर्तसमागम’ (ज्योतिरीश्वर) मे मैथिली पद तँ अछि, मुदा ई संस्कृत-प्राकृत नाटकक श्रेणीमे आबैत अछि, कारण ?", options: ["मैथिली गद्य अभाव, संवाद संस्कृत-प्राकृतमे", "पूर्ण मैथिली नाटक", "गीत मात्र", "नृत्य नाटिका"], correct: 0 },
+        { text: "मैथिली नाट्य-साहित्यक इतिहासमे ‘जीवनाथ झा’ के ‘सुन्दर-संयोग’ (१९०४) सँ पूर्व कोनो मैथिली नाटक उपलब्ध नहि अछि, मुदा नेपालमे रचित ‘विद्याविलाप’ (१६०० आसपास) मैथिली-नेपाली नाटक छल, ई कथन ?", options: ["सत्य, मैथिली नाट्य परम्परा नेपालमे पहिने सँ छल", "असत्य, सब मैथिली नाटक कोलकातामे लिखल गेल", "कोनो नहि"], correct: 0 },
+        { text: "श्री योगानन्द झा के एकांकी ‘भूलिक मतिसम’ (प्रकाशित) के कथावस्तु मुख्यत: कोन अछि ?", options: ["सुकन्या घटनाक नाटकीय रुप", "विद्यापति चरित", "रामायण प्रसंग", "लोककथा"], correct: 0 },
+        { text: "प्रो. चन्द्रकान्त झा के एकांकी ‘दुरक दोन’ के शिल्प में नवीनता छी ?", options: ["प्रयोगशील, अंतरंग संघर्ष चित्रण", "पुरान पद्धति", "केवल हास्य", "गीत प्रधान"], correct: 0 },
+        { text: "मैथिली नाट्य साहित्यमे रेडियो नाटक (रूपक) के प्रसार कोन माध्यमसँ भेल ?", options: ["आकाशवाणी (सन् १९६० के बाद)", "दूरदर्शन", "सिनेमा", "मोबाइल"], correct: 0 },
+        { text: "लेखक (दुर्गानाथ झा) के अनुसार मैथिली नाट्य-साहित्यक भविष्य संभावना के दृष्टिसँ का कहल जाए सकैत अछि ?", options: ["नवीन दिशा मिलैत अछि, प्रयोगशीलता बढ़ैत", "मृत्युक मुहमे अछि", "ठप भेल अछि", "केवल हास्य अवशेष"], correct: 0 },
+        { text: "मैथिली नाटकक इतिहासमे ‘मैथिली-नाट्य-परिषद’ जका संस्थाक भूमिका कोन शताब्दी मे महत्वपूर्ण भेल ?", options: ["२०वीं शताब्दीक प्रथम चरण", "१८वीं शताब्दी", "१९वीं शताब्दीक अन्त", "२१वीं शताब्दी"], correct: 0 },
+        { text: "प्रो. राधाकृष्ण चौधरी के नाट्य-योगदानमे ‘राज्यभिषेक’ नाटक कोन प्रकृतिक अछि ?", options: ["ऐतिहासिक", "सामाजिक", "हास्य-व्यंग्य", "पौराणिक"], correct: 0 }
+    ];
+
+    const totalQ = questions.length;
+    let userSelections = new Array(totalQ).fill(null);
+    let submitted = false;
+
+    const container = document.getElementById('questionsArea');
+    const totalSpan = document.getElementById('totalQ');
+    const scoreSpan = document.getElementById('scoreCount');
+    const percentSpan = document.getElementById('percentBox');
+
+    function renderQuiz() {
+        container.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.dataset.qid = idx;
+            const qDiv = document.createElement('div');
+            qDiv.className = 'q-text';
+            qDiv.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qDiv);
+            const optsDiv = document.createElement('div');
+            optsDiv.className = 'opts-list';
+            q.options.forEach((opt, optIdx) => {
+                const label = document.createElement('label');
+                label.className = 'opt-item';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${idx}`;
+                radio.value = optIdx;
+                radio.disabled = submitted;
+                if (userSelections[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    if (!submitted) {
+                        userSelections[idx] = parseInt(e.target.value);
+                        updateStats();
+                        showFeedback(idx, card);
+                    }
+                });
+                const span = document.createElement('span');
+                span.innerText = `${String.fromCharCode(65+optIdx)}. ${opt}`;
+                label.appendChild(radio);
+                label.appendChild(span);
+                optsDiv.appendChild(label);
+            });
+            card.appendChild(optsDiv);
+            const fbDiv = document.createElement('div');
+            fbDiv.className = 'feedback';
+            fbDiv.id = `fb_${idx}`;
+            card.appendChild(fbDiv);
+            container.appendChild(card);
+            if (submitted) showFeedback(idx, card);
+        });
+        totalSpan.innerText = totalQ;
+        updateStats();
+    }
+
+    function showFeedback(qid, cardDiv) {
+        const fbDiv = cardDiv.querySelector('.feedback');
+        const selected = userSelections[qid];
+        const correctIdx = questions[qid].correct;
+        if (selected === null) {
+            fbDiv.innerHTML = '';
+            fbDiv.className = 'feedback';
+            return;
+        }
+        if (selected === correctIdx) {
+            fbDiv.innerHTML = '✅ सही उत्तर।';
+            fbDiv.className = 'feedback fb-correct';
+        } else {
+            const correctLetter = String.fromCharCode(65+correctIdx);
+            fbDiv.innerHTML = `❌ अशुद्ध। सही उत्तर : ${correctLetter}. ${questions[qid].options[correctIdx]}`;
+            fbDiv.className = 'feedback fb-wrong';
+        }
+    }
+
+    function updateStats() {
+        let correct = 0;
+        for (let i=0; i<totalQ; i++) {
+            if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correct++;
+        }
+        if (!submitted) {
+            scoreSpan.innerText = `${correct}/${totalQ}`;
+            let perc = Math.round((correct/totalQ)*100);
+            percentSpan.innerText = `${perc}% (उत्तर चुनल)`;
+        } else {
+            scoreSpan.innerText = `${correct}/${totalQ}`;
+            let perc = Math.round((correct/totalQ)*100);
+            percentSpan.innerText = `${perc}% ${perc>=60 ? '🎭 नाट्य-रसिक' : '📖 नाट्य इतिहास पढू'}`;
+        }
+    }
+
+    function evaluateAll() {
+        if (submitted) {
+            alert("पहिने जाँच होइ चुकल अछि। पुनः आरम्भ कए नव उत्तर दी।");
+            return;
+        }
+        let unanswered = [];
+        for (let i=0; i<totalQ; i++) if (userSelections[i] === null) unanswered.push(i+1);
+        if (unanswered.length > 0) {
+            if (!confirm(`⚠️ ${unanswered.length} प्रश्न अनुत्तरित अछि (जेना प्र. ${unanswered.slice(0,12).join(',')}...). जाँच करब तौ?`)) return;
+        }
+        submitted = true;
+        const allRadios = document.querySelectorAll('input[type="radio"]');
+        allRadios.forEach(radio => radio.disabled = true);
+        let finalCorrect = 0;
+        for (let i=0; i<totalQ; i++) {
+            const card = document.querySelector(`.question-card[data-qid='${i}']`);
+            if (card) showFeedback(i, card);
+            if (userSelections[i] !== null && userSelections[i] === questions[i].correct) finalCorrect++;
+        }
+        scoreSpan.innerText = `${finalCorrect}/${totalQ}`;
+        let perc = Math.round((finalCorrect/totalQ)*100);
+        percentSpan.innerText = `${perc}% ${perc>=60 ? '🏆 नाट्य-विशारद' : '📚 नाटक-अध्ययन आवश्यक'}`;
+    }
+
+    function resetQuiz() {
+        submitted = false;
+        userSelections = new Array(totalQ).fill(null);
+        const radios = document.querySelectorAll('input[type="radio"]');
+        radios.forEach(r => { r.checked = false; r.disabled = false; });
+        renderQuiz();
+    }
+
+    document.getElementById('submitBtn').addEventListener('click', evaluateAll);
+    document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+    renderQuiz();
+
+</script></body>
+</html>

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मैथिली रिक्त स्थान | Fill in the Blanks — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: linear-gradient(145deg, #e2d4c2, #cfbea8);
+min-height: 100vh;
+font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+padding: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.blank-container {
+max-width: 750px;
+width: 100%;
+background: #fffef7;
+border-radius: 64px;
+overflow: hidden;
+box-shadow: 0 25px 40px rgba(0, 0, 0, 0.25);
+}
+.blank-header {
+background: #2c3e2a;
+padding: 24px 28px;
+color: #fef0df;
+}
+.title-row {
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+flex-wrap: wrap;
+gap: 12px;
+margin-bottom: 12px;
+}
+h1 {
+font-size: 1.8rem;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.score-badge {
+background: #e2b87a;
+color: #1e2e1b;
+padding: 6px 18px;
+border-radius: 60px;
+font-weight: 800;
+}
+.upload-area {
+display: flex;
+gap: 12px;
+align-items: center;
+flex-wrap: wrap;
+font-size: 0.75rem;
+}
+.upload-btn {
+background: #5a7856;
+padding: 5px 16px;
+border-radius: 60px;
+cursor: pointer;
+}
+.mode-tabs {
+display: flex;
+gap: 10px;
+background: #faf3ea;
+padding: 12px 24px;
+justify-content: center;
+}
+.mode-tab {
+background: #e2d4c4;
+border: none;
+padding: 8px 24px;
+border-radius: 60px;
+font-weight: 600;
+cursor: pointer;
+transition: 0.2s;
+}
+.mode-tab.active {
+background: #7f5d3e;
+color: white;
+}
+.quiz-panel {
+padding: 32px 30px;
+}
+.sentence-card {
+background: #fffaf3;
+border-radius: 48px;
+padding: 28px 24px;
+margin-bottom: 28px;
+box-shadow: inset 0 0 0 1px #fffdf9, 0 8px 18px rgba(0,0,0,0.05);
+}
+.sentence-text {
+font-size: 1.6rem;
+line-height: 1.4;
+font-weight: 500;
+color: #2c3e2a;
+word-break: break-word;
+}
+.blank-highlight {
+display: inline-block;
+background: #f0e3d4;
+padding: 4px 12px;
+border-radius: 40px;
+font-weight: 700;
+color: #b48b5a;
+min-width: 120px;
+text-align: center;
+}
+.input-area {
+margin: 24px 0;
+}
+.answer-input {
+width: 100%;
+border: 2px solid #e2cfbc;
+border-radius: 80px;
+padding: 16px 22px;
+font-size: 1.1rem;
+outline: none;
+font-family: monospace;
+}
+.answer-input:focus {
+border-color: #b48b5a;
+}
+.hint-box {
+background: #efe6dc;
+border-radius: 40px;
+padding: 12px 20px;
+margin: 12px 0;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+}
+.hint-text {
+color: #6a4f31;
+}
+.hint-btn {
+background: none;
+border: 1px solid #b48b5a;
+padding: 6px 18px;
+border-radius: 60px;
+cursor: pointer;
+}
+.action-buttons {
+display: flex;
+gap: 15px;
+margin-top: 15px;
+}
+.check-btn {
+background: #6f8f6b;
+border: none;
+flex: 1;
+padding: 14px;
+border-radius: 60px;
+font-weight: bold;
+color: white;
+cursor: pointer;
+}
+.skip-btn {
+background: #c1a074;
+border: none;
+flex: 0.7;
+padding: 14px;
+border-radius: 60px;
+font-weight: bold;
+cursor: pointer;
+}
+.feedback {
+background: #f1ede7;
+border-radius: 40px;
+padding: 14px 20px;
+margin: 16px 0;
+text-align: center;
+}
+.stats-footer {
+background: #e7dacb;
+padding: 14px 24px;
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 12px;
+font-weight: 600;
+}
+@media (max-width: 550px) {
+.sentence-text { font-size: 1.2rem; }
+.quiz-panel { padding: 20px; }
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script><script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script><script src="thesaurus_data.js"></script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="blank-container"> <div class="blank-header"> <div class="title-row"> <div class="score-badge">🏆 स्कोर: <span id="scoreDisplay">0</span></div> </div> <div class="upload-area"> <span class="upload-btn" id="blankUploadBtn">📂 Excel अपलोड</span> <input type="file" id="blankExcel" accept=".xlsx, .xls" style="display: none;"> <span id="dataInfo">📘 नमूना डेटा</span> </div> </div> <div class="mode-tabs"> <button class="mode-tab active" data-mode="en2ma">🇬🇧 → 🇮🇳 अंग्रेजी → मैथिली</button> <button class="mode-tab" data-mode="ma2en">🇮🇳 → 🇬🇧 मैथिली → अंग्रेजी</button> </div> <div class="quiz-panel"> <div class="sentence-card"> <div class="sentence-text" id="sentenceText">लोड होत...</div> </div> <div class="input-area"> <input type="text" id="answerField" class="answer-input" placeholder="आपन उत्तर यहाँ लिखू..." autocomplete="off"> </div> <div class="hint-box"> <span class="hint-text" id="hintMessage">💡 संकेत देखबाक लेल क्लिक करू</span> <button id="showHintBtn" class="hint-btn">संकेत</button> </div> <div class="action-buttons"> <button id="checkAnswerBtn" class="check-btn">✅ जाँचू</button> <button id="skipQuestionBtn" class="skip-btn">⏭ छोड़ी</button> </div> <div id="feedbackMsg" class="feedback" style="display: none;"></div> <div class="vq-footer">© सम्पादक, videha.co.in</div> </div>
+</div>
+<script>
+
+</script><span id="correctCount" style="display:none">0</span>
+<span id="wrongCount" style="display:none">0</span>
+<span id="remainingCount" style="display:none">0</span>
+<span id="streakCount" style="display:none">0</span>
+<script>
+
+    // ---------- DATA & STATE ----------
+    let dictionary = [];           // { english, maithili1, pos }
+    let currentMode = "en2ma";    // 'en2ma' or 'ma2en'
+    let remainingIndices = [];     // indices not yet correctly answered in current session
+    let usedCorrectly = new Set(); // indices that have been answered correctly (to avoid repetition until reset)
+    let currentIndex = -1;
+    let currentQuestionObj = null;
+    let currentHint = "";
+    let currentCorrectAnswer = "";
+    let score = 0;
+    let wrong = 0;
+    let streak = 0;
+    let waitingNext = false;
+    let totalAnswered = 0;
+
+    // DOM elements
+    const sentenceTextSpan = document.getElementById("sentenceText");
+    const answerField = document.getElementById("answerField");
+    const checkBtn = document.getElementById("checkAnswerBtn");
+    const skipBtn = document.getElementById("skipQuestionBtn");
+    const feedbackDiv = document.getElementById("feedbackMsg");
+    const scoreDisplay = document.getElementById("scoreDisplay");
+    const correctCountSpan = document.getElementById("correctCount");
+    const wrongCountSpan = document.getElementById("wrongCount");
+    const remainingCountSpan = document.getElementById("remainingCount");
+    const streakSpan = document.getElementById("streakCount");
+    const hintBtn = document.getElementById("showHintBtn");
+    const hintMessageSpan = document.getElementById("hintMessage");
+    const uploadBtn = document.getElementById("blankUploadBtn");
+    const excelInput = document.getElementById("blankExcel");
+    const dataInfoSpan = document.getElementById("dataInfo");
+    const modeTabs = document.querySelectorAll(".mode-tab");
+
+    // ---------- SAMPLE DATA (20 words) ----------
+    // THESAURUS_DATA loaded from thesaurus_data.js
+    const SAMPLE_DICT = THESAURUS_DATA;
+
+    // Helper: normalize string for comparison
+    function normalize(str) {
+        return str.trim().toLowerCase().replace(/[.,!?;:]/g, '').replace(/\s+/g, ' ').trim();
+    }
+
+    // Build remaining indices (all not yet correctly answered)
+    function refreshRemaining() {
+        const total = dictionary.length;
+        const remaining = [];
+        for (let i = 0; i < total; i++) {
+            if (!usedCorrectly.has(i)) {
+                remaining.push(i);
+            }
+        }
+        remainingIndices = remaining;
+        updateStatsUI();
+    }
+
+    // Pick a random word from remaining
+    function pickNewQuestion() {
+        if (!dictionary.length) return false;
+        refreshRemaining();
+        if (remainingIndices.length === 0) {
+            // all words mastered! show celebration and reset session optionally
+            feedbackDiv.style.display = "block";
+            feedbackDiv.innerHTML = "🎉 बधाई! सब शब्द सही उत्तर दे चुकल छी। नया राउण्ड लेल रीसेट करू। 🎉";
+            feedbackDiv.style.background = "#e0f0dc";
+            sentenceTextSpan.innerText = "🎊 सब शब्द निपुण! 🎊";
+            answerField.disabled = true;
+            checkBtn.disabled = true;
+            skipBtn.disabled = true;
+            return false;
+        }
+        const randomPos = Math.floor(Math.random() * remainingIndices.length);
+        currentIndex = remainingIndices[randomPos];
+        currentQuestionObj = dictionary[currentIndex];
+        
+        // Generate sentence based on mode
+        if (currentMode === "en2ma") {
+            // English word → blank for Maithili
+            const pos = currentQuestionObj.pos ? ` (${currentQuestionObj.pos})` : "";
+            sentenceTextSpan.innerHTML = `"${escapeHtml(currentQuestionObj.english)}"${pos} केर मैथिली अनुवाद की अछि?<br><span class="blank-highlight">________</span>`;
+            currentCorrectAnswer = currentQuestionObj.maithili1;
+            currentHint = `🔎 यह शब्द ${currentQuestionObj.pos || 'शब्द'} अछि। अंग्रेजी अर्थ: "${currentQuestionObj.english}"।`;
+        } else {
+            // Maithili word → blank for English
+            const pos = currentQuestionObj.pos ? ` (${currentQuestionObj.pos})` : "";
+            sentenceTextSpan.innerHTML = `"${escapeHtml(currentQuestionObj.maithili1)}"${pos} केर अंग्रेजी अर्थ की अछि?<br><span class="blank-highlight">________</span>`;
+            currentCorrectAnswer = currentQuestionObj.english;
+            currentHint = `🔎 यह शब्द ${currentQuestionObj.pos || 'शब्द'} अछि। मैथिली: "${currentQuestionObj.maithili1}"।`;
+        }
+        answerField.value = "";
+        answerField.disabled = false;
+        checkBtn.disabled = false;
+        skipBtn.disabled = false;
+        waitingNext = false;
+        feedbackDiv.style.display = "none";
+        hintMessageSpan.innerText = "💡 संकेत देखबाक लेल क्लिक करू";
+        return true;
+    }
+
+    function updateStatsUI() {
+        scoreDisplay.innerText = score;
+        correctCountSpan.innerText = score;
+        wrongCountSpan.innerText = wrong;
+        const total = dictionary.length;
+        const remaining = total - usedCorrectly.size;
+        remainingCountSpan.innerText = remaining;
+        streakSpan.innerText = streak;
+    }
+
+    function handleCorrect() {
+        score++;
+        streak++;
+        usedCorrectly.add(currentIndex);
+        // remove from remainingIndices (already will be excluded via usedCorrectly)
+        feedbackDiv.style.display = "block";
+        feedbackDiv.innerHTML = "✅ सही उत्तर! बहुत बढ़िया।";
+        feedbackDiv.style.background = "#e0f0dc";
+        updateStatsUI();
+        waitingNext = true;
+        answerField.disabled = true;
+        checkBtn.disabled = true;
+        skipBtn.disabled = true;
+        // auto load next after delay
+        setTimeout(() => {
+            const success = pickNewQuestion();
+            if (!success) {
+                // all done
+                checkBtn.disabled = true;
+                skipBtn.disabled = true;
+            } else {
+                waitingNext = false;
+                answerField.disabled = false;
+                checkBtn.disabled = false;
+                skipBtn.disabled = false;
+            }
+        }, 1200);
+    }
+
+    function handleIncorrect() {
+        wrong++;
+        streak = 0;
+        updateStatsUI();
+        feedbackDiv.style.display = "block";
+        feedbackDiv.innerHTML = `❌ गलत। सही उत्तर: "${escapeHtml(currentCorrectAnswer)}"`;
+        feedbackDiv.style.background = "#ffe0e0";
+        waitingNext = true;
+        answerField.disabled = true;
+        checkBtn.disabled = true;
+        skipBtn.disabled = true;
+        // load next after delay
+        setTimeout(() => {
+            pickNewQuestion();
+            waitingNext = false;
+            answerField.disabled = false;
+            checkBtn.disabled = false;
+            skipBtn.disabled = false;
+        }, 1500);
+    }
+
+    function checkAnswer() {
+        if (waitingNext) return;
+        const userAnswer = normalize(answerField.value);
+        if (userAnswer === "") {
+            feedbackDiv.style.display = "block";
+            feedbackDiv.innerHTML = "⚠️ कृपया कोनो उत्तर लिखू।";
+            feedbackDiv.style.background = "#fff0cc";
+            return;
+        }
+        let correctNormalized = normalize(currentCorrectAnswer);
+        let isMatch = (userAnswer === correctNormalized);
+        // handle multiple alternatives separated by '/'
+        if (!isMatch && currentCorrectAnswer.includes('/')) {
+            const alternatives = currentCorrectAnswer.split('/').map(s => normalize(s));
+            if (alternatives.some(alt => alt === userAnswer)) isMatch = true;
+        }
+        if (isMatch) {
+            handleCorrect();
+        } else {
+            handleIncorrect();
+        }
+    }
+
+    function skipQuestion() {
+        if (waitingNext) return;
+        // mark as wrong but without incrementing wrong count? we'll just treat as wrong
+        wrong++;
+        streak = 0;
+        updateStatsUI();
+        feedbackDiv.style.display = "block";
+        feedbackDiv.innerHTML = `⏩ छोड़ल गेल। सही उत्तर: "${escapeHtml(currentCorrectAnswer)}"`;
+        feedbackDiv.style.background = "#f9efde";
+        waitingNext = true;
+        answerField.disabled = true;
+        checkBtn.disabled = true;
+        skipBtn.disabled = true;
+        setTimeout(() => {
+            pickNewQuestion();
+            waitingNext = false;
+            answerField.disabled = false;
+            checkBtn.disabled = false;
+            skipBtn.disabled = false;
+        }, 1200);
+    }
+
+    function showHint() {
+        if (currentQuestionObj) {
+            hintMessageSpan.innerText = currentHint;
+        }
+    }
+
+    function resetGame() {
+        usedCorrectly.clear();
+        score = 0;
+        wrong = 0;
+        streak = 0;
+        updateStatsUI();
+        pickNewQuestion();
+        answerField.disabled = false;
+        checkBtn.disabled = false;
+        skipBtn.disabled = false;
+        waitingNext = false;
+        feedbackDiv.style.display = "none";
+    }
+
+    function changeMode(mode) {
+        currentMode = mode;
+        modeTabs.forEach(tab => {
+            if (tab.getAttribute("data-mode") === mode) tab.classList.add("active");
+            else tab.classList.remove("active");
+        });
+        resetGame();
+    }
+
+    // ----- Excel Parsing -----
+    function parseExcelToDict(buffer) {
+        const wb = XLSX.read(buffer, { type: 'array' });
+        const sheet = wb.Sheets[wb.SheetNames[0]];
+        const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
+        if (!rows || rows.length < 2) return [];
+        const header = rows[0].map(c => String(c || "").trim().toLowerCase());
+        const engIdx = header.findIndex(h => h.includes("english word"));
+        const maiIdx = header.findIndex(h => h.includes("maithili meaning 1"));
+        const posIdx = header.findIndex(h => h.includes("pos"));
+        if (engIdx === -1 || maiIdx === -1) return [];
+        const dict = [];
+        for (let i = 1; i < rows.length; i++) {
+            const row = rows[i];
+            if (!row || !row[engIdx]) continue;
+            const eng = String(row[engIdx]).trim();
+            const mai = String(row[maiIdx]).trim();
+            if (eng && mai) {
+                dict.push({
+                    english: eng,
+                    maithili1: mai,
+                    pos: posIdx !== -1 ? String(row[posIdx] || "").trim() : ""
+                });
+            }
+        }
+        return dict;
+    }
+
+    function loadExcelAndReset(file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const parsed = parseExcelToDict(e.target.result);
+            if (parsed.length === 0) {
+                alert("Excel में वैध डेटा नहि अछि। नमूना लोड रहल।");
+                setSampleData();
+            } else {
+                dictionary = parsed;
+                dataInfoSpan.innerText = `📁 ${file.name} (${dictionary.length})`;
+                resetGame();
+            }
+        };
+        reader.readAsArrayBuffer(file);
+    }
+
+    function setSampleData() {
+        dictionary = [...SAMPLE_DICT];
+        dataInfoSpan.innerText = "📘 नमूना डेटा";
+        resetGame();
+    }
+
+    // Event bindings & Enter key
+    function init() {
+        setSampleData();
+        uploadBtn.addEventListener("click", () => excelInput.click());
+        excelInput.addEventListener("change", (e) => {
+            if (e.target.files && e.target.files[0]) loadExcelAndReset(e.target.files[0]);
+        });
+        modeTabs.forEach(tab => {
+            tab.addEventListener("click", () => changeMode(tab.getAttribute("data-mode")));
+        });
+        checkBtn.addEventListener("click", checkAnswer);
+        skipBtn.addEventListener("click", skipQuestion);
+        hintBtn.addEventListener("click", showHint);
+        answerField.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") checkAnswer();
+        });
+    }
+
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        });
+    }
+
+    init();
+
+</script></body>
+</html>

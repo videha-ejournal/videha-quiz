@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मैथिली चुनौती | Quick Challenge — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: linear-gradient(135deg, #1f2b1c, #2c3e2b);
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 24px;
+font-family: 'Segoe UI', 'Poppins', system-ui, sans-serif;
+}
+.challenge-card {
+max-width: 650px;
+width: 100%;
+background: #fffef7;
+border-radius: 64px;
+box-shadow: 0 30px 45px -15px rgba(0,0,0,0.4);
+overflow: hidden;
+transition: all 0.2s;
+}
+.ch-header {
+background: #2c4b2a;
+padding: 24px 28px;
+color: #ffefcf;
+}
+.ch-header h1 {
+font-size: 2rem;
+letter-spacing: -0.5px;
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+flex-wrap: wrap;
+gap: 12px;
+}
+.streak-badge {
+background: #e2b87a;
+color: #2a3a22;
+padding: 8px 18px;
+border-radius: 80px;
+font-size: 0.9rem;
+font-weight: bold;
+}
+.upload-row {
+margin-top: 16px;
+display: flex;
+gap: 12px;
+align-items: center;
+flex-wrap: wrap;
+}
+.upload-label {
+background: #5a7a56;
+padding: 6px 16px;
+border-radius: 60px;
+font-size: 0.8rem;
+font-weight: 500;
+cursor: pointer;
+transition: 0.2s;
+}
+.upload-label:active {
+transform: scale(0.96);
+}
+.file-info {
+font-size: 0.75rem;
+background: #3d5a3a;
+padding: 5px 15px;
+border-radius: 30px;
+}
+.mode-switch {
+display: flex;
+gap: 10px;
+background: #efe3d4;
+padding: 12px 20px;
+justify-content: center;
+}
+.mode-btn {
+background: #cbbca8;
+border: none;
+padding: 8px 24px;
+border-radius: 40px;
+font-weight: 600;
+cursor: pointer;
+transition: 0.2s;
+color: #2b2b1f;
+}
+.mode-btn.active {
+background: #7a5a3a;
+color: white;
+box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.quiz-area {
+padding: 32px 28px;
+}
+.question-card {
+background: #fcf7f0;
+border-radius: 48px;
+padding: 32px 20px;
+text-align: center;
+box-shadow: inset 0 0 0 1px #fff6, 0 8px 18px rgba(0,0,0,0.05);
+margin-bottom: 32px;
+}
+.direction-text {
+font-size: 0.85rem;
+text-transform: uppercase;
+letter-spacing: 1px;
+color: #b48c5a;
+margin-bottom: 10px;
+}
+.word-to-translate {
+font-size: 2.5rem;
+font-weight: 800;
+color: #2b4127;
+word-break: break-word;
+}
+.pos-tag {
+background: #e9ddcf;
+display: inline-block;
+padding: 4px 14px;
+border-radius: 40px;
+font-size: 0.7rem;
+margin-top: 12px;
+color: #5c4b38;
+}
+.input-group {
+display: flex;
+flex-direction: column;
+gap: 16px;
+margin: 20px 0;
+}
+.answer-input {
+border: 2px solid #e2cfbc;
+border-radius: 80px;
+padding: 16px 22px;
+font-size: 1.1rem;
+background: white;
+font-family: monospace;
+outline: none;
+transition: 0.2s;
+}
+.answer-input:focus {
+border-color: #b48b5a;
+box-shadow: 0 0 0 3px rgba(180, 139, 90, 0.2);
+}
+.hint-area {
+background: #efe4d8;
+border-radius: 36px;
+padding: 12px 20px;
+font-size: 0.9rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+}
+.hint-text {
+color: #6b4f32;
+font-style: italic;
+}
+.hint-btn {
+background: none;
+border: 1px solid #b48b5a;
+padding: 6px 16px;
+border-radius: 40px;
+cursor: pointer;
+font-weight: 500;
+transition: 0.1s;
+}
+.action-buttons {
+display: flex;
+gap: 16px;
+margin-top: 15px;
+}
+.check-btn {
+background: #6f8f6b;
+flex: 1;
+border: none;
+padding: 14px;
+border-radius: 60px;
+font-weight: bold;
+font-size: 1.1rem;
+color: white;
+cursor: pointer;
+}
+.skip-btn {
+background: #cfbba6;
+flex: 0.6;
+border: none;
+border-radius: 60px;
+font-weight: bold;
+cursor: pointer;
+}
+.reset-btn {
+background: #a78866;
+border: none;
+padding: 10px 20px;
+border-radius: 60px;
+font-weight: bold;
+cursor: pointer;
+color: white;
+margin-top: 5px;
+}
+.feedback {
+background: #f1ede7;
+border-radius: 40px;
+padding: 14px 20px;
+margin: 16px 0 10px;
+text-align: center;
+font-weight: 500;
+}
+.stats-footer {
+background: #e6dacb;
+padding: 14px 24px;
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 12px;
+font-weight: 500;
+color: #3a2c1f;
+}
+.correct-fade {
+animation: correctFlash 0.4s ease;
+}
+@keyframes correctFlash {
+0% { background: #c8e6c9; transform: scale(1);}
+70% { background: #a5d6a7; transform: scale(1.02);}
+100% { background: #fcf7f0; }
+}
+@media (max-width: 550px) {
+.word-to-translate { font-size: 1.9rem; }
+.quiz-area { padding: 20px; }
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script><script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script><script src="thesaurus_data.js"></script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="challenge-card"> <div class="ch-header"> <div class="upload-row"> <span class="upload-label" id="uploadBtn">📂 अपन Excel अपलोड करू</span> <input type="file" id="excelUpload" accept=".xlsx, .xls" style="display: none;"> <span class="file-info" id="fileStatus">📘 नमूना डेटा सक्रिय</span> </div> </div> <div class="mode-switch"> <button class="mode-btn active" data-dir="en2ma">🇬🇧 → 🇮🇳 English → Maithili</button> <button class="mode-btn" data-dir="ma2en">🇮🇳 → 🇬🇧 Maithili → English</button> </div> <div class="quiz-area"> <div class="question-card" id="questionCard"> <div class="direction-text" id="directionHint">अंग्रेजी शब्द केर मैथिली लिखू</div> <div class="word-to-translate" id="wordDisplay">loading...</div> <div class="pos-tag" id="posTag"></div> </div> <div class="input-group"> <input type="text" id="answerInput" class="answer-input" placeholder="आपन उत्तर यहाँ लिखू..." autocomplete="off"> <div class="hint-area" id="hintArea"> <span class="hint-text" id="hintMessage">💡 सङ्केत देखबाक लेल क्लिक करू</span> <button id="hintBtn" class="hint-btn">संकेत</button> </div> </div> <div class="action-buttons"> <button id="checkBtn" class="check-btn">✅ जाँचू</button> <button id="skipBtn" class="skip-btn">⏭ छोड़ी</button> </div> <button id="resetSessionBtn" class="reset-btn">🔄 नया राउण्ड</button> <div id="feedbackMsg" class="feedback" style="display: none;"></div> </div> <div class="vq-footer">© सम्पादक, videha.co.in</div>
+</div>
+<script>
+
+</script><span id="streakDisplay" style="display:none">0</span>
+<span id="correctCount" style="display:none">0</span>
+<span id="wrongCount" style="display:none">0</span>
+<span id="skippedCount" style="display:none">0</span>
+<span id="remainingWords" style="display:none">0</span>
+<script>
+
+    // ---------- DATA ----------
+    let dictionary = [];        // { english, maithili1, pos }
+    let currentMode = "en2ma";  // 'en2ma' or 'ma2en'
+    let currentWordObj = null;
+    let currentStreak = 0;
+    let correctTotal = 0;
+    let wrongTotal = 0;
+    let skippedTotal = 0;
+    let usedWordsTracker = new Set(); // indices to avoid repetition until reset
+    let availableIndices = [];
+
+    // DOM elements
+    const directionHint = document.getElementById("directionHint");
+    const wordDisplay = document.getElementById("wordDisplay");
+    const posTagSpan = document.getElementById("posTag");
+    const answerInput = document.getElementById("answerInput");
+    const checkBtn = document.getElementById("checkBtn");
+    const skipBtn = document.getElementById("skipBtn");
+    const resetBtn = document.getElementById("resetSessionBtn");
+    const feedbackDiv = document.getElementById("feedbackMsg");
+    const streakSpan = document.getElementById("streakDisplay");
+    const correctCountSpan = document.getElementById("correctCount");
+    const wrongCountSpan = document.getElementById("wrongCount");
+    const skippedCountSpan = document.getElementById("skippedCount");
+    const remainingSpan = document.getElementById("remainingWords");
+    const hintBtn = document.getElementById("hintBtn");
+    const hintMessageSpan = document.getElementById("hintMessage");
+    const uploadBtn = document.getElementById("uploadBtn");
+    const excelFileInput = document.getElementById("excelUpload");
+    const fileStatusSpan = document.getElementById("fileStatus");
+
+    // ---------- SAMPLE DATA (similar to previous) ----------
+    // THESAURUS_DATA loaded from thesaurus_data.js
+    const SAMPLE = THESAURUS_DATA;
+
+    // ---------- Utility ----------
+    function normalizeString(str) {
+        return str.trim().toLowerCase().replace(/[.,!?;:/\\()]/g, '').replace(/\s+/g, ' ').trim();
+    }
+
+    function updateStatsUI() {
+        correctCountSpan.innerText = correctTotal;
+        wrongCountSpan.innerText = wrongTotal;
+        skippedCountSpan.innerText = skippedTotal;
+        streakSpan.innerText = `🔥 स्ट्रीक ${currentStreak}`;
+        remainingSpan.innerText = availableIndices.length;
+    }
+
+    // Refresh available words (based on dictionary and current mode)
+    function refreshAvailableIndices() {
+        if (!dictionary.length) return;
+        const allIndices = dictionary.map((_, idx) => idx);
+        // filter out already used words (usedWordsTracker) if we want to avoid repeat until reset
+        const fresh = allIndices.filter(idx => !usedWordsTracker.has(idx));
+        if (fresh.length === 0) {
+            // reset used tracker and start over
+            usedWordsTracker.clear();
+            availableIndices = [...allIndices];
+        } else {
+            availableIndices = fresh;
+        }
+        // random shuffle for better experience
+        for (let i = availableIndices.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [availableIndices[i], availableIndices[j]] = [availableIndices[j], availableIndices[i]];
+        }
+        updateStatsUI();
+    }
+
+    // Load a new random word from available pool
+    function loadNewWord() {
+        if (!dictionary.length) {
+            wordDisplay.innerText = "कोनो डेटा नहि अछि। कृपया फाइल अपलोड करू।";
+            return false;
+        }
+        if (availableIndices.length === 0) {
+            refreshAvailableIndices();
+            if (availableIndices.length === 0) {
+                wordDisplay.innerText = "सब शब्द समाप्त! नया राउण्ड शुरू करू।";
+                return false;
+            }
+        }
+        const randomPos = Math.floor(Math.random() * availableIndices.length);
+        const wordIdx = availableIndices[randomPos];
+        currentWordObj = dictionary[wordIdx];
+        // we remove it from available after picking (to avoid duplicate until reset)
+        availableIndices.splice(randomPos, 1);
+        usedWordsTracker.add(wordIdx);
+
+        // display based on mode
+        if (currentMode === "en2ma") {
+            directionHint.innerText = "🇬🇧 → 🇮🇳 अंग्रेजी शब्द केर मैथिली लिखू";
+            wordDisplay.innerText = currentWordObj.english;
+            posTagSpan.innerText = currentWordObj.pos ? `${currentWordObj.pos}` : "";
+        } else {
+            directionHint.innerText = "🇮🇳 → 🇬🇧 मैथिली शब्द केर अंग्रेजी लिखू";
+            wordDisplay.innerText = currentWordObj.maithili1;
+            posTagSpan.innerText = currentWordObj.pos ? `${currentWordObj.pos}` : "";
+        }
+        answerInput.value = "";
+        feedbackDiv.style.display = "none";
+        hintMessageSpan.innerText = "💡 संकेत देखबाक लेल क्लिक करू";
+        updateStatsUI();
+        return true;
+    }
+
+    // Core answer check
+    function evaluateAnswer(userAnswer) {
+        if (!currentWordObj) {
+            feedbackDiv.style.display = "block";
+            feedbackDiv.innerHTML = "⚠️ पहिले कोनो शब्द लोड करू।";
+            return;
+        }
+        let normalizedUser = normalizeString(userAnswer);
+        let correctAnswer = "";
+        if (currentMode === "en2ma") {
+            correctAnswer = normalizeString(currentWordObj.maithili1);
+        } else {
+            correctAnswer = normalizeString(currentWordObj.english);
+        }
+        // also check alternative (maithili2 could be added, but for simplicity use main)
+        let isCorrect = (normalizedUser === correctAnswer);
+        if (!isCorrect && currentMode === "en2ma" && currentWordObj.maithili1.includes('/')) {
+            // split alternatives
+            let alternatives = currentWordObj.maithili1.split('/').map(s => normalizeString(s));
+            if (alternatives.some(alt => alt === normalizedUser)) {
+                isCorrect = true;
+            }
+        }
+        if (isCorrect) {
+            // correct
+            currentStreak++;
+            correctTotal++;
+            feedbackDiv.style.display = "block";
+            feedbackDiv.innerHTML = "✅ सही उत्तर! बहुत बढ़िया।";
+            feedbackDiv.style.background = "#e0f0dc";
+            // animate card
+            document.getElementById("questionCard").classList.add("correct-fade");
+            setTimeout(() => document.getElementById("questionCard").classList.remove("correct-fade"), 400);
+        } else {
+            currentStreak = 0;
+            wrongTotal++;
+            feedbackDiv.style.display = "block";
+            let displayCorrect = (currentMode === "en2ma") ? currentWordObj.maithili1 : currentWordObj.english;
+            feedbackDiv.innerHTML = `❌ गलत। सही उत्तर: "${displayCorrect}"`;
+            feedbackDiv.style.background = "#ffefef";
+        }
+        updateStatsUI();
+
+        // load next word after short delay (auto-advance)
+        setTimeout(() => {
+            loadNewWord();
+        }, 1200);
+    }
+
+    function skipWord() {
+        if (!currentWordObj) return;
+        currentStreak = 0;
+        skippedTotal++;
+        updateStatsUI();
+        feedbackDiv.style.display = "block";
+        feedbackDiv.innerHTML = `⏩ छोड़ल गेल। सही उत्तर: ${(currentMode === "en2ma") ? currentWordObj.maithili1 : currentWordObj.english}`;
+        feedbackDiv.style.background = "#f4ede5";
+        setTimeout(() => {
+            loadNewWord();
+        }, 1000);
+    }
+
+    function resetSession() {
+        // clear all stats and used tracker
+        currentStreak = 0;
+        correctTotal = 0;
+        wrongTotal = 0;
+        skippedTotal = 0;
+        usedWordsTracker.clear();
+        if (dictionary.length) {
+            refreshAvailableIndices(); // rebuilds availableIndices fresh
+        }
+        loadNewWord();
+        updateStatsUI();
+        feedbackDiv.style.display = "none";
+        answerInput.value = "";
+    }
+
+    function showHint() {
+        if (!currentWordObj) return;
+        let hintText = "";
+        if (currentMode === "en2ma") {
+            hintText = `🔎 संकेत: यह शब्द ${currentWordObj.pos || 'शब्द'} अछि। मैथिली में "${currentWordObj.maithili1.substring(0, 8)}..." से शुरू भेल अछि।`;
+        } else {
+            hintText = `🔎 संकेत: "${currentWordObj.maithili1}" केर अंग्रेजी अर्थ "${currentWordObj.english.substring(0, 8)}..." से मेल खाइत अछि।`;
+        }
+        hintMessageSpan.innerText = hintText;
+    }
+
+    // ----- Excel parsing -----
+    function parseExcelToDict(buffer) {
+        const workbook = XLSX.read(buffer, { type: 'array' });
+        const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+        const rows = XLSX.utils.sheet_to_json(firstSheet, { header: 1, defval: "" });
+        if (!rows || rows.length < 2) return [];
+        const header = rows[0].map(cell => String(cell || "").trim().toLowerCase());
+        const getIndex = (keyword) => header.findIndex(h => h.includes(keyword));
+        const engIdx = getIndex("english word");
+        const maiIdx = getIndex("maithili meaning 1");
+        const posIdx = getIndex("pos");
+        if (engIdx === -1 || maiIdx === -1) return [];
+        const dict = [];
+        for (let i = 1; i < rows.length; i++) {
+            const row = rows[i];
+            if (!row || !row[engIdx]) continue;
+            const eng = String(row[engIdx]).trim();
+            const mai = String(row[maiIdx]).trim();
+            if (eng === "" || mai === "") continue;
+            dict.push({
+                english: eng,
+                maithili1: mai,
+                pos: posIdx !== -1 ? String(row[posIdx] || "").trim() : ""
+            });
+        }
+        return dict;
+    }
+
+    function setDictionaryAndReset(newDict) {
+        if (newDict.length === 0) {
+            alert("Excel में कोनो वैध डेटा नहि अछि (English Word / Maithili Meaning 1 नहि मिलल)। नमूना डेटा लोड होत।");
+            dictionary = [...SAMPLE];
+        } else {
+            dictionary = newDict;
+        }
+        usedWordsTracker.clear();
+        refreshAvailableIndices();
+        resetSession();
+    }
+
+    function loadExcelFile(file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const data = new Uint8Array(e.target.result);
+            const parsed = parseExcelToDict(data);
+            if (parsed.length === 0) {
+                fileStatusSpan.innerText = "⚠️ पार्स विफल, नमूना चलि रहल अछि";
+                setDictionaryAndReset([]);
+            } else {
+                fileStatusSpan.innerText = `📁 ${file.name} (${parsed.length} शब्द)`;
+                setDictionaryAndReset(parsed);
+            }
+        };
+        reader.readAsArrayBuffer(file);
+    }
+
+    function useSampleData() {
+        fileStatusSpan.innerText = "📘 नमूना डेटा सक्रिय";
+        setDictionaryAndReset([...SAMPLE]);
+    }
+
+    // ---- mode switching ----
+    function changeMode(mode) {
+        currentMode = mode;
+        document.querySelectorAll(".mode-btn").forEach(btn => {
+            if (btn.getAttribute("data-dir") === mode) btn.classList.add("active");
+            else btn.classList.remove("active");
+        });
+        // reset session when mode changes
+        resetSession();
+    }
+
+    // ---- bind events & init ----
+    function init() {
+        checkBtn.addEventListener("click", () => {
+            evaluateAnswer(answerInput.value);
+        });
+        skipBtn.addEventListener("click", skipWord);
+        resetBtn.addEventListener("click", resetSession);
+        hintBtn.addEventListener("click", showHint);
+        uploadBtn.addEventListener("click", () => excelFileInput.click());
+        excelFileInput.addEventListener("change", (e) => {
+            if (e.target.files && e.target.files[0]) loadExcelFile(e.target.files[0]);
+        });
+        document.querySelectorAll(".mode-btn").forEach(btn => {
+            btn.addEventListener("click", () => changeMode(btn.getAttribute("data-dir")));
+        });
+        // allow Enter key submission
+        answerInput.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") evaluateAnswer(answerInput.value);
+        });
+        useSampleData(); // start with sample
+    }
+
+    init();
+
+</script></body>
+</html>

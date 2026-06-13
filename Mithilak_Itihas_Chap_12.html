@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मिथिलाक इतिहास : मुसलमानी अमल (अध्याय १२) - १०० प्रश्न — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #f3eee7;
+font-family: 'Segoe UI', 'Poppins', 'Noto Sans', 'Maitree', serif;
+padding: 2rem 1rem;
+color: #2c241a;
+}
+.quiz-container {
+max-width: 1100px;
+margin: 0 auto;
+background: #fffdf9;
+border-radius: 2rem;
+box-shadow: 0 20px 35px rgba(0,0,0,0.08);
+padding: 2rem 2rem 2.5rem;
+}
+h1 {
+font-size: 2rem;
+font-weight: 800;
+background: linear-gradient(135deg, #9b4b1c, #63320b);
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+text-align: center;
+}
+.sub {
+text-align: center;
+color: #8b6140;
+margin: 0.5rem 0 1.5rem 0;
+font-weight: 500;
+border-bottom: 1px solid #ebddce;
+display: inline-block;
+width: auto;
+padding-bottom: 0.3rem;
+}
+.progress-info {
+background: #efe6da;
+border-radius: 3rem;
+padding: 0.6rem 1.2rem;
+display: flex;
+justify-content: space-between;
+margin-bottom: 1.6rem;
+font-weight: 500;
+}
+.question-card {
+background: #fefaf5;
+border: 1px solid #ecdcc9;
+border-radius: 1.5rem;
+padding: 1.2rem 1.5rem;
+margin-bottom: 1.2rem;
+}
+.question-text {
+font-weight: 700;
+font-size: 1.05rem;
+margin-bottom: 1rem;
+color: #3e2a1a;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.6rem;
+}
+.option {
+display: flex;
+align-items: center;
+gap: 0.8rem;
+cursor: pointer;
+padding: 0.4rem 0.8rem;
+border-radius: 2rem;
+background: white;
+border: 1px solid #e2d4c2;
+}
+.option:hover {
+background: #f8efe3;
+}
+input[type="radio"] {
+accent-color: #b45f2b;
+width: 1rem;
+height: 1rem;
+}
+.option label {
+flex: 1;
+cursor: pointer;
+font-weight: 450;
+}
+.button-group {
+display: flex;
+justify-content: center;
+gap: 1.5rem;
+margin: 2rem 0 1rem;
+flex-wrap: wrap;
+}
+button {
+background: #8b4513;
+border: none;
+padding: 0.75rem 2rem;
+font-size: 1rem;
+font-weight: 600;
+border-radius: 3rem;
+color: white;
+cursor: pointer;
+transition: 0.2s;
+}
+button:hover {
+background: #a55118;
+transform: translateY(-2px);
+}
+#resetBtn {
+background: #6c4a2e;
+}
+.score-area {
+background: #e6dac8;
+text-align: center;
+padding: 1rem;
+border-radius: 3rem;
+font-size: 1.3rem;
+font-weight: bold;
+margin-top: 1rem;
+}
+.feedback {
+text-align: center;
+margin-top: 0.8rem;
+}
+footer {
+text-align: center;
+margin-top: 2rem;
+font-size: 0.75rem;
+color: #b48b62;
+}
+@media (max-width: 700px) {
+.quiz-container { padding: 1rem; }
+.question-text { font-size: 0.95rem; }
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="quiz-container"> <div style="text-align: center;"></div> <div class="progress-info"> <span>📜 कुल १०० प्रश्न</span> <span>✅ प्रत्येक प्रश्न में एक सही विकल्प</span> </div> <div id="questionsContainer"></div> <div class="button-group"> <button id="submitBtn">📝 उत्तर जाँच करू</button> <button id="resetBtn">🔄 पुनः प्रारंभ</button> </div> <div id="scoreDisplay" class="score-area"></div> <div id="feedbackMsg" class="feedback"></div> <footer class="vq-footer">© सम्पादक, videha.co.in</footer>
+</div>
+<script>
+
+</script><script>
+
+    // ---------- 100 प्रश्न : अध्याय १२ (मुसलमानी अमल) ----------
+    const questions = [
+        { text: "मिथिलामे सर्वप्रथम मुसलमानी प्रकोप कोन वंशक समयमे देखबामे अवइयै?", options: ["पाल वंश", "कर्णाट वंश", "ओइनवार वंश", "गुप्त वंश"], correct: 1 },
+        { text: "बख्तियार खलजीक आक्रमणक सम्बन्धमे कोन स्रोतक अनुसार ओ मिथिलोपर आक्रमण केने छलाह?", options: ["फरिश्ता", "मुल्ला तकियाक वयाज", "तबकात-ए-नासिरी", "आइन-ए-अकबरी"], correct: 1 },
+        { text: "बंगालक विजेता जे मिथिलाक राजाक क्षेत्रमे अपन नाक घुसौलन्हि आ कर वसूल केलक, कोन छलाह?", options: ["बख्तियार खलजी", "गियासुद्दीन इवाज", "इल्तुतमिश", "बलबन"], correct: 1 },
+        { text: "१२११-१२२९ ई.क बीच बंगालक शासक गियासुद्दीन इवाज मिथिलाक राजाक सँ कर वसूल केलन्हि। ओ समय मिथिलामे कोन शासक छलाह?", options: ["नरसिंह देव", "रामसिंह देव", "हरिसिंह देव", "गंगदेव"], correct: 0 },
+        { text: "नरसिंह देव कोन मुसलमान शासकक गिरफ्तारीसँ मुक्ति पाक अपन स्वतंत्रता बचाए रखलन्हि?", options: ["इल्तुतमिश", "बलबन", "चंगेज खाँ", "अलाउद्दीन मसूद"], correct: 2 },
+        { text: "मुल्ला तकियाक वयाजक अनुसार अलाउद्दीन खलजीक समयमे मिथिलापर कतेक बेर युद्ध भेल छल?", options: ["एक", "दू", "तीन", "चार"], correct: 2 },
+        { text: "शक्तिसिंह (शक्रसिंह) अलाउद्दीन खलजीक विरूद्ध केक सहायता केने छलाह?", options: ["हम्मीर देव", "राणा सांगा", "प्रतापरुद्र", "कर्णदेव"], correct: 0 },
+        { text: "हम्मीर देवकेँ परास्त करबाक बाद अलाउद्दीन मिथिलाक मंत्री देवादित्यकेँ कोन उपाधि देलन्हि?", options: ["राजगुरू", "मंत्रिरत्नाकर", "दानवीर", "पंडितराज"], correct: 1 },
+        { text: "हरिसिंह देव कर्णाट वंशक अंतिम शासक छलाह। के हाथे ओ पराजित भेलाह?", options: ["मुहम्मद तुगलक", "गियासुद्दीन तुगलक", "फिरोज तुगलक", "अलाउद्दीन खलजी"], correct: 1 },
+        { text: "गियासुद्दीन तुगलकक आक्रमण के वर्षमे मिथिलापर भेल?", options: ["1320-21", "1323-24", "1330-31", "1340-41"], correct: 1 },
+        { text: "वसातिनुल-उंसक अनुसार गियासुद्दीन तुगलक तिरहूतक राजाक किला कतेक दिनमे ध्वस्त केलन्हि?", options: ["एक दिन", "तीन दिन", "सात दिन", "पंद्रह दिन"], correct: 1 },
+        { text: "हरिसिंह देव पराजित भेलापर ओ कतए पलायन केलन्हि?", options: ["बंगाल", "काशी", "नेपाल", "असम"], correct: 2 },
+        { text: "तुगलक शासनक बाद मिथिलाकेँ कोन नामसँ जानल जाइत छल?", options: ["तुगलकपुर", "तिरहुत", "उपर्युक्त दुनू", "शर्कीपुर"], correct: 2 },
+        { text: "मुहम्मद तुगलक मिथिलाक शासन भार केकें देलन्हि?", options: ["कामेश्वर ठाकुर", "भोगीश्वर", "कीर्तिसिंह", "महेश ठाकुर"], correct: 0 },
+        { text: "बंगालक शासक हाजी इलियास मिथिलाक के भागपर अधिकार जमौलन्हि?", options: ["गण्डकक उत्तरी", "गण्डकक दक्षिणी", "कोशीक पूर्वी", "गंगाक उत्तरी"], correct: 1 },
+        { text: "हाजी इलियास गण्डकक दक्षिणी भागमे कोन नगरक स्थापना केलक?", options: ["हाजीपुर", "समस्तीपुर", "शमसुद्दीनपुर", "दरभंगा"], correct: 2 },
+        { text: "फिरोज तुगलक हाजी इलियासकेँ परास्त करि तिरहूतक राज्य कोनकेँ सुपुर्द केलन्हि?", options: ["कामेश्वर", "भोगीश्वर", "गणेश्वर", "कीर्तिसिंह"], correct: 1 },
+        { text: "फिरोज तुगलक भोगीश्वरकेँ कोन सम्बोधनसँ सम्मानित केलन्हि?", options: ["प्रियसखा", "राजमित्र", "आदिलशाह", "दानवीर"], correct: 0 },
+        { text: "ओइनवार वंशक संस्थापक कामेश्वर ठाकुर कोन गामक निवासी छलाह?", options: ["सुगौना", "ओइनि", "भौर", "खण्डवा"], correct: 1 },
+        { text: "ओइनवार वंशक दोसर नाम कोन अछि?", options: ["कामेश्वर वंश / सुगौना वंश", "कर्णाट वंश", "खण्डवला वंश", "सूर्यवंश"], correct: 0 },
+        { text: "गणेश्वर ठाकुरक हत्या कोन मुसलमानक हाथें भेल छल (विद्यापतिक अनुसार)?", options: ["अर्सलान", "मलिक तुगान", "मखदूम ताज", "शेख मुहम्मद"], correct: 0 },
+        { text: "गणेश्वरक हत्याक बाद ओइनवार वंशमे कोन संघर्ष भेल?", options: ["गृहयुद्ध", "मुगल हस्तक्षेप", "बंगाल आक्रमण", "अफगान विद्रोह"], correct: 0 },
+        { text: "कीर्तिसिंह आ वीरसिंह कोन राजाक सहायता लेलन्हि?", options: ["फिरोज तुगलक", "इब्राहिम शाह शर्की", "अलाउद्दीन शाह", "सिकन्दर लोदी"], correct: 1 },
+        { text: "विद्यापति कीर्तिलतामे गणेश्वरक हत्याक उत्तरदायित्व कोनपर देलन्हि?", options: ["भवसिंह", "अर्सलान", "कीर्तिसिंह", "देवसिंह"], correct: 1 },
+        { text: "ओइनवार वंशक सर्वश्रेष्ठ शासक के छलाह?", options: ["देवसिंह", "शिवसिंह", "भवसिंह", "पद्मसिंह"], correct: 1 },
+        { text: "शिवसिंह कोन नगरमे अपन राजधानी बनौलन्हि?", options: ["गजरथपुर", "दरभंगा", "भौर", "सुगौना"], correct: 0 },
+        { text: "शिवसिंह कोन धातुक सिक्का चलौने छलाह?", options: ["सोना", "चाँदी", "तामा", "पीतल"], correct: 0 },
+        { text: "शिवसिंहकेँ कोन उपाधिसँ विभूषित कैल गेल छल?", options: ["महाराजाधिराज", "पंचगौड़ेश्वर", "मिथिलेश्वर", "नृपमल्ल"], correct: 1 },
+        { text: "शिवसिंह पराजित भेलापर ओ कतए लापता भेलाह?", options: ["नेपालक जंगल", "बंगाल", "काशी", "अवध"], correct: 0 },
+        { text: "शिवसिंहक अनुपस्थितिमे मिथिलाक शासन भार कोन संभालन्हि?", options: ["लखिमा रानी", "पद्मसिंह", "विश्वास देवी", "भवसिंह"], correct: 1 },
+        { text: "पद्मसिंहक बाद कोन रानी १२ वर्ष धरि राज्य केलन्हि?", options: ["लखिमा रानी", "विश्वास देवी", "धीरमती", "सौभाग्य देवी"], correct: 1 },
+        { text: "ओइनवार वंशक एकटा शाखा अहुखन कोन जिलामे अछि?", options: ["मालदह", "दरभंगा", "मधुबनी", "सहरसा"], correct: 0 },
+        { text: "जौनपुरक शर्की शासक इब्राहिम शाह केक विरुद्ध अभियान चलौलन्हि?", options: ["शिवसिंह", "देवसिंह", "भैरवसिंह", "रूपनारायण"], correct: 0 },
+        { text: "शर्की कालीन अभिलेख तिरहूतमे कोन यात्री देखने छलाह?", options: ["मुल्ला तकिया", "बरनी", "इसामी", "शम्स-ए-सिराज"], correct: 0 },
+        { text: "बंगालक राजा गणेशक पुत्र जलालुद्दीन के छलाह?", options: ["हिन्दू", "मुसलमान", "बौद्ध", "जैन"], correct: 1 },
+        { text: "शिवसिंह बंगालक शासक जलालुद्दीनकेँ पराजित कए ओतए धरि अपन राज्यक विस्तार केलन्हि। ई कार्य कोन दिशामे साम्राज्य बढ़ौलक?", options: ["पूर्व", "पश्चिम", "दक्षिण", "उत्तर"], correct: 0 },
+        { text: "भैरवसिंह देव बंगालक प्रतिनिधि केदार रायकेँ पराजित कए कतए अपन राजधानी बनौलन्हि?", options: ["बरूआर", "गजरथपुर", "भौर", "दरभंगा"], correct: 0 },
+        { text: "भैरवसिंह देवक समयमे कोन प्रसिद्ध सभा (जिघट) जरहटिया गाममे भेल छल?", options: ["मीमाँसक जिघट", "न्याय जिघट", "तंत्र साधना", "पुराण पाठ"], correct: 0 },
+        { text: "ओइनवार वंशक अंतिम शासक लक्ष्मीनाथ कंसनारायण कोन बंगाल सुल्तानक हाथे पराजित भेलाह?", options: ["नसरत शाह", "शेरशाह", "हुसैन शाह", "अलाउद्दीन हुसैन"], correct: 0 },
+        { text: "नसरत शाहक अभिलेख बेगूसरायक कोन गाम सँ प्राप्त भेल अछि?", options: ["मटिहानी", "सिमरिया", "बरौनी", "तेघड़ा"], correct: 0 },
+        { text: "लक्ष्मीनाथ कंसनारायणक मृत्यु कहियो भेल?", options: ["१५२६ ई.", "१५१३ ई.", "१५३० ई.", "१५४० ई."], correct: 0 },
+        { text: "ओइनवार वंशक पतनक बाद मिथिलामे केशव मजुमदार आ के शासन भेल?", options: ["मजलिश खाँ", "अलीवर्दी खाँ", "मीर कासिम", "दाउद खाँ"], correct: 0 },
+        { text: "मुल्ला तकियाक अनुसार तिरहूतक राजा नरसिंह देव केक बाद गिरफ्तार भेलाह?", options: ["चंगेज खाँक मदति", "कर बन्द करबाक", "दिल्ली विद्रोह", "बंगाल आक्रमण"], correct: 1 },
+        { text: "१२४४ मे मुसलमान सेनासँ बचबाक लेल नरसिंह देव कतए गेलाह?", options: ["जंगलमे नुकल", "नेपाल", "काशी", "गोरखपुर"], correct: 0 },
+        { text: "तुगलक शासक गियासुद्दीन तुगलकक बाद मुहम्मद तुगलक मिथिलाक राजा हरिसिंह देवकेँ मुक्त कएलन्हि आ के पदपर नियुक्त केलन्हि?", options: ["प्रमुख सेनापति", "सूबेदार", "मंत्री", "काजी"], correct: 0 },
+        { text: "वीरेश्वर ठाकुर प्रसंगमे सुल्तान केक द्वारा पाथर (परस) मंगवाबैत छलाह?", options: ["कामेश्वर", "हरिसिंह देव", "शक्तिसिंह", "रामसिंह"], correct: 1 },
+        { text: "मुहम्मद तुगलकक मृत्युक बाद हाजी इलियास अपनाकेँ स्वतंत्र घोषित कए आ कर देना बन्द कऽ देलक। तखन ओ कोन शासक छल?", options: ["बंगाल शासक", "जौनपुर शासक", "दिल्ली शासक", "गुजरात शासक"], correct: 0 },
+        { text: "हाजी इलियासक विद्रोह के दबेबाक हेतु फिरोज तुगलक गोरखपुर धरि पहुँचलाह। फिरोजक सेना कतए धरि पहुँचल छल?", options: ["कोशी नदी", "गण्डक नदी", "गंगा नदी", "सरयू नदी"], correct: 0 },
+        { text: "फिरोज तुगलक मिथिलामे अपन एक काजी नियुक्त कएलन्हि। एकर अर्थ कोन भेल?", options: ["प्रशासनिक नियंत्रण", "धर्म परिवर्तन", "कर वृद्धि", "सैन्य छावनी"], correct: 0 },
+        { text: "दरभंगा शब्दक उत्पत्तिक एक मत अनुसार ‘दारूभंग’ (लकड़ी काटब) सँ बनल अछि। ई शब्द कोन तुगलक शासकक कार्यसँ जुड़ल अछि?", options: ["गियासुद्दीन तुगलक", "मुहम्मद तुगलक", "फिरोज तुगलक", "बलबन"], correct: 0 },
+        { text: "तुगलक शासनक बाद मिथिलामे कोन मुगल सम्राटक समय तक स्थिति बनल रहल?", options: ["अकबर", "जहाँगीर", "शाहजहाँ", "औरंगजेब"], correct: 0 },
+        { text: "शेरशाहक एकटा सिक्का तिरहूत भेटल अछि आ एकटा मैथिली लिपिक अभिलेख कोन स्थानसँ भेटल अछि?", options: ["सूर्यगढ़ा (मूंगेर)", "दरभंगा", "भगलपुर", "हाजीपुर"], correct: 0 },
+        { text: "मिथिलामे मुसलमानी प्रभावक वृद्धि के बाद केन्ड्रीय सत्ताक ह्रास होइत कोन वर्गक बढ़ती भेल?", options: ["राजपूत", "कायस्थ", "ब्राह्मण", "वैश्य"], correct: 0 },
+        { text: "बहुत रास मैथिल विद्वान केक कारणे मिथिलासँ बाहर जाइत छलाह?", options: ["मुसलमानी प्रकोप", "रोजगार", "शिक्षा", "विवाह"], correct: 0 },
+        { text: "बख्तियार खलजीक मुख्य उद्देश्य कोन छल?", options: ["लूटपाट आ धन संचय", "धर्म प्रसार", "राज्य विस्तार", "सुशासन"], correct: 0 },
+        { text: "मिथिलाक मुसलमानी इतिहासक अध्ययनक लेल मुल्ला तकियाक रचना के नाम अछि?", options: ["वयाज (डायरी)", "फुतुह-सालातीन", "तबकात-ए-अकबरी", "मुन्तखब-उत-तवारीख"], correct: 0 },
+        { text: "मुल्ला तकिया कोन मुगल सम्राटक समकालीन छलाह?", options: ["अकबर", "जहाँगीर", "शाहजहाँ", "औरंगजेब"], correct: 0 },
+        { text: "मुल्ला तकियाक विवरणक अनुसार अलाउद्दीन खलजीक सेना मिथिलामे आक्रमण केलक आ ओहिमे मिथिलाक राजा के पराजित भेलाह?", options: ["शक्तिसिंह", "रामसिंह", "नरसिंह", "हरिसिंह"], correct: 0 },
+        { text: "शक्रसिंह (शक्तिसिंह) अलाउद्दीन खलजीक हिन्दू फौजक सेनापति बनल। ओ केक विरुद्ध लड़लाह?", options: ["हम्मीर देव", "राणा रतनसिंह", "कर्ण देव", "प्रतापरुद्र"], correct: 0 },
+        { text: "बरनीक अनुसार गियासुद्दीन तुगलक तिरहूत पहुँचलापर सब राजा लोकनि केलन्हि?", options: ["आत्मसमर्पण", "भागल", "युद्ध कएलन्हि", "शरण लेलन्हि"], correct: 0 },
+        { text: "मिथिलाक राजा हरिसिंह देवक पकड़लाक गप्प केक स्रोत अस्वीकार करैत अछि?", options: ["वसातिनुल-उंस", "फरिश्ता", "मुल्ला तकिया", "तारीख-ए-फिरोजशाही"], correct: 0 },
+        { text: "हरिसिंह देव कतए ‘विश्वचक्र महादान’ यज्ञ केने छलाह?", options: ["नेहरा पोखरि", "गजरथपुर", "सिमरौनगढ़", "दरभंगा"], correct: 0 },
+        { text: "मुहम्मद तुगलकक आदेश पर मिथिलाक शासन कामेश्वर ठाकुरकेँ देल गेल। ओ कोन गामक रहनिहार छलाह?", options: ["ओइनि", "कामेश्वरपुर", "सुगौना", "खण्डवा"], correct: 0 },
+        { text: "शमसुद्दीन हाजी इलियास अपन निवास कतए रखलक?", options: ["दरभंगा", "हाजीपुर", "लखनावती", "गौड़"], correct: 0 },
+        { text: "हाजी इलियासक विद्रोहक कारण कोन भेल?", options: ["तुगलक सत्ताक कमजोरी", "धार्मिक उत्पीड़न", "जातीय विद्वेष", "प्राकृतिक आपदा"], correct: 0 },
+        { text: "फिरोज तुगलक मिथिलाक दुनू भागकेँ मिलाकेँ फेर एक केन्हि। एहिसँ मिथिलाक शासक पर कोन शर्त लागू भेल?", options: ["कर देबाक वचन", "सेना देबाक", "बंधक रखबाक", "मस्जिद निर्माण"], correct: 0 },
+        { text: "इब्राहिम शाह शर्कीक अभिलेख दरभंगा कतए मिलल अछि?", options: ["भगीरथपुर", "वेदीवन", "कन्दाहा", "महेशवारा"], correct: 1 },
+        { text: "वेदीवन अभिलेख कोन तुगलक शासकक कालक अछि?", options: ["मुहम्मद तुगलक", "फिरोज तुगलक", "गियासुद्दीन तुगलक", "महमूद तुगलक"], correct: 0 },
+        { text: "वेदीवन अभिलेखक अनुसार १३४६ ई. धरि चम्पारण कतेक धरि तुगलक शासनक प्रमाण भेटइयै?", options: ["तराइ", "गोरखपुर", "बनारस", "पटना"], correct: 0 },
+        { text: "मुहम्मद तुगलकक दरभंगा मस्जिदक निर्माण हिजरी कतेक भेल छल?", options: ["७२६", "७४७", "८०५", "७००"], correct: 0 },
+        { text: "तुगलक कालीन सिक्का दरभंगासँ भेटल अछि जाहिपर कया लिखल अछि?", options: ["तुगलकपुर उर्फ तिरहुत", "तिरहुत सरकार", "मिथिला प्रांत", "दरभंगा टकसाल"], correct: 0 },
+        { text: "गणेश्वरक हत्या आ ओइनवार वंशमे गृहयुद्धक कारण कोन छल?", options: ["राजगद्दीक हेतु आपसी झगड़ा", "मुगल हस्तक्षेप", "बंगाल आक्रमण", "कर विरोध"], correct: 0 },
+        { text: "मुल्ला तकियाक अनुसार अलाउद्दीनक सेना आ मिथिलाक सेनाक बीच तेसर युद्ध कतए भेल छल?", options: ["दरभंगा (सकरी)", "मुकबेश", "जरहटिया", "गजरथपुर"], correct: 0 },
+        { text: "शक्तिसिंह (शक्रसिंह) के पुरस्कारस्वरूप कतए ‘सुखीदिग्घी’ पोखरि खुनौलन्हि?", options: ["दरभंगा", "सकरी", "भौर", "मधुबनी"], correct: 0 },
+        { text: "रामसिंह देवक समयमे मुसलमानी आक्रमणसँ त्रस्त लोकनि केक कारण चिन्तित छलाह?", options: ["मस्जिद निर्माण", "तुरूष्क सेनाक अत्याचार", "कर वृद्धि", "प्राकृतिक आपदा"], correct: 1 },
+        { text: "धर्मस्वामीक अनुसार रामसिंह देव अपन राजधानी केक चारूकात किलाबंदी करौने छलाह?", options: ["सिमरौनगढ़", "दरभंगा", "गजरथपुर", "भातगाँव"], correct: 0 },
+        { text: "शमसुद्दीन इलियासक राज्यकालमे मिथिलामे कोन फौजदार नियुक्त छल?", options: ["तुगान खाँ", "बहादुर खाँ", "अली मर्दान", "मीर जुमला"], correct: 0 },
+        { text: "तुगलक कालीन मिथिला प्रशासनक अंग कोन रहल?", options: ["काजी", "कोतवाल", "फौजदार", "उपर्युक्त सभ"], correct: 3 },
+        { text: "फिरोज तुगलक द्वारा बनवाओल ‘पिरूजगढ़’ कोन जिलामे अछि?", options: ["झंझारपुर", "दरभंगा", "मुजफ्फरपुर", "बेगूसराय"], correct: 0 },
+        { text: "मुहम्मद तुगलकक समयमे मिथिलाक राजा कामेश्वर ठाकुर सुल्तानक आदेशपर केक काज केलन्हि?", options: ["कर वसूली", "सैन्य सहायता", "किला निर्माण", "दूत प्रेषण"], correct: 0 },
+        { text: "हाजी इलियासक मृत्युक बाद बंगालमे कोन वंश शक्तिशाली भेल?", options: ["इलियास शाही", "हुसैन शाही", "लोदी", "सूरी"], correct: 0 },
+        { text: "शर्की शासक इब्राहिम शाहक आक्रमणक समय मिथिलामे कोन राजा छलाह?", options: ["शिवसिंह", "देवसिंह", "भैरवसिंह", "रामभद्र"], correct: 0 },
+        { text: "शिवसिंहक पराजयक बाद मिथिला कोन शर्की नियंत्रणमे गेल?", options: ["जौनपुर सल्तनत", "दिल्ली सल्तनत", "बंगाल सल्तनत", "गुजरात सल्तनत"], correct: 0 },
+        { text: "सिकन्दर लोदी कतए धरि अपन राज्यक विस्तार केलन्हि?", options: ["पटना, तिरहूत, सारन, चम्पारण", "बनारस, गोरखपुर", "मुंगेर, भागलपुर", "अवध, कानपुर"], correct: 0 },
+        { text: "लोदीकालीन सिक्का बेगूसरायक कोन स्थानसँ प्राप्त भेल अछि?", options: ["लोदीडीह", "लखीशराय", "मोकामा", "बरौनी"], correct: 0 },
+        { text: "बाबरक समयमे तिरहूतक राजा रूपनारायण केक हेतु जानल जाइत छल?", options: ["कर देबाक वचन", "सेना सहायता", "विद्रोह", "निष्क्रियता"], correct: 0 },
+        { text: "नसरत शाह द्वारा तिरहूतक गवर्नर नियुक्त केल गेल अलाउद्दीन के छल?", options: ["जमाए", "पुत्र", "भतीजा", "भाई"], correct: 0 },
+        { text: "मुगल कालमे मिथिलापर बरोबरि कोन पदाधिकारी रहैत छल?", options: ["फौजदार", "काजी", "कोतवाल", "दीवान"], correct: 0 },
+        { text: "महेश ठाकुरक शासनकालमे बहुत रास पठान तिरहूत आबिकेँ बसि गेल। ई के शासनकालमे भेल?", options: ["अकबर", "जहाँगीर", "शाहजहाँ", "औरंगजेब"], correct: 0 },
+        { text: "१५७५ मे दाउद खाँ अफगान विद्रोहमे मिथिलाक पठान लोकनि केक संग देलन्हि?", options: ["दाउद खाँ", "मुगल सेना", "बंगाल सुल्तान", "अकबर"], correct: 0 },
+        { text: "मुगल प्रशासनमे हाजीपुरकेँ कोन दृष्टि सँ महत्वपूर्ण मानल जाइत छल?", options: ["सैनिक", "व्यापारिक", "प्रशासनिक", "धार्मिक"], correct: 0 },
+        { text: "अकबरक समयमे बंगाल आ तिरहूतक गवर्नर नियुक्त केल गेल – कोन पदाधिकारी?", options: ["खान-इ-आजम", "बीरबल", "तोडरमल", "मानसिंह"], correct: 0 },
+        { text: "औरंगजेबक एक फरमान अनुसार महिनाथ ठाकुर पलामू आ कोन क्षेत्र जीतबामे सहायता देने छलाह?", options: ["मोरंग", "नाथपुर", "बेतिया", "सारन"], correct: 0 },
+        { text: "१७०१ मे तिरहूतक फौजदार कोन छलाह?", options: ["शमशेर खाँ", "मिरजा खाँ", "मासूम खाँ", "नुसेरी खाँ"], correct: 0 },
+        { text: "अलीवर्दी खाँक समयमे दरभंगाक अफगान लोकनि केक संग षडयंत्र कएलन्हि?", options: ["मराठा", "मुगल", "अंग्रेज", "बंगाली"], correct: 0 },
+        { text: "१७६५ मे अंग्रेज केक प्राप्ति भेलाक बाद मुसलमानी शासन समाप्तिक दौर आरम्भ भेल?", options: ["दिवानी", "निजामत", "जमीन्दारी", "फौजदारी"], correct: 0 },
+        { text: "१७७४ मे तिरहूतकेँ कोनक अधीन कएल गेल?", options: ["पटना", "मुंगेर", "भागलपुर", "कलकत्ता"], correct: 0 },
+        { text: "तिरहूत मुगलकालमे तीन प्रशासनिक भागमे विभाजित छल: हाजीपुर, चम्पारण आ ?", options: ["तिरहूत", "दरभंगा", "सारन", "मुजफ्फरपुर"], correct: 0 }
+    ];
+
+    // सुनिश्चित की 100 प्रश्न हों (यहाँ 98 हैं, 2 और जोड़ते हैं)
+    while(questions.length < 100) {
+        questions.push({
+            text: "मुसलमानी शासन कालमे मिथिलाक महान कवि विद्यापति कोन राजाक दरबार सँ सम्बन्धित छलाह?",
+            options: ["शिवसिंह", "देवसिंह", "भैरवसिंह", "रूपनारायण"], correct: 0
+        });
+        questions.push({
+            text: "हरिसिंह देवक पतनक बाद मिथिलामे कोन वंश शासक बनल आ मुगल सम्राटसँ करार करि राज्य प्राप्त केलक?",
+            options: ["ओइनवार", "खण्डवला", "कर्णाट", "गन्धवरिया"], correct: 0
+        });
+    }
+    const finalQuestions = questions.slice(0,100);
+
+    let userSelections = new Array(finalQuestions.length).fill(-1);
+    const container = document.getElementById("questionsContainer");
+    const submitBtn = document.getElementById("submitBtn");
+    const resetBtn = document.getElementById("resetBtn");
+    const scoreDisplay = document.getElementById("scoreDisplay");
+    const feedbackMsg = document.getElementById("feedbackMsg");
+
+    function renderQuiz() {
+        let html = "";
+        finalQuestions.forEach((q, idx) => {
+            html += `<div class="question-card" data-qidx="${idx}">
+                        <div class="question-text">${idx+1}. ${q.text}</div>
+                        <div class="options">`;
+            q.options.forEach((opt, optIdx) => {
+                const checked = (userSelections[idx] === optIdx) ? 'checked' : '';
+                html += `<div class="option" data-qidx="${idx}" data-optidx="${optIdx}">
+                            <input type="radio" name="q${idx}" id="q${idx}_opt${optIdx}" value="${optIdx}" ${checked}>
+                            <label for="q${idx}_opt${optIdx}">${opt}</label>
+                        </div>`;
+            });
+            html += `</div></div>`;
+        });
+        container.innerHTML = html;
+        attachEvents();
+    }
+
+    function attachEvents() {
+        document.querySelectorAll('.option').forEach(optDiv => {
+            const radio = optDiv.querySelector('input[type="radio"]');
+            const qIdx = parseInt(optDiv.dataset.qidx);
+            const optIdx = parseInt(optDiv.dataset.optidx);
+            if (radio) {
+                radio.addEventListener('change', () => {
+                    if (radio.checked) userSelections[qIdx] = optIdx;
+                });
+            }
+            optDiv.addEventListener('click', () => {
+                const r = optDiv.querySelector('input[type="radio"]');
+                if (r && !r.checked) {
+                    r.checked = true;
+                    userSelections[qIdx] = optIdx;
+                    const evt = new Event('change', {bubbles:true});
+                    r.dispatchEvent(evt);
+                }
+            });
+        });
+    }
+
+    function checkAnswers() {
+        let score = 0;
+        for (let i=0; i<finalQuestions.length; i++) {
+            if (userSelections[i] === finalQuestions[i].correct) score++;
+        }
+        scoreDisplay.innerHTML = `🕌 आपक स्कोर: ${score} / ${finalQuestions.length} 🕌`;
+        if (score === finalQuestions.length) feedbackMsg.innerHTML = "🌟 अद्वितीय ! मुसलमानी अमल पर आपक पकड़ अति उत्तम।";
+        else if (score >= 80) feedbackMsg.innerHTML = "📚 उत्तम! किछु बारीकियाँ बाकी अछि, पुनः अध्ययन करू।";
+        else if (score >= 60) feedbackMsg.innerHTML = "📖 अच्छा प्रयास, मुसलमानी कालक घटनाक्रम पर ध्यान दियेक चाही।";
+        else feedbackMsg.innerHTML = "🕰️ पुनः पढ़ि परीक्षा दीजिए, इतिहास रोचक अछि।";
+    }
+
+    function resetQuiz() {
+        userSelections.fill(-1);
+        renderQuiz();
+        scoreDisplay.innerHTML = "📌 उत्तर चुनू आ 'उत्तर जाँच करू' पर क्लिक करू";
+        feedbackMsg.innerHTML = "";
+    }
+
+    renderQuiz();
+    submitBtn.addEventListener("click", checkAnswers);
+    resetBtn.addEventListener("click", resetQuiz);
+
+</script></body>
+</html>

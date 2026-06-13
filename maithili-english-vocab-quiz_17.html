@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>️ मैथिली वोकैब जिम | Vocabulary Gym — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: linear-gradient(145deg, #0d1f0c, #1b2f19);
+min-height: 100vh;
+font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+padding: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+/* main gym card */
+.gym-card {
+max-width: 750px;
+width: 100%;
+background: #fefcf5;
+border-radius: 60px;
+box-shadow: 0 30px 40px -15px rgba(0, 0, 0, 0.5);
+overflow: hidden;
+backdrop-filter: blur(2px);
+}
+/* header */
+.gym-header {
+background: #2c4229;
+padding: 24px 28px;
+color: #fcedc5;
+}
+.title-row {
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 12px;
+margin-bottom: 18px;
+}
+h1 {
+font-size: 1.9rem;
+letter-spacing: -0.3px;
+display: flex;
+align-items: center;
+gap: 12px;
+}
+.high-score {
+background: #e2b87a;
+color: #1f3a1c;
+padding: 6px 20px;
+border-radius: 60px;
+font-weight: 800;
+}
+.upload-strip {
+display: flex;
+gap: 15px;
+align-items: center;
+flex-wrap: wrap;
+font-size: 0.8rem;
+}
+.upload-btn {
+background: #5e7e5a;
+padding: 5px 18px;
+border-radius: 50px;
+cursor: pointer;
+transition: 0.2s;
+}
+.mode-buttons {
+display: flex;
+gap: 10px;
+background: #e7ddcf;
+padding: 12px 20px;
+justify-content: center;
+}
+.mode-gym {
+background: #cfc1ae;
+border: none;
+padding: 8px 22px;
+border-radius: 50px;
+font-weight: 600;
+cursor: pointer;
+transition: 0.2s;
+}
+.mode-gym.active {
+background: #7f5d3e;
+color: white;
+box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+/* main content */
+.gym-body {
+padding: 28px 30px;
+}
+.progress-ring-area {
+display: flex;
+justify-content: center;
+margin-bottom: 20px;
+}
+.ring-container {
+position: relative;
+width: 120px;
+height: 120px;
+}
+svg {
+transform: rotate(-90deg);
+}
+.ring-bg {
+stroke: #e2d4c2;
+}
+.ring-fill {
+stroke: #b48b5a;
+stroke-dasharray: 340;
+stroke-dashoffset: 340;
+transition: stroke-dashoffset 0.4s ease;
+}
+.percentage-text {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+font-size: 1.5rem;
+font-weight: 800;
+color: #4a5e44;
+}
+.question-board {
+background: #fff9f2;
+border-radius: 48px;
+padding: 24px 20px;
+text-align: center;
+margin-bottom: 25px;
+box-shadow: inset 0 0 0 1px #fffcf7, 0 6px 14px rgba(0,0,0,0.05);
+}
+.challenge-word {
+font-size: 2.2rem;
+font-weight: 800;
+color: #2b3d26;
+word-break: break-word;
+margin: 10px 0;
+}
+.pos-chip {
+background: #ebe0d2;
+display: inline-block;
+padding: 4px 20px;
+border-radius: 60px;
+font-size: 0.7rem;
+color: #6a4f31;
+}
+.quiz-type-switch {
+display: flex;
+gap: 12px;
+justify-content: center;
+margin: 15px 0 20px;
+}
+.quiz-switch {
+background: #e7dbcd;
+border: none;
+padding: 6px 20px;
+border-radius: 50px;
+font-weight: 500;
+cursor: pointer;
+font-size: 0.8rem;
+}
+.quiz-switch.active-quiz {
+background: #7f5d3e;
+color: white;
+}
+/* multiple choice options */
+.mc-options {
+display: flex;
+flex-direction: column;
+gap: 12px;
+margin: 20px 0;
+}
+.mc-option {
+background: white;
+border: 1px solid #e0cfbc;
+border-radius: 80px;
+padding: 12px 20px;
+cursor: pointer;
+transition: 0.1s;
+font-weight: 500;
+}
+.mc-option:hover {
+background: #fff2e6;
+border-color: #c9a86e;
+}
+.typing-area {
+display: flex;
+flex-direction: column;
+gap: 12px;
+margin: 20px 0;
+}
+.typing-input {
+border: 2px solid #e0cfbc;
+border-radius: 60px;
+padding: 14px 22px;
+font-size: 1rem;
+outline: none;
+font-family: monospace;
+}
+.action-row {
+display: flex;
+gap: 14px;
+margin-top: 12px;
+}
+.primary-btn {
+background: #6f8f6b;
+border: none;
+flex: 1;
+padding: 12px;
+border-radius: 60px;
+font-weight: bold;
+color: white;
+cursor: pointer;
+}
+.secondary-btn {
+background: #cbb594;
+border: none;
+flex: 0.7;
+padding: 12px;
+border-radius: 60px;
+font-weight: bold;
+cursor: pointer;
+}
+.reset-session {
+background: #a1805d;
+width: 100%;
+margin-top: 15px;
+border: none;
+padding: 12px;
+border-radius: 60px;
+font-weight: bold;
+color: white;
+}
+.stats-dashboard {
+display: flex;
+justify-content: space-between;
+background: #ede3d6;
+padding: 12px 20px;
+border-radius: 50px;
+margin-top: 15px;
+font-weight: 600;
+color: #3a2c1b;
+}
+.feedback-toast {
+background: #e8f0e5;
+border-radius: 40px;
+padding: 12px 18px;
+margin: 15px 0 5px;
+text-align: center;
+}
+@media (max-width: 550px) {
+.challenge-word { font-size: 1.7rem; }
+.gym-body { padding: 20px; }
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="gym-card" id="appGym"> <div class="gym-header"> <div class="title-row"> <div class="high-score">🏆 हाईस्कोर: <span id="highScoreSpan">0</span></div> </div> <div class="upload-strip"> <span class="upload-btn" id="uploadExcelBtn">📂 Excel अपलोड</span> <input type="file" id="excelGymInput" accept=".xlsx, .xls" style="display: none;"> <span id="fileLabel" style="font-size:0.7rem;">📘 नमूना डेटा</span> </div> </div> <div class="mode-buttons"> <button class="mode-gym active" data-gym-dir="en2ma">🇬🇧 → 🇮🇳 En → Maith</button> <button class="mode-gym" data-gym-dir="ma2en">🇮🇳 → 🇬🇧 Maith → En</button> </div> <div class="gym-body"> <div class="progress-ring-area"> <div class="ring-container"> <svg width="120" height="120" viewBox="0 0 120 120"> <circle class="ring-bg" cx="60" cy="60" r="54" fill="none" stroke="#e2d4c2" stroke-width="10"/> <circle class="ring-fill" id="progressRing" cx="60" cy="60" r="54" fill="none" stroke="#b48b5a" stroke-width="10" stroke-linecap="round"/> </svg> <div class="percentage-text" id="completionPercent">0%</div> </div> </div> <div class="question-board"> <div class="challenge-word" id="gymWord">loading...</div> <div class="pos-chip" id="gymPosTag"></div> </div> <div class="quiz-type-switch"> <button class="quiz-switch active-quiz" data-quiz="mc">📋 बहुविकल्पी</button> <button class="quiz-switch" data-quiz="typing">⌨️ टंकण अभ्यास</button> </div> <div id="quizContentArea"></div> <button id="resetGymBtn" class="reset-session">🔄 नया सत्र (शब्द रीसाइकल)</button> <div id="gymFeedback" class="feedback-toast" style="display: none;"></div> <div class="stats-dashboard"> <span>✅ सही: <span id="gymCorrect">0</span></span> <span>❌ गलत: <span id="gymWrong">0</span></span> <span>🔥 लगातार: <span id="gymStreak">0</span></span> <span>📚 बाँकी: <span id="gymRemaining">0</span></span> </div> </div>
+</div>
+<script>
+
+</script><script>
+
+    // ---------- DATA MODEL ----------
+    let dictionary = [];           // { english, maithili1, pos }
+    let currentMode = "en2ma";    // 'en2ma' or 'ma2en'
+    let currentQuizType = "mc";   // 'mc' or 'typing'
+    let currentQuestionObj = null;
+    let currentMCOptions = [];
+
+    // Stats
+    let correctCount = 0;
+    let wrongCount = 0;
+    let streak = 0;
+    let highScore = 0;
+    let usedIndices = new Set();    // track shown words
+    let remainingIndices = [];
+
+    // DOM elements
+    const gymWordSpan = document.getElementById("gymWord");
+    const gymPosSpan = document.getElementById("gymPosTag");
+    const quizContentDiv = document.getElementById("quizContentArea");
+    const resetBtn = document.getElementById("resetGymBtn");
+    const feedbackDiv = document.getElementById("gymFeedback");
+    const correctSpan = document.getElementById("gymCorrect");
+    const wrongSpan = document.getElementById("gymWrong");
+    const streakSpan = document.getElementById("gymStreak");
+    const remainingSpan = document.getElementById("gymRemaining");
+    const highScoreSpan = document.getElementById("highScoreSpan");
+    const completionPercentSpan = document.getElementById("completionPercent");
+    const progressRing = document.getElementById("progressRing");
+    const uploadBtn = document.getElementById("uploadExcelBtn");
+    const excelInput = document.getElementById("excelGymInput");
+    const fileLabelSpan = document.getElementById("fileLabel");
+
+    // sample data (robust)
+    const SAMPLE_DICT = [
+        { english: "abandon", maithili1: "छोड़ब / त्याग करब", pos: "v." },
+        { english: "able", maithili1: "समर्थ", pos: "adj." },
+        { english: "beautiful", maithili1: "सुन्दर", pos: "adj." },
+        { english: "begin", maithili1: "शुरू करब", pos: "v." },
+        { english: "big", maithili1: "बड़का", pos: "adj." },
+        { english: "brave", maithili1: "वीर", pos: "adj." },
+        { english: "bright", maithili1: "चमकीला", pos: "adj." },
+        { english: "broad", maithili1: "चौड़ा", pos: "adj." },
+        { english: "busy", maithili1: "व्यस्त", pos: "adj." },
+        { english: "calm", maithili1: "शान्त", pos: "a." },
+        { english: "cheap", maithili1: "सस्ता", pos: "adj." },
+        { english: "cold", maithili1: "ठंडा", pos: "a." },
+        { english: "courage", maithili1: "साहस", pos: "n." },
+        { english: "deep", maithili1: "गहरा", pos: "adj." },
+        { english: "easy", maithili1: "आसान", pos: "adj." },
+        { english: "enemy", maithili1: "दुश्मन", pos: "n." },
+        { english: "forget", maithili1: "भूलब", pos: "v." },
+        { english: "generous", maithili1: "उदार", pos: "adj." },
+        { english: "happy", maithili1: "खुश", pos: "adj." },
+        { english: "humble", maithili1: "विनम्र", pos: "adj." }
+    ];
+
+    // Helper: normalize strings
+    function normalize(str) {
+        return str.trim().toLowerCase().replace(/[.,!?;:]/g, '').replace(/\s+/g, ' ').trim();
+    }
+
+    // rebuild remaining list based on dictionary and used set
+    function refreshRemainingList() {
+        const total = dictionary.length;
+        const allIdx = Array.from({ length: total }, (_, i) => i);
+        const fresh = allIdx.filter(i => !usedIndices.has(i));
+        if (fresh.length === 0) {
+            // reset cycle: clear usedIndices, start over
+            usedIndices.clear();
+            remainingIndices = [...allIdx];
+        } else {
+            remainingIndices = fresh;
+        }
+        // shuffle for randomness
+        for (let i = remainingIndices.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [remainingIndices[i], remainingIndices[j]] = [remainingIndices[j], remainingIndices[i]];
+        }
+        updateStatsUI();
+    }
+
+    // pick new question from remaining pool
+    function pickNewQuestion() {
+        if (!dictionary.length) {
+            gymWordSpan.innerText = "कोनो डेटा नहि अछि। फाइल अपलोड करू।";
+            return false;
+        }
+        if (remainingIndices.length === 0) {
+            refreshRemainingList();
+            if (remainingIndices.length === 0) return false;
+        }
+        const idx = remainingIndices.shift();
+        usedIndices.add(idx);
+        currentQuestionObj = dictionary[idx];
+        // display word and pos based on mode
+        if (currentMode === "en2ma") {
+            gymWordSpan.innerText = currentQuestionObj.english;
+            gymPosSpan.innerText = currentQuestionObj.pos ? `${currentQuestionObj.pos}` : "शब्द";
+        } else {
+            gymWordSpan.innerText = currentQuestionObj.maithili1;
+            gymPosSpan.innerText = currentQuestionObj.pos ? `${currentQuestionObj.pos}` : "शब्द";
+        }
+        updateStatsUI();
+        return true;
+    }
+
+    // generate MC options (distractors) for current question
+    function generateMCOptions() {
+        if (!currentQuestionObj) return [];
+        const correctAnswer = (currentMode === "en2ma") ? currentQuestionObj.maithili1 : currentQuestionObj.english;
+        let pool = [];
+        if (currentMode === "en2ma") {
+            pool = dictionary.filter(d => d.maithili1 !== correctAnswer).map(d => d.maithili1);
+        } else {
+            pool = dictionary.filter(d => d.english !== correctAnswer).map(d => d.english);
+        }
+        pool = [...new Set(pool)];
+        let distractors = [];
+        while (distractors.length < 3 && pool.length) {
+            const rand = pool.splice(Math.floor(Math.random() * pool.length), 1)[0];
+            distractors.push(rand);
+        }
+        while (distractors.length < 3) distractors.push(correctAnswer);
+        let options = [correctAnswer, ...distractors];
+        for (let i = options.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [options[i], options[j]] = [options[j], options[i]];
+        }
+        return options;
+    }
+
+    // Render current quiz type (MC or typing)
+    function renderQuizInterface() {
+        if (!currentQuestionObj) {
+            quizContentDiv.innerHTML = `<div class="typing-area"><p>लोड होत… पुन: प्रयास करू</p></div>`;
+            return;
+        }
+        if (currentQuizType === "mc") {
+            currentMCOptions = generateMCOptions();
+            let html = `<div class="mc-options">`;
+            currentMCOptions.forEach((opt, idx) => {
+                html += `<div class="mc-option" data-opt="${escapeHtml(opt)}">${idx+1}. ${opt}</div>`;
+            });
+            html += `</div><div class="action-row"><button id="submitMcBtn" class="primary-btn">✅ उत्तर दिये</button>
+                     <button id="skipMcBtn" class="secondary-btn">⏭ छोड़ी</button></div>`;
+            quizContentDiv.innerHTML = html;
+            // attach events dynamically
+            document.querySelectorAll(".mc-option").forEach(el => {
+                el.addEventListener("click", () => {
+                    document.querySelectorAll(".mc-option").forEach(o => o.style.background = "white");
+                    el.style.background = "#fce5cd";
+                    el.setAttribute("data-selected", "true");
+                });
+            });
+            document.getElementById("submitMcBtn")?.addEventListener("click", () => handleMCSubmit());
+            document.getElementById("skipMcBtn")?.addEventListener("click", () => handleSkip());
+        } else {
+            let html = `<div class="typing-area">
+                            <input type="text" id="typingAnswer" class="typing-input" placeholder="आपन उत्तर लिखू..." autocomplete="off">
+                        </div>
+                        <div class="action-row">
+                            <button id="submitTypingBtn" class="primary-btn">✅ जाँचू</button>
+                            <button id="skipTypingBtn" class="secondary-btn">⏭ छोड़ी</button>
+                        </div>`;
+            quizContentDiv.innerHTML = html;
+            document.getElementById("submitTypingBtn")?.addEventListener("click", () => handleTypingSubmit());
+            document.getElementById("skipTypingBtn")?.addEventListener("click", () => handleSkip());
+            document.getElementById("typingAnswer")?.addEventListener("keypress", (e) => {
+                if (e.key === "Enter") handleTypingSubmit();
+            });
+        }
+    }
+
+    // Escape HTML
+    function escapeHtml(str) {
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        });
+    }
+
+    // get correct answer string
+    function getCorrectAnswerString() {
+        if (!currentQuestionObj) return "";
+        return (currentMode === "en2ma") ? currentQuestionObj.maithili1 : currentQuestionObj.english;
+    }
+
+    // update stats UI and progress ring, highscore
+    function updateStatsUI() {
+        correctSpan.innerText = correctCount;
+        wrongSpan.innerText = wrongCount;
+        streakSpan.innerText = streak;
+        const totalSeen = usedIndices.size;
+        const totalWords = dictionary.length || 1;
+        const percent = Math.min(100, Math.floor((totalSeen / totalWords) * 100));
+        completionPercentSpan.innerText = `${percent}%`;
+        const circumference = 2 * Math.PI * 54;
+        const offset = circumference - (percent / 100) * circumference;
+        progressRing.style.strokeDasharray = circumference;
+        progressRing.style.strokeDashoffset = offset;
+        remainingSpan.innerText = remainingIndices.length;
+        if (correctCount > highScore) {
+            highScore = correctCount;
+            highScoreSpan.innerText = highScore;
+        }
+    }
+
+    // after answer, load next question
+    function loadNextAfterDelay(ms, showFeedback = true) {
+        setTimeout(() => {
+            const success = pickNewQuestion();
+            if (success) {
+                renderQuizInterface();
+                feedbackDiv.style.display = "none";
+            } else {
+                feedbackDiv.style.display = "block";
+                feedbackDiv.innerHTML = "🎉 बधाई! सब शब्द समाप्त। नया सत्र शुरू करू।";
+                feedbackDiv.style.background = "#fdf5e0";
+            }
+        }, ms);
+    }
+
+    function handleCorrect() {
+        correctCount++;
+        streak++;
+        updateStatsUI();
+        feedbackDiv.style.display = "block";
+        feedbackDiv.innerHTML = "✅ सही! बहुत नीक।";
+        feedbackDiv.style.background = "#def0da";
+        loadNextAfterDelay(900);
+    }
+
+    function handleIncorrect(correctAnswer) {
+        wrongCount++;
+        streak = 0;
+        updateStatsUI();
+        feedbackDiv.style.display = "block";
+        feedbackDiv.innerHTML = `❌ गलत। सही उत्तर: “${escapeHtml(correctAnswer)}”`;
+        feedbackDiv.style.background = "#ffe0e0";
+        loadNextAfterDelay(1300);
+    }
+
+    function handleSkip() {
+        const correctAns = getCorrectAnswerString();
+        streak = 0;
+        updateStatsUI();
+        feedbackDiv.style.display = "block";
+        feedbackDiv.innerHTML = `⏩ छोड़ल गेल। सही उत्तर: “${escapeHtml(correctAns)}”`;
+        feedbackDiv.style.background = "#f9efde";
+        loadNextAfterDelay(1000);
+    }
+
+    function handleMCSubmit() {
+        const selectedElem = document.querySelector(".mc-option[data-selected='true']");
+        if (!selectedElem) {
+            feedbackDiv.style.display = "block";
+            feedbackDiv.innerHTML = "⚠️ कृपया कोनो विकल्प चुनू।";
+            feedbackDiv.style.background = "#fff0cc";
+            return;
+        }
+        const selectedText = selectedElem.getAttribute("data-opt");
+        const correct = getCorrectAnswerString();
+        if (selectedText === correct) handleCorrect();
+        else handleIncorrect(correct);
+    }
+
+    function handleTypingSubmit() {
+        const inputField = document.getElementById("typingAnswer");
+        if (!inputField) return;
+        const userAnswer = normalize(inputField.value);
+        const correctRaw = getCorrectAnswerString();
+        const normalizedCorrect = normalize(correctRaw);
+        // also handle multiple synonyms separated by '/'
+        let isMatch = (userAnswer === normalizedCorrect);
+        if (!isMatch && correctRaw.includes('/')) {
+            const parts = correctRaw.split('/').map(s => normalize(s));
+            if (parts.some(p => p === userAnswer)) isMatch = true;
+        }
+        if (isMatch) handleCorrect();
+        else handleIncorrect(correctRaw);
+    }
+
+    // reset entire session (clear used words, stats)
+    function resetSession() {
+        usedIndices.clear();
+        correctCount = 0;
+        wrongCount = 0;
+        streak = 0;
+        if (dictionary.length) {
+            refreshRemainingList();
+            pickNewQuestion();
+        } else {
+            gymWordSpan.innerText = "कोनो डेटा नहि अछि";
+            quizContentDiv.innerHTML = "";
+        }
+        renderQuizInterface();
+        updateStatsUI();
+        feedbackDiv.style.display = "none";
+    }
+
+    function changeMode(mode) {
+        currentMode = mode;
+        document.querySelectorAll(".mode-gym").forEach(btn => {
+            if (btn.getAttribute("data-gym-dir") === mode) btn.classList.add("active");
+            else btn.classList.remove("active");
+        });
+        resetSession();
+    }
+
+    function changeQuizType(type) {
+        currentQuizType = type;
+        document.querySelectorAll(".quiz-switch").forEach(btn => {
+            if (btn.getAttribute("data-quiz") === type) btn.classList.add("active-quiz");
+            else btn.classList.remove("active-quiz");
+        });
+        if (currentQuestionObj) renderQuizInterface();
+    }
+
+    // ----- Excel parsing -----
+    function parseExcelToDict(buffer) {
+        const wb = XLSX.read(buffer, { type: 'array' });
+        const sheet = wb.Sheets[wb.SheetNames[0]];
+        const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
+        if (!rows || rows.length < 2) return [];
+        const header = rows[0].map(c => String(c || "").trim().toLowerCase());
+        const engIdx = header.findIndex(h => h.includes("english word"));
+        const maiIdx = header.findIndex(h => h.includes("maithili meaning 1"));
+        const posIdx = header.findIndex(h => h.includes("pos"));
+        if (engIdx === -1 || maiIdx === -1) return [];
+        const dict = [];
+        for (let i = 1; i < rows.length; i++) {
+            const row = rows[i];
+            if (!row || !row[engIdx]) continue;
+            const eng = String(row[engIdx]).trim();
+            const mai = String(row[maiIdx]).trim();
+            if (eng && mai) {
+                dict.push({
+                    english: eng,
+                    maithili1: mai,
+                    pos: posIdx !== -1 ? String(row[posIdx] || "").trim() : ""
+                });
+            }
+        }
+        return dict;
+    }
+
+    function loadExcelFile(file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const parsed = parseExcelToDict(e.target.result);
+            if (parsed.length === 0) {
+                alert("Excel में वैध डेटा नहि अछि। नमूना लोड रहल।");
+                setSampleData();
+            } else {
+                dictionary = parsed;
+                fileLabelSpan.innerText = `📁 ${file.name} (${dictionary.length})`;
+                resetSession();
+            }
+        };
+        reader.readAsArrayBuffer(file);
+    }
+
+    function setSampleData() {
+        dictionary = [...SAMPLE_DICT];
+        fileLabelSpan.innerText = "📘 नमूना डेटा";
+        resetSession();
+    }
+
+    // initial setup
+    function init() {
+        setSampleData();
+        // event listeners
+        resetBtn.addEventListener("click", resetSession);
+        uploadBtn.addEventListener("click", () => excelInput.click());
+        excelInput.addEventListener("change", (e) => {
+            if (e.target.files && e.target.files[0]) loadExcelFile(e.target.files[0]);
+        });
+        document.querySelectorAll(".mode-gym").forEach(btn => {
+            btn.addEventListener("click", () => changeMode(btn.getAttribute("data-gym-dir")));
+        });
+        document.querySelectorAll(".quiz-switch").forEach(btn => {
+            btn.addEventListener("click", () => changeQuizType(btn.getAttribute("data-quiz")));
+        });
+    }
+
+    init();
+
+</script></body>
+</html>

@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>संकर परीक्षा | Maithili Mixed Quiz — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+body {
+background: #f0ebe3;
+padding: 24px 20px;
+}
+/* main card */
+.quiz-container {
+max-width: 1000px;
+margin: 0 auto;
+background: #ffffff;
+border-radius: 48px;
+box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+overflow: hidden;
+transition: all 0.2s;
+}
+/* header section */
+.quiz-header {
+background: #2d3e2b;
+padding: 24px 32px;
+color: #fef5e7;
+}
+.title-row {
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 16px;
+margin-bottom: 12px;
+}
+h1 {
+font-size: 1.9rem;
+letter-spacing: -0.3px;
+display: flex;
+align-items: center;
+gap: 12px;
+}
+.upload-group {
+background: #405e3d;
+padding: 6px 16px;
+border-radius: 60px;
+font-size: 0.8rem;
+display: inline-flex;
+align-items: center;
+gap: 12px;
+}
+.upload-btn-sm {
+background: #e9c99e;
+border: none;
+padding: 5px 15px;
+border-radius: 40px;
+font-weight: bold;
+color: #2d3e2b;
+cursor: pointer;
+transition: 0.1s;
+}
+.upload-btn-sm:active {
+transform: scale(0.95);
+}
+.stats-area {
+display: flex;
+justify-content: space-between;
+background: #faf3ea;
+padding: 14px 28px;
+flex-wrap: wrap;
+gap: 12px;
+border-bottom: 1px solid #e2d4c6;
+}
+.badge-info {
+background: #e8ddcf;
+padding: 6px 18px;
+border-radius: 32px;
+font-weight: 500;
+color: #3b2e22;
+}
+.progress-section {
+padding: 16px 28px 0 28px;
+}
+.progress-bar-bg {
+background: #e2d4c6;
+border-radius: 30px;
+height: 12px;
+overflow: hidden;
+}
+.progress-fill {
+background: #b48b5a;
+width: 0%;
+height: 100%;
+transition: width 0.3s ease;
+border-radius: 30px;
+}
+/* question area */
+.question-area {
+padding: 28px 32px 20px 32px;
+}
+.question-box {
+background: #fefaf5;
+border-radius: 40px;
+padding: 28px 30px;
+margin-bottom: 28px;
+box-shadow: inset 0 0 0 1px #fff8, 0 6px 14px rgba(0, 0, 0, 0.03);
+}
+.question-text {
+font-size: 1.8rem;
+font-weight: 700;
+color: #2a2b26;
+line-height: 1.4;
+border-left: 5px solid #b48b5a;
+padding-left: 22px;
+}
+.options-list {
+display: flex;
+flex-direction: column;
+gap: 14px;
+margin: 28px 0 20px;
+}
+.opt-item {
+background: white;
+border: 1px solid #eedbcb;
+border-radius: 100px;
+padding: 14px 22px;
+display: flex;
+align-items: center;
+gap: 18px;
+cursor: pointer;
+transition: all 0.15s;
+font-size: 1rem;
+}
+.opt-item:hover {
+background: #fff2e6;
+border-color: #c7a26e;
+transform: translateX(5px);
+}
+.opt-letter {
+background: #eedbcb;
+width: 38px;
+height: 38px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+font-weight: 800;
+color: #3e3022;
+}
+.feedback-card {
+background: #f6f1ea;
+border-radius: 28px;
+padding: 14px 22px;
+margin: 15px 0 10px;
+border-left: 6px solid #c7a26e;
+}
+.action-group {
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 15px;
+margin-top: 10px;
+}
+.next-btn, .restart-btn, .review-btn {
+background: #6f8f6b;
+border: none;
+padding: 12px 32px;
+border-radius: 60px;
+font-weight: 600;
+color: white;
+cursor: pointer;
+font-size: 0.95rem;
+transition: 0.2s;
+}
+.restart-btn {
+background: #c1a178;
+}
+.review-btn {
+background: #4a6741;
+}
+.next-btn:active, .restart-btn:active, .review-btn:active {
+transform: scale(0.96);
+}
+/* review modal / panel */
+.review-panel {
+background: #fefcf9;
+border-top: 2px solid #e7d9cb;
+padding: 24px 32px;
+margin-top: 20px;
+display: none;
+}
+.review-title {
+font-weight: 800;
+font-size: 1.3rem;
+margin-bottom: 18px;
+color: #2d3e2b;
+}
+.missed-list {
+max-height: 260px;
+overflow-y: auto;
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+.missed-item {
+background: #fff7f0;
+border-radius: 30px;
+padding: 12px 20px;
+border: 1px solid #efdecb;
+}
+.missed-question {
+font-weight: 600;
+}
+.missed-answer {
+color: #b1624b;
+font-size: 0.85rem;
+}
+footer {
+text-align: center;
+padding: 18px 24px;
+font-size: 0.7rem;
+background: #faf3ea;
+color: #7b6b58;
+border-top: 1px solid #e0cfbe;
+}
+@media (max-width: 620px) {
+.question-text { font-size: 1.4rem; }
+.quiz-header { padding: 18px 20px; }
+.question-area { padding: 20px; }
+.opt-item { padding: 10px 18px; }
+}
+button:disabled {
+opacity: 0.6;
+cursor: not-allowed;
+transform: none;
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="quiz-container" id="mainQuizApp"> <div class="quiz-header"> <div class="title-row"> <div class="upload-group"> <span>📂 अपन Excel</span> <button id="triggerUploadBtn" class="upload-btn-sm">🗂️ फाइल चुनू</button> <input type="file" id="excelFile" accept=".xlsx, .xls" style="display: none;"> </div> </div> <div style="font-size: 0.85rem; opacity: 0.9;">⚡ समानार्थी · विलोम · अनुवाद — सब एकटा साथ</div> </div> <div class="stats-area"> <div class="badge-info">📖 कुल प्रश्न: <span id="totalQ">0</span></div> <div class="badge-info">✅ सही: <span id="scoreCount">0</span></div> <div class="badge-info">📌 शेष: <span id="remainingCount">0</span></div> <div class="badge-info" id="modeIndicator">🔄 मिलाजुला मोड</div> </div> <div class="progress-section"> <div class="progress-bar-bg"> <div class="progress-fill" id="progressFill"></div> </div> </div> <div class="question-area" id="questionArea"> <div class="question-box"> <div class="question-text" id="questionText">लोड हो रहल अछि…</div> <div class="options-list" id="optionsList"></div> <div id="feedbackMsg" class="feedback-card" style="display: none;"></div> </div> <div class="action-group"> <button id="nextBtn" class="next-btn">➡ अगिला प्रश्न</button> <button id="restartQuizBtn" class="restart-btn">🔄 नया सेट</button> <button id="showReviewBtn" class="review-btn">📋 गलत उत्तर देखू</button> </div> </div> <div id="reviewSection" class="review-panel"> <div class="review-title">📌 समीक्षा — गलत उत्तर</div> <div id="missedListContainer" class="missed-list"></div> <button id="closeReviewBtn" style="margin-top: 18px; background:#bba88d; width:100%; border:none; padding:10px; border-radius:50px;">✖️ बन्द करू</button> </div> <footer class="vq-footer">© सम्पादक, videha.co.in</footer>
+</div>
+<script>
+
+</script><script>
+
+    // ------------------- DATA STORE ------------------
+    let dictionary = [];        // { english, pos, maithili1, maithili2, engAntonym, maiAntonym1, maiAntonym2 }
+    let currentQuestions = [];   // each: { text, correct, options, type, userAnswer, isCorrect }
+    let currentIndex = 0;
+    let quizActive = true;
+    let answered = false;
+    let totalQuestions = 0;
+    let currentScore = 0;
+    let missedRecords = [];      // store for review
+
+    // DOM elements
+    const questionTextDiv = document.getElementById("questionText");
+    const optionsDiv = document.getElementById("optionsList");
+    const feedbackDiv = document.getElementById("feedbackMsg");
+    const nextBtn = document.getElementById("nextBtn");
+    const restartBtn = document.getElementById("restartQuizBtn");
+    const showReviewBtn = document.getElementById("showReviewBtn");
+    const reviewSection = document.getElementById("reviewSection");
+    const missedContainer = document.getElementById("missedListContainer");
+    const closeReviewBtn = document.getElementById("closeReviewBtn");
+    const totalQSpan = document.getElementById("totalQ");
+    const scoreSpan = document.getElementById("scoreCount");
+    const remainingSpan = document.getElementById("remainingCount");
+    const progressFill = document.getElementById("progressFill");
+    const modeIndicator = document.getElementById("modeIndicator");
+    const uploadTrigger = document.getElementById("triggerUploadBtn");
+    const excelFileInput = document.getElementById("excelFile");
+
+    // ---------- SAMPLE DATA (rich mixed examples) ----------
+    const SAMPLE_DATA = [
+        { english: "abandon", pos: "v.", maithili1: "छोड़ब / त्याग करब", maithili2: "छोड़ि देब", engAntonym: "maintain", maiAntonym1: "अवलंबन केनाइ", maiAntonym2: "देखभाल केनाइ" },
+        { english: "able", pos: "adj.", maithili1: "समर्थ", maithili2: "सक्षम", engAntonym: "unable", maiAntonym1: "", maiAntonym2: "" },
+        { english: "beautiful", pos: "adj.", maithili1: "सुन्दर", maithili2: "नीक", engAntonym: "ugly", maiAntonym1: "निंदनीय", maiAntonym2: "घृणित" },
+        { english: "begin", pos: "v.", maithili1: "शुरू करब", maithili2: "आरम्भ करब", engAntonym: "end", maiAntonym1: "अवधि", maiAntonym2: "शेष" },
+        { english: "big", pos: "adj.", maithili1: "बड़का", maithili2: "विशाल", engAntonym: "small", maiAntonym1: "छोट", maiAntonym2: "अल्प" },
+        { english: "brave", pos: "adj.", maithili1: "वीर", maithili2: "साहसी", engAntonym: "cowardice", maiAntonym1: "भीरुता", maiAntonym2: "कायरता" },
+        { english: "bright", pos: "adj.", maithili1: "चमकीला", maithili2: "उज्जर", engAntonym: "dark", maiAntonym1: "अँधेरा", maiAntonym2: "धुंधला" },
+        { english: "broad", pos: "adj.", maithili1: "चौड़ा", maithili2: "प्रशस्त", engAntonym: "narrow", maiAntonym1: "अविस्तीर्ण", maiAntonym2: "संकुचित" },
+        { english: "busy", pos: "adj.", maithili1: "व्यस्त", maithili2: "व्यस्त रहब", engAntonym: "idle", maiAntonym1: "निरर्थक", maiAntonym2: "निकम्मा" },
+        { english: "calm", pos: "a.", maithili1: "शान्त", maithili2: "थिर", engAntonym: "stormy", maiAntonym1: "क्रोधी", maiAntonym2: "उद्दंड" },
+        { english: "cheap", pos: "adj.", maithili1: "सस्ता", maithili2: "कम दामक", engAntonym: "expensive", maiAntonym1: "बहुमूल्य", maiAntonym2: "महंगा" },
+        { english: "cold", pos: "a.", maithili1: "ठंडा", maithili2: "सर्द", engAntonym: "hot", maiAntonym1: "गरम", maiAntonym2: "तीता" },
+        { english: "courage", pos: "n.", maithili1: "साहस", maithili2: "हिम्मत", engAntonym: "cowardice", maiAntonym1: "भीरुता", maiAntonym2: "कायरता" },
+        { english: "deep", pos: "adj.", maithili1: "गहरा", maithili2: "गहन", engAntonym: "shallow", maiAntonym1: "उथलल", maiAntonym2: "सतही" },
+        { english: "easy", pos: "adj.", maithili1: "आसान", maithili2: "सरल", engAntonym: "difficult", maiAntonym1: "कठिन", maiAntonym2: "मुश्किल" },
+        { english: "enemy", pos: "n.", maithili1: "दुश्मन", maithili2: "शत्रु", engAntonym: "friend", maiAntonym1: "सहायक", maiAntonym2: "समर्थक" },
+        { english: "forget", pos: "v.", maithili1: "भूलब", maithili2: "विस्मृत", engAntonym: "remember", maiAntonym1: "स्मरण रखनाइ", maiAntonym2: "याद केनाइ" },
+        { english: "generous", pos: "adj.", maithili1: "उदार", maithili2: "दानी", engAntonym: "stingy", maiAntonym1: "कंजूस", maiAntonym2: "" },
+        { english: "happy", pos: "adj.", maithili1: "खुश", maithili2: "प्रसन्न", engAntonym: "unhappy", maiAntonym1: "उदास", maiAntonym2: "" },
+        { english: "humble", pos: "adj.", maithili1: "विनम्र", maithili2: "नम्र", engAntonym: "proud", maiAntonym1: "अभिमानी", maiAntonym2: "गर्वित" }
+    ];
+
+    // ------------- Helper: shuffle -------------
+    function shuffleArray(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
+
+    // ------------- generate mixed questions (synonym, antonym, en2ma, ma2en) -------------
+    function generateMixedQuestions(limit = 12) {
+        if (!dictionary.length) return [];
+        let questionPool = [];
+
+        // 1. Antonym questions (English antonym)
+        const antonymItems = dictionary.filter(d => d.engAntonym && d.engAntonym.trim().length > 0);
+        for (let item of antonymItems) {
+            questionPool.push({
+                type: "antonym",
+                build: () => {
+                    let options = [item.engAntonym];
+                    let others = dictionary.filter(d => d.engAntonym && d.engAntonym !== item.engAntonym).map(d => d.engAntonym);
+                    others = [...new Set(others)].slice(0, 3);
+                    while (options.length < 4 && others.length) options.push(others.shift());
+                    while (options.length < 4) options.push(item.engAntonym);
+                    options = shuffleArray(options.slice(0,4));
+                    return {
+                        text: `“${item.english}” (${item.pos || 'शब्द'}) केर विलोम (antonym) चुनू।`,
+                        correct: item.engAntonym,
+                        options: options,
+                        type: "antonym"
+                    };
+                }
+            });
+        }
+
+        // 2. Synonym using Maithili meaning as synonym-equivalent
+        const synonymItems = dictionary.filter(d => d.maithili1 && d.maithili1.length > 0);
+        for (let item of synonymItems) {
+            questionPool.push({
+                type: "synonym",
+                build: () => {
+                    let options = [item.maithili1];
+                    let others = dictionary.filter(d => d.maithili1 && d.maithili1 !== item.maithili1).map(d => d.maithili1);
+                    others = [...new Set(others)].slice(0, 3);
+                    while (options.length < 4 && others.length) options.push(others.shift());
+                    while (options.length < 4) options.push(item.maithili1);
+                    options = shuffleArray(options.slice(0,4));
+                    return {
+                        text: `“${item.english}” केर समानार्थी (मैथिली अर्थ) चुनू।`,
+                        correct: item.maithili1,
+                        options: options,
+                        type: "synonym"
+                    };
+                }
+            });
+        }
+
+        // 3. English → Maithili translation
+        const en2maItems = dictionary.filter(d => d.maithili1 && d.maithili1.trim());
+        for (let item of en2maItems) {
+            questionPool.push({
+                type: "en2ma",
+                build: () => {
+                    let options = [item.maithili1];
+                    let others = dictionary.filter(d => d.maithili1 && d.maithili1 !== item.maithili1).map(d => d.maithili1);
+                    others = [...new Set(others)].slice(0, 3);
+                    while (options.length < 4 && others.length) options.push(others.shift());
+                    while (options.length < 4) options.push(item.maithili1);
+                    options = shuffleArray(options.slice(0,4));
+                    return {
+                        text: `“${item.english}” (${item.pos || 'शब्द'}) केर मैथिली अनुवाद की अछि?`,
+                        correct: item.maithili1,
+                        options: options,
+                        type: "en2ma"
+                    };
+                }
+            });
+        }
+
+        // 4. Maithili → English translation
+        const ma2enItems = dictionary.filter(d => d.maithili1 && d.english);
+        for (let item of ma2enItems) {
+            questionPool.push({
+                type: "ma2en",
+                build: () => {
+                    let options = [item.english];
+                    let others = dictionary.filter(d => d.english && d.english !== item.english).map(d => d.english);
+                    others = [...new Set(others)].slice(0, 3);
+                    while (options.length < 4 && others.length) options.push(others.shift());
+                    while (options.length < 4) options.push(item.english);
+                    options = shuffleArray(options.slice(0,4));
+                    return {
+                        text: `“${item.maithili1}” केर अंग्रेजी अर्थ की अछि?`,
+                        correct: item.english,
+                        options: options,
+                        type: "ma2en"
+                    };
+                }
+            });
+        }
+
+        if (questionPool.length === 0) return [];
+        shuffleArray(questionPool);
+        const selectedBuilders = questionPool.slice(0, limit);
+        const questions = selectedBuilders.map(b => b.build());
+        return questions;
+    }
+
+    // ---------- QUIZ STATE ----------
+    function resetQuiz() {
+        if (!dictionary.length) {
+            questionTextDiv.innerText = "⚠️ कोनो डेटा नहि अछि। कृपया Excel फाइल अपलोड करू या नमूना लोड भेल नई त रिफ्रेश करू।";
+            optionsDiv.innerHTML = "";
+            totalQSpan.innerText = "0";
+            scoreSpan.innerText = "0";
+            return;
+        }
+        currentQuestions = generateMixedQuestions(12);
+        if (currentQuestions.length === 0) {
+            questionTextDiv.innerText = "प्रश्न उत्पन्न नहि भेल। कोनो उपयुक्त डेटा नई अछि।";
+            return;
+        }
+        totalQuestions = currentQuestions.length;
+        currentIndex = 0;
+        currentScore = 0;
+        answered = false;
+        missedRecords = [];
+        updateStatsUI();
+        renderCurrentQuestion();
+        reviewSection.style.display = "none";
+        modeIndicator.innerText = "🎲 संकर (समानार्थी/विलोम/अनुवाद)";
+    }
+
+    function updateStatsUI() {
+        totalQSpan.innerText = totalQuestions;
+        scoreSpan.innerText = currentScore;
+        const answeredCount = currentIndex + (answered ? 1 : 0);
+        const remaining = totalQuestions - answeredCount;
+        remainingSpan.innerText = Math.max(0, remaining);
+        const progressPercent = totalQuestions ? ((answeredCount) / totalQuestions) * 100 : 0;
+        progressFill.style.width = `${progressPercent}%`;
+    }
+
+    function renderCurrentQuestion() {
+        if (currentIndex >= totalQuestions) {
+            questionTextDiv.innerText = "🎉 बधाई! परीक्षा पूर्ण भेल। 'नया सेट' सँ दोबारा शुरू करू।";
+            optionsDiv.innerHTML = "";
+            feedbackDiv.style.display = "none";
+            nextBtn.disabled = true;
+            return;
+        }
+        const q = currentQuestions[currentIndex];
+        questionTextDiv.innerText = q.text;
+        optionsDiv.innerHTML = "";
+        const letters = ["A", "B", "C", "D"];
+        q.options.forEach((opt, idx) => {
+            const optDiv = document.createElement("div");
+            optDiv.className = "opt-item";
+            optDiv.setAttribute("data-opt", opt);
+            optDiv.innerHTML = `<span class="opt-letter">${letters[idx]}</span><span>${opt}</span>`;
+            optDiv.addEventListener("click", () => handleAnswer(opt, q.correct, q));
+            optionsDiv.appendChild(optDiv);
+        });
+        answered = false;
+        feedbackDiv.style.display = "none";
+        nextBtn.disabled = false;
+        updateStatsUI();
+    }
+
+    function handleAnswer(selected, correct, questionObj) {
+        if (answered) return;
+        answered = true;
+        const isCorrect = (selected === correct);
+        if (isCorrect) {
+            currentScore++;
+            scoreSpan.innerText = currentScore;
+            feedbackDiv.style.display = "block";
+            feedbackDiv.innerHTML = "✅ सही उत्तर! बहुत नीक।";
+            feedbackDiv.style.background = "#e5f5e5";
+            feedbackDiv.style.borderLeftColor = "#558855";
+            questionObj.isCorrect = true;
+            questionObj.userAnswer = selected;
+        } else {
+            feedbackDiv.style.display = "block";
+            feedbackDiv.innerHTML = `❌ गलत। सही जवाब: ${correct}`;
+            feedbackDiv.style.background = "#fff0f0";
+            feedbackDiv.style.borderLeftColor = "#c66a5a";
+            questionObj.isCorrect = false;
+            questionObj.userAnswer = selected;
+            missedRecords.push({
+                question: questionObj.text,
+                correctAnswer: correct,
+                userAnswer: selected,
+                type: questionObj.type
+            });
+        }
+        // disable options
+        document.querySelectorAll(".opt-item").forEach(el => el.style.pointerEvents = "none");
+        updateStatsUI();
+    }
+
+    function nextQuestion() {
+        if (!answered && currentIndex < totalQuestions) {
+            feedbackDiv.style.display = "block";
+            feedbackDiv.innerHTML = "⚠️ कृपया पहिले उत्तर दिये।";
+            feedbackDiv.style.background = "#fef0cc";
+            feedbackDiv.style.borderLeftColor = "#dbab5a";
+            return;
+        }
+        if (currentIndex + 1 <= totalQuestions) {
+            currentIndex++;
+            if (currentIndex < totalQuestions) {
+                renderCurrentQuestion();
+            } else {
+                // quiz finished
+                questionTextDiv.innerHTML = `✨ परीक्षा समाप्त! ✨<br>आपक स्कोर: ${currentScore}/${totalQuestions}`;
+                optionsDiv.innerHTML = "";
+                feedbackDiv.style.display = "none";
+                nextBtn.disabled = true;
+                if (missedRecords.length > 0) {
+                    showReviewBtn.disabled = false;
+                } else {
+                    showReviewBtn.disabled = false;
+                }
+                updateStatsUI();
+                progressFill.style.width = "100%";
+            }
+        }
+    }
+
+    // Review panel
+    function renderMissedQuestions() {
+        if (!missedRecords.length) {
+            missedContainer.innerHTML = "<div style='padding:10px'>✨ कोनो गलत उत्तर नहि अछि। शानदार!</div>";
+            return;
+        }
+        missedContainer.innerHTML = "";
+        missedRecords.forEach((rec, idx) => {
+            const div = document.createElement("div");
+            div.className = "missed-item";
+            div.innerHTML = `
+                <div class="missed-question">📌 ${rec.question}</div>
+                <div class="missed-answer">✔️ सही: ${rec.correctAnswer} &nbsp;|&nbsp; ❌ आपक: ${rec.userAnswer}</div>
+            `;
+            missedContainer.appendChild(div);
+        });
+    }
+
+    function openReview() {
+        if (missedRecords.length === 0 && currentIndex >= totalQuestions && currentScore === totalQuestions && totalQuestions>0) {
+            missedContainer.innerHTML = "<div>🥳 सब जवाब सही अछि! कोनो गलती नहि।</div>";
+        } else {
+            renderMissedQuestions();
+        }
+        reviewSection.style.display = "block";
+        reviewSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    // ---------- Excel Upload ----------
+    function parseExcelToDict(buffer) {
+        const wb = XLSX.read(buffer, { type: 'array' });
+        const sheet = wb.Sheets[wb.SheetNames[0]];
+        const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
+        if (!rows || rows.length < 2) return [];
+        const header = rows[0].map(c => String(c || "").trim().toLowerCase());
+        const getIdx = (kw) => header.findIndex(h => h.includes(kw));
+        const engIdx = getIdx("english word");
+        const posIdx = getIdx("pos");
+        const mai1Idx = getIdx("maithili meaning 1");
+        const mai2Idx = getIdx("maithili meaning 2");
+        const antEngIdx = getIdx("english antonym");
+        const antMai1Idx = getIdx("maithili antonym 1");
+        if (engIdx === -1) return [];
+        const dict = [];
+        for (let i = 1; i < rows.length; i++) {
+            const row = rows[i];
+            if (!row || !row[engIdx]) continue;
+            dict.push({
+                english: String(row[engIdx]).trim(),
+                pos: posIdx !== -1 ? String(row[posIdx] || "").trim() : "",
+                maithili1: mai1Idx !== -1 ? String(row[mai1Idx] || "").trim() : "",
+                maithili2: mai2Idx !== -1 ? String(row[mai2Idx] || "").trim() : "",
+                engAntonym: antEngIdx !== -1 ? String(row[antEngIdx] || "").trim() : "",
+                maiAntonym1: antMai1Idx !== -1 ? String(row[antMai1Idx] || "").trim() : "",
+                maiAntonym2: ""
+            });
+        }
+        return dict;
+    }
+
+    function loadExcelAndRestart(file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const data = new Uint8Array(e.target.result);
+            const parsed = parseExcelToDict(data);
+            if (parsed.length === 0) {
+                alert("Excel पार्स नहि भेल। स्तंभ नाम 'English Word', 'Maithili Meaning 1' चाही। नमूना लोड राखल गेल अछि।");
+                setSampleAndRestart();
+            } else {
+                dictionary = parsed;
+                resetQuiz();
+            }
+        };
+        reader.readAsArrayBuffer(file);
+    }
+
+    function setSampleAndRestart() {
+        dictionary = [...SAMPLE_DATA];
+        resetQuiz();
+    }
+
+    // event bindings
+    function bindEvents() {
+        nextBtn.addEventListener("click", nextQuestion);
+        restartBtn.addEventListener("click", () => resetQuiz());
+        showReviewBtn.addEventListener("click", openReview);
+        closeReviewBtn.addEventListener("click", () => { reviewSection.style.display = "none"; });
+        uploadTrigger.addEventListener("click", () => excelFileInput.click());
+        excelFileInput.addEventListener("change", (e) => {
+            if (e.target.files && e.target.files[0]) loadExcelAndRestart(e.target.files[0]);
+        });
+    }
+
+    // initial load
+    function init() {
+        bindEvents();
+        setSampleAndRestart();
+    }
+
+    init();
+
+</script></body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मैथिली साहित्यक इतिहास – अध्याय ४ : प्राक-विद्यापति-साहित्य (बहुविकल्पीय प्रश्नोत्तरी) — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #f3efdf;
+font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Mukta', 'Poppins', sans-serif;
+padding: 25px 20px;
+color: #2c2418;
+}
+.quiz-wrapper {
+max-width: 1200px;
+margin: 0 auto;
+background: #fffffb;
+border-radius: 56px;
+box-shadow: 0 25px 40px -12px rgba(0,0,0,0.25);
+padding: 25px 30px 45px;
+border: 1px solid #ecdcaa;
+}
+h1 {
+text-align: center;
+color: #963c24;
+font-size: 1.9rem;
+background: #fff3e6;
+display: inline-block;
+width: auto;
+margin: 0 auto 10px;
+padding: 8px 25px;
+border-radius: 60px;
+border-bottom: 3px solid #dc9c4a;
+}
+.subh {
+text-align: center;
+background: #fbf2e1;
+padding: 8px 20px;
+border-radius: 40px;
+margin-bottom: 25px;
+color: #6b4c2a;
+font-weight: 500;
+}
+.score-panel {
+background: #2a6d52;
+color: #fff2cf;
+border-radius: 50px;
+padding: 12px 24px;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: baseline;
+gap: 12px;
+margin-bottom: 30px;
+font-weight: bold;
+}
+.score-badge {
+background: #f2a155;
+padding: 6px 18px;
+border-radius: 40px;
+color: #251f15;
+}
+.question-card {
+background: white;
+border-radius: 32px;
+margin-bottom: 28px;
+padding: 18px 24px;
+box-shadow: 0 6px 12px rgba(0,0,0,0.04);
+border: 1px solid #ecdbaa;
+}
+.q-text {
+font-size: 1.2rem;
+font-weight: 700;
+background: #fff2e2;
+padding: 10px 18px;
+border-radius: 50px;
+margin-bottom: 18px;
+color: #2e402f;
+}
+.opts-list {
+display: flex;
+flex-direction: column;
+gap: 10px;
+margin-left: 12px;
+}
+.opt-item {
+display: flex;
+align-items: center;
+gap: 14px;
+background: #fefaf4;
+padding: 6px 16px;
+border-radius: 40px;
+cursor: pointer;
+transition: 0.1s;
+}
+.opt-item:hover {
+background: #f7ecd9;
+}
+input[type="radio"] {
+width: 18px;
+height: 18px;
+accent-color: #b6492c;
+cursor: pointer;
+}
+.feedback {
+margin-top: 14px;
+padding: 6px 18px;
+border-radius: 32px;
+font-size: 0.9rem;
+display: inline-block;
+}
+.fb-correct {
+background: #e4f3e2;
+color: #197a3c;
+border-left: 5px solid #2b8b49;
+}
+.fb-wrong {
+background: #ffe2db;
+color: #bd462b;
+border-left: 5px solid #c94424;
+}
+button {
+background: #9b412b;
+border: none;
+color: white;
+padding: 12px 30px;
+font-size: 1.1rem;
+border-radius: 50px;
+font-weight: bold;
+cursor: pointer;
+font-family: inherit;
+transition: 0.2s;
+margin: 6px 8px;
+}
+button:hover {
+background: #7a2f1d;
+transform: scale(0.98);
+}
+.reset-btn {
+background: #5c5542;
+}
+.btn-group {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 20px;
+margin-top: 25px;
+}
+.footer {
+text-align: center;
+font-size: 0.8rem;
+margin-top: 35px;
+color: #be9468;
+}
+@media (max-width: 650px) {
+.quiz-wrapper {
+padding: 15px;
+}
+.q-text {
+font-size: 1rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="quiz-wrapper"> <div style="text-align: center;"> <div class="subh">चतुर्थ प्रकरण – सिद्ध साहित्य, चर्यापद, कर्णरत्नाकर आ प्रारम्भिक मैथिली रचना</div> </div> <div class="score-panel"> <span>📖 कुल प्रश्न : <span id="totalQ">0</span></span> <span>✅ सही उत्तर : <span id="scoreCount">0</span></span> <span class="score-badge" id="percentBox">0%</span> </div> <div id="questionsArea"></div> <div class="btn-group"> <button id="submitBtn">⚡ उत्तर जाँचू (Submit)</button> <button id="resetBtn" class="reset-btn">🔄 पुनः आरम्भ करू</button> </div> <div class="vq-footer">© सम्पादक, videha.co.in</div>
+</div>
+<script>
+
+</script><script>
+
+    // ---------- अध्याय ४ पर आधारित ४८ प्रश्न (प्राक्-विद्यापति साहित्य) ----------
+    const questions = [
+        { text: "'चर्यापद' (बौद्धगान) के रचयिता सिद्धलोकनि कोन धर्मक अनुयायी छलाह ?", options: ["शैव", "बौद्ध (सिद्धाचार्य)", "वैष्णव", "जैन"], correct: 1 },
+        { text: "महापण्डित राहुल सांस्कृत्यायन के अनुसार 'चर्यापद' मुख्यतः कोन भाषाक प्राचीनतम साहित्य अछि ?", options: ["प्राकृत", "बंगला", "मैथिली अपभ्रंश", "असमिया"], correct: 2 },
+        { text: "प्राचीन मैथिली साहित्यक प्रथम उपलब्ध गद्य ग्रन्थ 'कर्णरत्नाकर' के रचयिता छथि ?", options: ["विद्यापति", "ज्योतिरीश्वर ठाकुर", "वर्णरत्नाकर", "कविराज मुकुन्द"], correct: 1 },
+        { text: "'कर्णरत्नाकर' मे कोन-कोन लोकगीत आ लोकनृत्यक उल्लेख अछि ?", options: ["विरहा, चाँदवि, लोरिक नाच, लमानी", "छप्पय, दोहा, सोरठा", "ठुमरी, दादरा", "बज्जिका गीत"], correct: 0 },
+        { text: "डाकर्णव, चर्यापद आ दोहाकोष के संग्रह सर्वप्रथम कोन विद्वान प्रकाशित केलनि ?", options: ["प्रो. रमानाथ झा", "म.म. हरप्रसाद शास्त्री (1916 ई.)", "डा. सुनीति कुमार चटर्जी", "ग्रियर्सन साहेब"], correct: 1 },
+        { text: "'बौद्धगान ओ दोहा' के भाषा कोन अछि ?", options: ["पालि", "अपभ्रंश तथा प्राचीन मैथिली", "शौरसेनी", "महाराष्ट्री"], correct: 1 },
+        { text: "सिद्ध साहित्यक प्रसिद्ध कवि 'कान्हुपाद' के रचना के नाम ज्ञात अछि ?", options: ["दोहाकोश", "चर्यागीति", "कान्हुपादगीतिका", "उपर्युक्त सभ"], correct: 3 },
+        { text: "चर्यापदक प्रत्येक पदके कोन राग-रागिणी के साथ गाएबाक उल्लेख अछि ?", options: ["रागदारी", "प्राकृत गीति", "भारतीय शास्त्रीय राग", "लोकधुन"], correct: 2 },
+        { text: "'कर्णरत्नाकर' के रचना कोन शताब्दीक प्रथम चरणमे भेल मानल जाइत अछि ?", options: ["१२वीं शताब्दी", "१४वीं शताब्दी (१३५० के आसपास)", "१५वीं शताब्दी", "१०वीं शताब्दी"], correct: 1 },
+        { text: "ज्योतिरीश्वर ठाकुर के लिखल 'धूर्तसमागम' नाटकक भाषा केकर सङ्ग जुड़ल अछि ?", options: ["संस्कृत", "प्राकृत, अपभ्रंश आ मैथिली पद", "केवल मैथिली गद्य", "अवहट्ट"], correct: 1 },
+        { text: "विद्यापति के पूर्वक उपलब्ध मैथिली साहित्यमे 'चर्यापद' (७म-११म शताब्दी) आ कोन ग्रन्थ प्रमुख अछि ?", options: ["कीर्तिलता", "कर्णरत्नाकर", "गीतगोविन्द", "रत्नावली"], correct: 1 },
+        { text: "सिद्ध साहित्यक कवि 'शबरपाद' के रचना में प्रयुक्त भाषाक बारे मे का कहल जाइत अछि ?", options: ["मैथिली अपभ्रंश", "लोकभाषाक प्राचीन रूप", "बौद्ध सिद्धाचार्य गान", "ई सब सही अछि"], correct: 3 },
+        { text: "चर्यापदक भाषामे कोन विभक्ति प्रयोग मैथिलीक विशेषता मानल जाइत अछि ?", options: ["तृतीया विभक्ति 'एं' (हस्ते, पाणिना)", "षष्ठी विभक्ति 'क', "सर्वनाम 'जे', 'ते'", "ई सभ"], correct: 3 },
+        { text: "प्राचीन मैथिली साहित्यक स्रोत 'कर्णरत्नाकर' मे ज्योतिरीश्वर ठाकुर के लिखल अछि कि ई ग्रन्थ मिथिलाक सामाजिक, सांस्कृतिक जीवनक कोन दृष्टि सँ महत्वपूर्ण अछि ?", options: ["केवल धार्मिक अनुष्ठान", "मनोरंजन आ लोकजीवनक उपकारी साहित्य", "राजनीतिक इतिहास", "व्याकरण"], correct: 1 },
+        { text: "'धूर्तसमागम' के रचनाकार कोन अछि ?", options: ["ज्योतिरीश्वर ठाकुर", "विद्यापति", "वर्णरत्नाकर", "काशीनाथ"], correct: 0 },
+        { text: "मैथिली साहित्यमे 'प्राकृतपैंगलम' ग्रन्थ मुख्य रूपसँ कोन विषय पर अछि ?", options: ["व्याकरण", "काव्यशास्त्र", "प्राकृत अपभ्रंश काव्यक संग्रह", "नाट्य"], correct: 2 },
+        { text: "सिद्ध साहित्यक रचनाक उद्देश्य मुख्यतः का रहल ?", options: ["धार्मिक साधना पद्धति आ रहस्यवादी अनुभूति", "राजप्रशस्ति", "वीरगाथा", "हास्य रस"], correct: 0 },
+        { text: "प्रो. रमानाथ झा के अनुसार प्राक्-विद्यापति साहित्यमे अनुपलब्ध रचना के अनुमान कोन आधार पर कएल जाइत अछि ?", options: ["कर्णरत्नाकर मे उल्लिखित लोकगीत सूची", "संस्कृत ग्रन्थक आधार", "पौराणिक कथा", "कोनो नहि"], correct: 0 },
+        { text: "कृत्या-रत्नाकर के रचयिता चण्डेश्वर ठाकुर, जे विद्यापतिक के भेल ?", options: ["पूर्वज आ सामाजिक सुधारक", "पिता", "गुरु", "समकालीन राजा"], correct: 0 },
+        { text: "बौद्ध सिद्धाचार्य सभ के रचित गीति कोन नाम सँ जानल जाइत अछि ?", options: ["दोहा", "चर्यापद", "वज्रगीति", "चर्यागीति"], correct: 1 },
+        { text: "प्रसिद्ध सिद्ध कवि सरहपाद (सरह) के रचना के समय कोन शताब्दी मानल जाइत अछि ?", options: ["७म-८म", "८म-९म", "१०वीं-११वीं", "१२वीं"], correct: 1 },
+        { text: "ज्योतिरीश्वर ठाकुर 'कर्णरत्नाकर' मे 'अवहट्ट' शब्द के प्रयोग केलनि, तहि सँ का प्रमाणित होइत अछि ?", options: ["मैथिली अपभ्रंश के नाम अवहट्ट", "संस्कृतक प्रधानता", "प्राकृतक श्रेष्ठता", "कोनो नहि"], correct: 0 },
+        { text: "'डाकर्णव' ग्रन्थ सिद्ध साहित्यक अंग अछि, एकर रचयिता केकरा मानल जाइत अछि ?", options: ["सरहपा", "कान्हुपा", "डाक (डाकर्णव सिद्ध)", "लुइपा"], correct: 2 },
+        { text: "मैथिली साहित्यक प्रारम्भिक स्वरूपक रुपमे 'चर्यापद' मे कोन रस प्रधान अछि ?", options: ["वीर रस", "भक्ति एवं रहस्यवादी रति-भाव", "हास्य", "शान्त"], correct: 1 },
+        { text: "प्रो. रमानाथ झा 'कीर्तिलता' के भाषा के का कहल अछि ?", options: ["मिथिलापभ्रंश", "देसिल ब्रह्मा", "अवहट्ट", "पैशाची"], correct: 1 },
+        { text: "विद्यापति से पूर्व ज्योतिरीश्वर ठाकुर के रचनामे गद्य प्रयोग कोन मैथिली गद्यक दृष्टि सँ महत्व अछि ?", options: ["प्रारम्भिक गद्य चिह्न", "अपर्याप्त रुपसँ उपलब्ध", "दुनू सही", "कोनो नहि"], correct: 2 },
+        { text: "सिद्ध लोकनि के 'दोहाकोश' मे प्रयुक्त भाषा के सम्बन्ध मे कोन कथन सही अछि ?", options: ["प्राकृत अपभ्रंश", "बंगाली नहि, बल्कि मैथिली अपभ्रंश", "पालि", "संस्कृत"], correct: 1 },
+        { text: "'कीर्तिलता' के भाषा के 'देसिल ब्रह्मा' कहल गेल अछि, विद्यापति स्वयं एकरा की कहैत छथि ?", options: ["अवहट्ट", "देशी भाषा", "भाषा चर्या", "लोकभाषा"], correct: 0 },
+        { text: "प्राक्-विद्यापति साहित्यक अन्तर्गत 'हाक-यवन' कोन प्रकारक ग्रन्थ अछि ?", options: ["यवन (मुसलमान) सम्बन्धी काव्य", "हाक-कविता संग्रह", "धार्मिक ग्रन्थ", "कोश ग्रन्थ"], correct: 0 },
+        { text: "मैथिली साहित्यक आदि-स्रोत 'चर्यापद' के कतिपय पद मे 'जे', 'ते', 'जाहि', 'ताहि', 'हम', 'अपन' जका रुप अछि, से कतय अनुमान करैत अछि ?", options: ["मैथिली भाषाक प्राचीनता", "हिन्दी प्रभाव", "संस्कृत स्रोत", "द्रविड़ प्रभाव"], correct: 0 },
+        { text: "ज्योतिरीश्वर ठाकुर के पिता के नाम का अछि (कर्णरत्नाकरक परिचय अनुसार) ?", options: ["देवादित्य", "चण्डेश्वर", "शिवसिंह", "गणपति"], correct: 1 },
+        { text: "बौद्ध सिद्ध गीति मे 'महासुख', 'सहज', 'अद्वय' जका सिद्धान्त के प्रतिपादन अछि, ई कोन सम्प्रदायक दर्शन छी ?", options: ["वज्रयान (तान्त्रिक बौद्ध)", "हीनयान", "योगाचार", "माध्यमिक"], correct: 0 },
+        { text: "डा. सुभद्र झा (सुमद्र झा) के अनुसार चर्यापद के भाषा मुख्य रूपसँ प्राचीन कोन भाषाक रुप अछि ?", options: ["असमिया", "बंगाली", "मैथिली (पूर्वी प्राकृत)", "उड़िया"], correct: 2 },
+        { text: "'कर्णरत्नाकर' मे कोन रीति सँ लोक-साहित्यक विधा वर्णित अछि ?", options: ["गीत, वाद्य, नृत्य, बाजना", "केवल गद्य", "दार्शनिक मीमांसा", "व्यंग्य"], correct: 0 },
+        { text: "प्राचीनतम मैथिली साहित्यक रुपमे प्रकाशित 'बौद्धगान ओ दोहा' कोन विद्वान द्वारा बंगाली साहित्यक प्राचीनतम रुप मानने छल, मुदा बाद मे एकर मैथिली होएबा स्वीकार कएल गेल ?", options: ["डा. सुनीति कुमार", "प्रो. रमानाथ झा", "म. म. हरप्रसाद शास्त्री", "डा. जयकान्त मिश्र"], correct: 0 },
+        { text: "सिद्ध कवि 'भुसुकुपाद' (शान्तिपा) के रचनामे कोन विशेषता अधिक अछि ?", options: ["रहस्यवादी संकेत", "लोकजीवनक कटाक्ष", "योग साधना", "ई सब"], correct: 3 },
+        { text: "'धूर्तसमागम' नाटकक पाण्डुलिपि कतय उपलब्ध भेल छल ?", options: ["नेपाल दरबार पुस्तकालय", "पटना संग्रहालय", "दरभंगा राजपुस्तकालय", "बंगाल लाइब्रेरी"], correct: 0 },
+        { text: "प्राचीन मैथिली गद्यक सबसँ प्राचीन जीवित नमूना कोन अछि ?", options: ["कर्णरत्नाकरक गद्यांश", "कीर्तिलता गद्य", "विद्यापति संस्कृत टीका", "उपर्युक्त"], correct: 0 },
+        { text: "बौद्ध सिद्धाचार्य लुइपाद के रचना 'लुइपादगीतिका' मुख्यत: कोन सिद्धान्त पर आधारित अछि ?", options: ["सहजयान (प्रकृतिक सहजावस्था)", "सूर्योपासना", "शिव-शक्ति", "वैष्णव भक्ति"], correct: 0 },
+        { text: "प्राक्-विद्यापति कालक अनुपलब्ध साहित्यक पुनर्निर्माण हेतु सर्वाधिक सहायक ग्रन्थ कोन अछि ?", options: ["चर्याचर्यविनिश्चय", "कर्णरत्नाकर", "प्राकृतपैंगलम", "हाक-यवन"], correct: 1 },
+        { text: "'कर्णरत्नाकर' मे ज्योतिरीश्वर ठाकुर वेद, पुराण, व्याकरण आदिक साथे कोन विषय के विवेचन केनए अछि ?", options: ["संगीत, नृत्य आ वाद्य", "कृषि विज्ञान", "ज्योतिष", "आयुर्वेद"], correct: 0 },
+        { text: "सिद्ध साहित्यक 'कान्हुपाद' के एक प्रसिद्ध पद प्रारम्भ होइत अछि "अहि राति सोम्र हिती, पूवापाद भहीतुत जुतती" एहि रचना मे कोन अलंकारिक चर्चा अछि ?", options: ["कुण्डलिनी योग", "प्रकृति वर्णन", "राजनीति", "व्याकरण"], correct: 0 },
+        { text: "मैथिली साहित्यमे अवहट्ट कालक सर्वाधिक महत्वपूर्ण कृति 'कीर्तिलता' आ 'कीर्तिपताका' के रचनाकार कोन अछि ?", options: ["विद्यापति", "ज्योतिरीश्वर", "चण्डेश्वर", "नान्यदेव"], correct: 0 },
+        { text: "प्रो. रमानाथ झा के अनुसार मैथिली साहित्यक स्वरुप स्पष्ट होए लागल कोन शताब्दी सँ ?", options: ["१३वीं शताब्दीक आरम्भ", "१४वीं शताब्दीक प्रारम्भ", "१२वीं शताब्दी", "१५वीं शताब्दी"], correct: 1 },
+        { text: "चर्यापद के संग्रह 'चर्याचर्यविनिश्चय' मे कुल कीटा पद अछि ?", options: ["५०", "४७ (लगभग)", "६०", "३०"], correct: 1 },
+        { text: "'कर्णरत्नाकर' में ज्योतिरीश्वर कएल 'नृत्य' वर्णन कोन दृष्टि सँ महत्व अछि ?", options: ["तत्कालीन लोक नृत्यक जानकारी", "संगीतशास्त्रक आधार", "दुनू सही", "कोनो नहि"], correct: 2 },
+        { text: "सिद्ध साहित्य के अन्तर्गत रचित गीति आ दोहाक भाषा कोन क्षेत्रक लोकभाषा सँ जुड़ल अछि ?", options: ["मिथिला-बंगाल-असम सीमा", "पंजाब", "महाराष्ट्र", "गुजरात"], correct: 0 }
+    ];
+
+    // कुल 47 प्रश्न (कुछ अतिरिक्त पूर्णता लेल)
+    const totalQuestions = questions.length;
+    let userAnswers = new Array(totalQuestions).fill(null);
+    let isSubmitted = false;
+
+    const container = document.getElementById('questionsArea');
+    const totalSpan = document.getElementById('totalQ');
+    const scoreSpan = document.getElementById('scoreCount');
+    const percentSpan = document.getElementById('percentBox');
+
+    function renderAll() {
+        container.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.dataset.qid = idx;
+            const qTextDiv = document.createElement('div');
+            qTextDiv.className = 'q-text';
+            qTextDiv.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qTextDiv);
+            const optsDiv = document.createElement('div');
+            optsDiv.className = 'opts-list';
+            q.options.forEach((opt, optIdx) => {
+                const optLabel = document.createElement('label');
+                optLabel.className = 'opt-item';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${idx}`;
+                radio.value = optIdx;
+                radio.disabled = isSubmitted;
+                if (userAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    if (!isSubmitted) {
+                        userAnswers[idx] = parseInt(e.target.value);
+                        updateStats();
+                        showFeedback(idx, card);
+                    }
+                });
+                const spanText = document.createElement('span');
+                spanText.innerText = `${String.fromCharCode(65+optIdx)}. ${opt}`;
+                optLabel.appendChild(radio);
+                optLabel.appendChild(spanText);
+                optsDiv.appendChild(optLabel);
+            });
+            card.appendChild(optsDiv);
+            const fbDiv = document.createElement('div');
+            fbDiv.className = 'feedback';
+            fbDiv.id = `fb_${idx}`;
+            card.appendChild(fbDiv);
+            container.appendChild(card);
+            if (isSubmitted) showFeedback(idx, card);
+        });
+        totalSpan.innerText = totalQuestions;
+        updateStats();
+    }
+
+    function showFeedback(qid, cardDiv) {
+        const fbDiv = cardDiv.querySelector('.feedback');
+        const selected = userAnswers[qid];
+        const correctIdx = questions[qid].correct;
+        if (selected === null) {
+            fbDiv.innerHTML = '';
+            fbDiv.className = 'feedback';
+            return;
+        }
+        if (selected === correctIdx) {
+            fbDiv.innerHTML = '✅ सही उत्तर।';
+            fbDiv.className = 'feedback fb-correct';
+        } else {
+            const correctLetter = String.fromCharCode(65+correctIdx);
+            const correctText = questions[qid].options[correctIdx];
+            fbDiv.innerHTML = `❌ अशुद्ध। सही उत्तर : ${correctLetter}. ${correctText}`;
+            fbDiv.className = 'feedback fb-wrong';
+        }
+    }
+
+    function updateStats() {
+        let correctCount = 0;
+        for (let i=0; i<totalQuestions; i++) {
+            if (userAnswers[i] !== null && userAnswers[i] === questions[i].correct) correctCount++;
+        }
+        if (!isSubmitted) {
+            scoreSpan.innerText = `${correctCount}/${totalQuestions}`;
+            let percent = Math.round((correctCount/totalQuestions)*100);
+            percentSpan.innerText = `${percent}% (प्रगति)`;
+        } else {
+            scoreSpan.innerText = `${correctCount}/${totalQuestions}`;
+            let percent = Math.round((correctCount/totalQuestions)*100);
+            percentSpan.innerText = `${percent}% ${percent>=60 ? '🎓 साधुवाद' : '📖 पुनरावलोकन'}`;
+        }
+    }
+
+    function evaluateAll() {
+        if (isSubmitted) {
+            alert("पहिने ही जाँच होइ चुकल अछि। पुनः आरम्भ कए नव उत्तर दी।");
+            return;
+        }
+        let unanswered = [];
+        for (let i=0; i<totalQuestions; i++) if (userAnswers[i] === null) unanswered.push(i+1);
+        if (unanswered.length > 0) {
+            if (!confirm(`⚠️ ${unanswered.length} प्रश्न अनुत्तरित अछि (जेना प्र. ${unanswered.slice(0,12).join(',')}...). जाँच करब तौ?`)) return;
+        }
+        isSubmitted = true;
+        const allRadios = document.querySelectorAll('input[type="radio"]');
+        allRadios.forEach(radio => radio.disabled = true);
+        let finalCorrect = 0;
+        for (let i=0; i<totalQuestions; i++) {
+            const card = document.querySelector(`.question-card[data-qid='${i}']`);
+            if (card) showFeedback(i, card);
+            if (userAnswers[i] !== null && userAnswers[i] === questions[i].correct) finalCorrect++;
+        }
+        scoreSpan.innerText = `${finalCorrect}/${totalQuestions}`;
+        let percent = Math.round((finalCorrect/totalQuestions)*100);
+        percentSpan.innerText = `${percent}% ${percent>=60 ? '🏆 प्रशस्त' : '📚 पुनः अध्ययन'}`;
+    }
+
+    function resetQuiz() {
+        isSubmitted = false;
+        userAnswers = new Array(totalQuestions).fill(null);
+        const radios = document.querySelectorAll('input[type="radio"]');
+        radios.forEach(r => { r.checked = false; r.disabled = false; });
+        renderAll();
+    }
+
+    document.getElementById('submitBtn').addEventListener('click', evaluateAll);
+    document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+    renderAll();
+
+</script></body>
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मैथिली साहित्यक इतिहास – अध्याय ३ (काल-विभाजन) बहुविकल्पीय प्रश्नोत्तरी — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #f0ebdd;
+font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Mukta', 'Poppins', sans-serif;
+padding: 25px 20px;
+color: #2d241a;
+}
+.quiz-container {
+max-width: 1200px;
+margin: 0 auto;
+background: #fffffb;
+border-radius: 56px;
+box-shadow: 0 25px 40px -15px rgba(0,0,0,0.25);
+padding: 25px 30px 45px;
+border: 1px solid #eadbb0;
+}
+h1 {
+text-align: center;
+color: #9b3a24;
+font-size: 1.9rem;
+background: #fff4e6;
+display: inline-block;
+width: auto;
+margin: 0 auto 15px;
+padding: 8px 30px;
+border-radius: 60px;
+border-bottom: 3px solid #dba350;
+}
+.sub {
+text-align: center;
+background: #fcf3e1;
+padding: 10px 15px;
+border-radius: 50px;
+margin-bottom: 25px;
+color: #6b4a2c;
+font-weight: 500;
+}
+.score-area {
+background: #2c6a51;
+color: #ffefc0;
+border-radius: 50px;
+padding: 12px 25px;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: baseline;
+gap: 10px;
+margin-bottom: 30px;
+font-weight: bold;
+}
+.score-badge {
+background: #f2a256;
+padding: 5px 18px;
+border-radius: 40px;
+color: #2a2015;
+}
+.question-card {
+background: white;
+border-radius: 28px;
+margin-bottom: 28px;
+padding: 18px 22px;
+box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+border: 1px solid #ecdcaa;
+transition: all 0.1s;
+}
+.q-text {
+font-size: 1.18rem;
+font-weight: 700;
+background: #fff2e2;
+padding: 10px 18px;
+border-radius: 40px;
+margin-bottom: 18px;
+color: #2a3d2f;
+}
+.opts {
+display: flex;
+flex-direction: column;
+gap: 10px;
+margin-left: 10px;
+}
+.opt {
+display: flex;
+align-items: center;
+gap: 14px;
+background: #fefaf2;
+padding: 6px 15px;
+border-radius: 60px;
+cursor: pointer;
+transition: 0.1s;
+}
+.opt:hover {
+background: #f7ecdb;
+}
+input[type="radio"] {
+width: 18px;
+height: 18px;
+accent-color: #aa4a2c;
+cursor: pointer;
+}
+.feedback {
+margin-top: 14px;
+padding: 6px 18px;
+border-radius: 36px;
+font-size: 0.9rem;
+display: inline-block;
+}
+.correct-fb {
+background: #e3f0e1;
+color: #186d3a;
+border-left: 5px solid #2d8747;
+}
+.wrong-fb {
+background: #ffe2db;
+color: #bc482e;
+border-left: 5px solid #ce3f1f;
+}
+button {
+background: #98442c;
+border: none;
+color: white;
+padding: 12px 32px;
+font-size: 1.1rem;
+border-radius: 50px;
+font-weight: bold;
+cursor: pointer;
+font-family: inherit;
+transition: 0.2s;
+margin-top: 8px;
+}
+button:hover {
+background: #773320;
+transform: scale(0.98);
+}
+.reset-btn {
+background: #5b5543;
+}
+.btn-flex {
+display: flex;
+justify-content: center;
+gap: 20px;
+flex-wrap: wrap;
+margin-top: 25px;
+}
+.footer {
+text-align: center;
+font-size: 0.8rem;
+margin-top: 35px;
+color: #b9915e;
+}
+@media (max-width: 650px) {
+.quiz-container {
+padding: 15px;
+}
+.q-text {
+font-size: 1rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="quiz-container"> <div style="text-align: center;"> </div> <div class="score-area"> <span>📖 कुल प्रश्न : <span id="totalQ">0</span></span> <span>✅ सही उत्तर : <span id="scoreCount">0</span></span> <span class="score-badge" id="percentSpan">0%</span> </div> <div id="questionsContainer"></div> <div class="btn-flex"> <button id="submitBtn">⚡ उत्तर जाँचू (Submit)</button> <button id="resetBtn" class="reset-btn">🔄 पुनः आरम्भ करू</button> </div> <div class="vq-footer">© सम्पादक, videha.co.in</div>
+</div>
+<script>
+
+</script><script>
+
+    // ----- अध्याय ३ (विषय-प्रवेश : काल-विभाजन) पर 48 प्रश्न -----
+    const questions = [
+        { text: "मैथिली साहित्यक आदिकालक आरम्भ डा. उमेश मिश्र के अनुसार कोन शताब्दी सँ मानैत छथि ?", options: ["७म शताब्दी", "१००० ई.", "१३०० ई.", "८वीं शताब्दी"], correct: 0 },
+        { text: "डा. सुभद्र झा (सुमद्र झा) मैथिली साहित्यक आदिकालक आरम्भ केतए सँ मानैत छथि ?", options: ["१००० ई.", "१२०० ई.", "८०० ई.", "१३०० ई."], correct: 0 },
+        { text: "महाकवि विद्यापतिक युगक समय-सीमा प्रो. धीरेन्द्र के अनुसार की अछि ?", options: ["१३००-१५०० ई.", "१४१२-१५२७ ई.", "१३५०-१४५० ई.", "१५००-१६०० ई."], correct: 1 },
+        { text: "‘पुरुष-परीक्षा’क मैथिली अनुवाद करैत कवीश्वर चन्द्राझा के मैथिली साहित्यमे स्थान कोन कालसँ जुड़ल अछि ?", options: ["प्राचीन काल", "मध्यकाल", "आधुनिक युगक प्रवर्तक", "विद्यापति पूर्व काल"], correct: 2 },
+        { text: "प्रो. राधाकृष्ण चौधरी अपन 'Survey of Maithili literature' मे आधुनिक युगक आरम्भ मानैत छथि ?", options: ["१८०० ई.", "१८३० ई.", "१८६० ई.", "१९०० ई."], correct: 1 },
+        { text: "डा. उमेश मिश्र आ डा. जयकान्त मिश्र आधुनिक युगक आरम्भ केतए सँ मानैत छथि ?", options: ["१८३० ई.", "१८५७-६० ई.", "१८०० ई.", "१८८५ ई."], correct: 1 },
+        { text: "स्व. मोलालाल दास आधुनिक युगक आरम्भ १७ग शताब्दी मानि लेलनि, जे कोन दृष्टिसँ उचित नहि मानल जाइत अछि ?", options: ["कोनो ठोस कारण नहि", "साहित्यिक प्रमाण अछि", "राजनैतिक अभिलेख अछि", "ई सही अछि"], correct: 0 },
+        { text: "प्रो. रमानाथ झा के अनुसार मैथिली साहित्यमे आधुनिक युगक उचित आरम्भ कोन वर्ष सँ मानब उचित अछि ?", options: ["१८६० ई.", "१८८५ ई.", "१९०० ई.", "१९२० ई."], correct: 2 },
+        { text: "प्रो. धीरेन्द्र मैथिली साहित्यक पुनर्जागरण-युग कोन अवधिके मानैत छथि ?", options: ["१८५०-१९००", "१८९०-१९२५", "१९००-१९५०", "१७५०-१८००"], correct: 1 },
+        { text: "प्रो. धीरेन्द्र के अनुसार १९५० ई. के पश्चात् मैथिली साहित्यक नवीन युगक नाम अछि ?", options: ["प्रगतिवादी युग", "नव-प्रवर्तन युग", "छायावाद युग", "प्रयोगवाद युग"], correct: 1 },
+        { text: "डा. दिनेश कुमार झा मैथिली साहित्यक आधुनिक युगक दुई भाग बज्ञान्ने छथि – ब्रिटिश-काल आ कोन काल ?", options: ["गुप्त काल", "स्वातन्त्र्योत्तरकाल (१९४७ ई. पश्चात्)", "मुगल काल", "खण्डवला-राज्य काल"], correct: 1 },
+        { text: "ह. जयकान्त मिश्र मैथिली साहित्यक मध्ययुग केतए धरि मानैत छथि ?", options: ["१७०० ई. धरि", "१८०० ई. धरि", "१६०० ई. धरि", "१५५० ई. धरि"], correct: 0 },
+        { text: "मैथिली साहित्यमे 'विद्यापति-युग' के समापन कतय मानल जाइत अछि, जखन कि शिवसिंहक मृत्यु (१४०६ ई.) पर अधिकांश विद्वान सहमत अछि ?", options: ["हाँ, ई प्रचलित अछि", "किन्तु चन्द्राझाक आगमन तक विस्तार", "१५२७ ई. धरि प्रो. धीरेन्द्र मानैत छथि", "ई सब सत्य अछि"], correct: 3 },
+        { text: "ह. सुमद्र झा (डा. सुभद्र झा) विद्यापतिक मृत्यु केतए मानैत छथि ?", options: ["१४३८ ई.", "१४४८ सँ १४६१ ई. धरि", "१४०० ई.", "१४५० ई."], correct: 1 },
+        { text: "लेखक (दुर्गानाथ झा) आधुनिक युगक आरम्भ के लेल उपयुक्त समय १८८५-९० न मानि १९०० ई. कियो उचित बुझैत छथि ?", options: ["अंग्रेजी शिक्षाक पर्याप्त प्रभाव १९०० तक आबि गेल छल", "१८८० धरि कोनो नवीनता नहि", "दूनू कारण सही अछि", "कोनो कारण नहि"], correct: 2 },
+        { text: "प्रो. रमानाथ झाक अनुसार मैथिली साहित्यक आधुनिक युगक आरम्भ हेतु कोन तिथि विशेष महत्वपूर्ण अछि ?", options: ["१९०० ई.", "१९२५ ई.", "१९३० ई.", "१९४७ ई."], correct: 0 },
+        { text: "मैथिली साहित्यमे 'कृष्णकाव्यक युग' आ 'रामकाव्यक युग' विभाजन के प्रस्तावक छथि ?", options: ["डा. जयकान्त मिश्र", "लेखक दुर्गानाथ झा 'शिशिर'", "प्रो. धीरेन्द्र", "प्रो. राधाकृष्ण चौधरी"], correct: 1 },
+        { text: "लेखक अपन पुस्तक मे मैथिली साहित्यक कति युग मानैत छथि ?", options: ["तीन – विद्यापतिक युग, चन्द्राझाक युग, आधुनिक युग", "दुई – प्राचीन आ नवीन", "पाँच युग", "चार युग"], correct: 0 },
+        { text: "चन्द्राझाक युग केका कहल जाइत अछि ?", options: ["नवीन युग (रामकाव्यक युग)", "प्राचीन युग", "गद्य युग", "प्रयोगवादी युग"], correct: 0 },
+        { text: "मैथिली साहित्यमे प्रयोगवादी कविताक आन्दोलन के प्रभाव से कोन काव्य-प्रवृत्ति उत्पन्न भेल ?", options: ["महल स्तोन (अकविता) प्रवृत्ति", "छप्पय", "सॉनेट", "हाइकु"], correct: 0 },
+        { text: "लेखक के अनुसार प्रयोगवादी कविता जनजीवन सँ दूर होइत जाइत अछि, तथापि कोन विशेषता अछि ?", options: ["ई फैशन जकाँ नवयुगिक चेटा मात्र", "ई लोकसाहित्य भर रहल अछि", "ई अत्यधिक लोकप्रिय अछि", "कोनो मूल्य नहि"], correct: 0 },
+        { text: "विद्यापति-युग आ चन्द्राझा-युग के बीच डा. जयकान्त मिश्र कोन उप-विभाजन करैत छथि ?", options: ["उत्तर-विद्यापति काल", "कीर्तनिया नाटकक काल", "लोकगीत काल", "कोनो नहि"], correct: 1 },
+        { text: "मैथिली साहित्यक आदिकाल सम्बन्धी सर्वाधिक प्रारम्भिक सीमा (७म शताब्दी) के प्रतिपादक छथि ?", options: ["कुमार गंगानन्द सिंह", "डा. उमेश मिश्र", "प्रो. धीरेन्द्र", "प्रो. रमानाथ झा"], correct: 0 },
+        { text: "मैथिली साहित्यक इतिहास लेखनमे ‘Formation of Maithili language’ के लेखक कोन अछि ?", options: ["डा. सुभद्र झा", "प्रो. रमानाथ झा", "प्रो. राधाकृष्ण चौधरी", "डा. उमेश मिश्र"], correct: 0 },
+        { text: "लेखक के अनुसार आधुनिक युगक वातावरण-निर्माणक आरम्भ केतए मानब उचित अछि ?", options: ["१८६० ई.", "१८५७ ई.", "१८८० ई.", "१९०५ ई."], correct: 0 },
+        { text: "प्रो. धीरेन्द्र १८९०-१९२५ ई. कालखण्ड के ‘पुनर्जागरण-युग’ कहैत छथि, एहि युगक मुख्य प्रवृत्ति छी ?", options: ["प्राचीन रीतिक पुनरुद्धार", "नवजागरण आ प्रगतिक चेतना", "केवल भक्ति रस", "विदेशी साहित्य अनुवाद"], correct: 1 },
+        { text: "सन् १९२५-३० के मध्य मैथिली साहित्यमे प्रगीतकाव्यक आक्रतरण (new lyric movement) के प्रवर्तक कोन कवि छलाह ?", options: ["चन्द्राझा", "भुवनजी (मुख्येश्वर सिंह भुवन)", "महावीर झा 'वीर'", "यात्रीजी"], correct: 1 },
+        { text: "सन् १९५८ मे राजकमलक ‘स्वरगन्धा’ प्रकाशन पश्चात् मैथिलीमे कोन प्रवृत्ति प्रबल भेल ?", options: ["प्रयोगवादी काव्य-रचनाक आन्दोलन", "महाकाव्य परम्परा", "हास्य कविता", "वीर रस"], correct: 0 },
+        { text: "लेखक के अनुसार १९४७ ई. या १९५० सँ नवयुग मानब तर्क-संगत नहि अछि कारण ?", options: ["स्वतन्त्रता भेटलाक बाद सेहो मैथिली साहित्यमे कोनो ऐतिहासिक विशान्तर नहि आएल", "स्वतन्त्रता मैथिली पर असर नहि केनए", "राजनैतिक घटना साहित्य पर अप्रभावित रहल", "ई सब गलत अछि"], correct: 0 },
+        { text: "प्रो. राधाकृष्ण चौधरी ‘A Survey of Maithili Literature’ मे आधुनिक युगक आरम्भ केतए मानैत छथि ?", options: ["१८०० ई.", "१८३० ई.", "१८५० ई.", "१८७० ई."], correct: 1 },
+        { text: "ह. जयकान्त मिश्र अपन इतिहासमे मैथिली साहित्यक मध्यकालक समाप्ति १७०० ई. मानैत छथि, आधुनिक युगक आरम्भ केतए ?", options: ["१८०० ई.", "१७०० ई. के तुरन्त पश्चात्", "१९०० ई.", "१७५० ई."], correct: 0 },
+        { text: "मैथिली साहित्यक प्राचीनतम साहित्य 'चर्यापद' के कालक विद्वान प्रायः कोन शताब्दी मानैत छथि ?", options: ["७म-११म शताब्दी", "५म शताब्दी", "१२म शताब्दी", "९म शताब्दी"], correct: 0 },
+        { text: "कवीश्वर चन्द्राझा के महाकाव्य ‘रामायण’ के प्रकाशन के बाद मैथिलीमे महाकाव्य परम्पराक प्रारम्भ भेल, ई प्रकाशन कोन दशकमे भेल ?", options: ["१८९०", "१९०५", "१९२०", "१९३०"], correct: 1 },
+        { text: "लेखक के अनुसार ‘प्रयोगवाद’ युगक स्थापना करबाक पूर्व मैथिली साहित्यमे दृश्य परिवर्तन कोन कालखण्डमे देखल गेल ?", options: ["१८६०-१९००", "१९२५-१९३०", "१९४०-१९५०", "१९१०-१९२०"], correct: 1 },
+        { text: "प्रो. हरिगोहन झाक ‘कन्यादान’ (१९३३) के प्रकाशन के परिणामस्वरूप कोन विधामे नवीन शिल्प विकसित भेल ?", options: ["कथा-साहित्य (उपन्यास)", "गीत-काव्य", "नाटक", "निबन्ध"], correct: 0 },
+        { text: "मैथिली साहित्यक इतिहास लेखनमे डा. दिनेश कुमार झा द्वारा ‘उल्लेखनात्मक इतिहास’ के नामे पुस्तक अछि ?", options: ["मैथिली साहित्यक उल्लेखनात्मक इतिहास", "साहित्य दर्पण", "मैथिली प्रबन्ध", "कोनो नहि"], correct: 0 },
+        { text: "डा. जयकान्त मिश्र अपन इतिहासमे कितना भाग (खण्ड) बज्ञात छथि ?", options: ["एक", "दुई", "तीन", "चार"], correct: 1 },
+        { text: "लेखक के अनुसार 'मध्यकाल' के अन्त आ 'आधुनिक काल' के आरम्भ मे लगभग ६० वर्षक अन्तर विद्वानसभ मे अछि, कारण छी ?", options: ["स्पष्ट साहित्यिक घटनाक अभाव", "ऐतिहासिक प्रमाणक कमी", "राजनैतिक अस्थिरता", "उपर्युक्त सभ"], correct: 3 },
+        { text: "डा. जयकान्त मिश्र मैथिली आधुनिक युगक प्रारम्भ हेतु कोन वर्ष के महत्वपूर्ण मानैत छथि ?", options: ["१८८०", "१८५७-६०", "१९००", "१९२०"], correct: 1 },
+        { text: "मैथिली साहित्यक विषय-प्रवेश मे युग-विभाजनक समस्या पर लेखक के मुख्य सन्देश छी ?", options: ["प्रत्येक विद्वान भिन्न-भिन्न सीमा देने अछि", "निर्धारित करब कठिन", "दुनू सही अछि", "कोनो समस्या नहि"], correct: 0 },
+        { text: "प्रो. रमानाथ झा 'पद्य-संग्रह' के प्रकाशन सँ मैथिली साहित्यक क्षेत्रमे कया सुविधा भेल ?", options: ["प्राचीन आ नवीन कविताक ऐतिहासिक रूपरेखा", "संस्कृत अध्ययन", "व्याकरण निर्धारण", "कोनो नहि"], correct: 0 },
+        { text: "लेखक अनुसार १९२५-३० के बाद मैथिली कविताक नवीन प्रवृत्तिक समानान्तर कथाशिल्प मे प्रयोगक आग्रह प्रबल भेल, तहि कालके प्रमुख कथाकार छथि ?", options: ["गंगानन्द सिंह", "प्रो. हरिगोहन झा", "बटुकनाथ झा", "प्रो. रमानाथ झा"], correct: 1 },
+        { text: "मैथिली साहित्यमे पत्र-पत्रिकाक प्रकाशन परम्पराक कारण आधुनिक युगमे विशेष प्रगति भेल, कोन पत्रिका सर्वाधिक महत्वपूर्ण मानल जाइत अछि ?", options: ["मिथिला मिहिर", "भोद", "वैदेही", "मिथिलादर्श"], correct: 1 },
+        { text: "लेखक के अनुसार मैथिली साहित्यक इतिहासक काल-विभाजन मे विद्यापति युग के बाद कोन युग आबैत अछि ?", options: ["चन्द्राझाक युग (रामकाव्य)", "प्रयोगवाद युग", "गद्य युग", "महाकाव्य युग"], correct: 0 },
+        { text: "‘पुरुष-परीक्षा’ के मैथिली अनुवाद (१८९८) मे चन्द्राझा भाषा के अनादर के विरुद्ध आवाज उठौलनि, एहि पुस्तक के भूमिकामे चन्द्राझा के का कहल अछि ?", options: ["मैथिलीमे अनादर बुद्धि", "हिन्दीक उन्नति", "अंग्रेजी प्रभाव", "संस्कृत श्रेष्ठता"], correct: 0 },
+        { text: "लेखक दुर्गानाथ झा ‘शिशिर’ के अनुसार प्रायोगिक रुपमे मैथिली साहित्यक तीन युग छथि – विद्यापतिक युग (प्राचीन/कृष्णकाव्य), चन्द्राझाक युग (नवीन/रामकाव्य) आ तत्पश्चात् के युग। मुदा प्रयोगवादी कविता के कारण कोन नव युगक उदय संदिग्ध अछि ?", options: ["प्रयोगवाद युग अलग नहि बनि सकल", "ई फैशन मात्र अछि", "समाजसँ दूर", "ई सब सही अछि"], correct: 3 },
+        { text: "प्रो. धीरेन्द्र १४१२-१५२७ ई. के मैथिली साहित्यक काल के का नाम देने छथि ?", options: ["विद्यापति-युग", "उत्तर-विद्यापति-युग", "चन्द्राझा युग", "भक्ति काल"], correct: 0 },
+        { text: "आधुनिक युगक प्रारम्भ हेतु लेखक अंग्रेजी शिक्षाक प्रसार के साथ-साथ कोन आन्दोलन के महत्व स्वीकार करैत अछि ?", options: ["समाज-सुधार आ मातृभाषा-गौरव जागरण", "केवल राजनीतिक स्वतन्त्रता", "वैदिक यज्ञ", "कोनो नहि"], correct: 0 }
+    ];
+    
+    // कुल 46 प्रश्न (विस्तृत अध्याय ३ हेतु)
+    const totalQ = questions.length;
+    let userSelections = new Array(totalQ).fill(null);
+    let submitted = false;
+    
+    const qContainer = document.getElementById('questionsContainer');
+    const totalSpan = document.getElementById('totalQ');
+    const scoreSpan = document.getElementById('scoreCount');
+    const percentSpanEl = document.getElementById('percentSpan');
+    
+    function renderQuiz() {
+        qContainer.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.dataset.qid = idx;
+            const qTextDiv = document.createElement('div');
+            qTextDiv.className = 'q-text';
+            qTextDiv.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qTextDiv);
+            const optsDiv = document.createElement('div');
+            optsDiv.className = 'opts';
+            q.options.forEach((opt, optIdx) => {
+                const optLabel = document.createElement('label');
+                optLabel.className = 'opt';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${idx}`;
+                radio.value = optIdx;
+                radio.disabled = submitted;
+                if (userSelections[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    if (!submitted) {
+                        userSelections[idx] = parseInt(e.target.value);
+                        updateStatDisplay();
+                        showSingleFb(idx, card);
+                    }
+                });
+                const optSpan = document.createElement('span');
+                optSpan.innerText = `${String.fromCharCode(65+optIdx)}. ${opt}`;
+                optLabel.appendChild(radio);
+                optLabel.appendChild(optSpan);
+                optsDiv.appendChild(optLabel);
+            });
+            card.appendChild(optsDiv);
+            const fbDiv = document.createElement('div');
+            fbDiv.className = 'feedback';
+            fbDiv.id = `fb_${idx}`;
+            card.appendChild(fbDiv);
+            qContainer.appendChild(card);
+            if (submitted) showSingleFb(idx, card);
+        });
+        totalSpan.innerText = totalQ;
+        updateStatDisplay();
+    }
+    
+    function showSingleFb(qid, cardDiv) {
+        const fbDiv = cardDiv.querySelector('.feedback');
+        const selected = userSelections[qid];
+        const correctIdx = questions[qid].correct;
+        if (selected === null) {
+            fbDiv.innerHTML = '';
+            fbDiv.className = 'feedback';
+            return;
+        }
+        if (selected === correctIdx) {
+            fbDiv.innerHTML = '✅ सही उत्तर।';
+            fbDiv.className = 'feedback correct-fb';
+        } else {
+            const correctLetter = String.fromCharCode(65+correctIdx);
+            fbDiv.innerHTML = `❌ अशुद्ध। सही उत्तर : ${correctLetter}. ${questions[qid].options[correctIdx]}`;
+            fbDiv.className = 'feedback wrong-fb';
+        }
+    }
+    
+    function updateStatDisplay() {
+        let answered = userSelections.filter(v => v !== null).length;
+        let correctCount = 0;
+        for (let i=0; i<totalQ; i++) {
+            if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correctCount++;
+        }
+        if (!submitted) {
+            scoreSpan.innerText = `${correctCount}/${totalQ}`;
+            let perc = Math.round((correctCount/totalQ)*100);
+            percentSpanEl.innerText = `${perc}% (प्रगति)`;
+        } else {
+            scoreSpan.innerText = `${correctCount}/${totalQ}`;
+            let perc = Math.round((correctCount/totalQ)*100);
+            percentSpanEl.innerText = `${perc}%`;
+        }
+    }
+    
+    function evaluateAll() {
+        if (submitted) {
+            alert("पहिने जाँच होइ चुकल अछि। नव उत्तर देवाक लेल 'पुनः आरम्भ' करू।");
+            return;
+        }
+        let unanswered = [];
+        for (let i=0; i<totalQ; i++) if (userSelections[i] === null) unanswered.push(i+1);
+        if (unanswered.length > 0) {
+            if (!confirm(`⚠️ ${unanswered.length} प्रश्न अनुत्तरित अछि (प्र. ${unanswered.slice(0,15).join(',')}...). जाँच करब?`)) return;
+        }
+        submitted = true;
+        const allRadios = document.querySelectorAll('input[type="radio"]');
+        allRadios.forEach(radio => radio.disabled = true);
+        let finalCorrect = 0;
+        for (let i=0; i<totalQ; i++) {
+            const card = document.querySelector(`.question-card[data-qid='${i}']`);
+            if (card) showSingleFb(i, card);
+            if (userSelections[i] !== null && userSelections[i] === questions[i].correct) finalCorrect++;
+        }
+        scoreSpan.innerText = `${finalCorrect}/${totalQ}`;
+        let perc = Math.round((finalCorrect/totalQ)*100);
+        percentSpanEl.innerText = `${perc}% ${perc>=60 ? '📖 विद्वान्' : '📚 पुनरावृत्ति'}`;
+    }
+    
+    function resetQuiz() {
+        submitted = false;
+        userSelections = new Array(totalQ).fill(null);
+        const radios = document.querySelectorAll('input[type="radio"]');
+        radios.forEach(r => { r.checked = false; r.disabled = false; });
+        renderQuiz();
+    }
+    
+    document.getElementById('submitBtn').addEventListener('click', evaluateAll);
+    document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+    
+    renderQuiz();
+
+</script></body>
+</html>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>️ मैथिली गौंटलेट | 3-स्तरीय चुनौती — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: linear-gradient(145deg, #0a1208, #1c2919);
+min-height: 100vh;
+font-family: 'Segoe UI', 'Poppins', system-ui, sans-serif;
+padding: 24px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.gauntlet-container {
+max-width: 750px;
+width: 100%;
+background: #fefaf2;
+border-radius: 64px;
+overflow: hidden;
+box-shadow: 0 25px 40px rgba(0, 0, 0, 0.5);
+}
+/* header */
+.gauntlet-header {
+background: #2a3a25;
+padding: 24px 28px;
+color: #fbefdb;
+}
+.title-badge {
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+flex-wrap: wrap;
+gap: 12px;
+margin-bottom: 12px;
+}
+h1 {
+font-size: 1.8rem;
+letter-spacing: -0.3px;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.total-score {
+background: #e2b87a;
+color: #1f331c;
+padding: 6px 20px;
+border-radius: 50px;
+font-weight: 800;
+}
+.upload-row {
+display: flex;
+gap: 12px;
+align-items: center;
+flex-wrap: wrap;
+font-size: 0.8rem;
+}
+.upload-btn {
+background: #567252;
+padding: 5px 18px;
+border-radius: 60px;
+cursor: pointer;
+transition: 0.2s;
+}
+/* stage indicator */
+.stage-indicator {
+background: #e9dfcf;
+padding: 12px 24px;
+display: flex;
+justify-content: space-between;
+gap: 12px;
+border-bottom: 2px solid #d6c5b2;
+}
+.stage-chip {
+background: #b6a487;
+flex: 1;
+text-align: center;
+padding: 10px;
+border-radius: 60px;
+font-weight: 700;
+color: #2b2a1e;
+transition: 0.2s;
+}
+.stage-chip.active-stage {
+background: #7f5d3e;
+color: white;
+box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+.stage-chip.locked {
+opacity: 0.6;
+}
+/* main quiz area */
+.quiz-panel {
+padding: 32px 30px;
+}
+.question-card {
+background: #fffcf6;
+border-radius: 56px;
+padding: 28px 20px;
+text-align: center;
+margin-bottom: 28px;
+box-shadow: inset 0 0 0 1px #fffcf7, 0 10px 18px rgba(0,0,0,0.05);
+}
+.challenge-word {
+font-size: 2.2rem;
+font-weight: 800;
+color: #2a4525;
+margin: 12px 0;
+word-break: break-word;
+}
+.pos-tag {
+background: #e7ddcf;
+display: inline-block;
+padding: 4px 20px;
+border-radius: 60px;
+font-size: 0.7rem;
+color: #5a4230;
+}
+.options-area {
+display: flex;
+flex-direction: column;
+gap: 14px;
+margin: 24px 0 20px;
+}
+.opt-btn {
+background: white;
+border: 1px solid #e2cfbc;
+border-radius: 80px;
+padding: 14px 20px;
+text-align: left;
+font-weight: 500;
+cursor: pointer;
+transition: 0.1s;
+}
+.opt-btn:hover {
+background: #fff0e2;
+border-color: #c9a86e;
+}
+.action-buttons {
+display: flex;
+gap: 14px;
+margin-top: 12px;
+}
+.next-stage-btn, .retry-stage {
+background: #6f8f6b;
+border: none;
+flex: 1;
+padding: 14px;
+border-radius: 60px;
+font-weight: bold;
+color: white;
+cursor: pointer;
+}
+.reset-gauntlet {
+background: #c1a074;
+width: 100%;
+margin-top: 20px;
+border: none;
+padding: 12px;
+border-radius: 60px;
+font-weight: bold;
+cursor: pointer;
+color: white;
+}
+.feedback {
+background: #efe6dc;
+border-radius: 40px;
+padding: 12px 20px;
+margin: 16px 0;
+text-align: center;
+}
+.stats-footer {
+background: #e7dccf;
+padding: 12px 24px;
+display: flex;
+justify-content: space-between;
+border-top: 1px solid #cfbeab;
+font-weight: 600;
+color: #3e2f20;
+}
+@media (max-width: 550px) {
+.challenge-word { font-size: 1.6rem; }
+.quiz-panel { padding: 20px; }
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script><script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script><script src="thesaurus_data.js"></script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="gauntlet-container" id="gauntletApp"> <div class="gauntlet-header"> <div class="title-badge"> <div class="total-score">🏆 कुल स्कोर: <span id="totalScoreSpan">0</span></div> </div> <div class="upload-row"> <span class="upload-btn" id="gauntletUploadBtn">📂 Excel अपलोड</span> <input type="file" id="gauntletExcel" accept=".xlsx, .xls" style="display: none;"> <span id="dataStatus" style="font-size:0.7rem;">📘 नमूना डेटा</span> </div> </div> <div class="stage-indicator" id="stageIndicator"> <div class="stage-chip" data-stage="0">🔁 स्टेज 1: समानार्थी/विलोम</div> <div class="stage-chip" data-stage="1">🌍 स्टेज 2: En → Maithili</div> <div class="stage-chip" data-stage="2">🎯 स्टेज 3: Maithili → En</div> </div> <div class="quiz-panel"> <div class="question-card"> <div id="stageName" style="font-size:0.8rem; color:#b48a5a;">⚔️ चुनौती प्रगति</div> <div class="challenge-word" id="gauntletWord">लोड होत...</div> <div class="pos-tag" id="gauntletPos"></div> </div> <div id="quizDynamicArea"></div> <div id="feedbackArea" class="feedback" style="display: none;"></div> <button id="resetGauntletBtn" class="reset-gauntlet">🔄 पूरा खेल रीसेट</button> <div class="vq-footer">© सम्पादक, videha.co.in</div> </div>
+</div>
+<script>
+
+
+</script><span id="stageScoreSpan" style="display:none">0</span>
+<span id="stageTotalSpan" style="display:none">0</span>
+<span id="nextStageStatus" style="display:none">0</span>
+<script>
+
+    // ---------- DATA ----------
+    let dictionary = [];      // each: { english, maithili1, pos, engAntonym }
+    let currentStage = 0;      // 0,1,2
+    let stageQuestions = [];
+    let stageIndex = 0;
+    let stageScore = 0;
+    let stageCompleted = false;
+    let totalScore = 0;        // cumulative across stages (max 15 points)
+    let stageUnlocked = [true, false, false];  // stage0 always open
+    let currentQuestionObj = null;
+    let currentOptions = [];
+    let waitingForNext = false;
+
+    // DOM elements
+    const wordSpan = document.getElementById("gauntletWord");
+    const posSpan = document.getElementById("gauntletPos");
+    const dynamicArea = document.getElementById("quizDynamicArea");
+    const feedbackDiv = document.getElementById("feedbackArea");
+    const stageScoreSpan = document.getElementById("stageScoreSpan");
+    const stageTotalSpan = document.getElementById("stageTotalSpan");
+    const totalScoreSpan = document.getElementById("totalScoreSpan");
+    const nextStageStatusSpan = document.getElementById("nextStageStatus");
+    const resetBtn = document.getElementById("resetGauntletBtn");
+    const uploadBtn = document.getElementById("gauntletUploadBtn");
+    const excelInput = document.getElementById("gauntletExcel");
+    const dataStatusSpan = document.getElementById("dataStatus");
+    const stageChips = document.querySelectorAll(".stage-chip");
+
+    // ---------- SAMPLE DATA (with antonyms and synonyms concept) ----------
+    // THESAURUS_DATA loaded from thesaurus_data.js
+    const SAMPLE_DATA = THESAURUS_DATA;
+
+    // Helper: normalize strings for comparison
+    function normalize(str) {
+        return str.trim().toLowerCase().replace(/[.,!?;:]/g, '').replace(/\s+/g, ' ').trim();
+    }
+
+    // generate random options for a given correct answer (based on current stage and mode)
+    function generateOptions(correctAnswer, stage) {
+        let pool = [];
+        if (stage === 0) {
+            // antonyms: collect all engAntonym values from dictionary
+            pool = dictionary.filter(d => d.engAntonym && d.engAntonym !== correctAnswer).map(d => d.engAntonym);
+        } else if (stage === 1) {
+            // en->ma: collect maithili1
+            pool = dictionary.filter(d => d.maithili1 !== correctAnswer).map(d => d.maithili1);
+        } else {
+            // ma->en: collect english words
+            pool = dictionary.filter(d => d.english !== correctAnswer).map(d => d.english);
+        }
+        pool = [...new Set(pool)];
+        let distractors = [];
+        while (distractors.length < 3 && pool.length) {
+            let rand = pool.splice(Math.floor(Math.random() * pool.length), 1)[0];
+            distractors.push(rand);
+        }
+        while (distractors.length < 3) distractors.push(correctAnswer);
+        let options = [correctAnswer, ...distractors];
+        for (let i = options.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [options[i], options[j]] = [options[j], options[i]];
+        }
+        return options;
+    }
+
+    // Generate 5 questions for current stage (based on stage type)
+    function generateStageQuestions() {
+        if (!dictionary.length) return [];
+        let questions = [];
+        if (currentStage === 0) {
+            // Synonym/Antonym: use engAntonym field
+            let candidates = dictionary.filter(d => d.engAntonym && d.engAntonym.trim().length > 0);
+            if (candidates.length < 5) candidates = [...candidates, ...SAMPLE_DATA.filter(d => d.engAntonym)];
+            candidates = candidates.slice(0, 15);
+            for (let i = 0; i < 5 && candidates.length; i++) {
+                let cand = candidates[i % candidates.length];
+                let correct = cand.engAntonym;
+                let options = generateOptions(correct, 0);
+                questions.push({
+                    text: `“${cand.english}” केर विलोम (antonym) चुनू।`,
+                    correct: correct,
+                    options: options,
+                    answerValue: correct,
+                    userAnswer: null
+                });
+            }
+        } 
+        else if (currentStage === 1) {
+            // English → Maithili
+            let candidates = dictionary.filter(d => d.maithili1 && d.maithili1.trim().length > 0);
+            if (candidates.length < 5) candidates = [...candidates, ...SAMPLE_DATA];
+            for (let i = 0; i < 5; i++) {
+                let cand = candidates[i % candidates.length];
+                let correct = cand.maithili1;
+                let options = generateOptions(correct, 1);
+                questions.push({
+                    text: `“${cand.english}” (${cand.pos || 'शब्द'}) केर मैथिली अनुवाद की अछि?`,
+                    correct: correct,
+                    options: options,
+                    answerValue: correct,
+                    userAnswer: null
+                });
+            }
+        } 
+        else {
+            // Maithili → English
+            let candidates = dictionary.filter(d => d.maithili1 && d.english);
+            if (candidates.length < 5) candidates = [...candidates, ...SAMPLE_DATA];
+            for (let i = 0; i < 5; i++) {
+                let cand = candidates[i % candidates.length];
+                let correct = cand.english;
+                let options = generateOptions(correct, 2);
+                questions.push({
+                    text: `“${cand.maithili1}” केर अंग्रेजी अर्थ की अछि?`,
+                    correct: correct,
+                    options: options,
+                    answerValue: correct,
+                    userAnswer: null
+                });
+            }
+        }
+        // shuffle questions order
+        for (let i = questions.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [questions[i], questions[j]] = [questions[j], questions[i]];
+        }
+        return questions.slice(0, 5);
+    }
+
+    // Render current question (multiple choice UI)
+    function renderCurrentQuestion() {
+        if (!stageQuestions.length || stageIndex >= stageQuestions.length) {
+            // stage completed
+            completeStage();
+            return;
+        }
+        const q = stageQuestions[stageIndex];
+        currentQuestionObj = q;
+        wordSpan.innerText = q.text.split('”')[0].replace(/“/, '') || q.text;
+        // but better show full question? Actually we show the word in challenge-word? We'll just show the question phrase
+        // Keep it clean: display the question text inside challenge-word
+        wordSpan.innerText = q.text;
+        posSpan.innerText = "";
+        // generate options UI
+        let html = `<div class="options-area">`;
+        q.options.forEach((opt, idx) => {
+            html += `<div class="opt-btn" data-opt="${escapeHtml(opt)}">${String.fromCharCode(65+idx)}. ${escapeHtml(opt)}</div>`;
+        });
+        html += `</div><div class="action-buttons"><button id="stageSubmitBtn" class="next-stage-btn">✅ उत्तर दिये</button></div>`;
+        dynamicArea.innerHTML = html;
+        // attach event to options selection
+        document.querySelectorAll(".opt-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                document.querySelectorAll(".opt-btn").forEach(b => b.style.background = "white");
+                btn.style.background = "#fce5cd";
+                btn.setAttribute("data-selected", "true");
+            });
+        });
+        document.getElementById("stageSubmitBtn")?.addEventListener("click", () => handleStageAnswer());
+        feedbackDiv.style.display = "none";
+    }
+
+    function handleStageAnswer() {
+        if (waitingForNext) return;
+        const selectedElem = document.querySelector(".opt-btn[data-selected='true']");
+        if (!selectedElem) {
+            feedbackDiv.style.display = "block";
+            feedbackDiv.innerHTML = "⚠️ कृपया कोनो उत्तर चुनू।";
+            return;
+        }
+        const selectedAnswer = selectedElem.getAttribute("data-opt");
+        const isCorrect = (selectedAnswer === currentQuestionObj.correct);
+        if (isCorrect) {
+            stageScore++;
+            stageQuestions[stageIndex].userAnswer = true;
+            feedbackDiv.style.display = "block";
+            feedbackDiv.innerHTML = "✅ सही! शानदार।";
+            feedbackDiv.style.background = "#e0f0dc";
+        } else {
+            stageQuestions[stageIndex].userAnswer = false;
+            feedbackDiv.style.display = "block";
+            feedbackDiv.innerHTML = `❌ गलत। सही उत्तर: ${escapeHtml(currentQuestionObj.correct)}`;
+            feedbackDiv.style.background = "#ffe0e0";
+        }
+        waitingForNext = true;
+        updateStageUI();
+        // move to next question after delay
+        setTimeout(() => {
+            stageIndex++;
+            if (stageIndex < stageQuestions.length) {
+                waitingForNext = false;
+                renderCurrentQuestion();
+            } else {
+                completeStage();
+            }
+        }, 1200);
+    }
+
+    function completeStage() {
+        // calculate stage score (already updated)
+        const maxStage = stageQuestions.length;
+        const stagePoints = stageScore;
+        // cumulative total: replace previous stage contribution
+        // each stage max 5 points, totalScore = sum of stage scores.
+        // recalc totalScore from stage0, stage1, stage2? simpler: keep totalScore as aggregate.
+        // we'll recompute based on localStorage? We'll store stageScores array.
+        if (!window.stageScores) window.stageScores = [0,0,0];
+        window.stageScores[currentStage] = stageScore;
+        let newTotal = window.stageScores.reduce((a,b)=>a+b,0);
+        totalScore = newTotal;
+        totalScoreSpan.innerText = totalScore;
+        
+        // unlock next stage if current stage passed (score >=3 ? we unlock regardless but require at least 1? Actually we unlock stage if completed)
+        if (currentStage < 2) {
+            stageUnlocked[currentStage+1] = true;
+            stageChips[currentStage+1].classList.remove("locked");
+            nextStageStatusSpan.innerText = "🔓 खुलल";
+        } else {
+            nextStageStatusSpan.innerText = "🏆 सब स्टेज पूर्ण";
+            // celebrate with confetti
+            canvasConfetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+        }
+        updateStageChips();
+        // show stage summary
+        let summary = `🎉 स्टेज ${currentStage+1} समाप्त! स्कोर: ${stageScore}/${maxStage}`;
+        if (currentStage < 2 && stageUnlocked[currentStage+1]) summary += ` अगला स्टेज अनलॉक भेल।`;
+        feedbackDiv.style.display = "block";
+        feedbackDiv.innerHTML = summary;
+        feedbackDiv.style.background = "#f2e8dc";
+        // show button to go to next stage or restart if final
+        dynamicArea.innerHTML = `<div class="action-buttons"><button id="nextStageButton" class="next-stage-btn">➡️ अगला स्टेज</button>
+                                 <button id="restartStageBtn" class="retry-stage">🔄 स्टेज रिपीट</button></div>`;
+        document.getElementById("nextStageButton")?.addEventListener("click", () => {
+            if (currentStage < 2 && stageUnlocked[currentStage+1]) {
+                currentStage++;
+                loadStage(currentStage);
+            } else if (currentStage === 2) {
+                alert("आप सब स्टेज पूरा कर चुकल छी! नया राउण्ड लेल रीसेट करू।");
+            } else {
+                alert("पहिले वर्तमान स्टेज पूरा करू या रीसेट करू।");
+            }
+        });
+        document.getElementById("restartStageBtn")?.addEventListener("click", () => {
+            // restart current stage
+            loadStage(currentStage);
+        });
+        waitingForNext = false;
+    }
+
+    function loadStage(stage) {
+        currentStage = stage;
+        stageScore = 0;
+        stageIndex = 0;
+        stageQuestions = generateStageQuestions();
+        if (stageQuestions.length === 0) {
+            wordSpan.innerText = "कोनो प्रश्न नहि बनल। डेटा जोड़ू।";
+            dynamicArea.innerHTML = "";
+            return;
+        }
+        stageTotalSpan.innerText = stageQuestions.length;
+        stageScoreSpan.innerText = "0";
+        updateStageChips();
+        // set active stage chip
+        stageChips.forEach((chip, idx) => {
+            if (idx == stage) chip.classList.add("active-stage");
+            else chip.classList.remove("active-stage");
+        });
+        renderCurrentQuestion();
+        feedbackDiv.style.display = "none";
+        waitingForNext = false;
+        // update status text
+        let stageNames = ["समानार्थी/विलोम", "En → Maithili", "Maithili → En"];
+        document.getElementById("stageName").innerHTML = `⚔️ ${stageNames[stage]} चुनौती`;
+        nextStageStatusSpan.innerText = (stage === 2) ? "🏁 अंतिम" : (stageUnlocked[stage+1] ? "🔓 खुलल" : "🔒 बंद");
+    }
+
+    function updateStageUI() {
+        stageScoreSpan.innerText = stageScore;
+        stageTotalSpan.innerText = stageQuestions.length;
+        totalScoreSpan.innerText = totalScore;
+    }
+
+    function updateStageChips() {
+        stageChips.forEach((chip, idx) => {
+            if (stageUnlocked[idx]) chip.classList.remove("locked");
+            else chip.classList.add("locked");
+        });
+    }
+
+    function resetFullGame() {
+        stageUnlocked = [true, false, false];
+        currentStage = 0;
+        window.stageScores = [0,0,0];
+        totalScore = 0;
+        totalScoreSpan.innerText = "0";
+        loadStage(0);
+    }
+
+    // ----- Excel parsing -----
+    function parseExcelToDict(buffer) {
+        const wb = XLSX.read(buffer, { type: 'array' });
+        const sheet = wb.Sheets[wb.SheetNames[0]];
+        const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
+        if (!rows || rows.length < 2) return [];
+        const header = rows[0].map(c => String(c || "").trim().toLowerCase());
+        const engIdx = header.findIndex(h => h.includes("english word"));
+        const maiIdx = header.findIndex(h => h.includes("maithili meaning 1"));
+        const posIdx = header.findIndex(h => h.includes("pos"));
+        const antIdx = header.findIndex(h => h.includes("english antonym"));
+        if (engIdx === -1 || maiIdx === -1) return [];
+        const dict = [];
+        for (let i = 1; i < rows.length; i++) {
+            const row = rows[i];
+            if (!row || !row[engIdx]) continue;
+            const eng = String(row[engIdx]).trim();
+            const mai = String(row[maiIdx]).trim();
+            if (eng && mai) {
+                dict.push({
+                    english: eng,
+                    maithili1: mai,
+                    pos: posIdx !== -1 ? String(row[posIdx] || "").trim() : "",
+                    engAntonym: antIdx !== -1 ? String(row[antIdx] || "").trim() : ""
+                });
+            }
+        }
+        return dict;
+    }
+
+    function loadExcelAndReset(file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const parsed = parseExcelToDict(e.target.result);
+            if (parsed.length === 0) {
+                alert("Excel पार्स नहि भेल। नमूना डेटा लोड होत।");
+                setSampleData();
+            } else {
+                dictionary = parsed;
+                dataStatusSpan.innerText = `📁 ${file.name} (${dictionary.length})`;
+                resetFullGame();
+            }
+        };
+        reader.readAsArrayBuffer(file);
+    }
+
+    function setSampleData() {
+        dictionary = [...SAMPLE_DATA];
+        dataStatusSpan.innerText = "📘 नमूना डेटा";
+        resetFullGame();
+    }
+
+    // event listeners
+    function bindEvents() {
+        resetBtn.addEventListener("click", resetFullGame);
+        uploadBtn.addEventListener("click", () => excelInput.click());
+        excelInput.addEventListener("change", (e) => {
+            if (e.target.files && e.target.files[0]) loadExcelAndReset(e.target.files[0]);
+        });
+        stageChips.forEach((chip, idx) => {
+            chip.addEventListener("click", () => {
+                if (stageUnlocked[idx]) {
+                    if (idx !== currentStage) {
+                        currentStage = idx;
+                        loadStage(currentStage);
+                    }
+                } else {
+                    feedbackDiv.style.display = "block";
+                    feedbackDiv.innerHTML = "🔒 पहिले पिछला स्टेज पूरा करू।";
+                    setTimeout(() => { feedbackDiv.style.display = "none"; }, 1500);
+                }
+            });
+        });
+    }
+
+    // helper escape
+    function escapeHtml(str) {
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        });
+    }
+
+    function init() {
+        bindEvents();
+        setSampleData();
+    }
+
+    init();
+
+</script></body>
+</html>

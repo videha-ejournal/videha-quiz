@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मिथिलाक इतिहास - अध्याय ६ क्विज़ (६० प्रश्न) | मैथिली — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: 'Segoe UI', 'Nirmala UI', 'Mukta', 'Poppins', 'Noto Sans Devanagari', sans-serif;
+background: #ece2d5;
+color: #2c241a;
+padding: 1.2rem;
+line-height: 1.5;
+}
+.container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffef7;
+border-radius: 2rem;
+box-shadow: 0 25px 45px -12px rgba(0,0,0,0.3);
+overflow: hidden;
+padding: 1.5rem;
+border: 1px solid #e2d0b5;
+}
+h1 {
+font-size: 1.9rem;
+text-align: center;
+color: #9a3e1f;
+border-bottom: 3px solid #dbbc90;
+display: inline-block;
+width: auto;
+margin: 0 auto 0.5rem auto;
+padding-bottom: 0.25rem;
+}
+.title-block {
+text-align: center;
+margin-bottom: 0.8rem;
+}
+.subhead {
+text-align: center;
+font-size: 0.9rem;
+background: #f5ede2;
+display: inline-block;
+padding: 0.2rem 1.2rem;
+border-radius: 40px;
+color: #5c3f24;
+}
+.quiz-intro {
+background: #fef7ed;
+padding: 0.7rem 1rem;
+border-radius: 1.2rem;
+margin-bottom: 1.2rem;
+border-left: 6px solid #aa5a2a;
+font-size: 0.9rem;
+}
+.question-card {
+background: #ffffff;
+border-radius: 1.2rem;
+box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+margin-bottom: 1.2rem;
+padding: 1rem 1.2rem;
+border: 1px solid #e9dccf;
+}
+.question-text {
+font-size: 1rem;
+font-weight: 650;
+color: #3c2a1b;
+margin-bottom: 0.7rem;
+padding-left: 0.5rem;
+border-left: 4px solid #b5652c;
+}
+.options {
+list-style: none;
+padding-left: 0.3rem;
+}
+.options li {
+margin-bottom: 0.5rem;
+display: flex;
+align-items: flex-start;
+gap: 0.5rem;
+flex-wrap: wrap;
+}
+.options li label {
+font-size: 0.94rem;
+cursor: pointer;
+color: #2a2118;
+flex: 1;
+}
+input[type="radio"] {
+margin-top: 0.2rem;
+accent-color: #aa5a2a;
+width: 1rem;
+height: 1rem;
+flex-shrink: 0;
+}
+.btn-group {
+display: flex;
+justify-content: center;
+gap: 1rem;
+margin: 1.5rem 0 1rem;
+flex-wrap: wrap;
+}
+button {
+background: #aa5a2a;
+border: none;
+padding: 0.6rem 1.5rem;
+font-size: 0.95rem;
+font-weight: bold;
+color: white;
+border-radius: 3rem;
+cursor: pointer;
+transition: 0.2s;
+font-family: inherit;
+}
+button:hover {
+background: #8a441d;
+transform: scale(0.97);
+}
+.reset-btn {
+background: #5e6f66;
+}
+.reset-btn:hover {
+background: #46554c;
+}
+.result-area {
+background: #e7ddcf;
+border-radius: 1.2rem;
+padding: 1rem;
+margin-top: 1.5rem;
+text-align: center;
+font-size: 1rem;
+font-weight: 500;
+}
+.score-highlight {
+background: #2a6b2f;
+color: white;
+padding: 0.2rem 0.6rem;
+border-radius: 40px;
+display: inline-block;
+}
+.answer-key {
+background: #f9f2e8;
+margin-top: 1rem;
+padding: 0.8rem;
+border-radius: 1rem;
+font-size: 0.82rem;
+text-align: left;
+border-top: 2px dashed #c9af86;
+}
+.answer-key details summary {
+font-weight: bold;
+color: #7a4c24;
+cursor: pointer;
+margin-bottom: 0.4rem;
+}
+.progress-bar {
+background: #e0cfbb;
+border-radius: 20px;
+height: 8px;
+margin-bottom: 1rem;
+}
+.progress-fill {
+background: #aa5a2a;
+height: 8px;
+border-radius: 20px;
+width: 0%;
+}
+@media (max-width: 650px) {
+.container { padding: 1rem; }
+.question-text { font-size: 0.9rem; }
+.options li label { font-size: 0.85rem; }
+}
+footer { text-align: center; margin-top: 1.5rem; font-size: 0.7rem; color: #8f7656; }
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="container"> <div class="title-block"> <div class="subhead">अध्याय ६ : गुप्त साम्राज्य सँ १०९७ ई. धरि (६० प्रश्न)</div> </div> <div class="quiz-intro">
+🏛️ नमस्कार! ई क्विज़ अध्याय ६ (मिथिलाक राजनैतिक इतिहास : ३२०–१०९७ ई.) पर आधारित ६० बहुविकल्पी प्रश्न अछि।<br>
+गुप्त साम्राज्य, लिच्छवी-गुप्त सम्बन्ध, वैशाली, हर्षक काल, तिब्बती आक्रमण, अरुणाश्व, यशोधर्मन, पाल–प्रतिहार संघर्ष धरि सब विषय सम्मिलित अछि।<br>
+सही उत्तर चुनू आ आपन ज्ञान परखू।
+</div> <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div> <div id="questionsContainer"></div> <div class="btn-group"> <button type="button" id="submitBtn">✅ उत्तर जमा करू</button> <button type="button" id="resetBtn" class="reset-btn">🔄 सब साफ करू</button> </div> <div id="resultArea" class="result-area" style="display: none;"></div> <footer class="vq-footer">© सम्पादक, videha.co.in</footer>
+</div>
+<script>
+
+</script><script>
+
+    // ---------- ६० प्रश्न (अध्याय ६ पर आधारित) ----------
+    const questions = [
+        // 1-5: Gupta empire & Vaisali
+        { text: "गुप्त साम्राज्यक उत्थान केक कारणे मिथिलाक हेतु विशेष महत्वपूर्ण अछि ?", options: ["मिथिलाक राजकुमारी संग चन्द्रगुप्त प्रथमक विवाह", "सैन्य अभियान", "व्यापार मार्ग", "बौद्ध संगीति"], correct: "A" },
+        { text: "चन्द्रगुप्त प्रथम केक लिच्छवी राजकुमारी सँ विवाह केलन्हि ?", options: ["कुमारदेवी", "ध्रुवस्वामिनी", "प्रभावतीगुप्त", "मालती"], correct: "A" },
+        { text: "चन्द्रगुप्त प्रथमक लिच्छवी राजकुमारी सँ विवाहक बाद कोन साम्राज्यक नींव पड़ल ?", options: ["गुप्त साम्राज्य", "मौर्य साम्राज्य", "हर्ष साम्राज्य", "नन्द साम्राज्य"], correct: "A" },
+        { text: "लिच्छवी लोकनि गुप्त राजसभा मे अपनाकेँ कोन उपाधि द्वारा गौरवान्वित बुझैत छलाह ?", options: ["लिच्छवी दौहित्र", "साम्राज्ञीपुत्र", "वैशालीश्वर", "मिथिलानरेश"], correct: "A" },
+        { text: "गुप्त सम्राट समुद्रगुप्तक प्रयाग प्रशस्ति मे कोन राज्यक उल्लेख वैशालीक प्रभावक द्योतक अछि ?", options: ["लिच्छवी", "मल्ल", "शाक्य", "कोलिय"], correct: "A" },
+        // 6-10: Gupta administration in Mithila
+        { text: "गुप्तकाल मे मिथिला के भुक्ति (प्रान्त) कोन नाम सँ जानल जाइत छल ?", options: ["तीरभुक्ति", "पुण्ड्रवर्द्धन", "मगध", "कोशल"], correct: "A" },
+        { text: "गुप्तकाल मे वैशाली प्रान्तीय शासनक राजधानी छल ?", options: ["वैशाली", "पाटलिपुत्र", "मिथिला", "दरभंगा"], correct: "A" },
+        { text: "गुप्त काल मे तीरभुक्तिक राज्यपाल कोन युवराज छलाह ?", options: ["गोविन्दगुप्त", "घटोत्कचगुप्त", "समुद्रगुप्त", "स्कन्दगुप्त"], correct: "A" },
+        { text: "वैशालीसँ प्राप्त गुप्तकालीन मुद्रापर ‘श्री चन्द्रगुप्त पत्नी श्री ध्रुवस्वामिनी’ उल्लिखित अछि। ई केक संकेत अछि ?", options: ["लिच्छवी सम्बन्धक महत्व", "राजकीय विवाह", "सैन्य विजय", "व्यापारिक समृद्धि"], correct: "A" },
+        { text: "गुप्तयुग मे प्रांतीय शासन मे ‘उपरिक’ पद के अर्थ छल ?", options: ["प्रांतीय शासक (गवर्नर)", "कर अधिकारी", "न्यायाधीश", "सेनापति"], correct: "A" },
+        // 11-15: Gupta decline and Yashodharman
+        { text: "गुप्त साम्राज्यक पतनक बाद कोन प्रांतीय राज्यपाल मिथिला मे अपन अधिकार बढ़ौलन्हि ?", options: ["यशोधर्मन", "हर्ष", "महासेनगुप्त", "जीवगुप्त"], correct: "A" },
+        { text: "यशोधर्मन कऽ मन्दसोर अभिलेख (५३३ ई.) कतए सँ प्राप्त भेल छल ?", options: ["मन्दसोर (वर्तमान मध्य प्रदेश)", "मिथिला", "पाटलिपुत्र", "वाराणसी"], correct: "A" },
+        { text: "यशोधर्मन हूण लोकनिकेँ पराजित कएने छलाह। ई केक साम्राज्यक दुर्बलता पर प्रकाश डालैछ ?", options: ["गुप्त साम्राज्यक", "मौर्य साम्राज्यक", "पाल साम्राज्यक", "शुंग साम्राज्यक"], correct: "A" },
+        { text: "गुप्त कालक बाद मिथिला मे उत्तरगुप्त वंशक शासनक प्रमाण केक अभिलेख सँ मिलैछ ?", options: ["कटरा (मुजफ्फरपुर) जीवगुप्तक ताम्रलेख", "पंचोभ ताम्रलेख", "वनगाँव अभिलेख", "नौलागढ़ लेख"], correct: "A" },
+        { text: "उत्तरगुप्त शासक जीवगुप्तक अभिलेख मे कोन विषय (जिला) क उल्लेख अछि ?", options: ["चामुण्डा विषय", "हौद्रेय विषय", "कक्ष विषय", "तीरभुक्ति"], correct: "A" },
+        // 16-20: Maukharis & Harsha
+        { text: "हर्षवर्द्धनक साम्राज्य मे मिथिला के ‘पाँच भारत’ मे कोन स्थान पर छल ?", options: ["तृतीय पाँच भारत", "प्रथम", "द्वितीय", "चतुर्थ"], correct: "A" },
+        { text: "हर्षवर्द्धनक मृत्युक बाद तीरभुक्तिक गवर्नर के शासन हड़पि लेलन्हि ?", options: ["अरुणाश्व (अर्जुन)", "शशांक", "भास्करवर्मन", "माधवगुप्त"], correct: "A" },
+        { text: "चीनी दूत वाँग-हियुएन-सी अरुणाश्वक विरुद्ध केक सहायता सँ युद्ध केलन्हि ?", options: ["तिब्बत आ नेपाल", "बंगाल आ असम", "कामरूप आ कन्नौज", "दिल्ली आ अवध"], correct: "A" },
+        { text: "चीनी दूतमण्डलक नेता वाँग-हियुएन-सी केक सम्राटक दूत छलाह ?", options: ["ताँग सम्राट", "गुप्त सम्राट", "मौर्य सम्राट", "मिंग सम्राट"], correct: "A" },
+        { text: "चीनी स्रोत मे अरुणाश्वकेँ कोन नाम सँ संबोधित कैल गेल अछि ?", options: ["तीरभुक्तिक हिन्दूराजा", "मिथिलेश्वर", "विदेह राजा", "जनकपुराधिपति"], correct: "A" },
+        // 21-25: Tibetan invasion & aftermath
+        { text: "अरुणाश्व (अर्जुन) चीनी-तिब्बती सेनासँ पराजित भेलाक बाद कतए गेलाह ?", options: ["बन्दी बनाए चीन लेल गेल", "नेपाल भागल", "असम चलल गेल", "बंगाल शरण"], correct: "A" },
+        { text: "६४८–७०३ ई. धरि मिथिलापर कोन प्रभाव बनल रहल ?", options: ["तिब्बती प्रभाव", "चीनी प्रभाव", "यूनानी प्रभाव", "फारसी प्रभाव"], correct: "A" },
+        { text: "हर्षक मृत्युक बाद कामरूप शासक भास्करवर्मन कऽ दिसि सहानुभूति छल ?", options: ["चीनी दूतक साथ", "अरुणाश्वक साथ", "बंगाल सुल्तानक साथ", "गुप्त शासकक साथ"], correct: "A" },
+        { text: "तिब्बती सम्राट श्रौंग-सान-गम्पो केक समय तिब्बतक शासक छलाह ?", options: ["सातम शताब्दी", "पाँचम शताब्दी", "आठम शताब्दी", "नवम शताब्दी"], correct: "A" },
+        { text: "७०२–७०३ ई. क आसपास तिब्बती प्रभावसँ मिथिला केक शासनक स्थापना भेल छल ?", options: ["उत्तरगुप्त शासन", "पाल शासन", "कर्णाट शासन", "गहड़वाल शासन"], correct: "A" },
+        // 26-30: Later history up to 1097
+        { text: "आदित्यसेन कोन वंशक शासक छलाह ?", options: ["उत्तरगुप्त", "गुप्त", "पाल", "वर्मन"], correct: "A" },
+        { text: "आदित्यसेनकेँ ‘परमभट्टारक-महाराजाधिराज’ उपाधि सँ कोन अभिलेख मे जानल जाइत अछि ?", options: ["अफशड़, मन्दार आ शाहपुर अभिलेख", "प्रयाग प्रशस्ति", "मन्दसोर अभिलेख", "भागलपुर ताम्रलेख"], correct: "A" },
+        { text: "हर्षक बाद कन्नौजक शासक यशोवर्मन गुप्त लोकनिकेँ पराजित कए अपन राज्य विस्तार केलन्हि। ओकर विवरण कोन कवि द्वारा लिखल गेल अछि ?", options: ["गौड़वहो कवि वाक्पति", "बाणभट्ट", "मयूर", "दण्डिन"], correct: "A" },
+        { text: "मिथिला प्राचीन काल मे ‘पंचगौड़’ मे एक अंग छल। पंचगौड़ मे आन कोन-कोन क्षेत्र शामिल छल ?", options: ["वंग, गौड़, वारेन्द्र, राढ़", "सौराष्ट्र, गुजरात, मालव", "पंजाब, सिन्ध, कश्मीर", "चोल, पाण्ड्य, केरल"], correct: "A" },
+        { text: "‘पंच गौड़’ केर प्रसिद्धि केनिहार कल्हण कोन ग्रंथक रचयिता छलाह ?", options: ["राजतरंगिणी", "हर्षचरित", "विक्रमांकदेवचरित", "कादम्बरी"], correct: "A" },
+        // 31-35: Guptas & Maukharis and Varmans
+        { text: "ललितादित्य मुक्तापीड़ (कश्मीर) यशोवर्मनकेँ पराजित कए अपन प्रभाव बढ़ौलन्हि। ओ कोन शताब्दीक शासक छलाह ?", options: ["आठम शताब्दी", "सातम शताब्दी", "छठम शताब्दी", "नवम शताब्दी"], correct: "A" },
+        { text: "लामा तारनाथक अनुसार मिथिला मे कोन वंशक शासन छल जकर सम्बन्ध भतृहरिसँ छल ?", options: ["चन्द्रवंश", "सूर्यवंश", "कर्णाटवंश", "गुप्तवंश"], correct: "A" },
+        { text: "चन्द्रवंशक पतनक बाद मिथिला मे कोन वंशक स्थापना भेल ?", options: ["पाल वंश", "सेन वंश", "प्रतिहार वंश", "गहड़वाल वंश"], correct: "A" },
+        { text: "पालवंशक संस्थापक के छलाह ?", options: ["गोपाल", "धर्मपाल", "देवपाल", "महीपाल"], correct: "A" },
+        { text: "पाल सम्राट धर्मपालक साम्राज्यक सीमा कोन देश धरि पसरल छल ?", options: ["पंजाब सँ बंगाल आ हिमालय सँ मध्य भारत", "गुजरात सँ असम", "सिन्ध सँ उत्कल", "कश्मीर सँ कन्याकुमारी"], correct: "A" },
+        // 36-40: Varmans & early medieval Mithila
+        { text: "पाल सम्राट देवपाल कऽ समकालीन प्रतिहार शासक के छलाह ?", options: ["मिहिर भोज", "नागभट्ट", "वत्सराज", "महेन्द्रपाल"], correct: "A" },
+        { text: "मिथिलासँ प्राप्त पालकालीन अभिलेख कोन शासनक स्थितिक बोध करावैत अछि ?", options: ["महीपाल प्रथम", "नारायणपाल", "विग्रहपाल तृतीय", "गोपाल द्वितीय"], correct: "A" },
+        { text: "‘रामचरित’ काव्य (संध्याकर नन्दी) मे कोन कालक राजनैतिक स्थितिक वर्णन अछि ?", options: ["पाल आ कलचुरीक संघर्ष", "गुप्त काल", "मौर्य काल", "हर्ष काल"], correct: "A" },
+        { text: "विग्रहपाल तृतीय आ कलचुरी गंगेयदेवक बीच भेल संधि कोन नाम सँ जानल जाइत अछि ?", options: ["कपाल संधि", "पुष्प संधि", "राज्य संधि", "भाई संधि"], correct: "A" },
+        { text: "नौलागढ़ (बेगूसराय) आ वनगाँव (सहरसा) सँ कोन पाल शासकक अभिलेख भेटल अछि ?", options: ["विग्रहपाल तृतीय", "गोपाल प्रथम", "धर्मपाल", "महीपाल द्वितीय"], correct: "A" },
+        // 41-45: Kalachuris & Chandelas
+        { text: "चन्देल शासक यशोवर्मन आ धंग कोन जिला धरि आक्रमण केने छलाह ?", options: ["पूर्णियाँ", "दरभंगा", "मुजफ्फरपुर", "बेगूसराय"], correct: "A" },
+        { text: "९५३–५४ ई. मे चन्देल लोकनि मिथिलापर आक्रमण केलन्हि। ओहि समय कोन शासन दुर्बल भऽ चुकल छल ?", options: ["प्रतिहार शासन", "पाल शासन", "गुप्त शासन", "मौर्य शासन"], correct: "A" },
+        { text: "महीपाल प्रथमक अभिलेख मुजफ्फरपुर जिलाक कोन गाम मे भेटल अछि ?", options: ["इमादपुर", "कटरा", "वनगाँव", "पंचोभ"], correct: "A" },
+        { text: "महीपाल प्रथमक राज्यक सीमा कोन शहर धरि छलन्हि ?", options: ["बनारस", "पाटलिपुत्र", "कन्नौज", "प्रयाग"], correct: "A" },
+        { text: "चोल सम्राट राजेन्द्र चोल कोन उपाधि धारण केने छलाह ?", options: ["गंगाइकोण्ड", "महेंद्र", "चक्रवर्ती", "त्रिलोकचक्रवर्ती"], correct: "A" },
+        // 46-50: Later Pala decline and early Karnata
+        { text: "पाल साम्राज्यक अन्तिम अवस्था मे कोन शासक तीरभुक्ति केँ अपन राजधानी बनौलन्हि ?", options: ["विग्रहपाल तृतीय", "रामपाल", "महीपाल", "नारायणपाल"], correct: "A" },
+        { text: "कर्णाट वंशक शासन मिथिला मे कहिया सँ प्रारंभ भेल मानल जाइत अछि ?", options: ["१०९७ ई.", "१००० ई.", "१०५० ई.", "११२५ ई."], correct: "A" },
+        { text: "ग्यारहम शताब्दीक अन्तिम चरण मे मिथिला मे केन्द्रीय सत्ताक कोन स्थिति छल ?", options: ["अराजकता आ कोनो शक्ति केन्द्र नहि", "गुप्त सत्ता मजबूत", "पाल शासन सुदृढ़", "प्रतिहार शासन सशक्त"], correct: "A" },
+        { text: "पाल शासक महीपाल प्रथम कऽ पराजित करबाह कलचुरी शोढ़देव कोन नदी मे स्नान कए दान केने छलाह ?", options: ["गण्डकी", "गंगा", "कौशिकी", "कोशी"], correct: "A" },
+        { text: "‘प्राकृतपैंगलम्’ ग्रंथ केर भाषा कोन छल ?", options: ["प्रारंभिक मैथिली (पुरान मैथिली)", "अपभ्रंश", "पालि", "संस्कृत"], correct: "A" },
+        // 51-55: Harsha, Chinese records and cultural
+        { text: "चीनी दूत वाँग-हियुएन-सीक यात्रा विवरण सँ कोन युद्धक जानकारी मिलैछ ?", options: ["तिरहुतक अरुणाश्व आ चीनी-तिब्बती सेनाक बीच युद्ध", "मौर्य-यवन युद्ध", "गुप्त-हूण युद्ध", "पाल-चन्देल युद्ध"], correct: "A" },
+        { text: "चीनी स्रोत मे तिरहुतक शासक अरुणाश्वकेँ हराकें चीन लऽ जाएल गेल। ओकर शव के स्मारक लेख मे कहल गेल अछि ?", options: ["तीरभुक्तिक हिन्दूराजा अरुणाश्व", "मिथिलेश्वर", "तिरहुतनरेश", "विदेहाधिपति"], correct: "A" },
+        { text: "७०३ ई.क बाद तिब्बती आक्रमणसँ मुक्त भऽ कोन वंशक शासन मिथिला मे स्थापित भेल ?", options: ["उत्तरगुप्त", "कर्णाट", "पाल", "वर्मन"], correct: "A" },
+        { text: "नेपाली अभिलेख आदित्य सेनकेँ कोन राज्यक महत्वपूर्ण शासक कहैत अछि ?", options: ["मगध", "कोशल", "वंग", "काशी"], correct: "A" },
+        { text: "‘खलीमपुर अभिलेख’ केक पाल शासनक विस्तार पर प्रकाश डालैछ ?", options: ["धर्मपाल", "देवपाल", "महीपाल", "नारायणपाल"], correct: "A" },
+        // 56-60: Final consolidation
+        { text: "हर्षक मृत्युक बाद तीरभुक्तिक अराजकता कोन चीनी दूतक हस्तक्षेप सँ साफ भेल ?", options: ["वाँग-हियुएन-सी", "फाहियान", "इत्सिंग", "ह्वेन-चुआंग"], correct: "A" },
+        { text: "वाँगक सैनिक अभियान मे कोन कामरूप शासक सहायक भेल छलाह ?", options: ["भास्करवर्मन", "शशांक", "माधववर्मन", "शीलादित्य"], correct: "A" },
+        { text: "गुप्त साम्राज्यक अन्तिम समय मे मिथिला मे जे अस्तव्यस्तता भेल, तकर निवारण हेतु कोन शासक मुख्य भूमिका निभौलन्हि ?", options: ["यशोधर्मन", "हर्ष", "शशांक", "भास्करवर्मन"], correct: "A" },
+        { text: "११म शताब्दी धरि आबैत-आबैत मिथिलापर कोन वंशक प्रभुत्व अधिक दिन धरि स्थापित भेल ?", options: ["पालवंश", "प्रतिहार", "राष्ट्रकूट", "कलचुरी"], correct: "A" },
+        { text: "अध्याय ६ के अन्त मे (१०१७ ई.क पूर्व) मिथिलाक राजनैतिक स्थितिक सार नीक जकाँ केहेन छल ?", options: ["बारी-बारी सभ राज्यक अधीन, कोनो स्थायी स्वतंत्र राज्य नहि", "स्वतंत्र कर्णाट राज्य सुदृढ़", "मौर्य शासन कायम", "गुप्त शासन फिर से स्थापित"], correct: "A" }
+    ];
+
+    // final array (60 questions)
+    const finalQuestions = questions;
+
+    let allRadios = [];
+
+    function renderQuiz() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        allRadios = [];
+        finalQuestions.forEach((q, idx) => {
+            const qDiv = document.createElement('div');
+            qDiv.className = 'question-card';
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            qDiv.appendChild(qText);
+            const optsUl = document.createElement('ul');
+            optsUl.className = 'options';
+            const letters = ['A', 'B', 'C', 'D'];
+            q.options.forEach((opt, optIdx) => {
+                const li = document.createElement('li');
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q${idx}`;
+                radio.value = letters[optIdx];
+                radio.id = `q${idx}_${letters[optIdx]}`;
+                const label = document.createElement('label');
+                label.htmlFor = `q${idx}_${letters[optIdx]}`;
+                label.innerText = `(${letters[optIdx]}) ${opt}`;
+                li.appendChild(radio);
+                li.appendChild(label);
+                optsUl.appendChild(li);
+                allRadios.push(radio);
+            });
+            qDiv.appendChild(optsUl);
+            container.appendChild(qDiv);
+        });
+        updateProgress();
+    }
+
+    function updateProgress() {
+        const total = finalQuestions.length;
+        let answered = 0;
+        for (let i = 0; i < total; i++) {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selected) answered++;
+        }
+        const percent = (answered / total) * 100;
+        document.getElementById('progressFill').style.width = percent + '%';
+    }
+
+    function calculateScore() {
+        let score = 0;
+        let userAnswers = [];
+        for (let i = 0; i < finalQuestions.length; i++) {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            const isCorrect = selected && selected.value === finalQuestions[i].correct;
+            if (isCorrect) score++;
+            userAnswers.push({
+                selected: selected ? selected.value : null,
+                correct: finalQuestions[i].correct,
+                isCorrect: isCorrect
+            });
+        }
+        return { score, total: finalQuestions.length, userAnswers };
+    }
+
+    function displayResult() {
+        const { score, total, userAnswers } = calculateScore();
+        let resultHtml = `<div style="font-size:1.1rem; margin-bottom:0.5rem;">🎯 आपक स्कोर : <span class="score-highlight">${score}/${total}</span></div>`;
+        resultHtml += `<div>📌 अध्याय ६ (गुप्त साम्राज्य सँ १०९७ ई. धरि) पर आधारित क्विज़ पूर्ण भेल ।</div>`;
+        resultHtml += `<div class="answer-key"><details><summary>🔍 सही उत्तर देखू (एहि क्लिक करू)</summary>`;
+        for (let i = 0; i < total; i++) {
+            const q = finalQuestions[i];
+            const user = userAnswers[i];
+            let statusIcon = user.isCorrect ? '✅' : (user.selected ? '❌' : '⚠️');
+            let userText = user.selected ? ` (आपक: ${user.selected})` : ` (अनुत्तरित)`;
+            resultHtml += `<p><strong>प्रश्न ${i+1}</strong> : सही उत्तर — ${q.correct} ${statusIcon}${userText}<br><span style="font-size:0.75rem;">${q.options[['A','B','C','D'].indexOf(q.correct)]}</span></p>`;
+        }
+        resultHtml += `</details></div>`;
+        resultHtml += `<div style="margin-top:0.7rem;">📖 सभी प्रश्न अध्याय ६ के घटना, अभिलेख आ विदेशी यात्रीवर्णन पर आधारित अछि।</div>`;
+        const resultArea = document.getElementById('resultArea');
+        resultArea.innerHTML = resultHtml;
+        resultArea.style.display = "block";
+        resultArea.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function resetQuiz() {
+        allRadios.forEach(radio => radio.checked = false);
+        const resultArea = document.getElementById('resultArea');
+        resultArea.style.display = 'none';
+        resultArea.innerHTML = '';
+        updateProgress();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    renderQuiz();
+    document.getElementById('submitBtn').addEventListener('click', displayResult);
+    document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+    allRadios.forEach(r => r.addEventListener('change', updateProgress));
+
+</script></body>
+</html>

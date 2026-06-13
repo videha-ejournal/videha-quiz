@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मैथिली रैपिड फायर | चुनौती टाइमर — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: radial-gradient(circle at 10% 30%, #0f1e0d, #1a2a16);
+min-height: 100vh;
+font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+padding: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.rapid-container {
+max-width: 700px;
+width: 100%;
+background: #fef9f0;
+border-radius: 60px;
+overflow: hidden;
+box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);
+transition: all 0.2s;
+}
+.header {
+background: #2c4028;
+padding: 20px 28px;
+color: #fbefdb;
+}
+.title-row {
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+flex-wrap: wrap;
+gap: 12px;
+margin-bottom: 12px;
+}
+h1 {
+font-size: 1.8rem;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.highscore-badge {
+background: #e2b87a;
+color: #1e2e1b;
+padding: 6px 18px;
+border-radius: 60px;
+font-weight: 800;
+}
+.upload-area {
+display: flex;
+gap: 12px;
+align-items: center;
+flex-wrap: wrap;
+font-size: 0.75rem;
+}
+.upload-btn {
+background: #5a7856;
+padding: 5px 16px;
+border-radius: 60px;
+cursor: pointer;
+}
+/* mode switch */
+.mode-tabs {
+display: flex;
+gap: 8px;
+background: #e9dfcf;
+padding: 10px 20px;
+justify-content: center;
+}
+.mode-tab {
+background: #cfbeab;
+border: none;
+padding: 8px 20px;
+border-radius: 50px;
+font-weight: 600;
+cursor: pointer;
+transition: 0.2s;
+}
+.mode-tab.active-tab {
+background: #7f5d3e;
+color: white;
+}
+/* main game panel */
+.game-panel {
+padding: 28px 26px;
+}
+.question-area {
+background: #fffaf3;
+border-radius: 48px;
+padding: 24px 20px;
+text-align: center;
+margin-bottom: 28px;
+box-shadow: inset 0 0 0 1px #fffdf9, 0 8px 16px rgba(0,0,0,0.05);
+}
+.challenge-word {
+font-size: 2.2rem;
+font-weight: 800;
+color: #2b4127;
+margin: 12px 0;
+word-break: break-word;
+}
+.pos-tag {
+background: #e7ddcf;
+display: inline-block;
+padding: 4px 20px;
+border-radius: 60px;
+font-size: 0.7rem;
+}
+/* timer ring */
+.timer-area {
+display: flex;
+justify-content: center;
+margin-bottom: 20px;
+}
+.timer-circle {
+width: 90px;
+height: 90px;
+position: relative;
+}
+svg {
+transform: rotate(-90deg);
+}
+.timer-bg {
+stroke: #e2d4c2;
+}
+.timer-fill {
+stroke: #b48b5a;
+stroke-dasharray: 251;
+stroke-dashoffset: 0;
+transition: stroke-dashoffset 0.1s linear;
+}
+.timer-text {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+font-size: 1.8rem;
+font-weight: 800;
+color: #4a5e44;
+}
+/* options (4 choices) */
+.options-grid {
+display: flex;
+flex-direction: column;
+gap: 12px;
+margin: 20px 0;
+}
+.rapid-opt {
+background: white;
+border: 1px solid #e2cfbc;
+border-radius: 80px;
+padding: 14px 20px;
+cursor: pointer;
+transition: 0.1s;
+font-weight: 500;
+}
+.rapid-opt:hover {
+background: #fff0e2;
+border-color: #c9a86e;
+}
+.disabled-opt {
+pointer-events: none;
+opacity: 0.7;
+}
+.action-row {
+display: flex;
+gap: 15px;
+margin-top: 10px;
+}
+.next-round {
+background: #6f8f6b;
+border: none;
+flex: 1;
+padding: 12px;
+border-radius: 60px;
+font-weight: bold;
+color: white;
+cursor: pointer;
+}
+.reset-game {
+background: #c1a074;
+border: none;
+flex: 0.8;
+border-radius: 60px;
+font-weight: bold;
+cursor: pointer;
+}
+.score-stats {
+display: flex;
+justify-content: space-between;
+background: #e7dacb;
+padding: 12px 20px;
+border-radius: 60px;
+margin-top: 20px;
+font-weight: 600;
+}
+.feedback {
+background: #efe2d4;
+border-radius: 40px;
+padding: 10px 16px;
+margin: 12px 0;
+text-align: center;
+}
+@media (max-width: 550px) {
+.challenge-word { font-size: 1.6rem; }
+.game-panel { padding: 20px; }
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="rapid-container" id="rapidApp"> <div class="header"> <div class="title-row"> <div class="highscore-badge">🏆 हाईस्कोर: <span id="highscoreDisplay">0</span></div> </div> <div class="upload-area"> <span class="upload-btn" id="rapidUploadBtn">📂 Excel अपलोड</span> <input type="file" id="rapidExcel" accept=".xlsx, .xls" style="display: none;"> <span id="dataInfo">📘 नमूना डेटा</span> </div> </div> <div class="mode-tabs"> <button class="mode-tab active-tab" data-rapid-mode="en2ma">🇬🇧 → 🇮🇳 अंग्रेजी → मैथिली</button> <button class="mode-tab" data-rapid-mode="ma2en">🇮🇳 → 🇬🇧 मैथिली → अंग्रेजी</button> </div> <div class="game-panel"> <div class="timer-area"> <div class="timer-circle"> <svg width="90" height="90" viewBox="0 0 100 100"> <circle class="timer-bg" cx="50" cy="50" r="40" fill="none" stroke="#e2d4c2" stroke-width="8"/> <circle class="timer-fill" id="timerRing" cx="50" cy="50" r="40" fill="none" stroke="#b48b5a" stroke-width="8" stroke-linecap="round"/> </svg> <div class="timer-text" id="timerSeconds">10</div> </div> </div> <div class="question-area"> <div class="challenge-word" id="rapidWord">लोड होत...</div> <div class="pos-tag" id="rapidPos"></div> </div> <div id="optionsContainer" class="options-grid"></div> <div class="action-row"> <button id="nextRoundBtn" class="next-round">➡ अगिला प्रश्न</button> <button id="resetGameBtn" class="reset-game">🔄 रीसेट</button> </div> <div id="rapidFeedback" class="feedback" style="display: none;"></div> <div class="score-stats"> <span>🎯 स्कोर: <span id="currentScoreSpan">0</span></span> <span>🔥 स्ट्रीक: <span id="streakSpan">0</span></span> <span>⏳ समय: <span id="timeBonusSpan">+0</span></span> </div> </div>
+</div>
+<script>
+
+
+</script><script>
+
+    // ---------- DATA & GLOBALS ----------
+    let dictionary = [];          // { english, maithili1, pos }
+    let currentMode = "en2ma";   // 'en2ma' or 'ma2en'
+    let currentQuestion = null;
+    let currentOptions = [];
+    let currentTimer = null;
+    let timeLeft = 10;
+    let timerActive = false;
+    let gameActive = true;
+    let currentScore = 0;
+    let currentStreak = 0;
+    let highScore = 0;
+    let roundInProgress = false;
+    let waitingNext = false;
+
+    // DOM elements
+    const rapidWordSpan = document.getElementById("rapidWord");
+    const rapidPosSpan = document.getElementById("rapidPos");
+    const optionsDiv = document.getElementById("optionsContainer");
+    const timerSecondsSpan = document.getElementById("timerSeconds");
+    const timerRing = document.getElementById("timerRing");
+    const currentScoreSpan = document.getElementById("currentScoreSpan");
+    const streakSpan = document.getElementById("streakSpan");
+    const timeBonusSpan = document.getElementById("timeBonusSpan");
+    const feedbackDiv = document.getElementById("rapidFeedback");
+    const nextRoundBtn = document.getElementById("nextRoundBtn");
+    const resetGameBtn = document.getElementById("resetGameBtn");
+    const highscoreDisplay = document.getElementById("highscoreDisplay");
+    const uploadBtn = document.getElementById("rapidUploadBtn");
+    const excelInput = document.getElementById("rapidExcel");
+    const dataInfoSpan = document.getElementById("dataInfo");
+    const modeTabs = document.querySelectorAll(".mode-tab");
+
+    // ---------- SAMPLE DATA ----------
+    const SAMPLE_DICT = [
+        { english: "abandon", maithili1: "छोड़ब / त्याग करब", pos: "v." },
+        { english: "able", maithili1: "समर्थ", pos: "adj." },
+        { english: "beautiful", maithili1: "सुन्दर", pos: "adj." },
+        { english: "begin", maithili1: "शुरू करब", pos: "v." },
+        { english: "big", maithili1: "बड़का", pos: "adj." },
+        { english: "brave", maithili1: "वीर", pos: "adj." },
+        { english: "bright", maithili1: "चमकीला", pos: "adj." },
+        { english: "broad", maithili1: "चौड़ा", pos: "adj." },
+        { english: "busy", maithili1: "व्यस्त", pos: "adj." },
+        { english: "calm", maithili1: "शान्त", pos: "a." },
+        { english: "cheap", maithili1: "सस्ता", pos: "adj." },
+        { english: "cold", maithili1: "ठंडा", pos: "a." },
+        { english: "courage", maithili1: "साहस", pos: "n." },
+        { english: "deep", maithili1: "गहरा", pos: "adj." },
+        { english: "easy", maithili1: "आसान", pos: "adj." },
+        { english: "enemy", maithili1: "दुश्मन", pos: "n." },
+        { english: "forget", maithili1: "भूलब", pos: "v." },
+        { english: "generous", maithili1: "उदार", pos: "adj." },
+        { english: "happy", maithili1: "खुश", pos: "adj." },
+        { english: "humble", maithili1: "विनम्र", pos: "adj." }
+    ];
+
+    // Helper: normalize for answer comparison
+    function normalize(str) {
+        return str.trim().toLowerCase().replace(/[.,!?;:]/g, '').replace(/\s+/g, ' ').trim();
+    }
+
+    // generate 4 options (one correct + 3 random distractors)
+    function generateOptions(correctAnswer, mode) {
+        let pool = [];
+        if (mode === "en2ma") {
+            pool = dictionary.filter(d => d.maithili1 !== correctAnswer).map(d => d.maithili1);
+        } else {
+            pool = dictionary.filter(d => d.english !== correctAnswer).map(d => d.english);
+        }
+        pool = [...new Set(pool)];
+        let distractors = [];
+        while (distractors.length < 3 && pool.length) {
+            let rand = pool.splice(Math.floor(Math.random() * pool.length), 1)[0];
+            distractors.push(rand);
+        }
+        while (distractors.length < 3) distractors.push(correctAnswer);
+        let opts = [correctAnswer, ...distractors];
+        for (let i = opts.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [opts[i], opts[j]] = [opts[j], opts[i]];
+        }
+        return opts;
+    }
+
+    // pick random question from dictionary
+    function pickRandomQuestion() {
+        if (!dictionary.length) return null;
+        const randomIndex = Math.floor(Math.random() * dictionary.length);
+        return dictionary[randomIndex];
+    }
+
+    // load new round: set question, generate options, reset timer
+    function startNewRound() {
+        if (!dictionary.length) {
+            rapidWordSpan.innerText = "कोनो डेटा नहि अछि। फाइल अपलोड करू।";
+            optionsDiv.innerHTML = "";
+            return;
+        }
+        currentQuestion = pickRandomQuestion();
+        if (!currentQuestion) return;
+        let correctAnswer = (currentMode === "en2ma") ? currentQuestion.maithili1 : currentQuestion.english;
+        currentOptions = generateOptions(correctAnswer, currentMode);
+
+        // display question
+        if (currentMode === "en2ma") {
+            rapidWordSpan.innerText = currentQuestion.english;
+            rapidPosSpan.innerText = currentQuestion.pos || "";
+        } else {
+            rapidWordSpan.innerText = currentQuestion.maithili1;
+            rapidPosSpan.innerText = currentQuestion.pos || "";
+        }
+
+        // render option buttons
+        optionsDiv.innerHTML = "";
+        currentOptions.forEach((opt, idx) => {
+            const btn = document.createElement("div");
+            btn.className = "rapid-opt";
+            btn.innerText = `${String.fromCharCode(65+idx)}. ${opt}`;
+            btn.setAttribute("data-value", opt);
+            btn.addEventListener("click", () => handleAnswer(opt, correctAnswer));
+            optionsDiv.appendChild(btn);
+        });
+
+        // reset timer
+        resetTimer();
+        gameActive = true;
+        roundInProgress = true;
+        waitingNext = false;
+        feedbackDiv.style.display = "none";
+        nextRoundBtn.disabled = false;
+        nextRoundBtn.innerText = "⏳ उत्तर दिये";
+        // enable click on options
+        document.querySelectorAll(".rapid-opt").forEach(opt => opt.style.pointerEvents = "auto");
+    }
+
+    // Timer logic with visual ring
+    let timerInterval = null;
+    const totalTime = 10;
+    const circumference = 2 * Math.PI * 40; // r=40
+
+    function resetTimer() {
+        if (timerInterval) clearInterval(timerInterval);
+        timeLeft = totalTime;
+        timerSecondsSpan.innerText = timeLeft;
+        const offset = circumference - (timeLeft / totalTime) * circumference;
+        timerRing.style.strokeDasharray = circumference;
+        timerRing.style.strokeDashoffset = offset;
+        timerActive = true;
+        timerInterval = setInterval(() => {
+            if (!gameActive || waitingNext) return;
+            if (timeLeft <= 1) {
+                // time's up -> treat as wrong answer
+                clearInterval(timerInterval);
+                timerActive = false;
+                timeOutPenalty();
+            } else {
+                timeLeft--;
+                timerSecondsSpan.innerText = timeLeft;
+                const newOffset = circumference - (timeLeft / totalTime) * circumference;
+                timerRing.style.strokeDashoffset = newOffset;
+            }
+        }, 1000);
+    }
+
+    function stopTimer() {
+        if (timerInterval) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+        }
+        timerActive = false;
+    }
+
+    function timeOutPenalty() {
+        if (!gameActive || waitingNext) return;
+        gameActive = false;
+        roundInProgress = false;
+        const correctAns = (currentMode === "en2ma") ? currentQuestion.maithili1 : currentQuestion.english;
+        feedbackDiv.style.display = "block";
+        feedbackDiv.innerHTML = `⏰ समय समाप्त! सही उत्तर: "${correctAns}"। स्ट्रीक टूटल।`;
+        feedbackDiv.style.background = "#fff0cc";
+        currentStreak = 0;
+        streakSpan.innerText = currentStreak;
+        updateScoreUI();
+        disableOptions();
+        waitingNext = true;
+        nextRoundBtn.disabled = false;
+        nextRoundBtn.innerText = "➡ अगिला प्रश्न";
+    }
+
+    function handleAnswer(selected, correct) {
+        if (!gameActive || waitingNext) return;
+        const isCorrect = (selected === correct);
+        stopTimer();
+        gameActive = false;
+        roundInProgress = false;
+        let timeBonus = 0;
+        if (isCorrect) {
+            // calculate bonus: remaining time * 10 points
+            timeBonus = timeLeft * 10;
+            currentStreak++;
+            currentScore += 100 + timeBonus;
+            updateScoreUI();
+            feedbackDiv.style.display = "block";
+            feedbackDiv.innerHTML = `✅ सही! +100 अंक, समय बोनस +${timeBonus} 🔥 स्ट्रीक ${currentStreak}`;
+            feedbackDiv.style.background = "#e0f0dc";
+            // confetti on correct
+            canvasConfetti({ particleCount: 40, spread: 55, origin: { y: 0.6 } });
+        } else {
+            currentStreak = 0;
+            streakSpan.innerText = currentStreak;
+            const correctAns = (currentMode === "en2ma") ? currentQuestion.maithili1 : currentQuestion.english;
+            feedbackDiv.style.display = "block";
+            feedbackDiv.innerHTML = `❌ गलत। सही उत्तर: "${correctAns}"। स्ट्रीक टूटल।`;
+            feedbackDiv.style.background = "#ffe0e0";
+        }
+        timeBonusSpan.innerText = `+${timeBonus}`;
+        // update highscore
+        if (currentScore > highScore) {
+            highScore = currentScore;
+            highscoreDisplay.innerText = highScore;
+            localStorage.setItem("rapidHighscore", highScore);
+            canvasConfetti({ particleCount: 120, spread: 80, origin: { y: 0.7 } });
+        }
+        disableOptions();
+        waitingNext = true;
+        nextRoundBtn.disabled = false;
+        nextRoundBtn.innerText = "➡ अगिला प्रश्न";
+    }
+
+    function disableOptions() {
+        document.querySelectorAll(".rapid-opt").forEach(opt => opt.style.pointerEvents = "none");
+    }
+
+    function updateScoreUI() {
+        currentScoreSpan.innerText = currentScore;
+        streakSpan.innerText = currentStreak;
+    }
+
+    function nextRound() {
+        if (!waitingNext) {
+            // if user hasn't answered yet, force timeout? better show warning
+            if (roundInProgress) {
+                feedbackDiv.style.display = "block";
+                feedbackDiv.innerHTML = "⚠️ पहिले वर्तमान प्रश्न केर उत्तर दिये या समय समाप्त होबे दे।";
+                feedbackDiv.style.background = "#fff0cc";
+                return;
+            }
+        }
+        // clean up and start new round
+        stopTimer();
+        startNewRound();
+    }
+
+    function resetGame() {
+        stopTimer();
+        currentScore = 0;
+        currentStreak = 0;
+        updateScoreUI();
+        timeBonusSpan.innerText = "+0";
+        highscoreDisplay.innerText = highScore;
+        waitingNext = false;
+        gameActive = true;
+        roundInProgress = false;
+        startNewRound();
+    }
+
+    function changeMode(mode) {
+        currentMode = mode;
+        modeTabs.forEach(tab => {
+            if (tab.getAttribute("data-rapid-mode") === mode) tab.classList.add("active-tab");
+            else tab.classList.remove("active-tab");
+        });
+        resetGame();
+    }
+
+    // ----- Excel Parsing -----
+    function parseExcelToDict(buffer) {
+        const wb = XLSX.read(buffer, { type: 'array' });
+        const sheet = wb.Sheets[wb.SheetNames[0]];
+        const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
+        if (!rows || rows.length < 2) return [];
+        const header = rows[0].map(c => String(c || "").trim().toLowerCase());
+        const engIdx = header.findIndex(h => h.includes("english word"));
+        const maiIdx = header.findIndex(h => h.includes("maithili meaning 1"));
+        const posIdx = header.findIndex(h => h.includes("pos"));
+        if (engIdx === -1 || maiIdx === -1) return [];
+        const dict = [];
+        for (let i = 1; i < rows.length; i++) {
+            const row = rows[i];
+            if (!row || !row[engIdx]) continue;
+            const eng = String(row[engIdx]).trim();
+            const mai = String(row[maiIdx]).trim();
+            if (eng && mai) {
+                dict.push({
+                    english: eng,
+                    maithili1: mai,
+                    pos: posIdx !== -1 ? String(row[posIdx] || "").trim() : ""
+                });
+            }
+        }
+        return dict;
+    }
+
+    function loadExcelAndReset(file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const parsed = parseExcelToDict(e.target.result);
+            if (parsed.length === 0) {
+                alert("Excel में वैध डेटा नहि अछि। नमूना लोड रहल।");
+                setSampleData();
+            } else {
+                dictionary = parsed;
+                dataInfoSpan.innerText = `📁 ${file.name} (${dictionary.length})`;
+                resetGame();
+            }
+        };
+        reader.readAsArrayBuffer(file);
+    }
+
+    function setSampleData() {
+        dictionary = [...SAMPLE_DICT];
+        dataInfoSpan.innerText = "📘 नमूना डेटा";
+        resetGame();
+    }
+
+    // load highscore from localStorage
+    function loadHighScore() {
+        const saved = localStorage.getItem("rapidHighscore");
+        if (saved && !isNaN(parseInt(saved))) {
+            highScore = parseInt(saved);
+            highscoreDisplay.innerText = highScore;
+        } else {
+            highScore = 0;
+        }
+    }
+
+    // event binding
+    function init() {
+        loadHighScore();
+        setSampleData();
+        uploadBtn.addEventListener("click", () => excelInput.click());
+        excelInput.addEventListener("change", (e) => {
+            if (e.target.files && e.target.files[0]) loadExcelAndReset(e.target.files[0]);
+        });
+        modeTabs.forEach(tab => {
+            tab.addEventListener("click", () => changeMode(tab.getAttribute("data-rapid-mode")));
+        });
+        nextRoundBtn.addEventListener("click", nextRound);
+        resetGameBtn.addEventListener("click", resetGame);
+    }
+
+    init();
+
+</script></body>
+</html>

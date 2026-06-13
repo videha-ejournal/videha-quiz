@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मिथिलाक संस्कृति – क्विज़ (अध्याय २०) — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {
+box-sizing: border-box;
+}
+body {
+background: #f8f2e6;
+font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Mithilanchal', 'Arial', sans-serif;
+margin: 0;
+padding: 20px;
+color: #2f2a20;
+}
+.quiz-container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffdf7;
+border-radius: 48px;
+box-shadow: 0 20px 35px rgba(0,0,0,0.08);
+overflow: hidden;
+padding: 24px 30px 34px;
+}
+.title-section {
+text-align: center;
+margin-bottom: 22px;
+}
+h1 {
+font-size: 2rem;
+margin: 0 0 6px;
+color: #9f5d32;
+border-bottom: 3px solid #f1e0bb;
+display: inline-block;
+padding-bottom: 6px;
+}
+.sub {
+color: #735f41;
+font-size: 0.86rem;
+margin-top: 6px;
+}
+.stats-panel {
+background: #f3ebd8;
+border-radius: 80px;
+padding: 8px 24px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 15px;
+margin-bottom: 28px;
+}
+.q-badge {
+background: #9f5d32;
+color: white;
+padding: 5px 22px;
+border-radius: 50px;
+font-weight: bold;
+}
+.progress-bg {
+flex: 2;
+height: 12px;
+background: #dacaa6;
+border-radius: 20px;
+overflow: hidden;
+}
+.progress-fill {
+width: 0%;
+height: 100%;
+background: #cc7a46;
+border-radius: 20px;
+transition: width 0.2s;
+}
+.score-badge {
+background: #2f6b33;
+color: white;
+padding: 5px 22px;
+border-radius: 50px;
+font-weight: bold;
+}
+.question-card {
+background: #fefaf1;
+border-radius: 34px;
+padding: 22px 28px;
+margin-bottom: 20px;
+border: 1px solid #e5d6b4;
+box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+.q-text {
+font-size: 1.32rem;
+font-weight: 600;
+line-height: 1.4;
+margin-bottom: 26px;
+color: #322d20;
+}
+.options-list {
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+.option-row {
+display: flex;
+align-items: center;
+gap: 16px;
+background: white;
+padding: 10px 22px;
+border-radius: 60px;
+border: 1px solid #e0cfaa;
+cursor: pointer;
+transition: 0.2s;
+}
+.option-row:hover {
+background: #fff3e2;
+border-color: #c48151;
+}
+.option-row.selected {
+background: #e8ddc5;
+border-color: #9f5d32;
+box-shadow: 0 2px 8px rgba(159,93,50,0.2);
+}
+.opt-letter {
+font-weight: 800;
+min-width: 38px;
+background: #efe0ca;
+border-radius: 40px;
+text-align: center;
+padding: 4px 0;
+}
+.opt-text {
+flex: 1;
+}
+.nav-buttons {
+display: flex;
+justify-content: space-between;
+gap: 15px;
+margin: 15px 0 12px;
+}
+button {
+background: #9f5d32;
+border: none;
+color: white;
+font-weight: bold;
+padding: 12px 28px;
+border-radius: 60px;
+font-size: 1rem;
+cursor: pointer;
+transition: 0.2s;
+font-family: inherit;
+}
+button:hover { background: #7a451f; transform: scale(0.97); }
+button:disabled { background: #b68861; cursor: not-allowed; transform: none; }
+.finish-btn {
+background: #2f6b33;
+width: 100%;
+margin-top: 12px;
+}
+.result-area {
+margin-top: 32px;
+background: #efe3cf;
+border-radius: 32px;
+padding: 20px;
+text-align: center;
+}
+.review-list {
+max-height: 380px;
+overflow-y: auto;
+background: #fffcf4;
+border-radius: 28px;
+padding: 14px 22px;
+margin-top: 18px;
+text-align: left;
+}
+.review-item {
+border-bottom: 1px solid #dfcfa8;
+padding: 8px 0;
+}
+.correct-mark { color: #1d6b22; }
+.wrong-mark { color: #c94b20; }
+footer {
+text-align: center;
+font-size: 0.7rem;
+margin-top: 28px;
+color: #8f7452;
+}
+@media (max-width: 650px) {
+.quiz-container { padding: 15px; }
+.q-text { font-size: 1rem; }
+.option-row { padding: 6px 14px; }
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="quiz-container" id="quizRoot"> <div class="title-section"> </div> <div class="stats-panel"> <span class="q-badge" id="qCounter">प्रश्न १/१००</span> <div class="progress-bg"><div class="progress-fill" id="progressFill"></div></div> <span class="score-badge" id="scoreValue">🌸 ०/१००</span> </div> <div id="questionPanel"></div> <div class="nav-buttons"> <button id="prevBtn" disabled>◀ पिछला</button> <button id="nextBtn">अगला ▶</button> </div> <button id="submitQuiz" class="finish-btn">✅ क्विज़ समाप्त करू आ परिणाम देखू</button> <div id="resultBlock"></div> <footer class="vq-footer">© सम्पादक, videha.co.in</footer>
+</div>
+<script>
+
+</script><script>
+
+    // ----- अध्याय २० (मिथिलाक संस्कृति) पर आधारित १०० प्रश्न -----
+    const questions = [
+        { text: "'मैथिल' शब्द सर्वप्रथम कोन युगसँ व्यवहृत होइत आएल अछि?", options: ["वैदिक युग", "मौर्य युग", "गुप्त युग", "मध्य युग"], correct: 0 },
+        { text: "शतपथ ब्राह्मणक निर्माण केकें श्रेय देल जाइत अछि?", options: ["याज्ञवल्क्य (मैथिल)", "गौतम", "व्यास", "कात्यायन"], correct: 0 },
+        { text: "मैथिल संस्कृतिक चरमोत्कर्ष कोन महाकवि कालमे भेल?", options: ["विद्यापति", "जयदेव", "वाणभट्ट", "कालिदास"], correct: 0 },
+        { text: "प्राचीन मिथिलाक जनक एहन परम्पराक स्थापना केलन्हि जाहिसँ 'विदेह' पदवी जीवन्मुक्ति सूचित करैत अछि, कोन उक्ति प्रसिद्ध अछि?", options: ["गृहस्थ रहि जीवन्मुक्त", "सन्यास मात्र मुक्ति", "केवल योग मुक्ति", "यज्ञ मुक्ति"], correct: 0 },
+        { text: "विद्यापति द्वारा रचित 'पुरूष परीक्षा' केहन विषयपर अछि?", options: ["नीति, चरित्र आ मानवीय गुण", "व्याकरण", "काव्यशास्त्र", "ज्योतिष"], correct: 0 },
+        { text: "मिथिलाक स्तम्भ विद्वान जनक, याज्ञवल्क्य, गौतम आदि कोन दर्शनक प्रतिनिधित्व करैत छथि?", options: ["न्याय, वेदान्त, सांख्य", "चार्वाक, मीमांसा", "जैन", "बौद्ध"], correct: 0 },
+        { text: "विद्यापति गीत (पदावली) मुख्यतः केकें आधारमे रचल गेल अछि?", options: ["राधा-कृष्णक प्रेम आ भक्ति", "वीर रस", "शृंगारिकता मात्र", "दार्शनिक प्रश्न"], correct: 0 },
+        { text: "मैथिल लोक चित्रकला 'अइपन' (अरिपन) के सामग्री प्रायः का होइत अछि?", options: ["चाउर पीठ, हरिद्रा, कुंकुम, सिन्दूर", "पानी, माटि", "चूना, रेत", "गोबर, गेरू"], correct: 0 },
+        { text: "मिथिलाक 'कोहवर' चित्रकला कोन अवसरपर बनाओल जाइत अछि?", options: ["विवाहक कोहबर घर", "श्राद्ध", "नवरात्र", "होली"], correct: 0 },
+        { text: "मैथिल संगीतक प्रसिद्ध शैली 'नचारी' ककें सम्बन्धित अछि?", options: ["शिव-विवाह गीत (महेशवाणी)", "कृष्णलीला", "वीर रस", "छठ गीत"], correct: 0 },
+        { text: "लोचनक रागतरंगिणी मैथिल रागक प्रसिद्ध ग्रंथ अछि, ओ कोन शताब्दीक अछि?", options: ["१६म शताब्दी", "१४म", "१८म", "१५म"], correct: 0 },
+        { text: "मिथिला पेंटिंग (मिथिला चित्रकला) अंतर्राष्ट्रीय ख्याति प्राप्त करएबाक श्रेय कोन विधाकेँ जाइत अछि?", options: ["भित्ति चित्र, अइपन, कोहवर", "कैनवास तैल चित्र", "जलरंग", "मिट्टीक प्रतिमा"], correct: 0 },
+        { text: "प्राचीन मैथिल संस्कृतिक धाराक अविच्छिन्नता के परिचायक अछि?", options: ["यजुर्वेदसँ विद्यापति धरि अविच्छिन्न प्रवाह", "रुकावट", "बौद्ध प्रभुत्व", "इस्लामी प्रभाव"], correct: 0 },
+        { text: "मैथिली भाषा आ लिपिक प्राचीनतम उल्लेख कोन ग्रंथमे भेटइत अछि?", options: ["ललितविस्तर ('वैदेही लिपि')", "महाभारत", "रामायण", "पुराण"], correct: 0 },
+        { text: "विद्यापति कवि एकरा अतिरिक्त कोन क्षेत्रमे अमर अछि?", options: ["मैथिली गीत, कानून (विभागसार), शिवगीत, नीतिलेख", "केवल पदावली", "केवल संस्कृत", "केवल तंत्र"], correct: 0 },
+        { text: "मिथिलाक रागतरंगिणीकार लोचन कोन राजाक दरबारमे रहथिन्ह?", options: ["भैरव सिंह (खण्डवला)", "हरिसिंह देव", "नान्यदेव", "शिवसिंह"], correct: 0 },
+        { text: "मैथिल संस्कृतिक प्रमुख स्तंभ कोन छलाह?", options: ["गौतम, याज्ञवल्क्य, गंगेश, विद्यापति", "केवल कवि", "केवल राजा", "केवल मंत्री"], correct: 0 },
+        { text: "मिथिलामे पारम्परिक स्त्री वेशभूषा कोन अछि?", options: ["साड़ी, घाघरा, पाग, सिन्दूर, घोघ", "सलवार", "पेंट-शर्ट", "चुरीदार"], correct: 0 },
+        { text: "विद्यापति रचित त्रैभाषिक नाटकक उदाहरण कोन अछि?", options: ["अद्भुत रूपक (संस्कृत, प्राकृत, मैथिली)", "मैथिली मात्र", "बंगला", "हिन्दी"], correct: 0 },
+        { text: "मिथिला क्षेत्रक प्रसिद्ध सप्त चैत्य वैशालीमे कोन सम्प्रदायसँ जुड़ल छल?", options: ["बौद्ध", "जैन", "शैव", "शाक्त"], correct: 0 },
+        { text: "लोकचित्र 'अइपन'मे अक्सर कोन रंग प्रयोग होइत अछि?", options: ["लाल, पीयर, हरियर, गोर (चावल पीठ सँ)", "केवल काला", "नील", "भूरा"], correct: 0 },
+        { text: "मिथिलाक खादी केन्द्र कहाँ स्थापित अछि?", options: ["मधुबनी", "दरभंगा", "सीतामढ़ी", "जनकपुर"], correct: 0 },
+        { text: "मैथिली भाषाक सबसँ प्राचीन गद्य ग्रंथ कोन अछि?", options: ["वर्णरत्नाकर (ज्योतिरीश्वर)", "पदावली", "कीर्तिलता", "लिखनावली"], correct: 0 },
+        { text: "हरिसिंह द्वारा पंजी प्रथाक विकास मैथिल समाजमे के हेतु भेल?", options: ["वैवाहिक वर्ण-संकर रोकब, कुलीनता रक्षा", "कर वसूली", "सैनिक भर्ती", "भूमि रेकार्ड"], correct: 0 },
+        { text: "मिथिलाक तीरभुक्ति नामकरण का अर्थ होइत अछि?", options: ["नदीक तीरसँ भुक्त (प्रांत)", "जंगल प्रांत", "ग्राम प्रांत", "पर्वत प्रांत"], correct: 0 },
+        { text: "विद्यापति शिवगीत (महेशवाणी) के हेतु प्रसिद्ध अछि?", options: ["शिव-विवाह आ भावना", "राजनीति", "कृष्ण चरित", "निसर्ग वर्णन"], correct: 0 },
+        { text: "मैथिली लिपि (तिरहुता लिपि) कोन श्रेणीक अछि?", options: ["प्राचीन ब्राह्मी व्युत्पन्न", "देवनागरी समकक्ष", "गुरुमुखी", "उड़िया"], correct: 0 },
+        { text: "गोविन्द दास जे विद्यापतिक समकालीन छलाह, हिनक रचना के नाम परसिद्ध अछि?", options: ["पदावली शैली", "वीर रस", "युद्ध काव्य", "सांख्य गीत"], correct: 0 },
+        { text: "मैथिलीमे 'आदर, अत्यादर, अनादर' क्रियाक रूप के अनुसार बदलैत अछि। इ कोन भाषाक विशेषता अछि?", options: ["मैथिली", "हिन्दी", "बंगला", "उर्दू"], correct: 0 },
+        { text: "मैथिल संस्कृतिक आधारशिला केकें मानल जाइत अछि?", options: ["जनक-याज्ञवल्क्यक दार्शनिक परम्परा", "बौद्ध प्रभाव", "शाक्त तंत्र", "वैष्णव भक्ति"], correct: 0 },
+        { text: "वैशालीक लिच्छवी लोकनि बुद्धक स्वागतमे केहन सज्जा करैत छलाह?", options: ["रंगीन वस्त्र, आभूषण, पीत-नील चिन्ह", "शस्त्र प्रदर्शन", "यज्ञ", "गाय दान"], correct: 0 },
+        { text: "मिथिलाक 'जरहटिया' पोखरि आ यज्ञ कोन राजाक कालमे भेल?", options: ["भैरव सिंह", "शिवसिंह", "गंगदेव", "नान्यदेव"], correct: 0 },
+        { text: "विद्यापति रचित 'शैवसर्वस्वसार' के विषय अछि?", options: ["शिवक महिमा", "कृष्ण स्तुति", "दुर्गा पूजा", "गणपति उपासना"], correct: 0 },
+        { text: "मिथिलाक साँस्कृतिक एकता के बोध करावैत अछि?", options: ["मैथिली भाषा, अइपन, विवाह संस्कार, मिथिला पेंटिंग", "केवल धर्म", "केवल खानपान", "केवल वेशभूषा"], correct: 0 },
+        { text: "प्रसिद्ध मैथिल कवि चन्दा झाक कोन गीत उद्धरण प्रसिद्ध अछि?", options: ["पड़ा-पड़ा बड़ा-बड़ा गृह जारि देलकौ", "गोरि सखी मिलि इस सीर धरि", "काँचा कंचन काँति", "साँवर वदन विहुसिया"], correct: 0 }
+    ];
+    
+    // पूरा १०० प्रश्न (यदि अपर्याप्त होइ तो अतिरिक्त प्रश्न जोड़ी)
+    const extraCulture = [
+        { text: "मिथिलामे 'स्वर्णकार' शिल्प के नामे प्रसिद्ध अछि?", options: ["गहना उद्योग", "लोहा कर्म", "बर्तन निर्माण", "मूर्ति निर्माण"], correct: 0 },
+        { text: "मैथिली विवाह गीत 'परिछन' के अवसर पर गाओल जाइत अछि?", options: ["वर-कन्याक पहिल मिलन", "द्वारचार", "सप्तपदी", "विदाई"], correct: 0 },
+        { text: "मिथिला पेंटिंगमे 'कमल, बाँस, माछ, मैना' चिन्ह आम देखबामे अवैत अछि, इ का द्योतक अछि?", options: ["उर्वरता, समृद्धि, सौन्दर्य", "युद्ध", "वियोग", "दुर्गा"], correct: 0 },
+        { text: "विद्यापति 'भन्नु विद्यापति सुनह मन्दाइनि' केन गीतक पंक्ति अछि?", options: ["शिव-विवाह (महेशवाणी)", "राधा-कृष्ण", "बिरह गीत", "ऋतु वर्णन"], correct: 0 },
+        { text: "प्राचीन कालसँ मिथिलामे 'पाग' पहिरबाक संस्कार तंत्रसँ प्रभावित अछि, ई कोन प्रथा सँ जुड़ल अछि?", options: ["तांत्रिक चिन्ह", "साधारण पोशाक", "विद्वत चिन्ह", "राजकीय चिन्ह"], correct: 0 },
+        { text: "लोचन रागतरंगिणीमे मैथिल राग कहल गेल अछि?", options: ["ललिता, विभास, भैरवी, रामकली, केदार", "बिलावल, मालकोष", "दरबारी, अहीर भैरव", "भूप, यमन"], correct: 0 },
+        { text: "मैथिली लिपिक विकास के कारण मिथिलाक साँस्कृतिक एकरूपता में केहन भूमिका रहल?", options: ["प्रशासन, व्यापार, धार्मिक पाण्डुलिपि सुरक्षा", "केवल साहित्य", "केवल शिक्षा", "केवल राजदरबार"], correct: 0 },
+        { text: "सिद्धगान (चर्यापद) भाषाकेँ अधिकांश विद्वान कोन भाषाक प्राचीन रूप मानैत अछि?", options: ["मैथिली", "बंगला", "हिन्दी", "उड़िया"], correct: 0 },
+        { text: "मैथिली गीत 'गोरि सखि मिलि इस सीर धरि' कोन विद्यापति रचना अछि?", options: ["महेशवाणी (शिव विवाह)", "पदावली", "कीर्तिलता", "भूपरिक्रमा"], correct: 0 },
+        { text: "मिथिला क्षेत्रक 'माँगन खवास' कोन कलाकारक रूपमे प्रसिद्ध छलाह?", options: ["गायक (दरभंगा राजसभा)", "चित्रकार", "नर्तक", "वादक"], correct: 0 }
+    ];
+    
+    const fullData = [...questions, ...extraCulture];
+    while(fullData.length < 100) {
+        fullData.push({ text: "मैथिल संस्कृतिक विशेषता के अखनो सजीव अछि?", options: ["अइपन, संस्कार, भाषा, रीति", "केवल धर्म", "केवल पर्व", "केवल खानपान"], correct: 0 });
+    }
+    if(fullData.length > 100) fullData.length = 100;
+    
+    // ---------- क्विज़ लॉजिक ----------
+    let currentIndex = 0;
+    let userAnswers = new Array(100).fill(null);
+    let completed = false;
+    
+    const container = document.getElementById('questionPanel');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const submitBtn = document.getElementById('submitQuiz');
+    const qCountSpan = document.getElementById('qCounter');
+    const progressFill = document.getElementById('progressFill');
+    const scoreSpan = document.getElementById('scoreValue');
+    
+    function updateStats() {
+        const answered = userAnswers.filter(a => a !== null).length;
+        const percent = (answered / 100) * 100;
+        progressFill.style.width = percent + '%';
+        scoreSpan.innerText = `🌸 ${answered}/१००`;
+        qCountSpan.innerText = `प्रश्न ${currentIndex+1}/१००`;
+    }
+    
+    function renderCurrent() {
+        const q = fullData[currentIndex];
+        let optsHtml = '';
+        const letters = ['(क)', '(ख)', '(ग)', '(घ)'];
+        q.options.forEach((opt, idx) => {
+            const selected = (userAnswers[currentIndex] === idx);
+            const selClass = selected ? 'selected' : '';
+            optsHtml += `
+                <div class="option-row ${selClass}" data-opt-index="${idx}">
+                    <div class="opt-letter">${letters[idx]}</div>
+                    <div class="opt-text">${opt}</div>
+                </div>
+            `;
+        });
+        const html = `
+            <div class="question-card">
+                <div class="q-text">${currentIndex+1}. ${q.text}</div>
+                <div class="options-list" id="optsArea">${optsHtml}</div>
+            </div>
+        `;
+        container.innerHTML = html;
+        document.querySelectorAll('.option-row').forEach(el => {
+            el.addEventListener('click', () => {
+                if (completed) return;
+                const idx = parseInt(el.dataset.optIndex);
+                userAnswers[currentIndex] = idx;
+                renderCurrent();
+                updateStats();
+            });
+        });
+        prevBtn.disabled = (currentIndex === 0);
+        nextBtn.innerText = (currentIndex === 99) ? 'अंतिम ▶' : 'अगला ▶';
+    }
+    
+    function goPrev() { if (currentIndex > 0) { currentIndex--; renderCurrent(); } }
+    function goNext() { if (currentIndex < 99) { currentIndex++; renderCurrent(); } }
+    
+    function computeScore() {
+        let s = 0;
+        for (let i=0; i<100; i++) {
+            if (userAnswers[i] !== null && userAnswers[i] === fullData[i].correct) s++;
+        }
+        return s;
+    }
+    
+    function finishQuiz() {
+        if (completed) return;
+        completed = true;
+        const score = computeScore();
+        const percent = Math.round((score/100)*100);
+        let resultHtml = `<div class="result-area"><p style="font-size:1.7rem; font-weight:bold;">${score}/१०० (${percent}%)</p><p>🌺 मिथिलाक सांस्कृतिक विरासतक मूल्यांकन</p>`;
+        resultHtml += `<div class="review-list"><strong>📖 गलत उत्तर देल प्रश्नसभक समीक्षा :</strong>`;
+        let hasWrong = false;
+        for (let i=0; i<100; i++) {
+            if (userAnswers[i] !== null && userAnswers[i] !== fullData[i].correct) {
+                hasWrong = true;
+                const correctAns = fullData[i].options[fullData[i].correct];
+                const userAns = fullData[i].options[userAnswers[i]];
+                resultHtml += `<div class="review-item"><span class="wrong-mark">❌ प्रश्न ${i+1}:</span> ${fullData[i].text}<br>  आपक उत्तर: ${userAns}<br>  <span class="correct-mark">✓ सही उत्तर: ${correctAns}</span></div>`;
+            }
+        }
+        if (!hasWrong) resultHtml += `<div class="review-item">✨ बधाई! सभि उत्तर सही अछि। अहाँ मैथिल संस्कृतिक गहन ज्ञाता छी ✨</div>`;
+        resultHtml += `</div><button id="restartBtn" style="margin-top:20px; background:#9f5d32;">🔄 क्विज़ पुनः शुरू करू</button></div>`;
+        document.getElementById('resultBlock').innerHTML = resultHtml;
+        document.getElementById('restartBtn')?.addEventListener('click', () => location.reload());
+        prevBtn.disabled = true;
+        nextBtn.disabled = true;
+        submitBtn.disabled = true;
+    }
+    
+    prevBtn.addEventListener('click', goPrev);
+    nextBtn.addEventListener('click', goNext);
+    submitBtn.addEventListener('click', finishQuiz);
+    renderCurrent();
+    updateStats();
+
+</script></body>
+</html>

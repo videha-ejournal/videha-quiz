@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मिथिला इतिहास प्रश्नोत्तरी | Mithila History Quiz — विदेह ई-लर्निङ्ग</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1a2744;--crimson:#8B1A1A;--gold:#c49a3c;--cream:#FAF6EE;--white:#fff;--ok-bg:#e8f5e9;--ok-fg:#2e7d32;--bad-bg:#ffebee;--bad-fg:#b71c1c}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);font-family:'Lato',sans-serif;color:var(--navy);min-height:100vh}
+header{background:var(--navy);color:#fff;padding:18px 20px 13px;text-align:center;border-bottom:4px solid var(--gold)}
+header h1{font-family:'Playfair Display',serif;font-size:1.55em;line-height:1.3;margin-bottom:3px}
+header h1 .mai{font-family:'Noto Serif Devanagari',serif}
+header p{font-size:.8em;color:#a0b0d0;font-style:italic}
+.tabs{display:flex;background:var(--navy);border-bottom:3px solid var(--gold)}
+.tbtn{flex:1;padding:11px 10px;background:transparent;color:#7a8aaa;border:none;border-bottom:3px solid transparent;margin-bottom:-3px;cursor:pointer;font-size:.95em;font-family:'Noto Serif Devanagari','Lato',sans-serif;transition:.15s}
+.tbtn.active{color:var(--gold);border-bottom-color:var(--gold)}
+.tbtn:hover:not(.active){color:#fff}
+.wrap{max-width:700px;margin:26px auto;padding:0 14px 40px}
+.srow{display:flex;align-items:center;gap:12px;margin-bottom:15px;flex-wrap:wrap}
+.srow label{font-size:.86em;color:#5a6a8a;font-weight:700;font-family:'Noto Serif Devanagari',sans-serif}
+select.ss{font-size:.88em;padding:5px 10px;border:1px solid #c0cada;border-radius:5px;background:#fff;color:var(--navy);cursor:pointer}
+.qhdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:11px}
+.qtitle{font-family:'Playfair Display',serif;font-size:.97em;color:var(--crimson)}
+.qstat{font-size:.83em;color:#5a6a8a}
+.progw{background:#d4dae6;border-radius:4px;height:6px;margin-bottom:17px;overflow:hidden}
+.progb{background:var(--gold);height:100%;border-radius:4px;transition:width .3s}
+.card{background:#fff;border-radius:10px;box-shadow:0 4px 18px rgba(26,39,68,.11);padding:24px 24px 18px;margin-bottom:16px;border-left:5px solid var(--crimson)}
+.qnum{font-size:.73em;color:var(--gold);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px}
+.qword{font-family:'Noto Serif Devanagari',serif;font-size:1.18em;font-weight:600;margin-bottom:4px;line-height:1.6;color:var(--navy)}
+.qcat{font-size:.79em;color:#7a8aaa;font-style:italic;margin-bottom:16px;font-family:'Noto Serif Devanagari',serif}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:500px){.choices{grid-template-columns:1fr}.qword{font-size:1em}.card{padding:16px 13px}}
+.cbtn{font-family:'Noto Serif Devanagari','Lato',sans-serif;font-size:.95em;padding:11px 13px;background:#f0f4fc;color:var(--navy);border:2px solid #d0d8ea;border-radius:7px;cursor:pointer;text-align:left;transition:.15s;line-height:1.55;width:100%}
+.cbtn:hover:not(:disabled){background:#e2eaf8;border-color:var(--navy)}
+.cbtn.ok{background:var(--ok-bg);border-color:var(--ok-fg);color:var(--ok-fg);font-weight:700}
+.cbtn.bad{background:var(--bad-bg);border-color:var(--bad-fg);color:var(--bad-fg)}
+.cbtn.rev{background:var(--ok-bg);border-color:var(--ok-fg);color:var(--ok-fg);font-weight:700}
+.fb{margin-top:11px;font-size:.89em;font-weight:600;min-height:20px;font-family:'Noto Serif Devanagari',serif}
+.fb.ok{color:var(--ok-fg)}.fb.bad{color:var(--bad-fg)}
+.nav{display:flex;gap:9px;flex-wrap:wrap}
+.nbtn{font-family:'Lato',sans-serif;font-size:.91em;font-weight:700;padding:9px 20px;border-radius:6px;border:none;cursor:pointer;transition:.15s}
+.nbtn.pri{background:var(--crimson);color:#fff}.nbtn.pri:hover{background:var(--navy)}
+.nbtn.sec{background:transparent;color:var(--navy);border:2px solid var(--navy)}.nbtn.sec:hover{background:var(--navy);color:#fff}
+.scoreboard{background:#fff;border-radius:10px;box-shadow:0 4px 18px rgba(26,39,68,.11);padding:34px 26px;text-align:center}
+.scbig{font-family:'Playfair Display',serif;font-size:2.8em;color:var(--crimson);font-weight:700;margin-bottom:6px}
+.scpct{font-size:1.05em;color:#5a6a8a;margin-bottom:9px}
+.scmsg{font-family:'Noto Serif Devanagari','Lato',sans-serif;font-size:1em;color:var(--navy);margin-bottom:20px}
+.orn{text-align:center;color:var(--gold);font-size:1em;letter-spacing:.2em;margin-bottom:16px;opacity:.65}
+.pane{display:none}.pane.active{display:block}
+.counter-badge{background:var(--crimson);color:#fff;font-size:.72em;font-weight:700;padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle}
+.hint-box{background:#fffbef;border:1px solid var(--gold);border-radius:7px;padding:10px 14px;margin-top:10px;font-family:'Noto Serif Devanagari',serif;font-size:.85em;color:#5a4010;display:none}
+.hint-box.show{display:block}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+<script type="text/javascript">var is_ie = 0;</script></head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+<div class="tabs"> <button class="tbtn active" id="tab-hist" onclick="switchMode('hist')">मिथिला इतिहास <span class="counter-badge">40</span></button> <button class="tbtn" id="tab-lit" onclick="switchMode('lit')">साहित्य एवं संगीत <span class="counter-badge">30</span></button> <button class="tbtn" id="tab-cult" onclick="switchMode('cult')">संस्कृति एवं भाषा <span class="counter-badge">25</span></button>
+</div>
+<div class="wrap"> <div class="pane active" id="pane-hist"> <div class="orn">&#10022; &#10022; &#10022;</div> <div class="srow"> <label>प्रश्न-संख्या:</label> <select class="ss" id="qsize-hist"> <option value="10">10</option> <option value="15">15</option> <option value="20" selected>20</option> <option value="40">सभ — All 40</option> </select> <button class="nbtn pri" style="padding:6px 15px;font-size:.84em" onclick="startQuiz('hist')">नव क्विज / New Quiz</button> </div> <div id="area-hist"></div> </div> <div class="pane" id="pane-lit"> <div class="orn">&#10022; &#10022; &#10022;</div> <div class="srow"> <label>प्रश्न-संख्या:</label> <select class="ss" id="qsize-lit"> <option value="10">10</option> <option value="15">15</option> <option value="20" selected>20</option> <option value="30">सभ — All 30</option> </select> <button class="nbtn pri" style="padding:6px 15px;font-size:.84em" onclick="startQuiz('lit')">नव क्विज / New Quiz</button> </div> <div id="area-lit"></div> </div> <div class="pane" id="pane-cult"> <div class="orn">&#10022; &#10022; &#10022;</div> <div class="srow"> <label>प्रश्न-संख्या:</label> <select class="ss" id="qsize-cult"> <option value="10">10</option> <option value="15">15</option> <option value="25">सभ — All 25</option> </select> <button class="nbtn pri" style="padding:6px 15px;font-size:.84em" onclick="startQuiz('cult')">नव क्विज / New Quiz</button> </div> <div id="area-cult"></div> </div> </div>
+<script>
+
+</script><script>
+
+var QDB = {
+
+/* ══════════════════════════════════════════════════════════════
+   SECTION 1: मिथिला इतिहास (40 प्रश्न)
+   ══════════════════════════════════════════════════════════════ */
+hist: [
+  {
+    q: "मिथिलाक परम्परागत सीमाक वर्णन बृहदविष्णुपुराणक कोन खण्डमे अछि?",
+    cat: "मिथिला भूगोल",
+    choices: ["मिथिला महात्म्य खंड", "तीर्थ खंड", "उत्तर खंड", "मोक्ष खंड"],
+    correct: 0,
+    hint: "पाँचम शताब्दीक ग्रंथ"
+  },
+  {
+    q: "बृहदविष्णुपुराणमे मिथिलाक परम्परागत सीमाक अनुसार उत्तरमे कोन पर्वत श्रृंखला छल?",
+    cat: "मिथिला भूगोल",
+    choices: ["विन्ध्य", "हिमवत्", "शिवालिक", "अरावली"],
+    correct: 1,
+    hint: "हिमालयक संस्कृत नाम"
+  },
+  {
+    q: "बृहदविष्णुपुराणक अनुसार मिथिलाक पूर्वमे कोन नदी छल?",
+    cat: "मिथिला भूगोल",
+    choices: ["गंगा", "गंडकी", "कोशिकी (कोसी)", "कमला"],
+    correct: 2,
+    hint: "कौशिकी = कोसी"
+  },
+  {
+    q: "बृहदविष्णुपुराणक अनुसार मिथिलाक पश्चिममे कोन नदी छल?",
+    cat: "मिथिला भूगोल",
+    choices: ["कोसी", "कमला", "गंडकी", "बागमती"],
+    correct: 2,
+    hint: "नेपालसँ आबयवाली नदी"
+  },
+  {
+    q: "बृहदविष्णुपुराणमे मिथिलाक कतेक गोट नामक उल्लेख भेटैत अछि?",
+    cat: "मिथिला नामावली",
+    choices: ["आठ", "दस", "बारह", "सोलह"],
+    correct: 2,
+    hint: "मिथिला, तीरभुक्ति, वैदेही आदि"
+  },
+  {
+    q: "मिथिलाक आदि शासक विदेहक नाओंपर मिथिलाक कोन नाम पड़ल?",
+    cat: "मिथिला नामावली",
+    choices: ["तिरहुत", "विदेह", "जानकी", "वैदेही"],
+    correct: 1,
+    hint: "राज्यक नाम शासकक नामपर"
+  },
+  {
+    q: "'तिरहुत' नामक उल्लेख सर्वप्रथम कोन ग्रंथमे भेल?",
+    cat: "मिथिला नामावली",
+    choices: ["रामायण", "महाभारत", "त्रिकाण्डकोश", "अमरकोश"],
+    correct: 2,
+    hint: "पुरुषोत्तमदेवक रचना, १२म शताब्दी"
+  },
+  {
+    q: "'त्रिकाण्डकोश' कोन शताब्दीमे रचल गेल?",
+    cat: "मिथिला साहित्य",
+    choices: ["१०म", "११म", "१२म", "१३म"],
+    correct: 2,
+    hint: "पुरुषोत्तमदेव एकर रचयिता छलाह"
+  },
+  {
+    q: "विदेह राज्यकुलक मिथिलापर शासनक प्रारम्भ काल किएक अनुमानित अछि?",
+    cat: "मिथिला इतिहास",
+    choices: ["५०० ई.पू.सँ", "१००० ई.पू.सँ", "३००० ई.पू.सँ", "५०० ई."],
+    correct: 2,
+    hint: "ई.पू. ३०००सँ ई.पू. ६०० धरि"
+  },
+  {
+    q: "मिथिलामे पञ्जी बेवस्थाक सम्पादन कोन वंशीय नरपतिक द्वारा प्रारम्भ भेल?",
+    cat: "मिथिला परम्परा",
+    choices: ["खण्डबला वंश", "ओइनवार वंश", "कर्णाट वंश", "गुप्त वंश"],
+    correct: 2,
+    hint: "हरिसिंहदेव एकर संस्थापक छलाह"
+  },
+  {
+    q: "सप्तरत्नाकरक रचयिता के छलाह?",
+    cat: "मिथिला साहित्य",
+    choices: ["विद्यापति", "चण्डेश्वर ठाकुर", "हरिसिंहदेव", "नान्यदेव"],
+    correct: 1,
+    hint: "मिथिलाक धर्मशास्त्रक विद्वान"
+  },
+  {
+    q: "मिथिलाक प्रथम कर्णाटवंशीय शासक के छलाह?",
+    cat: "मिथिला इतिहास",
+    choices: ["हरिसिंहदेव", "नान्यदेव", "महेश ठाकुर", "शक्तिसिंह"],
+    correct: 1,
+    hint: "१०९७ ई.मे मिथिलाक शासक बनलाह"
+  },
+  {
+    q: "नान्यदेव कोन वर्षमे मिथिलामे अपन राज्य स्थापित केलनि?",
+    cat: "मिथिला इतिहास",
+    choices: ["१०५० ई.", "१०७५ ई.", "१०९७ ई.", "१२०० ई."],
+    correct: 2,
+    hint: "११म शताब्दीक अन्त"
+  },
+  {
+    q: "खण्डबला राजकुलक स्थापना कोन शासकद्वारा कोन वर्षमे भेल?",
+    cat: "मिथिला इतिहास",
+    choices: ["हरिसिंहदेव, १२९६ई.", "महेश ठाकुर, १५५७ई.", "नान्यदेव, १०९७ई.", "महाराज शिव, १४५०ई."],
+    correct: 1,
+    hint: "म.म. महेश ठाकुर"
+  },
+  {
+    q: "मिथिलापर ओइनवार राजवंशक शासन कोन शताब्दीमे प्रारम्भ भेल?",
+    cat: "मिथिला इतिहास",
+    choices: ["१२म शताब्दी", "१३म शताब्दी", "१४म शताब्दीक मध्यमे", "१५म शताब्दी"],
+    correct: 2,
+    hint: "कर्णाटवंशक पतनक बाद"
+  },
+  {
+    q: "मिथिलामे भस्मसँ अंकित त्रिपुण्ड किनकर प्रतीक मानल जाइत अछि?",
+    cat: "मिथिला संस्कृति",
+    choices: ["वैष्णव भक्ति", "शिवभक्ति", "शाक्त भावना", "बौद्ध परम्परा"],
+    correct: 1,
+    hint: "शिवक चिन्ह"
+  },
+  {
+    q: "मिथिलाक्षरक विकास कोन यन्त्रसँ मान्य अछि?",
+    cat: "मिथिला लिपि",
+    choices: ["देवनागरी यन्त्र", "तान्त्रिक यन्त्र", "बौद्ध यन्त्र", "ज्योतिष यन्त्र"],
+    correct: 1,
+    hint: "तिरहुताक्षरक आरम्भ मंगलचिह्न 'आँजी'सँ"
+  },
+  {
+    q: "मिथिलाक्षरक आरम्भ कोन मंगल चिह्नसँ होइत अछि?",
+    cat: "मिथिला लिपि",
+    choices: ["ॐ", "श्री", "आँजी", "स्वस्तिक"],
+    correct: 2,
+    hint: "तान्त्रिक कुण्डलनीक बोधक"
+  },
+  {
+    q: "मिथिलामे बिआहक अवसरपर गाओल जाइबला 'जोग' कोन तन्त्रसँ सम्बद्ध मानल गेल अछि?",
+    cat: "मिथिला संगीत",
+    choices: ["वैदिक तन्त्र", "शाक्त तन्त्र", "योग तन्त्र", "बौद्ध तन्त्र"],
+    correct: 1,
+    hint: "मिथिलाक धार्मिक परम्पराक मुख्यधारा"
+  },
+  {
+    q: "मिथिलाक धार्मिक जीवनक मुख्यधारा कोन छल?",
+    cat: "मिथिला संस्कृति",
+    choices: ["बौद्ध धर्म", "जैन धर्म", "शिव ओ शक्तिमूलक", "वैष्णव"],
+    correct: 2,
+    hint: "शिव आ दुर्गाक उपासना"
+  },
+  {
+    q: "हरिसिंहदेवक राज्यकाल किएक उल्लेखनीय छल?",
+    cat: "मिथिला संगीत",
+    choices: ["मैथिली व्याकरणक विकास", "मैथिलीय संगीतक सक्रिय गतिविधि एवं विकास-प्रसार", "मैथिली साहित्यक प्रारम्भ", "पञ्जी बेवस्थाक स्थापना"],
+    correct: 1,
+    hint: "१२९६-१३२६ ई.क राज्यकाल"
+  },
+  {
+    q: "नान्यदेव मिथिलामे अपन राज्य स्थापित केलाक बाद कोन संगीतग्रंथ लिखलनि?",
+    cat: "मिथिला संगीत",
+    choices: ["संगीत रत्नाकर", "सरस्वती हृदयालंकार", "संगीत मकरंद", "नाट्यशास्त्र"],
+    correct: 1,
+    hint: "एहिमे मैथिलीय रागरागिनीक उल्लेख"
+  },
+  {
+    q: "मैथिलीय रागरागिनीक प्राचीनतम उल्लेख कोन ग्रंथमे उपलब्ध होइत अछि?",
+    cat: "मिथिला संगीत",
+    choices: ["नाट्यशास्त्र", "चर्यापद", "अमरकोश", "सरस्वती हृदयालंकार"],
+    correct: 1,
+    hint: "बौद्ध सिद्ध लोकनिक रचना"
+  },
+  {
+    q: "मिथिलामे भस्मसँ अंकित लम्बाकार श्रीखंडक टीका किनकर प्रतीक मानल जाइत अछि?",
+    cat: "मिथिला संस्कृति",
+    choices: ["शिवभक्ति", "विष्णुभक्ति", "शाक्त भावना", "देवी पूजा"],
+    correct: 1,
+    hint: "श्रीखंड = चंदन"
+  },
+  {
+    q: "मिथिलामे सिन्दूरक ठोप किनकर प्रतीक मानल जाइत अछि?",
+    cat: "मिथिला संस्कृति",
+    choices: ["शैव", "वैष्णव", "शाक्त", "बौद्ध"],
+    correct: 2,
+    hint: "देवी शक्तिक प्रतीक"
+  },
+  {
+    q: "'तिरहुति' कोन रसक मधुरगीत थिक?",
+    cat: "मिथिला संगीत",
+    choices: ["करुण रस", "वीर रस", "शृंगाररस", "भक्ति रस"],
+    correct: 2,
+    hint: "नायक-नायिकाक संयोग-वियोगक वर्णन"
+  },
+  {
+    q: "'बटगवनी'मे किनकर वर्णन होइत अछि?",
+    cat: "मिथिला संगीत",
+    choices: ["राधाकृष्णक रासलीला", "सखी सबहक संग समागम-गृहमे पतिसँ अभिसारक हेतु जाइत नायिका", "गोपी सबहक केलिकौतुक", "भक्तक भगवत्प्रेम"],
+    correct: 1,
+    hint: "अभिसार थिक एकर मुख्य विषय"
+  },
+  {
+    q: "'गोआलरी'क विषय-वस्तु की होइत अछि?",
+    cat: "मिथिला संगीत",
+    choices: ["नायिकाक वियोगविलाप", "गोपी सबहक संग कृष्णक नोंक-झोंक एवं केलिकौतुक", "राधाकृष्णक प्रेमलीला", "शिवपार्वतीक विवाह"],
+    correct: 1,
+    hint: "गोआलरी = गोपालसँ सम्बद्ध"
+  },
+  {
+    q: "'रास'मे किनकर वर्णन होइत अछि?",
+    cat: "मिथिला संगीत",
+    choices: ["शिवपार्वतीक विवाह", "गोपी सबहक संग कृष्णक रासलीला", "विद्यापतिक पद", "लोकगाथाक वर्णन"],
+    correct: 1,
+    hint: "कृष्णलीलाक एक विशेष रूप"
+  },
+  {
+    q: "रासक सर्वप्रथम रचयिता के छलाह?",
+    cat: "मिथिला साहित्य",
+    choices: ["विद्यापति", "साहेबरामदास", "चण्डेश्वर ठाकुर", "हरिसिंहदेव"],
+    correct: 1,
+    hint: "मिथिलाक एक प्रसिद्ध संगीतकार"
+  },
+  {
+    q: "मिथिलाक लोकवाणी हेतु 'मैथिली' शब्दक प्रयोग सर्वप्रथम कोन वर्षमे केलनि?",
+    cat: "मैथिली भाषा",
+    choices: ["१७०१ ई.", "१८०१ ई.", "१८५१ ई.", "१९०१ ई."],
+    correct: 1,
+    hint: "कोलब्रुक महोदय"
+  },
+  {
+    q: "मैथिली भाषाक 'मैथिली' नामकेँ प्रसिद्ध करबाक श्रेय के महोदयकेँ देल जाइत अछि?",
+    cat: "मैथिली भाषा",
+    choices: ["कोलब्रुक", "ग्रियर्सन", "सर्वानन्द", "भरत मुनि"],
+    correct: 1,
+    hint: "मैथिली साहित्यक आदि उन्नायक"
+  },
+  {
+    q: "मूल भारोपीय भाषाक काल कोन मानल जाइत अछि?",
+    cat: "मैथिली भाषा",
+    choices: ["५०० ई.पू.", "१००० ई.पू.", "२५०० ई.पू.", "३५०० ई.पू."],
+    correct: 2,
+    hint: "कालानुसारेँ"
+  },
+  {
+    q: "प्राचीन भारतीय आर्यभाषाक इतिहास कोन ई.पू.सँ मानल जाइत अछि?",
+    cat: "मैथिली भाषा",
+    choices: ["५०० ई.पू.", "१२०० ई.पू.", "२५०० ई.पू.", "३०० ई.पू."],
+    correct: 1,
+    hint: "ऋग्वेदक रचनाकाल"
+  },
+  {
+    q: "बौद्धधर्मक सुप्रसिद्ध ग्रंथ 'ललितविस्तार'मे 'वैदेहीलिपि'क उल्लेख किएक महत्वपूर्ण अछि?",
+    cat: "मिथिला लिपि",
+    choices: ["मैथिली लिपिक प्राचीनतम स्वरूपक साक्ष्य", "मैथिली व्याकरणक साक्ष्य", "मैथिली साहित्यक प्राचीनतम साक्ष्य", "बौद्ध धर्मक मिथिलामे प्रसारक साक्ष्य"],
+    correct: 0,
+    hint: "वैदेहीलिपि = मिथिलाक्षर"
+  },
+  {
+    q: "दीर्घ आख्यानपर आधारित गेयात्मक कथाकेँ की कहल जाइत अछि?",
+    cat: "मिथिला साहित्य",
+    choices: ["लोकगाथा", "भजन", "चर्यापद", "कीर्तनिञानाच"],
+    correct: 0,
+    hint: "लोक परम्पराक कथात्मक गीत"
+  },
+  {
+    q: "मैथिलीक किछु प्रमुख लोकगाथा कोन-कोन थिक?",
+    cat: "मिथिला साहित्य",
+    choices: ["लोरिकाइन, सलहेस, अनंगकुसुमा", "रामायण, महाभारत, गीता", "मेघदूत, अभिज्ञानशाकुन्तलम्", "पद्मावत, सूरसागर"],
+    correct: 0,
+    hint: "मिथिलाक प्रसिद्ध लोककाव्य"
+  },
+  {
+    q: "मिथिलामे 'कीर्तनिञानाच'क परिपाटीक आरम्भ कोन शताब्दीमे भेल?",
+    cat: "मिथिला संस्कृति",
+    choices: ["१५म शताब्दी", "१६म शताब्दी", "१७म शताब्दी", "१८म शताब्दी"],
+    correct: 2,
+    hint: "नवद्वीपक कीर्तनमण्डलीक प्रभावसँ"
+  },
+  {
+    q: "'अंकियानाट'क आदि रचयिता के छलाह?",
+    cat: "मिथिला साहित्य",
+    choices: ["विद्यापति", "शंकरदेव (१४४९-१५६९)", "चण्डेश्वर ठाकुर", "साहेबरामदास"],
+    correct: 1,
+    hint: "असमक महान सन्त-नाटककार"
+  },
+  {
+    q: "नाटकमे कतेक प्रकारक अभिनय आवश्यक होइत अछि?",
+    cat: "मिथिला साहित्य",
+    choices: ["दू", "तीन", "चारि", "पाँच"],
+    correct: 2,
+    hint: "आंगिक, वाचिक, आहार्य, सात्त्विक"
+  },
+  {
+    q: "मिथिलामे 'कीर्तनिञानाच'क आरम्भ कोन कीर्तनमण्डलीक प्रभावसँ भेल?",
+    cat: "मिथिला संस्कृति",
+    choices: ["वृन्दावनक", "नवद्वीपक", "पुरीक", "काशीक"],
+    correct: 1,
+    hint: "चैतन्य महाप्रभुक गृहनगर"
+  }
+],
+
+/* ══════════════════════════════════════════════════════════════
+   SECTION 2: साहित्य एवं संगीत (30 प्रश्न)
+   ══════════════════════════════════════════════════════════════ */
+lit: [
+  {
+    q: "'वर्णरत्नाकर' निर्विवाद रूपसँ मैथिली साहित्यमे कोन विशेषता राखैत अछि?",
+    cat: "मैथिली साहित्य",
+    choices: ["प्रथम उपलब्ध पद्य ग्रंथ", "प्रथम उपलब्ध गद्य ग्रंथ", "प्रथम व्याकरण ग्रंथ", "प्रथम शब्दकोश"],
+    correct: 1,
+    hint: "ज्योतिरीश्वर ठाकुरक रचना"
+  },
+  {
+    q: "विद्यापतिक 'पुरुषपरीक्षा' कोन परम्पराक ग्रंथ थिक?",
+    cat: "विद्यापति",
+    choices: ["प्रेम काव्यक", "भक्ति काव्यक", "पंचतंत्र-हितोपदेश परम्पराक संस्कृत नीतिकथाक", "इतिहासक"],
+    correct: 2,
+    hint: "पंचतंत्र-हितोपदेश परम्परामे"
+  },
+  {
+    q: "विद्यापतिक 'कीर्तिलता' कोन भाषामे रचल गेल?",
+    cat: "विद्यापति",
+    choices: ["संस्कृत", "मैथिली", "अवहट्ट", "प्राकृत"],
+    correct: 2,
+    hint: "गद्यपद्यमय रचना"
+  },
+  {
+    q: "'गोरक्षविजय' विद्यापतिक कोन प्रकारक ग्रंथ थिक?",
+    cat: "विद्यापति",
+    choices: ["मैथिली पदावली", "हिंदी काव्य", "संस्कृत नाटक", "अवहट्ट ग्रंथ"],
+    correct: 2,
+    hint: "एहिमे मैथिली पद सेहो प्रयुक्त"
+  },
+  {
+    q: "'विशुद्ध विद्यापति पदावली' विद्यापतिसँ कम-सँ-कम कतेक शताब्दी पश्चातक संकलन थिक?",
+    cat: "विद्यापति",
+    choices: ["अर्ध शताब्दी", "एक शताब्दी", "दू शताब्दी", "तीन शताब्दी"],
+    correct: 1,
+    hint: "परवर्ती संकलन"
+  },
+  {
+    q: "दरभंगा राज हाई स्कूलक स्थापना कोन वर्षमे भेल?",
+    cat: "मैथिली शिक्षा",
+    choices: ["१८५०ई.", "१८७९ई.", "१८९५ई.", "१९०५ई."],
+    correct: 1,
+    hint: "उत्तर-भारतक प्राचीन विद्यालयक एक"
+  },
+  {
+    q: "मैथिली भारतक प्रमुख साहित्यिक भाषाक रूपमे साहित्य अकादेमी, दिल्ली द्वारा कोन वर्षमे स्वीकृत भेल?",
+    cat: "मैथिली मान्यता",
+    choices: ["१९५४ई.", "१९६०ई.", "१९६६ई.", "१९७०ई."],
+    correct: 2,
+    hint: "आजादीक करीब दू दशक बाद"
+  },
+  {
+    q: "मैथिली अकादमीक स्थापना कोन वर्षमे भेल?",
+    cat: "मैथिली मान्यता",
+    choices: ["१९५५ई.", "१९६६ई.", "१९७२ई.", "१९७६ई."],
+    correct: 3,
+    hint: "साहित्य अकादेमी मान्यताक एक दशक बाद"
+  },
+  {
+    q: "विद्यापतिक 'कीर्तिलता' की थिक?",
+    cat: "विद्यापति",
+    choices: ["शुद्ध संस्कृत काव्य", "शुद्ध मैथिली काव्य", "अवहट्टक गद्यपद्यमय ग्रंथ", "हिंदी खड़ीबोलीक ग्रंथ"],
+    correct: 2,
+    hint: "अवहट्ट = प्राकृत-अपभ्रंशक एक रूप"
+  },
+  {
+    q: "मिथिलामे 'कीर्तनिञानाच'क परिपाटीक आरम्भ कोन प्रभावसँ भेल?",
+    cat: "मिथिला साहित्य",
+    choices: ["बौद्ध धर्मक प्रभावसँ", "नवद्वीपक कीर्तनमण्डलीक प्रभावसँ", "विद्यापतिक प्रभावसँ", "संस्कृत नाटकक प्रभावसँ"],
+    correct: 1,
+    hint: "१७म शताब्दीक आदिमे"
+  },
+  {
+    q: "कोनो युगमे शिष्ट ओ परिनिष्ठित साहित्यसँ भिन्न जे रचना होइत अछि से ओहि युगक की कहाइत अछि?",
+    cat: "मिथिला साहित्य",
+    choices: ["शास्त्रीय साहित्य", "लोक-साहित्य", "शृंगार साहित्य", "धार्मिक साहित्य"],
+    correct: 1,
+    hint: "जनसाधारणक रचना"
+  },
+  {
+    q: "विद्यापतिक 'पुरुषपरीक्षा'क भाषा की थिक?",
+    cat: "विद्यापति",
+    choices: ["मैथिली", "हिंदी", "संस्कृत", "अवहट्ट"],
+    correct: 2,
+    hint: "नीतिकथाक भाषा"
+  },
+  {
+    q: "मैथिलीय संगीतक सक्रिय गतिविधि ओ विकास-प्रसारक दृष्टिसँ कोन राजाक राज्यकाल उल्लेखनीय अछि?",
+    cat: "मिथिला संगीत",
+    choices: ["नान्यदेव", "विद्यापति", "हरिसिंहदेव", "महेश ठाकुर"],
+    correct: 2,
+    hint: "१२९६-१३२६ ई."
+  },
+  {
+    q: "सरस्वती हृदयालंकारमे सर्वप्रथम कोन विषयक क्रमबद्ध उल्लेख भेल?",
+    cat: "मिथिला संगीत",
+    choices: ["मैथिलीय लोकगाथा", "मैथिलीय रागरागिनी", "मैथिलीय व्याकरण", "मैथिलीय कविता"],
+    correct: 1,
+    hint: "नान्यदेवक संगीत ग्रंथ"
+  },
+  {
+    q: "नाटकमे चारि प्रकारक अभिनय कोन-कोन थिक?",
+    cat: "मिथिला साहित्य",
+    choices: ["गीत, नृत्य, संगीत, नाट्य", "आंगिक, वाचिक, आहार्य, सात्त्विक", "श्रृंगार, करुण, वीर, भक्ति", "रस, भाव, अलंकार, ध्वनि"],
+    correct: 1,
+    hint: "भरत मुनिक नाट्यशास्त्रक परम्परा"
+  },
+  {
+    q: "'अंकियानाट'क आदि रचयिता शंकरदेवक जीवनकाल कोन अवधि थिक?",
+    cat: "मिथिला साहित्य",
+    choices: ["१३५०-१४५०ई.", "१४४९-१५६९ई.", "१५०० -१५७०ई.", "१४००-१५००ई."],
+    correct: 1,
+    hint: "असमक महान वैष्णव सन्त"
+  },
+  {
+    q: "मैथिलीय संगीतक सर्वप्रथम उल्लेख कोनठाम उपलब्ध होइत अछि?",
+    cat: "मिथिला संगीत",
+    choices: ["विद्यापतिक पदावलीमे", "सिद्ध लोकनिक 'चर्यापद'मे", "रामायणमे", "कालिदासक ग्रंथमे"],
+    correct: 1,
+    hint: "बौद्ध सिद्धक रचना"
+  },
+  {
+    q: "मैथिली भाषाक लिपिक प्राचीनतम स्वरूप 'वैदेहीलिपि'क उल्लेख कोन बौद्धग्रंथमे अछि?",
+    cat: "मिथिला लिपि",
+    choices: ["धम्मपद", "त्रिपिटक", "ललितविस्तार", "बुद्धचरित"],
+    correct: 2,
+    hint: "गौतम बुद्धक जीवनीपर आधारित ग्रंथ"
+  },
+  {
+    q: "मैथिली साहित्यमे 'वर्णरत्नाकर'क रचयिता के थिकाह?",
+    cat: "मैथिली साहित्य",
+    choices: ["विद्यापति", "ज्योतिरीश्वर ठाकुर", "चण्डेश्वर ठाकुर", "उमापति ठाकुर"],
+    correct: 1,
+    hint: "मिथिलाक एक महान पंडित"
+  },
+  {
+    q: "'लोरिकाइन' की थिक?",
+    cat: "मैथिली साहित्य",
+    choices: ["एक प्रकारक नृत्य", "एक मैथिली लोकगाथा", "एक संगीत राग", "एक नाटक"],
+    correct: 1,
+    hint: "लोरिक नामक लोकनायकपर आधारित"
+  },
+  {
+    q: "मैथिलीमे 'सलहेस' की थिक?",
+    cat: "मैथिली साहित्य",
+    choices: ["एक ग्रंथक नाम", "एक लोकनायकक नाम जिनकपर आधारित लोकगाथा", "एक नृत्य शैली", "एक संगीत परम्परा"],
+    correct: 1,
+    hint: "मिथिलाक लोकनायक"
+  },
+  {
+    q: "बृहदविष्णुपुराणमे मिथिलाक बारह नामक उल्लेख कोन श्लोकमे अछि जाहिमे 'ज्ञानशीलं' शब्द अछि?",
+    cat: "मिथिला नामावली",
+    choices: ["प्रथम श्लोक", "द्वितीय श्लोक", "तृतीय श्लोक", "चतुर्थ श्लोक"],
+    correct: 1,
+    hint: "ज्ञानशीलं कृपापीठं स्वर्णलांगलपद्धतिः"
+  },
+  {
+    q: "बृहदविष्णुपुराणक मिथिला नामावलीमे 'निर्णयमंगला' कोन श्लोकमे अछि?",
+    cat: "मिथिला नामावली",
+    choices: ["प्रथम", "द्वितीय", "तृतीय", "चतुर्थ"],
+    correct: 3,
+    hint: "रामानन्दकरी विश्वभाविनी नित्यमंगला"
+  },
+  {
+    q: "मिथिलाक परम्परागत सीमाक वर्णनमे 'कमला त्रियुगा अमृता धेमुड़ा बागमती कृतसारा' — एत्तैक नदी कोन दिसक अछि?",
+    cat: "मिथिला भूगोल",
+    choices: ["उत्तरी", "दक्षिणी", "पूर्वी", "मध्यवर्ती"],
+    correct: 3,
+    hint: "मध्यमे बहैत छल"
+  },
+  {
+    q: "मिथिलाक परम्परागत सीमा वर्णनमे 'दक्षिण दिसि' कोन नदी अछि?",
+    cat: "मिथिला भूगोल",
+    choices: ["गंडकी", "कोशिकी", "गंगा", "लक्ष्मणा"],
+    correct: 2,
+    hint: "मिथिलाक दक्षिणी सीमा"
+  },
+  {
+    q: "मिथिलाक बारह नामक श्लोकमे 'जानकी जन्मभूमि' उल्लेख किएक महत्वपूर्ण अछि?",
+    cat: "मिथिला नामावली",
+    choices: ["सीताक जन्मस्थानक रूपमे मिथिलाक पहचान", "रामक राजधानीक रूपमे", "बौद्धधर्मक केन्द्रक रूपमे", "वेदपाठकेन्द्रक रूपमे"],
+    correct: 0,
+    hint: "सीता = जानकी = मिथिलेश-नन्दिनी"
+  },
+  {
+    q: "मैथिलीय संगीतमे 'तिरहुति'मे कोन रसक प्रयोग होइत अछि?",
+    cat: "मिथिला संगीत",
+    choices: ["केवल वियोगक", "केवल संयोगक", "शृंगाररसक (संयोग ओ वियोग दुनू)", "भक्ति रसक"],
+    correct: 2,
+    hint: "नायक-नायिकाक सम्पूर्ण प्रेम लीला"
+  },
+  {
+    q: "मिथिलामे 'पञ्जी बेवस्था'क सम्पादनक आरम्भ करनिहार कर्णाटवंशीय नरपतिक नाम की छल?",
+    cat: "मिथिला इतिहास",
+    choices: ["नान्यदेव", "हरिसिंहदेव", "महेश ठाकुर", "शिव सिंह"],
+    correct: 1,
+    hint: "राज्यकाल १२९६-१३२६ई."
+  },
+  {
+    q: "मैथिलीय रागरागिनीक सर्वप्रथम क्रमबद्ध उल्लेख कोन ग्रंथमे केल गेल?",
+    cat: "मिथिला संगीत",
+    choices: ["चर्यापद", "सरस्वती हृदयालंकार", "संगीत रत्नाकर", "नाट्यशास्त्र"],
+    correct: 1,
+    hint: "नान्यदेवक ग्रंथ (१०९७ई.)"
+  },
+  {
+    q: "मैथिलीक कोन ग्रंथमे मैथिलीय रागरागिनीक प्राचीनतम उल्लेख अछि?",
+    cat: "मिथिला संगीत",
+    choices: ["विद्यापतिक पदावली", "चर्यापद (सिद्ध लोकनिक)", "नान्यदेवक सरस्वती हृदयालंकार", "दुनू क ओ ग "],
+    correct: 1,
+    hint: "बौद्ध सिद्धक रचना सर्वाधिक प्राचीन"
+  }
+],
+
+/* ══════════════════════════════════════════════════════════════
+   SECTION 3: संस्कृति एवं भाषा (25 प्रश्न)
+   ══════════════════════════════════════════════════════════════ */
+cult: [
+  {
+    q: "मिथिलाक्षर लिपिकेँ अन्य कोन नामसँ सेहो जानल जाइत अछि?",
+    cat: "मिथिला लिपि",
+    choices: ["देवनागरी", "बंगाली", "तिरहुताक्षर", "काइथी"],
+    correct: 2,
+    hint: "तिरहुत = मिथिला"
+  },
+  {
+    q: "मिथिलाक्षरक विकास कोन मान्यतापर आधारित अछि?",
+    cat: "मिथिला लिपि",
+    choices: ["वेदिक यज्ञक आधारपर", "तान्त्रिक यन्त्रपर आधारित", "बौद्ध मंत्रपर आधारित", "जैन परम्परापर आधारित"],
+    correct: 1,
+    hint: "शक्ति उपासनाक प्रतीक"
+  },
+  {
+    q: "मिथिलाक परम्परागत भित्तिचित्र/चित्रकलाक शैलीकेँ की कहल जाइत अछि?",
+    cat: "मिथिला कला",
+    choices: ["पटचित्र", "मधुबनी/मिथिला कला", "वारली", "गोण्ड"],
+    correct: 1,
+    hint: "अन्तर्राष्ट्रीय स्तरपर प्रसिद्ध"
+  },
+  {
+    q: "'पञ्जी' मिथिलामे कोन परम्पराकेँ दर्शाबैत अछि?",
+    cat: "मिथिला परम्परा",
+    choices: ["भू-अभिलेख राखबाक परम्परा", "वंशावलीक अभिलेख राखबाक परम्परा", "कर-संग्रहक परम्परा", "धार्मिक अनुष्ठानक परम्परा"],
+    correct: 1,
+    hint: "ब्राह्मण परिवारक वंश-गोत्र विवरण"
+  },
+  {
+    q: "मिथिलाक क्षेत्रमे 'मखान' उत्पादनक महत्व की अछि?",
+    cat: "मिथिला संस्कृति",
+    choices: ["औषधीय महत्व", "धार्मिक एवं आर्थिक दुनू दृष्टिसँ महत्वपूर्ण", "केवल निर्यातक लेल", "केवल स्थानीय उपयोगक लेल"],
+    correct: 1,
+    hint: "मिथिलाक पहचान"
+  },
+  {
+    q: "मिथिलाक लोक-संगीत परम्परामे 'समचकेवा' की थिक?",
+    cat: "मिथिला संगीत",
+    choices: ["एक प्रकारक नृत्य", "भाई-बहिनक प्रेमपर आधारित पर्वसम्बन्धी गीत", "एक वाद्य यंत्र", "एक विवाह गीत"],
+    correct: 1,
+    hint: "भैया-दूज जकाँ मिथिलाक एक पर्व"
+  },
+  {
+    q: "मिथिलामे 'सोहर' कोन अवसरपर गाओल जाइत अछि?",
+    cat: "मिथिला संगीत",
+    choices: ["विवाहक अवसरपर", "पूजाक अवसरपर", "शिशुक जन्मक अवसरपर", "मृत्युक अवसरपर"],
+    correct: 2,
+    hint: "प्रसवक पश्चात"
+  },
+  {
+    q: "मिथिलामे 'लगनी' गीत कोन अवसरपर गाओल जाइत अछि?",
+    cat: "मिथिला संगीत",
+    choices: ["जन्म", "विवाह", "मृत्यु", "देवपूजा"],
+    correct: 1,
+    hint: "विवाहक विभिन्न चरणमे"
+  },
+  {
+    q: "मिथिलामे 'झिझिया' कोन पर्वक नृत्य थिक?",
+    cat: "मिथिला संस्कृति",
+    choices: ["होली", "दुर्गापूजा", "दशहरा", "दीपावली"],
+    correct: 1,
+    hint: "महिलाक समूह नृत्य"
+  },
+  {
+    q: "मिथिलाक परम्परागत लोक-नाट्य शैली 'विदेशिया' की थिक?",
+    cat: "मिथिला संस्कृति",
+    choices: ["एक गीत शैली", "एक नाट्य शैली जे विदेशमे कमायक लेल गेल पुरुषक कथा कहैत अछि", "एक नृत्य शैली", "एक चित्रकला शैली"],
+    correct: 1,
+    hint: "भोजपुरी क्षेत्रमे सेहो प्रचलित"
+  },
+  {
+    q: "मैथिलीमे '८वीं अनुसूची'मे समावेश कोन वर्षमे भेल?",
+    cat: "मैथिली मान्यता",
+    choices: ["१९९२ई.", "२००३ई.", "२०१०ई.", "१९८५ई."],
+    correct: 1,
+    hint: "९२म संविधान संशोधन"
+  },
+  {
+    q: "मिथिलाक परम्परागत भोजनमे 'मखान'क उपयोग मुख्यतः कोन रूपमे होइत अछि?",
+    cat: "मिथिला संस्कृति",
+    choices: ["तरकारीमे", "पूजाक प्रसादमे एवं खान-पानमे", "दवाइमे", "केवल निर्यातक लेल"],
+    correct: 1,
+    hint: "धार्मिक एवं सामाजिक उपयोग"
+  },
+  {
+    q: "मिथिलाक 'कोहबर' चित्र कोन अवसरपर बनाओल जाइत अछि?",
+    cat: "मिथिला कला",
+    choices: ["पर्वक अवसरपर", "विवाहक अवसरपर", "जन्मक अवसरपर", "मृत्युक अवसरपर"],
+    correct: 1,
+    hint: "वासरघरक भित्ति चित्र"
+  },
+  {
+    q: "मिथिलामे 'माछ' (मछली) किएक महत्वपूर्ण मानल जाइत अछि?",
+    cat: "मिथिला संस्कृति",
+    choices: ["केवल आहारक रूपमे", "धार्मिक, सामाजिक एवं आर्थिक तीनू दृष्टिसँ", "केवल व्यापारक लेल", "केवल निर्यातक लेल"],
+    correct: 1,
+    hint: "विवाहमे शुभ प्रतीक"
+  },
+  {
+    q: "मिथिलाक्षरमे आरम्भिक मंगलचिह्न 'आँजी' कोन तान्त्रिक अवधारणाक प्रतीक थिक?",
+    cat: "मिथिला लिपि",
+    choices: ["त्रिशक्ति", "कुण्डलनी", "पंचदेव", "षोडशी"],
+    correct: 1,
+    hint: "योग एवं तन्त्रक मूल शक्ति"
+  },
+  {
+    q: "मिथिलाक 'अरिपन' (अल्पना) किएक बनाओल जाइत अछि?",
+    cat: "मिथिला कला",
+    choices: ["केवल सजावटक लेल", "शुभ एवं मांगलिक अवसरपर देवी-देवताक स्वागत हेतु", "केवल त्योहारमे", "केवल विवाहमे"],
+    correct: 1,
+    hint: "धार्मिक-मांगलिक प्रतीक चित्र"
+  },
+  {
+    q: "मिथिलाक 'भरनी' शैलीक चित्रमे कोन रंगक प्रयोग मुख्यतः होइत अछि?",
+    cat: "मिथिला कला",
+    choices: ["केवल काला-सफेद", "चटकीला भरावदार रंग", "केवल लाल रंग", "प्राकृतिक रंग मात्र"],
+    correct: 1,
+    hint: "मधुबनी चित्रकलाक एक शैली"
+  },
+  {
+    q: "मिथिलाक 'कचनी' शैली किएक विशेष अछि?",
+    cat: "मिथिला कला",
+    choices: ["एकरंगी रेखाचित्र", "बहुरंगी भरावदार चित्र", "केवल धार्मिक चित्र", "केवल प्राकृतिक दृश्य"],
+    correct: 0,
+    hint: "रेखाओंक बारीक जाल"
+  },
+  {
+    q: "मैथिलीमे 'चर्यापद' कोन धर्मसँ सम्बद्ध रचना थिक?",
+    cat: "मैथिली साहित्य",
+    choices: ["हिन्दू धर्म", "जैन धर्म", "बौद्ध धर्म (वज्रयान)", "सिक्ख धर्म"],
+    correct: 2,
+    hint: "सिद्धाचार्यगणक रचना"
+  },
+  {
+    q: "मिथिलाक पुरुषक परम्परागत वस्त्र धोतीक उपयोग किएक महत्वपूर्ण अछि?",
+    cat: "मिथिला संस्कृति",
+    choices: ["केवल धार्मिक अवसरपर", "दैनिक जीवनमे एवं सभी मांगलिक अवसरपर", "केवल विवाहमे", "केवल श्राद्धमे"],
+    correct: 1,
+    hint: "मिथिलाक पहचान"
+  },
+  {
+    q: "मिथिलामे 'तुलसी चौरा' किएक बनाओल जाइत अछि?",
+    cat: "मिथिला संस्कृति",
+    choices: ["सजावटक हेतु", "पूजाक स्थानक रूपमे, तुलसीक धार्मिक महत्वक कारण", "छायाक हेतु", "वायु शुद्धिक हेतु"],
+    correct: 1,
+    hint: "मिथिलाक घर-घरक परम्परा"
+  },
+  {
+    q: "मिथिलाक परम्परामे 'मड़वा' की थिक?",
+    cat: "मिथिला संस्कृति",
+    choices: ["एक प्रकारक खाद्य", "विवाह-मण्डप", "पूजाघर", "अनाज-भण्डार"],
+    correct: 1,
+    hint: "विवाहक मुख्य स्थान"
+  },
+  {
+    q: "मिथिलाक लोक परम्परामे 'छठ' कोन देवताक पर्व थिक?",
+    cat: "मिथिला संस्कृति",
+    choices: ["चन्द्रमाक", "सूर्यक", "इन्द्रक", "वरुणक"],
+    correct: 1,
+    hint: "षष्ठी = छठि माता = सूर्य षष्ठी"
+  },
+  {
+    q: "मिथिलाक 'बिदापत नाच' किएक प्रसिद्ध अछि?",
+    cat: "मिथिला संस्कृति",
+    choices: ["शास्त्रीय नृत्य शैलीक रूपमे", "विद्यापतिक पदावलीपर आधारित नृत्य-नाट्यक रूपमे", "केवल महिलाक नृत्यक रूपमे", "एक कुश्ती परम्पराक रूपमे"],
+    correct: 1,
+    hint: "विद्यापति = विदापत"
+  },
+  {
+    q: "मिथिलाक 'जट-जटिन' नाट्य शैली कोन विषयपर आधारित अछि?",
+    cat: "मिथिला संस्कृति",
+    choices: ["युद्ध आ वीरताक प्रसंगपर", "पति-पत्नीक बीचक प्रेम-कलह एवं वर्षा हेतु लोक-अनुष्ठानपर", "देवी-देवताक कथापर", "ऐतिहासिक घटनापर"],
+    correct: 1,
+    hint: "वर्षाक आगमनक कामनासँ जुड़ल"
+  }
+]
+
+};
+
+/* ══════ ENGINE ══════ */
+var ST = {hist:null, lit:null, cult:null};
+var curMode = 'hist';
+
+function shuffle(a){
+  var b=a.slice(),i=b.length,j,t;
+  while(i--){j=Math.floor(Math.random()*(i+1));t=b[i];b[i]=b[j];b[j]=t;}
+  return b;
+}
+
+function switchMode(m){
+  curMode=m;
+  ['hist','lit','cult'].forEach(function(x){
+    document.getElementById('tab-'+x).className='tbtn'+(x===m?' active':'');
+    document.getElementById('pane-'+x).className='pane'+(x===m?' active':'');
+  });
+  if(!ST[m])startQuiz(m);
+}
+
+function startQuiz(m){
+  var el=document.getElementById('qsize-'+m);
+  var sz=parseInt(el.value);
+  var pool=shuffle(QDB[m].slice()).slice(0,sz);
+  ST[m]={idx:0,score:0,qs:pool,answered:false,done:false};
+  render(m);
+}
+
+function esc(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function render(m){
+  var s=ST[m];
+  var el=document.getElementById('area-'+m);
+  if(!s||s.done){renderScore(m);return;}
+  var q=s.qs[s.idx];
+  var total=s.qs.length;
+  var pct=Math.round(s.idx/total*100);
+
+  var modeLabel = {
+    hist:'मिथिला इतिहास',
+    lit:'साहित्य एवं संगीत',
+    cult:'संस्कृति एवं भाषा'
+  }[m];
+
+  var nextLabel=(s.idx+1<total)?'अगिला / Next \u2192':'परिणाम / Result';
+
+  var ch='';
+  for(var i=0;i<q.choices.length;i++){
+    ch+='<button class="cbtn" id="cb-'+m+'-'+i+'" onclick="answer(\''+m+'\','+i+')">'+esc(q.choices[i])+'</button>';
+  }
+
+  var hintHtml='';
+  if(q.hint){
+    hintHtml='<div class="hint-box" id="hint-'+m+'">💡 '+esc(q.hint)+'</div>';
+  }
+
+  el.innerHTML=
+    '<div class="qhdr">'+
+      '<span class="qtitle">'+esc(modeLabel)+'</span>'+
+      '<span class="qstat">Q '+(s.idx+1)+'\u00a0/\u00a0'+total+'\u00a0\u00a0\u2713\u00a0'+s.score+'</span>'+
+    '</div>'+
+    '<div class="progw"><div class="progb" style="width:'+pct+'%"></div></div>'+
+    '<div class="card">'+
+      '<div class="qnum">प्रश्न '+(s.idx+1)+(q.cat?' &mdash; '+esc(q.cat):'')+'</div>'+
+      '<div class="qword">'+esc(q.q)+'</div>'+
+      '<div class="choices">'+ch+'</div>'+
+      hintHtml+
+      '<div class="fb" id="fb-'+m+'"></div>'+
+    '</div>'+
+    '<div class="nav">'+
+      '<button class="nbtn pri" id="nxt-'+m+'" style="display:none" onclick="nextQ(\''+m+'\')">'+nextLabel+'</button>'+
+      (q.hint?'<button class="nbtn sec" onclick="toggleHint(\''+m+'\')">संकेत / Hint</button>':'')+
+      '<button class="nbtn sec" onclick="skipQ(\''+m+'\')">&#x091B;&#x094B;&#x0921;&#x093C;&#x0942; / Skip</button>'+
+      '<button class="nbtn sec" onclick="startQuiz(\''+m+'\')">&#x0928;&#x0935; / New</button>'+
+    '</div>';
+}
+
+function toggleHint(m){
+  var h=document.getElementById('hint-'+m);
+  if(h)h.classList.toggle('show');
+}
+
+function answer(m,ci){
+  var s=ST[m];
+  if(!s||s.answered)return;
+  s.answered=true;
+  var q=s.qs[s.idx];
+  var ok=(ci===q.correct);
+  if(ok)s.score++;
+  for(var i=0;i<q.choices.length;i++){
+    var b=document.getElementById('cb-'+m+'-'+i);
+    b.disabled=true;
+    if(i===q.correct)b.className='cbtn rev';
+    else if(i===ci&&!ok)b.className='cbtn bad';
+  }
+  var fb=document.getElementById('fb-'+m);
+  if(ok){fb.textContent='\u2713 सही! Correct!';fb.className='fb ok';}
+  else{fb.innerHTML='\u2717 गलत! Wrong. \u2192 '+esc(q.choices[q.correct]);fb.className='fb bad';}
+  // show hint on wrong
+  if(!ok&&q.hint){
+    var h=document.getElementById('hint-'+m);
+    if(h)h.classList.add('show');
+  }
+  document.getElementById('nxt-'+m).style.display='inline-block';
+}
+
+function skipQ(m){
+  var s=ST[m];
+  if(!s)return;
+  if(s.answered){nextQ(m);return;}
+  var q=s.qs[s.idx];
+  for(var i=0;i<q.choices.length;i++){
+    var b=document.getElementById('cb-'+m+'-'+i);
+    b.disabled=true;
+    if(i===q.correct)b.className='cbtn rev';
+  }
+  var fb=document.getElementById('fb-'+m);
+  fb.innerHTML='उत्तर: '+esc(q.choices[q.correct]);
+  fb.className='fb';
+  if(q.hint){
+    var h=document.getElementById('hint-'+m);
+    if(h)h.classList.add('show');
+  }
+  s.answered=true;
+  document.getElementById('nxt-'+m).style.display='inline-block';
+}
+
+function nextQ(m){
+  var s=ST[m];
+  if(!s)return;
+  s.idx++;s.answered=false;
+  if(s.idx>=s.qs.length){s.done=true;renderScore(m);return;}
+  render(m);
+}
+
+function renderScore(m){
+  var s=ST[m];
+  if(!s)return;
+  var total=s.qs.length;
+  var pct=Math.round(s.score/total*100);
+  var msg=pct>=90?'उत्कृष्ट! Excellent! \uD83C\uDF89':
+          pct>=70?'बहुत नीक! Very Good! \uD83D\uDC4D':
+          pct>=50?'ठीकठाक। Not bad — practice more!':
+          'अभ्यास जारी राखू। Keep practicing!';
+
+  var other1=m==='hist'?'lit':(m==='lit'?'cult':'hist');
+  var other2=m==='hist'?'cult':(m==='lit'?'hist':'lit');
+  var lbl1={hist:'मिथिला इतिहास',lit:'साहित्य एवं संगीत',cult:'संस्कृति एवं भाषा'};
+
+  document.getElementById('area-'+m).innerHTML=
+    '<div class="scoreboard">'+
+      '<div class="scbig">'+s.score+' / '+total+'</div>'+
+      '<div class="scpct">('+pct+'%)</div>'+
+      '<div class="scmsg">'+msg+'</div>'+
+      '<div style="display:flex;gap:11px;justify-content:center;flex-wrap:wrap">'+
+        '<button class="nbtn pri" onclick="startQuiz(\''+m+'\')">फेर खेलू / Play Again</button>'+
+        '<button class="nbtn sec" onclick="switchMode(\''+other1+'\')">'+lbl1[other1]+'</button>'+
+        '<button class="nbtn sec" onclick="switchMode(\''+other2+'\')">'+lbl1[other2]+'</button>'+
+      '</div>'+
+    '</div>';
+}
+
+window.onload=function(){startQuiz('hist');};
+
+</script></body>
+</html>
