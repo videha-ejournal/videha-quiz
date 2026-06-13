@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Videha Parallel History: Chapter 13 Quiz | Maithili Literature</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: 'Segoe UI', 'Roboto', 'Georgia', serif;
+background: #f5efe7;
+color: #2c2418;
+padding: 2rem;
+line-height: 1.5;
+}
+.quiz-container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffef7;
+border-radius: 32px;
+box-shadow: 0 20px 35px -12px rgba(0,0,0,0.15);
+overflow: hidden;
+border: 1px solid #e2d9ce;
+}
+.quiz-header {
+background: linear-gradient(135deg, #3e2a1f 0%, #5e3a2c 100%);
+color: #fef1df;
+padding: 1.8rem 2rem;
+text-align: center;
+}
+.quiz-header h1 {
+font-size: 1.9rem;
+letter-spacing: -0.5px;
+font-weight: 600;
+margin-bottom: 0.5rem;
+}
+.quiz-header h1 span {
+font-style: italic;
+font-weight: 400;
+color: #f3cf7a;
+}
+.quiz-header p {
+font-size: 1rem;
+opacity: 0.9;
+max-width: 700px;
+margin: 0 auto;
+}
+.score-area {
+background: #e9e1d4;
+padding: 0.8rem 2rem;
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+flex-wrap: wrap;
+gap: 1rem;
+border-bottom: 1px solid #ddd0bf;
+}
+.score-box {
+background: #2c2418;
+color: #fae6c3;
+padding: 0.3rem 1rem;
+border-radius: 60px;
+font-weight: bold;
+font-size: 1.2rem;
+}
+.progress-text {
+font-weight: 500;
+color: #5a3e2c;
+}
+button {
+background: none;
+border: none;
+cursor: pointer;
+font-family: inherit;
+}
+.questions-area {
+padding: 2rem 2rem 1rem;
+}
+.question-card {
+background: #fefaf5;
+margin-bottom: 2rem;
+border-radius: 24px;
+padding: 1.4rem 1.8rem;
+box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+border: 1px solid #f0e4d6;
+transition: all 0.1s ease;
+}
+.question-text {
+font-size: 1.2rem;
+font-weight: 600;
+color: #2c1f12;
+margin-bottom: 1.2rem;
+padding-left: 0.3rem;
+border-left: 4px solid #c9a87b;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.75rem;
+margin-bottom: 1.2rem;
+}
+.option {
+display: flex;
+align-items: center;
+gap: 0.75rem;
+background: #ffffff;
+padding: 0.6rem 1rem;
+border-radius: 50px;
+border: 1px solid #e7dccc;
+transition: background 0.15s;
+cursor: pointer;
+}
+.option:hover {
+background: #f9f1e8;
+}
+input[type="radio"] {
+accent-color: #8b5a2b;
+width: 18px;
+height: 18px;
+margin: 0;
+}
+.option label {
+font-size: 0.98rem;
+font-weight: 450;
+color: #2b2a27;
+width: 100%;
+cursor: pointer;
+}
+.feedback {
+margin-top: 0.8rem;
+font-size: 0.85rem;
+padding: 0.4rem 0.8rem;
+border-radius: 20px;
+display: inline-block;
+background: #f2ede6;
+color: #5a4a38;
+}
+.feedback.correct {
+background: #e0f0e4;
+color: #1f5a2e;
+border-left: 3px solid #2b7a3e;
+}
+.feedback.incorrect {
+background: #fde9e7;
+color: #aa3e2c;
+border-left: 3px solid #b34e3a;
+}
+.action-buttons {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 1.5rem;
+padding-top: 0.5rem;
+}
+.btn {
+padding: 0.7rem 1.8rem;
+border-radius: 60px;
+font-weight: 600;
+font-size: 0.9rem;
+transition: all 0.2s;
+background: #e5d9cd;
+color: #2c2418;
+border: 1px solid #cfc0ae;
+}
+.btn-primary {
+background: #7a583c;
+color: white;
+border: none;
+box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.btn-primary:hover {
+background: #5e3f28;
+transform: translateY(-1px);
+cursor: pointer;
+}
+.btn-reset {
+background: #f0e4d4;
+border: 1px solid #cfc0ae;
+}
+.btn-reset:hover {
+background: #e2d1bd;
+cursor: pointer;
+}
+.footer {
+background: #f3ede5;
+padding: 1rem 2rem;
+text-align: center;
+font-size: 0.8rem;
+color: #6b5a48;
+border-top: 1px solid #e1d2c0;
+}
+@media (max-width: 680px) {
+body {
+padding: 1rem;
+}
+.question-card {
+padding: 1rem;
+}
+.question-text {
+font-size: 1rem;
+}
+.options {
+gap: 0.5rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <div class="quiz-header"> <h1>📜 A Parallel History of Mithila & Maithili Literature <span>— Chapter 13</span></h1> <p>Linguistic Origins, Magadhi Prakrit, Charyapada, and the early Maithili literary horizon.<br>Based on the critical research of the Videha Parallel History series.</p> </div> <div class="score-area"> <div class="progress-text" id="qCounter">Question 1 of 10</div> <div class="score-box" id="scoreDisplay">Score: 0/0</div> </div> <div class="questions-area" id="questionsContainer"></div> <div class="action-buttons" style="padding: 0 2rem 1.5rem 2rem;"> <button class="btn btn-reset" id="resetQuizBtn">⟳ Reset Quiz</button> <button class="btn btn-primary" id="submitBtn">✓ Submit & Check Answers</button> </div> <div class="footer">
+⚡ Videha Parallel History · ISSN 2229-547X · Democratic, counter-canonical perspective · Based on Radhakrishna Chaudhary's survey & primary sources
+</div>
+</div>
+<script>
+    // ---------- CHAPTER 13 QUIZ DATA (derived from the provided text) ----------
+    // All questions are strictly based on Part XIII: Linguistic Origins and Parallel Evolution
+    // and surrounding proto-Maithili / Charyapada / script content.
+    const quizData = [
+        {
+            text: "According to the Parallel History and linguistic genealogy (Grierson, Chatterji), Maithili emerged as an independent speech from which Prakrit branch around the 10th century AD?",
+            options: [
+                "Shauraseni Prakrit",
+                "Maharashtri Prakrit",
+                "Magadhi Prakrit",
+                "Paishachi Prakrit"
+            ],
+            correct: 2, // Magadhi Prakrit
+            explanation: "Radhakrishna Chaudhary's survey, confirmed by Grierson and Chatterji, traces Maithili to the Magadhi Prakrit of the eastern Mauryan empire."
+        },
+        {
+            text: "The Ashokan edicts (3rd century BCE) were inscribed in a vernacular close to Magadhi. How many regional varieties do scholars identify at that period?",
+            options: [
+                "Two regional varieties",
+                "Three regional varieties",
+                "At least four regional varieties",
+                "Only one uniform Prakrit"
+            ],
+            correct: 2, // at least four regional varieties
+            explanation: "The text states: 'The Ashokan edicts ... reveal at least four regional varieties by the third century B.C.'"
+        },
+        {
+            text: "Which 11th-century commentary on the Amarakosha provides the earliest lexicographic evidence of an independent Maithili speech distinct from Apabhramsa?",
+            options: [
+                "Sarvananda's commentary",
+                "Mammata's Kavyaprakasha",
+                "Udayana's Kusumanjali",
+                "Vacaspati Misra's Bhamati"
+            ],
+            correct: 0, // Sarvananda's commentary
+            explanation: "The chapter: 'Sarvananda's eleventh‑century commentary on the Amarakosha preserves some four hundred Maithili words, offering the earliest lexicographic evidence.'"
+        },
+        {
+            text: "The Charyapadas (c. 700–1200 AD) are mystical Buddhist songs written in 'Sandhya-bhasha'. Which parallel history claim is made regarding their linguistic affiliation?",
+            options: [
+                "They are purely Bengali and have no link to Maithili.",
+                "They are exclusively Assamese proto-texts.",
+                "They are claimed as ancestral texts by Maithili, Bengali, Assamese, and Oriya traditions.",
+                "They belong to the Sanskrit court tradition only."
+            ],
+            correct: 2,
+            explanation: "The text: 'The Charyapadas ... are claimed as ancestral texts by all the eastern languages. Scholars argue that several siddhas were from Mithila, with particular affinity to early Maithili morphology.'"
+        },
+        {
+            text: "Which two Siddha poets are specifically mentioned in the chapter as being from Mithila and whose language shows Maithili affinity?",
+            options: [
+                "Saraha and Luipada",
+                "Kanhapa and Sarhapa",
+                "Bhusukupada and Sarahapa",
+                "Gorakhnath and Matsyendranath"
+            ],
+            correct: 1,
+            explanation: "The passage explicitly mentions Kanhapa and Sarhapa as having Mithila connections and Maithili linguistic affinity."
+        },
+        {
+            text: "The earliest epigraphic evidence of a proto-Maithili script (Tirhuta / Mithilakshara) is found in which inscription, dating to the 7th century AD?",
+            options: [
+                "Ashokan pillar at Lauriya Nandangarh",
+                "Mandar Hill Stone inscriptions of Adityasena",
+                "Nalanda copper plate of Samudragupta",
+                "Vaishali pillar inscription"
+            ],
+            correct: 1,
+            explanation: "The text confirms: 'The earliest epigraphic evidence of a proto- Maithili script is found in the Mandar Hill Stone inscriptions of Adityasena (seventh century A.D.)'"
+        },
+        {
+            text: "By the medieval period, the Tirhuta/Mithilakshar script had spread to which regions as a result of Mithila's cultural prestige?",
+            options: [
+                "Only to Bengal",
+                "Nepal, Bengal, and Assam",
+                "Punjab and Gujarat",
+                "Kashmir and Tamil Nadu"
+            ],
+            correct: 1,
+            explanation: "The parallel history records that the script spread to Nepal (royal documents), Bengal, and Assam, carried by scholars writing Maithili texts."
+        },
+        {
+            text: "The shared literary genealogy of the Charyapadas has been disputed. Which scholars argued that several Siddhas were from Mithila, and that the language of the padas shows particular affinity with early Maithili morphology?",
+            options: [
+                "Rahul Sankrityayan, Subhadra Jha, and Jayakant Mishra",
+                "Grierson and Oommen",
+                "K. L. Rao and Kanwar Sen",
+                "Abhinavagupta and Anandavardhana"
+            ],
+            correct: 0,
+            explanation: "The text directly states: 'Scholars like Rahul Sankrityayan, Subhadra Jha, and Jayakant Mishra have argued that several siddhas were from Mithila, and that the language of these padas shows particular affinity with early Maithili morphology.'"
+        },
+        {
+            text: "The second major source of early Maithili prose (14th century) after the Charyapada phase is Jyotirishwar Thakur's work. What is its title?",
+            options: [
+                "Kirtilata",
+                "Varnanaratnakara",
+                "Tattvacintamani",
+                "Purusha Pariksha"
+            ],
+            correct: 1,
+            explanation: "The text references Jyotirishwar Thakur's 'Varnanaratnakara' as 'the earliest and the longest specimen of the early new Indo- Aryan prose' (early 14th century)."
+        },
+        {
+            text: "According to the Parallel History timeline, which period marks the 'Vernacular challenge to Sanskrit begins' in the shared event column for Mithila and neighboring regions?",
+            options: [
+                "c. 700–1100 (Charyapada period)",
+                "c. 1097–1350 (Karnata dynasty; Jyotirishwar and Umapati)",
+                "c. 1480–1600 (Vaishnava pan‑eastern literary culture peak)",
+                "c. 1830–1900 (Colonial modernity)"
+            ],
+            correct: 1,
+            explanation: "The comparative timeline table states for c.1097–1350: 'Vernacular challenge to Sanskrit begins' – with Jyotirishwar and Umapati's works."
+        }
+    ];
+
+    // Render state
+    let userAnswers = new Array(quizData.length).fill(null);   // store selected index (0..n-1) or null
+    let quizSubmitted = false;
+    let score = 0;
+
+    // DOM elements
+    const questionsContainer = document.getElementById('questionsContainer');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const qCounter = document.getElementById('qCounter');
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetQuizBtn');
+
+    // Helper: calculate current score based on userAnswers vs correct answers
+    function calculateScore() {
+        let correctCount = 0;
+        for (let i = 0; i < quizData.length; i++) {
+            if (userAnswers[i] !== null && userAnswers[i] === quizData[i].correct) {
+                correctCount++;
+            }
+        }
+        return correctCount;
+    }
+
+    // Update UI: scores, counter, and dynamic feedback after submit
+    function updateUI() {
+        const total = quizData.length;
+        let answeredCount = userAnswers.filter(a => a !== null).length;
+        qCounter.innerText = `Answered: ${answeredCount} of ${total}`;
+        
+        if (quizSubmitted) {
+            const currentScore = calculateScore();
+            scoreDisplay.innerText = `Score: ${currentScore}/${total}`;
+        } else {
+            scoreDisplay.innerText = `Score: --/${total}`;
+        }
+    }
+
+    // Render all questions (full re-render to show radio states & feedback)
+    function renderQuiz() {
+        questionsContainer.innerHTML = '';
+        for (let i = 0; i < quizData.length; i++) {
+            const q = quizData[i];
+            const isAnswered = userAnswers[i] !== null;
+            const selectedVal = userAnswers[i] !== null ? userAnswers[i] : -1;
+            const showFeedback = quizSubmitted;
+            const isCorrect = (quizSubmitted && userAnswers[i] !== null && userAnswers[i] === q.correct);
+            
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            
+            // question text
+            const qTextDiv = document.createElement('div');
+            qTextDiv.className = 'question-text';
+            qTextDiv.innerText = `${i+1}. ${q.text}`;
+            card.appendChild(qTextDiv);
+            
+            // options
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+            
+            q.options.forEach((opt, optIdx) => {
+                const optionWrap = document.createElement('div');
+                optionWrap.className = 'option';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${i}`;
+                radio.value = optIdx;
+                radio.disabled = quizSubmitted;
+                if (selectedVal === optIdx) radio.checked = true;
+                
+                // event listener to store answer (only if not submitted)
+                radio.addEventListener('change', (function(qIdx, oIdx) {
+                    return function(e) {
+                        if (!quizSubmitted && e.target.checked) {
+                            userAnswers[qIdx] = oIdx;
+                            renderQuiz();  // re-render to reflect stored answers consistency
+                        }
+                    };
+                })(i, optIdx));
+                
+                const label = document.createElement('label');
+                label.innerText = opt;
+                optionWrap.appendChild(radio);
+                optionWrap.appendChild(label);
+                optionsDiv.appendChild(optionWrap);
+            });
+            card.appendChild(optionsDiv);
+            
+            // feedback if submitted
+            if (showFeedback && userAnswers[i] !== null) {
+                const fbDiv = document.createElement('div');
+                fbDiv.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+                if (isCorrect) {
+                    fbDiv.innerHTML = `✓ Correct. ${q.explanation}`;
+                } else {
+                    const correctOptionText = q.options[q.correct];
+                    fbDiv.innerHTML = `✗ Incorrect. Correct answer: ${correctOptionText}. ${q.explanation}`;
+                }
+                card.appendChild(fbDiv);
+            } else if (showFeedback && userAnswers[i] === null) {
+                const fbDiv = document.createElement('div');
+                fbDiv.className = `feedback incorrect`;
+                fbDiv.innerHTML = `⚠ Not answered. The correct answer is: ${q.options[q.correct]}. ${q.explanation}`;
+                card.appendChild(fbDiv);
+            }
+            
+            questionsContainer.appendChild(card);
+        }
+        updateUI();
+    }
+
+    // submit action: compute final score & lock answers, show all feedback
+    function submitQuiz() {
+        if (quizSubmitted) {
+            // already submitted, maybe just re-show? but we reset not needed
+            renderQuiz(); 
+            return;
+        }
+        quizSubmitted = true;
+        // calculate score again for display
+        const finalScore = calculateScore();
+        score = finalScore;
+        renderQuiz();  // will show feedback for each question
+        // change submit button text optionally
+        submitBtn.innerText = "✓ Results Submitted";
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = "0.7";
+        // optional: scroll to see results
+        window.scrollTo({ top: document.body.scrollHeight * 0.3, behavior: 'smooth' });
+    }
+
+    // reset everything
+    function resetQuiz() {
+        quizSubmitted = false;
+        userAnswers = new Array(quizData.length).fill(null);
+        score = 0;
+        submitBtn.innerText = "✓ Submit & Check Answers";
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = "1";
+        renderQuiz();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // attach event listeners
+    submitBtn.addEventListener('click', submitQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+    
+    // initial render
+    renderQuiz();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

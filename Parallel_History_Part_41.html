@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <title>Quiz: Chapter 41 – Village Ethnography, Dalit Translations & the Videha Archive</title> <style>
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+max-width: 1000px;
+margin: 2rem auto;
+padding: 1rem;
+background: #f4f1ea;
+}
+.quiz-container {
+background: white;
+border-radius: 2rem;
+padding: 1.5rem;
+box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+h1 {
+color: #2c5e2c;
+border-left: 5px solid #b8860b;
+padding-left: 1rem;
+}
+.question {
+border-bottom: 1px solid #e0d6c5;
+padding: 1rem 0;
+}
+.question-text {
+font-weight: 700;
+margin-bottom: 0.5rem;
+font-size: 1.05rem;
+}
+.options {
+margin-left: 1.5rem;
+margin-bottom: 0.5rem;
+}
+.option {
+margin: 0.3rem 0;
+}
+.explanation {
+background: #f4f1e8;
+padding: 0.6rem;
+margin-top: 0.6rem;
+border-left: 4px solid #b8860b;
+display: none;
+border-radius: 0.5rem;
+}
+button {
+background: #2c5e2c;
+color: white;
+border: none;
+padding: 0.5rem 1.2rem;
+border-radius: 2rem;
+cursor: pointer;
+margin: 0.2rem;
+font-size: 1rem;
+}
+button:hover {
+background: #1e401e;
+}
+.score {
+font-size: 1.2rem;
+font-weight: bold;
+margin-top: 1rem;
+text-align: center;
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <h1>📖 Chapter 41 – Village Ethnography, Dalit Translations & the Videha Archive</h1> <p>Based on the Videha Parallel History: ‘Arer: Gamak Lok Itihas’, Telugu/Gujarati/Odia Dalit literature, and the digital counter‑archive</p> <div id="quiz"></div> <div style="margin-top: 1rem;"> <button id="submitBtn">✔ Submit Answers</button> <button id="resetBtn">⟳ Reset Quiz</button> </div> <div id="score" class="score"></div>
+</div>
+<script>
+const questions = [
+    {
+        text: "Dr. Kailash Kumar Mishra’s ‘Arer: Gamak Lok Itihas’ (People’s History of a Village) is a micro‑history of which village in Madhubani district?",
+        options: [
+            "Koilakh",
+            "Arer",
+            "Berma",
+            "Menhath"
+        ],
+        correct: 1,
+        explanation: "The book is a gram‑itihās of Arer village, written by a native son, combining oral history, genealogy, and social documentation."
+    },
+    {
+        text: "In ‘Arer’, Mishra documents the story of Bachha Jha First, a wrestler who killed a British officer at Saurath Sabhagachhi. What was the officer’s offence?",
+        options: [
+            "He insulted the village headman",
+            "He smoked a cigarette in the sacred space of the Saurath gathering, desecrating it",
+            "He arrested a farmer",
+            "He refused to pay taxes"
+        ],
+        correct: 1,
+        explanation: "The officer refused to stop smoking in the sacred precinct, and Bachha Jha struck him down – a legend of anti‑colonial defiance."
+    },
+    {
+        text: "The book also records the story of Ramananda Sahu, an OBC freedom fighter who participated in the 1942 Quit India Movement. Why does Mishra call his story a ‘subaltern historiography’?",
+        options: [
+            "He was a famous writer",
+            "His name is absent from official freedom fighter records, despite his torture and sacrifice – a suppressed history recovered through oral memory",
+            "He collaborated with the British",
+            "He wrote poetry"
+        ],
+        correct: 1,
+        explanation: "Sahu’s erasure from official records exemplifies how subaltern histories are excluded; Mishra’s recovery is an act of counter‑archival justice."
+    },
+    {
+        text: "One of the central legends in ‘Arer’ is about the ‘Lakshminia Bakhari’ – a miraculous granary that refilled itself. What does this legend symbolise?",
+        options: [
+            "The village’s wealth",
+            "Communal generosity and the power of collective devotion; the granary refilled as long as the spirit of giving continued",
+            "A scam",
+            "A natural phenomenon"
+        ],
+        correct: 1,
+        explanation: "The story of Buddhinator Jha’s granary reinforces community solidarity and the ethics of sharing."
+    },
+    {
+        text: "In the Telugu Dalit poetry section, Boyi Bhimana’s poem ‘Burning Skulls’ uses the metaphor of a burning skull to critique:",
+        options: [
+            "Environmental pollution",
+            "Caste violence and the Hindu doctrine of rebirth, showing the Dalit trapped in an endless cycle of suffering",
+            "Urbanisation",
+            "Industrialisation"
+        ],
+        correct: 1,
+        explanation: "The poem asks why the same Dalit skull is burned again and again – an ironic inversion of reincarnation as eternal violence."
+    },
+    {
+        text: "Bhimana’s ‘My Ancestral Rights’ performs a counter‑mythological reading, claiming that Vedic figures like Vyasa and Vasishtha were originally of Dalit origin. What is the poetic strategy?",
+        options: [
+            "To deny mythology",
+            "To reclaim Dalit identity by showing that Brahminical history ‘Aryanised’ Dalit figures and excluded their descendants",
+            "To praise the caste system",
+            "To reject all religion"
+        ],
+        correct: 1,
+        explanation: "The poem argues that Dalits have been dispossessed of their own Vedic heritage through historical appropriation."
+    },
+    {
+        text: "J. Subhadra’s Telugu Dalit poem ‘The Edge of the Sari’ uses the sari’s edge as a multi‑layered symbol. What does it represent?",
+        options: [
+            "Only modesty",
+            "Labour, motherhood, protection, and the Dalit woman’s multiple burdens – wiping sweat, carrying water, covering menstruation",
+            "Fashion",
+            "Religious ritual"
+        ],
+        correct: 1,
+        explanation: "The poem redefines the sari’s edge as a tool of survival, not an ornament of patriarchy."
+    },
+    {
+        text: "The Telugu Dalit woman poet Challpalli Swarooparani’s poem ‘Mankenapuvvu’ (Red Silk‑Cotton Flower) uses the image of a blue bird caught in a thorny bush. What does the bird symbolise?",
+        options: [
+            "Freedom",
+            "The Dalit woman trapped by multiple oppressions (caste, gender, class), who ultimately declares ‘I will bloom like the silk‑cotton flower’",
+            "A pet",
+            "A mythological creature"
+        ],
+        correct: 1,
+        explanation: "The poem moves from entrapment to rebellion, ending with the speaker’s defiant blossoming."
+    },
+    {
+        text: "Darishee Shashinirmala’s poem ‘I am Wearing Menstrual Cloth’ uses the menstrual cloth as a weapon of resistance. Which historical Dalit women does she invoke as evidence of state violence?",
+        options: [
+            "Rani Lakshmibai",
+            "Alisamma, Muthavva, and Mahadevamma – real women who were stripped naked and paraded by upper‑caste men",
+            "Sarojini Naidu",
+            "Mother Teresa"
+        ],
+        correct: 1,
+        explanation: "The poem names specific victims of caste‑based sexual violence, turning the abject cloth into a symbol of protest."
+    },
+    {
+        text: "M. Gauri’s Telugu poem ‘Henna‑Stained Hands’ directly addresses the god Krishna. What challenge does the Dalit cobbler woman pose to him?",
+        options: [
+            "‘Can you dance?’",
+            "‘Can you kiss my blood‑stained hands, without henna?’ – equating her labour blood with sacred adornment",
+            "‘Can you defeat me in a game?’",
+            "‘Can you write poetry?’"
+        ],
+        correct: 1,
+        explanation: "The poem inverts the devotional hierarchy: the cobbler woman challenges Krishna to witness her real, unadorned suffering."
+    },
+    {
+        text: "Madduri Vijayashri’s poem ‘Alisamma’s Curse’ links the cutting of Shurpanakha’s nose in the Ramayana to the public stripping of a Dalit woman. What is the poet’s curse?",
+        options: [
+            "‘May you die’",
+            "‘I curse you all that you will be turned into humans – breaking and reforming your tails and pointed teeth’ – a curse of forced humanity",
+            "‘May you be reborn as dogs’",
+            "‘May you never find peace’"
+        ],
+        correct: 1,
+        explanation: "The curse is ironic: oppressors who act like animals are cursed to become human – a transformative demand for moral awakening."
+    },
+    {
+        text: "The Gujarati Dalit poem ‘All the Broom‑Sticks’ by Umesh Solanki is a satirical address to which national icon, criticising the gap between his ideals and Dalit reality?",
+        options: [
+            "B.R. Ambedkar",
+            "Mahatma Gandhi",
+            "Jawaharlal Nehru",
+            "Sardar Patel"
+        ],
+        correct: 1,
+        explanation: "The poem references Gandhi’s khadi and cleanliness campaigns, asking ‘Who are you smiling for?’ while Dalit workers die from spurious liquor in Gujarat."
+    },
+    {
+        text: "The Odia Dalit poet Basudev Sunani’s poem ‘Address’ plays on the paradox of Dalit existence. What does he say about his address?",
+        options: [
+            "‘I live in a palace’",
+            "‘My presence spreads like a line of ants – you cannot find my address because I am everywhere but invisible’",
+            "‘I have no address’",
+            "‘My address is in Delhi’"
+        ],
+        correct: 1,
+        explanation: "The poem critiques the impossibility of locating the subaltern subject within dominant social cartography."
+    },
+    {
+        text: "Kolakuri Enoch’s Telugu short story ‘The Crow’ features a character named Bandodu – a beggar from the lowest sub‑caste who kills and eats crows. What is the story’s central paradox?",
+        options: [
+            "He is rich",
+            "He is powerless yet powerful – his knowledge of crows gives him a strange authority, and his absence becomes a curse on a household",
+            "He is a king",
+            "He is a policeman"
+        ],
+        correct: 1,
+        explanation: "Bandodu’s ‘liberation’ (not begging at a house) becomes a curse – the house loses its ritual status, showing that liberation and bondage are the same in the caste system."
+    },
+    {
+        text: "Vinodini’s Telugu short story ‘Black Ink’ portrays a child, Shriya, who loves a Dalit woman but later rejects her upon learning her caste. What does the story reveal about caste socialisation?",
+        options: [
+            "Children are born with caste",
+            "Caste prejudice is taught unconsciously by parents; the child’s innocent friendship is destroyed by learned hierarchy",
+            "Caste is irrelevant",
+            "The story is about religion"
+        ],
+        correct: 1,
+        explanation: "Shriya’s transformation from butterfly to caterpillar illustrates how caste conditioning destroys natural human connection."
+    },
+    {
+        text: "Peddinti Ashok Kumar’s Telugu novel ‘Forever Friend (Jigiri)’ tells the story of Imam and his bear Shadool. What does the bear‑dancing tradition represent?",
+        options: [
+            "Animal cruelty only",
+            "The economic and cultural identity of the Qalandar community, destroyed by animal protection laws that ignored their livelihood",
+            "A circus act",
+            "A religious ritual"
+        ],
+        correct: 1,
+        explanation: "The novel shows how conservation laws, intended to protect animals, destroyed the traditional occupation and identity of the Qalandar people."
+    },
+    {
+        text: "The Videha eJournal’s digital archive (www.videha.co.in/pothi.htm) has preserved over 11,000 palm‑leaf manuscripts in which script?",
+        options: [
+            "Devanagari",
+            "Tirhuta (Mithilakshar)",
+            "Kaithi",
+            "Bengali"
+        ],
+        correct: 1,
+        explanation: "The archive includes thousands of Tirhuta‑script manuscripts, including the crucial Panji genealogical records."
+    },
+    {
+        text: "According to the concluding sections of the Parallel History, what is the Videha movement’s most significant institutional achievement?",
+        options: [
+            "Winning Sahitya Akademi awards",
+            "Creating a digital counter‑archive and parallel recognition system (Samman) that operates independently of caste‑based gatekeeping",
+            "Publishing in English only",
+            "Establishing a university"
+        ],
+        correct: 1,
+        explanation: "Videha has built an alternative literary infrastructure with free digital access, multi‑script publishing, and awards for subaltern voices."
+    },
+    {
+        text: "The RTI investigation by Vinit Utpal and Ashish Anchinhar (2011–14) revealed that over 90% of Sahitya Akademi assignments for Maithili went to:",
+        options: [
+            "Young writers",
+            "Friends and relatives of the 10‑member advisory board",
+            "Nepali writers",
+            "Women writers"
+        ],
+        correct: 1,
+        explanation: "This institutional capture is the primary evidence for the Parallel History’s critique of mainstream gatekeeping."
+    },
+    {
+        text: "The ‘Nit Naval’ (Ever New) monograph series by Videha focuses on which kind of writers?",
+        options: [
+            "Classical Sanskrit poets",
+            "Overlooked contemporary writers, often from subaltern, Dalit, or non‑institutional backgrounds (e.g., Dinesh Kumar Mishra, Subhash Chandra Yadav)",
+            "Only novelists",
+            "Only poets"
+        ],
+        correct: 1,
+        explanation: "The series is part of Videha’s counter‑canonical project, recovering and evaluating neglected but significant voices."
+    }
+];
+
+let userSelections = new Array(questions.length).fill(null);
+let submitted = false;
+
+function renderQuiz() {
+    const container = document.getElementById('quiz');
+    if (!container) return;
+    let html = '';
+    questions.forEach((q, idx) => {
+        const selected = userSelections[idx] !== null ? userSelections[idx] : -1;
+        html += `<div class="question">
+                    <div class="question-text">${idx+1}. ${q.text}</div>
+                    <div class="options">`;
+        q.options.forEach((opt, optIdx) => {
+            const checked = (selected === optIdx) ? 'checked' : '';
+            html += `<div class="option">
+                        <input type="radio" name="q${idx}" value="${optIdx}" id="q${idx}_${optIdx}" ${checked} ${submitted ? 'disabled' : ''}>
+                        <label for="q${idx}_${optIdx}">${String.fromCharCode(65+optIdx)}. ${opt}</label>
+                     </div>`;
+        });
+        html += `</div><div class="explanation" id="expl${idx}"></div></div>`;
+    });
+    container.innerHTML = html;
+}
+
+function calculateScore() {
+    let correct = 0;
+    for (let i = 0; i < questions.length; i++) {
+        if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correct++;
+    }
+    return correct;
+}
+
+function submitQuiz() {
+    submitted = true;
+    for (let i = 0; i < questions.length; i++) {
+        const radios = document.getElementsByName(`q${i}`);
+        for (let j = 0; j < radios.length; j++) {
+            if (radios[j].checked) userSelections[i] = parseInt(radios[j].value);
+        }
+        const explDiv = document.getElementById(`expl${i}`);
+        if (explDiv) {
+            const userAns = (userSelections[i] !== null) ? questions[i].options[userSelections[i]] : "Not answered";
+            const correctAns = questions[i].options[questions[i].correct];
+            explDiv.innerHTML = `<strong>📖 Explanation:</strong> ${questions[i].explanation}<br>
+                                 <span style="color:#4b6b3e;">Your answer: ${userAns}</span><br>
+                                 <span style="color:#2c6e2c;">Correct answer: ${correctAns}</span>`;
+            explDiv.style.display = 'block';
+        }
+        const allRadios = document.getElementsByName(`q${i}`);
+        allRadios.forEach(r => r.disabled = true);
+    }
+    const score = calculateScore();
+    document.getElementById('score').innerHTML = `✅ Score: ${score} / ${questions.length}`;
+}
+
+function resetQuiz() {
+    submitted = false;
+    userSelections = new Array(questions.length).fill(null);
+    renderQuiz();
+    for (let i = 0; i < questions.length; i++) {
+        const explDiv = document.getElementById(`expl${i}`);
+        if (explDiv) explDiv.style.display = 'none';
+    }
+    document.getElementById('score').innerHTML = '';
+}
+
+document.getElementById('submitBtn').addEventListener('click', submitQuiz);
+document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+renderQuiz();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Decoding the Panji of Mithila – Chapter 2 | Genealogical Theories & Pañji-Prabandha</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #f2ede4;
+font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, sans-serif;
+padding: 2rem 1rem;
+color: #2e2a27;
+}
+.quiz-wrapper {
+max-width: 980px;
+margin: 0 auto;
+background: #fffdf9;
+border-radius: 2rem;
+box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+overflow: hidden;
+border: 1px solid #e2d5c4;
+}
+.quiz-header {
+background: #1f5e3a;
+background-image: linear-gradient(135deg, #174d2e 0%, #287a4c 100%);
+padding: 2rem 2rem 1.6rem;
+color: white;
+text-align: center;
+}
+.quiz-header h1 {
+font-size: 1.9rem;
+font-weight: 700;
+letter-spacing: -0.3px;
+margin-bottom: 0.3rem;
+}
+.quiz-header h2 {
+font-size: 1.1rem;
+font-weight: 400;
+opacity: 0.92;
+border-top: 1px solid #98c0ab;
+display: inline-block;
+padding-top: 0.6rem;
+margin-top: 0.5rem;
+}
+.quiz-header p {
+font-size: 0.85rem;
+margin-top: 1rem;
+font-style: italic;
+color: #d0ecd9;
+}
+.questions-area {
+padding: 2rem 2rem 1rem;
+}
+.question-card {
+background: #ffffff;
+border-radius: 1.5rem;
+padding: 1.3rem 1.6rem;
+margin-bottom: 1.8rem;
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+border: 1px solid #e7decf;
+transition: all 0.2s;
+}
+.question-card:hover {
+border-color: #cfc2af;
+box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+}
+.q-title {
+font-weight: 700;
+font-size: 1.2rem;
+color: #2f4b3c;
+margin-bottom: 0.7rem;
+display: flex;
+align-items: baseline;
+gap: 0.7rem;
+flex-wrap: wrap;
+}
+.q-num {
+background: #287a4c20;
+color: #1d5e3b;
+padding: 0.2rem 0.8rem;
+border-radius: 30px;
+font-size: 0.75rem;
+font-weight: 600;
+}
+.question-text {
+font-size: 1rem;
+font-weight: 500;
+line-height: 1.45;
+margin-bottom: 1rem;
+color: #3a332b;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+margin: 0.5rem 0 0.5rem;
+}
+.option {
+display: flex;
+align-items: center;
+gap: 0.8rem;
+background: #fefbf7;
+padding: 0.6rem 1rem;
+border-radius: 1rem;
+border: 1px solid #e9dfd0;
+cursor: pointer;
+transition: background 0.2s;
+}
+.option:hover {
+background: #f7f0e8;
+}
+input[type="radio"] {
+accent-color: #1f5e3a;
+width: 1.1rem;
+height: 1.1rem;
+margin: 0;
+flex-shrink: 0;
+}
+.option label {
+font-size: 0.95rem;
+color: #3f3730;
+line-height: 1.35;
+flex: 1;
+cursor: pointer;
+}
+.feedback {
+margin-top: 0.8rem;
+font-size: 0.85rem;
+padding: 0.55rem 0.9rem;
+border-radius: 1rem;
+background: #f5efe8;
+display: none;
+border-left: 4px solid #b8a78e;
+}
+.feedback.correct {
+background: #e4f3e8;
+border-left-color: #2c7840;
+color: #1c482b;
+display: block;
+}
+.feedback.incorrect {
+background: #fef0ec;
+border-left-color: #bc4e2c;
+color: #9b3a1f;
+display: block;
+}
+.action-bar {
+padding: 1rem 2rem 2rem;
+display: flex;
+justify-content: center;
+gap: 1.2rem;
+flex-wrap: wrap;
+border-top: 1px solid #e8decf;
+background: #fdfaf5;
+}
+button {
+background: #1f5e3a;
+border: none;
+color: white;
+font-weight: 600;
+font-size: 1rem;
+padding: 0.75rem 2rem;
+border-radius: 3rem;
+cursor: pointer;
+transition: all 0.2s;
+font-family: inherit;
+box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+button:hover {
+background: #14482d;
+transform: scale(1.01);
+}
+.reset-btn {
+background: #7a6958;
+}
+.reset-btn:hover {
+background: #5f4f40;
+}
+.score-area {
+text-align: center;
+font-size: 1.1rem;
+font-weight: 700;
+background: #e8dfd2;
+margin: 0 2rem 1rem;
+padding: 0.75rem;
+border-radius: 3rem;
+color: #2c3e2b;
+}
+footer {
+text-align: center;
+font-size: 0.7rem;
+padding: 1rem;
+color: #9b8a74;
+border-top: 1px solid #efe5d8;
+background: #fdfaf5;
+}
+@media (max-width: 680px) {
+.quiz-header h1 { font-size: 1.5rem; }
+.questions-area { padding: 1.2rem; }
+.question-card { padding: 1rem; }
+.option label { font-size: 0.85rem; }
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-wrapper"> <div class="quiz-header"> <h1>📖 Decoding the Panji of Mithila</h1> <h2>Chapter 2 · Mithila's Pañji-Prabandha: Genealogical Theories Study (Volume II)</h2> <p>Based on the Bhūmikā (Introduction) to Genome Mapping, Part 2 | 450 AD – 2009 AD</p> </div> <div class="questions-area" id="quizContainer"></div> <div class="score-area" id="scoreDisplay">
+🌿 Test your understanding of the genealogical theories & structural architecture
+</div> <div class="action-bar"> <button id="submitQuiz">✅ Submit & See Score</button> <button id="resetQuiz" class="reset-btn">🔄 Reset Quiz</button> </div> </div>
+<script>
+    // Question set derived from Chapter 2 (pages 27–50)
+    const questions = [
+        {
+            text: "According to Chapter 2, the Pañji-Prabandha covers which five overlapping domains of genealogical science?",
+            options: [
+                "Royal genealogy, heraldic records, clan registers, temple inscriptions, land grants",
+                "Documentary genealogy, genetic genealogy, socio-legal genealogy, ethnographic genealogy, computational genealogy",
+                "Oral tradition, written chronicles, palm-leaf preservation, colonial records, digital mapping",
+                "Gotra analysis, pravara recitation, sapinda computation, horoscopy, marriage brokerage"
+            ],
+            correct: 1,
+            explanation: "The Introduction (1.1) explicitly lists: documentary, genetic, socio-legal, ethnographic, and computational genealogy as the five overlapping domains instantiated by the Pañji-Prabandha."
+        },
+        {
+            text: "The tripartite information layer of the Pañji system includes identity, relationship, and attribute layers. Which Pañji element corresponds to the 'relationship layer' in genealogical theory?",
+            options: [
+                "Mūlagrāma (ancestral village) and current residence",
+                "Suta/Sutau (sons), Dau./Nau. (maternal grandsons), Dvau. (paternal grandsons)",
+                "Mahāmahopādhyāya title and scholarly distinctions",
+                "Gotra and pravara classifications"
+            ],
+            correct: 1,
+            explanation: "Section 2.1: Relationship layer = kinship relational edges like Suta/Sutau, Dau. (daughter's sons), Nau. (maternal grandsons), Dvau. (paternal grandsons)."
+        },
+        {
+            text: "How many Mūlas (sub-clans) are recorded for the Śāṇḍilya Gotra according to the taxonomic map in the Bhūmikā?",
+            options: [
+                "27 mūlas",
+                "43 mūlas",
+                "12 mūlas",
+                "7 mūlas"
+            ],
+            correct: 1,
+            explanation: "The Gotra-Mūla table shows: Śāṇḍilya – 43 mūlas (largest, primary carrier of Pañjī tradition). Vatsa has 40, Kāśyapa has 27."
+        },
+        {
+            text: "What is the Dūṣaṇa-Pañjī, and what unique genealogical function does it serve?",
+            options: [
+                "It lists only Śrotriya families and their royal patrons",
+                "A record of lineage 'defects' – inter-caste marriages, widow remarriages, and deviant unions – functioning as a negative attribute genealogy",
+                "A register of pure gotras used for temple worship",
+                "A secret list of Pañjīkāra families and their fees"
+            ],
+            correct: 1,
+            explanation: "Section 2.4 and later: Dūṣaṇa-Pañjī records cross-caste unions (including Muslims, Dalits), widow remarriages, and preserves documentary evidence of deviation; it is a 'negative attribute genealogy' or counter-archive."
+        },
+        {
+            text: "Which directive from the Bhūmikā explains the genetic rationale behind sapinda prohibition? It states that after five maternal and seven paternal generations, all deleterious chromosomal concentrations are dissipated.",
+            options: [
+                "The 'panca-nideśa' rule of five marriage prohibitions",
+                "The 'Katha-mamula' (step-mother's brother prohibition)",
+                "The 'saptama o pancama pidhik bada samasta gunasuthatak nivarana' – after the seventh and fifth generation, deleterious genetic traits are eliminated",
+                "The 'Cāturmāsika Mansabdār' principle"
+            ],
+            correct: 2,
+            explanation: "Section 3.1 cites the exact phrase: 'saptama (samsoothita astama) o pancama pidhik bada samasta gunasuthatak nivarana hoita naik' – corresponding to the coefficient of relationship dropping below thresholds."
+        },
+        {
+            text: "The Pañjī notation system uses 'Prathama / Apara' (adya / apara). What genealogical information does 'Apara' encode?",
+            options: [
+                "The first wife's children only",
+                "Second or subsequent wife's children, documenting polygynous relationships",
+                "Children adopted from other gotras",
+                "Daughters who remain unmarried"
+            ],
+            correct: 1,
+            explanation: "Section 4.2: 'Prathama / Apara (adya / apara): First wife's children / Second wife's children — encodes polygyny relationships.'"
+        },
+        {
+            text: "According to Chapter 2's socio-legal genealogy section, what was the key legal function of the Pañjī that made it a 'jurisprudential instrument'?",
+            options: [
+                "To register land deeds and inheritance for the Darbhanga Raj",
+                "To provide authoritative determination of marriage eligibility through the Pañjīkāra's siddhānta, legally binding at the Śuddhi ceremony",
+                "To arbitrate criminal disputes among Brahmin families",
+                "To certify Vedic sacrifices and temple endowments"
+            ],
+            correct: 1,
+            explanation: "Section 6.1: 'The primary social function was juridical: to provide authoritative determination of marriage eligibility. The Pañjīkāra's siddhānta at the Suddhi ceremony was legally binding.'"
+        },
+        {
+            text: "The chapter highlights a unique feminist genealogical consciousness in the Pañjī. Which statement best reflects this?",
+            options: [
+                "Women's names are completely absent from all Pañjī registers",
+                "Women are recorded as 'sudha' (also daughters), their marriage destinations are documented, and their sons are tracked for sapinda computation – preserving bilateral kinship information",
+                "Only widows are recorded, and only in the Dūṣaṇa-Pañjī",
+                "Female genealogists (strī-ganaka) maintained separate registers in all regions"
+            ],
+            correct: 1,
+            explanation: "Section 6.2: The text notes that women are not invisible: daughters recorded as sudha, marriage destinations documented, and maternal grandsons tracked, preserving bilateral kinship (unlike purely agnatic systems)."
+        },
+        {
+            text: "The Pañjī's internal chronology is validated by using Āryabhaṭa's known birth-year (476 CE). What average generation interval does the system calculate?",
+            options: [
+                "25 years per generation",
+                "30 years per generation",
+                "Approximately 40 years per generation",
+                "50 years per generation"
+            ],
+            correct: 2,
+            explanation: "Section 7.2: using the formula with known dates and generational depth, the Pañjī calculation yields ~40 years per generation. The document explicitly says 'ek pīdhīkem 40 sam gunā kelā sam Āryabhaṭṭak janma lagabhaga 476 ī. ā ...'"
+        },
+        {
+            text: "In comparative genealogical analysis, which feature makes the Pañjī unique among major world traditions (Mormon, Chinese Zupu, Islamic Nasab, Icelandic Sagas)?",
+            options: [
+                "It is the only system that operates as a real-time marriage clearance mechanism (Siddhānta) rather than retrospective record",
+                "It uses exclusively matrilineal descent for inheritance",
+                "It is based entirely on DNA testing",
+                "It only records royal lineages and ignores commoners"
+            ],
+            correct: 0,
+            explanation: "Section 8.2: 'the Pañjī is the only genealogical system that operates as a real-time marriage clearance mechanism rather than a retrospective record.' The Pañjīkāra's siddhānta is a legally necessary actor before marriage."
+        }
+    ];
+
+    // state management
+    let userAnswers = new Array(questions.length).fill(null);
+    let submittedStatus = new Array(questions.length).fill(false);
+
+    // Render quiz
+    function renderQuiz() {
+        const container = document.getElementById('quizContainer');
+        if (!container) return;
+        let html = '';
+        questions.forEach((q, idx) => {
+            const selectedVal = userAnswers[idx];
+            html += `
+                <div class="question-card" data-qidx="${idx}">
+                    <div class="q-title">
+                        <span class="q-num">Question ${idx+1}</span>
+                    </div>
+                    <div class="question-text">${q.text}</div>
+                    <div class="options" id="options-${idx}">
+            `;
+            q.options.forEach((opt, optIdx) => {
+                const isChecked = (selectedVal === optIdx);
+                html += `
+                    <div class="option" data-qidx="${idx}" data-optidx="${optIdx}">
+                        <input type="radio" name="q${idx}" id="q${idx}_opt${optIdx}" value="${optIdx}" ${isChecked ? 'checked' : ''}>
+                        <label for="q${idx}_opt${optIdx}">${opt}</label>
+                    </div>
+                `;
+            });
+            // feedback area
+            const hasFeedback = submittedStatus[idx];
+            let fbClass = '';
+            let fbText = '';
+            if (hasFeedback && userAnswers[idx] !== null) {
+                const isCorrect = (userAnswers[idx] === questions[idx].correct);
+                fbClass = isCorrect ? 'correct' : 'incorrect';
+                if (isCorrect) {
+                    fbText = `✓ Correct. ${questions[idx].explanation}`;
+                } else {
+                    const correctAns = questions[idx].options[questions[idx].correct];
+                    fbText = `✗ Incorrect. Correct answer: "${correctAns}". ${questions[idx].explanation}`;
+                }
+            } else if (hasFeedback && userAnswers[idx] === null) {
+                fbClass = 'incorrect';
+                fbText = `⚠️ No answer selected. Correct: "${questions[idx].options[questions[idx].correct]}". ${questions[idx].explanation}`;
+            }
+            html += `
+                    </div>
+                    <div class="feedback ${fbClass}" id="fb-${idx}">${fbText}</div>
+                </div>
+            `;
+        });
+        container.innerHTML = html;
+        attachRadioEvents();
+    }
+
+    function attachRadioEvents() {
+        for (let i = 0; i < questions.length; i++) {
+            const radios = document.querySelectorAll(`input[name="q${i}"]`);
+            radios.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    const selectedVal = parseInt(e.target.value);
+                    userAnswers[i] = selectedVal;
+                    // if already submitted, reset submission flag for this question to give immediate feedback?
+                    if (submittedStatus[i]) {
+                        // user changed answer after submission, we mark not submitted to keep logic consistent -> will be re-evaluated on next full submit
+                        submittedStatus[i] = false;
+                        const fbDiv = document.getElementById(`fb-${i}`);
+                        if (fbDiv) {
+                            fbDiv.classList.remove('correct', 'incorrect');
+                            fbDiv.style.display = 'none';
+                            fbDiv.innerHTML = '';
+                        }
+                        updateOverallScorePreview();
+                    } else {
+                        // simple removal of any leftover feedback style
+                        const fbDiv = document.getElementById(`fb-${i}`);
+                        if (fbDiv && fbDiv.style.display === 'block') {
+                            fbDiv.classList.remove('correct', 'incorrect');
+                            fbDiv.style.display = 'none';
+                            fbDiv.innerHTML = '';
+                        }
+                    }
+                });
+            });
+        }
+    }
+
+    function evaluateAll() {
+        let correctCount = 0;
+        // mark all as submitted
+        for (let i = 0; i < questions.length; i++) {
+            submittedStatus[i] = true;
+            const selected = userAnswers[i];
+            const isCorrect = (selected !== null && selected === questions[i].correct);
+            if (isCorrect) correctCount++;
+            // update feedback div
+            const fbDiv = document.getElementById(`fb-${i}`);
+            if (fbDiv) {
+                let fbText = '';
+                let cssClass = '';
+                if (selected === null) {
+                    fbText = `⚠️ Not answered. Correct answer: "${questions[i].options[questions[i].correct]}". ${questions[i].explanation}`;
+                    cssClass = 'incorrect';
+                } else if (selected === questions[i].correct) {
+                    fbText = `✓ Correct. ${questions[i].explanation}`;
+                    cssClass = 'correct';
+                } else {
+                    fbText = `✗ Incorrect. Correct answer: "${questions[i].options[questions[i].correct]}". ${questions[i].explanation}`;
+                    cssClass = 'incorrect';
+                }
+                fbDiv.innerHTML = fbText;
+                fbDiv.classList.remove('correct', 'incorrect');
+                fbDiv.classList.add(cssClass);
+                fbDiv.style.display = 'block';
+            }
+        }
+        const total = questions.length;
+        const percent = Math.round((correctCount / total) * 100);
+        const scoreDiv = document.getElementById('scoreDisplay');
+        let msg = `📊 Score: ${correctCount} / ${total} (${percent}%) — `;
+        if (percent === 100) msg += "Flawless! Master of Mithila's genealogical science.";
+        else if (percent >= 80) msg += "Excellent grasp of the Pañjī-Prabandha theories.";
+        else if (percent >= 60) msg += "Good understanding; revisit the Dūṣaṇa-Pañjī and comparative frameworks.";
+        else msg += "Consider re-reading sections on structural typology, sapinda genetics, and documentary genealogy.";
+        scoreDiv.innerHTML = msg;
+        // scroll to score area
+        scoreDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function updateOverallScorePreview() {
+        let answeredCount = 0;
+        let correctCount = 0;
+        for (let i = 0; i < questions.length; i++) {
+            if (submittedStatus[i] && userAnswers[i] !== null) {
+                answeredCount++;
+                if (userAnswers[i] === questions[i].correct) correctCount++;
+            }
+        }
+        const total = questions.length;
+        const scoreDiv = document.getElementById('scoreDisplay');
+        if (answeredCount === 0) {
+            scoreDiv.innerHTML = "🌾 Answer the questions and click 'Submit' to evaluate your knowledge on Chapter 2.";
+        } else {
+            const percent = Math.round((correctCount / total) * 100);
+            scoreDiv.innerHTML = `📈 Current submitted score: ${correctCount} / ${total} (${percent}%) — ${percent >= 70 ? "Well done! Revise any flagged questions." : "Keep learning — the Pañjī is a rich archive."}`;
+        }
+    }
+
+    function resetQuizFull() {
+        userAnswers = new Array(questions.length).fill(null);
+        submittedStatus = new Array(questions.length).fill(false);
+        renderQuiz();
+        const scoreDiv = document.getElementById('scoreDisplay');
+        if (scoreDiv) scoreDiv.innerHTML = "🔄 Reset complete. Take the quiz again to test your knowledge of genealogical theories.";
+        // clear any lingering feedback from DOM after re-render
+        for (let i = 0; i < questions.length; i++) {
+            const fbDiv = document.getElementById(`fb-${i}`);
+            if (fbDiv) {
+                fbDiv.classList.remove('correct', 'incorrect');
+                fbDiv.style.display = 'none';
+                fbDiv.innerHTML = '';
+            }
+        }
+    }
+
+    // Event binding after DOM load
+    document.addEventListener('DOMContentLoaded', () => {
+        renderQuiz();
+        const submitBtn = document.getElementById('submitQuiz');
+        const resetBtn = document.getElementById('resetQuiz');
+        if (submitBtn) submitBtn.addEventListener('click', evaluateAll);
+        if (resetBtn) resetBtn.addEventListener('click', resetQuizFull);
+    });
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Part 10 – Institutional Critique, Award Politics & the Future of the Parallel Movement</title> <style>
+* {
+box-sizing: border-box;
+}
+body {
+background: #ece4db;
+font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, sans-serif;
+margin: 0;
+padding: 2rem 1rem;
+color: #1e2a2e;
+}
+.quiz-container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffdf9;
+border-radius: 2rem;
+box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+overflow: hidden;
+padding: 2rem 1.8rem;
+}
+h1 {
+font-size: 1.8rem;
+margin-top: 0;
+margin-bottom: 0.2rem;
+color: #8b2c2c;
+border-left: 6px solid #b45f2b;
+padding-left: 1rem;
+}
+.sub {
+color: #6a4e38;
+font-style: italic;
+margin-bottom: 2rem;
+border-bottom: 2px solid #ecdfd1;
+padding-bottom: 0.7rem;
+}
+.question-card {
+background: #fefaf5;
+border-radius: 1.5rem;
+margin-bottom: 1.8rem;
+padding: 1.2rem 1.5rem;
+box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+border: 1px solid #ecdfd1;
+}
+.question-text {
+font-weight: 700;
+font-size: 1.2rem;
+margin-bottom: 1rem;
+color: #3b2a1c;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+margin-bottom: 0.5rem;
+}
+.option {
+display: flex;
+align-items: flex-start;
+gap: 0.8rem;
+background: #ffffff;
+padding: 0.6rem 1rem;
+border-radius: 2rem;
+border: 1px solid #e0cfbe;
+cursor: pointer;
+transition: all 0.1s;
+}
+.option:hover {
+background-color: #fdf1e6;
+border-color: #bb8a60;
+}
+input[type="radio"] {
+margin-top: 0.2rem;
+accent-color: #b45f2b;
+width: 1.1rem;
+height: 1.1rem;
+}
+.option label {
+flex: 1;
+cursor: pointer;
+font-weight: 500;
+color: #3d2c20;
+}
+.feedback {
+margin-top: 0.9rem;
+font-size: 0.9rem;
+padding: 0.6rem 1rem;
+border-radius: 2rem;
+background: #f8f1e9;
+display: none;
+}
+.feedback.correct {
+background: #e2f3e4;
+color: #1f6132;
+border-left: 4px solid #2e7d32;
+display: block;
+}
+.feedback.incorrect {
+background: #ffe7e3;
+color: #bc3f2c;
+border-left: 4px solid #c5382b;
+display: block;
+}
+.score-area {
+position: sticky;
+bottom: 1rem;
+background: #ffffffdd;
+backdrop-filter: blur(8px);
+border-radius: 3rem;
+padding: 0.8rem 1.2rem;
+text-align: center;
+margin-top: 2rem;
+font-weight: bold;
+font-size: 1.2rem;
+border: 1px solid #dacbbc;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+button {
+background: #b45f2b;
+border: none;
+color: white;
+font-weight: bold;
+font-size: 1rem;
+padding: 0.65rem 1.8rem;
+border-radius: 3rem;
+cursor: pointer;
+transition: 0.2s;
+margin: 0.4rem;
+}
+button:hover {
+background: #8d471e;
+transform: scale(0.97);
+}
+.reset-btn {
+background: #5f4d3b;
+}
+.reset-btn:hover {
+background: #44362a;
+}
+.footer-note {
+margin-top: 2rem;
+font-size: 0.75rem;
+text-align: center;
+color: #b49a7c;
+border-top: 1px solid #efe0d2;
+padding-top: 1.2rem;
+}
+@media (max-width: 650px) {
+.quiz-container {
+padding: 1.2rem;
+}
+.question-text {
+font-size: 1rem;
+}
+.option label {
+font-size: 0.85rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <h1>📖 Part X – Institutional Critique, Award Politics & the Future of the Parallel Movement</h1> <div class="sub">🏛️ Sahitya Akademi vs Videha · RTI expose · Seven literary associations · Mithila state demand · Counter‑hegemonic archive</div> <p style="background:#f6efe8; padding:0.8rem 1.2rem; border-radius: 2rem; margin-bottom: 1.6rem;">
+📚 Based on “A Parallel History of Mithila & Maithili Literature” (Videha, ISSN 2229-547X) – Part X examines the institutional gatekeeping, the failure of state academies, the parallel award system, and the democratic future of Maithili literature.
+</p> <div id="questions-area"></div> <div class="score-area" id="scoreDisplay">
+⚡ 0 / 0 questions answered
+</div> <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;"> <button id="submitBtn">✅ Submit & Check</button> <button id="resetBtn" class="reset-btn">⟳ Reset Quiz</button> </div> </div>
+<script>
+    // ----- PART 10: Institutional critique, award politics, future of parallel movement (25 questions) -----
+    const questions = [
+        {
+            text: "According to the RTI applications filed by Vinit Utpal and Ashish Anchinhar (2011–14), what percentage of Sahitya Akademi’s Maithili translation and publication assignments went to friends and relatives of the 10‑member advisory board?",
+            options: ["Over 90%", "50%", "25%", "10%"],
+            correct: 0,
+            explanation: "The RTI expose revealed systemic cronyism: more than 90% of assignments were captured by the advisory board’s inner circle, excluding subaltern voices."
+        },
+        {
+            text: "Between 1966 and 2019, how many times did Maithil Brahmins receive the Sahitya Akademi Award for Maithili before Jagdish Prasad Mandal’s award in 2021?",
+            options: ["12 times", "25 times", "42 times", "58 times"],
+            correct: 2,
+            explanation: "Out of 51 awards, Brahmins won 42 times, Kayasthas 6, Rajputs 3, and ‘Others’ (Dalit/OBC) zero – demonstrating extreme caste skew."
+        },
+        {
+            text: "Which Sahitya Akademi award category for Maithili has never been awarded to a Dalit or OBC writer before Jagdish Prasad Mandal’s 2021 award?",
+            options: ["Main Sahitya Akademi Award (for creative writing)", "Translation Prize", "Bal Sahitya Puraskar", "Yuva Puraskar"],
+            correct: 0,
+            explanation: "The main award had gone exclusively to upper‑caste writers until Mandal’s ‘Pangu’ broke the pattern in 2021."
+        },
+        {
+            text: "Sociologist T.K. Oommen (cited in the Parallel History) argued that the demand for a separate Mithila state failed because:",
+            options: [
+                "The language is not distinct",
+                "The Maithili region is economically and culturally dominated by Brahmins; other castes feared entrenchment of elite power",
+                "People prefer Bihar",
+                "The central government blocked it"
+            ],
+            correct: 1,
+            explanation: "Oommen noted that lower castes opposed a Mithila state fearing it would formalise Brahmin dominance, a structural obstacle to linguistic nationalism."
+        },
+        {
+            text: "What was the first category of the Videha Samman (parallel award) instituted by Gajendra Thakur?",
+            options: ["Videha Yuva Puraskar", "Videha Samantarar Sahitya Akademi Fellow Puraskar", "Videha Bal Sahitya Samman", "Videha Translation Prize"],
+            correct: 1,
+            explanation: "The parallel Fellow award was the very first category, given to Govind Jha (2010) and Ramanand Renu (2011) – a direct counter to the Sahitya Akademi Fellowship that had excluded Maithili."
+        },
+        {
+            text: "Which of the following is NOT one of the seven Maithili literary associations recognised by the Sahitya Akademi (as per the 2022 list)?",
+            options: [
+                "Chetna Samiti, Patna",
+                "Videha Parallel eJournal",
+                "Akhil Bharatiya Mithila Sangh, New Delhi",
+                "Mithila Sanskritik Parishad, Kolkata"
+            ],
+            correct: 1,
+            explanation: "Videha eJournal is explicitly a parallel, counter‑institutional platform and is not recognised by the Sahitya Akademi; the seven are legacy organisations like Chetna Samiti, Mithila Sanskritik Parishad, etc."
+        },
+        {
+            text: "The Parallel History calls the Sahitya Akademi’s annual ‘Festival of Letters’ a ‘Festival of Shame’. What is the primary reason?",
+            options: [
+                "Lack of audience",
+                "Systematic exclusion of subaltern and Dalit writers from awards and events; continuation of caste‑based gatekeeping",
+                "Poor organisation",
+                "Lack of funding"
+            ],
+            correct: 1,
+            explanation: "The Akademi is accused of ignoring democratic voices while perpetuating Brahmin‑Kayastha dominance, turning celebration into hypocrisy."
+        },
+        {
+            text: "Which of the following is a key demand of the Videha Parallel History regarding the Sahitya Akademi’s recognised literary associations?",
+            options: [
+                "Increase their funding",
+                "Derecognise the six organisations and initiate an inquiry into their genuineness, as they have no real literary activity",
+                "Add more organisations",
+                "Give them award powers"
+            ],
+            correct: 1,
+            explanation: "The Parallel History argues that most recognised associations are ‘pocket organisations’ run by a few; they should be replaced with democratic, active bodies."
+        },
+        {
+            text: "According to the RTI data, which category of Maithili writers received zero Sahitya Akademi assignments?",
+            options: ["Kayasthas", "Women", "Dalit/OBC and women were systematically excluded", "Rajputs"],
+            correct: 2,
+            explanation: "The RTI revealed that women and Dalit/OBC writers received virtually no assignments; the advisory board’s network was closed to outsiders."
+        },
+        {
+            text: "The Videha Parallel History proposes that the Sahitya Akademi should immediately elect at least one Maithili writer as:",
+            options: ["Yuva Puraskar winner", "Sahitya Akademi Fellow (the highest honour, currently zero for Maithili)", "Bhasha Samman recipient", "Translation Prize winner"],
+            correct: 1,
+            explanation: "No Maithili writer has ever been made a Sahitya Akademi Fellow, a glaring institutional failure given the language’s antiquity."
+        },
+        {
+            text: "What is the central thesis of the ‘Videha Parallel History Framework’ regarding Maithili literary historiography?",
+            options: [
+                "The mainstream canon is fully representative",
+                "The mainstream has systematically promoted an upper‑caste, male, Darbhanga‑centric canon while suppressing democratic, Dalit, women’s and Nepal‑side voices",
+                "There is no need for a parallel history",
+                "All Maithili writers have been equally recognised"
+            ],
+            correct: 1,
+            explanation: "The framework’s core argument is that official literary history is caste‑skewed; the parallel history recovers the suppressed democratic tradition."
+        },
+        {
+            text: "The ‘Nit Naval’ series published by Videha consists of:",
+            options: [
+                "Children’s storybooks",
+                "Monographs on overlooked living writers and artists, forming a counter‑hegemonic archive",
+                "Political pamphlets",
+                "Hindi translations"
+            ],
+            correct: 1,
+            explanation: "The ‘Ever New’ series publishes focused critical studies on writers whose complete works are archived on Videha, ensuring they are not forgotten."
+        },
+        {
+            text: "According to the Parallel History, the Sahitya Akademi’s Maithili advisory board has been dominated by which two caste groups?",
+            options: ["Yadav and Kurmi", "Maithil Brahmin and Karna Kayastha", "Dalit and OBC", "Rajput and Bhumihar"],
+            correct: 1,
+            explanation: "The board and the recognised associations are overwhelmingly controlled by Brahmin‑Kayastha elites, excluding other castes and communities."
+        },
+        {
+            text: "Which Nepalese Maithili writer complained that the Sahitya Akademi of India systematically excludes Nepalese Maithili writers while expecting reciprocity from Nepal’s institutions?",
+            options: ["Ram Bharos Kapari ‘Bhramar’", "Laxman Jha ‘Sagar’", "Bhimnath Jha", "Navendu Jha"],
+            correct: 0,
+            explanation: "Bhramar noted the Akademi’s one‑way exclusion: it does not recognise Nepalese Maithili writers even as it expects Nepal’s institutions to honour Indian writers."
+        },
+        {
+            text: "The Parallel History identifies three ‘parallel’ academies instituted by Videha. Which of the following is one of them?",
+            options: [
+                "Parallel Hindi Akademi",
+                "Parallel Sahitya Akademi, Parallel Lalit Kala Akademi, and Parallel Sangeet Natak Akademi",
+                "Parallel Urdu Akademi",
+                "Parallel Sanskrit Akademi"
+            ],
+            correct: 1,
+            explanation: "Videha created full parallel structures mirroring the three national academies, covering literature, visual arts, and performing arts."
+        },
+        {
+            text: "According to the Parallel History, the first Maithili Sahitya Akademi award (1966) was given to a non‑literary work. What was it?",
+            options: ["A poetry collection", "A philosophical treatise ‘Mithila‑Baibhav’", "A novel", "A short story collection"],
+            correct: 1,
+            explanation: "The first award went to Yashodhar Jha’s academic philosophy text, setting a template for ignoring creative, democratic literature."
+        },
+        {
+            text: "What is the ‘Mithila state’ demand, and how does the Videha Parallel History link it to literary politics?",
+            options: [
+                "A demand for a separate country",
+                "A demand for a separate state within India, linked to language recognition; the Parallel History argues that a truly democratic Mithila state can only be built after dismantling casteist literary gatekeeping",
+                "A cultural festival",
+                "A demand for UN recognition"
+            ],
+            correct: 1,
+            explanation: "The Parallel History supports a Mithila state but only if it is democratic, not one that entrenches the same elite that controls literary institutions."
+        },
+        {
+            text: "The RTI expose by Vinit Utpal and Ashish Anchinhar was filed under which act?",
+            options: ["Right to Information Act, 2005", "Official Secrets Act", "Copyright Act", "Language Act"],
+            correct: 0,
+            explanation: "Using the RTI Act, they obtained data proving systemic exclusion of subaltern writers from Sahitya Akademi assignments."
+        },
+        {
+            text: "Which of the following is a key difference between the Sahitya Akademi award system and the Videha Samman?",
+            options: [
+                "Videha gives cash prizes, Akademi does not",
+                "Videha explicitly includes folk artists, Dalit performers, and village‑based creators; Akademi focuses on published books by elite authors",
+                "Akademi is digital, Videha is print",
+                "No difference"
+            ],
+            correct: 1,
+            explanation: "Videha Samman honours folk musicians, street theatre artists, and oral traditions that the Akademi system ignores, democratising recognition."
+        },
+        {
+            text: "The Parallel History describes the ‘Sagar Rati Deep Jaray’ literary gatherings as being ‘hijacked’ by the Sahitya Akademi in 2012. What happened?",
+            options: [
+                "They were banned",
+                "An event in Delhi was funded by the Akademi and presented as the 76th Sagar Rati, breaking the independent tradition; the Videha book stall was prohibited",
+                "They merged with the Akademi",
+                "They moved to Nepal"
+            ],
+            correct: 1,
+            explanation: "The Akademi‑sponsored storytelling session replaced the genuine independent gathering; Ashish Anchinhar protested, and the Videha stall was not allowed."
+        },
+        {
+            text: "According to the Parallel History, what should be the immediate step for the Lalit Kala Akademi regarding Mithila painting?",
+            options: [
+                "Ban Mithila painting",
+                "Establish a Mithila Art Documentation and Research Centre in Madhubani‑Darbhanga with intellectual property protection for artists",
+                "Increase import of foreign art",
+                "Ignore the tradition"
+            ],
+            correct: 1,
+            explanation: "The Akademi has recognised individual painters but failed to create regional infrastructure or protect artists from commercial exploitation."
+        },
+        {
+            text: "The Parallel History notes that the Sangeet Natak Akademi has never given its highest honour (Fellowship) to a Maithili artist. This indicates:",
+            options: [
+                "Weak Maithili arts",
+                "Institutional neglect of rich Maithili folk theatre, music, and dance despite ancient traditions like Nachari and Kirtaniya",
+                "Artists refuse awards",
+                "No applications"
+            ],
+            correct: 1,
+            explanation: "The absence of a Maithili Sangeet Natak Akademi Fellow reflects deep institutional marginalisation of Mithila’s performing arts."
+        },
+        {
+            text: "Which of the following is a key achievement of the Videha digital counter‑archive?",
+            options: [
+                "Digitisation of over 11,000 palm‑leaf Panji manuscripts and thousands of Maithili books",
+                "Creation of first Maithili Braille site",
+                "Tirhuta Unicode standardisation",
+                "All of the above"
+            ],
+            correct: 3,
+            explanation: "Videha has accomplished all of these, building a living parallel institution that preserves the full range of Maithili heritage."
+        },
+        {
+            text: "According to the Parallel History, the first convener of Maithili at Sahitya Akademi, Ramanath Jha, is described as:",
+            options: ["A progressive reformer", "Casteist, conservative, and confused – he suppressed Gangesa’s inter‑caste marriage and ensured liberal writers like Harimohan Jha were denied awards", "A Dalit leader", "A poet"],
+            correct: 1,
+            explanation: "Ramanath Jha is accused of instituting elitism and conservatism in the Akademi, concealing the Dooshan Panji facts and excluding Harimohan Jha."
+        },
+        {
+            text: "The Parallel History ends with a call for a ‘synthetic future’. What does it advocate?",
+            options: [
+                "Abandoning Maithili for Hindi",
+                "Integrating the parallel tradition (subaltern, folk, Dalit, women’s) with the mainstream canon, making Maithili literature truly democratic",
+                "Returning to Sanskrit",
+                "Banning all awards"
+            ],
+            correct: 1,
+            explanation: "The future lies in a synthetic, inclusive literary history that recovers suppressed voices and restores dignity to the full speech community."
+        }
+    ];
+
+    let selectedAnswers = new Array(questions.length).fill(null);
+    let quizSubmitted = false;
+
+    function renderQuestions() {
+        const container = document.getElementById('questions-area');
+        container.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.setAttribute('data-qid', idx);
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qText);
+            
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const optWrap = document.createElement('div');
+                optWrap.className = 'option';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${idx}`;
+                radio.value = optIdx;
+                radio.id = `q_${idx}_opt_${optIdx}`;
+                if (selectedAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    if (!quizSubmitted) {
+                        selectedAnswers[idx] = parseInt(e.target.value);
+                        updateScoreDisplay();
+                        const fbDiv = card.querySelector('.feedback');
+                        if (fbDiv) fbDiv.style.display = 'none';
+                    }
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q_${idx}_opt_${optIdx}`;
+                label.innerText = opt;
+                optWrap.appendChild(radio);
+                optWrap.appendChild(label);
+                optionsDiv.appendChild(optWrap);
+            });
+            card.appendChild(optionsDiv);
+            const fbDiv = document.createElement('div');
+            fbDiv.className = 'feedback';
+            fbDiv.id = `fb_${idx}`;
+            card.appendChild(fbDiv);
+            container.appendChild(card);
+        });
+    }
+
+    function updateScoreDisplay() {
+        const answered = selectedAnswers.filter(a => a !== null).length;
+        document.getElementById('scoreDisplay').innerHTML = `📌 ${answered} / ${questions.length} questions answered ${quizSubmitted ? '· Final scores below' : '· Submit to see correct answers'}`;
+    }
+
+    function evaluateQuiz() {
+        quizSubmitted = true;
+        let correctCount = 0;
+        for (let i = 0; i < questions.length; i++) {
+            const userChoice = selectedAnswers[i];
+            const isCorrect = (userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+            const fb = document.getElementById(`fb_${i}`);
+            if (fb) {
+                if (userChoice === null) {
+                    fb.innerHTML = `⚠️ Unanswered. Correct: ${questions[i].options[questions[i].correct]}. ${questions[i].explanation}`;
+                    fb.className = 'feedback incorrect';
+                } else if (isCorrect) {
+                    fb.innerHTML = `✅ Correct. ${questions[i].explanation}`;
+                    fb.className = 'feedback correct';
+                } else {
+                    fb.innerHTML = `❌ Incorrect. You chose: ${questions[i].options[userChoice]}. Correct: ${questions[i].options[questions[i].correct]}. ${questions[i].explanation}`;
+                    fb.className = 'feedback incorrect';
+                }
+                fb.style.display = 'block';
+            }
+        }
+        const scoreMsg = `🎯 You scored ${correctCount} out of ${questions.length}`;
+        document.getElementById('scoreDisplay').innerHTML = scoreMsg + (correctCount === questions.length ? ' — 🏆 Full parallel scholar!' : ' — Review the explanations to deepen your understanding of institutional critique.');
+    }
+
+    function resetQuiz() {
+        selectedAnswers.fill(null);
+        quizSubmitted = false;
+        for (let i = 0; i < questions.length; i++) {
+            const radios = document.querySelectorAll(`input[name="q_${i}"]`);
+            radios.forEach(r => r.checked = false);
+            const fb = document.getElementById(`fb_${i}`);
+            if (fb) {
+                fb.style.display = 'none';
+                fb.innerHTML = '';
+            }
+        }
+        updateScoreDisplay();
+    }
+
+    document.getElementById('submitBtn').addEventListener('click', evaluateQuiz);
+    document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+
+    renderQuestions();
+    updateScoreDisplay();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

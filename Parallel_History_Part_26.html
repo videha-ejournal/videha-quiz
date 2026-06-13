@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Videha Parallel History: Part XXVI Quiz | Navya-Nyāya – Logic, Language, and Pervasion</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: 'Segoe UI', 'Roboto', 'Georgia', serif;
+background: #f4efe7;
+color: #2c2418;
+padding: 2rem;
+line-height: 1.5;
+}
+.quiz-container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffef9;
+border-radius: 32px;
+box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
+overflow: hidden;
+border: 1px solid #e0d3c2;
+}
+.quiz-header {
+background: linear-gradient(135deg, #1e3a2f 0%, #2c5e3a 100%);
+color: #fef5e6;
+padding: 1.8rem 2rem;
+text-align: center;
+}
+.quiz-header h1 {
+font-size: 1.9rem;
+letter-spacing: -0.5px;
+font-weight: 600;
+margin-bottom: 0.5rem;
+}
+.quiz-header h1 span {
+font-style: italic;
+font-weight: 400;
+color: #f3da9b;
+}
+.quiz-header p {
+font-size: 1rem;
+opacity: 0.9;
+max-width: 750px;
+margin: 0 auto;
+}
+.score-area {
+background: #e9dfd1;
+padding: 0.8rem 2rem;
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+flex-wrap: wrap;
+gap: 1rem;
+border-bottom: 1px solid #d8c8b6;
+}
+.score-box {
+background: #1e3a2f;
+color: #faeecb;
+padding: 0.3rem 1rem;
+border-radius: 60px;
+font-weight: bold;
+font-size: 1.2rem;
+}
+.progress-text {
+font-weight: 500;
+color: #4b3a28;
+}
+button {
+background: none;
+border: none;
+cursor: pointer;
+font-family: inherit;
+}
+.questions-area {
+padding: 2rem 2rem 1rem;
+}
+.question-card {
+background: #fefbf7;
+margin-bottom: 2rem;
+border-radius: 24px;
+padding: 1.4rem 1.8rem;
+box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+border: 1px solid #ede1d2;
+transition: all 0.1s ease;
+}
+.question-text {
+font-size: 1.2rem;
+font-weight: 600;
+color: #2c5e3a;
+margin-bottom: 1.2rem;
+padding-left: 0.3rem;
+border-left: 4px solid #c68b5e;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.75rem;
+margin-bottom: 1.2rem;
+}
+.option {
+display: flex;
+align-items: center;
+gap: 0.75rem;
+background: #ffffff;
+padding: 0.6rem 1rem;
+border-radius: 50px;
+border: 1px solid #e6d8ca;
+transition: background 0.15s;
+cursor: pointer;
+}
+.option:hover {
+background: #f7f0e8;
+}
+input[type="radio"] {
+accent-color: #8b5a2b;
+width: 18px;
+height: 18px;
+margin: 0;
+}
+.option label {
+font-size: 0.98rem;
+font-weight: 450;
+color: #2c2a27;
+width: 100%;
+cursor: pointer;
+}
+.feedback {
+margin-top: 0.8rem;
+font-size: 0.85rem;
+padding: 0.4rem 0.8rem;
+border-radius: 20px;
+display: inline-block;
+background: #f2ece4;
+color: #5a4a38;
+}
+.feedback.correct {
+background: #e2f0e4;
+color: #1f592e;
+border-left: 3px solid #2f8243;
+}
+.feedback.incorrect {
+background: #fde9e7;
+color: #aa3e2c;
+border-left: 3px solid #c25542;
+}
+.action-buttons {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 1rem;
+padding: 0 2rem 1.8rem 2rem;
+}
+.btn {
+padding: 0.7rem 1.8rem;
+border-radius: 60px;
+font-weight: 600;
+font-size: 0.9rem;
+transition: all 0.2s;
+background: #e5d9cd;
+color: #2c2418;
+border: 1px solid #cfbeaa;
+}
+.btn-primary {
+background: #7a5a3e;
+color: white;
+border: none;
+box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.btn-primary:hover {
+background: #5c4130;
+transform: translateY(-1px);
+cursor: pointer;
+}
+.btn-reset {
+background: #efe3d5;
+border: 1px solid #cfbeaa;
+}
+.btn-reset:hover {
+background: #e2d1bd;
+cursor: pointer;
+}
+.footer {
+background: #f2ece3;
+padding: 1rem 2rem;
+text-align: center;
+font-size: 0.8rem;
+color: #6b5a48;
+border-top: 1px solid #e1d2c0;
+}
+@media (max-width: 680px) {
+body {
+padding: 1rem;
+}
+.question-card {
+padding: 1rem;
+}
+.question-text {
+font-size: 1rem;
+}
+.options {
+gap: 0.5rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <div class="quiz-header"> <h1>🧠 Parallel History of Mithila <span>— Part XXVI</span></h1> <p>ADDENDUM 3: Gaṅgeśa's Navya‑Nyāya – Logic, Language, and Pervasion<br>Verbal roots · Verbal suffixes · Vyāpti · Saṅgati · Avacchedaka as unifying concept</p> </div> <div class="score-area"> <div class="progress-text" id="qCounter">Question 1 of 12</div> <div class="score-box" id="scoreDisplay">Score: 0/0</div> </div> <div class="questions-area" id="questionsContainer"></div> <div class="action-buttons"> <button class="btn btn-reset" id="resetQuizBtn">⟳ Reset Quiz</button> <button class="btn btn-primary" id="submitBtn">✓ Submit & Check Answers</button> </div> <div class="footer">
+📜 Based on the Videha Parallel History, ADDENDUM 3 – "Gaṅgeśa's Navya‑Nyāya: Logic, Language, and Pervasion — A Comparative Study".<br>
+ISSN 2229-547X · Democratic, counter‑canonical perspective on Mithila's logical heritage.
+</div>
+</div>
+<script>
+    // ---------- PART XXVI: ADDENDUM 3 – NAVYA-NYĀYA (pages 132–144) ----------
+    // Questions strictly based on the provided text (sections on Dhātuvāda, Ākhyātavāda, Vyāpti, Saṅgati, etc.)
+    const quizData = [
+        {
+            text: "In Gaṅgeśa's analysis of verbal roots (Dhātuvāda), what is the core difference between the Mīmāṃsā position (Maṇḍana Miśra) and the Navya‑Nyāya position?",
+            options: [
+                "Mīmāṃsā holds that roots denote operation; Nyāya holds that roots denote result",
+                "Mīmāṃsā holds that roots denote result (phala); Navya‑Nyāya holds that roots denote operation conducive to result (phalānukūlavyāpāra)",
+                "Mīmāṃsā holds that roots denote agent; Nyāya holds that roots denote action",
+                "Mīmāṃsā holds that roots denote a universal; Nyāya holds that roots denote a particular"
+            ],
+            correct: 1,
+            explanation: "The text: 'Maṇḍana Miśra's Mīmāṃsā position, which holds that verbal roots denote only result (phala) ... Gaṅgeśa's Navya‑Nyāya position, which holds that verbal roots denote operation conducive to result (phalānukūlavyāpāra), or in the second alternative, simply operation (vyāpāra) qualified by a universal.'"
+        },
+        {
+            text: "According to Gaṅgeśa's analysis in the Ākhyātavāda (verbal suffixes), what does the verbal suffix -ti denote in the active voice?",
+            options: [
+                "Only the agent (kartṛ)",
+                "Only the object (karman)",
+                "Effort (yatna/kṛti) and the number existing in the agent",
+                "The action (bhāva) alone"
+            ],
+            correct: 2,
+            explanation: "The text: 'Gangesa's final view: in the active voice, the suffix denotes effort (equivalently, agentness kartrva) and the number existing in the agent; in the passive voice, it denotes objectness (karmatva) and the number existing in the object.'"
+        },
+        {
+            text: "Gaṅgeśa reconceived the principle of coreferentiality (samānādhikaraṇya) in order to defend his theory of suffix meaning. What is his new definition?",
+            options: [
+                "Sharing the same physical location",
+                "Agreement of the number (saṃkhyā) denoted by words, called śabdasamānādhikaraṇya",
+                "Having the same grammatical gender",
+                "Sharing the same phonological length"
+            ],
+            correct: 1,
+            explanation: "The text: 'Gangesa rejects this: he redefines coreferentiality as the agreement of numbers (samkhya) denoted by words, calling this sabdasamanadhikaranya (verbal coreferentiality).'"
+        },
+        {
+            text: "What problem in the definition of vyāpti (invariable concomitance) did Gaṅgeśa solve by introducing the concept of avacchedaka (delimitor)?",
+            options: [
+                "The problem of infinite regress (anavasthā)",
+                "The 'sifting problem' (calaninyāya) – iteratively taking up absences leading to over‑application or under‑application",
+                "The problem of circularity (cakraka)",
+                "The problem of self‑dependence (ātmāśraya)"
+            ],
+            correct: 1,
+            explanation: "The text: 'Sasadhara's definition suffered from the 'sifting problem' (calaninyaya): by iteratively taking up absences in the loci of the probans, one could arrive at the absence of all fire as the counterpositive, which is the probandum itself generating the defect of narrow application (avyapti). Gangesa's introduction of the avacchedaka stops this iteration.'"
+        },
+        {
+            text: "Gaṅgeśa's theory of saṅgati (relevance) identifies six types. Which type corresponds to the relation where two statements share the same cause (nirvāhakakeatva)?",
+            options: [
+                "prasaṅga (memory‑context)",
+                "upodghāta (justification)",
+                "hetu (cause)",
+                "kārya‑ekatva (having the same effect)"
+            ],
+            correct: 2,
+            explanation: "The text lists six types: (1) prasaṅga, (2) upodghāta, (3) hetu, (4) avasara, (5) nirvāhakakeatva, (6) kārya-ekatva. It specifies: 'The type hetu (cause) is particularly revealing: after defining perception, it is relevant to ask about its causal conditions.'"
+        },
+        {
+            text: "According to the shared epistemological foundation of Navya‑Nyāya, every qualitative cognition (viśiṣṭajñāna) has a structure consisting of three elements. Which of the following is NOT one of them?",
+            options: [
+                "Qualifier (viśeṣaṇa or prakāra)",
+                "Qualificand (viśeṣya)",
+                "Connector (sambandha)",
+                "Refrain (radīf)"
+            ],
+            correct: 3,
+            explanation: "The text: 'Every qualitative cognition (viśiṣṭajāna) has a structure consisting of a qualifier (viśeṣana or prakāra), a qualificand (viśeṣya), and their connector (sambandha).' Radīf is a feature of ghazal, not of Navya‑Nyāya cognition."
+        },
+        {
+            text: "In the debate on verbal suffixes, which school holds that the suffix denotes the agent (kartṛ) or object (karman) or action (bhāva) as per Pāṇini 3.4.69?",
+            options: [
+                "Navya‑Naiyāyikas",
+                "Bhāṭṭa Mīmāṃsakas",
+                "Grammarians (Pāṇinīya)",
+                "Advaita Vedāntins"
+            ],
+            correct: 2,
+            explanation: "The text: 'The three schools: effort (yatna/krti) for Navya‑Nyāya; productive operation (bhavana or vyapara) for the Bhatta school; agent (kartr), object (karman), or action (bhava) for the Grammarians (following Panini P.3.4.69).'"
+        },
+        {
+            text: "Which later Navya‑Nyāya philosopher is credited with two successive rephrasings of Gaṅgeśa's vyāpti definition to handle edge cases such as 'jātimān meyatvāt' and 'ghaṭavān mahākālatvāt'?",
+            options: [
+                "Vardhamāna Upādhyāya",
+                "Pakṣadhara Miśra",
+                "Raghunātha Śiromaṇi",
+                "Jagadīśa Tarkālaṃkāra"
+            ],
+            correct: 2,
+            explanation: "The text: 'Raghunatha's two rephrased definitions represent progressively more refined responses to edge cases that Gangesa's original definition cannot handle without further qualification. The first rephrasing addresses cases where the probans locus has no possibility of possessing anything by the delimiting relation of the probandumness (e.g., jätimän meyvatvät). The second rephrasing addresses cases where everything exists in the locus of the probans by the delimiting relation (e.g., ghatavän mahäkälatvät).'"
+        },
+        {
+            text: "What is the 'upādhi' (additional condition / adventitious condition) in Navya‑Nyāya logic?",
+            options: [
+                "A valid inference with invariable concomitance",
+                "A property that appears to be part of the vyāpti but is not, because it is merely a coexisting accidental property; used to block pseudo‑inferences",
+                "A verbal testimony that is self‑validating",
+                "A type of perceptual error"
+            ],
+            correct: 1,
+            explanation: "The text: 'The concept of upadhi (additional condition) is Gangesa's tool for identifying and blocking pseudo- inferences. An upadhi U is a property that pervades the probandum S but does not pervade the prover H – its presence reveals that the apparent pervasion of H by S does not hold.'"
+        },
+        {
+            text: "Gaṅgeśa's conclusive definition of vyāpti uses the concept of avacchedaka to specify a particular universal. What was the key limitation of Sasadhara's earlier definition that Gaṅgeśa overcame?",
+            options: [
+                "It could not handle negative inferences",
+                "It suffered from the 'sifting problem' (calaninyāya) because it did not use a delimiter to stop the iteration of counterpositives",
+                "It relied on an invalid pramāṇa",
+                "It confused perception with inference"
+            ],
+            correct: 1,
+            explanation: "The text: 'Sasadhara's definition suffered from the 'sifting problem' (calaninyaya): by iteratively taking up absences in the loci of the probans, one could arrive at the absence of all fire as the counterpositive, which is the probandum itself generating the defect of narrow application (avyapti). Gangesa's introduction of the avacchedaka stops this iteration.'"
+        },
+        {
+            text: "The addendum notes three major paramparās (traditions) of commentary on the Tattvacintāmaṇi. Which of the following is NOT one of them?",
+            options: [
+                "Maithila paramparā",
+                "Baṅgāla paramparā (Navadvīpa)",
+                "Kāśmīra paramparā",
+                "Dakṣiṇa paramparā"
+            ],
+            correct: 2,
+            explanation: "The text explicitly mentions: 'The commentary tradition divides geographically into three paramparas: Maithila, Bangala (Navadvipa), and Daksina.' Kashmir parampara is not listed."
+        },
+        {
+            text: "Which methodological approach does Yūko Miyasaka employ in her analysis of Gaṅgeśa's vyāpti definition, as highlighted in the addendum?",
+            options: [
+                "Formal logic using predicate calculus",
+                "Diagrammatic representation of qualificative cognitions as boxes connected by lines, with arrows for delimitation and dotted lines for absence‑counterpositive relations",
+                "A purely textual philological method",
+                "Computational modelling of Sanskrit syntax"
+            ],
+            correct: 1,
+            explanation: "The text: 'Miyasaka's paper is primarily structural and diagrammatic. The diagram method — representing qualificative cognitions as boxes connected by lines, with arrows for delimitation and dotted lines for absence‑counterpositive relations — provides a visual representation of the logical structure.'"
+        }
+    ];
+
+    // State
+    let userAnswers = new Array(quizData.length).fill(null);
+    let quizSubmitted = false;
+
+    const questionsContainer = document.getElementById('questionsContainer');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const qCounter = document.getElementById('qCounter');
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetQuizBtn');
+
+    function calculateScore() {
+        let correctCount = 0;
+        for (let i = 0; i < quizData.length; i++) {
+            if (userAnswers[i] !== null && userAnswers[i] === quizData[i].correct) {
+                correctCount++;
+            }
+        }
+        return correctCount;
+    }
+
+    function updateUI() {
+        const total = quizData.length;
+        let answeredCount = userAnswers.filter(a => a !== null).length;
+        qCounter.innerText = `Answered: ${answeredCount} of ${total}`;
+        if (quizSubmitted) {
+            const currentScore = calculateScore();
+            scoreDisplay.innerText = `Score: ${currentScore}/${total}`;
+        } else {
+            scoreDisplay.innerText = `Score: --/${total}`;
+        }
+    }
+
+    function renderQuiz() {
+        questionsContainer.innerHTML = '';
+        for (let i = 0; i < quizData.length; i++) {
+            const q = quizData[i];
+            const selectedVal = userAnswers[i] !== null ? userAnswers[i] : -1;
+            const showFeedback = quizSubmitted;
+            const isCorrect = (quizSubmitted && userAnswers[i] !== null && userAnswers[i] === q.correct);
+
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            
+            const qTextDiv = document.createElement('div');
+            qTextDiv.className = 'question-text';
+            qTextDiv.innerText = `${i+1}. ${q.text}`;
+            card.appendChild(qTextDiv);
+            
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+            
+            q.options.forEach((opt, optIdx) => {
+                const optionWrap = document.createElement('div');
+                optionWrap.className = 'option';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${i}`;
+                radio.value = optIdx;
+                radio.disabled = quizSubmitted;
+                if (selectedVal === optIdx) radio.checked = true;
+                
+                radio.addEventListener('change', (function(qIdx, oIdx) {
+                    return function(e) {
+                        if (!quizSubmitted && e.target.checked) {
+                            userAnswers[qIdx] = oIdx;
+                            renderQuiz();
+                        }
+                    };
+                })(i, optIdx));
+                
+                const label = document.createElement('label');
+                label.innerText = opt;
+                optionWrap.appendChild(radio);
+                optionWrap.appendChild(label);
+                optionsDiv.appendChild(optionWrap);
+            });
+            card.appendChild(optionsDiv);
+            
+            if (showFeedback && userAnswers[i] !== null) {
+                const fbDiv = document.createElement('div');
+                fbDiv.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+                if (isCorrect) {
+                    fbDiv.innerHTML = `✓ Correct. ${q.explanation}`;
+                } else {
+                    const correctOptionText = q.options[q.correct];
+                    fbDiv.innerHTML = `✗ Incorrect. Correct answer: ${correctOptionText}. ${q.explanation}`;
+                }
+                card.appendChild(fbDiv);
+            } else if (showFeedback && userAnswers[i] === null) {
+                const fbDiv = document.createElement('div');
+                fbDiv.className = 'feedback incorrect';
+                fbDiv.innerHTML = `⚠ Not answered. The correct answer is: ${q.options[q.correct]}. ${q.explanation}`;
+                card.appendChild(fbDiv);
+            }
+            
+            questionsContainer.appendChild(card);
+        }
+        updateUI();
+    }
+
+    function submitQuiz() {
+        if (quizSubmitted) return;
+        quizSubmitted = true;
+        renderQuiz();
+        submitBtn.innerText = "✓ Results Submitted";
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = "0.7";
+        window.scrollTo({ top: document.body.scrollHeight * 0.3, behavior: 'smooth' });
+    }
+
+    function resetQuiz() {
+        quizSubmitted = false;
+        userAnswers = new Array(quizData.length).fill(null);
+        submitBtn.innerText = "✓ Submit & Check Answers";
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = "1";
+        renderQuiz();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    submitBtn.addEventListener('click', submitQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+    renderQuiz();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Quiz: Chapter 18 - The Dooshan Pañjī (The Black Book of Mithila)</title> <style>
+* {
+box-sizing: border-box;
+}
+body {
+font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, sans-serif;
+background: #1e1b17;
+margin: 0;
+padding: 2rem 1rem;
+color: #e8e2d4;
+}
+.container {
+max-width: 950px;
+margin: 0 auto;
+background: #2c2822;
+border-radius: 2rem;
+box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.5);
+overflow: hidden;
+padding: 1.8rem 2rem 2.5rem;
+border: 1px solid #5a4a38;
+}
+h1 {
+font-size: 2rem;
+margin-top: 0;
+margin-bottom: 0.25rem;
+color: #e7cfa1;
+font-weight: 600;
+border-left: 6px solid #bc7a3c;
+padding-left: 1.2rem;
+}
+.sub {
+color: #c9b38b;
+border-bottom: 1px solid #5a4a38;
+padding-bottom: 0.7rem;
+margin-bottom: 1.5rem;
+font-style: italic;
+font-size: 0.95rem;
+}
+.question-card {
+background: #352f28;
+border-radius: 1.5rem;
+padding: 1.2rem 1.5rem;
+margin-bottom: 1.5rem;
+box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+border: 1px solid #5f4e3a;
+transition: 0.1s ease;
+}
+.question-text {
+font-weight: 700;
+font-size: 1.16rem;
+margin-bottom: 1rem;
+color: #f3e2bf;
+}
+.options {
+list-style: none;
+padding: 0;
+margin: 0 0 0.5rem 0;
+}
+.options li {
+margin: 0.7rem 0;
+display: flex;
+align-items: flex-start;
+gap: 0.6rem;
+cursor: pointer;
+padding: 0.2rem 0.2rem;
+}
+.options input {
+margin-top: 0.2rem;
+width: 1.1rem;
+height: 1.1rem;
+cursor: pointer;
+accent-color: #bc7a3c;
+}
+.options label {
+font-size: 0.98rem;
+line-height: 1.35;
+color: #ece2d0;
+cursor: pointer;
+}
+.feedback {
+margin-top: 0.8rem;
+font-size: 0.85rem;
+padding: 0.5rem 1rem;
+border-radius: 1.2rem;
+display: inline-block;
+background: #3e352b;
+color: #dad1bf;
+}
+.correct-feedback {
+background: #2b4a2f;
+color: #d9f0db;
+border-left: 4px solid #7fb073;
+padding-left: 1rem;
+}
+.wrong-feedback {
+background: #5e3129;
+color: #ffd1c9;
+border-left: 4px solid #da7635;
+padding-left: 1rem;
+}
+.btn-submit {
+background: #9b6a3c;
+border: none;
+color: white;
+font-weight: bold;
+font-size: 1.05rem;
+padding: 0.8rem 2rem;
+border-radius: 3rem;
+cursor: pointer;
+margin-top: 0.5rem;
+transition: background 0.2s;
+box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+.btn-submit:hover {
+background: #7e4f2a;
+}
+.score-area {
+text-align: center;
+font-size: 1.25rem;
+font-weight: bold;
+background: #4f3f2d;
+padding: 0.8rem;
+border-radius: 3rem;
+margin-top: 1.2rem;
+margin-bottom: 0.5rem;
+color: #f7efcf;
+}
+.reset-btn {
+background: #6a5b47;
+margin-left: 0.8rem;
+}
+.reset-btn:hover {
+background: #544635;
+}
+.footer {
+margin-top: 1.8rem;
+font-size: 0.72rem;
+text-align: center;
+color: #a28e6f;
+border-top: 1px solid #5a4a38;
+padding-top: 1rem;
+}
+@media (max-width: 600px) {
+.container {
+padding: 1rem;
+}
+.question-card {
+padding: 0.9rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="container"> <h1>📖 Dooshan Pañjī · The Black Book of Mithila</h1> <div class="sub">Chapter 18: Comprehensive Scholarly Report — Defects, Transgressions & The Counter‑Archive</div> <p style="margin-bottom: 1.2rem; font-size: 0.95rem;">Based on Gajendra Thakur's Dooshan Pañjī analysis (2023). This quiz examines the seven Pañjī types, inter‑caste records, the Gaṅgeśa case, and social purification mechanisms.</p> <div id="quiz-container"></div> <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1rem;"> <button class="btn-submit" id="submitBtn">✓ Submit answers</button> <button class="btn-submit reset-btn" id="resetBtn">⟳ Restart quiz</button> </div> <div id="scoreDisplay" class="score-area" style="display: none;"></div> </div>
+<script>
+    // Chapter 18: Dooshan Pañjī — questions based on the scholarly report
+    const questions = [
+        {
+            text: "The Dooshan Pañjī is one of the seven canonical Pañjī types. What is its primary function?",
+            options: [
+                "Recording only royal marriages and grants",
+                "Documenting genealogical 'defects', inter‑caste unions, unknown maternal origins, and social transgressions",
+                "Issuing Siddhānta Patra (marriage certificates)",
+                "Listing the 20 gotras and their pravara"
+            ],
+            correct: 1,
+            explanation: "The Dooshan Pañjī (Defect Register) records 'every transgression, anomaly, or departure from endogamous norm: inter-caste marriages, devadāsī mothers, births after a father's death, unions with Muslims, etc.'"
+        },
+        {
+            text: "According to the chapter, which unique regional Pañjī records women's names systematically, contrasting with the general practice?",
+            options: [
+                "Mūla Pañjī of Darbhanga",
+                "Gotra Pañjī of Saurath",
+                "Rasarh-Araria Pañjī",
+                "Utedh Pañjī of Nepal"
+            ],
+            correct: 2,
+            explanation: "The text notes: 'only the Rasarh-Araria Pañjī contains the names of women (strī-gaṇaka nāma) within the genealogical record. This is a remarkable sociological observation: across the vast system, women are ordinarily recorded only functionally.'"
+        },
+        {
+            text: "What does the term 'kṣaraṇa' refer to in the context of the Dooshan Pañjī?",
+            options: [
+                "The sacred thread ceremony",
+                "The gradual erosion or leakage of lineage purity, recorded as a 'defect'",
+                "The royal decree founding the Pañjī system",
+                "A type of marriage alliance between Śrotriya families"
+            ],
+            correct: 1,
+            explanation: "Dooshan means 'that which contaminates'. The Dooshan Pañjī is 'the record of the erosion (kṣaraṇa) that has occurred in a lineage' — a gradual wearing away of genealogical integrity."
+        },
+        {
+            text: "The Dooshan Pañjī records that Gaṅgeśa Upādhyāya, the founder of Navya-Nyāya philosophy, was born five years after his father's death and that his wife was from which community?",
+            options: [
+                "Rajak (washerman)",
+                "Devadāsī (temple dancer)",
+                "Charmakāriṇī (tanner/leather‑worker caste)",
+                "Yavana (Muslim)"
+            ],
+            correct: 2,
+            explanation: "Entry 188/2 records: 'Charmakāriṇī… Gaṅgeśa, author of Tattvachintāmaṇi. His wife (Vallabhā) was Charmakāriṇī.' Also 'pitṛ-parokṣe pañca-varṣa vyatīte Gaṅgeśotpattiḥ' (born 5 years after father's death)."
+        },
+        {
+            text: "What is the mechanism of 'purification' (Purnatah Shuddha) for a lineage that had an inter‑caste union, as illustrated by the Devadhar example in the Dooshan Pañjī?",
+            options: [
+                "Immediate excommunication without return",
+                "After six generations of endogamous marriages, the lineage was considered completely pure",
+                "Only after a royal pardon from the Darbhanga Raj",
+                "By changing the gotra and moving to a new village"
+            ],
+            correct: 1,
+            explanation: "Example 1 traces Gunawati Himsha (another caste) → after six generations, Devadhar is declared 'Purnatah Shuddha — completely purified.' The system tracks six generations for full reintegration."
+        },
+        {
+            text: "Which prominent 20th‑century scholar is accused in the report of deliberately suppressing the Dooshan Pañjī evidence about Gaṅgeśa's family, leading to an 'honour killing' of the philosopher's legacy?",
+            options: [
+                "Dinesh Chandra Bhattacharya",
+                "Prof. Ramanath Jha",
+                "Udayanath Jha 'Ashok'",
+                "Gajendra Thakur"
+            ],
+            correct: 1,
+            explanation: "The document states: 'Prof. Ramanath Jha… provided information to Dinesh Chandra Bhattacharya that was deliberately incomplete. He kept the Dooshan Pañjī a secret… honour killing of Gaṅgeśa Upādhyāya.'"
+        },
+        {
+            text: "Besides Charmakāriṇī (tanner) unions, which other inter‑caste or transgressive categories are explicitly documented in the 97 tables of the Dooshan Pañjī?",
+            options: [
+                "Only marriages with Kshatriyas",
+                "Devadāsī, Rajak (washerman), Yavana (Muslim), Tailika (oil‑presser), and Ajñāta (unknown lineage) unions",
+                "Exclusively marriages within the same gotra",
+                "Only widows remarrying among Śrotriya"
+            ],
+            correct: 1,
+            explanation: "The chapter lists extensive tables: Devadāsī entries, Rājaka (washerman), Tailika, Dhīvara, Yavana Daulatijahāṃ, and Ajñāta (unknown mother) records."
+        },
+        {
+            text: "The Dooshan Pañjī's Table 1–97 reveals a sophisticated social logic. According to the report, why were these transgressions recorded rather than erased?",
+            options: [
+                "To permanently condemn the lineage",
+                "To enable forward‑looking genealogical risk management and to avoid bad consequences for future alliances",
+                "To submit the records to the Mughal court",
+                "To prove that only Śrotriya families were pure"
+            ],
+            correct: 1,
+            explanation: "The purpose is that related lineages 'might avoid the dupariṇāma (bad consequence) of unknowingly marrying back into a lineage whose taint has not yet completed purification' — genealogical epidemiology."
+        },
+        {
+            text: "Which medieval royal dynasty's genealogy is explicitly connected to the Dooshan Pañjī through a verse praising 'Oihin' and tracing rulers from Simraongarh (Karnāṭa dynasty)?",
+            options: [
+                "Gupta dynasty",
+                "Karnāṭa dynasty of Mithila (Simraongarh)",
+                "Pala dynasty",
+                "Koch dynasty of Assam"
+            ],
+            correct: 1,
+            explanation: "Block 402 includes a Sanskrit verse: 'dāna śaurya pratāpaiśca prasiddhā yatra pārthavāḥ | oihana sā sarvuta śroṣṭhā' linking to the Karnāṭa rulers of Simraongarh (medieval Mithila)."
+        },
+        {
+            text: "The Dooshan Pañjī records a 'Yavana Daulatijahāṃ' entry (Tables 11–12). What does this document?",
+            options: [
+                "A marriage of a Brahmin woman with a Persian noble",
+                "A union involving a Muslim woman (Yavana) named Daulatijahan, whose descendants are tracked in the Brahmin genealogy",
+                "The conversion of a Brahmin family to Islam",
+                "A land grant to a Sufi saint"
+            ],
+            correct: 1,
+            explanation: "Table 11–12: 'Yavana Daulatijahāṃ … Dagara kī māta (Dagara's mother) is Yavana Daulatijahāṃ — a Muslim woman. Her lineage is carefully tracked through multiple Brahmin mūlas."
+        }
+    ];
+
+    let userSelections = new Array(questions.length).fill(null);
+    let submitted = false;
+
+    function renderQuiz() {
+        const container = document.getElementById('quiz-container');
+        let html = '';
+        questions.forEach((q, idx) => {
+            const selectedVal = (!submitted && userSelections[idx] !== null) ? userSelections[idx] : (submitted ? userSelections[idx] : null);
+            html += `<div class="question-card" data-qidx="${idx}">
+                        <div class="question-text">${idx+1}. ${q.text}</div>
+                        <ul class="options">`;
+            q.options.forEach((opt, optIdx) => {
+                const checkedAttr = (selectedVal === optIdx) ? 'checked' : '';
+                const disabledAttr = submitted ? 'disabled' : '';
+                html += `<li>
+                            <input type="radio" name="q${idx}" value="${optIdx}" id="q${idx}_opt${optIdx}" ${checkedAttr} ${disabledAttr}>
+                            <label for="q${idx}_opt${optIdx}">${String.fromCharCode(65+optIdx)}. ${opt}</label>
+                         </li>`;
+            });
+            html += `</ul>`;
+            if (submitted) {
+                const isCorrect = (userSelections[idx] === q.correct);
+                const correctLetter = String.fromCharCode(65 + q.correct);
+                if (isCorrect) {
+                    html += `<div class="feedback correct-feedback">✓ Correct. ${q.explanation}</div>`;
+                } else {
+                    const userLetter = (userSelections[idx] !== null) ? String.fromCharCode(65 + userSelections[idx]) : '—';
+                    html += `<div class="feedback wrong-feedback">✗ Your answer: ${userLetter}. Correct: ${correctLetter}. ${q.explanation}</div>`;
+                }
+            }
+            html += `</div>`;
+        });
+        container.innerHTML = html;
+
+        if (!submitted) {
+            for (let i = 0; i < questions.length; i++) {
+                const radios = document.querySelectorAll(`input[name="q${i}"]`);
+                radios.forEach(radio => {
+                    radio.addEventListener('change', (e) => {
+                        userSelections[i] = parseInt(e.target.value);
+                    });
+                });
+            }
+        }
+    }
+
+    function computeScore() {
+        let score = 0;
+        for (let i = 0; i < questions.length; i++) {
+            if (userSelections[i] !== null && userSelections[i] === questions[i].correct) score++;
+        }
+        return score;
+    }
+
+    function showScore() {
+        const score = computeScore();
+        const total = questions.length;
+        const percent = Math.round((score / total) * 100);
+        const scoreDiv = document.getElementById('scoreDisplay');
+        scoreDiv.style.display = 'block';
+        let message = `🖤 Score: ${score} / ${total} (${percent}%) — `;
+        if (percent >= 80) message += `Exceptional! You've grasped the Dooshan Pañjī's subversive archive.`;
+        else if (percent >= 60) message += `Good understanding; revisit the Gaṅgeśa & purification mechanisms.`;
+        else message += `Review the seven Pañjī types and the 'honour killing' section.`;
+        scoreDiv.innerHTML = message;
+    }
+
+    function submitQuiz() {
+        if (submitted) return;
+        // check all answered
+        for (let i = 0; i < questions.length; i++) {
+            if (userSelections[i] === null) {
+                alert(`Please answer question ${i+1} before submitting.`);
+                return;
+            }
+        }
+        submitted = true;
+        renderQuiz();
+        showScore();
+        document.getElementById('submitBtn').disabled = true;
+        document.getElementById('submitBtn').style.opacity = '0.7';
+    }
+
+    function resetQuiz() {
+        userSelections = new Array(questions.length).fill(null);
+        submitted = false;
+        document.getElementById('submitBtn').disabled = false;
+        document.getElementById('submitBtn').style.opacity = '1';
+        document.getElementById('scoreDisplay').style.display = 'none';
+        renderQuiz();
+    }
+
+    // initial render
+    renderQuiz();
+    document.getElementById('submitBtn').addEventListener('click', submitQuiz);
+    document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

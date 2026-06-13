@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Videha Parallel History: Part XIX Quiz | The New Awakening – Colonial Modernity & Maithili Revival</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: 'Segoe UI', 'Roboto', 'Georgia', serif;
+background: #f0ebe2;
+color: #2c2418;
+padding: 2rem;
+line-height: 1.5;
+}
+.quiz-container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffefa;
+border-radius: 32px;
+box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
+overflow: hidden;
+border: 1px solid #e0d3c2;
+}
+.quiz-header {
+background: linear-gradient(135deg, #1a4d5f 0%, #2c7a5e 100%);
+color: #fef5e6;
+padding: 1.8rem 2rem;
+text-align: center;
+}
+.quiz-header h1 {
+font-size: 1.9rem;
+letter-spacing: -0.5px;
+font-weight: 600;
+margin-bottom: 0.5rem;
+}
+.quiz-header h1 span {
+font-style: italic;
+font-weight: 400;
+color: #f3da9b;
+}
+.quiz-header p {
+font-size: 1rem;
+opacity: 0.9;
+max-width: 750px;
+margin: 0 auto;
+}
+.score-area {
+background: #e9dfd1;
+padding: 0.8rem 2rem;
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+flex-wrap: wrap;
+gap: 1rem;
+border-bottom: 1px solid #d8c8b6;
+}
+.score-box {
+background: #1a4d5f;
+color: #faeecb;
+padding: 0.3rem 1rem;
+border-radius: 60px;
+font-weight: bold;
+font-size: 1.2rem;
+}
+.progress-text {
+font-weight: 500;
+color: #4b3a28;
+}
+button {
+background: none;
+border: none;
+cursor: pointer;
+font-family: inherit;
+}
+.questions-area {
+padding: 2rem 2rem 1rem;
+}
+.question-card {
+background: #fefbf7;
+margin-bottom: 2rem;
+border-radius: 24px;
+padding: 1.4rem 1.8rem;
+box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+border: 1px solid #ede1d2;
+transition: all 0.1s ease;
+}
+.question-text {
+font-size: 1.2rem;
+font-weight: 600;
+color: #1a5e4a;
+margin-bottom: 1.2rem;
+padding-left: 0.3rem;
+border-left: 4px solid #c68b5e;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.75rem;
+margin-bottom: 1.2rem;
+}
+.option {
+display: flex;
+align-items: center;
+gap: 0.75rem;
+background: #ffffff;
+padding: 0.6rem 1rem;
+border-radius: 50px;
+border: 1px solid #e6d8ca;
+transition: background 0.15s;
+cursor: pointer;
+}
+.option:hover {
+background: #f7f0e8;
+}
+input[type="radio"] {
+accent-color: #8b5a2b;
+width: 18px;
+height: 18px;
+margin: 0;
+}
+.option label {
+font-size: 0.98rem;
+font-weight: 450;
+color: #2c2a27;
+width: 100%;
+cursor: pointer;
+}
+.feedback {
+margin-top: 0.8rem;
+font-size: 0.85rem;
+padding: 0.4rem 0.8rem;
+border-radius: 20px;
+display: inline-block;
+background: #f2ece4;
+color: #5a4a38;
+}
+.feedback.correct {
+background: #e2f0e4;
+color: #1f592e;
+border-left: 3px solid #2f8243;
+}
+.feedback.incorrect {
+background: #fde9e7;
+color: #aa3e2c;
+border-left: 3px solid #c25542;
+}
+.action-buttons {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 1rem;
+padding: 0 2rem 1.8rem 2rem;
+}
+.btn {
+padding: 0.7rem 1.8rem;
+border-radius: 60px;
+font-weight: 600;
+font-size: 0.9rem;
+transition: all 0.2s;
+background: #e5d9cd;
+color: #2c2418;
+border: 1px solid #cfbeaa;
+}
+.btn-primary {
+background: #7a5a3e;
+color: white;
+border: none;
+box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.btn-primary:hover {
+background: #5c4130;
+transform: translateY(-1px);
+cursor: pointer;
+}
+.btn-reset {
+background: #efe3d5;
+border: 1px solid #cfbeaa;
+}
+.btn-reset:hover {
+background: #e2d1bd;
+cursor: pointer;
+}
+.footer {
+background: #f2ece3;
+padding: 1rem 2rem;
+text-align: center;
+font-size: 0.8rem;
+color: #6b5a48;
+border-top: 1px solid #e1d2c0;
+}
+@media (max-width: 680px) {
+body {
+padding: 1rem;
+}
+.question-card {
+padding: 1rem;
+}
+.question-text {
+font-size: 1rem;
+}
+.options {
+gap: 0.5rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <div class="quiz-header"> <h1>📖 Parallel History of Mithila <span>— Part XIX</span></h1> <p>The New Awakening: Colonial Modernity & the Maithili Revival<br>Grierson · Chanda Jha · First Maithili Journal · Linguistic Politics</p> </div> <div class="score-area"> <div class="progress-text" id="qCounter">Question 1 of 12</div> <div class="score-box" id="scoreDisplay">Score: 0/0</div> </div> <div class="questions-area" id="questionsContainer"></div> <div class="action-buttons"> <button class="btn btn-reset" id="resetQuizBtn">⟳ Reset Quiz</button> <button class="btn btn-primary" id="submitBtn">✓ Submit & Check Answers</button> </div> <div class="footer">
+📜 Based on the Videha Parallel History (Part XIX) and Radhakrishna Chaudhary's Survey.<br>
+ISSN 2229-547X · Democratic, counter‑canonical perspective on the Maithili renaissance.
+</div>
+</div>
+<script>
+    // ---------- PART XIX: THE NEW AWAKENING – COLONIAL MODERNITY & MAITHILI REVIVAL ----------
+    // Questions based strictly on the text (pages 34–35, section XIX)
+    const quizData = [
+        {
+            text: "Which British civil servant and linguist produced the first systematic grammar of Maithili (1881), a comprehensive bibliography, and a catalogue of Mithila manuscripts, while insisting that Maithili was a distinct language, not a dialect of Bengali or Bihari?",
+            options: [
+                "Sir William Jones",
+                "George Abraham Grierson",
+                "John Beames",
+                "Charles Wilkins"
+            ],
+            correct: 1,
+            explanation: "The text states: 'George Abraham Grierson – the Irish civil servant and linguist who served in Bihar – was the first to produce a systematic grammar of Maithili (1881), a comprehensive bibliography of Maithili manuscripts, and a catalogue of Mithila MSS. His insistence that Maithili was a distinct language ... provided the intellectual armature for a Maithili nationalist movement.'"
+        },
+        {
+            text: "Chanda Jha (1831–1907) is considered the pivotal figure of the modern Maithili renaissance. Which major work demonstrated that Maithili could sustain a full epic narrative and challenged the view that the language was fit only for 'light literature'?",
+            options: [
+                "Mithila Bhasha Ramayan",
+                "Varnanaratnakara",
+                "Kirtilata",
+                "Maithil-Hit-Sadhana"
+            ],
+            correct: 0,
+            explanation: "The passage: 'Chanda Jha's Mithila Bhasha Ramayan demonstrated that Maithili was capable of sustaining a sustained epic narrative – not merely devotional songs and documentary prose – and thereby challenged the dominant view of Maithili as a language 'fit only for light literature.'"
+        },
+        {
+            text: "In the Parallel History, Chanda Jha is compared to which Bengali literary giant for his role in redirecting his literary tradition toward new social and aesthetic purposes while anchoring it in recovered vernacular pride?",
+            options: [
+                "Rabindranath Tagore",
+                "Kazi Nazrul Islam",
+                "Bankimchandra Chattopadhyay",
+                "Michael Madhusudan Dutt"
+            ],
+            correct: 2,
+            explanation: "The text: 'The figure of Chanda Jha (1831-1907) in modern Maithili literature is analogous to Bankimchandra Chattopadhyay in Bengali – both men who, in the mid‑to‑late nineteenth century, redirected their literary tradition toward new social and aesthetic purposes while anchoring it in a recovered vernacular pride.'"
+        },
+        {
+            text: "The first Maithili journal, 'Maithil‑Hit‑Sadhana', was founded in 1905 by Madhusudan Jha and Chandra Dutta Jha from which city?",
+            options: [
+                "Darbhanga",
+                "Patna",
+                "Jaipur",
+                "Calcutta"
+            ],
+            correct: 2,
+            explanation: "The text explicitly states: 'The first Maithili journal, Maithil- Hit- Sadhana, was founded in 1905 by Madhusudan Jha and Chandra Dutta Jha from Jaipur.'"
+        },
+        {
+            text: "According to the Parallel History, what was the literacy rate in Mithila at the beginning of the 20th century, with literacy almost exclusively concentrated among upper‑caste households?",
+            options: [
+                "About 25%",
+                "Barely five percent",
+                "About 15%",
+                "Less than 2%"
+            ],
+            correct: 1,
+            explanation: "The text: 'the literacy rate of barely five percent (concentrated almost entirely in upper‑caste households), and the subordination of the lower castes to forms of cultural production they could not easily access, all constrained the emergence of a broad‑based Maithili literary nationalism.'"
+        },
+        {
+            text: "Chanda Jha served the court of which Maharaja of Darbhanga, representing the best example of what colonial patronage and personal conviction could achieve for a subordinated literary tradition?",
+            options: [
+                "Maharaja Lakshmishwar Singh",
+                "Maharaja Rameshwar Singh",
+                "Maharaja Kameshwar Singh",
+                "Maharaja Rudra Singh"
+            ],
+            correct: 0,
+            explanation: "The passage: 'He served the court of Maharaja Lakshmishwar Singh of Darbhanga, and his work represents the best example of what colonial patronage and personal conviction could achieve for a subordinated literary tradition.'"
+        },
+        {
+            text: "The revival of Maithili in the colonial period was complicated by caste politics. Which medieval poet became the icon of the Maithili revival, though the social base of the revival remained narrow compared to Bengali and Hindi?",
+            options: [
+                "Jyotirishwar Thakur",
+                "Vidyapati",
+                "Umapati Upadhyaya",
+                "Govindadasa"
+            ],
+            correct: 1,
+            explanation: "The text: 'Vidyapati became the icon of the Maithili revival – but the revival's social base remained narrow compared to the Bengali and Hindi renaissance.'"
+        },
+        {
+            text: "How does the Parallel History characterise the role of colonial Orientalists like Grierson in the Maithili revival?",
+            options: [
+                "They actively suppressed Maithili in favour of Hindi",
+                "Their colonial gaze, however condescending, inadvertently catalysed native literary self‑consciousness",
+                "They established the first Maithili printing press",
+                "They translated all major Maithili works into English"
+            ],
+            correct: 1,
+            explanation: "The text: 'This is closely parallel to the role played by English Orientalists in legitimising Bengali and Sanskrit literary traditions during the Bengal Renaissance: the colonial gaze, however condescending, inadvertently catalysed native literary self‑consciousness.'"
+        },
+        {
+            text: "The founding of 'Maithil‑Hit‑Sadhana' in 1905 coincided with which major political event in colonial India that intensified the climate of cultural nationalism?",
+            options: [
+                "The Jallianwala Bagh massacre",
+                "The Partition of Bengal and the height of the Swadeshi movement",
+                "The founding of the Indian National Congress",
+                "The Morley‑Minto reforms"
+            ],
+            correct: 1,
+            explanation: "The text: 'the same year as the Partition of Bengal and the height of the Swadeshi movement. The parallel with Bengali and other regional literatures is unmistakable: across India, the early twentieth century saw a proliferation of vernacular journals and literary societies that functioned as vehicles of cultural nationalism.'"
+        },
+        {
+            text: "A scholarly paper published in JETIR (2019) notes that these early developments 'constricted their sense of Maithili as a unified political identity.' What was one of the main constraining factors?",
+            options: [
+                "Lack of a written script",
+                "The Darbhanga Raj's lackadaisical approach to Maithili and the subordination of lower castes",
+                "Complete absence of any literary production",
+                "Dominance of Persian in administration"
+            ],
+            correct: 1,
+            explanation: "The text cites: 'the Darbhanga Raj's lackadaisical approach to Maithili, the literacy rate of barely five percent... and the subordination of the lower castes to forms of cultural production they could not easily access, all constrained the emergence of a broad‑based Maithili literary nationalism.'"
+        },
+        {
+            text: "The website dedicated to Chanda Jha's legacy makes a claim that consciously parallels Vidyapati. What is that claim?",
+            options: [
+                "Chanda Jha wrote more verses than Vidyapati",
+                "'What Vidyapati did for Maithili in the 14th Century has been done by Chanda Jha in the 19th Century and perhaps his contribution is more profound than the former.'",
+                "Chanda Jha was a direct descendant of Vidyapati",
+                "Chanda Jha's Ramayan is longer than Valmiki's"
+            ],
+            correct: 1,
+            explanation: "The text quotes: 'What Vidyapati did for Maithili in the 14th Century has been done by Chanda Jha in the 19th Century and perhaps his contribution is more profound than the former.'"
+        },
+        {
+            text: "The Parallel History notes that despite Grierson's grammar and Chanda Jha's epic, the Maithili revival remained socially narrow. Which institution or class was primarily responsible for early Maithili literary production during this period?",
+            options: [
+                "The working class and peasantry",
+                "The upper‑caste (primarily Brahmin and Kayastha) educated elite",
+                "Muslim intellectuals from the Nawab's court",
+                "British colonial officers"
+            ],
+            correct: 1,
+            explanation: "The text repeatedly emphasises that literacy was concentrated in upper‑caste households, and the social base of the revival did not include lower castes, women, or the rural poor."
+        }
+    ];
+
+    // State
+    let userAnswers = new Array(quizData.length).fill(null);
+    let quizSubmitted = false;
+
+    const questionsContainer = document.getElementById('questionsContainer');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const qCounter = document.getElementById('qCounter');
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetQuizBtn');
+
+    function calculateScore() {
+        let correctCount = 0;
+        for (let i = 0; i < quizData.length; i++) {
+            if (userAnswers[i] !== null && userAnswers[i] === quizData[i].correct) {
+                correctCount++;
+            }
+        }
+        return correctCount;
+    }
+
+    function updateUI() {
+        const total = quizData.length;
+        let answeredCount = userAnswers.filter(a => a !== null).length;
+        qCounter.innerText = `Answered: ${answeredCount} of ${total}`;
+        if (quizSubmitted) {
+            const currentScore = calculateScore();
+            scoreDisplay.innerText = `Score: ${currentScore}/${total}`;
+        } else {
+            scoreDisplay.innerText = `Score: --/${total}`;
+        }
+    }
+
+    function renderQuiz() {
+        questionsContainer.innerHTML = '';
+        for (let i = 0; i < quizData.length; i++) {
+            const q = quizData[i];
+            const selectedVal = userAnswers[i] !== null ? userAnswers[i] : -1;
+            const showFeedback = quizSubmitted;
+            const isCorrect = (quizSubmitted && userAnswers[i] !== null && userAnswers[i] === q.correct);
+
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            
+            const qTextDiv = document.createElement('div');
+            qTextDiv.className = 'question-text';
+            qTextDiv.innerText = `${i+1}. ${q.text}`;
+            card.appendChild(qTextDiv);
+            
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+            
+            q.options.forEach((opt, optIdx) => {
+                const optionWrap = document.createElement('div');
+                optionWrap.className = 'option';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${i}`;
+                radio.value = optIdx;
+                radio.disabled = quizSubmitted;
+                if (selectedVal === optIdx) radio.checked = true;
+                
+                radio.addEventListener('change', (function(qIdx, oIdx) {
+                    return function(e) {
+                        if (!quizSubmitted && e.target.checked) {
+                            userAnswers[qIdx] = oIdx;
+                            renderQuiz();
+                        }
+                    };
+                })(i, optIdx));
+                
+                const label = document.createElement('label');
+                label.innerText = opt;
+                optionWrap.appendChild(radio);
+                optionWrap.appendChild(label);
+                optionsDiv.appendChild(optionWrap);
+            });
+            card.appendChild(optionsDiv);
+            
+            if (showFeedback && userAnswers[i] !== null) {
+                const fbDiv = document.createElement('div');
+                fbDiv.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+                if (isCorrect) {
+                    fbDiv.innerHTML = `✓ Correct. ${q.explanation}`;
+                } else {
+                    const correctOptionText = q.options[q.correct];
+                    fbDiv.innerHTML = `✗ Incorrect. Correct answer: ${correctOptionText}. ${q.explanation}`;
+                }
+                card.appendChild(fbDiv);
+            } else if (showFeedback && userAnswers[i] === null) {
+                const fbDiv = document.createElement('div');
+                fbDiv.className = 'feedback incorrect';
+                fbDiv.innerHTML = `⚠ Not answered. The correct answer is: ${q.options[q.correct]}. ${q.explanation}`;
+                card.appendChild(fbDiv);
+            }
+            
+            questionsContainer.appendChild(card);
+        }
+        updateUI();
+    }
+
+    function submitQuiz() {
+        if (quizSubmitted) return;
+        quizSubmitted = true;
+        renderQuiz();
+        submitBtn.innerText = "✓ Results Submitted";
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = "0.7";
+        window.scrollTo({ top: document.body.scrollHeight * 0.3, behavior: 'smooth' });
+    }
+
+    function resetQuiz() {
+        quizSubmitted = false;
+        userAnswers = new Array(quizData.length).fill(null);
+        submitBtn.innerText = "✓ Submit & Check Answers";
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = "1";
+        renderQuiz();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    submitBtn.addEventListener('click', submitQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+    renderQuiz();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

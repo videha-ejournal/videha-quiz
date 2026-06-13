@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Nand Kumar Mishra 'Nand' – Chapter 50 | Maithili Parallel History</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #f2ede1;
+font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, sans-serif;
+padding: 2rem 1rem;
+color: #2e2a24;
+}
+.quiz-container {
+max-width: 950px;
+margin: 0 auto;
+background: #fffef9;
+border-radius: 2rem;
+box-shadow: 0 20px 32px -12px rgba(0, 0, 0, 0.12);
+overflow: hidden;
+border: 1px solid #dad2bf;
+}
+.quiz-header {
+background: #3f5c3a;
+color: #fef3e0;
+padding: 1.6rem 2rem;
+text-align: center;
+}
+.quiz-header h1 {
+font-size: 1.9rem;
+font-weight: 600;
+letter-spacing: -0.2px;
+margin-bottom: 0.4rem;
+}
+.quiz-header h1 span {
+font-weight: 400;
+font-style: italic;
+color: #f9e0af;
+}
+.quiz-header p {
+font-size: 1rem;
+opacity: 0.9;
+}
+.badge-info {
+display: inline-block;
+background: #d4be8c;
+color: #2a4824;
+padding: 0.2rem 1rem;
+border-radius: 30px;
+font-size: 0.8rem;
+font-weight: 600;
+margin-top: 0.7rem;
+}
+.question-card {
+padding: 1.5rem 2rem;
+border-bottom: 1px solid #e6decb;
+}
+.question-text {
+font-size: 1.24rem;
+font-weight: 600;
+color: #2f452b;
+margin-bottom: 1.2rem;
+line-height: 1.4;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+margin-bottom: 0.8rem;
+}
+.option {
+display: flex;
+align-items: flex-start;
+gap: 0.8rem;
+background: #fefbf4;
+padding: 0.65rem 1rem;
+border-radius: 1.2rem;
+border: 1px solid #e2d7c2;
+cursor: pointer;
+transition: 0.1s;
+}
+.option:hover {
+background: #f6efdf;
+border-color: #c2b18b;
+}
+.option input {
+margin-top: 0.2rem;
+accent-color: #557c48;
+width: 1.1rem;
+height: 1.1rem;
+flex-shrink: 0;
+}
+.option label {
+font-size: 1rem;
+line-height: 1.4;
+color: #35322c;
+flex: 1;
+cursor: pointer;
+}
+.feedback {
+font-size: 0.85rem;
+margin-top: 0.5rem;
+padding-left: 2rem;
+font-weight: 500;
+}
+.correct-feedback {
+color: #2a6b3c;
+}
+.wrong-feedback {
+color: #bc4a3a;
+}
+.quiz-footer {
+padding: 1.3rem 2rem;
+background: #f9f4ea;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 1rem;
+}
+.score-area {
+font-size: 1.25rem;
+font-weight: 700;
+background: #e1d5be;
+padding: 0.5rem 1.3rem;
+border-radius: 3rem;
+color: #3f5437;
+}
+button {
+background: #5b7c51;
+border: none;
+color: white;
+padding: 0.7rem 1.8rem;
+border-radius: 2.5rem;
+font-size: 1rem;
+font-weight: 600;
+cursor: pointer;
+transition: 0.1s ease;
+box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+button:hover {
+background: #3f5a36;
+transform: scale(0.97);
+}
+.reset-btn {
+background: #9b7f60;
+}
+.reset-btn:hover {
+background: #7d6248;
+}
+.explain-note {
+text-align: center;
+font-size: 0.8rem;
+background: #f1ebdf;
+padding: 0.8rem;
+color: #5d5340;
+border-top: 1px solid #e1d5bf;
+}
+@media (max-width: 650px) {
+.quiz-header h1 { font-size: 1.45rem; }
+.question-card { padding: 1.2rem; }
+.question-text { font-size: 1rem; }
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <div class="quiz-header"> <h1>📖 NAND KUMAR MISHRA 'NAND' <span>• Chapter 50</span></h1> <p>Social novels · Mythological retellings · Literary sketches · Poetry · Children's fiction</p> <div class="badge-info">✨ Based on Videha Parallel History & Navya-Nyāya epistemology</div> </div> <div id="questionsArea"></div> <div class="quiz-footer"> <div class="score-area" id="scoreDisplay">Score: 0 / 0</div> <div> <button id="submitBtn">✓ Submit & check</button> <button id="resetBtn" class="reset-btn">⟳ Reset quiz</button> </div> </div> <div class="explain-note">
+📚 After submitting, correct answers are highlighted and detailed explanations appear. Based on the complete critical research of Nand Kumar Mishra 'Nand' (twelve published works, 2011–2022).
+</div>
+</div>
+<script>
+    // ----- QUESTIONS BASED ON CHAPTER 50 (pages 567–593) -----
+    const questions = [
+        {
+            text: "What is the pen name of Nand Kumar Mishra, under which he has published twelve Maithili books?",
+            options: [
+                "Nand",
+                "Manu",
+                "Sagar",
+                "Kamal"
+            ],
+            correct: 0,
+            explanation: "Nand Kumar Mishra writes under the takhallus 'Nand' (meaning joy/delight, also Krishna's foster-father). His name appears as 'Nand Kumar Mishra 'Nand' in colophons."
+        },
+        {
+            text: "Which of the following is Nand's earliest work, which received an award as early as 1991?",
+            options: [
+                "Anthiya Kukur",
+                "Gaamghar",
+                "Parivar",
+                "Adambar"
+            ],
+            correct: 1,
+            explanation: "Gaamghar ('Village Home') notes on its cover that a version received an award in 1991, making it the earliest composition in his corpus."
+        },
+        {
+            text: "Nand's social novel 'Anthiya Kukur' (The Solitary Hound, 2011) primarily evokes which rasa according to the critical appreciation?",
+            options: [
+                "Śṛṅgāra (love/beauty)",
+                "Hāsya (comedy)",
+                "Karuṇā (compassion/pathos)",
+                "Adbhuta (wonder)"
+            ],
+            correct: 2,
+            explanation: "The analysis states that 'the dominant rasa across his social novels is karuṇā – compassionate pathos arising from careful documentation of social suffering.'"
+        },
+        {
+            text: "Which two mythological retellings by Nand reimagine canonical female figures from the Rāmāyaṇa and Buddhist tradition?",
+            options: [
+                "Sukanya and Swarn Kamal",
+                "Kaikeyi and Sujata",
+                "Parivar and Gudrik Lal",
+                "Yachak ke Nai and Dillik Park"
+            ],
+            correct: 1,
+            explanation: "Kaikeyi reinterprets Queen Kaikeyi of the Rāmāyaṇa, and Sujata centres the woman who offered milk-rice to the fasting Siddhārtha."
+        },
+        {
+            text: "In the mythological revision 'Kaikeyi', what does Nand reclaim as the central motivation of the queen?",
+            options: [
+                "Jealousy and hatred for Rāma",
+                "Maternal strategy and political intelligence",
+                "Desire for personal power",
+                "Religious penance"
+            ],
+            correct: 1,
+            explanation: "The text notes: 'Kaikeyi is not a villain but a woman of political intelligence who understood succession and loved her son fiercely – her request was an act of maternal strategy.'"
+        },
+        {
+            text: "Nand's 'Parivar' (2021) is described on its title page as a 'Sansmarnatmak Upanyas'. What does this genre designation mean?",
+            options: [
+                "Historical novel",
+                "Memoiristic novel (remembrance novel)",
+                "Allegorical drama",
+                "Children's adventure"
+            ],
+            correct: 1,
+            explanation: "'Sansmarnatmak Upanyas' means 'memoiristic novel' or 'remembrance novel' – a hybrid between personal memoir and literary fiction."
+        },
+        {
+            text: "The short story collection 'Adambar' (2017) uses an ironic title that means 'pomp' or 'loud proclamation'. This is an example of which classical Indian poetic device?",
+            options: [
+                "Rasa",
+                "Dhvani",
+                "Vakrokti (oblique utterance)",
+                "Alaṃkāra"
+            ],
+            correct: 2,
+            explanation: "Kuntaka's vakrokti (oblique expression) is cited: the ironic title 'announcing grandeur while delivering intimate human stories' is a striking deviant expression."
+        },
+        {
+            text: "Which of Nand's works is a children's novel based on the 'Golden Lotus' folk-tale tradition and published in 2019?",
+            options: [
+                "Swarn Kamal",
+                "Gudrik Lal",
+                "Kavya Sarita",
+                "Sukanya"
+            ],
+            correct: 0,
+            explanation: "Swarn Kamal ('Golden Lotus') is described as a children's novel drawing on the 1974 folk-tale source, with adventure and moral themes."
+        },
+        {
+            text: "According to the critical study, what is the significance of Nand's language in terms of the Videha Parallel History?",
+            options: [
+                "He writes in heavily Sanskritized Maithili",
+                "He uses Darbhanga colloquial Maithili, avoiding Hindi calques, representing democratic authenticity",
+                "He writes primarily in Hindi with Maithili vocabulary",
+                "He uses only the Tirhuta script"
+            ],
+            correct: 1,
+            explanation: "Nand writes in contemporary colloquial Maithili of Darbhanga variety, preserving authentic idioms and avoiding excessive Hindi influence – aligned with the parallel tradition."
+        },
+        {
+            text: "Which collection of literary sketches by Nand documents the Maithili diaspora experience in Delhi's public spaces?",
+            options: [
+                "Yachak ke Nai",
+                "Dillik Park",
+                "Gaamghar",
+                "Adambar"
+            ],
+            correct: 1,
+            explanation: "Dillik Park ('Delhi Park') contains observational sketches of Delhi parks, markets and streets from the perspective of a Maithili writer, capturing the 'third space' of migration."
+        },
+        {
+            text: "Navya-Nyāya epistemology is applied to Nand's work through concepts like avacchedaka (delimitor) and abhāva (absence). Which novel is said to explore urban alienation through the metaphor of an 'unclaimed dog' representing 'atyantābhāva' (absolute absence of identity)?",
+            options: [
+                "Anthiya Kukur",
+                "Gudrik Lal",
+                "Parivar",
+                "Sukanya"
+            ],
+            correct: 0,
+            explanation: "'Anathiya Kukur' (Anthiya Kukur) uses the lone dog as a metaphor for the migrant's ontological status – an absolute absence of belonging in the metropolis."
+        },
+        {
+            text: "How many books did Nand Kumar Mishra 'Nand' publish between 2011 and 2022 according to the Samagra survey?",
+            options: [
+                "Six",
+                "Eight",
+                "Ten",
+                "Twelve"
+            ],
+            correct: 3,
+            explanation: "The study enumerates twelve books: social novels, mythological works, memoiristic novel, short stories, literary sketches, poetry, children's novel and village memoir."
+        }
+    ];
+
+    let selectedAnswers = new Array(questions.length).fill(null);
+    let submitted = false;
+
+    const questionsArea = document.getElementById('questionsArea');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    function renderQuiz() {
+        let html = '';
+        questions.forEach((q, idx) => {
+            const selectedVal = selectedAnswers[idx];
+            html += `
+                <div class="question-card" data-qidx="${idx}">
+                    <div class="question-text">${idx+1}. ${q.text}</div>
+                    <div class="options" id="options-${idx}">
+                        ${q.options.map((opt, optIdx) => {
+                            const isChecked = (selectedVal === optIdx);
+                            return `
+                                <div class="option" data-qidx="${idx}" data-optidx="${optIdx}">
+                                    <input type="radio" name="q${idx}" id="q${idx}_opt${optIdx}" value="${optIdx}" ${isChecked ? 'checked' : ''}>
+                                    <label for="q${idx}_opt${optIdx}">${String.fromCharCode(65+optIdx)}. ${opt}</label>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                    <div class="feedback" id="fb-${idx}"></div>
+                </div>
+            `;
+        });
+        questionsArea.innerHTML = html;
+
+        // attach radio change events
+        for (let i = 0; i < questions.length; i++) {
+            const radios = document.querySelectorAll(`input[name="q${i}"]`);
+            radios.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    if (!submitted) {
+                        const val = parseInt(e.target.value);
+                        selectedAnswers[i] = val;
+                        const fbDiv = document.getElementById(`fb-${i}`);
+                        if (fbDiv && !submitted) fbDiv.innerHTML = '';
+                    } else {
+                        const fbDiv = document.getElementById(`fb-${i}`);
+                        if (fbDiv && fbDiv.innerHTML.trim() !== "") {
+                            fbDiv.innerHTML = '<span style="color:#b45b3a;">⚠️ Click "Reset quiz" to change answers after submission.</span>';
+                        }
+                    }
+                });
+            });
+        }
+        if (submitted) showResults();
+    }
+
+    function showResults() {
+        let correctCount = 0;
+        for (let i = 0; i < questions.length; i++) {
+            const userChoice = selectedAnswers[i];
+            const isCorrect = (userChoice !== null && userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+            const fbDiv = document.getElementById(`fb-${i}`);
+            if (fbDiv) {
+                if (userChoice === null) {
+                    fbDiv.innerHTML = `<span class="wrong-feedback">❌ Not answered. Correct: ${String.fromCharCode(65+questions[i].correct)}. ${questions[i].options[questions[i].correct]}</span><br><span style="font-size:0.8rem;">📖 ${questions[i].explanation}</span>`;
+                } else if (isCorrect) {
+                    fbDiv.innerHTML = `<span class="correct-feedback">✓ Correct! ${questions[i].explanation}</span>`;
+                } else {
+                    fbDiv.innerHTML = `<span class="wrong-feedback">✗ Incorrect. Correct: ${String.fromCharCode(65+questions[i].correct)}. ${questions[i].options[questions[i].correct]}</span><br><span style="font-size:0.8rem;">📚 ${questions[i].explanation}</span>`;
+                }
+            }
+            // highlight correct & wrong options
+            const optsDiv = document.getElementById(`options-${i}`);
+            if (optsDiv) {
+                const optDivs = optsDiv.querySelectorAll('.option');
+                optDivs.forEach((optDiv, optIdx) => {
+                    if (optIdx === questions[i].correct) {
+                        optDiv.style.backgroundColor = "#e2f3e2";
+                        optDiv.style.borderColor = "#8bc47c";
+                    } else if (userChoice === optIdx && userChoice !== questions[i].correct) {
+                        optDiv.style.backgroundColor = "#ffe1db";
+                        optDiv.style.borderColor = "#e68a6e";
+                    } else {
+                        if (!submitted) optDiv.style.backgroundColor = "";
+                    }
+                });
+            }
+        }
+        scoreDisplay.innerText = `Score: ${correctCount} / ${questions.length}`;
+    }
+
+    function resetQuiz() {
+        submitted = false;
+        selectedAnswers = new Array(questions.length).fill(null);
+        renderQuiz();
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+        const allFb = document.querySelectorAll('.feedback');
+        allFb.forEach(fb => fb.innerHTML = '');
+        for (let i = 0; i < questions.length; i++) {
+            const optsDiv = document.getElementById(`options-${i}`);
+            if (optsDiv) {
+                const optDivs = optsDiv.querySelectorAll('.option');
+                optDivs.forEach(opt => {
+                    opt.style.backgroundColor = "";
+                    opt.style.borderColor = "#e2d7c2";
+                });
+            }
+        }
+    }
+
+    function submitQuiz() {
+        submitted = true;
+        showResults();
+    }
+
+    submitBtn.addEventListener('click', () => {
+        if (submitted) {
+            showResults();
+        } else {
+            submitQuiz();
+        }
+    });
+
+    resetBtn.addEventListener('click', () => {
+        resetQuiz();
+    });
+
+    renderQuiz();
+    scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    submitted = false;
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

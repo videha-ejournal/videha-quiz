@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <title>Quiz: Chapter 35 – Laxman Jha 'Sagar' & Shail Jha 'Sagar' – A Literary Couple</title> <style>
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+max-width: 1000px;
+margin: 2rem auto;
+padding: 1rem;
+background: #f4f1ea;
+}
+.quiz-container {
+background: white;
+border-radius: 2rem;
+padding: 1.5rem;
+box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+h1 {
+color: #2c5e2c;
+border-left: 5px solid #b8860b;
+padding-left: 1rem;
+}
+.question {
+border-bottom: 1px solid #e0d6c5;
+padding: 1rem 0;
+}
+.question-text {
+font-weight: 700;
+margin-bottom: 0.5rem;
+font-size: 1.05rem;
+}
+.options {
+margin-left: 1.5rem;
+margin-bottom: 0.5rem;
+}
+.option {
+margin: 0.3rem 0;
+}
+.explanation {
+background: #f4f1e8;
+padding: 0.6rem;
+margin-top: 0.6rem;
+border-left: 4px solid #b8860b;
+display: none;
+border-radius: 0.5rem;
+}
+button {
+background: #2c5e2c;
+color: white;
+border: none;
+padding: 0.5rem 1.2rem;
+border-radius: 2rem;
+cursor: pointer;
+margin: 0.2rem;
+font-size: 1rem;
+}
+button:hover {
+background: #1e401e;
+}
+.score {
+font-size: 1.2rem;
+font-weight: bold;
+margin-top: 1rem;
+text-align: center;
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <h1>📖 Chapter 35 – Laxman Jha 'Sagar' & Shail Jha 'Sagar'</h1> <p>Based on Videha Special Issue 382 (November 2023) – A literary couple of the Maithili parallel tradition</p> <div id="quiz"></div> <div style="margin-top: 1rem;"> <button id="submitBtn">✔ Submit Answers</button> <button id="resetBtn">⟳ Reset Quiz</button> </div> <div id="score" class="score"></div>
+</div>
+<script>
+const questions = [
+    {
+        text: "Laxman Jha ‘Sagar’ was born in which district of Mithila and later became a key figure in the Kolkata Maithili diaspora?",
+        options: [
+            "Darbhanga",
+            "Madhubani",
+            "Sitamarhi",
+            "Supaul"
+        ],
+        correct: 1,
+        explanation: "He was born in Dhakbahtiya, Ghoghardiha, Madhubani district, and spent most of his professional life in Kolkata."
+    },
+    {
+        text: "Which literary figure was Sagar’s mentor and the patriarch of the Kolkata Mithila‑Maithili movement, quoted as saying ‘an organization that neither agitates nor creates literature is a mere singing troupe’?",
+        options: [
+            "Babu Saheb Choudhary",
+            "Rajanandan Lal Das",
+            "Ramlochan Thakur",
+            "Pitambar Pathak"
+        ],
+        correct: 0,
+        explanation: "Babu Saheb Choudhary was the founding figure of Kolkata’s Maithili movement and a profound influence on Sagar."
+    },
+    {
+        text: "Sagar’s debut poetry collection (2010) has a deliberately anti‑lyrical title: ‘Uchharr Baisu Kaua’. What does the title mean?",
+        options: [
+            "‘Sing, O Cuckoo’",
+            "‘Sit Down, Crow!’",
+            "‘The Nightingale’s Song’",
+            "‘The Peacock Dance’"
+        ],
+        correct: 1,
+        explanation: "By addressing the crow instead of the classical cuckoo (kokil), Sagar signals a poetics of social realism over romanticised lyricism."
+    },
+    {
+        text: "Which book by Laxman Jha ‘Sagar’ is a collection of varta‑katha (conversational stories) whose title means ‘without support’ or ‘independent’?",
+        options: [
+            "Jena O Kahlakan",
+            "Nisoh",
+            "Ekah Gadhbere Me",
+            "Uchharr Baisu Kaua"
+        ],
+        correct: 1,
+        explanation: "‘Nisoh’ (2021) is a collection of hybrid prose pieces blending anecdote, social essay, and moral witness."
+    },
+    {
+        text: "Sagar’s interview collection ‘Jena O Kahlakan’ (As They Said) is historically significant because it preserves oral testimony from seven major Maithili figures. The interviews were recorded:",
+        options: [
+            "With a tape recorder and transcribed verbatim",
+            "From memory, without notes or mechanical recording, later reconstructed",
+            "Through email correspondence",
+            "As video recordings"
+        ],
+        correct: 1,
+        explanation: "Sagar conducted the interviews without tape or notes, relying on his memory and later transcribing them – an unusual but deeply personal method."
+    },
+    {
+        text: "According to the critical essays in Videha 382, which quality of Sagar’s writing is most frequently praised?",
+        options: [
+            "Ornate Sanskritised style",
+            "Use of ṭheṭha (pure, endangered) Maithili vocabulary and fearless social critique",
+            "Exclusive focus on romantic love",
+            "Formal experimentalism"
+        ],
+        correct: 1,
+        explanation: "Critics note his deployment of lost Maithili words and his plain‑spoken, fearless criticism of institutions."
+    },
+    {
+        text: "Shail Jha ‘Sagar’ is a poet and short‑story writer. Her story ‘Pati Parmeshwar’ (The Husband as God) critiques:",
+        options: [
+            "The dowry system",
+            "The loneliness of elderly women abandoned by successful sons, despite the traditional idealisation of the husband",
+            "Child marriage",
+            "Caste discrimination"
+        ],
+        correct: 1,
+        explanation: "The story follows an old woman (Kaki) whose sons live in Delhi and Bangalore, leaving her isolated – an ironic commentary on the ‘husband as god’ ideal."
+    },
+    {
+        text: "Shail Jha’s poem ‘Beti’ (Daughter) uses a repeated refrain ‘Ham beti chhi’ (I am a daughter) to highlight which paradox?",
+        options: [
+            "Daughters are cherished and free",
+            "Daughters are both precious (hira moti) and consumed (roṭi), yet without them there is no son or heaven",
+            "Daughters are always happy",
+            "Daughters reject education"
+        ],
+        correct: 1,
+        explanation: "The poem accumulates images of a daughter’s value (pearl, food) but also her subordination, ending with the unresolved refrain."
+    },
+    {
+        text: "In her letter‑review ‘Ekta Patra: Ekta Samiksha – Kist Kist Jivan’, Shail Jha positions herself as a ‘gharelu naari’ (household woman) and claims that her reading of the book gave her an advantage because:",
+        options: [
+            "She read it before her husband (Sagar)",
+            "She read it in the original English",
+            "She criticised it harshly",
+            "She refused to read it"
+        ],
+        correct: 0,
+        explanation: "She writes: ‘Being a household woman, I took this benefit; I read it before him.’ This asserts domestic space as a site of literary authority."
+    },
+    {
+        text: "The Videha editorial note explicitly states that Sagar made a personal rule: he would not attend any literary function without Shail Jha. What is the significance of this rule?",
+        options: [
+            "It shows his dependence on her",
+            "It is a feminist gesture, ensuring the woman writer’s presence and visibility in the public literary sphere",
+            "It is a superstition",
+            "It was imposed by the organisers"
+        ],
+        correct: 1,
+        explanation: "The rule is described as a form of vyāpti (invariable concomitance) – wherever Sagar appears, Shail Jha is co‑present, normalising women’s participation."
+    },
+    {
+        text: "According to the research report, which concept from Navya-Nyāya epistemology is used to analyse the reliability of Sagar’s interview collection?",
+        options: [
+            "Pratyakṣa (perception)",
+            "Śabda-pramāṇa (verbal testimony from a reliable witness/āpta)",
+            "Anumāna (inference)",
+            "Upamāna (comparison)"
+        ],
+        correct: 1,
+        explanation: "The interviews are assessed as śabda-pramāṇa – the testimony of reliable witnesses (āpta) about Maithili literary history."
+    },
+    {
+        text: "Which of the following is a key theme in Laxman Jha Sagar’s poetry and prose, as identified by multiple critics in Videha 382?",
+        options: [
+            "The erosion of Maithili language and culture, and the corruption of literary institutions",
+            "Science fiction",
+            "Fantasy romance",
+            "Travel writing about Europe"
+        ],
+        correct: 0,
+        explanation: "His work consistently critiques institutional decay, linguistic loss, and the betrayal of Maithili by its educated elite."
+    },
+    {
+        text: "The title of Sagar’s second poetry collection, ‘Ekah Gadhbere Me’ (At the Same Jackfruit Time), uses a colloquial Maithili temporal marker to:",
+        options: [
+            "Celebrate urban life",
+            "Anchor lyric poetry in the specific rhythms of Maithili rural‑urban domestic time",
+            "Describe a historical battle",
+            "Introduce Sanskrit metres"
+        ],
+        correct: 1,
+        explanation: "‘Gadhber’ (jackfruit‑eating time) is a demotic evening hour, grounding the poetry in lived Maithili experience."
+    },
+    {
+        text: "Shail Jha’s short story ‘Pati Parmeshwar’ contrasts the abandoned Kaki with a ‘backward caste’ worker’s family. What is the story’s implicit critique?",
+        options: [
+            "That upper‑caste nuclear families have lost humane domestic partnerships, while lower‑caste families retain them",
+            "That all families are equally happy",
+            "That the city is better than the village",
+            "That women should not work"
+        ],
+        correct: 0,
+        explanation: "The story juxtaposes Kaki’s lonely flat with the memory of a Dalit worker who worked alongside his wife as equals, suggesting that modernisation has degraded gender relations."
+    },
+    {
+        text: "Laxman Jha Sagar worked in Guwahati for fourteen years (1983–97) and founded which organisation to promote Maithili culture in Assam?",
+        options: [
+            "Mithila Sanskritik Samanvay Samiti",
+            "Kokil Manch",
+            "Mithila Darshan",
+            "Vidya Pati Sewa Sansthan"
+        ],
+        correct: 0,
+        explanation: "He founded the Mithila Sanskritik Samanvay Samiti in Guwahati and helped launch the journal ‘Purvattar Maithil’."
+    },
+    {
+        text: "In the Navya-Nyāya analysis of Sagar’s varta‑katha ‘Nisoh’, the title word is said to operate as a dhvani. What does it suggest beyond its literal meaning (‘without support’)?",
+        options: [
+            "The author’s solitary position and the condition of Maithili language itself",
+            "A type of bird",
+            "A political party",
+            "A musical instrument"
+        ],
+        correct: 0,
+        explanation: "‘Nisoh’ resonates with both the author’s independent stance and the precarious state of Maithili culture, which lacks institutional support."
+    },
+    {
+        text: "Which of the following is a distinctive feature of Shail Jha’s literary voice, as noted in the critical appreciation?",
+        options: [
+            "Use of complex Sanskrit compounds",
+            "A feminist consciousness that critiques patriarchy from within domestic experience",
+            "Exclusive focus on mythology",
+            "Writing only in English"
+        ],
+        correct: 1,
+        explanation: "Her work (story, poem, letter) consistently addresses women’s roles, domestic isolation, and the paradox of being a daughter or wife."
+    },
+    {
+        text: "According to the Videha special issue, Sagar’s commitment to Maithili extends to his domestic life. What language is spoken exclusively in his Kolkata home?",
+        options: [
+            "Bengali",
+            "Maithili",
+            "Hindi",
+            "English"
+        ],
+        correct: 1,
+        explanation: "The essay by Nabonarayan Mishra notes that Sagar’s family uses only Maithili at home, a conscious act of linguistic preservation in a Bengali‑dominant city."
+    },
+    {
+        text: "The research report applies the Navya-Nyāya concept of ‘pratyakṣa’ (perception) to Sagar’s autobiographical writing. What does this mean?",
+        options: [
+            "His writing is based on abstract ideas",
+            "His prose has the vivid, direct sensory quality of lived experience (e.g., the eviction on 19 September 1974)",
+            "He avoids personal details",
+            "He only writes fiction"
+        ],
+        correct: 1,
+        explanation: "His autobiographical account of being evicted, sleeping hungry, and weeping before a Kali temple has the force of direct perceptual recall."
+    },
+    {
+        text: "The Videha Parallel History Framework places Laxman Jha ‘Sagar’ in the tradition of ‘dampati lekhak’ (literary couple). What is the significance of this recognition?",
+        options: [
+            "It erases individual achievement",
+            "It acknowledges that a woman writer’s contribution is often overlooked, and that their partnership is a literary‑institutional model",
+            "It only applies to poets",
+            "It is a new genre"
+        ],
+        correct: 1,
+        explanation: "The couple’s mutual commitment and Shail Jha’s independent voice exemplify how domestic partnership can sustain democratic literary culture."
+    }
+];
+
+let userSelections = new Array(questions.length).fill(null);
+let submitted = false;
+
+function renderQuiz() {
+    const container = document.getElementById('quiz');
+    if (!container) return;
+    let html = '';
+    questions.forEach((q, idx) => {
+        const selected = userSelections[idx] !== null ? userSelections[idx] : -1;
+        html += `<div class="question">
+                    <div class="question-text">${idx+1}. ${q.text}</div>
+                    <div class="options">`;
+        q.options.forEach((opt, optIdx) => {
+            const checked = (selected === optIdx) ? 'checked' : '';
+            html += `<div class="option">
+                        <input type="radio" name="q${idx}" value="${optIdx}" id="q${idx}_${optIdx}" ${checked} ${submitted ? 'disabled' : ''}>
+                        <label for="q${idx}_${optIdx}">${String.fromCharCode(65+optIdx)}. ${opt}</label>
+                     </div>`;
+        });
+        html += `</div><div class="explanation" id="expl${idx}"></div></div>`;
+    });
+    container.innerHTML = html;
+}
+
+function calculateScore() {
+    let correct = 0;
+    for (let i = 0; i < questions.length; i++) {
+        if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correct++;
+    }
+    return correct;
+}
+
+function submitQuiz() {
+    submitted = true;
+    for (let i = 0; i < questions.length; i++) {
+        const radios = document.getElementsByName(`q${i}`);
+        for (let j = 0; j < radios.length; j++) {
+            if (radios[j].checked) userSelections[i] = parseInt(radios[j].value);
+        }
+        const explDiv = document.getElementById(`expl${i}`);
+        if (explDiv) {
+            const userAns = (userSelections[i] !== null) ? questions[i].options[userSelections[i]] : "Not answered";
+            const correctAns = questions[i].options[questions[i].correct];
+            explDiv.innerHTML = `<strong>📖 Explanation:</strong> ${questions[i].explanation}<br>
+                                 <span style="color:#4b6b3e;">Your answer: ${userAns}</span><br>
+                                 <span style="color:#2c6e2c;">Correct answer: ${correctAns}</span>`;
+            explDiv.style.display = 'block';
+        }
+        const allRadios = document.getElementsByName(`q${i}`);
+        allRadios.forEach(r => r.disabled = true);
+    }
+    const score = calculateScore();
+    document.getElementById('score').innerHTML = `✅ Score: ${score} / ${questions.length}`;
+}
+
+function resetQuiz() {
+    submitted = false;
+    userSelections = new Array(questions.length).fill(null);
+    renderQuiz();
+    for (let i = 0; i < questions.length; i++) {
+        const explDiv = document.getElementById(`expl${i}`);
+        if (explDiv) explDiv.style.display = 'none';
+    }
+    document.getElementById('score').innerHTML = '';
+}
+
+document.getElementById('submitBtn').addEventListener('click', submitQuiz);
+document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+renderQuiz();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

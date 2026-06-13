@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Chapter 28 – The Parallel History of Mithila & Maithili Literature</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #e9e5da;
+font-family: 'Segoe UI', Roboto, 'Merriweather', Georgia, serif;
+padding: 2rem 1rem;
+color: #2c2b28;
+}
+.quiz-wrapper {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffef7;
+border-radius: 2rem;
+box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.3);
+overflow: hidden;
+border: 1px solid #dbd2bf;
+}
+.quiz-header {
+background: #2d3e2b;
+padding: 1.8rem 2rem;
+color: #fef0cf;
+border-bottom: 5px solid #c7a252;
+}
+.quiz-header h1 {
+font-size: 1.9rem;
+font-weight: 700;
+letter-spacing: -0.3px;
+}
+.quiz-header h1 span {
+font-weight: 400;
+font-size: 1.1rem;
+background: #4c6848;
+padding: 0.2rem 0.7rem;
+border-radius: 30px;
+margin-left: 1rem;
+vertical-align: middle;
+}
+.quiz-header p {
+margin-top: 0.8rem;
+opacity: 0.85;
+font-size: 1rem;
+}
+.quiz-body {
+padding: 2rem 2rem 1rem;
+}
+.question-card {
+background: #fefcf5;
+margin-bottom: 2rem;
+border-radius: 1.5rem;
+padding: 1.4rem 1.8rem;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+border: 1px solid #e7dfcf;
+transition: all 0.2s;
+}
+.question-text {
+font-size: 1.22rem;
+font-weight: 600;
+color: #1f3b2a;
+margin-bottom: 1.2rem;
+line-height: 1.4;
+border-left: 4px solid #b8903a;
+padding-left: 1rem;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+margin-bottom: 0.8rem;
+}
+.option {
+display: flex;
+align-items: center;
+gap: 0.9rem;
+background: #faf8f2;
+padding: 0.6rem 1rem;
+border-radius: 60px;
+border: 1px solid #e1d7c6;
+cursor: pointer;
+transition: 0.15s;
+}
+.option:hover {
+background: #f2ecd9;
+border-color: #b78f44;
+}
+input[type="radio"] {
+accent-color: #8b6c3c;
+width: 1.1rem;
+height: 1.1rem;
+margin-left: 0.3rem;
+}
+.option label {
+font-size: 0.98rem;
+font-weight: 500;
+width: 100%;
+cursor: pointer;
+color: #2e3f2b;
+}
+.explanation {
+background: #f2efe7;
+margin-top: 1rem;
+padding: 0.9rem 1.2rem;
+border-radius: 1rem;
+font-size: 0.88rem;
+border-left: 4px solid #c7a252;
+display: none;
+color: #3b4e37;
+line-height: 1.4;
+}
+.explanation.show {
+display: block;
+}
+.quiz-footer {
+background: #fefcf5;
+border-top: 1px solid #e2d7c4;
+padding: 1.2rem 2rem 1.8rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 1rem;
+}
+button {
+background: #2d3e2b;
+border: none;
+padding: 0.7rem 1.8rem;
+font-weight: 600;
+font-size: 1rem;
+border-radius: 40px;
+color: white;
+cursor: pointer;
+transition: 0.2s;
+font-family: inherit;
+}
+button:hover {
+background: #466a40;
+transform: scale(0.97);
+}
+.reset-btn {
+background: #726b55;
+}
+.reset-btn:hover {
+background: #554d3a;
+}
+.score-area {
+font-size: 1.25rem;
+font-weight: bold;
+background: #e6decd;
+padding: 0.4rem 1.4rem;
+border-radius: 40px;
+color: #2c4428;
+}
+@media (max-width: 680px) {
+.quiz-body {
+padding: 1.2rem;
+}
+.question-text {
+font-size: 1rem;
+}
+.option label {
+font-size: 0.88rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-wrapper"> <div class="quiz-header"> <h1>📖 A Parallel History of Mithila & Maithili Literature <span>Chapter 28</span></h1> <p>Counter-canon, Navya-Nyāya epistemology, Ghazal revival, Dalit voices & the Videha movement</p> <p style="font-size:0.85rem; margin-top:8px;">Based on the research compendium (Videha archive, 2026)</p> </div> <div class="quiz-body" id="quizContainer"></div> <div class="quiz-footer"> <button id="submitQuiz">✔ Submit & Review Answers</button> <button id="resetQuiz" class="reset-btn">⟳ Reset Quiz</button> <div class="score-area" id="scoreDisplay">0 / 0</div> </div>
+</div>
+<script>
+    // ------------------- 22 comprehensive questions based on the document ------------------
+    const questions = [
+        {
+            text: "What is the central thesis of the 'Videha Parallel History Framework' regarding Maithili literary historiography?",
+            options: [
+                "Maithili literature is a dialect of Hindi and has no independent history.",
+                "The Sahitya Akademi has systematically promoted an upper-caste canon while suppressing democratic, Dalit, and folk traditions.",
+                "All Maithili writers must adopt the Tirhuta script exclusively.",
+                "The only legitimate Maithili literature is the Charyapada."
+            ],
+            correct: 1,
+            explanation: "The Parallel History (Gajendra Thakur) argues that institutional gatekeepers favoured Brahmin-Kayastha authors and excluded subaltern voices (RTI data confirms 90%+ assignments to advisory board networks)."
+        },
+        {
+            text: "Who is the 14th-century Mithila logician whose suppressed biography (Dooshan Panji) reveals an inter-caste marriage and non-conventional birth, later concealed by Ramanath Jha?",
+            options: [
+                "Vidyapati Thakkurah",
+                "Gaṅgeśa Upādhyāya",
+                "Jyotirishwar Thakur",
+                "Udayanacharya"
+            ],
+            correct: 1,
+            explanation: "Gaṅgeśa Upādhyāya (Tattvacintāmaṇi) was born five years after father's death and married a Charmkarini; the Dooshan Panji (2009) exposed the suppression."
+        },
+        {
+            text: "Which Maithili writer won the Sahitya Akademi Award in 2021 for the novel 'Pangu', becoming the first non-upper-caste author to receive this honour?",
+            options: [
+                "Rajdeo Mandal",
+                "Jagdish Prasad Mandal",
+                "Bechan Thakur",
+                "Harimohan Jha"
+            ],
+            correct: 1,
+            explanation: "Jagdish Prasad Mandal's 'Pangu' (The Lame) broke the pattern of 42 Brahmin winners, representing OBC/subaltern realism."
+        },
+        {
+            text: "The ‘Anchinhar Aakhar’ movement (est. 2008) is primarily credited with:",
+            options: [
+                "Documenting Panji genealogies only",
+                "Revitalising the Maithili ghazal through strict prosody (behr, qaafiyaa) and digital mushairas",
+                "Creating the first Maithili Wikipedia",
+                "Translating the Vedas into Maithili"
+            ],
+            correct: 1,
+            explanation: "Ashish Anchinhar & Gajendra Thakur restored classical ghazal grammar, created Ghajalsastram, and introduced Bal-Ghazal / Bhakti-Ghazal."
+        },
+        {
+            text: "According to the RTI investigation (Vinit Utpal/Ashish Anchinhar, 2011-14), what percentage of Sahitya Akademi assignments in Maithili went to friends/relatives of the 10-member advisory board?",
+            options: [
+                "~40%",
+                "~70%",
+                ">90%",
+                "~50%"
+            ],
+            correct: 2,
+            explanation: "The RTI expose confirmed structural exclusion: over 90% of translation/publication assignments were captured by the advisory board's network."
+        },
+        {
+            text: "Which civil engineer and river historian is known for works such as 'Bandini Mahananda', 'Dui Patan Ke Bich Mein' and critiquing embankment-based flood control in Mithila?",
+            options: [
+                "Dinesh Kumar Mishra",
+                "Kailash Kumar Mishra",
+                "Pankaj Jha Parashar",
+                "Gajendra Thakur"
+            ],
+            correct: 0,
+            explanation: "Dinesh Kumar Mishra (IIT Kharagpur) exposed the failure of embankments, siltation, and displacement caused by Kosi/Mahananda projects."
+        },
+        {
+            text: "What unique genre did the Videha movement champion as a distinctly Maithili micro-fiction form, with its theoretical foundations laid by Munnaji and Gajendra Thakur?",
+            options: [
+                "Lok Katha",
+                "Bīhani Kathā (seed story)",
+                "Chhappa Katha",
+                "Tirhuta Gadhya"
+            ],
+            correct: 1,
+            explanation: "Bīhani Kathā (seed story) was named in 1995 and developed by Munnaji, Gajendra Thakur; it is known for extreme compression and seed-like expansion."
+        },
+        {
+            text: "Who is identified as the ‘greatest living Maithili dramatist’ who created a parallel stage confronting caste violence and Dalit issues, and serves as drama editor of Videha?",
+            options: [
+                "Mahendra Malangia",
+                "Bechan Thakur",
+                "Udaya Narayan Singh 'Nachiketa'",
+                "Lallan Prasad Thakur"
+            ],
+            correct: 1,
+            explanation: "Bechan Thakur pioneered the parallel theatre movement, directly opposing casteist theatre and writing plays like 'Oonch-Neech', 'Betik Apaman'."
+        },
+        {
+            text: "Which ancient text is considered the foundational corpus of Proto-Maithili, with songs by Siddha poets such as Luipada and Kanhapada (8th-12th century)?",
+            options: [
+                "Varnaratnakara",
+                "Charyapada",
+                "Kirtilata",
+                "Padavali"
+            ],
+            correct: 1,
+            explanation: "The 50 Charyapadas (Buddhist mystical songs) are treated as the earliest layer of Maithili literary heritage."
+        },
+        {
+            text: "The ‘Dooshan Panji’ (Black Book) released by Videha in 2009 revealed which suppressed fact about philosopher Gaṅgeśa Upādhyāya?",
+            options: [
+                "He wrote only in Persian",
+                "He was born five years after his father’s death and married a Charmkarini (leather-worker caste)",
+                "He rejected Navya-Nyāya",
+                "He never composed the Tattvacintāmaṇi"
+            ],
+            correct: 1,
+            explanation: "The Panji records exposed his ‘illegitimate’ birth and cross-caste marriage, which Ramanath Jha had concealed."
+        },
+        {
+            text: "Which major poet and playwright (also a linguist) wrote 'No Entry: Mā Pravish' and won the Sahitya Akademi Award (2017) for his Maithili poetry collection 'Jahalak Diary'?",
+            options: [
+                "Gajendra Thakur",
+                "Udaya Narayana Singh 'Nachiketa'",
+                "Ashish Anchinhar",
+                "Kameshwar Jha 'Kamal'"
+            ],
+            correct: 1,
+            explanation: "Prof. Nachiketa (former director CIIL) is a towering figure in Maithili theatre and poetry, combining linguistic science with literary activism."
+        },
+        {
+            text: "The interview collection 'Hum Puchhait Chhī' (2012) by Munnaji is historically significant because:",
+            options: [
+                "It only contains interviews of Hindi authors",
+                "It archives testimonies of parallel tradition writers like Bechan Thakur, Jagdish Prasad Mandal, and Gajendra Thakur",
+                "It is a collection of folk songs",
+                "It rejects the Videha movement"
+            ],
+            correct: 1,
+            explanation: "Munnaji’s volume documents the counter-canonical voices and serves as an oral archive of the Maithili parallel movement."
+        },
+        {
+            text: "What does the Navya-Nyāya term 'vyāpti' refer to in epistemological analysis?",
+            options: [
+                "Poetic metre",
+                "Invariable concomitance (universal rule) that grounds valid inference",
+                "Emotional outpouring",
+                "Scriptural testimony"
+            ],
+            correct: 1,
+            explanation: "Gaṅgeśa’s Tattvacintāmaṇi defines vyāpti as the logical relation of pervasion — e.g., smoke implies fire — essential for anumāna."
+        },
+        {
+            text: "In the context of Maithili women’s writing, which author’s story on breast cancer was noted as the first of its kind in Maithili, predating Hindi fiction by 1–2 years?",
+            options: [
+                "Meena Jha",
+                "Vibha Rani",
+                "Premlata Mishra 'Prem'",
+                "Shail Jha 'Sagar'"
+            ],
+            correct: 0,
+            explanation: "Meena Jha’s short story on breast cancer (archived in Videha) is landmark medical feminist fiction in Maithili."
+        },
+        {
+            text: "Which organisation, founded by Babu Saheb Choudhary, became a hub for Maithili cultural activism in Kolkata and is frequently referenced in the Parallel History?",
+            options: [
+                "Mithila Sanskritik Parishad",
+                "Kokil Manch",
+                "Akhil Bharatiya Maithili Sahitya Parishad",
+                "Mithila Student Union"
+            ],
+            correct: 1,
+            explanation: "Kokil Manch, under Ganga Jha and later secretaries like Nabo Narayan Mishra, was central to Maithili theatre and movement in Kolkata."
+        },
+        {
+            text: "The ‘Anchinhar Formula’ for literary evaluation (shakti-kadrat, vishay-kadrat, tatya-kadrat) draws heavily from which epistemological tradition?",
+            options: [
+                "Nyāya-Vaiśeṣika ontology",
+                "Navya-Nyāya pramāṇa theory (inference, testimony, evidence)",
+                "Mīmāṃsā ritualism",
+                "Sphoṭa grammar"
+            ],
+            correct: 1,
+            explanation: "Ashish Anchinhar’s formula is rooted in Gaṅgeśa’s pramāṇa categories: testimony, inference, and verifiable evidence (factual kadrat)."
+        },
+        {
+            text: "The ‘Sahitya Akademi’ recognised Maithili as an independent literary language in ____, while the language was added to the Eighth Schedule of the Constitution in ____.",
+            options: [
+                "2003 / 1966",
+                "1966 / 2003",
+                "1975 / 2000",
+                "1990 / 2010"
+            ],
+            correct: 1,
+            explanation: "Sahitya Akademi recognised Maithili in 1966, decades before constitutional recognition (2003)."
+        },
+        {
+            text: "Which of the following is a key collection of Maithili folk songs and endangered genres documented by Hriday Narayan Jha?",
+            options: [
+                "Madhyampurush Ekvachan",
+                "Luptraprāya Maithilī Lokagīta",
+                "Kavyo Vadanti",
+                "Mājh Āṅgan Me Kaṭiāyal Chhī"
+            ],
+            correct: 1,
+            explanation: "Hriday Narayan Jha’s essay documents 19 folk genres (Parātī, Gosaunik Geet, Jhūmarā) and emphasises archival urgency."
+        },
+        {
+            text: "Which contemporary Maithili novel by Jagdish Prasad Mandal, shortlisted for major awards, depicts the struggles of a physically disabled protagonist as a metaphor for social immobility?",
+            options: [
+                "Gamak Jingi",
+                "Pangu",
+                "Ulhan",
+                "Sukanya"
+            ],
+            correct: 1,
+            explanation: "'Pangu' (lameness) uses disability to expose caste/class based exclusion, winning Sahitya Akademi 2021."
+        },
+        {
+            text: "The term ‘Samantar Sahitya Akademi Samman’ (Videha parallel award) was instituted to:",
+            options: [
+                "Replace Hindi literature",
+                "Recognise artists ignored by the mainstream Sahitya Akademi, including Dalit, folk, and diaspora voices",
+                "Promote only Vidyapati’s works",
+                "Digitise manuscripts only"
+            ],
+            correct: 1,
+            explanation: "Videha’s parallel awards honour subaltern, rural, and anti-caste artists, filling institutional gaps exposed by RTI."
+        },
+        {
+            text: "According to the Videha Parallel History, the two distinct ‘Vidyapatis’ refer to:",
+            options: [
+                "Vidyapati Thakkurah (Sanskrit/Avahatta) and an earlier Padavali poet (pre-Jyotirishwar)",
+                "Two poets from Nepal with same name",
+                "Vidyapati and his son",
+                "Vidyapati and his guru"
+            ],
+            correct: 0,
+            explanation: "A major scholarly intervention distinguishes the courtly Sanskrit/Avahatta writer from the folk Padavali poet, often conflated by mainstream history."
+        },
+        {
+            text: "The water researcher Dinesh Kumar Mishra’s book ‘Bhutahi Nadi Aur Takniki Jhad-Phook’ critiques:",
+            options: [
+                "Bhakti poetry",
+                "Engineering hubris (‘witchcraft’) that fails to manage silt and causes embankment disasters",
+                "Classical music traditions",
+                "Panji genealogical fraud"
+            ],
+            correct: 1,
+            explanation: "Mishra uses the term ‘engineering witchcraft’ to describe flawed technical interventions on unstable rivers like Bhutahi Balan."
+        }
+    ];
+
+    // state management
+    let userAnswers = new Array(questions.length).fill(null);
+    let quizSubmitted = false;
+
+    const container = document.getElementById('quizContainer');
+    const submitBtn = document.getElementById('submitQuiz');
+    const resetBtn = document.getElementById('resetQuiz');
+    const scoreSpan = document.getElementById('scoreDisplay');
+
+    function renderQuiz() {
+        if (!container) return;
+        let html = '';
+        questions.forEach((q, idx) => {
+            const selected = userAnswers[idx] !== null ? userAnswers[idx] : -1;
+            html += `
+                <div class="question-card" data-qidx="${idx}">
+                    <div class="question-text">${idx+1}. ${q.text}</div>
+                    <div class="options" id="options-${idx}">
+                        ${q.options.map((opt, optIdx) => {
+                            const isChecked = (selected === optIdx);
+                            return `
+                                <div class="option" data-qidx="${idx}" data-optidx="${optIdx}">
+                                    <input type="radio" name="q${idx}" id="q${idx}_opt${optIdx}" value="${optIdx}" ${isChecked ? 'checked' : ''} ${quizSubmitted ? 'disabled' : ''}>
+                                    <label for="q${idx}_opt${optIdx}">${String.fromCharCode(65+optIdx)}. ${opt}</label>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                    <div class="explanation" id="explain-${idx}"></div>
+                </div>
+            `;
+        });
+        container.innerHTML = html;
+
+        // attach handlers for dynamic selection (if not submitted)
+        if (!quizSubmitted) {
+            for (let i = 0; i < questions.length; i++) {
+                const optsDiv = document.querySelectorAll(`.option[data-qidx="${i}"]`);
+                optsDiv.forEach(optDiv => {
+                    const qIdx = parseInt(optDiv.dataset.qidx);
+                    const optIdx = parseInt(optDiv.dataset.optidx);
+                    const radio = optDiv.querySelector('input');
+                    if (radio) {
+                        radio.addEventListener('change', (e) => {
+                            if (e.target.checked) {
+                                userAnswers[qIdx] = optIdx;
+                            }
+                        });
+                        optDiv.addEventListener('click', (e) => {
+                            if (e.target.tagName !== 'INPUT' && !quizSubmitted) {
+                                const radioInside = optDiv.querySelector('input');
+                                if (radioInside && !radioInside.checked) {
+                                    radioInside.checked = true;
+                                    userAnswers[qIdx] = optIdx;
+                                    const changeEvent = new Event('change', { bubbles: true });
+                                    radioInside.dispatchEvent(changeEvent);
+                                }
+                            }
+                        });
+                    }
+                });
+            }
+        }
+    }
+
+    function computeScore() {
+        let correct = 0;
+        for (let i = 0; i < questions.length; i++) {
+            if (userAnswers[i] !== null && userAnswers[i] === questions[i].correct) correct++;
+        }
+        return correct;
+    }
+
+    function showExplanationsAndScore() {
+        quizSubmitted = true;
+        let correctCount = 0;
+        for (let i = 0; i < questions.length; i++) {
+            const selected = userAnswers[i];
+            const isCorrect = (selected !== null && selected === questions[i].correct);
+            if (isCorrect) correctCount++;
+            const explainDiv = document.getElementById(`explain-${i}`);
+            if (explainDiv) {
+                const userAnsText = (selected !== null) ? questions[i].options[selected] : "Not answered";
+                const correctAnsText = questions[i].options[questions[i].correct];
+                explainDiv.innerHTML = `
+                    <strong>📖 Explanation:</strong> ${questions[i].explanation}<br>
+                    <span style="color:#4f6b3b;">✍️ Your choice: ${userAnsText}</span><br>
+                    <span style="color:#2b6b2f;">✅ Correct answer: ${correctAnsText}</span>
+                `;
+                explainDiv.classList.add('show');
+            }
+            // disable all radios for this question
+            const radios = document.querySelectorAll(`input[name="q${i}"]`);
+            radios.forEach(r => r.disabled = true);
+        }
+        scoreSpan.innerHTML = `${correctCount} / ${questions.length}`;
+    }
+
+    function resetQuiz() {
+        quizSubmitted = false;
+        userAnswers = new Array(questions.length).fill(null);
+        renderQuiz();
+        for (let i = 0; i < questions.length; i++) {
+            const expl = document.getElementById(`explain-${i}`);
+            if (expl) {
+                expl.innerHTML = '';
+                expl.classList.remove('show');
+            }
+        }
+        scoreSpan.innerHTML = `0 / ${questions.length}`;
+    }
+
+    submitBtn.addEventListener('click', () => {
+        if (quizSubmitted) {
+            const score = computeScore();
+            scoreSpan.innerHTML = `${score} / ${questions.length}`;
+            return;
+        }
+        showExplanationsAndScore();
+    });
+
+    resetBtn.addEventListener('click', () => {
+        resetQuiz();
+    });
+
+    // initial render
+    renderQuiz();
+    scoreSpan.innerHTML = `0 / ${questions.length}`;
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

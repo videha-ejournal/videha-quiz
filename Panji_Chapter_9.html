@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Chapter 9 – Prācīn Pañjī, Khaṇḍa 1 | Ancient Genealogy of Mithila</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #ecd9b4;
+background: linear-gradient(125deg, #f5ebd6 0%, #e2cfae 100%);
+font-family: 'Segoe UI', 'Roboto', 'Noto Serif', Georgia, serif;
+padding: 2rem 1rem;
+}
+.quiz-container {
+max-width: 980px;
+margin: 0 auto;
+background: #fffef7;
+border-radius: 2rem;
+overflow: hidden;
+box-shadow: 0 28px 45px -12px rgba(0, 0, 0, 0.35);
+border: 1px solid #dac99e;
+}
+.quiz-header {
+background: #5e3a27;
+background: linear-gradient(110deg, #6d4932 0%, #4a2d1d 100%);
+padding: 1.8rem 2rem 1.6rem;
+color: #fef0dd;
+border-bottom: 5px solid #e7b067;
+}
+.quiz-header h1 {
+font-size: 1.9rem;
+font-weight: 700;
+letter-spacing: -0.3px;
+display: flex;
+flex-wrap: wrap;
+align-items: baseline;
+gap: 0.8rem;
+}
+.quiz-header h1 span {
+background: #362212b3;
+font-size: 0.9rem;
+font-weight: 500;
+padding: 0.2rem 1rem;
+border-radius: 60px;
+}
+.quiz-header p {
+margin-top: 0.6rem;
+font-style: italic;
+font-size: 0.95rem;
+opacity: 0.92;
+}
+.quiz-body {
+padding: 1.6rem 2rem 0.8rem;
+}
+.question-card {
+background: white;
+border-radius: 1.4rem;
+margin-bottom: 2rem;
+box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
+border: 1px solid #e6d6b5;
+transition: 0.1s;
+}
+.q-text {
+background: #fefaf0;
+padding: 1.2rem 1.8rem 0.5rem 1.8rem;
+font-size: 1.2rem;
+font-weight: 700;
+color: #3a2a1c;
+border-radius: 1.4rem 1.4rem 0 0;
+}
+.options-area {
+padding: 0.3rem 1.8rem 1.2rem 1.8rem;
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+}
+.option-row {
+display: flex;
+align-items: center;
+gap: 0.8rem;
+background: #fefcf6;
+padding: 0.6rem 1rem;
+border-radius: 80px;
+border: 1px solid #eadcc4;
+cursor: pointer;
+transition: 0.1s;
+}
+.option-row:hover {
+background: #f7efdf;
+border-color: #c9ae7b;
+}
+input[type="radio"] {
+accent-color: #8b5a3c;
+width: 1.1rem;
+height: 1.1rem;
+flex-shrink: 0;
+}
+.option-row label {
+font-size: 1rem;
+font-weight: 450;
+color: #2f2a1f;
+width: 100%;
+cursor: pointer;
+line-height: 1.35;
+}
+.feedback {
+margin: 0.2rem 1.8rem 1.3rem 1.8rem;
+}
+.correct-feedback {
+background: #e2efea;
+border-left: 5px solid #2f7a56;
+padding: 0.65rem 1rem;
+border-radius: 14px;
+color: #15573b;
+font-size: 0.9rem;
+}
+.wrong-feedback {
+background: #ffe3db;
+border-left: 5px solid #c2573a;
+padding: 0.65rem 1rem;
+border-radius: 14px;
+color: #a33e23;
+font-size: 0.9rem;
+}
+.quiz-footer {
+background: #fcf9f0;
+padding: 1.2rem 2rem 1.8rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 1rem;
+border-top: 1px solid #e7d9bb;
+}
+button {
+background: #7c5438;
+border: none;
+font-size: 1rem;
+font-weight: 600;
+padding: 0.7rem 1.8rem;
+border-radius: 60px;
+color: white;
+cursor: pointer;
+transition: 0.2s;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+button:hover {
+background: #5c3c25;
+transform: translateY(-2px);
+}
+.reset-btn {
+background: #706a4e;
+}
+.reset-btn:hover {
+background: #514c36;
+}
+.score-box {
+background: #2a4236;
+padding: 0.5rem 1.4rem;
+border-radius: 60px;
+color: #ffe3be;
+font-weight: bold;
+font-size: 1rem;
+}
+@media (max-width: 680px) {
+.quiz-body {
+padding: 1rem;
+}
+.q-text {
+font-size: 1rem;
+padding: 1rem 1rem 0.2rem 1rem;
+}
+.options-area {
+padding: 0 1rem 1rem 1rem;
+}
+.option-row label {
+font-size: 0.88rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <div class="quiz-header"> <h1>📜 Prācīn Pañjī – Khaṇḍa 1 <span>Chapter 9: Ancient Genealogy (Pages 1–65)</span></h1> <p>Villages, Gotras, Mahāmahopādhyāya lineages, Halāyudha, royal officials, notation system & the oldest genealogical stratum of Mithila</p> </div> <div class="quiz-body" id="quizRoot"></div> <div class="quiz-footer"> <button id="submitBtn">🧾 Submit & Check Answers</button> <button id="resetBtn" class="reset-btn">⟳ Reset Quiz</button> <div class="score-box" id="scoreDisplay">Score: 0/0</div> </div>
+</div>
+<script>
+    // --------------------------------------------------------------
+    // CHAPTER 9: Prācīn Pañjī, Khaṇḍa 1 – Villages, Families, Lineages, Gotras (pp.1–65)
+    // Based on the document's detailed analysis of the ancient genealogy section
+    // --------------------------------------------------------------
+    const questions = [
+        {
+            text: "According to Chapter 9, which figure is identified as the genealogical primus (oldest anchor) of Khaṇḍa 1, with descendants branching across more than seventy villages?",
+            options: [
+                "Nānyadeva",
+                "Halāyudha of Gaṅgolī",
+                "Gunakara Jha",
+                "Mahārāja Harisimhadeva"
+            ],
+            correct: 1,
+            explanation: "Halāyudha of Gaṅgolī is the opening entry's founder-patriarch, dating to the late 12th century (court scholar of Vallāla Sena). His descendants form the ancient trunk of the Pañjī."
+        },
+        {
+            text: "What does the notation '(05/04)' signify in the genealogical chains of Khaṇḍa 1?",
+            options: [
+                "The total property owned by the family",
+                "Birth order rank among brothers and total siblings (5th of 4 siblings) – a unique data-encoding technique",
+                "The year of marriage",
+                "The folio number of a different manuscript"
+            ],
+            correct: 1,
+            explanation: "(05/04) encodes sibling rank: 05 = birth order, 04 = total number of siblings. This allows reconstruction of family size at each generation."
+        },
+        {
+            text: "Which gotra receives a special panegyric verse in Khaṇḍa 1 linking it explicitly to Kshatriya (royal) ancestry and the Karnāṭa dynasty?",
+            options: [
+                "Śāṇḍilya",
+                "Vatsa",
+                "Kādya / Kāśyapa",
+                "Bhāradvāja"
+            ],
+            correct: 2,
+            explanation: "The Kādya (Kāśyapa) gotra verse states: 'dānaśauryaṃ pratāpaiśca prasiddhā yatra pārthivāḥ — Oinisā sarvataḥ śreṣṭhā'. This links the gotra to Nānyadeva’s royal lineage."
+        },
+        {
+            text: "How many Mahāmahopādhyāya (highest scholarly title) holders are documented in Khaṇḍa 1 (pages 1–65)?",
+            options: [
+                "Approximately 15",
+                "Over 47 named individuals with the full title",
+                "Only 2",
+                "More than 200"
+            ],
+            correct: 1,
+            explanation: "The analysis counts at least 47 holders of the title Mahāmahopādhyāya in Khaṇḍa 1, concentrated in the Khauaal–Sarisa–Khandabla triangle, reflecting intellectual elite formation."
+        },
+        {
+            text: "Which exceptional village entry in Khaṇḍa 1 records a 'Caturvedādhyāyī' (four-Veda scholar) from a village with a non-Brahmin (Ḍom) association, indicating caste-boundary ambiguity?",
+            options: [
+                "Sarisab",
+                "Gaṅgolī",
+                "Māṇḍala",
+                "Ḍom Ṭekārī"
+            ],
+            correct: 3,
+            explanation: "Page 1.xx records 'Atha Ḍom Ṭekārī grāma tatra Caturvedādhyāyī Kāmadevo bīji' – a Brahmin scholar in a Ḍom-associated village, a rare anomalous entry."
+        },
+        {
+            text: "What is the 'Mātṛkā-Cakra' (maternal cycle) system in Khaṇḍa 1?",
+            options: [
+                "A ritual performed at weddings",
+                "A completion formula certifying that every living male is validly connected to his mūla-grāma through both paternal and maternal lines",
+                "A list of prohibited gotras",
+                "A type of palm-leaf binding"
+            ],
+            correct: 1,
+            explanation: "The mātṛkā-cakra completes a genealogical circuit through the dau-bīji network. Explicitly 'evaṃ X mātṛka-cakraṃ' – certifies social legitimacy of connected families."
+        },
+        {
+            text: "Which famous Maithili poet is directly placed within the Pañjī matrix in Khaṇḍa 1, confirming his Brahmin status and ancestral village?",
+            options: [
+                "Jyotirīśvara Ṭhākura",
+                "Gaṅgeśa Upādhyāya",
+                "Vidyāpati",
+                "Govindajī"
+            ],
+            correct: 2,
+            explanation: "Page 1.4 preserves 'Vidyāpati — Puḍrīka — Machadī', a direct genealogical placement of the great poet Vidyāpati (c. 1352–1448 CE)."
+        },
+        {
+            text: "What does the term 'Tegachchhiya' indicate in the Pañjī taxonomy of Khaṇḍa 1?",
+            options: [
+                "A lineage of royal priests",
+                "An attenuated or 'thinned out' lineage (male-line failure, adoption, or out-migration) – a formal genealogical status",
+                "A high scholarly title",
+                "A marriage prohibition rule"
+            ],
+            correct: 1,
+            explanation: "'Tegachchhiya' marks lineages where the genealogical chain has become so attenuated that the Panjikar records the family as 'thinned out' rather than extinct."
+        },
+        {
+            text: "Which state-official title appears as a hereditary occupational marker in Khaṇḍa 1, concentrated in the Śāntivigrāhika Devāditya branch?",
+            options: [
+                "Mahāmahopādhyāya",
+                "Śāntivigrāhika (peace-treaty officer)",
+                "Purohita",
+                "Bikaua"
+            ],
+            correct: 1,
+            explanation: "Devāditya bears nine distinct state titles including Śāntivigrāhika, Mahāmattaka, Bhāṇḍāgārika, etc., reflecting medieval Karnāṭa court hierarchy."
+        },
+        {
+            text: "What is the approximate total number of distinct villages named in Khaṇḍa 1 (pages 1–65)?",
+            options: [
+                "35 villages",
+                "122+ distinct localities",
+                "Only 8 core villages",
+                "over 500 villages"
+            ],
+            correct: 1,
+            explanation: "The analysis records at least 122 named villages, ranging from major mūla-grāma to secondary hamlets, covering the Tirhut heartland."
+        }
+    ];
+
+    // state
+    let userSelections = new Array(questions.length).fill(null);
+    let submitted = false;
+
+    const container = document.getElementById('quizRoot');
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const scoreSpan = document.getElementById('scoreDisplay');
+
+    function computeScore() {
+        let correct = 0;
+        for (let i = 0; i < questions.length; i++) {
+            if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correct++;
+        }
+        return correct;
+    }
+
+    function updateScoreDisplay() {
+        const total = questions.length;
+        const correct = computeScore();
+        scoreSpan.innerText = `Score: ${correct}/${total}`;
+    }
+
+    function renderQuiz() {
+        container.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.dataset.qid = idx;
+
+            const qDiv = document.createElement('div');
+            qDiv.className = 'q-text';
+            qDiv.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qDiv);
+
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options-area';
+
+            q.options.forEach((opt, optIdx) => {
+                const optRow = document.createElement('div');
+                optRow.className = 'option-row';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${idx}`;
+                radio.value = optIdx;
+                radio.id = `q_${idx}_opt_${optIdx}`;
+                if (!submitted && userSelections[idx] === optIdx) radio.checked = true;
+                if (submitted) radio.disabled = true;
+
+                const label = document.createElement('label');
+                label.htmlFor = `q_${idx}_opt_${optIdx}`;
+                label.innerText = opt;
+
+                radio.addEventListener('change', (e) => {
+                    if (!submitted) {
+                        userSelections[idx] = parseInt(e.target.value);
+                    }
+                });
+
+                optRow.appendChild(radio);
+                optRow.appendChild(label);
+                optionsDiv.appendChild(optRow);
+            });
+            card.appendChild(optionsDiv);
+
+            if (submitted) {
+                const fbDiv = document.createElement('div');
+                fbDiv.className = 'feedback';
+                const isCorrect = (userSelections[idx] === q.correct);
+                if (isCorrect) {
+                    fbDiv.innerHTML = `<div class="correct-feedback">✓ Correct. ${q.explanation}</div>`;
+                } else {
+                    const correctLetter = String.fromCharCode(65 + q.correct);
+                    fbDiv.innerHTML = `<div class="wrong-feedback">✗ Incorrect. Correct answer: ${correctLetter}) ${q.options[q.correct]}.<br>${q.explanation}</div>`;
+                }
+                card.appendChild(fbDiv);
+            }
+            container.appendChild(card);
+        });
+    }
+
+    function submitQuiz() {
+        if (submitted) return;
+        let allAnswered = true;
+        for (let i = 0; i < questions.length; i++) {
+            if (userSelections[i] === null) {
+                allAnswered = false;
+                break;
+            }
+        }
+        if (!allAnswered) {
+            alert("❌ Please answer all 10 questions before submitting.");
+            return;
+        }
+        submitted = true;
+        updateScoreDisplay();
+        renderQuiz();
+    }
+
+    function resetQuiz() {
+        submitted = false;
+        userSelections.fill(null);
+        updateScoreDisplay();
+        renderQuiz();
+    }
+
+    // initial render
+    renderQuiz();
+    updateScoreDisplay();
+
+    submitBtn.addEventListener('click', submitQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

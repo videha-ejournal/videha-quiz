@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <title>Quiz: Chapter 40 – Anil, Ashok, Hitnath, Hridayanarayan & Kailash Mishra</title> <style>
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+max-width: 1000px;
+margin: 2rem auto;
+padding: 1rem;
+background: #f4f1ea;
+}
+.quiz-container {
+background: white;
+border-radius: 2rem;
+padding: 1.5rem;
+box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+h1 {
+color: #2c5e2c;
+border-left: 5px solid #b8860b;
+padding-left: 1rem;
+}
+.question {
+border-bottom: 1px solid #e0d6c5;
+padding: 1rem 0;
+}
+.question-text {
+font-weight: 700;
+margin-bottom: 0.5rem;
+font-size: 1.05rem;
+}
+.options {
+margin-left: 1.5rem;
+margin-bottom: 0.5rem;
+}
+.option {
+margin: 0.3rem 0;
+}
+.explanation {
+background: #f4f1e8;
+padding: 0.6rem;
+margin-top: 0.6rem;
+border-left: 4px solid #b8860b;
+display: none;
+border-radius: 0.5rem;
+}
+button {
+background: #2c5e2c;
+color: white;
+border: none;
+padding: 0.5rem 1.2rem;
+border-radius: 2rem;
+cursor: pointer;
+margin: 0.2rem;
+font-size: 1rem;
+}
+button:hover {
+background: #1e401e;
+}
+.score {
+font-size: 1.2rem;
+font-weight: bold;
+margin-top: 1rem;
+text-align: center;
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <h1>📖 Chapter 40 – Anil, Ashok, Hitnath, Hridayanarayan & Kailash Mishra</h1> <p>Based on Videha Parallel History: critical appreciations of Jagdish Chandra Thakur ‘Anil’, Ashok (Kathakar Ashok), Hitnath Jha, Hriday Narayan Jha, and Dr. Kailash Kumar Mishra</p> <div id="quiz"></div> <div style="margin-top: 1rem;"> <button id="submitBtn">✔ Submit Answers</button> <button id="resetBtn">⟳ Reset Quiz</button> </div> <div id="score" class="score"></div>
+</div>
+<script>
+const questions = [
+    {
+        text: "Jagdish Chandra Thakur ‘Anil’ is a poet, lyricist and autobiographer. His pen‑name ‘Anil’ (wind) is emblematic of his poetic style. Which of his works is a collection of Maithili ghazals?",
+        options: [
+            "Geet Ganga",
+            "Ghazal Ganga",
+            "Tora Angana Me",
+            "Aankhime Chitra Ho Maithili Ker"
+        ],
+        correct: 1,
+        explanation: "‘Ghazal Ganga’ is his ghazal collection, while ‘Geet Ganga’ and ‘Tora Angana Me’ are song collections."
+    },
+    {
+        text: "Anil’s autobiography, serialised in Videha, is titled ‘Aankhime Chitra Ho Maithili Ker’. What does the title signify?",
+        options: [
+            "‘May the picture of Maithili be in my eyes’ – a declaration of linguistic devotion and identity",
+            "‘My eyes are tired’",
+            "‘The picture is lost’",
+            "‘Maithili is a foreign language’"
+        ],
+        correct: 0,
+        explanation: "The title expresses the poet’s desire that his very vision be constituted by Maithili language and culture."
+    },
+    {
+        text: "In his ghazal published in Videha Issue 129, Anil invokes the mythological figure Ahilya. What is the significance of this reference?",
+        options: [
+            "To celebrate her devotion",
+            "To express feminist solidarity with the wronged woman (turned to stone) and to call for relief of her anguish",
+            "To criticise her",
+            "To retell the Ramayana"
+        ],
+        correct: 1,
+        explanation: "The line ‘Ahilya’s anguish must be relieved – Ganga‑water is needed in the eyes’ reads the story through compassion, not judgment."
+    },
+    {
+        text: "Ashok (Kathakar Ashok) is known for his short story collection ‘Maatbar’ (The Influential One). Which story from this collection is a cutting satire on the culture of patronage and sycophancy?",
+        options: [
+            "Raand",
+            "Maatbar (title story)",
+            "Bouqa Chup Chhal",
+            "Daskhat"
+        ],
+        correct: 1,
+        explanation: "The title story ‘Maatbar’ critiques the ‘Maharaj Ji’ who controls social networking and around whom a court of sycophants gathers."
+    },
+    {
+        text: "Ashok’s story ‘Swaadhin’ (Independent/Free) is remarkable for its treatment of which taboo subject in Maithili fiction?",
+        options: [
+            "Caste discrimination",
+            "Marital rape – a wife refuses to bear a child conceived through coercion",
+            "Dowry death",
+            "Child marriage"
+        ],
+        correct: 1,
+        explanation: "The story’s protagonist refuses to carry a child from a forced conjugal relation, asserting bodily autonomy within marriage."
+    },
+    {
+        text: "The critical appreciation of Ashok notes that his story ‘Chhal’ (The Act / Pretence) – which was translated into English for ‘The Book of Bihari Literature’ – explores:",
+        options: [
+            "The psychology of a gambler",
+            "Method acting and the dissolution of self into role, engaging Lacanian identity theory",
+            "A political conspiracy",
+            "A family feud"
+        ],
+        correct: 1,
+        explanation: "The protagonist Bholi Jha takes on a part so thoroughly that the character’s soul enters him – a meditation on performative identity."
+    },
+    {
+        text: "Hitnath Jha, a retired bank manager based in Hazaribagh, wrote the village biography ‘Koilakh’. What is the primary value of this work according to the critical appreciation?",
+        options: [
+            "It is a fictional romance",
+            "It documents the intellectual and cultural heritage of his ancestral village, including its notable scholars, while acknowledging social limitations",
+            "It is a political manifesto",
+            "It is a collection of folk songs"
+        ],
+        correct: 1,
+        explanation: "‘Koilakh’ records the village’s history, notable alumni (e.g., Madhup), and social structure, though critics note its limited coverage of non‑Brahmin castes."
+    },
+    {
+        text: "Hitnath Jha’s book ‘Lekh-Rekh’ is a collection of pāṭhakīya (reader‑responses). According to the critical essay, what distinguishes the pāṭhakīya from formal samīkṣā (review)?",
+        options: [
+            "It is always negative",
+            "It foregrounds the reader’s subjectivity and personal experience rather than claiming false objectivity",
+            "It is written only by academics",
+            "It ignores the text"
+        ],
+        correct: 1,
+        explanation: "The pāṭhakīya is a ‘reader’s note’ that honestly records one reader’s encounter with the text, without pretence to institutional authority."
+    },
+    {
+        text: "Hriday Narayan Jha, a B‑High‑Grade artist of All India Radio, wrote the seminal essay ‘Luptraprāya Maithilī Lokagīta’. What is the main threat he identifies to Maithili folk songs?",
+        options: [
+            "Government censorship",
+            "Loss of transmission to younger generations and the disappearance of traditional performance contexts",
+            "Lack of script",
+            "Hindi imposition"
+        ],
+        correct: 1,
+        explanation: "He laments that ‘āwak nava pīṛhīk bīc ekara paramparāgata śikṣāk vyavahāra nahi dekhala jāicha’ – the younger generation is not learning the songs."
+    },
+    {
+        text: "Among the nine devotional songs documented by Hriday Narayan Jha is a composition by Mahākavi Vidyapati. What is the significance of including Vidyapati in a collection of folk songs?",
+        options: [
+            "It is an anachronism",
+            "It demonstrates the continuity between classical Maithili poetry and the living oral‑folk tradition",
+            "It proves Vidyapati was a folk singer",
+            "It is a mistake"
+        ],
+        correct: 1,
+        explanation: "Jha’s inclusion asserts that Vidyapati’s works have been transmitted through oral performance alongside anonymous folk songs."
+    },
+    {
+        text: "Dr. Kailash Kumar Mishra, an anthropologist and novelist, wrote the novel ‘Mansarbi’ (2025). What is the novel’s central conflict?",
+        options: [
+            "A dispute over land",
+            "The love between Bulki (a Dalit woman) and Raghab (a poor Brahmin youth), set against caste violence and feudal oppression",
+            "A political election",
+            "A flood disaster"
+        ],
+        correct: 1,
+        explanation: "The novel explores caste‑class exploitation, with the antagonist Mahananda representing feudal violence."
+    },
+    {
+        text: "Mishra’s travelogue‑essay collection ‘Yayavari’ includes fieldwork among tribal women in Northeast India. Which historical figure does he portray as a feminist anti‑colonial leader?",
+        options: [
+            "Rani Lakshmibai",
+            "Rani Gaidinliu (Naga spiritual and political leader)",
+            "Sarojini Naidu",
+            "Begum Hazrat Mahal"
+        ],
+        correct: 1,
+        explanation: "Mishra documents Rani Gaidinliu, who led resistance against the British and later against Christian missionary destruction of Naga culture."
+    },
+    {
+        text: "In his Facebook‑based book ‘Bookmeniya’, Mishra collects posts about Mithila’s culture. What does the portmanteau title ‘Bookmeniya’ suggest?",
+        options: [
+            "‘Book’ + ‘meniya’ (a Maithili suffix for a space/repository) – a ‘Facebook repository’ of Mithila’s cultural meta‑history",
+            "‘Book’ + ‘men’ – a book for men",
+            "‘Boo’ + ‘kmeniya’ – a ghost story",
+            "A book of lies"
+        ],
+        correct: 0,
+        explanation: "The title blends ‘book’ (Facebook) with the Maithili suffix ‘‑meniya’, creating a new genre: digital cultural commentary archived in print."
+    },
+    {
+        text: "Hitnath Jha’s translation of Shambhu Badal’s Hindi poems into Maithili (‘Kavitā: Śambhu Bādalaka’) is praised for preserving the original’s dhvani. Which of Badal’s poems deals with a cobbler and class consciousness?",
+        options: [
+            "Hazāribāg",
+            "Koilhā Mocī",
+            "Mā",
+            "Shikar"
+        ],
+        correct: 1,
+        explanation: "‘Koilhā Mocī’ (Cobbler) uses the cobbler’s perspective to critique exploitation – a theme that translates powerfully into Maithili."
+    },
+    {
+        text: "According to the critical appreciation of Hriday Narayan Jha, what is the ‘Jhumra’ tradition?",
+        options: [
+            "A wedding song",
+            "A ritual invocation song performed by a nine‑member bhagat community, involving divine possession, accompanied by jhāli and māṃḍara",
+            "A harvest dance",
+            "A lullaby"
+        ],
+        correct: 1,
+        explanation: "The Jhumra is a ritual possession song where the bhagat’s body becomes the vehicle for the goddess’s manifestation."
+    },
+    {
+        text: "Jagdish Chandra Thakur ‘Anil’ wrote children’s poetry in Videha issues 50–100, later anthologised in the ‘Videha Shishu Utsav’. What is notable about his children’s poems?",
+        options: [
+            "They are all translations",
+            "Two of them focus on the ‘baby child’, showing tenderness and the theme of growth as cultural continuation",
+            "They are in English",
+            "They are political satires"
+        ],
+        correct: 1,
+        explanation: "Anil’s ‘baby child’ poems are intimate and pedagogical, introducing young readers to Maithili lyricism."
+    },
+    {
+        text: "Ashok’s story collection ‘Daddy Gaam’ (Father’s Village) includes the title story where an NRI returnee decides to build a hospital instead of a temple. What does this represent in Ashok’s thematic vision?",
+        options: [
+            "Rejection of religion",
+            "The ‘middle path’ (madhyamarg) between nostalgic idealism and social responsibility",
+            "A return to feudalism",
+            "A critique of modern medicine"
+        ],
+        correct: 1,
+        explanation: "Critics identify this as Ashok’s signature ‘middle path’ – neither romanticising the village nor abandoning it, but choosing practical development."
+    },
+    {
+        text: "Dr. Kailash Kumar Mishra’s essay on Mithila painting (IGNCA, 2000) documents how Madhubani painting was transformed from a women‑only domestic ritual to a commodified art form. What was the catalyst for this change?",
+        options: [
+            "Government order",
+            "Outside intervention after a drought in the 1960s, when paintings were transferred from walls to paper for sale",
+            "Tourist demand",
+            "A royal decree"
+        ],
+        correct: 1,
+        explanation: "After a severe drought, external agencies encouraged women to paint on paper for income, which commercialised and altered the tradition."
+    },
+    {
+        text: "Hitnath Jha’s ‘pāṭhakīya’ on the novel ‘Māṭik Suwas’ by Munni Kamat is noted for its candour. What is the subject of that novel?",
+        options: [
+            "A mythological tale",
+            "A village woman’s life, using the ‘fragrance of earth’ (māṭik suwas) as a metaphor for rootedness and dispossession",
+            "A science fiction story",
+            "A political thriller"
+        ],
+        correct: 1,
+        explanation: "The title invokes petrichor, the smell of earth after rain, suggesting a novel deeply concerned with land, memory, and displacement."
+    },
+    {
+        text: "Which of the following is a key methodological feature of Dr. Kailash Kumar Mishra’s anthropological literary practice, as seen in ‘Yayavari’?",
+        options: [
+            "Pure speculation",
+            "Thick description (Geertz) and reflexive fieldwork, blending personal narrative with ethnographic documentation",
+            "Quantitative surveys",
+            "Laboratory experiments"
+        ],
+        correct: 1,
+        explanation: "Mishra’s travel essays combine participant observation, historical context, and personal reflection – characteristic of literary anthropology."
+    }
+];
+
+let userSelections = new Array(questions.length).fill(null);
+let submitted = false;
+
+function renderQuiz() {
+    const container = document.getElementById('quiz');
+    if (!container) return;
+    let html = '';
+    questions.forEach((q, idx) => {
+        const selected = userSelections[idx] !== null ? userSelections[idx] : -1;
+        html += `<div class="question">
+                    <div class="question-text">${idx+1}. ${q.text}</div>
+                    <div class="options">`;
+        q.options.forEach((opt, optIdx) => {
+            const checked = (selected === optIdx) ? 'checked' : '';
+            html += `<div class="option">
+                        <input type="radio" name="q${idx}" value="${optIdx}" id="q${idx}_${optIdx}" ${checked} ${submitted ? 'disabled' : ''}>
+                        <label for="q${idx}_${optIdx}">${String.fromCharCode(65+optIdx)}. ${opt}</label>
+                     </div>`;
+        });
+        html += `</div><div class="explanation" id="expl${idx}"></div></div>`;
+    });
+    container.innerHTML = html;
+}
+
+function calculateScore() {
+    let correct = 0;
+    for (let i = 0; i < questions.length; i++) {
+        if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correct++;
+    }
+    return correct;
+}
+
+function submitQuiz() {
+    submitted = true;
+    for (let i = 0; i < questions.length; i++) {
+        const radios = document.getElementsByName(`q${i}`);
+        for (let j = 0; j < radios.length; j++) {
+            if (radios[j].checked) userSelections[i] = parseInt(radios[j].value);
+        }
+        const explDiv = document.getElementById(`expl${i}`);
+        if (explDiv) {
+            const userAns = (userSelections[i] !== null) ? questions[i].options[userSelections[i]] : "Not answered";
+            const correctAns = questions[i].options[questions[i].correct];
+            explDiv.innerHTML = `<strong>📖 Explanation:</strong> ${questions[i].explanation}<br>
+                                 <span style="color:#4b6b3e;">Your answer: ${userAns}</span><br>
+                                 <span style="color:#2c6e2c;">Correct answer: ${correctAns}</span>`;
+            explDiv.style.display = 'block';
+        }
+        const allRadios = document.getElementsByName(`q${i}`);
+        allRadios.forEach(r => r.disabled = true);
+    }
+    const score = calculateScore();
+    document.getElementById('score').innerHTML = `✅ Score: ${score} / ${questions.length}`;
+}
+
+function resetQuiz() {
+    submitted = false;
+    userSelections = new Array(questions.length).fill(null);
+    renderQuiz();
+    for (let i = 0; i < questions.length; i++) {
+        const explDiv = document.getElementById(`expl${i}`);
+        if (explDiv) explDiv.style.display = 'none';
+    }
+    document.getElementById('score').innerHTML = '';
+}
+
+document.getElementById('submitBtn').addEventListener('click', submitQuiz);
+document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+renderQuiz();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

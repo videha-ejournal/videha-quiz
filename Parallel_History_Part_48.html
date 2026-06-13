@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Nabo Narayan Mishra – Chapter 48 | Maithili Parallel History</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #f1ede4;
+font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, -apple-system, sans-serif;
+padding: 2rem 1rem;
+color: #2c2b28;
+}
+.quiz-container {
+max-width: 920px;
+margin: 0 auto;
+background: #fffef8;
+border-radius: 2rem;
+box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
+overflow: hidden;
+border: 1px solid #dfd8c8;
+}
+.quiz-header {
+background: #2b5e3b;
+color: #fef1db;
+padding: 1.6rem 2rem;
+text-align: center;
+}
+.quiz-header h1 {
+font-size: 1.9rem;
+font-weight: 600;
+letter-spacing: -0.3px;
+margin-bottom: 0.5rem;
+}
+.quiz-header h1 span {
+font-weight: 400;
+font-style: italic;
+color: #f5ddb1;
+}
+.quiz-header p {
+font-size: 1rem;
+opacity: 0.9;
+}
+.badge-info {
+display: inline-block;
+background: #e2cb9c;
+color: #2a412e;
+padding: 0.2rem 1rem;
+border-radius: 30px;
+font-size: 0.8rem;
+font-weight: 600;
+margin-top: 0.75rem;
+}
+.question-card {
+padding: 1.5rem 2rem;
+border-bottom: 1px solid #e9e1d2;
+transition: background 0.1s;
+}
+.question-text {
+font-size: 1.24rem;
+font-weight: 600;
+color: #2a3a2a;
+margin-bottom: 1.2rem;
+line-height: 1.4;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+margin-bottom: 0.8rem;
+}
+.option {
+display: flex;
+align-items: flex-start;
+gap: 0.8rem;
+background: #fefaf3;
+padding: 0.65rem 1rem;
+border-radius: 1.2rem;
+border: 1px solid #e4dbc9;
+cursor: pointer;
+transition: all 0.12s;
+}
+.option:hover {
+background: #f7f0e2;
+border-color: #c7b692;
+}
+.option input {
+margin-top: 0.2rem;
+accent-color: #4c7a5a;
+width: 1.1rem;
+height: 1.1rem;
+flex-shrink: 0;
+}
+.option label {
+font-size: 1rem;
+line-height: 1.4;
+color: #2e2c28;
+flex: 1;
+cursor: pointer;
+}
+.feedback {
+font-size: 0.85rem;
+margin-top: 0.5rem;
+padding-left: 2rem;
+font-weight: 500;
+}
+.correct-feedback {
+color: #2a6b3c;
+}
+.wrong-feedback {
+color: #bc4a3a;
+}
+.quiz-footer {
+padding: 1.3rem 2rem;
+background: #faf7ef;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 1rem;
+}
+.score-area {
+font-size: 1.25rem;
+font-weight: 700;
+background: #e4dac8;
+padding: 0.5rem 1.3rem;
+border-radius: 3rem;
+color: #3a4e32;
+}
+button {
+background: #4e6d55;
+border: none;
+color: white;
+padding: 0.7rem 1.8rem;
+border-radius: 2.5rem;
+font-size: 1rem;
+font-weight: 600;
+cursor: pointer;
+transition: 0.1s ease;
+box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+button:hover {
+background: #34553f;
+transform: scale(0.97);
+}
+.reset-btn {
+background: #9b7f60;
+}
+.reset-btn:hover {
+background: #7d6248;
+}
+.explain-note {
+text-align: center;
+font-size: 0.8rem;
+background: #f2ede2;
+padding: 0.8rem;
+color: #5d5340;
+border-top: 1px solid #e0d5c2;
+}
+@media (max-width: 650px) {
+.quiz-header h1 { font-size: 1.45rem; }
+.question-card { padding: 1.2rem; }
+.question-text { font-size: 1rem; }
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <div class="quiz-header"> <h1>📖 NABO NARAYAN MISHRA <span>• Chapter 48</span></h1> <p>Samagra · Interviews · Essays · Stories · Poetry | Videha Parallel History</p> <div class="badge-info">🎭 Based on critical research & Navya-Nyāya epistemology</div> </div> <div id="questionsArea"></div> <div class="quiz-footer"> <div class="score-area" id="scoreDisplay">Score: 0 / 0</div> <div> <button id="submitBtn">✓ Submit & check</button> <button id="resetBtn" class="reset-btn">⟳ Reset quiz</button> </div> </div> <div class="explain-note">
+📚 After submitting, correct answers are highlighted and explanations appear. Questions are based on the complete critical appreciation of Nabo Narayan Mishra (b. 7 May 1955, Kushmaul, Madhubani).
+</div>
+</div>
+<script>
+    // ----- QUESTIONS BASED ON CHAPTER 48 (pages 522–540) -----
+    const questions = [
+        {
+            text: "Nabo Narayan Mishra was born on 7 May 1955 in which village of Madhubani district?",
+            options: [
+                "Kushmaul (Nagadih-Balain)",
+                "Dhakbahtiya, Ghoghardiha",
+                "Belaunchha",
+                "Mithila Deep, Jhanjharpur"
+            ],
+            correct: 0,
+            explanation: "The Samagra states: 'Born on 7 May 1955 in Kushmaul village, Nagadih-Balain post, Madhubani district, Bihar.'"
+        },
+        {
+            text: "For how many years did Nabo Narayan Mishra serve as Secretary of Kokil Manch in Kolkata?",
+            options: [
+                "Ten years",
+                "Fifteen years",
+                "Twenty years",
+                "Twenty-five years"
+            ],
+            correct: 2,
+            explanation: "He served as Secretary of Kokil Manch for an unbroken period of twenty years, organizing annual theatre productions and literary events."
+        },
+        {
+            text: "What is the title of Nabo Narayan Mishra’s collected volume that brings together his interviews, essays, stories and poems?",
+            options: [
+                "Nabo Narayan Mishra Rachanavali",
+                "Nabo Narayan Mishra Samagra",
+                "Mithila Darshan Sankalan",
+                "Kokil Manch Abhilekh"
+            ],
+            correct: 1,
+            explanation: "The volume is titled 'Nabo Narayan Mishra Samagra' (2026), edited by Ashish Anichhinhar and archived at Videha."
+        },
+        {
+            text: "Which of the following is NOT a section (division) within the Samagra?",
+            options: [
+                "Prose — Interviews (Sakshatkaar)",
+                "Prose — Essays (Aalekh)",
+                "Prose — Stories (Katha)",
+                "Prose — One-act plays (Ekāṅkī)"
+            ],
+            correct: 3,
+            explanation: "The Samagra has four divisions: Interviews, Essays, Stories, and Poetry. One-act plays are not a separate division in this collection."
+        },
+        {
+            text: "According to the Samagra, Nabo Narayan Mishra conducted an interview with Kishorikant Mishra on the history of which Maithili organization?",
+            options: [
+                "Kokil Manch",
+                "Mithila Sanskritik Parishad, Kolkata",
+                "Mithila Vikas Parishad",
+                "Akhil Bharatiya Maithili Sahitya Parishad"
+            ],
+            correct: 1,
+            explanation: "The interview with Kishorikant Mishra (former President, Mithila Sanskritik Parishad, Kolkata) covers the Parishad's history, census agitation, and Maithili standardisation."
+        },
+        {
+            text: "In his essay 'Hamra Najorimi: Shri Ramlochan Thakur', Mishra describes which informal literary gathering where writers presented new work for peer response?",
+            options: [
+                "Samparak",
+                "Kavigoshti",
+                "Sahayatri Manch",
+                "Anchinhar Ākhar"
+            ],
+            correct: 0,
+            explanation: "Samparak was an informal literary group (without permanent office-bearers) where Maithili writers shared new work. Mishra admired its democratic model."
+        },
+        {
+            text: "Which story from Nabo Narayan Mishra’s collection is noted as a powerful depiction of an eldest brother (Lalbihhari) abandoned by the siblings he raised?",
+            options: [
+                "Yugadharma",
+                "Ehno Hoit Chhai",
+                "Ekata Pakal Aam",
+                "Ghamandak Phal"
+            ],
+            correct: 0,
+            explanation: "'Yugadharma' shows Lalbihhari, who sacrificed everything for his siblings, facing old age and abandonment. The winter cold imagery reinforces the pathos."
+        },
+        {
+            text: "In his poem 'Nav Varshaak Sandarbh Me' (1977), which Maithili luminary does Mishra mourn at the New Year?",
+            options: [
+                "Ramlochan Thakur",
+                "Rajanandan Lal Das",
+                "Prabhash Choudhary",
+                "Lalit Babu (Lalit Smriti Granth)"
+            ],
+            correct: 3,
+            explanation: "His first published poem mourns 'Lalit Babu' at New Year, using the metaphor of a telephone wire to wish him back."
+        },
+        {
+            text: "Applying Navya-Nyāya epistemology to Mishra's work, which concept describes the 'witness voice' and the reliability of his testimony about Maithili literary events?",
+            options: [
+                "Pratyakṣa (direct perception)",
+                "Śabda pramāṇa (verbal testimony from an āpta)",
+                "Anumāna (inference)",
+                "Upamāna (comparison)"
+            ],
+            correct: 1,
+            explanation: "Mishra’s testimony is valid śabda pramāṇa because he was an eyewitness participant (āpta) in the events he records, meeting Gaṅgeśa’s criteria for reliable testimony."
+        },
+        {
+            text: "According to the critical appreciation, the dominant rasa (aesthetic emotion) across Mishra’s essays and elegies is:",
+            options: [
+                "Śṛṅgāra (love/erotic)",
+                "Hāsya (comedy)",
+                "Karuṇā (compassion/pathos) with Śānta (tranquility)",
+                "Vīra (heroism)"
+            ],
+            correct: 2,
+            explanation: "Karuṇā (pathos) pervades his memorial essays and stories like 'Yugadharma', while the elegies and opening Shanti Mantra bring in Śānta rasa."
+        },
+        {
+            text: "Which essay in the Samagra provides a detailed annual record of Kokil Manch’s theatrical productions from 1991 to 2006?",
+            options: [
+                "Maithili Rangmanch aur Kolkata",
+                "Kolkata ka Maithili Aandolan aur Mithila Darshan",
+                "Mithila Vikas Parishad, Kolkata",
+                "Hari Anant Hari Katha Ananta"
+            ],
+            correct: 0,
+            explanation: "'Maithili Rangmanch aur Kolkata' lists 24 consecutive annual plays with playwright, director, venue and date – a primary source for Maithili theatre history."
+        },
+        {
+            text: "In the story 'Ekata Pakal Aam' (A Ripe Mango), what ethical insight does the five-year-old child express?",
+            options: [
+                "The mango should be kept for the father",
+                "Eating alone is not nice – the mango must be shared with the cousin",
+                "The ripe mango is a symbol of wealth",
+                "Children should not eat mangoes before elders"
+            ],
+            correct: 1,
+            explanation: "The child asks that his share of the mango be given to his cousin Shankar because 'eating alone is not nice to me' – a moment of pure, untutored sharing."
+        }
+    ];
+
+    let selectedAnswers = new Array(questions.length).fill(null);
+    let submitted = false;
+
+    const questionsArea = document.getElementById('questionsArea');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    function renderQuiz() {
+        let html = '';
+        questions.forEach((q, idx) => {
+            const selectedVal = selectedAnswers[idx];
+            html += `
+                <div class="question-card" data-qidx="${idx}">
+                    <div class="question-text">${idx+1}. ${q.text}</div>
+                    <div class="options" id="options-${idx}">
+                        ${q.options.map((opt, optIdx) => {
+                            const isChecked = (selectedVal === optIdx);
+                            return `
+                                <div class="option" data-qidx="${idx}" data-optidx="${optIdx}">
+                                    <input type="radio" name="q${idx}" id="q${idx}_opt${optIdx}" value="${optIdx}" ${isChecked ? 'checked' : ''}>
+                                    <label for="q${idx}_opt${optIdx}">${String.fromCharCode(65+optIdx)}. ${opt}</label>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                    <div class="feedback" id="fb-${idx}"></div>
+                </div>
+            `;
+        });
+        questionsArea.innerHTML = html;
+
+        // attach radio change events
+        for (let i = 0; i < questions.length; i++) {
+            const radios = document.querySelectorAll(`input[name="q${i}"]`);
+            radios.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    if (!submitted) {
+                        const val = parseInt(e.target.value);
+                        selectedAnswers[i] = val;
+                        const fbDiv = document.getElementById(`fb-${i}`);
+                        if (fbDiv && !submitted) fbDiv.innerHTML = '';
+                    } else {
+                        const fbDiv = document.getElementById(`fb-${i}`);
+                        if (fbDiv && fbDiv.innerHTML.trim() !== "") {
+                            fbDiv.innerHTML = '<span style="color:#b45b3a;">⚠️ Click "Reset quiz" to change answers after submission.</span>';
+                        }
+                    }
+                });
+            });
+        }
+        if (submitted) showResults();
+    }
+
+    function showResults() {
+        let correctCount = 0;
+        for (let i = 0; i < questions.length; i++) {
+            const userChoice = selectedAnswers[i];
+            const isCorrect = (userChoice !== null && userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+            const fbDiv = document.getElementById(`fb-${i}`);
+            if (fbDiv) {
+                if (userChoice === null) {
+                    fbDiv.innerHTML = `<span class="wrong-feedback">❌ Not answered. Correct: ${String.fromCharCode(65+questions[i].correct)}. ${questions[i].options[questions[i].correct]}</span><br><span style="font-size:0.8rem;">📖 ${questions[i].explanation}</span>`;
+                } else if (isCorrect) {
+                    fbDiv.innerHTML = `<span class="correct-feedback">✓ Correct! ${questions[i].explanation}</span>`;
+                } else {
+                    fbDiv.innerHTML = `<span class="wrong-feedback">✗ Incorrect. Correct: ${String.fromCharCode(65+questions[i].correct)}. ${questions[i].options[questions[i].correct]}</span><br><span style="font-size:0.8rem;">📚 ${questions[i].explanation}</span>`;
+                }
+            }
+            // highlight correct and wrong options visually
+            const optsDiv = document.getElementById(`options-${i}`);
+            if (optsDiv) {
+                const optDivs = optsDiv.querySelectorAll('.option');
+                optDivs.forEach((optDiv, optIdx) => {
+                    if (optIdx === questions[i].correct) {
+                        optDiv.style.backgroundColor = "#e2f3e2";
+                        optDiv.style.borderColor = "#8bc47c";
+                    } else if (userChoice === optIdx && userChoice !== questions[i].correct) {
+                        optDiv.style.backgroundColor = "#ffe1db";
+                        optDiv.style.borderColor = "#e68a6e";
+                    } else {
+                        if (!submitted) optDiv.style.backgroundColor = "";
+                    }
+                });
+            }
+        }
+        scoreDisplay.innerText = `Score: ${correctCount} / ${questions.length}`;
+    }
+
+    function resetQuiz() {
+        submitted = false;
+        selectedAnswers = new Array(questions.length).fill(null);
+        renderQuiz();
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+        const allFb = document.querySelectorAll('.feedback');
+        allFb.forEach(fb => fb.innerHTML = '');
+        for (let i = 0; i < questions.length; i++) {
+            const optsDiv = document.getElementById(`options-${i}`);
+            if (optsDiv) {
+                const optDivs = optsDiv.querySelectorAll('.option');
+                optDivs.forEach(opt => {
+                    opt.style.backgroundColor = "";
+                    opt.style.borderColor = "#e4dbc9";
+                });
+            }
+        }
+    }
+
+    function submitQuiz() {
+        submitted = true;
+        showResults();
+    }
+
+    submitBtn.addEventListener('click', () => {
+        if (submitted) {
+            showResults();
+        } else {
+            submitQuiz();
+        }
+    });
+
+    resetBtn.addEventListener('click', () => {
+        resetQuiz();
+    });
+
+    renderQuiz();
+    scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    submitted = false;
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

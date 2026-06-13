@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Part 11 – Radhakrishna Chaudhary’s Survey & the Comparative History of Maithili Literature</title> <style>
+* {
+box-sizing: border-box;
+}
+body {
+background: #ece4db;
+font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, sans-serif;
+margin: 0;
+padding: 2rem 1rem;
+color: #1e2a2e;
+}
+.quiz-container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffdf9;
+border-radius: 2rem;
+box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+overflow: hidden;
+padding: 2rem 1.8rem;
+}
+h1 {
+font-size: 1.8rem;
+margin-top: 0;
+margin-bottom: 0.2rem;
+color: #8b2c2c;
+border-left: 6px solid #b45f2b;
+padding-left: 1rem;
+}
+.sub {
+color: #6a4e38;
+font-style: italic;
+margin-bottom: 2rem;
+border-bottom: 2px solid #ecdfd1;
+padding-bottom: 0.7rem;
+}
+.question-card {
+background: #fefaf5;
+border-radius: 1.5rem;
+margin-bottom: 1.8rem;
+padding: 1.2rem 1.5rem;
+box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+border: 1px solid #ecdfd1;
+}
+.question-text {
+font-weight: 700;
+font-size: 1.2rem;
+margin-bottom: 1rem;
+color: #3b2a1c;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+margin-bottom: 0.5rem;
+}
+.option {
+display: flex;
+align-items: flex-start;
+gap: 0.8rem;
+background: #ffffff;
+padding: 0.6rem 1rem;
+border-radius: 2rem;
+border: 1px solid #e0cfbe;
+cursor: pointer;
+transition: all 0.1s;
+}
+.option:hover {
+background-color: #fdf1e6;
+border-color: #bb8a60;
+}
+input[type="radio"] {
+margin-top: 0.2rem;
+accent-color: #b45f2b;
+width: 1.1rem;
+height: 1.1rem;
+}
+.option label {
+flex: 1;
+cursor: pointer;
+font-weight: 500;
+color: #3d2c20;
+}
+.feedback {
+margin-top: 0.9rem;
+font-size: 0.9rem;
+padding: 0.6rem 1rem;
+border-radius: 2rem;
+background: #f8f1e9;
+display: none;
+}
+.feedback.correct {
+background: #e2f3e4;
+color: #1f6132;
+border-left: 4px solid #2e7d32;
+display: block;
+}
+.feedback.incorrect {
+background: #ffe7e3;
+color: #bc3f2c;
+border-left: 4px solid #c5382b;
+display: block;
+}
+.score-area {
+position: sticky;
+bottom: 1rem;
+background: #ffffffdd;
+backdrop-filter: blur(8px);
+border-radius: 3rem;
+padding: 0.8rem 1.2rem;
+text-align: center;
+margin-top: 2rem;
+font-weight: bold;
+font-size: 1.2rem;
+border: 1px solid #dacbbc;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+button {
+background: #b45f2b;
+border: none;
+color: white;
+font-weight: bold;
+font-size: 1rem;
+padding: 0.65rem 1.8rem;
+border-radius: 3rem;
+cursor: pointer;
+transition: 0.2s;
+margin: 0.4rem;
+}
+button:hover {
+background: #8d471e;
+transform: scale(0.97);
+}
+.reset-btn {
+background: #5f4d3b;
+}
+.reset-btn:hover {
+background: #44362a;
+}
+.footer-note {
+margin-top: 2rem;
+font-size: 0.75rem;
+text-align: center;
+color: #b49a7c;
+border-top: 1px solid #efe0d2;
+padding-top: 1.2rem;
+}
+@media (max-width: 650px) {
+.quiz-container {
+padding: 1.2rem;
+}
+.question-text {
+font-size: 1rem;
+}
+.option label {
+font-size: 0.85rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <h1>📖 Part XI – Radhakrishna Chaudhary’s Survey & the Comparative History of Maithili Literature</h1> <div class="sub">🌐 Based on “A Parallel History of Mithila & Maithili Literature” – Part XI synthesises Radhakrishna Chaudhary’s ‘A Survey of Maithili Literature’ (2010), external scholarly sources, comparative timelines, and the idea of Maithili as a ‘donor civilisation’ to eastern Indian literary traditions.</div> <p style="background:#f6efe8; padding:0.8rem 1.2rem; border-radius: 2rem; margin-bottom: 1.6rem;">
+📚 This quiz covers the linguistic origins of Maithili, the Charyapada debate, Vidyapati’s trans‑regional influence, Brajabuli as a pan‑eastern literary medium, Maithili drama in Nepal and Assam, the colonial revival, and the critical assessment of Chaudhary’s survey.
+</p> <div id="questions-area"></div> <div class="score-area" id="scoreDisplay">
+⚡ 0 / 0 questions answered
+</div> <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;"> <button id="submitBtn">✅ Submit & Check</button> <button id="resetBtn" class="reset-btn">⟳ Reset Quiz</button> </div> </div>
+<script>
+    // ----- PART 11: Radhakrishna Chaudhary’s survey, comparative timeline, Brajabuli, Maithili as donor civilisation -----
+    const questions = [
+        {
+            text: "Radhakrishna Chaudhary’s ‘A Survey of Maithili Literature’ (2010) traces Maithili’s linguistic descent from which Prakrit?",
+            options: ["Sauraseni Prakrit", "Magadhi Prakrit", "Maharashtri Prakrit", "Pali"],
+            correct: 1,
+            explanation: "Chaudhary, following Grierson and Chatterji, identifies Magadhi Prakrit as the ancestor of Maithili, Bengali, Assamese and Oriya."
+        },
+        {
+            text: "The Charyapadas (c. 8th–12th century) are claimed as ancestral texts by several Eastern Indian languages. Which Siddha poet mentioned in the survey is associated with Mithila?",
+            options: ["Luipada", "Kanhapa", "Sarhapa", "All of the above"],
+            correct: 3,
+            explanation: "The survey notes that scholars like Rahul Sankrityayan and Subhadra Jha argue that Kanhapa, Sarhapa and others were from Mithila, making the Charyapadas proto‑Maithili."
+        },
+        {
+            text: "According to Chaudhary, the earliest prose work in any North‑Eastern Indian language is:",
+            options: ["Tattvacintāmaṇi", "Varṇanāratnākara of Jyotirishwar Thakur (14th century)", "Buddhacharitam", "Kirtilata"],
+            correct: 1,
+            explanation: "The Varṇanāratnākara (c. 1300 CE) is a staccato, rhymed prose encyclopaedia; S.K. Chatterji called it a document of first‑rate importance."
+        },
+        {
+            text: "Which 14th‑century Maithili drama, containing Maithili songs, is mentioned as predating vernacular drama of Bengal and Assam by at least a generation?",
+            options: ["Parijataharananataka of Umapati Upadhyaya", "Dhurtasamagama", "Gorakshavijaya", "Rukmini Haran"],
+            correct: 0,
+            explanation: "Umapati’s Parijataharananataka (with 21 Maithili lyrics) is the earliest surviving Maithili drama, influencing the Ankianata tradition of Assam."
+        },
+        {
+            text: "Vidyapati (c. 1360–1448) wrote in Maithili, Sanskrit and Avahatta. Which of his works is described as ‘perhaps the first text in the Indian subcontinent to discuss notions of masculinity and political realism’?",
+            options: ["Kirtilata", "Purushapariksha", "Gorakshavijaya", "Likhanavali"],
+            correct: 1,
+            explanation: "Purushapariksha (The Examination of Man) is a treatise on ethics, law and masculinity, often overlooked by those who see Vidyapati only as a lyric poet."
+        },
+        {
+            text: "The synthetic literary language Brajabuli, which became the vehicle for medieval Bengali Vaishnava lyric, is essentially:",
+            options: ["A dialect of Hindi", "A kind of Maithili mixed with Bengali (in Bengal) or Assamese (in Assam)", "Pure Sanskrit", "Tibetan"],
+            correct: 1,
+            explanation: "Brajabuli is a Maithili‑based artificial language; Grierson called its emergence ‘an unparalleled circumstance in the history of literature’."
+        },
+        {
+            text: "Who among the following Bengali poets composed in Brajabuli, using Vidyapati’s Maithili as a model?",
+            options: ["Govindadasa Kabiraja", "Jnanadasa", "Narottamadasa", "All of the above"],
+            correct: 3,
+            explanation: "Govindadasa, Jnanadasa, Narottamadasa and even Rabindranath Tagore (as Bhanusingha) wrote in Brajabuli, centering Vidyapati’s prestige."
+        },
+        {
+            text: "In Assam, Srimanta Sankaradeva created a Maithili‑based literary medium for his Ankianata plays. What is it called?",
+            options: ["Brajabuli", "Brajavali", "Apabhraṃśa", "Dakhni"],
+            correct: 1,
+            explanation: "Brajavali (Assamese Brajabuli) mixes Maithili morphology with Assamese vocabulary, showing Sankaradeva’s debt to Mithila’s literary tradition."
+        },
+        {
+            text: "Chaudhary notes that Oriya Brajabuli was inaugurated by Ramananda Raya, a disciple of Chaitanya. His language is described as:",
+            options: ["Pure Oriya", "Maithili mixed with Brajabhasha, Bengali and Oriya", "Sanskrit only", "Persian"],
+            correct: 1,
+            explanation: "Ramananda Raya’s Brajabuli is a hybrid, demonstrating Vidyapati’s influence reaching Orissa through Bengal."
+        },
+        {
+            text: "Under the Malla kings of Nepal (17th–18th century), Maithili drama flourished to such an extent that it:",
+            options: ["Disappeared", "Replaced Sanskrit drama for all practical purposes", "Was banned", "Became a court secret"],
+            correct: 1,
+            explanation: "Chaudhary writes: ‘For about 150 years, Maithili drama flourished at its height, replacing Sanskrit drama for all practical purposes’ in Nepal Valley."
+        },
+        {
+            text: "Which Malla king wrote twenty‑six Maithili plays, an output comparable to any professional dramatist of the period?",
+            options: ["Jagatprakash Malla", "Bhupatindra Malla", "Jagajyotirmalla", "Siddhinarayana Malla"],
+            correct: 1,
+            explanation: "Bhupatindra Malla (1695–1722) alone wrote 26 Maithili plays, a remarkable feat of sustained dramatic production."
+        },
+        {
+            text: "The Kirtaniya drama tradition of Mithila combines devotional song, gesture and narrative. The Parallel History notes that it parallels which Assamese form?",
+            options: ["Bhaona", "Ankianata", "Sattriya", "Both A and B"],
+            correct: 3,
+            explanation: "The Kirtaniya tradition is structurally parallel to the Ankianata/Bhaona of Assam, both generated by Vaishnava devotion in the same period."
+        },
+        {
+            text: "According to Chaudhary, the period roughly 1600–1830 is one of ‘decadent documentary prose’ and literary decline. What external factor contributed to this?",
+            options: ["Muslim invasions", "Growing popularity of Brajabhasha (Hindi lingua franca of Vaishnava devotion)", "Loss of manuscripts", "Nepali conquest"],
+            correct: 1,
+            explanation: "Brajabhasha, associated with Krishna’s birthplace, gained prestige and competed with Maithili, causing a hybrid ‘mongrel language’ period."
+        },
+        {
+            text: "George Abraham Grierson’s 1881 grammar of Maithili and his insistence that Maithili is a distinct language (not a dialect of Bengali or Bihari) had what effect?",
+            options: ["Suppressed Maithili", "Provided intellectual armature for a Maithili nationalist movement", "Promoted Hindi", "Had no effect"],
+            correct: 1,
+            explanation: "Grierson’s colonial gaze inadvertently catalysed Maithili literary self‑consciousness, similar to Orientalist legitimisation of Bengali."
+        },
+        {
+            text: "Chanda Jha (1831–1907) is compared to Bankimchandra Chattopadhyay in Bengali. What was his major contribution?",
+            options: ["Writing the first Maithili novel", "Proving Maithili could sustain epic narrative through his ‘Mithila Bhasha Ramayan’", "Founding the Sahitya Akademi", "Translating the Vedas"],
+            correct: 1,
+            explanation: "Chanda Jha’s Ramayan demonstrated that Maithili was fit for sustained epic, not merely devotional songs, challenging the view of Maithili as ‘light literature’."
+        },
+        {
+            text: "The first Maithili journal, ‘Maithil-Hit-Sadhana’, was founded in 1905. The Parallel History notes that its social base remained narrow because:",
+            options: ["Literacy was only 5% and concentrated among upper castes", "The British banned it", "It was in English", "Nepal did not allow it"],
+            correct: 0,
+            explanation: "Low literacy, caste dominance, and the subordination of lower castes prevented a broad‑based Maithili literary nationalism despite the journal’s appearance."
+        },
+        {
+            text: "One of the major limitations of Chaudhary’s ‘Survey of Maithili Literature’ identified by the Parallel History is:",
+            options: ["It is too long", "Treatment of lower‑caste and women’s literary traditions is thin", "It ignores Vidyapati", "It is written in English"],
+            correct: 1,
+            explanation: "Chaudhary acknowledges folk ballads (Salhesa, Bihula, Lorika) but does not analyse them in depth, and women’s contributions remain marginal."
+        },
+        {
+            text: "The comparative timeline in the Parallel History shows that between c. 1480–1600, the peak of the Brajabuli synthesis coincided with which major religious movement?",
+            options: ["Bhakti movement and Chaitanya’s Vaishnavism", "Sufi movement", "Nathpanthi", "Jain revival"],
+            correct: 0,
+            explanation: "Chaitanya’s Gaudiya Vaishnava movement spread Vidyapati’s songs and the Brajabuli medium across eastern India during that period."
+        },
+        {
+            text: "According to the Parallel History, what makes Maithili a ‘donor civilisation’ rather than a mere recipient?",
+            options: ["Its military power", "It exported prosody, imagery, vocabulary and aesthetic norms to Bengali, Assamese, Oriya and Nepali traditions for six centuries", "Its economic wealth", "Its large population"],
+            correct: 1,
+            explanation: "Despite geographical confinement, Maithili has been a donor of literary forms – a paradoxical tradition of enormous influence struggling for institutional recognition."
+        },
+        {
+            text: "The debates over whether the Charyapadas belong to Maithili, Bengali or Assamese literary history are described as symptoms of:",
+            options: ["Linguistic purity", "The structural paradox of Maithili: enormous influence but lack of political/institutional recognition", "A manuscript shortage", "Colonial policy"],
+            correct: 1,
+            explanation: "The shared inheritance of the Charyapadas triggers rivalry, reflecting Maithili’s position as a donor tradition that remains institutionally marginalised."
+        },
+        {
+            text: "Chaudhary’s survey is praised for its treatment of the pre‑Vidyapati period. Which work does he use to reconstruct early Maithili prose culture?",
+            options: ["Tattvacintāmaṇi", "Varṇanāratnākara and Umapati’s drama", "Charyapada only", "Gorakshavijaya"],
+            correct: 1,
+            explanation: "Chaudhary draws on manuscript and epigraphic evidence, especially Jyotirishwar’s encyclopaedia and Umapati’s lyrics, to show a rich pre‑Vidyapati tradition."
+        },
+        {
+            text: "According to the Parallel History’s comparative timeline, the inclusion of Maithili in the Eighth Schedule of the Indian Constitution occurred in:",
+            options: ["1965", "1992", "2003", "2011"],
+            correct: 2,
+            explanation: "Maithili was added to the Eighth Schedule in 2003 through the 92nd Constitutional Amendment, decades after the Sahitya Akademi recognition in 1965."
+        },
+        {
+            text: "The survey notes that Maithili’s dramatic tradition predates that of Bengal and Assam. Which early Maithili play established the model of Sanskrit‑Prakrit drama with interspersed Maithili songs?",
+            options: ["Dhurtasamagama", "Parijataharananataka", "Gorakshavijaya", "Mudrarakshasa"],
+            correct: 1,
+            explanation: "Umapati’s Parijataharananataka used Maithili songs within a Sanskrit‑Prakrit framework, a model that Vidyapati and later Assamese playwrights emulated."
+        },
+        {
+            text: "The ‘Golden Trio’ of modern Maithili literature (late 19th – early 20th century) refers to:",
+            options: ["Chanda Jha, Raghunandan Das, Lal Das", "Vidyapati, Jyotirishwar, Gangesa", "Harimohan Jha, Nagarjun, Rajkamal", "Munnaji, Ashish Anchinhar, Gajendra Thakur"],
+            correct: 0,
+            explanation: "Chanda Jha, Munshi Raghunandan Das and Rasbihari Lal Das are credited with reviving Maithili prose and poetry in the colonial period."
+        },
+        {
+            text: "The Parallel History concludes that Maithili’s future ‘synthetic identity’ depends on:",
+            options: ["Rejecting all folk traditions", "Integrating the parallel (subaltern, Dalit, women’s, Nepal‑side) tradition with the mainstream canon", "Adopting Hindi as script", "Returning to Sanskrit"],
+            correct: 1,
+            explanation: "A truly democratic Maithili literature must transcend narrow elitism and include the full diversity of the Maithili‑speaking world."
+        }
+    ];
+
+    let selectedAnswers = new Array(questions.length).fill(null);
+    let quizSubmitted = false;
+
+    function renderQuestions() {
+        const container = document.getElementById('questions-area');
+        container.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.setAttribute('data-qid', idx);
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qText);
+            
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const optWrap = document.createElement('div');
+                optWrap.className = 'option';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${idx}`;
+                radio.value = optIdx;
+                radio.id = `q_${idx}_opt_${optIdx}`;
+                if (selectedAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    if (!quizSubmitted) {
+                        selectedAnswers[idx] = parseInt(e.target.value);
+                        updateScoreDisplay();
+                        const fbDiv = card.querySelector('.feedback');
+                        if (fbDiv) fbDiv.style.display = 'none';
+                    }
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q_${idx}_opt_${optIdx}`;
+                label.innerText = opt;
+                optWrap.appendChild(radio);
+                optWrap.appendChild(label);
+                optionsDiv.appendChild(optWrap);
+            });
+            card.appendChild(optionsDiv);
+            const fbDiv = document.createElement('div');
+            fbDiv.className = 'feedback';
+            fbDiv.id = `fb_${idx}`;
+            card.appendChild(fbDiv);
+            container.appendChild(card);
+        });
+    }
+
+    function updateScoreDisplay() {
+        const answered = selectedAnswers.filter(a => a !== null).length;
+        document.getElementById('scoreDisplay').innerHTML = `📌 ${answered} / ${questions.length} questions answered ${quizSubmitted ? '· Final scores below' : '· Submit to see correct answers'}`;
+    }
+
+    function evaluateQuiz() {
+        quizSubmitted = true;
+        let correctCount = 0;
+        for (let i = 0; i < questions.length; i++) {
+            const userChoice = selectedAnswers[i];
+            const isCorrect = (userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+            const fb = document.getElementById(`fb_${i}`);
+            if (fb) {
+                if (userChoice === null) {
+                    fb.innerHTML = `⚠️ Unanswered. Correct: ${questions[i].options[questions[i].correct]}. ${questions[i].explanation}`;
+                    fb.className = 'feedback incorrect';
+                } else if (isCorrect) {
+                    fb.innerHTML = `✅ Correct. ${questions[i].explanation}`;
+                    fb.className = 'feedback correct';
+                } else {
+                    fb.innerHTML = `❌ Incorrect. You chose: ${questions[i].options[userChoice]}. Correct: ${questions[i].options[questions[i].correct]}. ${questions[i].explanation}`;
+                    fb.className = 'feedback incorrect';
+                }
+                fb.style.display = 'block';
+            }
+        }
+        const scoreMsg = `🎯 You scored ${correctCount} out of ${questions.length}`;
+        document.getElementById('scoreDisplay').innerHTML = scoreMsg + (correctCount === questions.length ? ' — 🌟 Complete Maithili literary historian!' : ' — Review the explanations to deepen your understanding of the comparative history.');
+    }
+
+    function resetQuiz() {
+        selectedAnswers.fill(null);
+        quizSubmitted = false;
+        for (let i = 0; i < questions.length; i++) {
+            const radios = document.querySelectorAll(`input[name="q_${i}"]`);
+            radios.forEach(r => r.checked = false);
+            const fb = document.getElementById(`fb_${i}`);
+            if (fb) {
+                fb.style.display = 'none';
+                fb.innerHTML = '';
+            }
+        }
+        updateScoreDisplay();
+    }
+
+    document.getElementById('submitBtn').addEventListener('click', evaluateQuiz);
+    document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+
+    renderQuestions();
+    updateScoreDisplay();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

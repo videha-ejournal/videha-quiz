@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Chapter 12 – Mithila's Living Genome | Uṭīp Sub-Commentary (Vol I, Section 2)</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #e2d8c2;
+background: radial-gradient(circle at 10% 30%, #efebdb 0%, #ddd0b2 100%);
+font-family: 'Segoe UI', 'Roboto', 'Noto Serif', Georgia, serif;
+padding: 2rem 1rem;
+}
+.quiz-wrapper {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffef7;
+border-radius: 2rem;
+overflow: hidden;
+box-shadow: 0 28px 45px -12px rgba(0,0,0,0.35);
+border: 1px solid #d6cb9e;
+}
+.quiz-header {
+background: #5c5142;
+background: linear-gradient(115deg, #6e5f4a 0%, #4a3f31 100%);
+padding: 1.8rem 2rem 1.6rem;
+color: #fcf3e0;
+border-bottom: 5px solid #e2bb72;
+}
+.quiz-header h1 {
+font-size: 1.9rem;
+font-weight: 700;
+letter-spacing: -0.3px;
+display: flex;
+flex-wrap: wrap;
+align-items: baseline;
+gap: 0.8rem;
+}
+.quiz-header h1 span {
+background: #2f281eb3;
+font-size: 0.9rem;
+font-weight: 500;
+padding: 0.2rem 1rem;
+border-radius: 60px;
+}
+.quiz-header p {
+margin-top: 0.6rem;
+font-style: italic;
+font-size: 0.95rem;
+opacity: 0.9;
+}
+.quiz-body {
+padding: 1.6rem 2rem 0.8rem;
+}
+.question-card {
+background: white;
+border-radius: 1.4rem;
+margin-bottom: 2rem;
+box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
+border: 1px solid #e3d6b5;
+}
+.q-text {
+background: #fefaf2;
+padding: 1.2rem 1.8rem 0.5rem 1.8rem;
+font-size: 1.2rem;
+font-weight: 700;
+color: #3c3427;
+border-radius: 1.4rem 1.4rem 0 0;
+}
+.options-area {
+padding: 0.3rem 1.8rem 1.2rem 1.8rem;
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+}
+.opt-row {
+display: flex;
+align-items: center;
+gap: 0.8rem;
+background: #fefcf6;
+padding: 0.6rem 1rem;
+border-radius: 80px;
+border: 1px solid #e8dbc2;
+cursor: pointer;
+transition: 0.1s;
+}
+.opt-row:hover {
+background: #f5ecdd;
+border-color: #c7aa74;
+}
+input[type="radio"] {
+accent-color: #7e6a4f;
+width: 1.1rem;
+height: 1.1rem;
+flex-shrink: 0;
+}
+.opt-row label {
+font-size: 1rem;
+font-weight: 450;
+color: #2f2c21;
+width: 100%;
+cursor: pointer;
+line-height: 1.35;
+}
+.feedback {
+margin: 0.2rem 1.8rem 1.3rem 1.8rem;
+}
+.correct-feedback {
+background: #e1ede5;
+border-left: 5px solid #2f7352;
+padding: 0.65rem 1rem;
+border-radius: 14px;
+color: #15553a;
+font-size: 0.9rem;
+}
+.wrong-feedback {
+background: #ffe3db;
+border-left: 5px solid #c2573a;
+padding: 0.65rem 1rem;
+border-radius: 14px;
+color: #a13a1f;
+font-size: 0.9rem;
+}
+.quiz-footer {
+background: #fcfaf2;
+padding: 1.2rem 2rem 1.8rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 1rem;
+border-top: 1px solid #e6d9b7;
+}
+button {
+background: #7b684c;
+border: none;
+font-size: 1rem;
+font-weight: 600;
+padding: 0.7rem 1.8rem;
+border-radius: 60px;
+color: white;
+cursor: pointer;
+transition: 0.2s;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+button:hover {
+background: #5e4e38;
+transform: translateY(-2px);
+}
+.reset-btn {
+background: #6a6146;
+}
+.reset-btn:hover {
+background: #4d4530;
+}
+.score-box {
+background: #3d3527;
+padding: 0.5rem 1.4rem;
+border-radius: 60px;
+color: #ffe0b7;
+font-weight: bold;
+font-size: 1rem;
+}
+@media (max-width: 680px) {
+.quiz-body {
+padding: 1rem;
+}
+.q-text {
+font-size: 1rem;
+padding: 1rem 1rem 0.2rem 1rem;
+}
+.options-area {
+padding: 0 1rem 1rem 1rem;
+}
+.opt-row label {
+font-size: 0.88rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-wrapper"> <div class="quiz-header"> <h1>🧬 Mithila's Living Genome <span>Chapter 12: Uṭīp Sub-Commentary (Vol I, Section 2)</span></h1> <p>Pañjī as operational genealogy, 32-ancestor mapping, village circuits, polygamy notation, modern credentials (IAS, I.P.S., M.B.B.S.) and the "Genome Mapping" metaphor</p> </div> <div class="quiz-body" id="quizContainer"></div> <div class="quiz-footer"> <button id="submitBtn">📜 Submit & Check</button> <button id="resetBtn" class="reset-btn">⟳ Reset Quiz</button> <div class="score-box" id="scoreDisplay">Score: 0/0</div> </div>
+</div>
+<script>
+    // --------------------------------------------------------------
+    // CHAPTER 12 – Mithila's Living Genome: Pañjī Prabandha Volume I — Section 2 (Uṭīp Sub-Commentary)
+    // Based on the document's analysis of Uṭīp: genealogical grammar, village circuits, modern titles, polygamy, etc.
+    // --------------------------------------------------------------
+    const questions = [
+        {
+            text: "What is the primary function of the 'Uṭīp' (upaṭīpa) sub-genre within the Pañjī Prabandha?",
+            options: [
+                "A separate register for royal decrees",
+                "A supplementary annotation recording secondary, collateral, and migrant branches – an 'overflow' or index extension of the main Mūl Pañjī",
+                "A list of marriage prohibitions only",
+                "A genealogical chart for astrological calculations"
+            ],
+            correct: 1,
+            explanation: "The Uṭīp is a sub-note or supplementary annotation that records secondary, collateral, and migrant branches, essential for completeness as families spread across villages."
+        },
+        {
+            text: "According to Chapter 12, what does the Pañjī's genealogical notation 'suto / sutau / sutā' encode?",
+            options: [
+                "Village of origin",
+                "Number of sons: one son (suto), two sons (sutau), three or more sons (sutā) – using Sanskrit grammatical number",
+                "Mother’s gotra",
+                "Scholarly title"
+            ],
+            correct: 1,
+            explanation: "The terms encode singular (one son), dual (two sons), and plural (three or more sons), reflecting the system's grammatical precision."
+        },
+        {
+            text: "What does the cross-reference number '(286//01)' signify in the Uṭīp entries?",
+            options: [
+                "Date of marriage",
+                "Page and sub-entry number in the main Pañjī register – a pre-digital relational database key",
+                "Number of ancestors",
+                "Tax assessment code"
+            ],
+            correct: 1,
+            explanation: "These numbers are primary keys linking entries across volumes, allowing the Pañjīkāra to verify lineages rapidly – a pre-modern relational database."
+        },
+        {
+            text: "What does the notation 'apara' (aparā) indicate when repeated in a genealogical entry?",
+            options: [
+                "The family migrated to a new village",
+                "A second or subsequent wife’s children – documenting polygamy systematically",
+                "Adoption",
+                "A child died young"
+            ],
+            correct: 1,
+            explanation: "Apara marks additional wives and their children. The Pañjī records each wife's line separately, tracking parallel descent lines for marriage verification."
+        },
+        {
+            text: "Which ancient scholar's name appears in the Uṭīp as an anchor for generational depth, helping calibrate the Pañjī's internal chronology?",
+            options: [
+                "Vidyāpati",
+                "Halāyudha",
+                "Gaṅgeśa Upādhyāya",
+                "Mahāmahopādhyāya Dr. Sir Gaṅgānātha Jhā"
+            ],
+            correct: 1,
+            explanation: "Halāyudha of Gaṅgolī (12th c.) is the genealogical primus; his documented date helps establish generation intervals within the register."
+        },
+        {
+            text: "What modern professional credentials are seamlessly integrated into the Uṭīp genealogical chains alongside traditional titles like Mahāmahopādhyāya?",
+            options: [
+                "Only land records",
+                "I.A.S., I.P.S., M.B.B.S., D.G.P., Engineer, Professor, and even 'C.P.M. (M.P.)' – treating them as heritable identity markers",
+                "Factory worker licenses",
+                "Passport numbers"
+            ],
+            correct: 1,
+            explanation: "The Uṭīp records IAS, IPS, MBBS, DGP, and even a communist MP as genealogical credentials, showing the system's adaptive capacity."
+        },
+        {
+            text: "What is the 'dau / ddau' notation and its genealogical significance?",
+            options: [
+                "Father and mother",
+                "Dau = maternal side donor (mother's father), ddau = second maternal generation (mother's mother's father) – bilateral tracking of maternal lineages",
+                "A type of marriage ritual",
+                "Village name abbreviations"
+            ],
+            correct: 1,
+            explanation: "Dau encodes the mother's paternal lineage; ddau encodes the mother's maternal lineage. This bilateral tracking is essential for sapinda calculation."
+        },
+        {
+            text: "According to the chapter, how does the Pañjī system track geographic dispersal and migration?",
+            options: [
+                "By ignoring village names",
+                "Through 'village circuits' (e.g., Sakkari-Sārisab-Pāhīṭol) and notations of 'vāsī' (resident) markers – every individual is anchored to a mūla-grāma",
+                "Only through surname changes",
+                "By recording only urban settlements"
+            ],
+            correct: 1,
+            explanation: "The Uṭīp is organized into village circuits; each entry records both ancestral village and current residence, creating a spatial map of demographic movement."
+        },
+        {
+            text: "Which extraordinary title appears in the Uṭīp combining 'Mahāmahopādhyāya' with 'Ex.V.C. Allahabad University', fusing medieval Sanskrit honorific with modern academic administration?",
+            options: [
+                "M.M. Jayadeva (Ex-Vice Chancellor Allahabad University)",
+                "Dr. Sir Gaṅgānātha Jhā",
+                "Sahityācārya Pra. Ḍā. Viśvambhara Miśra",
+                "Arthaśāstrī Lakṣmeśvara"
+            ],
+            correct: 0,
+            explanation: "Block 148 records 'ma.ma. jayadeva (EX.V.C. ALLAHABAD UNIVERSITY)' – a unique fusion of traditional scholarly title with modern university leadership."
+        },
+        {
+            text: "What does the 'Genome Mapping' metaphor, used as the title of this work, imply according to Chapter 12?",
+            options: [
+                "That the Pañjī is purely mythological",
+                "That the Pañjī is a complete, self-referencing record of biological and social inheritance – a pre-modern population genetics database",
+                "That it has no relation to science",
+                "That it only records royal lineages"
+            ],
+            correct: 1,
+            explanation: "The metaphor asserts that the Pañjī, like a genome, tracks heritable traits across generations, functions as a database, and serves as a tool for compatibility management."
+        }
+    ];
+
+    // state
+    let userSelections = new Array(questions.length).fill(null);
+    let submitted = false;
+
+    const container = document.getElementById('quizContainer');
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const scoreSpan = document.getElementById('scoreDisplay');
+
+    function computeScore() {
+        let correct = 0;
+        for (let i = 0; i < questions.length; i++) {
+            if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correct++;
+        }
+        return correct;
+    }
+
+    function updateScore() {
+        const total = questions.length;
+        const correct = computeScore();
+        scoreSpan.innerText = `Score: ${correct}/${total}`;
+    }
+
+    function render() {
+        container.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.dataset.idx = idx;
+
+            const qDiv = document.createElement('div');
+            qDiv.className = 'q-text';
+            qDiv.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qDiv);
+
+            const optsDiv = document.createElement('div');
+            optsDiv.className = 'options-area';
+
+            q.options.forEach((opt, optIdx) => {
+                const row = document.createElement('div');
+                row.className = 'opt-row';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${idx}`;
+                radio.value = optIdx;
+                radio.id = `q_${idx}_opt_${optIdx}`;
+                if (!submitted && userSelections[idx] === optIdx) radio.checked = true;
+                if (submitted) radio.disabled = true;
+
+                const label = document.createElement('label');
+                label.htmlFor = `q_${idx}_opt_${optIdx}`;
+                label.innerText = opt;
+
+                radio.addEventListener('change', (e) => {
+                    if (!submitted) {
+                        userSelections[idx] = parseInt(e.target.value);
+                    }
+                });
+
+                row.appendChild(radio);
+                row.appendChild(label);
+                optsDiv.appendChild(row);
+            });
+            card.appendChild(optsDiv);
+
+            if (submitted) {
+                const fbDiv = document.createElement('div');
+                fbDiv.className = 'feedback';
+                const isCorrect = (userSelections[idx] === q.correct);
+                if (isCorrect) {
+                    fbDiv.innerHTML = `<div class="correct-feedback">✓ Correct. ${q.explanation}</div>`;
+                } else {
+                    const correctLetter = String.fromCharCode(65 + q.correct);
+                    fbDiv.innerHTML = `<div class="wrong-feedback">✗ Incorrect. Right answer: ${correctLetter}) ${q.options[q.correct]}.<br>${q.explanation}</div>`;
+                }
+                card.appendChild(fbDiv);
+            }
+            container.appendChild(card);
+        });
+    }
+
+    function submitQuiz() {
+        if (submitted) return;
+        let allAnswered = true;
+        for (let i = 0; i < questions.length; i++) {
+            if (userSelections[i] === null) {
+                allAnswered = false;
+                break;
+            }
+        }
+        if (!allAnswered) {
+            alert("❌ Please answer all 10 questions before submitting.");
+            return;
+        }
+        submitted = true;
+        updateScore();
+        render();
+    }
+
+    function resetQuiz() {
+        submitted = false;
+        userSelections.fill(null);
+        updateScore();
+        render();
+    }
+
+    // initial
+    render();
+    updateScore();
+
+    submitBtn.addEventListener('click', submitQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

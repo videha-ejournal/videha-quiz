@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <title>Quiz: Chapter 37 – Arvind Thakur, Ashok, Binay Bhushan & Philosophical Addenda</title> <style>
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+max-width: 1000px;
+margin: 2rem auto;
+padding: 1rem;
+background: #f4f1ea;
+}
+.quiz-container {
+background: white;
+border-radius: 2rem;
+padding: 1.5rem;
+box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+h1 {
+color: #2c5e2c;
+border-left: 5px solid #b8860b;
+padding-left: 1rem;
+}
+.question {
+border-bottom: 1px solid #e0d6c5;
+padding: 1rem 0;
+}
+.question-text {
+font-weight: 700;
+margin-bottom: 0.5rem;
+font-size: 1.05rem;
+}
+.options {
+margin-left: 1.5rem;
+margin-bottom: 0.5rem;
+}
+.option {
+margin: 0.3rem 0;
+}
+.explanation {
+background: #f4f1e8;
+padding: 0.6rem;
+margin-top: 0.6rem;
+border-left: 4px solid #b8860b;
+display: none;
+border-radius: 0.5rem;
+}
+button {
+background: #2c5e2c;
+color: white;
+border: none;
+padding: 0.5rem 1.2rem;
+border-radius: 2rem;
+cursor: pointer;
+margin: 0.2rem;
+font-size: 1rem;
+}
+button:hover {
+background: #1e401e;
+}
+.score {
+font-size: 1.2rem;
+font-weight: bold;
+margin-top: 1rem;
+text-align: center;
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <h1>📖 Chapter 37 – Arvind Thakur, Ashok, Binay Bhushan & Philosophical Addenda</h1> <p>Based on the Videha Parallel History: critical appreciations, Navya-Nyāya addenda, and the Maithili ghazal revival</p> <div id="quiz"></div> <div style="margin-top: 1rem;"> <button id="submitBtn">✔ Submit Answers</button> <button id="resetBtn">⟳ Reset Quiz</button> </div> <div id="score" class="score"></div>
+</div>
+<script>
+const questions = [
+    {
+        text: "The Maithili poet and critic Arvind Thakur, known as ‘Swatantracheta’ (free‑spirited), is based in which district of Bihar?",
+        options: [
+            "Darbhanga",
+            "Madhubani",
+            "Supaul",
+            "Samastipur"
+        ],
+        correct: 2,
+        explanation: "Arvind Thakur is based in Supaul, Bihar, and is known for his independent, anti‑establishment literary stance."
+    },
+    {
+        text: "Which of the following is a recurring thematic concern in Arvind Thakur’s poetry, as analysed in the critical appreciation?",
+        options: [
+            "Romantic escapism",
+            "Ecological crisis, social inertia (jarata), and the ‘fallow land breaking’",
+            "Courtly love",
+            "Sanskrit prosody"
+        ],
+        correct: 1,
+        explanation: "His collection ‘Parti Tooti Rahal Achhi’ (The Fallow Land Is Breaking) uses agrarian imagery to critique social stagnation and environmental decay."
+    },
+    {
+        text: "The writer known as ‘Ashok’ or ‘Kathakar Ashok’ (b. 1953, Lohna, Madhubani) is a prolific novelist and short‑story writer. Which of his story collections includes the widely praised story ‘Bouqa Chup Chhal’ (The Mute Was Silent)?",
+        options: [
+            "Maatbar",
+            "Ohi Raatik Bhor",
+            "Daddy Gaam",
+            "Chakravyuh"
+        ],
+        correct: 1,
+        explanation: "‘Ohi Raatik Bhor’ (That Night’s Dawn, 1991) contains ‘Bouqa Chup Chhal’, a story of class exploitation and silence."
+    },
+    {
+        text: "According to the critical appreciation of Ashok, what is a recurring structural feature of his short stories that critics have identified as both a strength and a limitation?",
+        options: [
+            "Overly long descriptions",
+            "A rushed ‘punch‑line’ ending (panchlain) that sometimes sacrifices narrative development",
+            "Excessive use of Sanskrit",
+            "Lack of dialogue"
+        ],
+        correct: 1,
+        explanation: "Critics note that Ashok’s stories often build complexity but resolve too quickly with a clever final line – a ‘panchlain’ problem."
+    },
+    {
+        text: "Ashok’s concept of ‘Maithil Aankhi’ (The Maithil Eye), which he articulated in his essay collection, refers to:",
+        options: [
+            "A specific script",
+            "A distinctively Maithili way of perceiving and narrating social reality",
+            "A type of folk painting",
+            "A political party"
+        ],
+        correct: 1,
+        explanation: "‘Maithil Aankhi’ claims that there is a unique Maithili epistemological perspective rooted in regional culture and history."
+    },
+    {
+        text: "Binay Bhushan’s poetry collection ‘Ujāra Parbak Khoj’ (In Search of the White Pigeon) is dedicated to the quest for peace and light. Which rasa (aesthetic emotion) does the critical analysis identify as dominant?",
+        options: [
+            "Śṛṅgāra (erotic)",
+            "Raudra (fury)",
+            "Śānta (peaceful equanimity)",
+            "Bībhatsa (disgust)"
+        ],
+        correct: 2,
+        explanation: "The collection’s search for the festival of light (ujāra paraba) generates a predominantly śānta rasa – tranquility emerging from the quest."
+    },
+    {
+        text: "In the Navya-Nyāya addenda, which concept from Gaṅgeśa’s Tattvacintāmaṇi is used to analyse the logical structure of the ghazal and poetic inference?",
+        options: [
+            "Sphoṭa",
+            "Vyāpti (invariable concomitance)",
+            "Mīmāṃsā",
+            "Alaṅkāra"
+        ],
+        correct: 1,
+        explanation: "Vyāpti – the universal relation between hetu (reason) and sādhya (conclusion) – is applied to understand how a ghazal’s sher generates meaning through implication."
+    },
+    {
+        text: "According to the addendum on ‘Western and East Asian Gangesa Scholars’, which Japanese university has produced the most sustained scholarly work on Navya-Nyāya, led by Toshihiro Wada?",
+        options: [
+            "University of Tokyo",
+            "Kyoto University",
+            "Nagoya University",
+            "Osaka University"
+        ],
+        correct: 2,
+        explanation: "Nagoya University’s Graduate School of Letters has been a centre for Navya-Nyāya studies, with Wada’s diagrammatic and formal analyses."
+    },
+    {
+        text: "The addendum on ‘Israel and Gaṅgeśa Upādhyāya’ notes that no Israeli scholar has yet compared Navya-Nyāya with which indigenous Jewish logical tradition?",
+        options: [
+            "Kabbalah",
+            "Talmudic logic (higgayon talmudi)",
+            "Hasidic storytelling",
+            "Zohar exegesis"
+        ],
+        correct: 1,
+        explanation: "The report highlights that Talmudic logic – with its a fortiori (qal va‑chomer) and analogical reasoning – has never been systematically compared to Navya-Nyāya."
+    },
+    {
+        text: "Which Israeli‑American philosopher, based at Tel Aviv University, placed Gaṅgeśa alongside Descartes and Leibniz in his ‘Comparative History of World Philosophy’?",
+        options: [
+            "Ben‑Ami Scharfstein",
+            "Yeshayahu Leibowitz",
+            "Martin Buber",
+            "Gershom Scholem"
+        ],
+        correct: 0,
+        explanation: "Scharfstein’s 1998 work categorised Gaṅgeśa’s ‘logic‑sensitized metaphysics’ alongside Western rationalists."
+    },
+    {
+        text: "In the discussion of the Maithili ghazal revival, what is the ‘Anchinhar Aakhar’ movement’s most significant theoretical contribution?",
+        options: [
+            "The first Maithili dictionary",
+            "The Ghajalsastram (systematic grammar and prosody of the Maithili ghazal)",
+            "A new script",
+            "A political manifesto"
+        ],
+        correct: 1,
+        explanation: "The movement, led by Ashish Anchinhar and Gajendra Thakur, produced the first comprehensive Maithili‑language theoretical account of ghazal prosody."
+    },
+    {
+        text: "The Maithili ghazal, according to the Parallel History, experienced a ‘dark interlude’ of grammatically incorrect writing. Which two poets were erased from literary history during this period but later restored by the Anchinhar movement?",
+        options: [
+            "Pandit Jivan Jha and Sitaram Jha",
+            "Vijaynath Jha and Yoganand Heera",
+            "Kashikant Mishra ‘Madhup’ and Ramlochan Thakur",
+            "Jagdish Prasad Mandal and Rajdeo Mandal"
+        ],
+        correct: 1,
+        explanation: "Vijaynath Jha and Yoganand Heera wrote correct ghazals but were ignored; the Anchinhar movement restored their legacy."
+    },
+    {
+        text: "The addendum on ‘Navya-Nyāya and Linguistics’ notes that Gaṅgeśa’s analysis of verbal testimony (śabda) has been compared to which modern philosopher’s theory of descriptions?",
+        options: [
+            "Ludwig Wittgenstein",
+            "Bertrand Russell",
+            "W.V.O. Quine",
+            "John Searle"
+        ],
+        correct: 1,
+        explanation: "Gaṅgeśa’s treatment of empty terms like ‘rabbit’s horn’ (śaśaviṣāṇa) parallels Russell’s analysis of definite descriptions."
+    },
+    {
+        text: "In the critical appreciation of Arvind Thakur, what does the title of his long poem ‘Jarataka Prativaad Me’ (In Protest against Stagnation) signify?",
+        options: [
+            "Celebration of tradition",
+            "Protest against social and intellectual inertia (jarata – calcification)",
+            "Love for the king",
+            "Environmental protection"
+        ],
+        correct: 1,
+        explanation: "‘Jarata’ means stagnation or rigidity; the long poem protests against all forms of calcification – caste, institution, ideology."
+    },
+    {
+        text: "Ashok’s novel ‘Daddy Gaam’ (Father’s Village) features a retired NRI who initially plans to build a temple but instead builds a hospital. What does this resolution symbolise?",
+        options: [
+            "Rejection of modernity",
+            "Ashok’s characteristic ‘middle path’ between nostalgic idealism and unsentimental realism",
+            "Return to feudalism",
+            "Conversion to Buddhism"
+        ],
+        correct: 1,
+        explanation: "The choice of a hospital over a temple represents the pragmatic, socially responsible ‘middle path’ that critics identify as Ashok’s signature."
+    },
+    {
+        text: "Binay Bhushan’s poetry uses the image of the ‘white pigeon’ (ujāra paraba) as a symbol of peace. Which ecocritical concept is applied to his work?",
+        options: [
+            "Deep ecology",
+            "Slow violence (Rob Nixon) – the gradual environmental and economic displacement of rural Mithila",
+            "Gaia hypothesis",
+            "Rewilding"
+        ],
+        correct: 1,
+        explanation: "His poems reflect the slow violence of flood, migration, and ecological neglect on the Koshi basin communities."
+    },
+    {
+        text: "The addendum on ‘Talmudic Logic and Navya-Nyāya’ identifies structural homologies between Gaṅgeśa’s vyāpti and which Talmudic hermeneutic principle?",
+        options: [
+            "Gematria",
+            "Binyan av (analogical extension from a specific case)",
+            "Notarikon",
+            "Pardes exegesis"
+        ],
+        correct: 1,
+        explanation: "Both systems use analogy and inference to derive general rules from specific instances; binyan av is the closest parallel to vyāpti."
+    },
+    {
+        text: "According to the critical analysis of Ashok’s story ‘Chhal’ (The Act / Pretence), the protagonist Bholi Jha is a method actor whose identity dissolves. Which psychological concept is invoked?",
+        options: [
+            "Freudian repression",
+            "Lacanian ‘lack’ – the subject constituted through performance",
+            "Jungian archetype",
+            "Maslow’s hierarchy"
+        ],
+        correct: 1,
+        explanation: "The story explores how the actor cannot distinguish persona from self, resonating with Lacan’s idea of identity as performance."
+    },
+    {
+        text: "Arvind Thakur’s editorial collection ‘Kar Par Kaal-Turanga’ (Time’s Steed Upon the Hand) and his criticism collection ‘Kshitikanak Kshetrafal’ (The Area of a Dust‑Particle) use mathematical metaphors. What do these titles signify?",
+        options: [
+            "Rejection of science",
+            "Precision, humility, and the infinite regress of critical attention to small details",
+            "Nostalgia",
+            "Political slogans"
+        ],
+        correct: 1,
+        explanation: "The titles invoke mathematical and scientific imagery to suggest that even the smallest element of literature repays exacting critical attention."
+    },
+    {
+        text: "The addendum on ‘Comparative Philosophy’ places Gaṅgeśa in dialogue with Descartes and Leibniz. What is the shared project of all three philosophers?",
+        options: [
+            "Rejection of logic",
+            "The pursuit of certainty through methodically applied logic and precise definitions",
+            "Mystical intuition",
+            "Empirical observation alone"
+        ],
+        correct: 1,
+        explanation: "Scharfstein identifies all three as ‘logic‑sensitized metaphysicians’ seeking indubitable foundations through rigorous reasoning."
+    }
+];
+
+let userSelections = new Array(questions.length).fill(null);
+let submitted = false;
+
+function renderQuiz() {
+    const container = document.getElementById('quiz');
+    if (!container) return;
+    let html = '';
+    questions.forEach((q, idx) => {
+        const selected = userSelections[idx] !== null ? userSelections[idx] : -1;
+        html += `<div class="question">
+                    <div class="question-text">${idx+1}. ${q.text}</div>
+                    <div class="options">`;
+        q.options.forEach((opt, optIdx) => {
+            const checked = (selected === optIdx) ? 'checked' : '';
+            html += `<div class="option">
+                        <input type="radio" name="q${idx}" value="${optIdx}" id="q${idx}_${optIdx}" ${checked} ${submitted ? 'disabled' : ''}>
+                        <label for="q${idx}_${optIdx}">${String.fromCharCode(65+optIdx)}. ${opt}</label>
+                     </div>`;
+        });
+        html += `</div><div class="explanation" id="expl${idx}"></div></div>`;
+    });
+    container.innerHTML = html;
+}
+
+function calculateScore() {
+    let correct = 0;
+    for (let i = 0; i < questions.length; i++) {
+        if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correct++;
+    }
+    return correct;
+}
+
+function submitQuiz() {
+    submitted = true;
+    for (let i = 0; i < questions.length; i++) {
+        const radios = document.getElementsByName(`q${i}`);
+        for (let j = 0; j < radios.length; j++) {
+            if (radios[j].checked) userSelections[i] = parseInt(radios[j].value);
+        }
+        const explDiv = document.getElementById(`expl${i}`);
+        if (explDiv) {
+            const userAns = (userSelections[i] !== null) ? questions[i].options[userSelections[i]] : "Not answered";
+            const correctAns = questions[i].options[questions[i].correct];
+            explDiv.innerHTML = `<strong>📖 Explanation:</strong> ${questions[i].explanation}<br>
+                                 <span style="color:#4b6b3e;">Your answer: ${userAns}</span><br>
+                                 <span style="color:#2c6e2c;">Correct answer: ${correctAns}</span>`;
+            explDiv.style.display = 'block';
+        }
+        const allRadios = document.getElementsByName(`q${i}`);
+        allRadios.forEach(r => r.disabled = true);
+    }
+    const score = calculateScore();
+    document.getElementById('score').innerHTML = `✅ Score: ${score} / ${questions.length}`;
+}
+
+function resetQuiz() {
+    submitted = false;
+    userSelections = new Array(questions.length).fill(null);
+    renderQuiz();
+    for (let i = 0; i < questions.length; i++) {
+        const explDiv = document.getElementById(`expl${i}`);
+        if (explDiv) explDiv.style.display = 'none';
+    }
+    document.getElementById('score').innerHTML = '';
+}
+
+document.getElementById('submitBtn').addEventListener('click', submitQuiz);
+document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+renderQuiz();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

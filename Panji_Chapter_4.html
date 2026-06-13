@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Chapter 4 Quiz: The Periodic Table</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: linear-gradient(145deg, #e9f0f5 0%, #d9e2ec 100%);
+font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+padding: 2rem 1.5rem;
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+/* main quiz card */
+.quiz-card {
+max-width: 960px;
+width: 100%;
+margin: 0 auto;
+background: #ffffff;
+border-radius: 2rem;
+box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.25), 0 4px 12px rgba(0, 0, 0, 0.08);
+overflow: hidden;
+transition: all 0.2s ease;
+}
+/* header section */
+.quiz-header {
+background: #1f3b4c;
+padding: 1.8rem 2rem;
+color: white;
+border-bottom: 5px solid #ffb74d;
+}
+.quiz-header h1 {
+font-size: 1.9rem;
+letter-spacing: -0.3px;
+font-weight: 700;
+display: flex;
+align-items: center;
+gap: 12px;
+flex-wrap: wrap;
+}
+.chapter-badge {
+background: #ffb74d;
+color: #1f3b4c;
+font-size: 1rem;
+font-weight: 600;
+padding: 0.3rem 0.9rem;
+border-radius: 40px;
+display: inline-block;
+}
+.quiz-header p {
+margin-top: 0.6rem;
+opacity: 0.85;
+font-size: 1rem;
+font-weight: 400;
+}
+/* content area */
+.quiz-content {
+padding: 1.8rem 2rem 2rem;
+}
+/* questions container */
+.questions-area {
+display: flex;
+flex-direction: column;
+gap: 1.8rem;
+margin-bottom: 2rem;
+}
+/* each question card style */
+.question-card {
+background: #fefefe;
+border-radius: 1.5rem;
+border: 1px solid #e2edf2;
+transition: 0.1s linear;
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+fieldset {
+border: none;
+padding: 1.4rem 1.5rem 1.5rem 1.5rem;
+margin: 0;
+}
+legend {
+font-size: 1.2rem;
+font-weight: 600;
+color: #0a2b37;
+background: #f0f6fa;
+padding: 0.2rem 0.8rem;
+border-radius: 40px;
+margin-bottom: 1rem;
+display: inline-block;
+width: auto;
+}
+.question-text {
+font-weight: 600;
+font-size: 1.1rem;
+color: #1f3b4c;
+margin-bottom: 1.2rem;
+line-height: 1.4;
+padding-left: 0.2rem;
+}
+.options-list {
+display: flex;
+flex-direction: column;
+gap: 0.85rem;
+padding-left: 0.5rem;
+}
+.option {
+display: flex;
+align-items: center;
+gap: 12px;
+cursor: pointer;
+font-size: 0.98rem;
+padding: 0.5rem 0.8rem;
+background: #ffffff;
+border-radius: 60px;
+transition: all 0.15s;
+border: 1px solid #e0eef3;
+}
+.option:hover {
+background: #f1f9ff;
+border-color: #9ac2d4;
+transform: translateX(4px);
+}
+input[type="radio"] {
+accent-color: #2c7da0;
+width: 1.2rem;
+height: 1.2rem;
+cursor: pointer;
+flex-shrink: 0;
+}
+.option label {
+cursor: pointer;
+color: #1e2f3a;
+font-weight: 450;
+width: 100%;
+}
+/* button panel */
+.action-buttons {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: center;
+gap: 1rem;
+margin: 1rem 0 1.8rem 0;
+}
+button {
+background: #eef3f7;
+border: none;
+padding: 0.75rem 1.8rem;
+font-size: 1rem;
+font-weight: 600;
+border-radius: 60px;
+cursor: pointer;
+transition: all 0.2s;
+font-family: inherit;
+box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.btn-submit {
+background: #2c7da0;
+color: white;
+border: none;
+}
+.btn-submit:hover {
+background: #1f5e7a;
+transform: scale(0.98);
+box-shadow: 0 5px 12px rgba(44,125,160,0.3);
+}
+.btn-reset {
+background: #eceff3;
+color: #2c3e50;
+border: 1px solid #cbdbe0;
+}
+.btn-reset:hover {
+background: #e2e8f0;
+transform: translateY(-1px);
+}
+/* results area */
+.result-area {
+background: #f8fbfd;
+border-radius: 1.5rem;
+padding: 1.2rem 1.5rem;
+margin-top: 0.5rem;
+border-left: 6px solid #ffb74d;
+transition: 0.2s;
+}
+.score-badge {
+font-size: 1.6rem;
+font-weight: 800;
+background: #1f3b4c;
+display: inline-block;
+padding: 0.2rem 1rem;
+border-radius: 40px;
+color: #ffcd8a;
+margin-bottom: 1rem;
+}
+.feedback-detail {
+margin-top: 1rem;
+}
+.feedback-item {
+padding: 0.6rem 0;
+border-bottom: 1px solid #dee9ef;
+font-size: 0.95rem;
+display: flex;
+gap: 8px;
+flex-wrap: wrap;
+}
+.feedback-correct {
+color: #1f7a5a;
+font-weight: 500;
+}
+.feedback-wrong {
+color: #bc4e2c;
+font-weight: 500;
+}
+.error-message {
+background: #ffe6e5;
+color: #b13e3e;
+padding: 0.8rem 1.2rem;
+border-radius: 1rem;
+margin-bottom: 1rem;
+font-weight: 500;
+border-left: 5px solid #bc4e2c;
+}
+hr {
+margin: 0.5rem 0;
+border: none;
+border-top: 2px dotted #caddf0;
+}
+footer {
+font-size: 0.75rem;
+text-align: center;
+padding: 1rem 2rem 1.5rem;
+color: #6a7f8f;
+border-top: 1px solid #e2edf2;
+background: #ffffff;
+}
+@media (max-width: 650px) {
+body {
+padding: 1rem;
+}
+.quiz-header h1 {
+font-size: 1.5rem;
+}
+legend {
+font-size: 1rem;
+}
+.question-text {
+font-size: 1rem;
+}
+.options-list {
+gap: 0.65rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-card"> <div class="quiz-header"> <h1>
+📘 Chapter 4 Quiz
+<span class="chapter-badge">The Periodic Table</span> </h1> <p>Test your understanding of periodic trends, groups, and key concepts from Chapter 4. Choose the best answer for each question.</p> </div> <div class="quiz-content"> <div id="quizDynamicContainer"></div> <div class="action-buttons"> <button id="submitQuizBtn" class="btn-submit">✅ Submit Quiz</button> <button id="resetQuizBtn" class="btn-reset">⟳ Reset All Answers</button> </div> <div id="resultPanel" class="result-area"> <div style="color: #2c5a6e; font-weight: 500;">📊 Your score will appear here after submission.</div> </div> </div> </div>
+<script>
+  // --------------------------------------------------------------
+  // QUIZ DATA (Chapter 4: The Periodic Table)
+  // Each question contains text, an array of 4 options (A to D),
+  // and the correct letter (A, B, C, or D).
+  // --------------------------------------------------------------
+  const quizData = [
+    {
+      text: "Who is widely credited with creating the first functional periodic table of elements?",
+      options: [
+        "Antoine Lavoisier",
+        "Dmitri Mendeleev",
+        "John Newlands",
+        "Henry Moseley"
+      ],
+      correct: "B"
+    },
+    {
+      text: "Elements located in the same group (vertical column) of the periodic table have the same number of:",
+      options: [
+        "Electron shells",
+        "Valence electrons",
+        "Protons",
+        "Neutrons"
+      ],
+      correct: "B"
+    },
+    {
+      text: "Which group of elements is known as the 'noble gases' and is highly unreactive?",
+      options: [
+        "Group 1 (Alkali metals)",
+        "Group 2 (Alkaline earth metals)",
+        "Group 17 (Halogens)",
+        "Group 18 (Noble gases)"
+      ],
+      correct: "D"
+    },
+    {
+      text: "What is the most reactive group of nonmetals, often found as diatomic molecules?",
+      options: [
+        "Alkali metals",
+        "Halogens",
+        "Noble gases",
+        "Transition metals"
+      ],
+      correct: "B"
+    },
+    {
+      text: "The modern periodic table arranges elements in order of increasing:",
+      options: [
+        "Atomic mass",
+        "Atomic number",
+        "Density",
+        "Reactivity with oxygen"
+      ],
+      correct: "B"
+    },
+    {
+      text: "Which element is a transition metal with the chemical symbol 'Fe'?",
+      options: [
+        "Gold (Au)",
+        "Iron (Fe)",
+        "Silver (Ag)",
+        "Copper (Cu)"
+      ],
+      correct: "B"
+    }
+  ];
+
+  // Store references
+  let questionsContainer = null;
+  let resultDiv = null;
+  let submitBtn = null;
+  let resetBtn = null;
+
+  // Helper: render the quiz from quizData into the container
+  function renderQuiz() {
+    if (!questionsContainer) return;
+    let html = `<div class="questions-area" id="questionsArea">`;
+    
+    quizData.forEach((q, idx) => {
+      const questionNumber = idx + 1;
+      const groupName = `q${idx}`;
+      // build options with radio inputs
+      let optionsHtml = '';
+      q.options.forEach((opt, optIdx) => {
+        const letter = String.fromCharCode(65 + optIdx); // A, B, C, D
+        const optionId = `q${idx}_${letter}`;
+        optionsHtml += `
+          <div class="option">
+            <input type="radio" name="${groupName}" value="${letter}" id="${optionId}">
+            <label for="${optionId}"><strong>${letter}.</strong> ${escapeHtml(opt)}</label>
+          </div>
+        `;
+      });
+      
+      html += `
+        <div class="question-card" data-qidx="${idx}">
+          <fieldset>
+            <legend>Question ${questionNumber}</legend>
+            <div class="question-text">${escapeHtml(q.text)}</div>
+            <div class="options-list">
+              ${optionsHtml}
+            </div>
+          </fieldset>
+        </div>
+      `;
+    });
+    
+    html += `</div>`;
+    questionsContainer.innerHTML = html;
+  }
+  
+  // simple escape to avoid XSS
+  function escapeHtml(str) {
+    return str.replace(/[&<>]/g, function(m) {
+      if (m === '&') return '&amp;';
+      if (m === '<') return '&lt;';
+      if (m === '>') return '&gt;';
+      return m;
+    }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+      return c;
+    });
+  }
+  
+  // collect selected answers (returns array of selected letter values or null if missing)
+  function getSelectedAnswers() {
+    const selected = [];
+    let allSelected = true;
+    for (let i = 0; i < quizData.length; i++) {
+      const radioName = `q${i}`;
+      const radios = document.getElementsByName(radioName);
+      let chosenValue = null;
+      for (let j = 0; j < radios.length; j++) {
+        if (radios[j].checked) {
+          chosenValue = radios[j].value;
+          break;
+        }
+      }
+      if (chosenValue === null) {
+        allSelected = false;
+        selected.push(null);
+      } else {
+        selected.push(chosenValue);
+      }
+    }
+    return { selected, allSelected };
+  }
+  
+  // evaluate quiz and display detailed feedback
+  function evaluateAndShowResults() {
+    const { selected, allSelected } = getSelectedAnswers();
+    
+    // remove any existing error class / highlight but we show error in result panel
+    if (!allSelected) {
+      // build missing question indices
+      const missingIndices = [];
+      for (let i = 0; i < selected.length; i++) {
+        if (selected[i] === null) missingIndices.push(i + 1);
+      }
+      let missingMsg = missingIndices.length > 0 ? `Questions ${missingIndices.join(', ')}` : 'some questions';
+      resultDiv.innerHTML = `
+        <div class="error-message">
+          ⚠️ Incomplete quiz! Please answer all questions before submitting.<br>
+          Missing: ${missingMsg}.
+        </div>
+        <div style="font-size:0.9rem; margin-top:0.6rem;">↻ Select an option for each question, then submit again.</div>
+      `;
+      return;
+    }
+    
+    // calculate score and prepare detailed feedback
+    let score = 0;
+    const feedbackItems = [];
+    
+    for (let i = 0; i < quizData.length; i++) {
+      const userAnswer = selected[i];
+      const correctLetter = quizData[i].correct;
+      const isCorrect = (userAnswer === correctLetter);
+      if (isCorrect) score++;
+      
+      // find correct answer text based on correctLetter
+      const correctLetterIndex = correctLetter.charCodeAt(0) - 65; // A=0
+      const correctAnswerText = quizData[i].options[correctLetterIndex];
+      const userAnswerText = (userAnswer !== null) 
+          ? quizData[i].options[userAnswer.charCodeAt(0) - 65] 
+          : "(no answer)";
+      
+      feedbackItems.push({
+        questionNumber: i+1,
+        questionText: quizData[i].text,
+        isCorrect: isCorrect,
+        userLetter: userAnswer,
+        userAnswerText: userAnswerText,
+        correctLetter: correctLetter,
+        correctAnswerText: correctAnswerText
+      });
+    }
+    
+    const totalQuestions = quizData.length;
+    const percent = Math.round((score / totalQuestions) * 100);
+    let performanceMessage = "";
+    if (score === totalQuestions) performanceMessage = "🌟 Perfect! Mastery of Chapter 4! 🌟";
+    else if (score >= totalQuestions - 1) performanceMessage = "🎉 Excellent! You really understand the periodic table.";
+    else if (score >= totalQuestions / 2) performanceMessage = "👍 Good effort! Review the missed questions to strengthen your knowledge.";
+    else performanceMessage = "📚 Keep studying! Revisit Chapter 4 and try again.";
+    
+    // Build result HTML with detailed feedback
+    let detailsHtml = `<div class="score-badge">🎯 Score: ${score} / ${totalQuestions} (${percent}%)</div>`;
+    detailsHtml += `<div style="font-weight:600; margin-bottom:10px;">${performanceMessage}</div>`;
+    detailsHtml += `<hr><div class="feedback-detail"><strong>📖 Detailed review:</strong><div style="margin-top: 12px;">`;
+    
+    feedbackItems.forEach(item => {
+      const statusIcon = item.isCorrect ? "✅" : "❌";
+      const statusClass = item.isCorrect ? "feedback-correct" : "feedback-wrong";
+      detailsHtml += `
+        <div class="feedback-item">
+          <span style="min-width: 32px;">${statusIcon}</span>
+          <span style="flex:1;"><strong>Q${item.questionNumber}:</strong> ${escapeHtml(item.questionText)}</span>
+        </div>
+        <div style="margin-left: 36px; margin-bottom: 10px; font-size:0.85rem;">
+          <span>Your answer: <strong>${item.userLetter}. ${escapeHtml(item.userAnswerText)}</strong></span><br>
+          ${!item.isCorrect ? `<span class="${statusClass}">✔ Correct answer: ${item.correctLetter}. ${escapeHtml(item.correctAnswerText)}</span>` : `<span class="feedback-correct">✓ Correct!</span>`}
+        </div>
+      `;
+    });
+    
+    detailsHtml += `</div></div>`;
+    resultDiv.innerHTML = detailsHtml;
+    
+    // Optional: smooth scroll to results
+    resultDiv.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+  
+  // reset all radio selections and clear result panel to initial state
+  function resetQuiz() {
+    // clear all radio buttons
+    for (let i = 0; i < quizData.length; i++) {
+      const radios = document.getElementsByName(`q${i}`);
+      if (radios) {
+        radios.forEach(radio => {
+          radio.checked = false;
+        });
+      }
+    }
+    // reset result panel to initial message
+    resultDiv.innerHTML = `<div style="color: #2c5a6e; font-weight: 500;">📊 Your score will appear here after submission.</div>`;
+    // also any leftover error style removed
+  }
+  
+  // Event listeners + initialization
+  function initQuiz() {
+    questionsContainer = document.getElementById("quizDynamicContainer");
+    resultDiv = document.getElementById("resultPanel");
+    submitBtn = document.getElementById("submitQuizBtn");
+    resetBtn = document.getElementById("resetQuizBtn");
+    
+    if (!questionsContainer) return;
+    
+    renderQuiz();        // build the quiz from data
+    // attach event handlers after render
+    if (submitBtn) submitBtn.addEventListener("click", evaluateAndShowResults);
+    if (resetBtn) resetBtn.addEventListener("click", resetQuiz);
+    
+    // also add a small additional style for better mobile view (optional)
+    // ensure that no conflict with dynamic content
+  }
+  
+  // start everything when DOM is ready
+  document.addEventListener("DOMContentLoaded", initQuiz);
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

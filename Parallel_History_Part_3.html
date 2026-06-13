@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Part 3 – Dalit Literature in Maithili Translation</title> <style>
+* {
+box-sizing: border-box;
+}
+body {
+background: #ece4db;
+font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, sans-serif;
+margin: 0;
+padding: 2rem 1rem;
+color: #1e2a2e;
+}
+.quiz-container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffdf9;
+border-radius: 2rem;
+box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+overflow: hidden;
+padding: 2rem 1.8rem;
+}
+h1 {
+font-size: 1.8rem;
+margin-top: 0;
+margin-bottom: 0.2rem;
+color: #8b2c2c;
+border-left: 6px solid #c2632b;
+padding-left: 1rem;
+}
+.sub {
+color: #6a4e38;
+font-style: italic;
+margin-bottom: 2rem;
+border-bottom: 2px solid #ecdfd1;
+padding-bottom: 0.7rem;
+}
+.question-card {
+background: #fefaf5;
+border-radius: 1.5rem;
+margin-bottom: 1.8rem;
+padding: 1.2rem 1.5rem;
+box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+border: 1px solid #ecdfd1;
+}
+.question-text {
+font-weight: 700;
+font-size: 1.2rem;
+margin-bottom: 1rem;
+color: #3b2a1c;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+margin-bottom: 0.5rem;
+}
+.option {
+display: flex;
+align-items: flex-start;
+gap: 0.8rem;
+background: #ffffff;
+padding: 0.6rem 1rem;
+border-radius: 2rem;
+border: 1px solid #e0cfbe;
+cursor: pointer;
+transition: all 0.1s;
+}
+.option:hover {
+background-color: #fdf1e6;
+border-color: #bb8a60;
+}
+input[type="radio"] {
+margin-top: 0.2rem;
+accent-color: #b45f2b;
+width: 1.1rem;
+height: 1.1rem;
+}
+.option label {
+flex: 1;
+cursor: pointer;
+font-weight: 500;
+color: #3d2c20;
+}
+.feedback {
+margin-top: 0.9rem;
+font-size: 0.9rem;
+padding: 0.6rem 1rem;
+border-radius: 2rem;
+background: #f8f1e9;
+display: none;
+}
+.feedback.correct {
+background: #e2f3e4;
+color: #1f6132;
+border-left: 4px solid #2e7d32;
+display: block;
+}
+.feedback.incorrect {
+background: #ffe7e3;
+color: #bc3f2c;
+border-left: 4px solid #c5382b;
+display: block;
+}
+.score-area {
+position: sticky;
+bottom: 1rem;
+background: #ffffffdd;
+backdrop-filter: blur(8px);
+border-radius: 3rem;
+padding: 0.8rem 1.2rem;
+text-align: center;
+margin-top: 2rem;
+font-weight: bold;
+font-size: 1.2rem;
+border: 1px solid #dacbbc;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+button {
+background: #b45f2b;
+border: none;
+color: white;
+font-weight: bold;
+font-size: 1rem;
+padding: 0.65rem 1.8rem;
+border-radius: 3rem;
+cursor: pointer;
+transition: 0.2s;
+margin: 0.4rem;
+}
+button:hover {
+background: #8d471e;
+transform: scale(0.97);
+}
+.reset-btn {
+background: #5f4d3b;
+}
+.reset-btn:hover {
+background: #44362a;
+}
+.footer-note {
+margin-top: 2rem;
+font-size: 0.75rem;
+text-align: center;
+color: #b49a7c;
+border-top: 1px solid #efe0d2;
+padding-top: 1.2rem;
+}
+@media (max-width: 650px) {
+.quiz-container {
+padding: 1.2rem;
+}
+.question-text {
+font-size: 1rem;
+}
+.option label {
+font-size: 0.85rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <h1>📖 Part III – Dalit Literature in Maithili Translation</h1> <div class="sub">🧾 Telugu, Gujarati & Odia Dalit poetry, short fiction, and the parallel counter‑canon (based on Videha Parallel History & translated anthologies)</div> <p style="background:#f6efe8; padding:0.8rem 1.2rem; border-radius: 2rem; margin-bottom: 1.6rem;">
+🕯️ This quiz covers Boyi Bhimanna, J. Subhadra, Challpalli Swarooparani, Darishee Shashinirmala, M. Gauri, Madduri Vijayashri, Basudev Sunani, Kolakuri Enoch, Vinodini, Peddinti Ashok Kumar, and key concepts from Dalit aesthetics, subaltern theory, and the Videha Framework.
+</p> <div id="questions-area"></div> <div class="score-area" id="scoreDisplay">
+⚡ 0 / 0 questions answered
+</div> <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;"> <button id="submitBtn">✅ Submit & Check</button> <button id="resetBtn" class="reset-btn">⟳ Reset Quiz</button> </div> </div>
+<script>
+    // ----- PART 3: Dalit literature translations, poets, short stories, novel, feminist & anti-caste theory -----
+    const questions = [
+        {
+            text: "Which foundational Telugu Dalit poet wrote 'Burning Skulls' and 'My Ancestral Rights', using counter‑mythological readings of Vyasa and Matsyagandhi?",
+            options: ["J. Subhadra", "Boyi Bhimanna", "Challpalli Swarooparani", "Darishee Shashinirmala"],
+            correct: 1,
+            explanation: "Boyi Bhimanna (1920–2001) is a pillar of Telugu Dalit literature; his poems re‑read Vedic/Aryan figures as Dalit origins and critique caste violence."
+        },
+        {
+            text: "In J. Subhadra’s poem ‘Grinding’, what does the final question ‘How will this bonded life end?’ signify from a Dalit feminist perspective?",
+            options: [
+                "A rhetorical question with no answer",
+                "Exhaustion of labour and systemic bondage – questioning the never‑ending cycle of Dalit women’s work",
+                "A complaint about monsoon",
+                "An invitation to celebrate harvest"
+            ],
+            correct: 1,
+            explanation: "The poem catalogues endless domestic labour; the question highlights structural oppression, not merely personal exhaustion."
+        },
+        {
+            text: "Which Telugu Dalit woman poet wrote ‘The Sari’s Edge’, turning the sari into a metaphor for shelter, labour, and resistance while challenging upper‑caste feminism?",
+            options: ["M. Gauri", "J. Subhadra", "Madduri Vijayashri", "Challpalli Swarooparani"],
+            correct: 1,
+            explanation: "J. Subhadra’s ‘The Sari’s Edge’ portrays the cloth as bed, umbrella, bag – refusing upper‑caste feminist calls to burn it, asserting Dalit material reality."
+        },
+        {
+            text: "What is the central image of Darishee Shashinirmala’s poem ‘I am Wearing Menstrual Cloth’ and what does it symbolise?",
+            options: [
+                "A celebration of womanhood",
+                "The menstrual cloth as a weapon to negate purity myths and expose state‑caste violence against Dalit women",
+                "A plea for better sanitary products",
+                "A description of rural festivities"
+            ],
+            correct: 1,
+            explanation: "Shashinirmala uses the ‘impure’ cloth to drape over society’s lies, listing real Dalit women (Alisamma, Muthavva) as evidence of institutional failure."
+        },
+        {
+            text: "Which Dalit poet wrote ‘Henna‑Stained Hands’, directly addressing Lord Krishna and inverting mythological hierarchy by challenging him to kiss her ‘blood‑stained hands’?",
+            options: ["M. Gauri", "Madduri Vijayashri", "Boyi Bhimanna", "J. Subhadra"],
+            correct: 0,
+            explanation: "M. Gauri’s poem subverts Krishna’s three mythological forms, demanding the cobbler woman’s labour be recognised as ‘pure music’."
+        },
+        {
+            text: "In Madduri Vijayashri’s ‘Alisamma’s Curse’, what is the political significance of Alisamma’s curse ‘I curse you all that you will be turned into humans’?",
+            options: [
+                "It seeks to destroy oppressors",
+                "It transforms the curse: oppressors are less than human, they must become human to feel justice",
+                "It asks for wealth",
+                "It invokes supernatural revenge"
+            ],
+            correct: 1,
+            explanation: "Alisamma (a real Dalit woman stripped naked) becomes the speaker; her curse ironically demands the oppressor ‘become human’, exposing their animality."
+        },
+        {
+            text: "Which Odia Dalit poet wrote ‘Still Much Remains to Be Done’, ‘Address’ and ‘Sadananda’, using mystical imagery (drop, seed, fish) to express Dalit existence and invisibility?",
+            options: ["Anish Garange", "Basudev Sunani", "Umesh Solanki", "Rajendra Vadel ‘Jeeta’"],
+            correct: 1,
+            explanation: "Basudev Sunani’s poetry fuses philosophical depth, ecological crisis, and the invisibility of Dalit presence, using farmer‑protagonist Sadananda."
+        },
+        {
+            text: "In Kolakuri Enoch’s short story ‘The Crow’, Bandodu (a Dalit sub‑caste beggar) kills and eats crows. What is the central paradox of the story?",
+            options: [
+                "Bandodu is powerful because he controls crows, yet he is the most powerless in caste hierarchy – liberation and curse are one",
+                "Crows attack everyone equally",
+                "The story is about bird conservation",
+                "Bandodu is a rich landlord"
+            ],
+            correct: 0,
+            explanation: "Bandodu is ‘abject’ but indispensable; his begging and crow‑killing make him feared. The story concludes that ‘liberation is only a curse’ – a tragic social logic."
+        },
+        {
+            text: "Vinodini’s short story ‘Black Ink’ depicts an eight‑year‑old girl, Shriya, who loves her Dalit neighbour until she learns her caste. What does the transformation from ‘butterfly’ to ‘caterpillar’ symbolise?",
+            options: [
+                "Loss of innocence and internalisation of caste prejudice",
+                "Physical illness",
+                "Growth into adulthood",
+                "Economic improvement"
+            ],
+            correct: 0,
+            explanation: "The story shows how caste is socialised in childhood; the child’s smile turns into hatred, and dried butterflies become crawling caterpillars – a haunting image."
+        },
+        {
+            text: "Peddinti Ashok Kumar’s Telugu novel ‘Forever Friend’ (Jigiri) centres on a friendship between Imam (a Qalandar) and Shadool (a bear). What does the novel critique?",
+            options: [
+                "Only wildlife protection laws",
+                "The cultural extinction of the Qalandar community and the paradox of animal rights vs. human livelihood",
+                "Urban migration",
+                "Caste hierarchy in cities"
+            ],
+            correct: 1,
+            explanation: "Bear‑dancing was the Qalandar’s traditional livelihood; the novel shows how welfare laws destroy their identity and force betrayal of the bear‑friend."
+        },
+        {
+            text: "According to the critical framework of Dalit aesthetics in the Videha Parallel History, which new rasas are proposed to understand Dalit literature?",
+            options: [
+                "Śṛṅgāra and Hāsya",
+                "Dard-Rasa (Pain), Ākroś-Rasa (Rage), Asmitā-Rasa (Identity), Sangharsh-Rasa (Struggle)",
+                "Vīra and Adbhuta only",
+                "Bhakti-Rasa only"
+            ],
+            correct: 1,
+            explanation: "These four new enduring moods replace classical rasas to capture pain, rage, identity assertion, and struggle central to Dalit literary experience."
+        },
+        {
+            text: "Which Gujarati Dalit poem by Umesh Solanki directly addresses Gandhi, using the image of broom‑sticks to critique the failure of Gandhian ideology for Dalits?",
+            options: ["Poster", "All the Broom‑Sticks", "Sambhog", "People, Freeze!"],
+            correct: 1,
+            explanation: "‘All the Broom‑Sticks’ mocks Gandhi’s khadi and cleanliness movement, pointing to Dalit sanitation workers who remain exploited."
+        },
+        {
+            text: "What is the main argument of the ‘Anchinhar Formula’ for evaluating Dalit literature in translation?",
+            options: [
+                "Only formal beauty matters",
+                "Three axes: Shakti-kadrat (power proximity), Vishay-kadrat (subject expansion), Tatya-kadrat (factual evidence/verifiable testimony)",
+                "Only author’s caste matters",
+                "Only awards received"
+            ],
+            correct: 1,
+            explanation: "The Anchinhar Formula (explicated in Ashish Anchinhar’s criticism) evaluates literature by its courage to confront power, expansion of subject, and evidential honesty."
+        },
+        {
+            text: "According to the document, why is the absence of a Dalit literary tradition in Maithili attributed to historical denial of literacy?",
+            options: [
+                "Lack of interest in Dalit communities",
+                "Systematic exclusion of Dalits from written education; only oral traditions existed, never transformed into canonical literature",
+                "Sanskrit dominance",
+                "Migration to cities"
+            ],
+            correct: 1,
+            explanation: "The Mithila region’s Dalit communities (Musahar, Dusadh, Chamar) were historically denied literacy; Videha’s translation project plants seeds for future Maithili Dalit writing."
+        },
+        {
+            text: "Which Telugu Dalit woman poet wrote ‘Mankenapuvvu’ (Red Silk‑Cotton Flower), describing a six‑fold ‘when…then’ series of oppressions including caste‑based rejection and stigmatisation through reservations?",
+            options: ["J. Subhadra", "Challpalli Swarooparani", "M. Gauri", "Darishee Shashinirmala"],
+            correct: 1,
+            explanation: "Swarooparani’s poem lists daily humiliations (from home aesthetics to education exclusion) and ends with blooming like the silk‑cotton flower – rebellion."
+        },
+        {
+            text: "What does the ‘Dooshan Panji’ (Black Book) exposed about Gangesa Upadhyaya, according to the Parallel History, and why is it relevant for Dalit criticism?",
+            options: [
+                "He was a king of Mithila",
+                "He was born five years after his father’s death and married a Charmkarini (leather‑worker woman) – facts suppressed by upper‑caste historians",
+                "He never wrote philosophy",
+                "He was a British spy"
+            ],
+            correct: 1,
+            explanation: "The suppressed genealogy shows that Mithila’s greatest logician belonged to inter‑caste/‘impure’ lineage; the parallel history uses this to challenge Brahminical gatekeeping."
+        },
+        {
+            text: "In Telugu Dalit poet M. Gauri’s ‘Henna‑Stained Hands’, what is the final transformation of leather that the speaker achieves?",
+            options: [
+                "It is thrown away",
+                "It becomes a drum resonating with pure music – reclaiming Dalit labour and identity",
+                "It is sold in market",
+                "It is offered to Krishna"
+            ],
+            correct: 1,
+            explanation: "Washed with Indian laburnum (indigenous knowledge), the leather becomes a drum; the impure becomes source of pure music, negating caste stigma."
+        },
+        {
+            text: "Which Gujarati Dalit poet wrote ‘Sambhog’ (Intercourse), where the upper‑caste man’s body is described as ‘fouled from ancestors who crushed Dalit women’, concluding that the child born should be named ‘Bharat’?",
+            options: ["Anish Garange", "Rajendra Vadel ‘Jeeta’", "Umesh Solanki", "Ashish Anchinhar"],
+            correct: 1,
+            explanation: "Vadel’s poem connects caste‑sexual violence to nation‑building; naming the child Bharat exposes the nation’s foundation in Dalit women’s oppression."
+        },
+        {
+            text: "According to the critical synthesis (Part VIII), what is the primary ‘Vyāpti’ (invariable concomitance) that Dalit literature in Maithili translation establishes?",
+            options: [
+                "Caste hierarchy is natural",
+                "Wherever there is Dalit suffering, there is also resistance and the production of counter‑archives",
+                "All literature must be in Sanskrit",
+                "Translation is impossible"
+            ],
+            correct: 1,
+            explanation: "The translated poems, stories and novel demonstrate that Dalit experience, despite marginalisation, creates literary evidence that the mainstream canon ignores."
+        },
+        {
+            text: "Which short story collection by Munni Kamat (also discussed in the Dalit/women’s section) is noted for the first Maithili fiction on breast cancer, pre‑dating Hindi stories?",
+            options: ["Māṭik Suwas", "Sukhal Man Tarsal Āṃkhi", "Antatah", "Chukka"],
+            correct: 1,
+            explanation: "Sukhal Man Tarsal Āṃkhi (2014) contains the breast cancer story; it is a landmark in Maithili women’s medical writing and part of the parallel tradition."
+        },
+        {
+            text: "The Vidheha Parallel History’s Dalit translation project includes five Telugu poets (Bhimanna, Subhadra, Swarooparani, Shashinirmala, Gauri, Vijayashri). What unique sub‑genre did Ashish Anchinhar and Gajendra Thakur develop to revive Maithili ghazal in the same volume?",
+            options: ["Bhakti Ghazal and Bal Ghazal", "Nazm only", "Marsiya", "Qawwali"],
+            correct: 0,
+            explanation: "The revival of bhakti and bal ghazals was part of the Anchinhar era, which also used Wikipedia and digital archiving to democratise the form."
+        }
+    ];
+
+    let selectedAnswers = new Array(questions.length).fill(null);
+    let quizSubmitted = false;
+
+    function renderQuestions() {
+        const container = document.getElementById('questions-area');
+        container.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.setAttribute('data-qid', idx);
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qText);
+            
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const optWrap = document.createElement('div');
+                optWrap.className = 'option';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${idx}`;
+                radio.value = optIdx;
+                radio.id = `q_${idx}_opt_${optIdx}`;
+                if (selectedAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    if (!quizSubmitted) {
+                        selectedAnswers[idx] = parseInt(e.target.value);
+                        updateScoreDisplay();
+                        const fbDiv = card.querySelector('.feedback');
+                        if (fbDiv) fbDiv.style.display = 'none';
+                    }
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q_${idx}_opt_${optIdx}`;
+                label.innerText = opt;
+                optWrap.appendChild(radio);
+                optWrap.appendChild(label);
+                optionsDiv.appendChild(optWrap);
+            });
+            card.appendChild(optionsDiv);
+            const fbDiv = document.createElement('div');
+            fbDiv.className = 'feedback';
+            fbDiv.id = `fb_${idx}`;
+            card.appendChild(fbDiv);
+            container.appendChild(card);
+        });
+    }
+
+    function updateScoreDisplay() {
+        const answered = selectedAnswers.filter(a => a !== null).length;
+        document.getElementById('scoreDisplay').innerHTML = `📌 ${answered} / ${questions.length} questions answered ${quizSubmitted ? '· Final scores below' : '· Submit to see correct answers'}`;
+    }
+
+    function evaluateQuiz() {
+        quizSubmitted = true;
+        let correctCount = 0;
+        for (let i = 0; i < questions.length; i++) {
+            const userChoice = selectedAnswers[i];
+            const isCorrect = (userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+            const fb = document.getElementById(`fb_${i}`);
+            if (fb) {
+                if (userChoice === null) {
+                    fb.innerHTML = `⚠️ Unanswered. Correct: ${questions[i].options[questions[i].correct]}. ${questions[i].explanation}`;
+                    fb.className = 'feedback incorrect';
+                } else if (isCorrect) {
+                    fb.innerHTML = `✅ Correct. ${questions[i].explanation}`;
+                    fb.className = 'feedback correct';
+                } else {
+                    fb.innerHTML = `❌ Incorrect. You chose: ${questions[i].options[userChoice]}. Correct: ${questions[i].options[questions[i].correct]}. ${questions[i].explanation}`;
+                    fb.className = 'feedback incorrect';
+                }
+                fb.style.display = 'block';
+            }
+        }
+        const scoreMsg = `🎯 You scored ${correctCount} out of ${questions.length}`;
+        document.getElementById('scoreDisplay').innerHTML = scoreMsg + (correctCount === questions.length ? ' — 🌟 Dalit literature scholar!' : ' — Review the explanations to deepen your understanding of the parallel Dalit canon.');
+    }
+
+    function resetQuiz() {
+        selectedAnswers.fill(null);
+        quizSubmitted = false;
+        for (let i = 0; i < questions.length; i++) {
+            const radios = document.querySelectorAll(`input[name="q_${i}"]`);
+            radios.forEach(r => r.checked = false);
+            const fb = document.getElementById(`fb_${i}`);
+            if (fb) {
+                fb.style.display = 'none';
+                fb.innerHTML = '';
+            }
+        }
+        updateScoreDisplay();
+    }
+
+    document.getElementById('submitBtn').addEventListener('click', evaluateQuiz);
+    document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+
+    renderQuestions();
+    updateScoreDisplay();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

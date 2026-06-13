@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <title>Quiz: Chapter 34 – Scholars, Folklorists, Poets & the Digital Archive</title> <style>
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+max-width: 1000px;
+margin: 2rem auto;
+padding: 1rem;
+background: #f4f1ea;
+}
+.quiz-container {
+background: white;
+border-radius: 2rem;
+padding: 1.5rem;
+box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+h1 {
+color: #2c5e2c;
+border-left: 5px solid #b8860b;
+padding-left: 1rem;
+}
+.question {
+border-bottom: 1px solid #e0d6c5;
+padding: 1rem 0;
+}
+.question-text {
+font-weight: 700;
+margin-bottom: 0.5rem;
+font-size: 1.05rem;
+}
+.options {
+margin-left: 1.5rem;
+margin-bottom: 0.5rem;
+}
+.option {
+margin: 0.3rem 0;
+}
+.explanation {
+background: #f4f1e8;
+padding: 0.6rem;
+margin-top: 0.6rem;
+border-left: 4px solid #b8860b;
+display: none;
+border-radius: 0.5rem;
+}
+button {
+background: #2c5e2c;
+color: white;
+border: none;
+padding: 0.5rem 1.2rem;
+border-radius: 2rem;
+cursor: pointer;
+margin: 0.2rem;
+font-size: 1rem;
+}
+button:hover {
+background: #1e401e;
+}
+.score {
+font-size: 1.2rem;
+font-weight: bold;
+margin-top: 1rem;
+text-align: center;
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <h1>📖 Chapter 34 – Scholars, Folklorists, Poets & the Digital Archive</h1> <p>Based on the Videha Parallel History (sections on Pandit Bhavnath Jha, Ram Bharos Kapari 'Bhramar', Binay Bhushan, Kalpana Jha, Kameshwar Jha 'Kamal', and Dalit literature translations)</p> <div id="quiz"></div> <div style="margin-top: 1rem;"> <button id="submitBtn">✔ Submit Answers</button> <button id="resetBtn">⟳ Reset Quiz</button> </div> <div id="score" class="score"></div>
+</div>
+<script>
+const questions = [
+    {
+        text: "Pandit Bhavnath Jha, honoured in Videha Issue 428, is a manuscriptologist known for restoring which lost Sanskrit Buddhist epic from Tibetan and Chinese translations?",
+        options: [
+            "The Lalitavistara",
+            "The Buddhacharitam of Ashvaghosa",
+            "The Jātakamālā",
+            "The Suvarṇaprabhāsa Sūtra"
+        ],
+        correct: 1,
+        explanation: "Bhavnath Jha reconstructed the missing cantos of Ashvaghosa’s Buddhacharitam, working from Tibetan and Chinese versions."
+    },
+    {
+        text: "According to the Videha special issue on Bhavnath Jha, what did the ‘Dooshan Panji’ (Black Book) reveal about his scholarly lineage?",
+        options: [
+            "That he was a poet",
+            "That he was the son of a Charmkarini (leather‑worker caste) and born five years after his father’s death – facts suppressed by Ramanath Jha",
+            "That he wrote only in English",
+            "That he rejected Navya-Nyāya"
+        ],
+        correct: 1,
+        explanation: "The Dooshan Panji records exposed Gaṅgeśa Upādhyāya’s suppressed inter‑caste origins, which Bhavnath Jha’s work continues to illuminate."
+    },
+    {
+        text: "Ram Bharos Kapari ‘Bhramar’ is a major Nepalese Maithili writer. Which newspaper did he found that is still running after four decades?",
+        options: [
+            "Mithila Darshan",
+            "Gamhar Maithili Weekly",
+            "Kosi Sandesh",
+            "Mithila Mihir"
+        ],
+        correct: 1,
+        explanation: "Bhramar founded ‘Gamhar’ in 2039 BS (1982 CE) – Nepal’s first and longest‑running Maithili newspaper."
+    },
+    {
+        text: "Bhramar’s novel ‘Gharmuha’ (The One Who Yearns for Home) is the first Nepalese Maithili novel set against which contemporary political event?",
+        options: [
+            "The Nepalese Civil War",
+            "The Madhesh Movement of 2006-07",
+            "The Earthquake of 2015",
+            "The abolition of the monarchy"
+        ],
+        correct: 1,
+        explanation: "The novel documents the Madhesh agitation and its impact on cross‑border Maithili identity."
+    },
+    {
+        text: "The poet Binay Bhushan’s collection ‘Ujāra Parbak Khoj’ (In Search of the White Pigeon) uses the white pigeon as a symbol of:",
+        options: [
+            "War",
+            "Peace and communal celebration",
+            "Colonial oppression",
+            "Urban migration"
+        ],
+        correct: 1,
+        explanation: "The white pigeon (paraba) represents peace, festival, and the lost harmony of Mithila’s agrarian culture."
+    },
+    {
+        text: "Kalpana Jha of Delhi, a song‑poet and translator, translated which of Shefalika Verma’s works into Hindi?",
+        options: [
+            "Bhamati",
+            "Yaayaavari (travel narrative)",
+            "Pangu",
+            "Kist Kist Jeevan"
+        ],
+        correct: 1,
+        explanation: "She translated Shefalika Verma’s travelogue ‘Yaayaavari’ from Maithili into Hindi, bridging linguistic audiences."
+    },
+    {
+        text: "Kalpana Jha of Bokaro, a diaspora poet, writes primarily about the experience of Maithili migrants in which industrial city of Jharkhand?",
+        options: [
+            "Jamshedpur",
+            "Bokaro Steel City",
+            "Ranchi",
+            "Dhanbad"
+        ],
+        correct: 1,
+        explanation: "Her poetry captures the alienation and longing of Maithili speakers in Bokaro’s industrial environment."
+    },
+    {
+        text: "Kalpana Jha of Patna, a prose writer and literary essayist, contributed a lead essay on which major Maithili figure in Videha 409, noting that he was her maternal grandfather?",
+        options: [
+            "Upendra Nath Jha ‘Vyas’",
+            "Shardindu Chaudhary",
+            "Ramlochan Thakur",
+            "Rajanandan Lal Das"
+        ],
+        correct: 0,
+        explanation: "Her 14‑page essay on Upendra Nath Jha ‘Vyas’ blends critical biography with family memoir."
+    },
+    {
+        text: "In Kalpana Jha (Patna)’s essay on Shardindu Chaudhary, what central distinction does she make about his contribution?",
+        options: [
+            "He was a poet, not a journalist",
+            "He was a ‘bhasha‑sevak’ (servant of the language) rather than a ‘sahitya‑sevak’ (servant of literary institutions)",
+            "He wrote only in Sanskrit",
+            "He rejected Maithili"
+        ],
+        correct: 1,
+        explanation: "She argues that Chaudhary served Maithili’s living speech through lexicography, satire, and journalism, not institutional prestige."
+    },
+    {
+        text: "Kameshwar Jha ‘Kamal’ is a poet and lyricist whose collection ‘Kamal-Taal’ (Lotus Rhythm) includes devotional, seasonal, and patriotic songs. Which diaspora institution published the book?",
+        options: [
+            "Sahitya Akademi",
+            "Mithila Sanskritik Parishad, Kolkata",
+            "Videha eJournal",
+            "Pallavi Prakashan"
+        ],
+        correct: 1,
+        explanation: "The collection was published by Mithila Sanskritik Parishad, Kolkata, as part of Azadi ka Amrit Mahotsav."
+    },
+    {
+        text: "In the translation of Telugu Dalit poetry featured in the Videha archive, which poet wrote ‘Alisamma’s Curse’, linking the Ramayana’s Shurpanakha to a contemporary Dalit woman’s suffering?",
+        options: [
+            "Madduri Vijayashri",
+            "J. Subhadra",
+            "Boyi Bhimana",
+            "M. Gauri"
+        ],
+        correct: 0,
+        explanation: "Vijayashri’s poem curses the oppressors and draws a parallel between mythological and real‑world violence."
+    },
+    {
+        text: "The Maithili ghazal revival under Anchinhar Aakhar created a theoretical textbook called ‘Ghajalsastram’. Who is recognised as Maithili’s first ‘Aruji’ (scholar of ghazal prosody) and authored it?",
+        options: [
+            "Ashish Anchinhar",
+            "Gajendra Thakur",
+            "Jagdanand Jha ‘Manu’",
+            "Kundan Kumar Karn"
+        ],
+        correct: 0,
+        explanation: "Ashish Anchinhar wrote the systematic grammar and history of Maithili ghazal, earning the title ‘Aruji’."
+    },
+    {
+        text: "According to the critical appreciation of Binay Bhushan’s poetry, the dominant rasa (aesthetic emotion) of ‘Ujāra Parbak Khoj’ is:",
+        options: [
+            "Śṛṅgāra (erotic)",
+            "Śānta (peaceful equanimity) emerging from the quest for light",
+            "Raudra (fury)",
+            "Bībhatsa (disgust)"
+        ],
+        correct: 1,
+        explanation: "The collection’s quest for the white pigeon and festival of light generates a predominantly śānta rasa."
+    },
+    {
+        text: "Kalpana Jha of Bokaro’s poetry is characterised by which central tension?",
+        options: [
+            "Between Sanskrit and Persian",
+            "Between Mithila’s rural landscape and the industrial city of Bokaro (alienation)",
+            "Between atheism and devotion",
+            "Between prose and verse"
+        ],
+        correct: 1,
+        explanation: "Her diaspora poetry contrasts the steel city’s hardness with the remembered greenery of Mithila."
+    },
+    {
+        text: "In the Dalit literature translation section, which Telugu poet wrote ‘Hands Turned to Earth’ and ‘Mankenapuvvu’ (Red Silk‑Cotton Flower), using the image of a blue bird caught in thorns?",
+        options: [
+            "Challpalli Swarooparani",
+            "Darishee Shashinirmala",
+            "M. Gauri",
+            "Boyi Bhimana"
+        ],
+        correct: 0,
+        explanation: "Swarooparani’s poems depict Dalit women’s consciousness and rebellion through nature imagery."
+    },
+    {
+        text: "Which Maithili writer and retired bank officer authored ‘Koilakh’ (village biography) and ‘Lekh-Rekh’, a collection of reader‑responses (pāṭhakīya)?",
+        options: [
+            "Hitnath Jha",
+            "Lal Dev Kamat",
+            "Binay Bhushan",
+            "Nabo Narayan Mishra"
+        ],
+        correct: 0,
+        explanation: "Hitnath Jha’s work includes gram‑itihās and innovative critical reader‑responses."
+    },
+    {
+        text: "According to the document, what is the ‘Raga-Bhas’ tradition mentioned in the context of Kameshwar Jha ‘Kamal’?",
+        options: [
+            "A type of folk painting",
+            "The folk‑classical melodic modes of Mithila, documented by Lochana’s Ragatarangini",
+            "A script for Tirhuta",
+            "A political party"
+        ],
+        correct: 1,
+        explanation: "Raga-Bhas refers to the distinctive musical heritage of Mithila, which Kamal’s songs help preserve."
+    },
+    {
+        text: "The poet and journalist Kishan Karigar (Dr. Krishna Kumar Ray) wrote the collection ‘Kichhu Fura Gel Hamra’. His pen‑name ‘Karigar’ (craftsman) signals identification with which community?",
+        options: [
+            "Brahmin elite",
+            "Artisan and labouring classes, outside the upper‑caste literary establishment",
+            "Kayastha scribal caste",
+            "Nepali diaspora"
+        ],
+        correct: 1,
+        explanation: "Karigar’s pen‑name is a democratic assertion of the craftsman’s dignity against Brahminical literary hegemony."
+    },
+    {
+        text: "In the Dalit literary criticism section, which Gujarati Dalit poet wrote ‘Poster’ – a poem about the invisibility and distorted visibility of Dalit existence in urban spaces?",
+        options: [
+            "Anish Garange",
+            "Rajendra Vadel ‘Jeeta’",
+            "Umesh Solanki",
+            "Basudev Sunani"
+        ],
+        correct: 0,
+        explanation: "Garange’s ‘Poster’ uses the poster as a false mirror reflecting society’s construction of Dalit identity."
+    },
+    {
+        text: "According to the closing sections, the Videha eJournal’s archive includes over 11,000 transcribed palm‑leaf manuscripts in which script, as part of its digital preservation mission?",
+        options: [
+            "Devanagari",
+            "Tirhuta (Mithilakshar)",
+            "Kaithi",
+            "Bengali"
+        ],
+        correct: 1,
+        explanation: "Videha has digitised thousands of Tirhuta‑script manuscripts, including the crucial Panji genealogical records."
+    }
+];
+
+let userSelections = new Array(questions.length).fill(null);
+let submitted = false;
+
+function renderQuiz() {
+    const container = document.getElementById('quiz');
+    if (!container) return;
+    let html = '';
+    questions.forEach((q, idx) => {
+        const selected = userSelections[idx] !== null ? userSelections[idx] : -1;
+        html += `<div class="question">
+                    <div class="question-text">${idx+1}. ${q.text}</div>
+                    <div class="options">`;
+        q.options.forEach((opt, optIdx) => {
+            const checked = (selected === optIdx) ? 'checked' : '';
+            html += `<div class="option">
+                        <input type="radio" name="q${idx}" value="${optIdx}" id="q${idx}_${optIdx}" ${checked} ${submitted ? 'disabled' : ''}>
+                        <label for="q${idx}_${optIdx}">${String.fromCharCode(65+optIdx)}. ${opt}</label>
+                     </div>`;
+        });
+        html += `</div><div class="explanation" id="expl${idx}"></div></div>`;
+    });
+    container.innerHTML = html;
+}
+
+function calculateScore() {
+    let correct = 0;
+    for (let i = 0; i < questions.length; i++) {
+        if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correct++;
+    }
+    return correct;
+}
+
+function submitQuiz() {
+    submitted = true;
+    for (let i = 0; i < questions.length; i++) {
+        const radios = document.getElementsByName(`q${i}`);
+        for (let j = 0; j < radios.length; j++) {
+            if (radios[j].checked) userSelections[i] = parseInt(radios[j].value);
+        }
+        const explDiv = document.getElementById(`expl${i}`);
+        if (explDiv) {
+            const userAns = (userSelections[i] !== null) ? questions[i].options[userSelections[i]] : "Not answered";
+            const correctAns = questions[i].options[questions[i].correct];
+            explDiv.innerHTML = `<strong>📖 Explanation:</strong> ${questions[i].explanation}<br>
+                                 <span style="color:#4b6b3e;">Your answer: ${userAns}</span><br>
+                                 <span style="color:#2c6e2c;">Correct answer: ${correctAns}</span>`;
+            explDiv.style.display = 'block';
+        }
+        const allRadios = document.getElementsByName(`q${i}`);
+        allRadios.forEach(r => r.disabled = true);
+    }
+    const score = calculateScore();
+    document.getElementById('score').innerHTML = `✅ Score: ${score} / ${questions.length}`;
+}
+
+function resetQuiz() {
+    submitted = false;
+    userSelections = new Array(questions.length).fill(null);
+    renderQuiz();
+    for (let i = 0; i < questions.length; i++) {
+        const explDiv = document.getElementById(`expl${i}`);
+        if (explDiv) explDiv.style.display = 'none';
+    }
+    document.getElementById('score').innerHTML = '';
+}
+
+document.getElementById('submitBtn').addEventListener('click', submitQuiz);
+document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+renderQuiz();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

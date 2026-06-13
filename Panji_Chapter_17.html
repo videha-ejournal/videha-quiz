@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Quiz: Chapter 17 - Panji Prabandha (Genealogical Mapping)</title> <style>
+* {
+box-sizing: border-box;
+}
+body {
+font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, sans-serif;
+background: #f3efe7;
+margin: 0;
+padding: 2rem 1rem;
+color: #2c2b28;
+}
+.container {
+max-width: 900px;
+margin: 0 auto;
+background: #fffef7;
+border-radius: 2rem;
+box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+overflow: hidden;
+padding: 1.8rem 2rem 2.5rem;
+border: 1px solid #e8dccc;
+}
+h1 {
+font-size: 1.9rem;
+margin-top: 0;
+margin-bottom: 0.25rem;
+color: #4a2e1e;
+font-weight: 600;
+border-left: 6px solid #b35f2b;
+padding-left: 1.2rem;
+}
+.sub {
+color: #6b4c3b;
+border-bottom: 1px solid #e2d5c0;
+padding-bottom: 0.75rem;
+margin-bottom: 1.6rem;
+font-style: italic;
+font-size: 0.95rem;
+}
+.question-card {
+background: #fdfaf2;
+border-radius: 1.5rem;
+padding: 1.2rem 1.5rem;
+margin-bottom: 1.5rem;
+box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+border: 1px solid #ece0ce;
+transition: 0.1s ease;
+}
+.question-text {
+font-weight: 700;
+font-size: 1.15rem;
+margin-bottom: 1rem;
+color: #2d3e40;
+}
+.options {
+list-style: none;
+padding: 0;
+margin: 0 0 0.5rem 0;
+}
+.options li {
+margin: 0.7rem 0;
+display: flex;
+align-items: flex-start;
+gap: 0.6rem;
+cursor: pointer;
+padding: 0.2rem 0.2rem;
+}
+.options input {
+margin-top: 0.2rem;
+width: 1.1rem;
+height: 1.1rem;
+cursor: pointer;
+accent-color: #b35f2b;
+}
+.options label {
+font-size: 0.98rem;
+line-height: 1.35;
+color: #2c3a2f;
+cursor: pointer;
+}
+.feedback {
+margin-top: 0.6rem;
+font-size: 0.85rem;
+padding: 0.4rem 0.8rem;
+border-radius: 1.2rem;
+display: inline-block;
+background: #f0ede5;
+color: #3a4a3c;
+}
+.correct-feedback {
+background: #d9e6d4;
+color: #1c4d2d;
+border-left: 4px solid #2c7a47;
+padding-left: 1rem;
+}
+.wrong-feedback {
+background: #ffe6e5;
+color: #9b3c2c;
+border-left: 4px solid #c9512c;
+padding-left: 1rem;
+}
+.btn-submit {
+background: #7c4a2a;
+border: none;
+color: white;
+font-weight: bold;
+font-size: 1.1rem;
+padding: 0.8rem 2rem;
+border-radius: 3rem;
+cursor: pointer;
+margin-top: 1rem;
+transition: background 0.2s;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.btn-submit:hover {
+background: #5f3a1f;
+}
+.score-area {
+text-align: center;
+font-size: 1.3rem;
+font-weight: bold;
+background: #e8ddce;
+padding: 0.8rem;
+border-radius: 3rem;
+margin-top: 1rem;
+margin-bottom: 0.5rem;
+}
+.reset-btn {
+background: #b7a07e;
+margin-left: 0.8rem;
+}
+.footer {
+margin-top: 1.8rem;
+font-size: 0.75rem;
+text-align: center;
+color: #958b73;
+border-top: 1px solid #e2d3bf;
+padding-top: 1rem;
+}
+@media (max-width: 600px) {
+.container {
+padding: 1rem;
+}
+.question-card {
+padding: 0.9rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="container"> <h1>📜 Panji Prabandha of Mithila</h1> <div class="sub">Chapter 17: Genealogical Mapping (450 AD – 2009 AD) — Comprehensive Research Report</div> <p style="margin-bottom: 1.2rem;">Test your understanding of the anthropological, sociological & genealogical analysis of the Panji system based on the research report. Each question is grounded in Chapter 17.</p> <div id="quiz-container"> </div> <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1rem;"> <button class="btn-submit" id="submitBtn">✓ Submit answers</button> <button class="btn-submit reset-btn" id="resetBtn">⟳ Reset quiz</button> </div> <div id="scoreDisplay" class="score-area" style="display: none;"></div> </div>
+<script>
+    // MCQ data derived from Chapter 17 (Genealogical Mapping / Pañjī Prabandha analysis)
+    const questions = [
+        {
+            text: "According to Chapter 17, what was the primary function of the Uteḍha (Utedh) within the Panji system?",
+            options: [
+                "Recording royal decrees and land grants",
+                "A 32‑ancestor matrix used to determine marriage eligibility via sapiṇḍa prohibition",
+                "A chronicle of Maithili literary works",
+                "The list of all Panjikāra families and their fees"
+            ],
+            correct: 1,
+            explanation: "Uteḍha is described as 'the operational tool of the Pañjī system: a genealogical matrix of 32 ancestors…constructed to determine marriage eligibility…the system's primary algorithm for sapiṇḍa prohibition.'"
+        },
+        {
+            text: "Which historical figure is identified as the formal institutional founder of the Pañjī-Prabandha in 1326 CE?",
+            options: [
+                "Maharaja Madhav Singh",
+                "Maharaja Harasimhadeva (Harisiṃhadeva) of the Karnāṭa dynasty",
+                "Ballāl Sena",
+                "Gaṅgeśa Upādhyāya"
+            ],
+            correct: 1,
+            explanation: "The chapter states: 'Harasimhadeva (1294–post-1324 CE), a ruler of the Karnat dynasty of Mithila, was the official founder of the Pañjī-Prabandha…current form of the system was formally inaugurated in 1248 Śaka / 1326 CE.'"
+        },
+        {
+            text: "The Panji system originally maintained by Harasimhadeva treated all registered families as equal. When was the hierarchical stratification (Śrotriya, Yogya, Pañjībaddha) introduced?",
+            options: [
+                "During the 12th century under Ballāl Sena",
+                "After the digitisation project in 2000 CE",
+                "Under Maharaja Madhav Singh (c. 1760 CE) with the Śākhā Pañjī",
+                "By the British colonial administration in 1850"
+            ],
+            correct: 2,
+            explanation: "Chapter 17 notes that the Śākhā Pañjī was commissioned by Maharaja Madhav Singh around 1760 CE, and this hierarchical ranking was a later social corruption of the original scientific record."
+        },
+        {
+            text: "Which theoretical concept does the chapter use to describe the Pañjī's role in actively producing and reproducing social hierarchy, referring to Louis Dumont's work?",
+            options: [
+                "Segmentary lineage system",
+                "Homo Hierarchicus",
+                "Total social fact",
+                "Collective memory"
+            ],
+            correct: 1,
+            explanation: "The chapter says: 'Louis Dumont's analysis of the Homo Hierarchicus…finds its most elaborate textual operationalisation in the Pañjī system.'"
+        },
+        {
+            text: "What is the unique feature of the Rasarh-Araria Pañjī, as mentioned in the Dooshan Pañjī context?",
+            options: [
+                "It contains the names of women systematically recorded",
+                "It is the only register written in Persian script",
+                "It excludes all Śrotriya lineages",
+                "It contains only royal genealogies"
+            ],
+            correct: 0,
+            explanation: "The document states: 'only in the Rasarh-Araria Pañjī are women's names recorded' — a striking anomaly in the otherwise patrilineal register."
+        },
+        {
+            text: "According to the anthropological analysis in Chapter 17, the Panji's prohibition rules cover gotra, pravara, and sapiṇḍa. Which additional rule (the fourth) is also encoded?",
+            options: [
+                "The bride must not be the daughter of the groom's stepmother's brother (Vimatā rule)",
+                "Marriage is allowed only if the groom is older by at least ten years",
+                "The bride must belong to a different district",
+                "No marriage within the same village"
+            ],
+            correct: 0,
+            explanation: "The four rules listed include Rule 4 (Vimatā): 'the bride must not be the daughter of the groom's stepmother's brother.'"
+        },
+        {
+            text: "The chapter compares the Pañjī system with global genealogical traditions. Which tradition is described as the closest global parallel in terms of scope and continuity?",
+            options: [
+                "European nobility peerage records (Burke's Peerage)",
+                "Jewish Yichus records",
+                "Chinese clan genealogies (Zupu)",
+                "Icelandic sagas"
+            ],
+            correct: 2,
+            explanation: "'Chinese clan genealogies (zupu) are the closest global parallel to the Pañjī in terms of scope and continuity.' However, the Pañjī is unique due to its professional corps and real‑time marriage certification."
+        },
+        {
+            text: "What major archival intervention was initiated around 2000 CE regarding the Panji manuscripts?",
+            options: [
+                "Destruction of old palm‑leaf records to avoid caste disputes",
+                "Digitisation, imaging of palm‑leaf manuscripts, and transliteration into Devanagari",
+                "Translation of all records into English only",
+                "Transfer of all original manuscripts to the British Library"
+            ],
+            correct: 1,
+            explanation: "The chapter describes the digitisation project begun in 2000 CE: digital imaging, Tirhuta script encoding, Devanagari transliteration, and systematic organisation by Gajendra Thakur and team."
+        },
+        {
+            text: "The Dooshan Pañjī (Black Book) primarily records:",
+            options: [
+                "Only the purest Śrotriya lineages",
+                "Genealogical defects, inter‑caste marriages, unknown maternal origins, and other social transgressions",
+                "The official certificates of marriage (Siddhānta Patra)",
+                "The names of all Panjikāra families"
+            ],
+            correct: 1,
+            explanation: "The Dooshan Pañjī is the 'Register of Defects' that records inter‑caste unions, unknown lineage, devadāsī mothers, and any departure from endogamous norms."
+        },
+        {
+            text: "Which philosophical school, founded by Gaṅgeśa Upādhyāya, is mentioned as emerging from the same Mithila intellectual milieu as the Pañjī system?",
+            options: [
+                "Advaita Vedānta",
+                "Navya-Nyāya (New Logic)",
+                "Mīmāṃsā",
+                "Sāṃkhya"
+            ],
+            correct: 1,
+            explanation: "Chapter 17 explicitly links Gaṅgeśa Upādhyāya’s Tattvacintāmaṇi and the Navya-Nyāya tradition with the Pañjī's sophisticated relational logic, stating both reflect Mithila's intellectual culture."
+        }
+    ];
+
+    let userSelections = new Array(questions.length).fill(null);
+    let submitted = false;
+
+    function renderQuiz() {
+        const container = document.getElementById('quiz-container');
+        let html = '';
+        questions.forEach((q, idx) => {
+            const selectedVal = (userSelections[idx] !== null && !submitted) ? userSelections[idx] : (submitted ? userSelections[idx] : null);
+            html += `<div class="question-card" data-qidx="${idx}">
+                        <div class="question-text">${idx+1}. ${q.text}</div>
+                        <ul class="options">`;
+            q.options.forEach((opt, optIdx) => {
+                let checkedAttr = (selectedVal === optIdx) ? 'checked' : '';
+                let disabledAttr = (submitted) ? 'disabled' : '';
+                html += `<li>
+                            <input type="radio" name="q${idx}" value="${optIdx}" id="q${idx}_opt${optIdx}" ${checkedAttr} ${disabledAttr}>
+                            <label for="q${idx}_opt${optIdx}">${String.fromCharCode(65+optIdx)}. ${opt}</label>
+                         </li>`;
+            });
+            html += `</ul>`;
+            if (submitted) {
+                const isCorrect = (userSelections[idx] === q.correct);
+                const correctAnswerLetter = String.fromCharCode(65 + q.correct);
+                const explanationText = q.explanation;
+                if (isCorrect) {
+                    html += `<div class="feedback correct-feedback">✓ Correct. ${explanationText}</div>`;
+                } else {
+                    const userLetter = (userSelections[idx] !== null) ? String.fromCharCode(65 + userSelections[idx]) : 'No answer';
+                    html += `<div class="feedback wrong-feedback">✗ Your answer: ${userLetter}. Correct answer: ${correctAnswerLetter}. ${explanationText}</div>`;
+                }
+            }
+            html += `</div>`;
+        });
+        container.innerHTML = html;
+        
+        // attach event listeners for radio buttons (only if not submitted)
+        if (!submitted) {
+            for (let i = 0; i < questions.length; i++) {
+                const radios = document.querySelectorAll(`input[name="q${i}"]`);
+                radios.forEach(radio => {
+                    radio.addEventListener('change', (e) => {
+                        userSelections[i] = parseInt(e.target.value);
+                    });
+                });
+            }
+        }
+    }
+
+    function computeScoreAndDisplay() {
+        let score = 0;
+        for (let i = 0; i < questions.length; i++) {
+            if (userSelections[i] !== null && userSelections[i] === questions[i].correct) {
+                score++;
+            }
+        }
+        const percent = Math.round((score / questions.length) * 100);
+        const scoreDiv = document.getElementById('scoreDisplay');
+        scoreDiv.style.display = 'block';
+        scoreDiv.innerHTML = `🏆 Your score: ${score} / ${questions.length} (${percent}%) — ${
+            percent >= 80 ? 'Excellent grasp of the Panji system!' : (percent >= 60 ? 'Good understanding, review key themes.' : 'Review the genealogical framework again.')
+        }`;
+        return score;
+    }
+
+    function submitQuiz() {
+        if (submitted) return;
+        // Check unanswered questions
+        let allAnswered = true;
+        for (let i = 0; i < questions.length; i++) {
+            if (userSelections[i] === null) {
+                allAnswered = false;
+                break;
+            }
+        }
+        if (!allAnswered) {
+            alert("Please answer all questions before submitting.");
+            return;
+        }
+        submitted = true;
+        renderQuiz();      // re-render with feedback and disabled radios
+        computeScoreAndDisplay();
+        document.getElementById('submitBtn').disabled = true;
+        // optional style
+        document.getElementById('submitBtn').style.opacity = '0.7';
+    }
+
+    function resetQuiz() {
+        userSelections = new Array(questions.length).fill(null);
+        submitted = false;
+        document.getElementById('submitBtn').disabled = false;
+        document.getElementById('submitBtn').style.opacity = '1';
+        document.getElementById('scoreDisplay').style.display = 'none';
+        renderQuiz();
+    }
+
+    // initial render
+    renderQuiz();
+
+    // buttons
+    document.getElementById('submitBtn').addEventListener('click', submitQuiz);
+    document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

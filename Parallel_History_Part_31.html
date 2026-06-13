@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <title>Quiz: Chapter 31 – Parallel History of Mithila & Maithili Literature</title> <style>
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 1000px; margin: 2rem auto; padding: 1rem; background: #f4f1ea; }
+.quiz-container { background: white; border-radius: 2rem; padding: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.question { border-bottom: 1px solid #e0d6c5; padding: 1rem 0; }
+.question-text { font-weight: 600; margin-bottom: 0.5rem; }
+.options { margin-left: 1.5rem; margin-bottom: 0.5rem; }
+.option { margin: 0.3rem 0; }
+.explanation { background: #f0f0e8; padding: 0.5rem; margin-top: 0.5rem; border-left: 4px solid #b8860b; display: none; }
+button { background: #2c5e2c; color: white; border: none; padding: 0.5rem 1.2rem; border-radius: 2rem; cursor: pointer; margin: 0.2rem; font-size: 1rem; }
+button:hover { background: #1e401e; }
+.score { font-size: 1.2rem; font-weight: bold; margin-top: 1rem; }
+hr { margin: 1rem 0; }
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <h1>📖 Chapter 31 – Later Parallel Traditions & Critical Appreciations</h1> <p>Based on the Videha research compendium (sections 90–100 & selected critical essays).</p> <div id="quiz"></div> <div style="margin-top: 1rem;"> <button id="submitBtn">✔ Submit Answers</button> <button id="resetBtn">⟳ Reset Quiz</button> </div> <div id="score" class="score"></div>
+</div>
+<script>
+const questions = [
+    {
+        text: "Dr. Kailash Kumar Mishra’s novel ‘Mansarbi’ (2025) is set against the backdrop of which social reality in Mithila?",
+        options: [
+            "Caste violence, feudal oppression, and a Dalit woman’s resistance",
+            "The partition of India",
+            "The Bengal Famine",
+            "The Nepalese Civil War"
+        ],
+        correct: 0,
+        explanation: "‘Mansarbi’ centres on Bulki, a Dalit woman, and exposes caste–class exploitation in rural Madhubani."
+    },
+    {
+        text: "Which of the following is a key argument made by Dinesh Kumar Mishra in ‘The Myth of Flood Control’ (2014)?",
+        options: [
+            "Dams and embankments completely solve flooding",
+            "Embankments often fail, cause silt accumulation, and worsen waterlogging",
+            "Floods are purely natural and cannot be mitigated",
+            "Only the Nepal government is responsible for Kosi floods"
+        ],
+        correct: 1,
+        explanation: "Mishra argues that embankments create a false sense of security; silt raises riverbeds, making breaches more destructive."
+    },
+    {
+        text: "The Maithili poet and translator Dr. Kirtinath Jha (based in Puducherry) is known for translating which of Khalil Gibran’s works into Maithili?",
+        options: [
+            "The Prophet",
+            "Broken Wings (Tutal Pankhi)",
+            "Sand and Foam",
+            "Jesus the Son of Man"
+        ],
+        correct: 1,
+        explanation: "Kirtinath Jha’s ‘Tutal Pankhi’ (2016) is the first Maithili translation of Gibran’s ‘Broken Wings’."
+    },
+    {
+        text: "In the Videha Parallel History, what does the term ‘bhrama’ (false cognition) refer to in the context of casteist theatre?",
+        options: [
+            "Theatrical illusion",
+            "False representation of Brahminical aesthetics as universal Maithili culture",
+            "A type of folk dance",
+            "A Navya-Nyāya fallacy about perception"
+        ],
+        correct: 1,
+        explanation: "Casteist theatre produces bhrama by presenting upper‑caste perspectives as the whole of Maithili culture, excluding subaltern voices."
+    },
+    {
+        text: "Which writer is the author of ‘Ujāra Parbak Khoj’ (In Search of the Festival of Light), a poetry collection exploring ecology, festival, and Maithili identity?",
+        options: [
+            "Binay Bhushan",
+            "Lal Dev Kamat",
+            "Kameshwar Jha ‘Kamal’",
+            "Hitnath Jha"
+        ],
+        correct: 0,
+        explanation: "Binay Bhushan’s 2015 collection uses the white pigeon as a symbol of peace and cultural memory."
+    },
+    {
+        text: "The ‘Gamhar Maithili Weekly’, founded by Ram Bharos Kapari ‘Bhramar’, is historically significant because:",
+        options: [
+            "It was the first Maithili newspaper from Nepal, still running after four decades",
+            "It was banned by the Nepali government",
+            "It only published poetry",
+            "It was a Hindi–Maithili bilingual"
+        ],
+        correct: 0,
+        explanation: "Bhramar founded ‘Gamhar’ in 2039 BS (1982 CE) – Nepal’s first and longest‑running Maithili newspaper."
+    },
+    {
+        text: "According to the ‘Parallel History’, which figure is identified as ‘the greatest living poet of Maithili’ and has been systematically ignored by the Sahitya Akademi?",
+        options: [
+            "Rajdeo Mandal",
+            "Jagdish Prasad Mandal",
+            "Ashish Anchinhar",
+            "Bechan Thakur"
+        ],
+        correct: 0,
+        explanation: "The Videha framework explicitly names Rajdeo Mandal as the greatest living Maithili poet, long neglected by official awards."
+    },
+    {
+        text: "The ‘Kosi Mahasetu’ (great Kosi bridge) project, as documented by Dinesh Kumar Mishra, became a symbol of:",
+        options: [
+            "Successful flood control",
+            "Government failure to fund critical infrastructure, leaving the region disconnected",
+            "Environmental restoration",
+            "Tourism development"
+        ],
+        correct: 1,
+        explanation: "Mishra reported that lack of funds stalled the bridge, worsening connectivity in flood‑prone areas."
+    },
+    {
+        text: "Which Maithili woman writer’s poem ‘Chul Buli Kanya Bani Gelahuṃ’ (I Became a Mischievous Girl Again) celebrates the recovery of playful selfhood after years of grief and duty?",
+        options: [
+            "Kusum Thakur",
+            "Meena Jha",
+            "Shail Jha ‘Sagar’",
+            "Premlata Mishra ‘Prem’"
+        ],
+        correct: 0,
+        explanation: "Kusum Thakur’s poem appears in Videha Sadeha 34 alongside her memoir ‘Pratyavartan’."
+    },
+    {
+        text: "In Navya-Nyāya epistemology, what does ‘parataḥ pramāṇya’ (extrinsic validity) mean when applied to literary criticism?",
+        options: [
+            "A text’s value is self‑evident",
+            "A text’s validity is certified by external criteria such as reader response or verifiable testimony",
+            "Only ancient texts are valid",
+            "The author’s intention is irrelevant"
+        ],
+        correct: 1,
+        explanation: "Gaṅgeśa’s parataḥ‑pramāṇya holds that knowledge claims require external confirmation – in literature, through successful communication and social truth."
+    },
+    {
+        text: "The literary sketch collection ‘Dillik Park’ (Delhi Park) by Nand Kumar Mishra ‘Nand’ uses the park as a setting to observe:",
+        options: [
+            "Mithila diaspora migrants navigating metropolitan alienation",
+            "Bollywood film shootings",
+            "Political rallies",
+            "Religious pilgrimages"
+        ],
+        correct: 0,
+        explanation: "Nand’s sketches capture the ‘third space’ of Maithili migrants in Delhi, blending observation and social critique."
+    },
+    {
+        text: "Who is the author of the Maithili novel ‘Gaam Gel Chhalahun’ (I Had Gone to the Village), which uses the pluperfect tense to express the irrecoverable loss of the village?",
+        options: [
+            "Satyanand Pathak",
+            "Ashok",
+            "Kedar Nath Chaudhary",
+            "Laxman Jha ‘Sagar’"
+        ],
+        correct: 0,
+        explanation: "Satyanand Pathak’s novel (2004) is a landmark of diaspora fiction in Maithili, published from Guwahati."
+    },
+    {
+        text: "The ‘Anchinhar Aakhar’ movement’s Ghajalsastram (Maithili Ghazal Poetics) was authored by:",
+        options: [
+            "Ashish Anchinhar and Gajendra Thakur",
+            "Udaya Narayan Singh ‘Nachiketa’",
+            "Munnaji",
+            "Jagdish Chandra Thakur ‘Anil’"
+        ],
+        correct: 0,
+        explanation: "Ashish Anchinhar wrote ‘Maithili Ghazalak Vyakaran O Itihas’, and Gajendra Thakur contributed theoretical essays; together they established the Ghajalsastram."
+    },
+    {
+        text: "What is the central metaphor of Kalikant Jha ‘Buch’’s poem ‘Beti Banli Pahar’ (Daughter Becomes a Mountain)?",
+        options: [
+            "A daughter’s love for nature",
+            "The crushing burden of dowry on a father",
+            "The beauty of Mithila hills",
+            "A daughter’s career success"
+        ],
+        correct: 1,
+        explanation: "The poem satirises how the dowry system turns a daughter into an unbearable ‘mountain’ of debt and expectation."
+    },
+    {
+        text: "The Maithili poet and engineer Kedar Nath Chaudhary’s novel ‘Abara Nahitan’ (The Wanderer Who Is Not a Wanderer) deals with:",
+        options: [
+            "The experience of a returned diaspora intellectual and his confrontation with transformed Mithila",
+            "A mythological epic",
+            "A detective story",
+            "A children’s adventure"
+        ],
+        correct: 0,
+        explanation: "‘Abara Nahitan’ (2012) is a philosophical novel about displacement, memory, and homecoming."
+    },
+    {
+        text: "According to the Videha Parallel History, which of the following is a major limitation of the Sahitya Akademi’s Maithili Bal Sahitya Puraskar?",
+        options: [
+            "It has never been awarded",
+            "It has repeatedly awarded the same author (Jagdish Prasad Mandal), indicating a limited pool or network capture",
+            "It only gives prizes to Hindi translations",
+            "It excludes children’s literature entirely"
+        ],
+        correct: 1,
+        explanation: "The Parallel History notes that Jagdish Prasad Mandal won the Bal Sahitya Puraskar three times, reflecting both scarcity and institutional bias."
+    },
+    {
+        text: "Which folklorist and AIR artist documented endangered Maithili folk song genres such as Parātī, Gosaunik Gīt, and Jhūmarā?",
+        options: [
+            "Hriday Narayan Jha",
+            "Kailash Kumar Mishra",
+            "Binay Bhushan",
+            "Prabhat Rai Bhatt"
+        ],
+        correct: 0,
+        explanation: "Hriday Narayan Jha’s essay ‘Luptraprāya Maithilī Lokagīta’ is a key archival document in the Videha archive."
+    },
+    {
+        text: "The term ‘Samanantar Sahitya Akademi Samman’ (Videha Parallel Award) was first given in 2010 to which two scholars?",
+        options: [
+            "Govind Jha and Ramanand Renu",
+            "Bechan Thakur and Rajdeo Mandal",
+            "Jagdish Prasad Mandal and Ashish Anchinhar",
+            "Gajendra Thakur and Preeti Thakur"
+        ],
+        correct: 0,
+        explanation: "The first Videha Parallel Sahitya Akademi Fellows were Govind Jha (2010) and Ramanand Renu (2011)."
+    },
+    {
+        text: "In the novel ‘Pangu’ by Jagdish Prasad Mandal, what does the protagonist’s physical lameness symbolise?",
+        options: [
+            "Individual weakness",
+            "Social and caste‑based immobility imposed by the system",
+            "A medical curiosity",
+            "Spiritual enlightenment"
+        ],
+        correct: 1,
+        explanation: "‘Pangu’ uses disability as a metaphor for the structural exclusion of lower‑caste and marginalised communities."
+    },
+    {
+        text: "According to the document, which Nepalese Maithili writer founded ‘Gamhar’ weekly and served as the first Madhesi President of Sajha Prakashan?",
+        options: [
+            "Ram Bharos Kapari ‘Bhramar’",
+            "Udaya Narayana Singh ‘Nachiketa’",
+            "Laxman Jha ‘Sagar’",
+            "Ram Bhorosa Padi ‘Bhramar’"
+        ],
+        correct: 0,
+        explanation: "Ram Bharos Kapari ‘Bhramar’ is a key figure in Nepalese Maithili literature, bridging India‑Nepal cultural ties."
+    }
+];
+
+let userSelections = new Array(questions.length).fill(null);
+let submitted = false;
+
+function renderQuiz() {
+    const container = document.getElementById('quiz');
+    if (!container) return;
+    let html = '';
+    questions.forEach((q, idx) => {
+        const selected = userSelections[idx] !== null ? userSelections[idx] : -1;
+        html += `<div class="question" data-qidx="${idx}">
+                    <div class="question-text">${idx+1}. ${q.text}</div>
+                    <div class="options">`;
+        q.options.forEach((opt, optIdx) => {
+            const checked = (selected === optIdx) ? 'checked' : '';
+            html += `<div class="option">
+                        <input type="radio" name="q${idx}" value="${optIdx}" id="q${idx}_${optIdx}" ${checked} ${submitted ? 'disabled' : ''}>
+                        <label for="q${idx}_${optIdx}">${String.fromCharCode(65+optIdx)}. ${opt}</label>
+                     </div>`;
+        });
+        html += `</div><div class="explanation" id="expl${idx}"></div></div>`;
+    });
+    container.innerHTML = html;
+}
+
+function calculateScore() {
+    let correct = 0;
+    for (let i = 0; i < questions.length; i++) {
+        if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correct++;
+    }
+    return correct;
+}
+
+function submitQuiz() {
+    submitted = true;
+    // read selections
+    for (let i = 0; i < questions.length; i++) {
+        const radios = document.getElementsByName(`q${i}`);
+        for (let j = 0; j < radios.length; j++) {
+            if (radios[j].checked) userSelections[i] = parseInt(radios[j].value);
+        }
+        const explDiv = document.getElementById(`expl${i}`);
+        if (explDiv) {
+            const isCorrect = (userSelections[i] === questions[i].correct);
+            const userAns = (userSelections[i] !== null) ? questions[i].options[userSelections[i]] : "Not answered";
+            const correctAns = questions[i].options[questions[i].correct];
+            explDiv.innerHTML = `<strong>📖 Explanation:</strong> ${questions[i].explanation}<br>
+                                 <span style="color:#4b6b3e;">Your answer: ${userAns}</span><br>
+                                 <span style="color:#2c6e2c;">Correct answer: ${correctAns}</span>`;
+            explDiv.style.display = 'block';
+        }
+        // disable radios
+        const allRadios = document.getElementsByName(`q${i}`);
+        allRadios.forEach(r => r.disabled = true);
+    }
+    const score = calculateScore();
+    document.getElementById('score').innerHTML = `✅ Score: ${score} / ${questions.length}`;
+}
+
+function resetQuiz() {
+    submitted = false;
+    userSelections = new Array(questions.length).fill(null);
+    renderQuiz();
+    for (let i = 0; i < questions.length; i++) {
+        const explDiv = document.getElementById(`expl${i}`);
+        if (explDiv) explDiv.style.display = 'none';
+    }
+    document.getElementById('score').innerHTML = '';
+}
+
+document.getElementById('submitBtn').addEventListener('click', submitQuiz);
+document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+renderQuiz();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Chapter 20 – The Dooshan Pañjī (Black Book of Mithila)</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #f5f1e8;
+font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, -apple-system, sans-serif;
+padding: 2rem 1.5rem;
+color: #2c2b28;
+}
+.quiz-container {
+max-width: 950px;
+margin: 0 auto;
+background: #fffef7;
+border-radius: 28px;
+box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
+overflow: hidden;
+border: 1px solid #e6dfd0;
+}
+.header {
+background: #3e2c1f;
+background-image: linear-gradient(135deg, #4a3522, #2e2116);
+padding: 2rem 2rem 1.5rem;
+color: #fef1df;
+border-bottom: 4px solid #d8a24a;
+}
+.header h1 {
+font-size: 1.9rem;
+font-weight: 600;
+letter-spacing: -0.3px;
+margin-bottom: 0.5rem;
+}
+.header h1 span {
+font-weight: 400;
+font-style: italic;
+color: #e7bc7e;
+}
+.header p {
+font-size: 1rem;
+opacity: 0.85;
+margin-top: 0.5rem;
+line-height: 1.4;
+}
+.badge {
+display: inline-block;
+background: #d8a24a;
+color: #2a1c0f;
+padding: 0.2rem 1rem;
+border-radius: 40px;
+font-size: 0.75rem;
+font-weight: 600;
+letter-spacing: 0.5px;
+margin-top: 0.75rem;
+}
+.quiz-content {
+padding: 2rem 2rem 1.5rem;
+}
+.question-card {
+background: #ffffff;
+border-radius: 20px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+border: 1px solid #ebe3d6;
+padding: 1.4rem 1.6rem;
+margin-bottom: 1.8rem;
+transition: all 0.2s ease;
+}
+.question-card:hover {
+border-color: #dac29c;
+box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+}
+.q-text {
+font-size: 1.2rem;
+font-weight: 600;
+color: #2c241a;
+margin-bottom: 1rem;
+line-height: 1.4;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+margin-bottom: 1rem;
+}
+.option {
+display: flex;
+align-items: baseline;
+gap: 0.75rem;
+font-size: 0.98rem;
+padding: 0.5rem 0.5rem 0.5rem 0.2rem;
+background: #fefcf8;
+border-radius: 14px;
+cursor: pointer;
+transition: background 0.15s;
+}
+.option:hover {
+background: #f9f2e6;
+}
+input[type="radio"] {
+accent-color: #b5722e;
+width: 1.1rem;
+height: 1.1rem;
+margin-top: 0.2rem;
+flex-shrink: 0;
+}
+.option label {
+cursor: pointer;
+line-height: 1.4;
+color: #2c2b28;
+}
+.feedback {
+font-size: 0.85rem;
+margin-top: 0.6rem;
+padding: 0.5rem 0.8rem;
+border-radius: 14px;
+background: #faf7f0;
+display: none;
+border-left: 4px solid #d3a14b;
+}
+.feedback.correct {
+background: #eaf7e6;
+border-left-color: #2f7840;
+color: #1c4827;
+display: block;
+}
+.feedback.incorrect {
+background: #fef0ef;
+border-left-color: #bc4e2c;
+color: #8b3c22;
+display: block;
+}
+.btn-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 1.5rem;
+gap: 1rem;
+flex-wrap: wrap;
+}
+button {
+background: #4a3522;
+border: none;
+padding: 0.8rem 2rem;
+border-radius: 60px;
+font-weight: 600;
+font-size: 1rem;
+color: white;
+cursor: pointer;
+transition: 0.2s;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+button:hover {
+background: #5f4530;
+transform: translateY(-1px);
+}
+.reset-btn {
+background: #857564;
+}
+.reset-btn:hover {
+background: #6c5a4b;
+}
+.score-area {
+background: #f0ebe2;
+padding: 0.8rem 1.5rem;
+border-radius: 60px;
+font-weight: 600;
+color: #2f2a23;
+font-size: 1rem;
+}
+hr {
+margin: 1rem 0;
+border: none;
+border-top: 1px solid #e2d9ce;
+}
+footer {
+font-size: 0.75rem;
+text-align: center;
+padding: 1.5rem 2rem;
+background: #faf7f0;
+border-top: 1px solid #e2d9ce;
+color: #6b5a48;
+}
+@media (max-width: 650px) {
+body {
+padding: 1rem;
+}
+.quiz-content {
+padding: 1.5rem;
+}
+.q-text {
+font-size: 1rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <div class="header"> <h1>📜 Dooshan Pañjī <span>— The Black Book of Mithila</span></h1> <p>Chapter 20: An interdisciplinary research report (Anthropological, Sociological & Genealogical lenses)</p> <div class="badge">Based on Gajendra Thakur's edition | Videha Parallel Literature Movement</div> </div> <div class="quiz-content"> <form id="quizForm"> </form> <div class="btn-container"> <button type="button" id="submitBtn">✓ Submit answers</button> <button type="button" id="resetBtn" class="reset-btn">⟳ Reset quiz</button> <div class="score-area" id="scoreDisplay">— / <span id="totalQ">0</span></div> </div> <hr /> </div>
+</div>
+<script>
+    // -------- QUIZ DATA (Chapter 20: Dooshan Panji / The Black Book) --------
+    const questions = [
+        {
+            text: "What is the Dooshan Pañjī within the broader Mithila genealogical system?",
+            options: [
+                "The primary root register (Mūla Pañjī) that records original settlements",
+                "The branch register (Śākhā Pañjī) introduced by Maharaja Madhav Singh",
+                "The ‘Defect Register’ or ‘Black Book’ that records inter-caste unions, devadāsī connections, and genealogical deviations",
+                "The certificate register (Siddhānta Patra) issued after marriage verification"
+            ],
+            correct: 2,
+            explanation: "Dooshan Pañjī (dūṣaṇa = defect/taint) is the fifth canonical register; it documents departures from endogamy, such as cross-caste marriages, widow remarriages, and unknown maternal lineages."
+        },
+        {
+            text: "Who formally institutionalized the Pañjī-Prabandha system, and around which year was the current form established?",
+            options: [
+                "Maharaja Madhav Singh, around 1760 CE",
+                "King Harasimhadeva of the Karnat dynasty, around 1326 CE (1248 Śaka)",
+                "Maharaja Rameshwar Singh, early 20th century",
+                "Gajendra Thakur, during the 2000 CE digitization project"
+            ],
+            correct: 1,
+            explanation: "King Harasimhadeva (Karnat dynasty) appointed the first Pañjikāras; the present system’s start is dated 1248 Śaka (1326 CE) after his flight to Nepal."
+        },
+        {
+            text: "According to Chapter 20, which crucial piece of information about the philosopher Gaṅgeśa Upādhyāya (founder of Navya-Nyāya) was recorded in the Dooshan Pañjī but suppressed by 20th‑century scholars?",
+            options: [
+                "That he wrote the Tattvacintāmaṇi in Sanskrit",
+                "That he studied under Pakshadhar Mishra in Mithila",
+                "That his wife was a Charmakāriṇī (tanner‑caste woman) and he was born five years after his father’s death",
+                "That his family migrated to Bengal and became famous as poets"
+            ],
+            correct: 2,
+            explanation: "Dooshan Pañjī entries explicitly note: ‘Vallabhā Charmakāriṇī’ (wife from tanner community) and ‘pitṛ parokṣe pañca varṣa vyatīte Gaṅgeśotpatti’ (born 5 years after father’s death)."
+        },
+        {
+            text: "What does the Dooshan Pañjī’s mechanism of ‘Purnatah Shuddha’ (complete purity) indicate?",
+            options: [
+                "That a lineage was permanently excluded from Brahmin society",
+                "That a lineage could be reintegrated and considered completely pure after six generations of endogamous marriages",
+                "That all women's names were erased from the record forever",
+                "That the Pañjīkāra had to perform a special ritual for each marriage"
+            ],
+            correct: 1,
+            explanation: "The purification protocol tracked tainted lineages (e.g., from inter‑caste union) and after 6 generations of strategic marriages, descendants were declared ‘Purnatah Shuddha’."
+        },
+        {
+            text: "Which regional Pañjī is noted as the only one that systematically records women’s personal names?",
+            options: [
+                "The Śākhā Pañjī of Saurath",
+                "The Gotra Pañjī of Darbhanga",
+                "The Rasadh‑Araria Pañjī",
+                "The Mūla Pañjī of Māṇḍar"
+            ],
+            correct: 2,
+            explanation: "The document states: ‘only in the Rasadh-Araria Pañjī are women’s names recorded’ — a unique archival exception due to colonial land rights."
+        },
+        {
+            text: "According to the anthropological analysis in Chapter 20, the Dooshan Pañjī serves as which type of ‘total social fact’?",
+            options: [
+                "A simple family tree for property disputes",
+                "A stigma register that also provides a pathway for social reintegration",
+                "A purely literary text without legal force",
+                "A manual for astrological predictions"
+            ],
+            correct: 1,
+            explanation: "In Maussian terms, the Pañjī is a Total Social Institution; the Dooshan Pañjī both records ‘spoiled identity’ and allows generational restoration (purification)."
+        },
+        {
+            text: "Which scholar is criticized in Chapter 20 for deliberately withholding evidence from the Dooshan Pañjī, leading Dinesh Chandra Bhattacharya to wrongly claim Gaṅgeśa’s family became extinct?",
+            options: [
+                "Dr. Sir Ganganatha Jha",
+                "Prof. Ramanath Jha",
+                "Anshuman Pandey",
+                "V.P. Bhatta"
+            ],
+            correct: 1,
+            explanation: "Prof. Ramanath Jha, a 20th‑century Maithil scholar, knew the Dooshan Pañjī records but concealed them, feeding false information to Bhattacharya (1958)."
+        },
+        {
+            text: "What social practice is explicitly recorded in the Dooshan Pañjī through tables 11–12 and 66?",
+            options: [
+                "Marriages with women from the Yavana (Muslim) community, including Daulatijahāṃ and Chāmpo Yavana",
+                "Only marriages within the same gotra",
+                "Exchange of palm‑leaf manuscripts between Panjikāras",
+                "Commercial transactions of zamindari estates"
+            ],
+            correct: 0,
+            explanation: "The Black Book documents unions with Muslim women (Yavana) such as Daulatijahāṃ and Champo, showing Indo‑Islamic social contact at the village level."
+        },
+        {
+            text: "How many tables of genealogical deviations (‘dooshan’) does the Dooshan Pañjī contain according to the chapter?",
+            options: [
+                "97 tables",
+                "32 tables (based on 32 ancestors)",
+                "185 tables (one per Pañjikāra)",
+                "153 tables (for Yogya class)"
+            ],
+            correct: 0,
+            explanation: "The chapter states ‘The heart of the document consists of 97 genealogical tables, each recording a specific ‘tainted’ marriage event or lineage anomaly.’"
+        },
+        {
+            text: "What does Gajendra Thakur’s editorial framework call the deliberate suppression of Gaṅgeśa Upādhyāya’s family background by later scholars?",
+            options: [
+                "An act of genealogical negligence",
+                "The ‘honour killing’ of Gaṅgeśa Upādhyāya",
+                "A manuscript preservation error",
+                "A routine editing of the Panji records"
+            ],
+            correct: 1,
+            explanation: "Thakur explicitly uses the term ‘honour killing’ to describe the erasure of Gaṅgeśa’s social origins (Dalit wife, posthumous birth) from mainstream academic narratives."
+        }
+    ];
+
+    const totalQuestions = questions.length;
+    document.getElementById("totalQ").innerText = totalQuestions;
+
+    let userAnswers = new Array(totalQuestions).fill(null);
+    let formSubmitted = false;
+
+    // Build dynamic quiz HTML
+    function renderQuiz() {
+        const formContainer = document.getElementById("quizForm");
+        formContainer.innerHTML = "";
+        for (let i = 0; i < questions.length; i++) {
+            const q = questions[i];
+            const card = document.createElement("div");
+            card.className = "question-card";
+            card.dataset.qid = i;
+
+            const qText = document.createElement("div");
+            qText.className = "q-text";
+            qText.innerText = `${i+1}. ${q.text}`;
+            card.appendChild(qText);
+
+            const optionsDiv = document.createElement("div");
+            optionsDiv.className = "options";
+            for (let optIdx = 0; optIdx < q.options.length; optIdx++) {
+                const optValue = q.options[optIdx];
+                const radioId = `q${i}_opt${optIdx}`;
+                const radio = document.createElement("input");
+                radio.type = "radio";
+                radio.name = `question${i}`;
+                radio.value = optIdx;
+                radio.id = radioId;
+                if (userAnswers[i] === optIdx) radio.checked = true;
+
+                const label = document.createElement("label");
+                label.htmlFor = radioId;
+                label.innerText = optValue;
+
+                const optionWrapper = document.createElement("div");
+                optionWrapper.className = "option";
+                optionWrapper.appendChild(radio);
+                optionWrapper.appendChild(label);
+
+                // Event to store answer on change
+                radio.addEventListener("change", (function(qIndex, selectedVal) {
+                    return function() {
+                        if (formSubmitted) return; // prevent changes after submit until reset
+                        userAnswers[qIndex] = parseInt(selectedVal);
+                        // clear feedback for this question when changed
+                        const feedbackDiv = document.querySelector(`.question-card[data-qid='${qIndex}'] .feedback`);
+                        if (feedbackDiv) {
+                            feedbackDiv.className = "feedback";
+                            feedbackDiv.style.display = "none";
+                        }
+                    };
+                })(i, optIdx));
+
+                optionsDiv.appendChild(optionWrapper);
+            }
+            card.appendChild(optionsDiv);
+
+            // feedback area
+            const feedbackDiv = document.createElement("div");
+            feedbackDiv.className = "feedback";
+            feedbackDiv.id = `fb${i}`;
+            card.appendChild(feedbackDiv);
+            formContainer.appendChild(card);
+        }
+    }
+
+    // Evaluate and show results
+    function evaluateQuiz() {
+        let score = 0;
+        for (let i = 0; i < totalQuestions; i++) {
+            const selected = userAnswers[i];
+            const isCorrect = (selected !== null && selected === questions[i].correct);
+            if (isCorrect) score++;
+
+            const fbDiv = document.getElementById(`fb${i}`);
+            const card = document.querySelector(`.question-card[data-qid='${i}']`);
+            if (!fbDiv) continue;
+
+            // Remove previous classes and show
+            fbDiv.classList.remove("correct", "incorrect");
+            if (selected === null) {
+                fbDiv.innerHTML = `⚠️ Not answered. ${questions[i].explanation.substring(0, 140)}...`;
+                fbDiv.classList.add("incorrect");
+                fbDiv.style.display = "block";
+            } else if (isCorrect) {
+                fbDiv.innerHTML = `✅ Correct! ${questions[i].explanation}`;
+                fbDiv.classList.add("correct");
+                fbDiv.style.display = "block";
+            } else {
+                const correctAnswerText = questions[i].options[questions[i].correct];
+                fbDiv.innerHTML = `❌ Incorrect. Correct answer: "${correctAnswerText}". ${questions[i].explanation}`;
+                fbDiv.classList.add("incorrect");
+                fbDiv.style.display = "block";
+            }
+        }
+        document.getElementById("scoreDisplay").innerHTML = `${score} / ${totalQuestions}`;
+        return score;
+    }
+
+    function resetQuiz() {
+        userAnswers.fill(null);
+        formSubmitted = false;
+        // clear all radio selections
+        const allRadios = document.querySelectorAll("#quizForm input[type='radio']");
+        allRadios.forEach(radio => radio.checked = false);
+        // hide all feedback divs and reset classes
+        for (let i = 0; i < totalQuestions; i++) {
+            const fbDiv = document.getElementById(`fb${i}`);
+            if (fbDiv) {
+                fbDiv.className = "feedback";
+                fbDiv.style.display = "none";
+                fbDiv.innerHTML = "";
+            }
+        }
+        document.getElementById("scoreDisplay").innerHTML = `— / ${totalQuestions}`;
+        // re-enable changes
+        formSubmitted = false;
+    }
+
+    function submitQuiz() {
+        let allAnswered = true;
+        for (let i = 0; i < totalQuestions; i++) {
+            if (userAnswers[i] === null) {
+                allAnswered = false;
+                break;
+            }
+        }
+        if (!allAnswered) {
+            // optional gentle warning, but still evaluate (show missing answers)
+            if (confirm("Some questions are unanswered. They will be marked incorrect. Continue?")) {
+                formSubmitted = true;
+                evaluateQuiz();
+            }
+        } else {
+            formSubmitted = true;
+            evaluateQuiz();
+        }
+    }
+
+    // Event listeners
+    document.getElementById("submitBtn").addEventListener("click", () => {
+        submitQuiz();
+    });
+    document.getElementById("resetBtn").addEventListener("click", () => {
+        resetQuiz();
+        // re-sync stored answers after reset (resetQuiz already cleared userAnswers)
+        // but we need to also potentially clear any answer storage again
+        formSubmitted = false;
+        // also make sure any radio changes from now on store again
+        // (already attached listeners persist)
+        evaluateQuiz(); // after reset, feedback cleared -> but we just need to reset display.
+        // reset score display again:
+        document.getElementById("scoreDisplay").innerHTML = `— / ${totalQuestions}`;
+        for(let i=0;i<totalQuestions;i++){
+            const fbDiv = document.getElementById(`fb${i}`);
+            if(fbDiv){
+                fbDiv.style.display = "none";
+                fbDiv.className = "feedback";
+            }
+        }
+    });
+
+    // additional: if any radio changed after submit, we need to prevent score update unless reset? 
+    // we already block changes in radio event if formSubmitted true (listener checks formSubmitted)
+    // But after reset, we allow changes again. Perfect.
+
+    renderQuiz();
+    // manually set an override to re-evaluate listener after reset to enable answer storage again (already handled)
+    // final touch: ensure that the initial userAnswers array is correct and no leftover checked radios (all good)
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

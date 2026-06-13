@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Part 4 – Bechan Thakur & the Videha Parallel Theatre Movement</title> <style>
+* {
+box-sizing: border-box;
+}
+body {
+background: #ece4db;
+font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, sans-serif;
+margin: 0;
+padding: 2rem 1rem;
+color: #1e2a2e;
+}
+.quiz-container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffdf9;
+border-radius: 2rem;
+box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+overflow: hidden;
+padding: 2rem 1.8rem;
+}
+h1 {
+font-size: 1.8rem;
+margin-top: 0;
+margin-bottom: 0.2rem;
+color: #8b2c2c;
+border-left: 6px solid #b45f2b;
+padding-left: 1rem;
+}
+.sub {
+color: #6a4e38;
+font-style: italic;
+margin-bottom: 2rem;
+border-bottom: 2px solid #ecdfd1;
+padding-bottom: 0.7rem;
+}
+.question-card {
+background: #fefaf5;
+border-radius: 1.5rem;
+margin-bottom: 1.8rem;
+padding: 1.2rem 1.5rem;
+box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+border: 1px solid #ecdfd1;
+}
+.question-text {
+font-weight: 700;
+font-size: 1.2rem;
+margin-bottom: 1rem;
+color: #3b2a1c;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+margin-bottom: 0.5rem;
+}
+.option {
+display: flex;
+align-items: flex-start;
+gap: 0.8rem;
+background: #ffffff;
+padding: 0.6rem 1rem;
+border-radius: 2rem;
+border: 1px solid #e0cfbe;
+cursor: pointer;
+transition: all 0.1s;
+}
+.option:hover {
+background-color: #fdf1e6;
+border-color: #bb8a60;
+}
+input[type="radio"] {
+margin-top: 0.2rem;
+accent-color: #b45f2b;
+width: 1.1rem;
+height: 1.1rem;
+}
+.option label {
+flex: 1;
+cursor: pointer;
+font-weight: 500;
+color: #3d2c20;
+}
+.feedback {
+margin-top: 0.9rem;
+font-size: 0.9rem;
+padding: 0.6rem 1rem;
+border-radius: 2rem;
+background: #f8f1e9;
+display: none;
+}
+.feedback.correct {
+background: #e2f3e4;
+color: #1f6132;
+border-left: 4px solid #2e7d32;
+display: block;
+}
+.feedback.incorrect {
+background: #ffe7e3;
+color: #bc3f2c;
+border-left: 4px solid #c5382b;
+display: block;
+}
+.score-area {
+position: sticky;
+bottom: 1rem;
+background: #ffffffdd;
+backdrop-filter: blur(8px);
+border-radius: 3rem;
+padding: 0.8rem 1.2rem;
+text-align: center;
+margin-top: 2rem;
+font-weight: bold;
+font-size: 1.2rem;
+border: 1px solid #dacbbc;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+button {
+background: #b45f2b;
+border: none;
+color: white;
+font-weight: bold;
+font-size: 1rem;
+padding: 0.65rem 1.8rem;
+border-radius: 3rem;
+cursor: pointer;
+transition: 0.2s;
+margin: 0.4rem;
+}
+button:hover {
+background: #8d471e;
+transform: scale(0.97);
+}
+.reset-btn {
+background: #5f4d3b;
+}
+.reset-btn:hover {
+background: #44362a;
+}
+.footer-note {
+margin-top: 2rem;
+font-size: 0.75rem;
+text-align: center;
+color: #b49a7c;
+border-top: 1px solid #efe0d2;
+padding-top: 1.2rem;
+}
+@media (max-width: 650px) {
+.quiz-container {
+padding: 1.2rem;
+}
+.question-text {
+font-size: 1rem;
+}
+.option label {
+font-size: 0.85rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <h1>🎭 Part IV – Bechan Thakur & the Videha Parallel Theatre Movement</h1> <div class="sub">📜 Anti‑caste theatre · Grassroots performance · Navya‑Nyāya dramaturgy · Five landmark plays</div> <p style="background:#f6efe8; padding:0.8rem 1.2rem; border-radius: 2rem; margin-bottom: 1.6rem;">
+🎟️ Based on “A Parallel History of Mithila & Maithili Literature” (Videha, ISSN 2229-547X) — Bechan Thakur, the parallel stage, casteist theatre critique, and the application of Bharata’s Nāṭyaśāstra & Gaṅgeśa’s epistemology.
+</p> <div id="questions-area"></div> <div class="score-area" id="scoreDisplay">
+⚡ 0 / 0 questions answered
+</div> <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;"> <button id="submitBtn">✅ Submit & Check</button> <button id="resetBtn" class="reset-btn">⟳ Reset Quiz</button> </div> </div>
+<script>
+    // ----- PART 4: Bechan Thakur – parallel theatre, anti-caste plays, Navya-Nyāya, gamaya tradition -----
+    const questions = [
+        {
+            text: "Which community does Bechan Thakur belong to, and how does it shape his theatrical perspective?",
+            options: [
+                "Maithil Brahmin – classical Sanskrit drama",
+                "Barhi (carpenter) artisan caste – outside the Brahmin‑Kayastha literary establishment",
+                "Kayastha – bureaucratic elite",
+                "Rajput – martial tradition"
+            ],
+            correct: 1,
+            explanation: "Bechan Thakur’s Barhi (carpenter) background places him outside the upper‑caste literary establishment, grounding his theatre in subaltern experience."
+        },
+        {
+            text: "What is the name of Bechan Thakur’s play that directly confronts female foeticide and the misuse of ultrasound technology in Mithila?",
+            options: ["Chhinardevi", "Betik Apaman", "Baap Bhel Pitti", "Adhikaar"],
+            correct: 1,
+            explanation: "‘Betik Apaman’ (Insult of the Daughter) is a two‑act play exposing sex‑selective abortion driven by the dowry system."
+        },
+        {
+            text: "Which Bechan Thakur play deals with superstition, witch‑hunting, and the persecution of women as ‘dain’ (witch) in rural society?",
+            options: ["Bhaat", "Oonch‑Neech", "Chhinardevi", "Biswasghat"],
+            correct: 2,
+            explanation: "‘Chhinardevi’ addresses the witch‑hunting tradition and the exploitation of superstitious beliefs, often targeting lower‑caste women."
+        },
+        {
+            text: "What is the central theme of Bechan Thakur’s play ‘Baap Bhel Pitti’ (Father Became a Child)?",
+            options: [
+                "Electoral corruption",
+                "Parental abandonment and the reversal of traditional parent‑child roles in contemporary Mithila",
+                "Caste violence",
+                "Migrant labour"
+            ],
+            correct: 1,
+            explanation: "The title ‘Father Became a Child’ dramatises the neglect of elders and the breakdown of joint family structures, a consequence of migration and social change."
+        },
+        {
+            text: "Which Bechan Thakur play has a cast of over 100 characters and satirises electoral democracy, vote‑buying, and political corruption?",
+            options: ["Bhaat", "Oonch‑Neech", "Adhikaar", "Biswasghat"],
+            correct: 0,
+            explanation: "‘Bhaat’ (Encounter/Confrontation) is an epic‑scale political drama that mirrors the full social panorama of a Bihari village during elections."
+        },
+        {
+            text: "The play ‘Oonch‑Neech’ (High‑Low) directly attacks caste hierarchy. What does the title’s ambiguity signify?",
+            options: [
+                "Only economic inequality",
+                "Both caste hierarchy (oonch‑jati/neech‑jati) and social ups and downs – refusing to separate caste from class oppression",
+                "Religious rituals",
+                "Gender discrimination"
+            ],
+            correct: 1,
+            explanation: "‘Oonch‑Neech’ simultaneously refers to caste (high/low) and social mobility, exposing the unity of caste and class exploitation."
+        },
+        {
+            text: "What is the name of the landmark 2012 anthology that documented the first Videha Maithili Natya Utsav and Bechan Thakur’s 25 years of grassroots theatre?",
+            options: [
+                "Videha Maithili Seed Stories",
+                "Videha Maithili Natya Utsav (ISBN 978-93-80538-66-2)",
+                "Mithila Vikas Parishad Visheshank",
+                "Videha Ghazal Utsav"
+            ],
+            correct: 1,
+            explanation: "The 230‑page anthology includes critical essays, Bechan Thakur’s interview, and records of productions from 1995 onwards."
+        },
+        {
+            text: "Bechan Thakur holds the editorial position of ‘Sampadak: Natak‑Rangmanch‑Chalchitra’ in Videha eJournal. What does this signify?",
+            options: [
+                "He is only a playwright",
+                "His institutional centrality as the primary theatrical authority within the Videha parallel movement",
+                "He is a film actor",
+                "He manages advertising"
+            ],
+            correct: 1,
+            explanation: "As editor for drama‑theatre‑cinema, Thakur shapes the theatrical content and critical discourse of the parallel movement."
+        },
+        {
+            text: "According to the Parallel History, what does the term ‘jativadi rangmanch’ (casteist theatre) refer to?",
+            options: [
+                "Theatre performed only in temples",
+                "Theatre that represents only upper‑caste (Brahmin‑Kayastha) perspectives as universal Maithili culture, excluding lower‑caste voices",
+                "Theatre about caste harmony",
+                "Professional theatre in cities"
+            ],
+            correct: 1,
+            explanation: "Casteist theatre produces a false cognition (bhrama) that Brahminical aesthetics are the aesthetics of all Mithila. Bechan Thakur’s parallel theatre corrects this."
+        },
+        {
+            text: "How does the Vidheha Parallel History apply Gaṅgeśa Upādhyāya’s Navya‑Nyāya epistemology to Bechan Thakur’s theatre?",
+            options: [
+                "As a decoration only",
+                "The four pramāṇas (pratyakṣa, anumāna, upamāna, śabda) are used to analyse how theatre produces valid social cognition, correcting false cognition (bhrama) of casteist representation",
+                "To prove that theatre is illusion",
+                "To reject all traditional theatre"
+            ],
+            correct: 1,
+            explanation: "Navya‑Nyāya’s rigorous epistemology is used to argue that parallel theatre delivers pratyakṣa (direct perception of subaltern life) and corrects the bhrama (false cognition) spread by casteist theatre."
+        },
+        {
+            text: "Which character in ‘Betik Apaman’ represents the structural trap of the dowry economy – a poor Brahmin father with five daughters?",
+            options: ["Mahananda", "Garib Jha", "Deepak Chaudhary", "Raghuvansh Babu"],
+            correct: 1,
+            explanation: "Garib Jha’s name means ‘poor Jha’. His social status as a Brahmin prevents manual labour, while dowry demands crush his family – exposing the double bind."
+        },
+        {
+            text: "In Bechan Thakur’s ‘Biswasghat’ (Betrayal of Trust), what is the primary source of family conflict?",
+            options: [
+                "Love affair",
+                "Land document manipulation / land betrayal within the family",
+                "Religious conversion",
+                "Migration to the Gulf"
+            ],
+            correct: 1,
+            explanation: "The play centres on the betrayal of trust through falsification of land records – a common source of intra‑family conflict in rural Bihar."
+        },
+        {
+            text: "Which theoretical framework from Western theatre is most directly comparable to Bechan Thakur’s political, non‑illusionist, community‑based dramaturgy?",
+            options: [
+                "Aristotelian catharsis",
+                "Brecht’s Epic Theatre and Augusto Boal’s Theatre of the Oppressed",
+                "Stanislavski’s naturalism",
+                "Artaud’s Theatre of Cruelty"
+            ],
+            correct: 1,
+            explanation: "Thakur’s theatre shares Brecht’s social‑critical distance and Boal’s goal of making the oppressed the subject of theatrical action, not passive objects."
+        },
+        {
+            text: "What distinguishes Bechan Thakur’s ‘parallel theatre’ from the institutional theatre of Mahendra Malangia (Sahitya Akademi awardee)?",
+            options: [
+                "They are identical",
+                "Thakur’s theatre is village‑based, self‑financed, anti‑caste, while Malangia’s works within institutional frameworks and classical‑folk synthesis",
+                "Malangia writes only in English",
+                "Thakur uses only Sanskrit"
+            ],
+            correct: 1,
+            explanation: "The comparative table in the PDF shows Thakur as radical anti‑caste parallel theatre vs. Malangia’s institutional recognition and classical engagement."
+        },
+        {
+            text: "Which Bechan Thakur play’s opening scene shows a man reading a newspaper and his son bringing tea – setting up a domestic trust that will later be broken by land disputes?",
+            options: ["Biswasghat", "Oonch‑Neech", "Bhaat", "Baap Bhel Pitti"],
+            correct: 0,
+            explanation: "‘Biswasghat’ opens with this intimate domestic scene, which is then shattered by revelations of land‑document betrayal."
+        },
+        {
+            text: "In the Nāṭyaśāstra framework, the primary rasa of Bechan Thakur’s social problem plays (e.g., ‘Betik Apaman’, ‘Biswasghat’) is identified as:",
+            options: ["Śṛṅgāra (erotic)", "Hāsya (comedy)", "Karuṇa (pathos/compassion) combined with Raudra (righteous anger)", "Adbhuta (wonder)"],
+            correct: 2,
+            explanation: "Thakur’s plays evoke karuṇa through the depiction of suffering (dowry victims, abandoned elders) and raudra against social injustice – a key finding of the PDF analysis."
+        },
+        {
+            text: "What is the main argument of Gajendra Thakur’s lead essay in the ‘Videha Maithili Natya Utsav’ anthology regarding casteist theatre?",
+            options: [
+                "It praises casteist theatre",
+                "It criticises the treatment of ‘chhutahar’ (untouchable) characters in plays like Mahendra Malangia’s ‘Chhutahar Ghail’, noting that even after decades the character remains linguistically degraded",
+                "It ignores caste issues",
+                "It promotes Bollywood dialogue"
+            ],
+            correct: 1,
+            explanation: "The essay critiques Malangia’s work for perpetuating caste stereotypes, even while acknowledging his contributions to Maithili theatre."
+        },
+        {
+            text: "Bechan Thakur’s play ‘Adhikaar’ (Rights) deals with:",
+            options: [
+                "Animal rights",
+                "Legal and civic rights of women, Dalits, or marginalised communities – formally granted but practically denied",
+                "Property rights of zamindars",
+                "Copyright issues"
+            ],
+            correct: 1,
+            explanation: "‘Adhikaar’ addresses the gap between formal legal rights and their actual denial, a recurring theme in subaltern drama."
+        },
+        {
+            text: "Which concept from Gaṅgeśa’s Navya‑Nyāya is used in the Parallel History to argue that parallel theatre corrects false social cognitions produced by casteist theatre?",
+            options: ["Sphoṭa (linguistic flash)", "Bhrama (false cognition) and pramā (valid cognition) through pratyakṣa", "Mīmāṃsā ritualism", "Sāṃkhya dualism"],
+            correct: 1,
+            explanation: "Casteist theatre produces bhrama (misleading appearance) by presenting elite culture as universal; parallel theatre achieves pramā by representing subaltern reality through direct perception (pratyakṣa)."
+        },
+        {
+            text: "What is the unique formal feature of Bechan Thakur’s ‘Bhaat’ that makes it Brechtian in scale?",
+            options: [
+                "Use of dance alone",
+                "Massive cast (over 100 named roles) creating an epic social panorama, preventing identification with a single protagonist",
+                "Single actor playing all roles",
+                "Silent film style"
+            ],
+            correct: 1,
+            explanation: "The large cast and social breadth force the audience to analyse the political system rather than emotionally identify with a hero – a Brechtian alienation effect achieved through traditional means."
+        }
+    ];
+
+    let selectedAnswers = new Array(questions.length).fill(null);
+    let quizSubmitted = false;
+
+    function renderQuestions() {
+        const container = document.getElementById('questions-area');
+        container.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.setAttribute('data-qid', idx);
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qText);
+            
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const optWrap = document.createElement('div');
+                optWrap.className = 'option';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${idx}`;
+                radio.value = optIdx;
+                radio.id = `q_${idx}_opt_${optIdx}`;
+                if (selectedAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    if (!quizSubmitted) {
+                        selectedAnswers[idx] = parseInt(e.target.value);
+                        updateScoreDisplay();
+                        const fbDiv = card.querySelector('.feedback');
+                        if (fbDiv) fbDiv.style.display = 'none';
+                    }
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q_${idx}_opt_${optIdx}`;
+                label.innerText = opt;
+                optWrap.appendChild(radio);
+                optWrap.appendChild(label);
+                optionsDiv.appendChild(optWrap);
+            });
+            card.appendChild(optionsDiv);
+            const fbDiv = document.createElement('div');
+            fbDiv.className = 'feedback';
+            fbDiv.id = `fb_${idx}`;
+            card.appendChild(fbDiv);
+            container.appendChild(card);
+        });
+    }
+
+    function updateScoreDisplay() {
+        const answered = selectedAnswers.filter(a => a !== null).length;
+        document.getElementById('scoreDisplay').innerHTML = `📌 ${answered} / ${questions.length} questions answered ${quizSubmitted ? '· Final scores below' : '· Submit to see correct answers'}`;
+    }
+
+    function evaluateQuiz() {
+        quizSubmitted = true;
+        let correctCount = 0;
+        for (let i = 0; i < questions.length; i++) {
+            const userChoice = selectedAnswers[i];
+            const isCorrect = (userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+            const fb = document.getElementById(`fb_${i}`);
+            if (fb) {
+                if (userChoice === null) {
+                    fb.innerHTML = `⚠️ Unanswered. Correct: ${questions[i].options[questions[i].correct]}. ${questions[i].explanation}`;
+                    fb.className = 'feedback incorrect';
+                } else if (isCorrect) {
+                    fb.innerHTML = `✅ Correct. ${questions[i].explanation}`;
+                    fb.className = 'feedback correct';
+                } else {
+                    fb.innerHTML = `❌ Incorrect. You chose: ${questions[i].options[userChoice]}. Correct: ${questions[i].options[questions[i].correct]}. ${questions[i].explanation}`;
+                    fb.className = 'feedback incorrect';
+                }
+                fb.style.display = 'block';
+            }
+        }
+        const scoreMsg = `🎯 You scored ${correctCount} out of ${questions.length}`;
+        document.getElementById('scoreDisplay').innerHTML = scoreMsg + (correctCount === questions.length ? ' — 🎭 True parallel theatre advocate!' : ' — Review the explanations to deepen your knowledge of Maithili democratic theatre.');
+    }
+
+    function resetQuiz() {
+        selectedAnswers.fill(null);
+        quizSubmitted = false;
+        for (let i = 0; i < questions.length; i++) {
+            const radios = document.querySelectorAll(`input[name="q_${i}"]`);
+            radios.forEach(r => r.checked = false);
+            const fb = document.getElementById(`fb_${i}`);
+            if (fb) {
+                fb.style.display = 'none';
+                fb.innerHTML = '';
+            }
+        }
+        updateScoreDisplay();
+    }
+
+    document.getElementById('submitBtn').addEventListener('click', evaluateQuiz);
+    document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+
+    renderQuestions();
+    updateScoreDisplay();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

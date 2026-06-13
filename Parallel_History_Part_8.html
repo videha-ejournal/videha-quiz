@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Part 8 – Gaṅgeśa Upādhyāya & Navya-Nyāya Epistemology</title> <style>
+* {
+box-sizing: border-box;
+}
+body {
+background: #ece4db;
+font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, sans-serif;
+margin: 0;
+padding: 2rem 1rem;
+color: #1e2a2e;
+}
+.quiz-container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffdf9;
+border-radius: 2rem;
+box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+overflow: hidden;
+padding: 2rem 1.8rem;
+}
+h1 {
+font-size: 1.8rem;
+margin-top: 0;
+margin-bottom: 0.2rem;
+color: #8b2c2c;
+border-left: 6px solid #b45f2b;
+padding-left: 1rem;
+}
+.sub {
+color: #6a4e38;
+font-style: italic;
+margin-bottom: 2rem;
+border-bottom: 2px solid #ecdfd1;
+padding-bottom: 0.7rem;
+}
+.question-card {
+background: #fefaf5;
+border-radius: 1.5rem;
+margin-bottom: 1.8rem;
+padding: 1.2rem 1.5rem;
+box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+border: 1px solid #ecdfd1;
+}
+.question-text {
+font-weight: 700;
+font-size: 1.2rem;
+margin-bottom: 1rem;
+color: #3b2a1c;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+margin-bottom: 0.5rem;
+}
+.option {
+display: flex;
+align-items: flex-start;
+gap: 0.8rem;
+background: #ffffff;
+padding: 0.6rem 1rem;
+border-radius: 2rem;
+border: 1px solid #e0cfbe;
+cursor: pointer;
+transition: all 0.1s;
+}
+.option:hover {
+background-color: #fdf1e6;
+border-color: #bb8a60;
+}
+input[type="radio"] {
+margin-top: 0.2rem;
+accent-color: #b45f2b;
+width: 1.1rem;
+height: 1.1rem;
+}
+.option label {
+flex: 1;
+cursor: pointer;
+font-weight: 500;
+color: #3d2c20;
+}
+.feedback {
+margin-top: 0.9rem;
+font-size: 0.9rem;
+padding: 0.6rem 1rem;
+border-radius: 2rem;
+background: #f8f1e9;
+display: none;
+}
+.feedback.correct {
+background: #e2f3e4;
+color: #1f6132;
+border-left: 4px solid #2e7d32;
+display: block;
+}
+.feedback.incorrect {
+background: #ffe7e3;
+color: #bc3f2c;
+border-left: 4px solid #c5382b;
+display: block;
+}
+.score-area {
+position: sticky;
+bottom: 1rem;
+background: #ffffffdd;
+backdrop-filter: blur(8px);
+border-radius: 3rem;
+padding: 0.8rem 1.2rem;
+text-align: center;
+margin-top: 2rem;
+font-weight: bold;
+font-size: 1.2rem;
+border: 1px solid #dacbbc;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+button {
+background: #b45f2b;
+border: none;
+color: white;
+font-weight: bold;
+font-size: 1rem;
+padding: 0.65rem 1.8rem;
+border-radius: 3rem;
+cursor: pointer;
+transition: 0.2s;
+margin: 0.4rem;
+}
+button:hover {
+background: #8d471e;
+transform: scale(0.97);
+}
+.reset-btn {
+background: #5f4d3b;
+}
+.reset-btn:hover {
+background: #44362a;
+}
+.footer-note {
+margin-top: 2rem;
+font-size: 0.75rem;
+text-align: center;
+color: #b49a7c;
+border-top: 1px solid #efe0d2;
+padding-top: 1.2rem;
+}
+@media (max-width: 650px) {
+.quiz-container {
+padding: 1.2rem;
+}
+.question-text {
+font-size: 1rem;
+}
+.option label {
+font-size: 0.85rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <h1>📖 Part VIII – Gaṅgeśa Upādhyāya & the Navya‑Nyāya Revolution</h1> <div class="sub">🧠 Tattvacintāmaṇi · Dooshan Panji · Four Pramāṇas · Vyāpti · Avacchedakatā · Suppressed Biography · Digital Legacy</div> <p style="background:#f6efe8; padding:0.8rem 1.2rem; border-radius: 2rem; margin-bottom: 1.6rem;">
+📚 Based on “A Parallel History of Mithila & Maithili Literature” – Part VIII focuses on the 14th‑century philosopher Gaṅgeśa Upādhyāya, his foundational text <strong>Tattvacintāmaṇi</strong>, the epistemological framework of Navya‑Nyāya, and the suppression of his inter‑caste lineage – recovered by the Videha movement through the Dooshan Panji.
+</p> <div id="questions-area"></div> <div class="score-area" id="scoreDisplay">
+⚡ 0 / 0 questions answered
+</div> <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;"> <button id="submitBtn">✅ Submit & Check</button> <button id="resetBtn" class="reset-btn">⟳ Reset Quiz</button> </div> </div>
+<script>
+    // ----- PART 8: Gaṅgeśa Upādhyāya, Navya-Nyāya, epistemology, suppressed Panji records, and global legacy -----
+    const questions = [
+        {
+            text: "What is the full Sanskrit title of Gaṅgeśa Upādhyāya’s magnum opus, which founded the Navya‑Nyāya school?",
+            options: ["Vākyapadīya", "Tattvacintāmaṇi (Thought‑Jewel of Truth)", "Nyāyasūtra", "Kāvyaprakāśa"],
+            correct: 1,
+            explanation: "The Tattvacintāmaṇi, also called Pramāṇacintāmaṇi, revolutionised Indian epistemology by focusing exclusively on the four pramāṇas."
+        },
+        {
+            text: "According to the Dooshan Panji (Black Book) records released by Videha in 2009, what two biographical facts about Gaṅgeśa were suppressed by mainstream historians?",
+            options: [
+                "He was a king and a poet",
+                "He was born five years after his father’s death and married a Charmkarini (woman of the leather‑tanning caste)",
+                "He never wrote any text",
+                "He was from Bengal"
+            ],
+            correct: 1,
+            explanation: "The Panji records proved Gaṅgeśa was born posthumously and married across caste – facts concealed by Ramanath Jha to preserve Brahminical purity narratives."
+        },
+        {
+            text: "Which of the following is NOT one of the four pramāṇas (valid means of knowledge) analysed in Gaṅgeśa’s Tattvacintāmaṇi?",
+            options: ["Pratyakṣa (Perception)", "Anumāna (Inference)", "Upamāna (Comparison)", "Mīmāṃsā (Ritual hermeneutics)"],
+            correct: 3,
+            explanation: "The four pramāṇas are pratyakṣa, anumāna, upamāna, and śabda. Mīmāṃsā is a different school, not a pramāṇa in Gaṅgeśa’s system."
+        },
+        {
+            text: "Gaṅgeśa’s conclusive definition of vyāpti (invariable concomitance) is considered his greatest technical achievement. What does vyāpti provide the foundation for?",
+            options: ["Devotional poetry", "Valid inference (anumāna) – the invariable relation between hetu and sādhya", "Ritual sacrifice", "Grammar rules"],
+            correct: 1,
+            explanation: "Vyāpti is the universal rule (e.g., ‘where there is smoke, there is fire’) that makes inference possible; Gaṅgeśa’s definition solved previous problems of over‑ and under‑application."
+        },
+        {
+            text: "Which of the following is the correct sequence of the four books (khaṇḍas) of the Tattvacintāmaṇi?",
+            options: [
+                "Śabda, Anumāna, Pratyakṣa, Upamāna",
+                "Pratyakṣa, Anumāna, Upamāna, Śabda",
+                "Anumāna, Pratyakṣa, Śabda, Upamāna",
+                "Upamāna, Śabda, Pratyakṣa, Anumāna"
+            ],
+            correct: 1,
+            explanation: "The Tattvacintāmaṇi is organised as Perception, Inference, Comparison, and Verbal Testimony – following the classical Nyāya order."
+        },
+        {
+            text: "What is the significance of the ‘Dooshan Panji’ (Black Book) that the Videha movement digitised and released in 2009?",
+            options: [
+                "A collection of love poems",
+                "A genealogical record of ‘impure’ lineages, including suppressed details of Gaṅgeśa’s birth and marriage, challenging caste purity",
+                "A book of rituals",
+                "A Sanskrit grammar"
+            ],
+            correct: 1,
+            explanation: "The Dooshan Panji (impure secret book) contains records of inter‑caste marriages and birth anomalies that upper‑caste historians had suppressed; its release was a landmark act of counter‑archival recovery."
+        },
+        {
+            text: "Which Western philosopher did Ben‑Ami Scharfstein compare to Gaṅgeśa in his ‘Comparative History of World Philosophy’, grouping them under ‘Logic‑Sensitized Methodological Metaphysics’?",
+            options: ["Aristotle and Plato", "Descartes and Leibniz", "Hegel and Kant", "Wittgenstein and Russell"],
+            correct: 1,
+            explanation: "Scharfstein places Gaṅgeśa alongside Descartes and Leibniz as thinkers who pursued certainty through methodically applied logic, each responding to sceptical challenges."
+        },
+        {
+            text: "Gaṅgeśa’s theory of perception distinguishes between nirvikalpaka (indeterminate) and savikalpaka (determinate) perception. What does nirvikalpaka refer to?",
+            options: [
+                "Concept‑laden, verbalised perception",
+                "Pre‑conceptual, raw sensory awareness before qualification",
+                "Illusory perception",
+                "Inferential cognition"
+            ],
+            correct: 1,
+            explanation: "Nirvikalpaka perception is the first, non‑relational moment of sensory contact, before the mind applies categories like ‘this is a pot’."
+        },
+        {
+            text: "What title, meaning ‘Distinguished University Professor’, was conferred on Gaṅgeśa, and only one other person (Nutan Vacaspati) held the higher title ‘Paramguru’ in Mithila’s history?",
+            options: ["Mahārāja", "Jagad‑guru (and Param‑guru)", "Sarvabhauma", "Ācārya"],
+            correct: 1,
+            explanation: "Gaṅgeśa held both Jagad‑guru and Param‑guru – the latter shared only with Nutan Vacaspati, marking him as the most decorated philosopher in Mithila’s tradition."
+        },
+        {
+            text: "According to the Parallel History, which two scholars are primarily responsible for the ‘honour killing’ of Gaṅgeśa’s legacy – suppressing his inter‑caste marriage and birth anomaly?",
+            options: ["Gajendra Thakur and Ashish Anchinhar", "Ramanath Jha and Udayanath Jha ‘Ashok’", "Dinesh Chandra Bhattacharya and Stephen Phillips", "Karl Potter and Bimal Matilal"],
+            correct: 1,
+            explanation: "Ramanath Jha concealed the facts from Dinesh Chandra Bhattacharya, and Udayanath Jha’s 2016 Sahitya Akademi monograph continued the suppression – an act the Parallel History calls an ‘honour killing’."
+        },
+        {
+            text: "What is the meaning of the term ‘avacchedaka’ (limitor) in Navya‑Nyāya epistemology, as applied to literary precision?",
+            options: [
+                "A type of poem",
+                "A delimiter that specifies the exact property, relation, or scope of a claim – preventing ambiguity",
+                "A musical note",
+                "A ritual offering"
+            ],
+            correct: 1,
+            explanation: "Avacchedaka is the logical operator that limits a property to a specific domain, ensuring that knowledge‑claims are not too broad or too narrow – essential for Gaṅgeśa’s definition of vyāpti."
+        },
+        {
+            text: "Which 20th‑21st century scholar completed the first full English translation of all four volumes of Gaṅgeśa’s Tattvacintāmaṇi (2020)?",
+            options: ["V.P. Bhatta", "Stephen H. Phillips", "Karl Potter", "Bimal Krishna Matilal"],
+            correct: 1,
+            explanation: "Stephen Phillips published the complete annotated translation ‘Jewel of Reflection on the Truth about Epistemology’ (Bloomsbury, 2020). V.P. Bhatta also completed a multi‑volume translation (2005‑2025)."
+        },
+        {
+            text: "The Tattvacintāmaṇi’s Śabda‑khaṇḍa (Verbal Testimony) analyses four conditions for a sentence to produce valid verbal cognition. Which of the following is one of those conditions?",
+            options: ["Yogyatā (semantic fitness)", "Rāga (melodic mode)", "Chandas (metre)", "Alaṃkāra (figure of speech)"],
+            correct: 0,
+            explanation: "The four conditions are ākāṅkṣā (expectancy), yogyatā (fitness), āsatti (proximity), and tātparya (intention)."
+        },
+        {
+            text: "Who was the commentator whose ‘Dīdhiti’ became the single most important secondary text on the Tattvacintāmaṇi, shifting the centre of Navya‑Nyāya to Navadvipa?",
+            options: ["Vardhamāna Upādhyāya", "Raghunātha Śiromaṇi", "Pakṣadhara Miśra", "Jagadīśa Tarkālaṃkāra"],
+            correct: 1,
+            explanation: "Raghunātha Śiromaṇi’s ‘Dīdhiti’ eclipsed all earlier commentaries and established the Bengal (Navadvipa) tradition of Navya‑Nyāya, following Gaṅgeśa’s Mithila school."
+        },
+        {
+            text: "The Dooshan Panji reveals that Gaṅgeśa’s wife Vallabha was a Charmkarini. What does ‘Charmkarini’ mean?",
+            options: ["A Brahmin woman", "A woman of the leather‑tanning (Charmakāra) caste", "A queen", "A poetess"],
+            correct: 1,
+            explanation: "Charmkarini is the feminine form of Charmakāra (leather‑worker / tanner), a lower caste. This inter‑caste marriage was a key suppressed fact."
+        },
+        {
+            text: "In Navya‑Nyāya, what is ‘Anumāna’?",
+            options: ["Direct perception", "Inferential knowledge – reasoning from a sign (liṅga) to the inferred object (sādhya)", "Verbal testimony", "Comparison"],
+            correct: 1,
+            explanation: "Anumāna is inference, one of the four pramāṇas. Gaṅgeśa’s analysis of vyāpti made inference rigorous and valid."
+        },
+        {
+            text: "Which of the following statements best describes the ‘extrinsicality thesis’ (parataḥprāmāṇya) defended by Gaṅgeśa?",
+            options: [
+                "All knowledge is self‑certifying",
+                "Knowledge is presumptively valid but requires external confirmation (through successful action or meta‑cognition)",
+                "Knowledge is always false",
+                "Only perception is valid"
+            ],
+            correct: 1,
+            explanation: "Against the Mīmāṃsaka view of intrinsic validity, Gaṅgeśa argued that validity is extrinsic – it must be confirmed by practical success or another cognitive act."
+        },
+        {
+            text: "The videha.co.in archive has digitised over 11,000 palm‑leaf Panji manuscripts. Which of Gaṅgeśa’s own works is preserved in this archive alongside modern Maithili literature?",
+            options: ["Only the Tattvacintāmaṇi", "His complete works, including his lost poetry – his son Vardhamāna called him ‘sukavikairava kānānenduḥ’ (moon among poets)", "None", "Only commentaries"],
+            correct: 1,
+            explanation: "The Videha archive preserves not only Gaṅgeśa’s philosophical texts but also the memory of his poetic corpus, which was systematically suppressed; his son praised him as a great poet."
+        },
+        {
+            text: "Which term describes the Navya‑Nyāya technique of ‘delimiting the counterpositive of an absence’ – essential to the definitive vyāpti definition?",
+            options: ["Pratiyogitā‑avacchedaka", "Sphoṭa", "Pada", "Vṛtti"],
+            correct: 0,
+            explanation: "Pratiyogitā‑avacchedaka (delimitor of counterpositiveness) is the key innovation that prevents the ‘sifting problem’ and makes the vyāpti definition precise."
+        },
+        {
+            text: "According to the Parallel History, Gaṅgeśa’s suppression was part of a larger pattern. Who was the 20th‑century satirist who was denied the Sahitya Akademi award (1967 went unrewarded) – paralleling Gaṅgeśa’s ‘honour killing’?",
+            options: ["Harimohan Jha", "Rajkamal Chaudhary", "Nagarjun", "Jagdish Prasad Mandal"],
+            correct: 0,
+            explanation: "Harimohan Jha, the anti‑caste satirist, was systematically denied the award – the same institutional gatekeeping that suppressed Gaṅgeśa’s non‑Brahmin biography."
+        },
+        {
+            text: "Gaṅgeśa’s Tattvacintāmaṇi is divided into four khaṇḍas. Which khaṇḍa deals with the theory of illusion (anyathākhyāti) and the perception of absence (abhāva)?",
+            options: ["Anumāna‑khaṇḍa", "Pratyakṣa‑khaṇḍa", "Upamāna‑khaṇḍa", "Śabda‑khaṇḍa"],
+            correct: 1,
+            explanation: "The Pratyakṣa‑khaṇḍa includes discussions of illusory cognition (anyathākhyātivāda) and the perception of non‑existence (abhāva)."
+        },
+        {
+            text: "Modern researchers have noted that Navya‑Nyāya’s hierarchical use of limitors (avacchedaka) is compatible with which contemporary technology?",
+            options: ["Artificial Intelligence and Natural Language Processing (NLP)", "Blockchain", "Virtual Reality", "Quantum computing"],
+            correct: 0,
+            explanation: "The precisional logic of avacchedaka maps onto knowledge representation and ontologies used in AI and NLP, as noted in the Parallel History."
+        },
+        {
+            text: "What was the role of the ‘Panji’ system in Mithila, and how did it relate to Gaṅgeśa’s case?",
+            options: [
+                "A system of land records",
+                "Genealogical records maintained by Maithil Brahmins to enforce caste endogamy; the Dooshan Panji (secret book) recorded ‘impure’ lineages, including Gaṅgeśa’s",
+                "A royal chronicle",
+                "A trade register"
+            ],
+            correct: 1,
+            explanation: "The Panji (genealogical register) was used to police caste purity. The Dooshan Panji contained suppressed ‘flawed’ lineages, which the Videha movement used to recover Gaṅgeśa’s true biography."
+        },
+        {
+            text: "According to the text, Gaṅgeśa’s son Vardhamāna called him ‘sukavikairava kānānenduḥ’. What does this epithet mean?",
+            options: ["The greatest logician", "The moon in the lotus grove of fine poets", "The lord of grammar", "The destroyer of arguments"],
+            correct: 1,
+            explanation: "Vardhamāna praised his father as a poet, indicating that Gaṅgeśa’s poetic works have been lost – a further dimension of the suppression."
+        },
+        {
+            text: "The Parallel History notes that Gaṅgeśa’s Navya‑Nyāya school later influenced the development of methodology in Sanskrit poetics (Kāvya‑śāstra). Which concept from Navya‑Nyāya is directly applied in literary analysis?",
+            options: ["Viśeṣaṇa‑viśeṣya‑bhāva (qualifier‑qualificand relation)", "Svarita accent", "Anuṣṭubh metre", "Upamā only"],
+            correct: 0,
+            explanation: "The relational structure of qualifier and qualificand is used to analyse the cognitive content of literary figures, bridging logic and poetics."
+        }
+    ];
+
+    let selectedAnswers = new Array(questions.length).fill(null);
+    let quizSubmitted = false;
+
+    function renderQuestions() {
+        const container = document.getElementById('questions-area');
+        container.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.setAttribute('data-qid', idx);
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qText);
+            
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const optWrap = document.createElement('div');
+                optWrap.className = 'option';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${idx}`;
+                radio.value = optIdx;
+                radio.id = `q_${idx}_opt_${optIdx}`;
+                if (selectedAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    if (!quizSubmitted) {
+                        selectedAnswers[idx] = parseInt(e.target.value);
+                        updateScoreDisplay();
+                        const fbDiv = card.querySelector('.feedback');
+                        if (fbDiv) fbDiv.style.display = 'none';
+                    }
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q_${idx}_opt_${optIdx}`;
+                label.innerText = opt;
+                optWrap.appendChild(radio);
+                optWrap.appendChild(label);
+                optionsDiv.appendChild(optWrap);
+            });
+            card.appendChild(optionsDiv);
+            const fbDiv = document.createElement('div');
+            fbDiv.className = 'feedback';
+            fbDiv.id = `fb_${idx}`;
+            card.appendChild(fbDiv);
+            container.appendChild(card);
+        });
+    }
+
+    function updateScoreDisplay() {
+        const answered = selectedAnswers.filter(a => a !== null).length;
+        document.getElementById('scoreDisplay').innerHTML = `📌 ${answered} / ${questions.length} questions answered ${quizSubmitted ? '· Final scores below' : '· Submit to see correct answers'}`;
+    }
+
+    function evaluateQuiz() {
+        quizSubmitted = true;
+        let correctCount = 0;
+        for (let i = 0; i < questions.length; i++) {
+            const userChoice = selectedAnswers[i];
+            const isCorrect = (userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+            const fb = document.getElementById(`fb_${i}`);
+            if (fb) {
+                if (userChoice === null) {
+                    fb.innerHTML = `⚠️ Unanswered. Correct: ${questions[i].options[questions[i].correct]}. ${questions[i].explanation}`;
+                    fb.className = 'feedback incorrect';
+                } else if (isCorrect) {
+                    fb.innerHTML = `✅ Correct. ${questions[i].explanation}`;
+                    fb.className = 'feedback correct';
+                } else {
+                    fb.innerHTML = `❌ Incorrect. You chose: ${questions[i].options[userChoice]}. Correct: ${questions[i].options[questions[i].correct]}. ${questions[i].explanation}`;
+                    fb.className = 'feedback incorrect';
+                }
+                fb.style.display = 'block';
+            }
+        }
+        const scoreMsg = `🎯 You scored ${correctCount} out of ${questions.length}`;
+        document.getElementById('scoreDisplay').innerHTML = scoreMsg + (correctCount === questions.length ? ' — 🌟 Master of Navya‑Nyāya and parallel history!' : ' — Review the explanations to deepen your understanding of Gaṅgeśa’s legacy.');
+    }
+
+    function resetQuiz() {
+        selectedAnswers.fill(null);
+        quizSubmitted = false;
+        for (let i = 0; i < questions.length; i++) {
+            const radios = document.querySelectorAll(`input[name="q_${i}"]`);
+            radios.forEach(r => r.checked = false);
+            const fb = document.getElementById(`fb_${i}`);
+            if (fb) {
+                fb.style.display = 'none';
+                fb.innerHTML = '';
+            }
+        }
+        updateScoreDisplay();
+    }
+
+    document.getElementById('submitBtn').addEventListener('click', evaluateQuiz);
+    document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+
+    renderQuestions();
+    updateScoreDisplay();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

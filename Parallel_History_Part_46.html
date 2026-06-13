@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Munnaji – Chapter 46 | Maithili Parallel History</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #f5efe7;
+font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, -apple-system, sans-serif;
+padding: 2rem 1rem;
+color: #2c2b28;
+}
+.quiz-container {
+max-width: 900px;
+margin: 0 auto;
+background: #fffef7;
+border-radius: 2rem;
+box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
+overflow: hidden;
+border: 1px solid #e2dcd0;
+}
+.quiz-header {
+background: #5e3a2b;
+color: #fef0db;
+padding: 1.5rem 2rem;
+text-align: center;
+}
+.quiz-header h1 {
+font-size: 1.9rem;
+letter-spacing: -0.3px;
+font-weight: 600;
+margin-bottom: 0.5rem;
+}
+.quiz-header h1 span {
+font-weight: 400;
+font-style: italic;
+color: #f3cba5;
+}
+.quiz-header p {
+font-size: 1rem;
+opacity: 0.9;
+margin-top: 0.4rem;
+}
+.badge-info {
+display: inline-block;
+background: #d9c5a7;
+color: #3e2a1f;
+padding: 0.2rem 0.9rem;
+border-radius: 40px;
+font-size: 0.8rem;
+font-weight: 500;
+margin-top: 0.8rem;
+}
+.question-card {
+padding: 1.5rem 2rem;
+border-bottom: 1px solid #ede5d6;
+transition: background 0.1s ease;
+}
+.question-text {
+font-size: 1.25rem;
+font-weight: 600;
+color: #2f2a24;
+margin-bottom: 1.2rem;
+line-height: 1.4;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+margin-bottom: 1rem;
+}
+.option {
+display: flex;
+align-items: flex-start;
+gap: 0.8rem;
+background: #fefaf3;
+padding: 0.7rem 1rem;
+border-radius: 1.2rem;
+border: 1px solid #e9e0d2;
+cursor: pointer;
+transition: all 0.15s;
+}
+.option:hover {
+background: #f7f0e4;
+border-color: #cbbd9e;
+}
+.option input {
+margin-top: 0.2rem;
+accent-color: #8b5a3c;
+width: 1.1rem;
+height: 1.1rem;
+flex-shrink: 0;
+}
+.option label {
+font-size: 1rem;
+line-height: 1.4;
+color: #2b2a27;
+flex: 1;
+cursor: pointer;
+}
+.feedback {
+font-size: 0.85rem;
+margin-top: 0.6rem;
+padding-left: 2rem;
+font-weight: 500;
+}
+.correct-feedback {
+color: #2b6e3c;
+}
+.wrong-feedback {
+color: #b13e3e;
+}
+.quiz-footer {
+padding: 1.5rem 2rem;
+background: #faf7f0;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 1rem;
+}
+.score-area {
+font-size: 1.3rem;
+font-weight: 700;
+background: #e8dfcf;
+padding: 0.5rem 1.2rem;
+border-radius: 3rem;
+color: #4f3a28;
+}
+button {
+background: #7c563b;
+border: none;
+color: white;
+padding: 0.7rem 1.8rem;
+border-radius: 2.5rem;
+font-size: 1rem;
+font-weight: 600;
+cursor: pointer;
+transition: 0.1s linear;
+box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+button:hover {
+background: #5e3a2b;
+transform: scale(0.98);
+}
+.reset-btn {
+background: #a17f62;
+}
+.reset-btn:hover {
+background: #866344;
+}
+.explain-note {
+text-align: center;
+font-size: 0.8rem;
+background: #f1ede4;
+padding: 0.8rem;
+color: #5f5343;
+border-top: 1px solid #e2d6c4;
+}
+@media (max-width: 650px) {
+.quiz-header h1 {
+font-size: 1.5rem;
+}
+.question-card {
+padding: 1.2rem;
+}
+.question-text {
+font-size: 1.1rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <div class="quiz-header"> <h1>📖 MUNNAJI <span>• Chapter 46</span></h1> <p>A Complete Critical Appreciation · Videha Parallel History Framework</p> <div class="badge-info">⚡ Based on original research & Navya-Nyāya epistemology</div> </div> <div id="questionsArea"> </div> <div class="quiz-footer"> <div class="score-area" id="scoreDisplay">Score: 0 / 0</div> <div> <button id="submitBtn">✓ Check answers</button> <button id="resetBtn" class="reset-btn">⟳ Reset quiz</button> </div> </div> <div class="explain-note">
+📚 After checking, correct answers are marked in <span style="color:#2b6e3c;">green</span> with explanations. Based on the critical appreciation of Munnaji (Manoj Kumar Karna).
+</div>
+</div>
+<script>
+    // ----- QUESTION BANK based on Chapter 46: Munnaji (pages 480–495) -----
+    const questions = [
+        {
+            text: "What is the real name of the writer known as 'Munnaji' in the Videha Parallel History?",
+            options: [
+                "Manoj Kumar Karna",
+                "Mithilesh Kumar Jha",
+                "Gajendra Thakur",
+                "Ashish Anchinhar"
+            ],
+            correct: 0,
+            explanation: "Munnaji's full name is Manoj Kumar Karna. He served as Assistant Editor of Videha and is a major multi-genre Maithili writer."
+        },
+        {
+            text: "Which of the following is NOT a published work by Munnaji?",
+            options: [
+                "Hum Puchhait Chhī (interviews)",
+                "Prateek (seed stories)",
+                "Mokam Dis (bīhani kathā)",
+                "Jahalak Diary (poetry collection)"
+            ],
+            correct: 3,
+            explanation: "'Jahalak Diary' is a poetry collection by Udaya Narayana Singh 'Nachiketa', not Munnaji. Munnaji authored Hum Puchhait Chhī, Prateek, Mokam Dis, Ghah, Khurluchhī and others."
+        },
+        {
+            text: "What role did Munnaji hold at Videha eJournal (ISSN 2229-547X)?",
+            options: [
+                "Chief Editor",
+                "Assistant Editor (Sahāyak Sampādak)",
+                "Publisher",
+                "Translation Coordinator"
+            ],
+            correct: 1,
+            explanation: "Munnaji (Manoj Kumar Karna) was listed as Assistant Editor (Sahāyak Sampādak) on Videha's masthead, alongside Ram Vilas Sahu, Nand Vilas Ray and Sandeep Kumar Safi."
+        },
+        {
+            text: "Munnaji’s collection 'Mokam Dis' is dedicated to which person, known as the 'creator of the word bīhani kathā'?",
+            options: [
+                "Shri Raj",
+                "Gajendra Thakur",
+                "Premchand Pankaj",
+                "Bechan Thakur"
+            ],
+            correct: 0,
+            explanation: "Mokam Dis is explicitly dedicated to 'Shri Raj', who proposed the term 'bīhani kathā' at the 1995 Sahayatri Manch gathering in Madhubani."
+        },
+        {
+            text: "Which literary form did Munnaji theoretically analyse in his extended essay 'Bīhani Kathā — Mānakaraṇ O Tulnātmak Pakṣ'?",
+            options: [
+                "Maithili Ghazal",
+                "Haiku and Tanka",
+                "Seed story (bīhani kathā / vihinikathā)",
+                "One-act play (Ekāṅkī)"
+            ],
+            correct: 2,
+            explanation: "Munnaji wrote a detailed theoretical essay on the bīhani kathā (seed story) form, its history and standardization, published in 'Mokam Dis'."
+        },
+        {
+            text: "Munnaji’s ghazal collection is titled 'Mājh Āṅgan Me Kaṭiāyal Chhī'. What does 'mājh āṅgan' refer to in Maithili domestic space?",
+            options: [
+                "The outer courtyard",
+                "The middle courtyard (inner courtyard)",
+                "The rooftop terrace",
+                "The main entrance threshold"
+            ],
+            correct: 1,
+            explanation: "'Mājh āṅgan' means the middle/inner courtyard, a specifically Maithili domestic space, symbolizing intimacy and cultural entanglement."
+        },
+        {
+            text: "According to the chapter, which two figures are acknowledged as Munnaji’s primary mentors for ghazal writing and theory?",
+            options: [
+                "Gajendra Thakur and Ashish Anchinhar",
+                "Rajdeo Mandal and Jagdish Prasad Mandal",
+                "Premchand Pankaj and Somdev",
+                "Ram Bharos Kapari and Bechan Thakur"
+            ],
+            correct: 0,
+            explanation: "Munnaji credits Gajendra Thakur (ghazal theory, bīhani kathā theory) and Ashish Anchinhar (detailed ghazal correction and encouragement) as his key mentors."
+        },
+        {
+            text: "Munnaji’s children’s poetry collection 'Khurluchhī' includes a formal innovation called 'bāl ghazal'. What does this term refer to?",
+            options: [
+                "Children’s folk songs",
+                "Children’s ghazals (applying ghazal prosody to children’s themes)",
+                "Picture stories for toddlers",
+                "Rhyming nursery riddles"
+            ],
+            correct: 1,
+            explanation: "'Khurluchhī' contains children’s ghazals (bāl ghazal), a significant innovation that applies classical ghazal discipline to child-appropriate subjects."
+        },
+        {
+            text: "In Navya-Nyāya epistemological analysis, which concept is used to explain the ‘productive absence’ in Munnaji’s haiku collection 'Ghah'?",
+            options: [
+                "Vyāpti (invariable concomitance)",
+                "Abhāva (absence as a positive category)",
+                "Pratyakṣa (direct perception)",
+                "Śabda (verbal testimony)"
+            ],
+            correct: 1,
+            explanation: "The analysis applies Gaṅgeśa’s concept of abhāva (absence) to haiku: the kireji (cut) creates a productive absence that generates meaning, as discussed in the critical appreciation of 'Ghah'."
+        },
+        {
+            text: "The interview book 'Hum Puchhait Chhī' by Munnaji contains conversations with several key Maithili figures. Who among the following is NOT one of the 24 interviewees listed in the chapter?",
+            options: [
+                "Bechan Thakur (Dalit playwright)",
+                "Jagdish Prasad Mandal (Sahitya Akademi winner 2021)",
+                "Udaya Narayana Singh 'Nachiketa'",
+                "Gajendra Thakur (editor, Videha)"
+            ],
+            correct: 2,
+            explanation: "The 24 interviews include Bechan Thakur, Jagdish Prasad Mandal, Govind Jha, Rajdeo Mandal, Gajendra Thakur, but not Udaya Narayana Singh 'Nachiketa', whose work is discussed elsewhere."
+        },
+        {
+            text: "Which story from the seed story collection 'Prateek' is noted for a widow asserting her daughter’s right to light the funeral pyre, challenging patriarchal custom?",
+            options: [
+                "Kamniśā",
+                "Revāj",
+                "Selphi",
+                "Napanā"
+            ],
+            correct: 1,
+            explanation: "Gajendra Thakur’s preface singles out 'Revāj' (Custom), where a widow claims the right of her daughter to perform the last rites, subverting traditional inheritance."
+        },
+        {
+            text: "According to the Videha Parallel History Framework, Munnaji’s position is that of a(n):",
+            options: [
+                "Sahitya Akademi Fellow",
+                "Core institutional figure of the democratic counter-canon",
+                "Exclusive poet of classical Vidyapati revival",
+                "Post-modern Hindi-Maithili experimentalist"
+            ],
+            correct: 1,
+            explanation: "The framework positions Munnaji as a core figure of the democratic parallel tradition: assistant editor, bīhani kathā theorist, multi-genre practitioner, and counter-canon archivist."
+        }
+    ];
+
+    // State management
+    let selectedAnswers = new Array(questions.length).fill(null);
+    let submitted = false;
+
+    // DOM elements
+    const questionsArea = document.getElementById('questionsArea');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    // Render all questions
+    function renderQuiz() {
+        if (!questionsArea) return;
+        let html = '';
+        questions.forEach((q, idx) => {
+            const selectedVal = selectedAnswers[idx];
+            html += `
+                <div class="question-card" data-qidx="${idx}">
+                    <div class="question-text">${idx+1}. ${q.text}</div>
+                    <div class="options" id="options-${idx}">
+                        ${q.options.map((opt, optIdx) => {
+                            const isChecked = (selectedVal === optIdx);
+                            const inputId = `q${idx}_opt${optIdx}`;
+                            return `
+                                <div class="option" data-qidx="${idx}" data-optidx="${optIdx}">
+                                    <input type="radio" name="q${idx}" id="${inputId}" value="${optIdx}" ${isChecked ? 'checked' : ''}>
+                                    <label for="${inputId}">${String.fromCharCode(65+optIdx)}. ${opt}</label>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                    <div class="feedback" id="fb-${idx}"></div>
+                </div>
+            `;
+        });
+        questionsArea.innerHTML = html;
+
+        // Attach event listeners to each radio group manually (delegation also fine, but explicit rebind)
+        for (let i = 0; i < questions.length; i++) {
+            const radios = document.querySelectorAll(`input[name="q${i}"]`);
+            radios.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    if (!submitted) {
+                        const val = parseInt(e.target.value);
+                        selectedAnswers[i] = val;
+                        // clear any previous feedback when answer changes after reset/submit? we will handle on submit.
+                        const fbDiv = document.getElementById(`fb-${i}`);
+                        if (fbDiv && !submitted) fbDiv.innerHTML = '';
+                    } else {
+                        // if already submitted and user changes, reset submitted flag? Better to just allow but require re-submit
+                        // but we can re-evaluate if needed. For simplicity, if submitted, we block change temporarily OR we can re-evaluate
+                        // but we mark not submitted after reset; we allow but keep submitted false warning.
+                        if (submitted) {
+                            // small UX: re-allow after reset; we'll just ignore changes when submitted, but user can click reset.
+                            // Alternatively set submitted false if they change? Better to show hint to reset.
+                            const fbDiv = document.getElementById(`fb-${i}`);
+                            if (fbDiv && fbDiv.innerHTML.trim() !== "") {
+                                fbDiv.innerHTML = '<span style="color:#b95b3d;">⚠️ Please click "Reset quiz" to change answers after submission.</span>';
+                            }
+                        }
+                    }
+                });
+            });
+        }
+
+        // if already submitted, show feedback again
+        if (submitted) {
+            showResults();
+        }
+    }
+
+    function showResults() {
+        let correctCount = 0;
+        for (let i = 0; i < questions.length; i++) {
+            const userChoice = selectedAnswers[i];
+            const isCorrect = (userChoice !== null && userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+            const fbDiv = document.getElementById(`fb-${i}`);
+            if (fbDiv) {
+                if (userChoice === null) {
+                    fbDiv.innerHTML = `<span class="wrong-feedback">❌ Not answered. Correct answer: ${String.fromCharCode(65+questions[i].correct)}. ${questions[i].options[questions[i].correct]}</span><br><span style="font-size:0.8rem;">📖 ${questions[i].explanation}</span>`;
+                } else if (isCorrect) {
+                    fbDiv.innerHTML = `<span class="correct-feedback">✓ Correct! ${questions[i].explanation}</span>`;
+                } else {
+                    fbDiv.innerHTML = `<span class="wrong-feedback">✗ Incorrect. Correct: ${String.fromCharCode(65+questions[i].correct)}. ${questions[i].options[questions[i].correct]}</span><br><span style="font-size:0.8rem;">📚 ${questions[i].explanation}</span>`;
+                }
+            }
+            // Also highlight the correct option in the list? for better clarity (optional)
+            const optionsDiv = document.getElementById(`options-${i}`);
+            if (optionsDiv) {
+                const allOptions = optionsDiv.querySelectorAll('.option');
+                allOptions.forEach((opt, optIdx) => {
+                    const radio = opt.querySelector('input');
+                    if (optIdx === questions[i].correct) {
+                        opt.style.backgroundColor = "#e7f3e3";
+                        opt.style.borderColor = "#8bc34a";
+                    } else if (userChoice === optIdx && userChoice !== questions[i].correct) {
+                        opt.style.backgroundColor = "#ffe2df";
+                        opt.style.borderColor = "#e07a5f";
+                    } else if (userChoice === optIdx && userChoice === questions[i].correct) {
+                        opt.style.backgroundColor = "#dff0df";
+                    } else {
+                        if (!submitted) opt.style.backgroundColor = "";
+                    }
+                });
+            }
+        }
+        scoreDisplay.innerText = `Score: ${correctCount} / ${questions.length}`;
+    }
+
+    function resetQuiz() {
+        submitted = false;
+        selectedAnswers = new Array(questions.length).fill(null);
+        // clear all visual feedback, reset background colors
+        renderQuiz();  // re-render fresh state
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+        // remove any leftover submit flag effects
+        const allFb = document.querySelectorAll('.feedback');
+        allFb.forEach(fb => fb.innerHTML = '');
+        // reset option backgrounds
+        for (let i=0; i<questions.length; i++) {
+            const optionsDiv = document.getElementById(`options-${i}`);
+            if (optionsDiv) {
+                const opts = optionsDiv.querySelectorAll('.option');
+                opts.forEach(opt => {
+                    opt.style.backgroundColor = "";
+                    opt.style.borderColor = "#e9e0d2";
+                });
+            }
+        }
+        // enable radio changes normally
+    }
+
+    function submitQuiz() {
+        submitted = true;
+        // first, check if any unanswered question? we can still show results but mark missing as wrong.
+        showResults();
+        // disable further automatic changes? radios still can be clicked but we show warning message via listener above.
+        // also we can add a flag to prevent re-evaluation without reset. Fine.
+    }
+
+    // event listeners
+    submitBtn.addEventListener('click', () => {
+        if (submitted) {
+            // if already submitted, just re-show results (maybe update if user changed? but we disallowed changes via listener).
+            // Better to re-evaluate after reset. We'll just show results again.
+            showResults();
+        } else {
+            submitQuiz();
+        }
+    });
+
+    resetBtn.addEventListener('click', () => {
+        resetQuiz();
+    });
+
+    // initial render
+    renderQuiz();
+    scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    submitted = false;
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

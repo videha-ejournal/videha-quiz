@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Chapter 7 – Panji Prabandh | Study Guide to Maithil Genealogical Mapping</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #ebe1cf;
+background: radial-gradient(circle at 10% 30%, #f2ecdf 0%, #dfd2bb 100%);
+font-family: 'Segoe UI', 'Roboto', 'Noto Serif', Georgia, serif;
+padding: 2rem 1rem;
+}
+.quiz-card {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffef8;
+border-radius: 2rem;
+overflow: hidden;
+box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.4);
+border: 1px solid #e2cfaa;
+}
+.quiz-header {
+background: #2f4b3c;
+background: linear-gradient(115deg, #2a5a44 0%, #1e3e31 100%);
+padding: 1.8rem 2rem 1.6rem;
+color: #fef0df;
+border-bottom: 6px solid #e2b87a;
+}
+.quiz-header h1 {
+font-size: 2rem;
+font-weight: 700;
+letter-spacing: -0.3px;
+display: flex;
+flex-wrap: wrap;
+align-items: baseline;
+gap: 0.8rem;
+}
+.quiz-header h1 span {
+background: #19392c;
+font-size: 0.9rem;
+font-weight: 500;
+padding: 0.2rem 1rem;
+border-radius: 60px;
+}
+.quiz-header p {
+margin-top: 0.7rem;
+font-style: italic;
+font-size: 0.95rem;
+opacity: 0.9;
+}
+.quiz-body {
+padding: 1.6rem 2rem 0.8rem;
+}
+.question-block {
+background: white;
+border-radius: 1.4rem;
+margin-bottom: 2rem;
+box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
+border: 1px solid #e7d9bd;
+transition: 0.1s;
+}
+.question-title {
+background: #fefaf0;
+padding: 1.2rem 1.8rem 0.5rem 1.8rem;
+font-size: 1.2rem;
+font-weight: 700;
+color: #2f3a2b;
+border-radius: 1.4rem 1.4rem 0 0;
+}
+.options-list {
+padding: 0.3rem 1.8rem 1.2rem 1.8rem;
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+}
+.opt-item {
+display: flex;
+align-items: center;
+gap: 0.8rem;
+background: #fefcf6;
+padding: 0.6rem 1rem;
+border-radius: 80px;
+border: 1px solid #e9dec4;
+cursor: pointer;
+transition: 0.1s;
+}
+.opt-item:hover {
+background: #f7efdf;
+border-color: #caad79;
+}
+input[type="radio"] {
+accent-color: #3f6b56;
+width: 1.1rem;
+height: 1.1rem;
+flex-shrink: 0;
+}
+.opt-item label {
+font-size: 1rem;
+font-weight: 450;
+color: #2f3428;
+width: 100%;
+cursor: pointer;
+line-height: 1.35;
+}
+.feedback-message {
+margin: 0.2rem 1.8rem 1.3rem 1.8rem;
+}
+.correct-feedback {
+background: #e0f0e8;
+border-left: 5px solid #2d6a4f;
+padding: 0.65rem 1rem;
+border-radius: 14px;
+color: #1a523b;
+font-size: 0.9rem;
+}
+.wrong-feedback {
+background: #ffe3db;
+border-left: 5px solid #c2573a;
+padding: 0.65rem 1rem;
+border-radius: 14px;
+color: #a13a21;
+font-size: 0.9rem;
+}
+.quiz-footer {
+background: #fcf9f0;
+padding: 1.2rem 2rem 1.8rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 1rem;
+border-top: 1px solid #e8dbbb;
+}
+button {
+background: #3f6b56;
+border: none;
+font-size: 1rem;
+font-weight: 600;
+padding: 0.7rem 1.8rem;
+border-radius: 60px;
+color: white;
+cursor: pointer;
+transition: 0.2s;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+button:hover {
+background: #2c5341;
+transform: translateY(-2px);
+}
+.reset-btn {
+background: #6d684e;
+}
+.reset-btn:hover {
+background: #514d39;
+}
+.score-box {
+background: #293e34;
+padding: 0.5rem 1.4rem;
+border-radius: 60px;
+color: #fff0d4;
+font-weight: bold;
+font-size: 1rem;
+}
+@media (max-width: 680px) {
+.quiz-body {
+padding: 1rem;
+}
+.question-title {
+font-size: 1rem;
+padding: 1rem 1rem 0.2rem 1rem;
+}
+.options-list {
+padding: 0 1rem 1rem 1rem;
+}
+.opt-item label {
+font-size: 0.88rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-card"> <div class="quiz-header"> <h1>📖 Panji Prabandh <span>Chapter 7: Comprehensive Briefing & Study Guide</span></h1> <p>Maithil Genealogical Mapping | Gotras, Mulas, Siddhanta Process, Social Hierarchy & 32-point pedigree verification</p> </div> <div class="quiz-body" id="quizRoot"></div> <div class="quiz-footer"> <button id="submitBtn">✅ Submit & Verify</button> <button id="resetBtn" class="reset-btn">⟳ Reset Quiz</button> <div class="score-box" id="scoreDisplay">Score: --/--</div> </div>
+</div>
+<script>
+    // --------------------------------------------------------------
+    // QUESTIONS BASED ON CHAPTER 7 (Panji Prabandh: Briefing & Study Guide)
+    // --------------------------------------------------------------
+    const questions = [
+        {
+            text: "According to Chapter 7, what was the primary mission of the Panji Prabandh after its formal institutionalization in 1326 AD?",
+            options: [
+                "To collect taxes from Maithil Brahmins",
+                "To maintain 'Jati Shuddhi' (purity of lineage) by regulating marriages and preventing prohibited consanguinity",
+                "To record land revenue for the Darbhanga Raj",
+                "To translate Vedic texts into Maithili"
+            ],
+            correct: 1,
+            explanation: "Chapter 7 states that the primary mission of the Panji system is maintaining lineage purity through marriage verification, ensuring couples are 'Asvajan' (unrelated within prohibited degrees)."
+        },
+        {
+            text: "Who were the three first official Panjikars appointed by King Harisimhadeva, and for which communities?",
+            options: [
+                "Gunakar Jha (Brahmins), Shankardatt (Karna Kayasthas), Vijayadatt (Kshatriyas)",
+                "Gunakar Jha (Kayasthas), Madhav Singh (Brahmins), Rameshwar (Kshatriyas)",
+                "Vidyapati (Brahmins), Chandeshvar (Kayasthas), Lakhima (Kshatriyas)",
+                "Haridas (Brahmins), Gunakar (Kayasthas), Vijay (Shudras)"
+            ],
+            correct: 0,
+            explanation: "As per the 'Harisimhadeva Reforms (1326 AD)', the King appointed Gunakar Jha for Brahmins, Shankardatt for Karna Kayasthas, and Vijayadatt for Kshatriyas."
+        },
+        {
+            text: "What are the two primary Vedic divisions among Maithil Brahmins, with distinct marriage rituals?",
+            options: [
+                "Shaiva and Vaishnava",
+                "Vajasaneyi (Yajurveda/Madhyandina) and Chhandog (Samaveda/Kauthuma)",
+                "Shukla Yajurveda and Krishna Yajurveda",
+                "Rigvedi and Samavedi only"
+            ],
+            correct: 1,
+            explanation: "Chapter 7 distinguishes Vajasaneyi (Yajurvedic) and Chhandog (Samavedic) traditions; their upanayana and vivaha ceremonies differ (e.g., Chhandog marriages have two parts after sunset)."
+        },
+        {
+            text: "How many recognized Mulas (root lineages) exist in the Panji system, and how many are considered 'Mukhya' (main) Mulas?",
+            options: [
+                "100 Mulas total, 20 main",
+                "167 recognized Mulas, with 34 to 35 primary Mulas",
+                "50 Mulas, 10 main",
+                "20 Mulas, all primary"
+            ],
+            correct: 1,
+            explanation: "The text states there are 167 recognized Mulas, from which 34–35 'Mukhya' (main) Mulas were identified as primary ancestral nodes."
+        },
+        {
+            text: "What is the 'Sapinda Rule' that determines marriage eligibility under the Panji system?",
+            options: [
+                "The couple must share the same gotra",
+                "Marriage is prohibited if the couple shares a common ancestor within 7 paternal generations or 5 maternal generations",
+                "Only the mother’s lineage is considered",
+                "The couple must be from the same Mula-gram"
+            ],
+            correct: 1,
+            explanation: "Sapinda prohibition: common ancestor within 7 generations on father’s side (6 in practice) and 5 generations on mother’s side is forbidden."
+        },
+        {
+            text: "Explain the 'Chhapthi' (Six-Point Verification) investigation performed by a Panjikar before marriage. What does it involve?",
+            options: [
+                "Verifying only the groom’s horoscope",
+                "Checking 32 ancestral points (Utedh) and ensuring none of the 16 'Chhapthi' of the bride appear in the groom’s paternal lineage",
+                "Asking 5 witnesses about family reputation",
+                "A simple gotra declaration"
+            ],
+            correct: 1,
+            explanation: "The Panjikar verifies 32 points of ancestry (Utedh) and specifically the 16 Chhapthi (critical genealogical nodes); if any of bride's Chhapthi appears in groom’s paternal side, marriage is invalid."
+        },
+        {
+            text: "What is the 'Siddhanta' or 'Siddhanta Patra' in the Panji system?",
+            options: [
+                "A penalty for violating gotra rules",
+                "A formal marriage eligibility certificate issued by the Panjikar, without which a marriage is considered Ashastriya (invalid)",
+                "A list of acceptable villages for marriage",
+                "The title given to a Panjikar after training"
+            ],
+            correct: 1,
+            explanation: "Siddhanta is the official written certificate confirming the couple is Asvajan (not related within prohibited degrees). Without Siddhanta, marriage is not recognized."
+        },
+        {
+            text: "What type of record is the 'Dushun Panji' (Fault Register) and why is it significant?",
+            options: [
+                "It records only positive achievements of Brahmins",
+                "It documents anomalies like inter-caste marriages, marriages with Yavanas, or lineage 'faults', ensuring transparency about social dilution",
+                "It is a list of royal genealogies only",
+                "It contains financial accounts of Panjikars"
+            ],
+            correct: 1,
+            explanation: "Dushun Panji (Fault Register) records lineage deviations: inter-caste unions, marriages with unknown maternal lines, etc., used to track social dilution (ksaran) over generations."
+        },
+        {
+            text: "According to the study guide, why is the Tirthuta (Maithili) script considered the 'lifeblood' of the Panji Prabandh?",
+            options: [
+                "Because all Panji books are written in Tirthuta script, and survival of the system depends on preserving this script",
+                "Because Devanagari cannot be used for genealogy",
+                "Because it is the official script of the Indian government",
+                "Because only women can write Tirthuta"
+            ],
+            correct: 0,
+            explanation: "Chapter 7 emphasizes that all traditional Panji manuscripts are in Tirthuta script; loss of script literacy threatens the system’s future, thus preservation & Devanagari transliteration are vital."
+        },
+        {
+            text: "What are the three hierarchical tiers (social categories) into which Maithil Brahmins were later classified?",
+            options: [
+                "Rishi, Devarishi, Rajarishi",
+                "Shrotriya (highest), Yogya (middle), Panjibaddha (baseline registered families), plus Jayavar for unregistered",
+                "Bhumihar, Rajput, Kayastha",
+                "Vatsa, Shandilya, Kashyapa"
+            ],
+            correct: 1,
+            explanation: "The system stratifies into Shrotriya (8 grades), Yogya (13 grades), Panjibaddha/Vanshaja (baseline), and Jayavar (outside formal records)."
+        }
+    ];
+
+    // state
+    let selections = new Array(questions.length).fill(null);
+    let isSubmitted = false;
+
+    const quizRoot = document.getElementById('quizRoot');
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const scoreSpan = document.getElementById('scoreDisplay');
+
+    function render() {
+        quizRoot.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const block = document.createElement('div');
+            block.className = 'question-block';
+            block.dataset.qid = idx;
+
+            const titleDiv = document.createElement('div');
+            titleDiv.className = 'question-title';
+            titleDiv.innerText = `${idx+1}. ${q.text}`;
+            block.appendChild(titleDiv);
+
+            const optsDiv = document.createElement('div');
+            optsDiv.className = 'options-list';
+            q.options.forEach((opt, optIdx) => {
+                const optRow = document.createElement('div');
+                optRow.className = 'opt-item';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q${idx}`;
+                radio.value = optIdx;
+                radio.id = `q${idx}_opt${optIdx}`;
+                if (!isSubmitted && selections[idx] === optIdx) radio.checked = true;
+                if (isSubmitted) radio.disabled = true;
+
+                const label = document.createElement('label');
+                label.htmlFor = `q${idx}_opt${optIdx}`;
+                label.innerText = opt;
+
+                radio.addEventListener('change', (e) => {
+                    if (!isSubmitted) {
+                        selections[idx] = parseInt(e.target.value);
+                    }
+                });
+
+                optRow.appendChild(radio);
+                optRow.appendChild(label);
+                optsDiv.appendChild(optRow);
+            });
+            block.appendChild(optsDiv);
+
+            // feedback if submitted
+            if (isSubmitted) {
+                const fbDiv = document.createElement('div');
+                fbDiv.className = 'feedback-message';
+                const isCorrect = (selections[idx] === q.correct);
+                if (isCorrect) {
+                    fbDiv.innerHTML = `<div class="correct-feedback">✓ Correct. ${q.explanation}</div>`;
+                } else {
+                    const correctLetter = String.fromCharCode(65 + q.correct);
+                    fbDiv.innerHTML = `<div class="wrong-feedback">✗ Incorrect. Right answer: ${correctLetter}) ${q.options[q.correct]}.<br>${q.explanation}</div>`;
+                }
+                block.appendChild(fbDiv);
+            }
+            quizRoot.appendChild(block);
+        });
+    }
+
+    function computeScore() {
+        let correct = 0;
+        for (let i = 0; i < questions.length; i++) {
+            if (selections[i] !== null && selections[i] === questions[i].correct) correct++;
+        }
+        return correct;
+    }
+
+    function updateScore() {
+        const total = questions.length;
+        const correct = computeScore();
+        scoreSpan.innerText = `Score: ${correct}/${total}`;
+    }
+
+    function submitQuiz() {
+        if (isSubmitted) return;
+        let allAnswered = true;
+        for (let i = 0; i < questions.length; i++) {
+            if (selections[i] === null) {
+                allAnswered = false;
+                break;
+            }
+        }
+        if (!allAnswered) {
+            alert("❌ Please answer all 10 questions before submitting.");
+            return;
+        }
+        isSubmitted = true;
+        updateScore();
+        render();
+    }
+
+    function resetQuiz() {
+        isSubmitted = false;
+        selections.fill(null);
+        updateScore();
+        render();
+    }
+
+    // initial rendering
+    render();
+    updateScore();
+
+    submitBtn.addEventListener('click', submitQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

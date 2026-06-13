@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Chapter 15 – Pampilā-Varga Pañjikā (Entries 226–358)</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #e9e5d8;
+font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, sans-serif;
+padding: 2rem 1rem;
+color: #2c2b26;
+}
+.quiz-container {
+max-width: 960px;
+margin: 0 auto;
+background: #fffef8;
+border-radius: 2.5rem;
+box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+overflow: hidden;
+}
+.quiz-header {
+background: #3a6b4b;
+background-image: linear-gradient(135deg, #44855f, #2b4d36);
+padding: 1.8rem 2rem;
+color: #fff3e2;
+text-align: center;
+border-bottom: 5px solid #dfbc7a;
+}
+.quiz-header h1 {
+font-size: 1.9rem;
+letter-spacing: -0.3px;
+font-weight: 700;
+margin-bottom: 0.5rem;
+}
+.quiz-header h1 span {
+font-size: 2rem;
+}
+.quiz-header p {
+font-size: 1rem;
+background: #fff3e230;
+display: inline-block;
+padding: 0.3rem 1.2rem;
+border-radius: 40px;
+font-weight: 500;
+backdrop-filter: blur(2px);
+}
+.chapter-badge {
+background: #dfbc7a;
+color: #2d3e2b;
+border-radius: 100px;
+padding: 0.25rem 1.2rem;
+font-size: 0.8rem;
+font-weight: bold;
+display: inline-block;
+margin-top: 0.7rem;
+}
+.quiz-body {
+padding: 2rem 2rem 1.2rem;
+}
+.question-card {
+background: #fefaf0;
+border-radius: 1.8rem;
+margin-bottom: 1.8rem;
+padding: 1.3rem 1.5rem;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+border: 1px solid #e6d8b8;
+}
+.question-text {
+font-size: 1.28rem;
+font-weight: 700;
+margin-bottom: 1rem;
+color: #3e5a3a;
+display: flex;
+align-items: baseline;
+gap: 10px;
+flex-wrap: wrap;
+}
+.q-num {
+background: #b87c4a;
+color: white;
+width: 34px;
+height: 34px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+border-radius: 60px;
+font-size: 1rem;
+font-weight: bold;
+margin-right: 8px;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.75rem;
+margin-left: 0.5rem;
+}
+.option {
+display: flex;
+align-items: center;
+gap: 12px;
+background: #ffffff;
+padding: 0.6rem 1rem;
+border-radius: 2rem;
+border: 1px solid #dbcaa0;
+transition: all 0.1s;
+cursor: pointer;
+}
+.option:hover {
+background: #fff3e0;
+border-color: #b87c4a;
+}
+input[type="radio"] {
+accent-color: #44855f;
+width: 1.2rem;
+height: 1.2rem;
+cursor: pointer;
+}
+.option label {
+font-size: 0.98rem;
+font-weight: 500;
+color: #2c2b26;
+width: 100%;
+cursor: pointer;
+line-height: 1.35;
+}
+.action-buttons {
+display: flex;
+gap: 1.2rem;
+justify-content: center;
+margin: 1.8rem 0 1.2rem;
+flex-wrap: wrap;
+}
+button {
+background: #44855f;
+border: none;
+padding: 0.8rem 2rem;
+font-size: 1.1rem;
+font-weight: bold;
+border-radius: 3rem;
+color: white;
+cursor: pointer;
+transition: 0.15s;
+font-family: inherit;
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+button:hover {
+background: #5fa37a;
+transform: translateY(-2px);
+}
+button.reset-btn {
+background: #8b6a42;
+}
+button.reset-btn:hover {
+background: #ad8857;
+}
+.result-area {
+background: #f0ebdc;
+border-radius: 2rem;
+padding: 1.3rem 1.8rem;
+margin: 1rem 0 1.8rem;
+border-left: 8px solid #b87c4a;
+}
+.score-badge {
+font-size: 1.7rem;
+font-weight: 800;
+background: #3a6b4b;
+display: inline-block;
+padding: 0.2rem 1.2rem;
+border-radius: 40px;
+color: #fbefd5;
+margin-bottom: 0.8rem;
+}
+.feedback-list {
+margin-top: 1rem;
+max-height: 480px;
+overflow-y: auto;
+padding-right: 6px;
+}
+.feedback-item {
+border-bottom: 1px dashed #cfbf92;
+padding: 0.65rem 0;
+font-size: 0.92rem;
+}
+.correct-feedback {
+color: #1f6d2f;
+font-weight: 600;
+}
+.wrong-feedback {
+color: #b13b2b;
+}
+footer {
+text-align: center;
+padding: 1.2rem;
+font-size: 0.78rem;
+background: #faf5e9;
+color: #5e4e34;
+border-top: 1px solid #e2d2b0;
+}
+@media (max-width: 600px) {
+.quiz-body {
+padding: 1.5rem;
+}
+.question-text {
+font-size: 1.1rem;
+}
+.option label {
+font-size: 0.87rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <div class="quiz-header"> <h1>📖 Chapter 15 <span>❯</span> Knowledge Check</h1> <p>Pampilā-Varga Pañjikā – Khaṇḍa 3 (Nagramī) | Entries 226–358</p> <div class="chapter-badge">📌 Genealogical records, modern professions & naming conventions</div> </div> <div class="quiz-body"> <form id="quizForm"> <div class="question-card"> <div class="question-text"><span class="q-num">1</span> Which block in Chapter 15 records the lineage of “yaṃtrajña Dayānātha” (engineer) and later “arthaudyamī Ramānanda” (entrepreneur)?</div> <div class="options"> <div class="option"><input type="radio" name="q1" value="0" id="q1a"><label for="q1a"> Block 122 (Kanhaulī–Māṃgaraunī)</label></div> <div class="option"><input type="radio" name="q1" value="1" id="q1b"><label for="q1b"> Block 33 (Khāngud to Padahiyā)</label></div> <div class="option"><input type="radio" name="q1" value="2" id="q1c"><label for="q1c"> Block 253 (Balirajpur to Chopta)</label></div> <div class="option"><input type="radio" name="q1" value="3" id="q1d"><label for="q1d"> Block 294 (Nagvad to Samauli)</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">2</span> What extraordinary modern political designation appears in Block 122 of this chapter?</div> <div class="options"> <div class="option"><input type="radio" name="q2" value="0" id="q2a"><label for="q2a"> “I.A.S. (Ex. G.P. Bihar)”</label></div> <div class="option"><input type="radio" name="q2" value="1" id="q2b"><label for="q2b"> “C.P.M. (M.P.)” – Communist Party of India (Marxist) Member of Parliament</label></div> <div class="option"><input type="radio" name="q2" value="2" id="q2c"><label for="q2c"> “Member of Legislative Assembly (Bihar)”</label></div> <div class="option"><input type="radio" name="q2" value="3" id="q2d"><label for="q2d"> “Adv. World Bank”</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">3</span> The title “Sahityacharya Prof. Dr. Vishvambhar Mishra ‘Vagish’” appears in Block 254. What does the pen name “Vagish” signify?</div> <div class="options"> <div class="option"><input type="radio" name="q3" value="0" id="q3a"><label for="q3a"> “Lord of Wealth”</label></div> <div class="option"><input type="radio" name="q3" value="1" id="q3b"><label for="q3b"> “Lord of Speech” (master of eloquence)</label></div> <div class="option"><input type="radio" name="q3" value="2" id="q3c"><label for="q3c"> “Protector of the Vedas”</label></div> <div class="option"><input type="radio" name="q3" value="3" id="q3d"><label for="q3d"> “Wandering Ascetic”</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">4</span> In Block 294, the Panji records a precise academic credential: “III M.A. 1934”. What does this colophon demonstrate?</div> <div class="options"> <div class="option"><input type="radio" name="q4" value="0" id="q4a"><label for="q4a"> That the Panji only records traditional Sanskrit learning</label></div> <div class="option"><input type="radio" name="q4" value="1" id="q4b"><label for="q4b"> That modern university degrees (even with division) were documented as genealogical data</label></div> <div class="option"><input type="radio" name="q4" value="2" id="q4c"><label for="q4c"> A mistake by the scribe</label></div> <div class="option"><input type="radio" name="q4" value="3" id="q4d"><label for="q4d"> The year the Panji was founded</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">5</span> Which block contains the legal dynasty of “Vakil Brajmohan” and his sons, including “M.S. Narendramohan” and “Vakil Anshu / Aashu”?</div> <div class="options"> <div class="option"><input type="radio" name="q5" value="0" id="q5a"><label for="q5a"> Block 307 (Nagvad to Rashad)</label></div> <div class="option"><input type="radio" name="q5" value="1" id="q5b"><label for="q5b"> Block 345 (Mahishi to Kailakh)</label></div> <div class="option"><input type="radio" name="q5" value="2" id="q5c"><label for="q5c"> Block 316 (Analapura to Nah)</label></div> <div class="option"><input type="radio" name="q5" value="3" id="q5d"><label for="q5d"> Block 352 (Hariyam – Budhavāla)</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">6</span> According to Chapter 15, what is the significance of the “apara” (aparā) notation in the Panji?</div> <div class="options"> <div class="option"><input type="radio" name="q6" value="0" id="q6a"><label for="q6a"> It marks the eldest son</label></div> <div class="option"><input type="radio" name="q6" value="1" id="q6b"><label for="q6b"> It indicates a second or subsequent wife’s children (polygamous branch)</label></div> <div class="option"><input type="radio" name="q6" value="2" id="q6c"><label for="q6c"> It means “adopted from another village”</label></div> <div class="option"><input type="radio" name="q6" value="3" id="q6d"><label for="q6d"> It is used for daughters who marry out</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">7</span> Block 345–346 records an extraordinary entry: “Mahavir I.P.S. (D.I.G.)” and his sons “I.A.S. Arun, I.A.S. Amit”. Additionally, the Panji notes “Sutashch Prathama I.A.S. Putri”. What does this daughter notation indicate?</div> <div class="options"> <div class="option"><input type="radio" name="q7" value="0" id="q7a"><label for="q7a"> Daughters were never recorded</label></div> <div class="option"><input type="radio" name="q7" value="1" id="q7b"><label for="q7b"> A daughter’s professional achievement (first I.A.S. among daughters) is explicitly noted</label></div> <div class="option"><input type="radio" name="q7" value="2" id="q7c"><label for="q7c"> Only sons are mentioned; daughters ignored</label></div> <div class="option"><input type="radio" name="q7" value="3" id="q7d"><label for="q7d"> It marks a widow’s remarriage</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">8</span> Block 347 contains the colonial judicial title “Jury in- Calcutta H.C.” for Patak Baun. What does this entry illustrate?</div> <div class="options"> <div class="option"><input type="radio" name="q8" value="0" id="q8a"><label for="q8a"> British colonial titles were recorded alongside traditional genealogical data</label></div> <div class="option"><input type="radio" name="q8" value="1" id="q8b"><label for="q8b"> Panji records never mention colonial service</label></div> <div class="option"><input type="radio" name="q8" value="2" id="q8c"><label for="q8c"> The British banned the Panji system</label></div> <div class="option"><input type="radio" name="q8" value="3" id="q8d"><label for="q8d"> Calcutta was outside the Panji’s geographic scope</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">9</span> Which block from Chapter 15 records five sons with the identical “-pati” suffix (e.g., Brahmpati, Mahipati, Narpati, Medhāpati, Madhurāpati)?</div> <div class="options"> <div class="option"><input type="radio" name="q9" value="0" id="q9a"><label for="q9a"> Block 352 (Hariyam – Budhavāla)</label></div> <div class="option"><input type="radio" name="q9" value="1" id="q9b"><label for="q9b"> Block 238 (Samauli village)</label></div> <div class="option"><input type="radio" name="q9" value="2" id="q9c"><label for="q9c"> Block 253 (Balirajpur)</label></div> <div class="option"><input type="radio" name="q9" value="3" id="q9d"><label for="q9d"> Block 226 (Mangauni to Madarri)</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">10</span> The abbreviation “pr.” in Panji entries (e.g., “Ramanath pr. Khatru”) stands for “prakrit / popular name”. Which of the following is a correct example of this dual‑name system from Chapter 15?</div> <div class="options"> <div class="option"><input type="radio" name="q10" value="0" id="q10a"><label for="q10a"> “Buvuaji pr. Jayakrishna” (formal name Jayakrishna, popular name Buvuaji)</label></div> <div class="option"><input type="radio" name="q10" value="1" id="q10b"><label for="q10b"> “Phekan pr. Chhota” (both informal)</label></div> <div class="option"><input type="radio" name="q10" value="2" id="q10c"><label for="q10c"> “Mahārāja Mādhavasiṃha” (no alias)</label></div> <div class="option"><input type="radio" name="q10" value="3" id="q10d"><label for="q10d"> “Ghoghan pr. Kamal” (reversed)</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">11</span> Block 316 records Dr. Prof. Vedanath with a parenthetical description: “(maithilī bhāṣāka sahityakāra)”. What does this indicate?</div> <div class="options"> <div class="option"><input type="radio" name="q11" value="0" id="q11a"><label for="q11a"> He was a political leader</label></div> <div class="option"><input type="radio" name="q11" value="1" id="q11b"><label for="q11b"> He was a Maithili language literary figure (writer/poet)</label></div> <div class="option"><input type="radio" name="q11" value="2" id="q11c"><label for="q11c"> He was a revenue officer</label></div> <div class="option"><input type="radio" name="q11" value="3" id="q11d"><label for="q11d"> He was a British judge</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">12</span> In Block 228, the Panji records a remarkable case of nine sons from an “apara” wife. What does this demonstrate about the Pañjī system?</div> <div class="options"> <div class="option"><input type="radio" name="q12" value="0" id="q12a"><label for="q12a"> The system ignored polygamy</label></div> <div class="option"><input type="radio" name="q12" value="1" id="q12b"><label for="q12b"> Polygamous families were systematically documented, with separate branches for each wife’s children</label></div> <div class="option"><input type="radio" name="q12" value="2" id="q12c"><label for="q12c"> Only the first wife’s children were recorded</label></div> <div class="option"><input type="radio" name="q12" value="3" id="q12d"><label for="q12d"> Children of second wives were considered illegitimate</label></div> </div> </div> </form> <div class="action-buttons"> <button type="button" id="submitBtn">✅ Submit & Check Answers</button> <button type="button" id="resetBtn" class="reset-btn">⟳ Clear All Responses</button> </div> <div id="resultBox" class="result-area" style="display: none;"></div> </div> </div>
+<script>
+    // Correct answers based on Chapter 15 (Entries 226–358) content
+    const correctAnswers = {
+        q1: "1",   // Block 33 (yaṃtrajña Dayānātha & arthaudyamī)
+        q2: "1",   // C.P.M. (M.P.) – Communist MP
+        q3: "1",   // Lord of Speech
+        q4: "1",   // modern university degrees recorded as genealogical data
+        q5: "0",   // Block 307 (Nagvad to Rashad)
+        q6: "1",   // second wife / polygamous branch
+        q7: "1",   // daughter's I.A.S. achievement explicitly noted
+        q8: "0",   // colonial titles recorded alongside genealogical data
+        q9: "0",   // Block 352 (Hariyam – Budhavāla) with five -pati sons
+        q10: "0",  // Buvuaji pr. Jayakrishna (formal/popular name)
+        q11: "1",  // Maithili literary figure
+        q12: "1"   // polygamous families systematically documented
+    };
+
+    // Option texts for feedback display
+    const optionTexts = {
+        q1: ["Block 122 (Kanhaulī–Māṃgaraunī)", "Block 33 (Khāngud to Padahiyā)", "Block 253 (Balirajpur to Chopta)", "Block 294 (Nagvad to Samauli)"],
+        q2: ["I.A.S. (Ex. G.P. Bihar)", "C.P.M. (M.P.) – Communist Party of India (Marxist) Member of Parliament", "Member of Legislative Assembly (Bihar)", "Adv. World Bank"],
+        q3: ["Lord of Wealth", "Lord of Speech (master of eloquence)", "Protector of the Vedas", "Wandering Ascetic"],
+        q4: ["That the Panji only records traditional Sanskrit learning", "That modern university degrees (even with division) were documented as genealogical data", "A mistake by the scribe", "The year the Panji was founded"],
+        q5: ["Block 307 (Nagvad to Rashad)", "Block 345 (Mahishi to Kailakh)", "Block 316 (Analapura to Nah)", "Block 352 (Hariyam – Budhavāla)"],
+        q6: ["It marks the eldest son", "It indicates a second or subsequent wife’s children (polygamous branch)", "It means “adopted from another village”", "It is used for daughters who marry out"],
+        q7: ["Daughters were never recorded", "A daughter’s professional achievement (first I.A.S. among daughters) is explicitly noted", "Only sons are mentioned; daughters ignored", "It marks a widow’s remarriage"],
+        q8: ["British colonial titles were recorded alongside traditional genealogical data", "Panji records never mention colonial service", "The British banned the Panji system", "Calcutta was outside the Panji’s geographic scope"],
+        q9: ["Block 352 (Hariyam – Budhavāla)", "Block 238 (Samauli village)", "Block 253 (Balirajpur)", "Block 226 (Mangauni to Madarri)"],
+        q10: ["“Buvuaji pr. Jayakrishna” (formal name Jayakrishna, popular name Buvuaji)", "“Phekan pr. Chhota” (both informal)", "“Mahārāja Mādhavasiṃha” (no alias)", "“Ghoghan pr. Kamal” (reversed)"],
+        q11: ["He was a political leader", "He was a Maithili language literary figure (writer/poet)", "He was a revenue officer", "He was a British judge"],
+        q12: ["The system ignored polygamy", "Polygamous families were systematically documented, with separate branches for each wife’s children", "Only the first wife’s children were recorded", "Children of second wives were considered illegitimate"]
+    };
+
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const resultBox = document.getElementById('resultBox');
+
+    function resetQuiz() {
+        const allRadios = document.querySelectorAll('input[type="radio"]');
+        allRadios.forEach(radio => radio.checked = false);
+        resultBox.style.display = 'none';
+        resultBox.innerHTML = '';
+    }
+
+    function evaluateQuiz() {
+        let score = 0;
+        const total = 12;
+        const feedbackItems = [];
+
+        for (let i = 1; i <= total; i++) {
+            const qName = `q${i}`;
+            const selectedRadio = document.querySelector(`input[name="${qName}"]:checked`);
+            const selectedVal = selectedRadio ? selectedRadio.value : null;
+            const isCorrect = (selectedVal === correctAnswers[qName]);
+            
+            if (isCorrect && selectedVal !== null) score++;
+            
+            const correctIdx = parseInt(correctAnswers[qName]);
+            const correctText = optionTexts[qName][correctIdx];
+            let userText = "No option selected";
+            if (selectedVal !== null) {
+                userText = optionTexts[qName][parseInt(selectedVal)];
+            }
+            
+            let statusHtml = "";
+            if (selectedVal === null) {
+                statusHtml = `<span class="wrong-feedback">❌ Not answered</span>`;
+            } else if (isCorrect) {
+                statusHtml = `<span class="correct-feedback">✅ Correct</span>`;
+            } else {
+                statusHtml = `<span class="wrong-feedback">❌ Incorrect</span>`;
+            }
+            
+            feedbackItems.push({
+                num: i,
+                statusHtml: statusHtml,
+                correctAnswer: correctText,
+                userAnswer: userText
+            });
+        }
+        
+        const percent = Math.round((score / total) * 100);
+        let resultHtml = `
+            <div style="text-align:center;">
+                <div class="score-badge">📖 ${score} / ${total}  (${percent}%)</div>
+                <p style="margin-bottom: 12px; font-weight:500;">📌 Chapter 15 – Pampilā-Varga Pañjikā (Entries 226–358)</p>
+            </div>
+            <div class="feedback-list">
+        `;
+        
+        feedbackItems.forEach(item => {
+            resultHtml += `
+                <div class="feedback-item">
+                    <strong>Question ${item.num}:</strong> ${item.statusHtml}<br>
+                    <span style="font-size:0.85rem;">✓ Correct: ${item.correctAnswer}<br>
+                    ✎ Your answer: ${item.userAnswer}</span>
+                </div>
+            `;
+        });
+        
+        resultHtml += `</div><p style="margin-top:12px; font-size:0.8rem; border-top:1px solid #ddd; padding-top:10px;">📜 Chapter 15 continues the Nagramī genealogy with remarkable entries: engineers, IAS officers, a CPI(M) MP, “Vakil” law families, and explicit documentation of polygamy (apara) and women’s achievements (I.A.S. daughter). The Pañjī seamlessly merges traditional titles with modern credentials.</p>`;
+        resultBox.innerHTML = resultHtml;
+        resultBox.style.display = 'block';
+        resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    submitBtn.addEventListener('click', evaluateQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

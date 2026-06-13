@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Decoding the Panji of Mithila – Chapter 3 | Genomic Mapping & Socio‑Historical Trajectories</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #f8f3e8;
+font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, sans-serif;
+padding: 2rem 1rem;
+color: #2b2b26;
+}
+.quiz-container {
+max-width: 980px;
+margin: 0 auto;
+background: #fffefa;
+border-radius: 2rem;
+box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+overflow: hidden;
+border: 1px solid #e2d4c0;
+}
+.quiz-header {
+background: #b45f2b;
+background-image: linear-gradient(135deg, #8f4a1f 0%, #c97a3e 100%);
+padding: 2rem 2rem 1.6rem;
+color: white;
+text-align: center;
+}
+.quiz-header h1 {
+font-size: 1.9rem;
+font-weight: 700;
+letter-spacing: -0.3px;
+margin-bottom: 0.3rem;
+}
+.quiz-header h2 {
+font-size: 1.1rem;
+font-weight: 400;
+opacity: 0.92;
+border-top: 1px solid #f0bc8c;
+display: inline-block;
+padding-top: 0.6rem;
+margin-top: 0.5rem;
+}
+.quiz-header p {
+font-size: 0.85rem;
+margin-top: 1rem;
+font-style: italic;
+color: #ffe0c2;
+}
+.questions-area {
+padding: 2rem 2rem 1rem;
+}
+.question-card {
+background: #ffffff;
+border-radius: 1.5rem;
+padding: 1.3rem 1.6rem;
+margin-bottom: 1.8rem;
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+border: 1px solid #e7ddce;
+transition: all 0.2s;
+}
+.question-card:hover {
+border-color: #cfbea5;
+box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+}
+.q-title {
+font-weight: 700;
+font-size: 1.2rem;
+color: #8a4c24;
+margin-bottom: 0.7rem;
+display: flex;
+align-items: baseline;
+gap: 0.7rem;
+flex-wrap: wrap;
+}
+.q-num {
+background: #d88c4a20;
+color: #a45522;
+padding: 0.2rem 0.8rem;
+border-radius: 30px;
+font-size: 0.75rem;
+font-weight: 600;
+}
+.question-text {
+font-size: 1rem;
+font-weight: 500;
+line-height: 1.45;
+margin-bottom: 1rem;
+color: #3b352c;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+margin: 0.5rem 0 0.5rem;
+}
+.option {
+display: flex;
+align-items: center;
+gap: 0.8rem;
+background: #fefaf5;
+padding: 0.6rem 1rem;
+border-radius: 1rem;
+border: 1px solid #e9decf;
+cursor: pointer;
+transition: background 0.2s;
+}
+.option:hover {
+background: #f7efe6;
+}
+input[type="radio"] {
+accent-color: #b45f2b;
+width: 1.1rem;
+height: 1.1rem;
+margin: 0;
+flex-shrink: 0;
+}
+.option label {
+font-size: 0.95rem;
+color: #3f3730;
+line-height: 1.35;
+flex: 1;
+cursor: pointer;
+}
+.feedback {
+margin-top: 0.8rem;
+font-size: 0.85rem;
+padding: 0.55rem 0.9rem;
+border-radius: 1rem;
+background: #f5efe8;
+display: none;
+border-left: 4px solid #c7aa84;
+}
+.feedback.correct {
+background: #eaf6ea;
+border-left-color: #2c7840;
+color: #1a4a2a;
+display: block;
+}
+.feedback.incorrect {
+background: #feece6;
+border-left-color: #bc542b;
+color: #9a3d1a;
+display: block;
+}
+.action-bar {
+padding: 1rem 2rem 2rem;
+display: flex;
+justify-content: center;
+gap: 1.2rem;
+flex-wrap: wrap;
+border-top: 1px solid #e8decf;
+background: #fefbf7;
+}
+button {
+background: #b45f2b;
+border: none;
+color: white;
+font-weight: 600;
+font-size: 1rem;
+padding: 0.75rem 2rem;
+border-radius: 3rem;
+cursor: pointer;
+transition: all 0.2s;
+font-family: inherit;
+box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+button:hover {
+background: #8f4a1f;
+transform: scale(1.01);
+}
+.reset-btn {
+background: #7f6b56;
+}
+.reset-btn:hover {
+background: #614e3b;
+}
+.score-area {
+text-align: center;
+font-size: 1.1rem;
+font-weight: 700;
+background: #ece0d0;
+margin: 0 2rem 1rem;
+padding: 0.75rem;
+border-radius: 3rem;
+color: #2d3e2b;
+}
+footer {
+text-align: center;
+font-size: 0.7rem;
+padding: 1rem;
+color: #a28c6f;
+border-top: 1px solid #efe5d8;
+background: #fdfaf5;
+}
+@media (max-width: 680px) {
+.quiz-header h1 { font-size: 1.5rem; }
+.questions-area { padding: 1.2rem; }
+.question-card { padding: 1rem; }
+.option label { font-size: 0.85rem; }
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <div class="quiz-header"> <h1>🧬 Decoding the Panji of Mithila</h1> <h2>Chapter 3 · Genomic Mapping, Theoretical Frameworks & Socio‑Historical Trajectories</h2> <p>Based on the Panji Prabandh (450 AD – 2009 AD) | Karnataka dynasty · Sapinda rules · Utehd · Dooshan Panji</p> </div> <div class="questions-area" id="quizContainer"></div> <div class="score-area" id="scoreDisplay">
+🧭 Test your knowledge on consanguinity registers, gotras, and Mithila's genealogical revolution
+</div> <div class="action-bar"> <button id="submitQuiz">📜 Submit & See Score</button> <button id="resetQuiz" class="reset-btn">⟳ Reset Quiz</button> </div> </div>
+<script>
+    // Chapter 3 question set (pages 51–68)
+    const questions = [
+        {
+            text: "What event directly triggered the formal codification of the Panji Prabandh under Maharaja Harisimhadeva in 1326 AD (Shaka 1248)?",
+            options: [
+                "A large-scale migration of Brahmins to Nepal",
+                "The accidental incestuous marriage of Dharmashastra scholar Harinath Upadhyaya",
+                "The invasion of Ghiyasuddin Tughlaq and destruction of oral records",
+                "A royal decree to collect taxes based on genealogy"
+            ],
+            correct: 1,
+            explanation: "Chapter 3 states that Pandit Harinath Upadhyaya, author of Smritisara, married his maternal cousin unknowingly due to lack of records. This scandal led King Harisimhadeva to institutionalize the Pañjī system."
+        },
+        {
+            text: "Who was appointed as the first Panjikar (state genealogist) for the Maithil Brahmins under the Karnat dynasty reforms?",
+            options: [
+                "Shankardatta (for Kayasthas)",
+                "Vijayadatta (for Kshatriyas)",
+                "Pandit Gunakar Jha of the Mahindra-Pandua Mool",
+                "Maharaja Mahesh Thakur"
+            ],
+            correct: 2,
+            explanation: "The document records: 'the system was organized under institutional heads: Pandit Gunakar Jha (from Mahindra-Pandua Mool) was entrusted with the Brahmin registers; Shankardatta for Karna Kayasthas; Vijayadatta for Kshatriyas.'"
+        },
+        {
+            text: "According to the Sapinda rules outlined in Chapter 3, what is the modified generational distance for the paternal side that became acceptable for marriage eligibility?",
+            options: [
+                "5 generations (modified by Maharaja Harisimhadeva)",
+                "6 generations (absolute separation, with 7th generation permissible)",
+                "7 generations strictly (original Manusmṛti rule without modification)",
+                "4 generations on both sides"
+            ],
+            correct: 1,
+            explanation: "Section 2 states: 'Under Maharaja Mahesh Thakur, the paternal restriction was modified to an absolute separation of 6 generations, making the 7th generation permissible.' The maternal side remains 5 generations."
+        },
+        {
+            text: "The Utehd (ancestral matrix) used by Panjikars maps how many ancestral lines for both the prospective bride and groom?",
+            options: [
+                "16 specific ancestors (the Chhatis)",
+                "32 ancestral lines representing 32 foundational ancestors",
+                "7 paternal and 5 maternal individuals only",
+                "64 ancestors (32 for each side)"
+            ],
+            correct: 1,
+            explanation: "Chapter 3: 'the Panjikar reconstructs an Utehd – a comprehensive ancestral matrix charting 32 specific ancestral lines for both the prospective bride and groom. This matrix maps out the binary lineage tree backward … 32 foundational ancestors.'"
+        },
+        {
+            text: "How many primary Mools (root ancestral villages) are recognized in the Panji hierarchy, and which branch was added as the 35th elite lineage?",
+            options: [
+                "34 primary Mools; the Khanam branch of Phanandah Mool became the 35th",
+                "20 Mools corresponding to the 20 Gotras",
+                "167 Mools, with no hierarchical addition",
+                "12 Ayant Shrestha Mools only"
+            ],
+            correct: 0,
+            explanation: "The text explicitly: 'the records outline the classification of the primary 35 Mools … the Khanam branch of the Phanandah Mool eventually gained recognition as the 35th high-tier lineage.' The three tiers include Ayant Shrestha (13), Dvitiya (13), Madhyam (8) + Khanam branch = 35."
+        },
+        {
+            text: "The Dooshan Panji (Fault/Degradation Register) records a remarkable fact about the Navya-Nyāya philosopher Gaṅgeśa Upādhyāya. What does the Panji entry state?",
+            options: [
+                "He never married and had no children",
+                "He was born five years after his father's death, and his wife Vallabha was a Charmakarini (leather‑worker caste)",
+                "He was a Kshatriya who converted to Buddhism",
+                "His family was completely extinct in the 14th century"
+            ],
+            correct: 1,
+            explanation: "Section 6.1: 'The registry contains an ancient scribal note stating that Gangesha was born five years after the passing of his father … the ledger records that Gangesha’s wife, Medha/Vallabha, was a Charmakarini (woman from the untouchable leather‑tanning community).'"
+        },
+        {
+            text: "Which famous astronomer's uninterrupted lineage is traced in the Mandar Mool register, starting from Biji Trinayanbhatta (c. 400 AD)?",
+            options: [
+                "Vidyāpati Ṭhākura",
+                "Varāhamihira",
+                "Āryabhaṭa (Āryabhaṭṭa)",
+                "Brahmagupta"
+            ],
+            correct: 2,
+            explanation: "Section 5.1: 'The Mandar Mool register clearly tracks Aryabhata's lineage back across generations … Manuscript Entry Reference (Page 18): … e suto Aryabhatta.' The genealogy begins with Trinayanbhatta (c. 400 AD)."
+        },
+        {
+            text: "The elite Shrotriya class, according to the Shakha Panji stratification, is subdivided into how many Chaugola (quadrant) categories?",
+            options: [
+                "8 Chaugolas (sub-ranks) with 32 Panjis",
+                "15 Chaugolas for the Pachhbaripar",
+                "5 Chaugolas based on pravara",
+                "12 Chaugolas representing the 12 major gotras"
+            ],
+            correct: 0,
+            explanation: "Chapter 7.1: 'Shrotriya (Soti): The highest social tier … divided into 8 Chaugola (sub-ranks) with 32 Panjis.' The Yogya/Panjibaddha have 15 tiers with 153 Panjis."
+        },
+        {
+            text: "Which two severe social malpractices arose from the hypergamous demand for high‑status Shrotriya grooms, as described in Chapter 3?",
+            options: [
+                "Sati and dowry death",
+                "Polygamy (elderly men marrying many young girls) and mass widowhood",
+                "Prohibition of widow remarriage and female infanticide",
+                "Untouchability and temple entry ban"
+            ],
+            correct: 1,
+            explanation: "Section 7.2: 'The Rise of Polygamy … Child Marriages … The Crisis of Widowhood – because old, higher‑tier men frequently married young girls, a large demographic wave of child widows emerged.' Both polygamy and child marriage led to widow crises."
+        },
+        {
+            text: "The digital conservation of the Panji records (palm‑leaf, Basahapatra manuscripts) began in which year, and how many manuscripts were eventually digitised by 2009?",
+            options: [
+                "1990 AD; 5,000 manuscripts",
+                "2000 AD; over 10,000 historic palm‑leaf, Basahapatra, and paper manuscripts",
+                "1985 AD; 2,000 palm‑leaf books",
+                "2005 AD; 500 manuscripts from Nepal only"
+            ],
+            correct: 1,
+            explanation: "Section 8 (Conclusion & Modern Transition): 'digital conservation efforts began in 2000 A.D. Over 10,000 historic palm‑leaf, Basahapatra, and paper manuscripts – spanning over 1,500 years – have been digitally imaged … and transliterated into Devanagari.'"
+        }
+    ];
+
+    // State management
+    let userSelections = new Array(questions.length).fill(null);
+    let submittedStatus = new Array(questions.length).fill(false);
+
+    function renderQuiz() {
+        const container = document.getElementById('quizContainer');
+        if (!container) return;
+        let html = '';
+        questions.forEach((q, idx) => {
+            const selectedVal = userSelections[idx];
+            html += `
+                <div class="question-card" data-qidx="${idx}">
+                    <div class="q-title">
+                        <span class="q-num">Question ${idx+1}</span>
+                    </div>
+                    <div class="question-text">${q.text}</div>
+                    <div class="options" id="options-${idx}">
+            `;
+            q.options.forEach((opt, optIdx) => {
+                const isChecked = (selectedVal === optIdx);
+                html += `
+                    <div class="option" data-qidx="${idx}" data-optidx="${optIdx}">
+                        <input type="radio" name="q${idx}" id="q${idx}_opt${optIdx}" value="${optIdx}" ${isChecked ? 'checked' : ''}>
+                        <label for="q${idx}_opt${optIdx}">${opt}</label>
+                    </div>
+                `;
+            });
+            // feedback area
+            let fbClass = '';
+            let fbText = '';
+            if (submittedStatus[idx]) {
+                const selected = userSelections[idx];
+                const isCorrect = (selected !== null && selected === q.correct);
+                fbClass = isCorrect ? 'correct' : 'incorrect';
+                if (selected === null) {
+                    fbText = `⚠️ Not answered. Correct answer: "${q.options[q.correct]}". ${q.explanation}`;
+                } else if (isCorrect) {
+                    fbText = `✓ Correct. ${q.explanation}`;
+                } else {
+                    fbText = `✗ Incorrect. Correct answer: "${q.options[q.correct]}". ${q.explanation}`;
+                }
+            }
+            html += `
+                    </div>
+                    <div class="feedback ${fbClass}" id="fb-${idx}">${fbText}</div>
+                </div>
+            `;
+        });
+        container.innerHTML = html;
+        attachRadioEvents();
+    }
+
+    function attachRadioEvents() {
+        for (let i = 0; i < questions.length; i++) {
+            const radios = document.querySelectorAll(`input[name="q${i}"]`);
+            radios.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    const selectedVal = parseInt(e.target.value);
+                    userSelections[i] = selectedVal;
+                    // if already submitted, clear feedback for this question and mark unsubmitted for that question
+                    if (submittedStatus[i]) {
+                        submittedStatus[i] = false;
+                        const fbDiv = document.getElementById(`fb-${i}`);
+                        if (fbDiv) {
+                            fbDiv.classList.remove('correct', 'incorrect');
+                            fbDiv.style.display = 'none';
+                            fbDiv.innerHTML = '';
+                        }
+                        updateScorePreview();
+                    } else {
+                        const fbDiv = document.getElementById(`fb-${i}`);
+                        if (fbDiv && fbDiv.style.display === 'block') {
+                            fbDiv.classList.remove('correct', 'incorrect');
+                            fbDiv.style.display = 'none';
+                            fbDiv.innerHTML = '';
+                        }
+                    }
+                });
+            });
+        }
+    }
+
+    function evaluateAll() {
+        let correctCount = 0;
+        for (let i = 0; i < questions.length; i++) {
+            submittedStatus[i] = true;
+            const selected = userSelections[i];
+            const isCorrect = (selected !== null && selected === questions[i].correct);
+            if (isCorrect) correctCount++;
+            const fbDiv = document.getElementById(`fb-${i}`);
+            if (fbDiv) {
+                let fbText = '';
+                let cssClass = '';
+                if (selected === null) {
+                    fbText = `⚠️ Not answered. Correct answer: "${questions[i].options[questions[i].correct]}". ${questions[i].explanation}`;
+                    cssClass = 'incorrect';
+                } else if (selected === questions[i].correct) {
+                    fbText = `✓ Correct. ${questions[i].explanation}`;
+                    cssClass = 'correct';
+                } else {
+                    fbText = `✗ Incorrect. Correct answer: "${questions[i].options[questions[i].correct]}". ${questions[i].explanation}`;
+                    cssClass = 'incorrect';
+                }
+                fbDiv.innerHTML = fbText;
+                fbDiv.classList.remove('correct', 'incorrect');
+                fbDiv.classList.add(cssClass);
+                fbDiv.style.display = 'block';
+            }
+        }
+        const total = questions.length;
+        const percent = Math.round((correctCount / total) * 100);
+        const scoreDiv = document.getElementById('scoreDisplay');
+        let feedbackMsg = `📊 Score: ${correctCount} / ${total} (${percent}%) — `;
+        if (percent === 100) feedbackMsg += "Flawless! You've mastered Mithila's genomic mapping tradition.";
+        else if (percent >= 80) feedbackMsg += "Excellent understanding of the Panji's historical and theoretical frameworks.";
+        else if (percent >= 60) feedbackMsg += "Good grasp; revisit the Dooshan Panji case studies and social stratification sections.";
+        else feedbackMsg += "Review the Sapinda rules, Utehd matrix, and the role of Gunakar Jha & Harisimhadeva.";
+        scoreDiv.innerHTML = feedbackMsg;
+        scoreDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function updateScorePreview() {
+        let answeredCount = 0;
+        let correctCount = 0;
+        for (let i = 0; i < questions.length; i++) {
+            if (submittedStatus[i] && userSelections[i] !== null) {
+                answeredCount++;
+                if (userSelections[i] === questions[i].correct) correctCount++;
+            }
+        }
+        const total = questions.length;
+        const scoreDiv = document.getElementById('scoreDisplay');
+        if (answeredCount === 0) {
+            scoreDiv.innerHTML = "🧬 Answer the 10 questions above and click 'Submit & See Score' to test your knowledge on Chapter 3.";
+        } else {
+            const percent = Math.round((correctCount / total) * 100);
+            scoreDiv.innerHTML = `📌 Partial (previous submission): ${correctCount} / ${total} (${percent}%) — Finish or re‑submit for final score.`;
+        }
+    }
+
+    function resetFullQuiz() {
+        userSelections = new Array(questions.length).fill(null);
+        submittedStatus = new Array(questions.length).fill(false);
+        renderQuiz();
+        const scoreDiv = document.getElementById('scoreDisplay');
+        if (scoreDiv) scoreDiv.innerHTML = "🔄 Quiz reset. Study Chapter 3 and test your knowledge again!";
+        for (let i = 0; i < questions.length; i++) {
+            const fbDiv = document.getElementById(`fb-${i}`);
+            if (fbDiv) {
+                fbDiv.classList.remove('correct', 'incorrect');
+                fbDiv.style.display = 'none';
+                fbDiv.innerHTML = '';
+            }
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        renderQuiz();
+        const submitBtn = document.getElementById('submitQuiz');
+        const resetBtn = document.getElementById('resetQuiz');
+        if (submitBtn) submitBtn.addEventListener('click', evaluateAll);
+        if (resetBtn) resetBtn.addEventListener('click', resetFullQuiz);
+    });
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

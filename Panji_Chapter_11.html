@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Chapter 11 – Prācīn Pañjī, Khaṇḍa 2 | Royal Records, Modernity & The Panji Meets Colonial India</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #dad0b4;
+background: linear-gradient(135deg, #ece0ca 0%, #dacfae 100%);
+font-family: 'Segoe UI', 'Roboto', 'Noto Serif', Georgia, serif;
+padding: 2rem 1rem;
+}
+.quiz-container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffef8;
+border-radius: 2rem;
+overflow: hidden;
+box-shadow: 0 28px 48px -12px rgba(0, 0, 0, 0.4);
+border: 1px solid #d6c798;
+}
+.quiz-header {
+background: #2c475c;
+background: linear-gradient(105deg, #2f5775 0%, #1c374b 100%);
+padding: 1.8rem 2rem 1.6rem;
+color: #f4efdf;
+border-bottom: 5px solid #e7bc74;
+}
+.quiz-header h1 {
+font-size: 1.9rem;
+font-weight: 700;
+letter-spacing: -0.3px;
+display: flex;
+flex-wrap: wrap;
+align-items: baseline;
+gap: 0.8rem;
+}
+.quiz-header h1 span {
+background: #1a3142;
+font-size: 0.9rem;
+font-weight: 500;
+padding: 0.2rem 1rem;
+border-radius: 60px;
+}
+.quiz-header p {
+margin-top: 0.6rem;
+font-style: italic;
+font-size: 0.95rem;
+opacity: 0.92;
+}
+.quiz-body {
+padding: 1.6rem 2rem 0.8rem;
+}
+.question-card {
+background: white;
+border-radius: 1.4rem;
+margin-bottom: 2rem;
+box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
+border: 1px solid #e6d8b5;
+}
+.q-text {
+background: #fefaf0;
+padding: 1.2rem 1.8rem 0.5rem 1.8rem;
+font-size: 1.2rem;
+font-weight: 700;
+color: #2a3a32;
+border-radius: 1.4rem 1.4rem 0 0;
+}
+.options-area {
+padding: 0.3rem 1.8rem 1.2rem 1.8rem;
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+}
+.opt-row {
+display: flex;
+align-items: center;
+gap: 0.8rem;
+background: #fefcf6;
+padding: 0.6rem 1rem;
+border-radius: 80px;
+border: 1px solid #eadcc2;
+cursor: pointer;
+transition: 0.1s;
+}
+.opt-row:hover {
+background: #f5ecdd;
+border-color: #c8aa74;
+}
+input[type="radio"] {
+accent-color: #2f6b61;
+width: 1.1rem;
+height: 1.1rem;
+flex-shrink: 0;
+}
+.opt-row label {
+font-size: 1rem;
+font-weight: 450;
+color: #2d3529;
+width: 100%;
+cursor: pointer;
+line-height: 1.35;
+}
+.feedback {
+margin: 0.2rem 1.8rem 1.3rem 1.8rem;
+}
+.correct-feedback {
+background: #e1ede5;
+border-left: 5px solid #2f7352;
+padding: 0.65rem 1rem;
+border-radius: 14px;
+color: #15553a;
+font-size: 0.9rem;
+}
+.wrong-feedback {
+background: #ffe3db;
+border-left: 5px solid #c2573a;
+padding: 0.65rem 1rem;
+border-radius: 14px;
+color: #a13a1f;
+font-size: 0.9rem;
+}
+.quiz-footer {
+background: #fcfaf2;
+padding: 1.2rem 2rem 1.8rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 1rem;
+border-top: 1px solid #e6d9b7;
+}
+button {
+background: #2c5c6e;
+border: none;
+font-size: 1rem;
+font-weight: 600;
+padding: 0.7rem 1.8rem;
+border-radius: 60px;
+color: white;
+cursor: pointer;
+transition: 0.2s;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+button:hover {
+background: #1a4152;
+transform: translateY(-2px);
+}
+.reset-btn {
+background: #6a6146;
+}
+.reset-btn:hover {
+background: #4d4530;
+}
+.score-area {
+background: #253b44;
+padding: 0.5rem 1.4rem;
+border-radius: 60px;
+color: #ffe0b7;
+font-weight: bold;
+font-size: 1rem;
+}
+@media (max-width: 680px) {
+.quiz-body {
+padding: 1rem;
+}
+.q-text {
+font-size: 1rem;
+padding: 1rem 1rem 0.2rem 1rem;
+}
+.options-area {
+padding: 0 1rem 1rem 1rem;
+}
+.opt-row label {
+font-size: 0.88rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <div class="quiz-header"> <h1>🏛️ Prācīn Pañjī – Khaṇḍa 2 <span>Chapter 11: Pages 348–690</span></h1> <p>Royal records (K.C.I.E., Sweden marriage), modern professions (IAS, IPS), Calcutta University, Abhinava-Sarasvatī title & the Panji meets Indian modernity</p> </div> <div class="quiz-body" id="quizRoot"></div> <div class="quiz-footer"> <button id="submitBtn">✅ Submit & Verify</button> <button id="resetBtn" class="reset-btn">⟳ Reset Quiz</button> <div class="score-area" id="scoreDisplay">Score: 0/0</div> </div>
+</div>
+<script>
+    // --------------------------------------------------------------
+    // CHAPTER 11 – Prācīn Pañjī, Khaṇḍa 2 (pp. 348–690)
+    // Royal records, scholarly compounds, modernity, diaspora, British honours
+    // --------------------------------------------------------------
+    const questions = [
+        {
+            text: "Which village emerged as the single highest-frequency node (853 appearances) in Khaṇḍa 2, overtaking Karmaharā and Māṇḍar?",
+            options: [
+                "Sodarapura (Sudarpur)",
+                "Darihara",
+                "Khauāla",
+                "Narauna"
+            ],
+            correct: 0,
+            explanation: "Sodarapura appears 853 times, becoming the primary administrative node for the eastern Tirhut Brahmin population in this section."
+        },
+        {
+            text: "What extraordinary inter-faith marriage is recorded parenthetically in this section, showing the Panji's pragmatic response to diaspora modernity?",
+            options: [
+                "A Buddhist wedding in Japan",
+                "Bābu Khaḍagapati Siṃha's children performing an inter-faith marriage in Sweden ('Svīḍana deśe antadhārmika vivāha')",
+                "A marriage in Nepal with a Muslim family",
+                "A wedding in the United States"
+            ],
+            correct: 1,
+            explanation: "The entry '(Bābu Khaḍagapati Siṃha sutā Svīḍana deśe antadhārmika vivāha)' records an inter-religious marriage in Sweden, bracketed but not expunged."
+        },
+        {
+            text: "Which British imperial honour is recorded within the genealogical matrix for Mahārājādhirāja Kāmeśvara Siṃha?",
+            options: [
+                "C.I.E.",
+                "K.C.I.E. (Knight Commander of the Indian Empire) + Litt.",
+                "Order of the Star of India",
+                "Kaiser-i-Hind"
+            ],
+            correct: 1,
+            explanation: "The entry 'Kāmeśvara Siṃha (K.C.I.E. Litt.)' records a British knighthood and honorary doctorate within the traditional title cluster."
+        },
+        {
+            text: "Which unique scholarly title compound meaning 'bearing the seal of the New/Fresh Sarasvatī' appears in this volume, distinct from the 'Avalaṃba-Sarasvatī' of earlier chapters?",
+            options: [
+                "Sarvadātā",
+                "Abhinava-Sarasvatī-dāṅkita",
+                "Ṭīkākāraka",
+                "Sudopādhyāya"
+            ],
+            correct: 1,
+            explanation: "Abhinava-Sarasvatī-dāṅkita ('Fresh Sarasvatī seal') appears at p.301, a variant honorific indicating continued innovation in title-coinage."
+        },
+        {
+            text: "What modern academic post is recorded for the first time in the Pañjī corpus, specifically in the Maithili Department of Calcutta University?",
+            options: [
+                "Vice-Chancellor",
+                "Prādhyāpaka (Professor) in Calcutta University Maithili Deptt.",
+                "Registrar",
+                "Head Clerk"
+            ],
+            correct: 1,
+            explanation: "Page 290 records 'Vaiyākaraṇa Prādhyāpaka (Calcutta University Maithily Deptt.)' – the first known Pañjī record of a university professor in Maithili."
+        },
+        {
+            text: "Which figure in this section is recorded as having six marriages (ṣaṣṭhama vivāha), reflecting extreme polygamy among elite families?",
+            options: [
+                "Mahārāja Kāmeśvara Siṃha",
+                "Ṭha. Giradhārī Siṃha (Girdhārī Singh) and Ṭha. Maheśa",
+                "Rāya Candra Nārāyaṇa",
+                "Bābu Khaḍagapati Siṃha"
+            ],
+            correct: 1,
+            explanation: "Ṭha. Giradhārī Siṃha has six documented marriages; the text records 'ṣaṣṭhama vivāha' colophons for multiple individuals, showing serial marriage."
+        },
+        {
+            text: "What administrative title 'Income Tax Comm.' appears embedded in a genealogical chain, demonstrating the Pañjī's absorption of modern bureaucracy?",
+            options: [
+                "Police Superintendent",
+                "Income Tax Commissioner (Ānkara Āyakara Āyukta)",
+                "District Magistrate",
+                "Excise Officer"
+            ],
+            correct: 1,
+            explanation: "Page 496 records 'Āśutoṣa Siṃha' as 'Income Tax Comm', treating a modern bureaucratic post as a genealogical credential."
+        },
+        {
+            text: "Which extraordinary entry records a Deputy Inspector General of Police (D.I.G.) as a grandson within a traditional scholarly lineage?",
+            options: [
+                "Brajamohana (D.I.G. Police)",
+                "Mahārāja Maheśvara Siṃha",
+                "Rāya Rūdranārāyaṇa",
+                "Jyotirvid Brahmadatta"
+            ],
+            correct: 0,
+            explanation: "Page 499 records Brajamohana as 'D.I.G. (Police)' – a Deputy Inspector General within the Pañjī genealogical chain."
+        },
+        {
+            text: "What is the significance of the 'Kolkata (Pāli)' entry in this volume?",
+            options: [
+                "It records a family that migrated to Calcutta, using 'Pāli' as a sub-locality within the city – the Pañjī treating urban space as a mūla reference",
+                "It is a Sanskrit pilgrimage site",
+                "It refers to a village in Bangladesh",
+                "It marks a royal decree"
+            ],
+            correct: 0,
+            explanation: "'Koliṭṭā Pāli' uses Calcutta as a dau-source, where 'Pāli' denotes a specific Maithili neighbourhood – the Pañjī adapting to urban diaspora."
+        },
+        {
+            text: "Which aesthetic title meaning 'sweet/melodious poet' (Mādhurakavi) appears in this section, indicating poetic mastery as a genealogical credential?",
+            options: [
+                "Kavi Jīvakarṇa",
+                "Mādhurakavi Māghava",
+                "Kavi Vidyāpati",
+                "Sahityācārya"
+            ],
+            correct: 1,
+            explanation: "Page 407 records 'Mādhurakavi Māghava' (sweet poet Māghava), a title indicating mastery of the śṛṅgāra aesthetic register, treated as heritable."
+        }
+    ];
+
+    // state
+    let selections = new Array(questions.length).fill(null);
+    let submitted = false;
+
+    const container = document.getElementById('quizRoot');
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const scoreSpan = document.getElementById('scoreDisplay');
+
+    function computeScore() {
+        let correct = 0;
+        for (let i = 0; i < questions.length; i++) {
+            if (selections[i] !== null && selections[i] === questions[i].correct) correct++;
+        }
+        return correct;
+    }
+
+    function updateScore() {
+        const total = questions.length;
+        const correct = computeScore();
+        scoreSpan.innerText = `Score: ${correct}/${total}`;
+    }
+
+    function render() {
+        container.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.dataset.qid = idx;
+
+            const qDiv = document.createElement('div');
+            qDiv.className = 'q-text';
+            qDiv.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qDiv);
+
+            const optsDiv = document.createElement('div');
+            optsDiv.className = 'options-area';
+
+            q.options.forEach((opt, optIdx) => {
+                const row = document.createElement('div');
+                row.className = 'opt-row';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${idx}`;
+                radio.value = optIdx;
+                radio.id = `q_${idx}_opt_${optIdx}`;
+                if (!submitted && selections[idx] === optIdx) radio.checked = true;
+                if (submitted) radio.disabled = true;
+
+                const label = document.createElement('label');
+                label.htmlFor = `q_${idx}_opt_${optIdx}`;
+                label.innerText = opt;
+
+                radio.addEventListener('change', (e) => {
+                    if (!submitted) {
+                        selections[idx] = parseInt(e.target.value);
+                    }
+                });
+
+                row.appendChild(radio);
+                row.appendChild(label);
+                optsDiv.appendChild(row);
+            });
+            card.appendChild(optsDiv);
+
+            if (submitted) {
+                const fbDiv = document.createElement('div');
+                fbDiv.className = 'feedback';
+                const isCorrect = (selections[idx] === q.correct);
+                if (isCorrect) {
+                    fbDiv.innerHTML = `<div class="correct-feedback">✓ Correct. ${q.explanation}</div>`;
+                } else {
+                    const correctLetter = String.fromCharCode(65 + q.correct);
+                    fbDiv.innerHTML = `<div class="wrong-feedback">✗ Incorrect. Right answer: ${correctLetter}) ${q.options[q.correct]}.<br>${q.explanation}</div>`;
+                }
+                card.appendChild(fbDiv);
+            }
+            container.appendChild(card);
+        });
+    }
+
+    function submitQuiz() {
+        if (submitted) return;
+        let allAnswered = true;
+        for (let i = 0; i < questions.length; i++) {
+            if (selections[i] === null) {
+                allAnswered = false;
+                break;
+            }
+        }
+        if (!allAnswered) {
+            alert("❌ Please answer all 10 questions before submitting.");
+            return;
+        }
+        submitted = true;
+        updateScore();
+        render();
+    }
+
+    function resetQuiz() {
+        submitted = false;
+        selections.fill(null);
+        updateScore();
+        render();
+    }
+
+    // initial
+    render();
+    updateScore();
+
+    submitBtn.addEventListener('click', submitQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

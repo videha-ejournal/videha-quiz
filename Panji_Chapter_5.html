@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Quiz: Socio-Genetic Architecture of Mithila (Chapter 5)</title> <style>
+* {
+box-sizing: border-box;
+font-family: system-ui, 'Segoe UI', 'Roboto', 'Noto Sans', sans-serif;
+}
+body {
+background: #f5efdf;
+background-image: radial-gradient(circle at 10% 20%, rgba(210, 180, 140, 0.1) 2%, transparent 2.5%);
+background-size: 28px 28px;
+margin: 0;
+padding: 2rem 1rem;
+}
+.quiz-container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffef7;
+border-radius: 2rem;
+box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+overflow: hidden;
+border: 1px solid #e2dccd;
+}
+.quiz-header {
+background: #7c3e2a;
+background: linear-gradient(135deg, #6b2e1a 0%, #9b4a2e 100%);
+padding: 1.8rem 2rem;
+color: #fef0e0;
+border-bottom: 5px solid #e6b17e;
+}
+.quiz-header h1 {
+margin: 0;
+font-size: 1.9rem;
+letter-spacing: -0.3px;
+font-weight: 600;
+}
+.quiz-header h1 small {
+font-size: 1rem;
+font-weight: 400;
+display: inline-block;
+background: #2f1d14b3;
+padding: 0.2rem 0.7rem;
+border-radius: 40px;
+margin-left: 0.8rem;
+vertical-align: middle;
+}
+.quiz-header p {
+margin: 0.6rem 0 0;
+opacity: 0.9;
+font-style: italic;
+}
+.quiz-body {
+padding: 2rem 2rem 1.5rem;
+}
+.question-card {
+background: #ffffff;
+border-radius: 1.2rem;
+margin-bottom: 2rem;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+border: 1px solid #ece3d4;
+transition: all 0.2s;
+}
+.question-text {
+font-size: 1.25rem;
+font-weight: 600;
+padding: 1.2rem 1.5rem 0.6rem 1.5rem;
+background: #fef9ef;
+border-radius: 1.2rem 1.2rem 0 0;
+color: #2f2a1f;
+}
+.options {
+padding: 0.2rem 1.5rem 1.2rem 1.5rem;
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+}
+.option {
+display: flex;
+align-items: center;
+gap: 0.8rem;
+background: #fdfaf5;
+padding: 0.65rem 1rem;
+border-radius: 60px;
+border: 1px solid #e8e0cf;
+transition: background 0.2s;
+cursor: pointer;
+}
+.option:hover {
+background: #f4ede2;
+}
+input[type="radio"] {
+accent-color: #9b4a2e;
+width: 1.1rem;
+height: 1.1rem;
+margin: 0;
+}
+.option label {
+font-size: 1rem;
+font-weight: 450;
+color: #2b2a26;
+width: 100%;
+cursor: pointer;
+}
+.feedback {
+margin: 0.5rem 1.5rem 1.2rem 1.5rem;
+font-size: 0.9rem;
+padding: 0.4rem 0.8rem;
+border-radius: 60px;
+display: inline-block;
+}
+.correct-feedback {
+color: #1f6e43;
+background: #e0f3e9;
+border-left: 4px solid #1f6e43;
+padding: 0.5rem 1rem;
+border-radius: 12px;
+}
+.wrong-feedback {
+color: #aa2e1e;
+background: #ffe6e2;
+border-left: 4px solid #c73f2a;
+padding: 0.5rem 1rem;
+border-radius: 12px;
+}
+.quiz-footer {
+padding: 1.2rem 2rem 2rem;
+background: #fdf9f0;
+border-top: 1px solid #ece0cd;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 1rem;
+}
+button {
+background: #7c3e2a;
+border: none;
+padding: 0.7rem 1.8rem;
+font-size: 1rem;
+font-weight: 600;
+border-radius: 50px;
+color: white;
+cursor: pointer;
+transition: all 0.2s;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+button:hover {
+background: #5e2c1b;
+transform: translateY(-2px);
+}
+.score-board {
+background: #2a241a;
+padding: 0.5rem 1.2rem;
+border-radius: 40px;
+color: #ffdebc;
+font-weight: bold;
+font-size: 1.1rem;
+}
+.reset-btn {
+background: #5e5b4f;
+}
+.reset-btn:hover {
+background: #3e3c34;
+}
+@media (max-width: 650px) {
+.quiz-body {
+padding: 1.2rem;
+}
+.question-text {
+font-size: 1.1rem;
+}
+.option label {
+font-size: 0.9rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <div class="quiz-header"> <h1>📜 Socio-Genetic Architecture of Mithila <small>Chapter 5 · Panji Prabandha</small></h1> <p>Based on Gajendra Thakur's "Decoding the Panji of Mithila" – Kinship, Gotras, Exogamy & the Dusana Panji</p> </div> <div class="quiz-body" id="quizBody"> </div> <div class="quiz-footer"> <button id="submitBtn">✓ Submit & Check Answers</button> <button id="resetBtn" class="reset-btn">⟳ Reset Quiz</button> <div class="score-board" id="scoreDisplay">Score: --/--</div> </div>
+</div>
+<script>
+  // ----- QUESTIONS (based strictly on Chapter 5 content) -----
+  const questions = [
+    {
+      text: "According to Chapter 5, which socio-religious crisis directly led to the institutionalization of the Panji Prabandha in 1326 AD?",
+      options: [
+        "A famine that destroyed oral records",
+        "The accidental incestuous marriage of Pandit Harinath Upadhyaya",
+        "A rebellion by Karna Kayasthas against Brahmin authority",
+        "The destruction of palm-leaf manuscripts by the Tughlaq army"
+      ],
+      correct: 1,
+      explanation: "The incident of Pandit Harinath Upadhyaya marrying his maternal cousin (within prohibited Sapinda degrees) exposed the failure of oral genealogical memory, prompting King Harisimhadeva to formalize written Panji records."
+    },
+    {
+      text: "How does the Panji system classify the primary patrilineal clans among Maithil Brahmins?",
+      options: [
+        "By Moolgram and Bikaua status",
+        "Through 20 primary Gotras, each linked to specific Pravara sages",
+        "Using the 16 Chhathi nodes exclusively",
+        "By the Dusana Panji and hypergamy ranks"
+      ],
+      correct: 1,
+      explanation: "Chapter 5 details the 20 Gotras (clans) such as Shandilya, Vatsa, Kashyapa, each with associated Pravara (three or five ancient sages) and original Mulas."
+    },
+    {
+      text: "What is the functional purpose of the 'Utedh' (Uteh) chart in the Panji system?",
+      options: [
+        "To list property rights of zamindars",
+        "To map 32 ancestral lines and compute 16 Chhathi nodes for marriage eligibility",
+        "To record only royal genealogies of Darbhanga Raj",
+        "To track migration to Nepal"
+      ],
+      correct: 1,
+      explanation: "The Utedh maps 32 ancestors (paternal+maternal) and the 16 specific kinship nodes (Chhathi) to verify that no consanguineous relationship exists within prohibited generations."
+    },
+    {
+      text: "Which of the following best describes the 'Sapinda' prohibition enforced by the Panji?",
+      options: [
+        "Marriage is allowed only within the same Moolgram",
+        "Couples must not share a common ancestor within 5 maternal generations and 6/7 paternal generations",
+        "Only Gotra exogamy matters; maternal lineage is ignored",
+        "The bride must be from the groom’s stepmother’s village"
+      ],
+      correct: 1,
+      explanation: "Sapinda rules (from Manusmriti) prohibit marriage if shared ancestry exists within five generations on mother’s side and six/seven generations on father’s side, ensuring genetic distance."
+    },
+    {
+      text: "What unique social function does the 'Dusana Panji' (Dooshan Panji / Black Book) serve?",
+      options: [
+        "It records only the highest Shrotriya titles",
+        "It documents lineage 'defects' — inter-caste unions, unknown parentage, devadasi connections — and tracks generational purification",
+        "It is a secret register for royal marriages only",
+        "It replaces the Mool Panji for Kayastha families"
+      ],
+      correct: 1,
+      explanation: "The Dusana Panji systematically records caste transgressions, cross-caste marriages, and socially stigmatized unions, often with a six-generation purification mechanism — a counter-archive within the system."
+    },
+    {
+      text: "According to Chapter 5, how did the introduction of the 'Shakha Panji' under Maharaja Madhav Singh alter Maithil society?",
+      options: [
+        "It abolished the Gotra system entirely",
+        "It introduced rigid hierarchy (Shrotriya, Yogya, Panjibaddha) and fueled hypergamy, polygamy and child marriage",
+        "It digitized all palm-leaf manuscripts",
+        "It restricted Panjikars to Nepal only"
+      ],
+      correct: 1,
+      explanation: "The Shakha Panji (branch books) created a three-tiered social ranking, institutionalized hypergamy, and led to social malpractices including child marriage and high widow numbers."
+    },
+    {
+      text: "Which historical intellectual figure is documented in the Dusana Panji as having been born five years after his father’s death and married to a Charmakarini (leather-worker caste woman)?",
+      options: [
+        "Vidyapati Thakur",
+        "Aryabhata",
+        "Gangesha Upadhyaya (founder of Navya-Nyaya)",
+        "Maharaja Harisimhadeva"
+      ],
+      correct: 2,
+      explanation: "The Dooshan Panji records that Gangesha Upadhyaya was born 'pitri parokshe panch varsh vyatite' and his wife Vallabha/Medha was a Charmakarini, highlighting suppressed genealogical facts."
+    },
+    {
+      text: "What does the term 'Bikaua' refer to in the context of Mithila’s social evolution?",
+      options: [
+        "Brahmin priests who refused dowry",
+        "High-ranking men who married multiple lower-status women for cash, often abandoning them",
+        "Women who maintained Panji records",
+        "A type of purification ritual after 6 generations"
+      ],
+      correct: 1,
+      explanation: "The Bikaua class emerged from hypergamy: high-status (often Shrotriya) men married dozens of younger women from lower tiers, causing polygamy and a wave of child widows."
+    },
+    {
+      text: "How does the Panji system calculate the 16 Chhathi (Sixth-Degree Ancestors) to prevent prohibited marriage?",
+      options: [
+        "Only paternal uncles are verified",
+        "The bride’s 16 Chhathi are cross-referenced with the groom’s paternal lineage — any overlap forbids the union",
+        "The system matches horoscopes of both families",
+        "Only the groom’s great-grandfather is checked"
+      ],
+      correct: 1,
+      explanation: "After computing 32 ancestors, if any of the bride’s 16 Chhathi appears in the groom’s paternal line within prohibited generations, the marriage is forbidden. Maternal overlap is permitted."
+    },
+    {
+      text: "What was the original, pre-hierarchical character of the Panji system under King Harisimhadeva, as emphasized in Chapter 5?",
+      options: [
+        "It strictly separated Shrotriya from Dalits",
+        "It was a scientifically grounded, egalitarian genealogical register for Brahmins, Kayasthas, and Kshatriyas, treating all families equally",
+        "It excluded Karna Kayasthas entirely",
+        "It was used only by the Karnata royal family"
+      ],
+      correct: 1,
+      explanation: "The chapter notes that Harisimhadeva’s Panji was purely scientific, with all registered families equal; hierarchy came later under Madhav Singh’s Shakha system."
+    }
+  ];
+
+  // UI elements
+  const quizBody = document.getElementById('quizBody');
+  const submitBtn = document.getElementById('submitBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const scoreDisplay = document.getElementById('scoreDisplay');
+
+  let userSelections = new Array(questions.length).fill(null);
+  let submitted = false;
+  let score = 0;
+
+  // Render all questions
+  function renderQuiz() {
+    quizBody.innerHTML = '';
+    questions.forEach((q, idx) => {
+      const card = document.createElement('div');
+      card.className = 'question-card';
+      card.dataset.qidx = idx;
+      
+      const qTextDiv = document.createElement('div');
+      qTextDiv.className = 'question-text';
+      qTextDiv.innerText = `${idx+1}. ${q.text}`;
+      card.appendChild(qTextDiv);
+      
+      const optsDiv = document.createElement('div');
+      optsDiv.className = 'options';
+      
+      q.options.forEach((opt, optIdx) => {
+        const optionDiv = document.createElement('div');
+        optionDiv.className = 'option';
+        const radio = document.createElement('input');
+        radio.type = 'radio';
+        radio.name = `q${idx}`;
+        radio.value = optIdx;
+        radio.id = `q${idx}_opt${optIdx}`;
+        if (!submitted && userSelections[idx] === optIdx) radio.checked = true;
+        if (submitted) radio.disabled = true;
+        
+        const label = document.createElement('label');
+        label.htmlFor = `q${idx}_opt${optIdx}`;
+        label.innerText = opt;
+        
+        optionDiv.appendChild(radio);
+        optionDiv.appendChild(label);
+        
+        // event listener for change (only if not submitted)
+        radio.addEventListener('change', (e) => {
+          if (!submitted) {
+            userSelections[idx] = parseInt(e.target.value);
+          }
+        });
+        
+        optsDiv.appendChild(optionDiv);
+      });
+      
+      card.appendChild(optsDiv);
+      
+      // feedback area if submitted
+      if (submitted) {
+        const fbDiv = document.createElement('div');
+        fbDiv.className = 'feedback';
+        const isCorrect = (userSelections[idx] === q.correct);
+        if (isCorrect) {
+          fbDiv.innerHTML = `<div class="correct-feedback">✓ Correct. ${q.explanation}</div>`;
+        } else {
+          const correctLetter = String.fromCharCode(65 + q.correct);
+          fbDiv.innerHTML = `<div class="wrong-feedback">✗ Incorrect. Correct answer: ${correctLetter}) ${q.options[q.correct]}.<br>${q.explanation}</div>`;
+        }
+        card.appendChild(fbDiv);
+      }
+      
+      quizBody.appendChild(card);
+    });
+  }
+
+  // compute score
+  function computeScore() {
+    let correctCount = 0;
+    for (let i = 0; i < questions.length; i++) {
+      if (userSelections[i] !== null && userSelections[i] === questions[i].correct) {
+        correctCount++;
+      }
+    }
+    return correctCount;
+  }
+
+  function updateScoreDisplay() {
+    const total = questions.length;
+    const correctCount = computeScore();
+    score = correctCount;
+    scoreDisplay.innerText = `Score: ${correctCount}/${total}`;
+  }
+
+  function submitQuiz() {
+    if (submitted) {
+      // already submitted, do nothing
+      return;
+    }
+    // check that all questions are answered
+    let allAnswered = true;
+    for (let i = 0; i < questions.length; i++) {
+      if (userSelections[i] === null) {
+        allAnswered = false;
+        break;
+      }
+    }
+    if (!allAnswered) {
+      alert("Please answer all 10 questions before submitting.");
+      return;
+    }
+    submitted = true;
+    updateScoreDisplay();
+    renderQuiz(); // re-render with feedback and disable radios
+  }
+
+  function resetQuiz() {
+    submitted = false;
+    userSelections.fill(null);
+    score = 0;
+    updateScoreDisplay();
+    renderQuiz();
+  }
+
+  // initial rendering
+  renderQuiz();
+  updateScoreDisplay();
+
+  submitBtn.addEventListener('click', submitQuiz);
+  resetBtn.addEventListener('click', resetQuiz);
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

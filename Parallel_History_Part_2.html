@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Part 2 – Maithili Ghazal Revival & Ashish Anchinhar</title> <style>
+* {
+box-sizing: border-box;
+}
+body {
+background: #f1ede8;
+font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, sans-serif;
+margin: 0;
+padding: 2rem 1rem;
+color: #1e2a2e;
+}
+.quiz-container {
+max-width: 1000px;
+margin: 0 auto;
+background: #ffffff;
+border-radius: 2rem;
+box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+overflow: hidden;
+padding: 2rem 1.8rem;
+}
+h1 {
+font-size: 1.8rem;
+margin-top: 0;
+margin-bottom: 0.2rem;
+color: #8b3c1c;
+border-left: 6px solid #c97a3e;
+padding-left: 1rem;
+}
+.sub {
+color: #6b4e3a;
+font-style: italic;
+margin-bottom: 2rem;
+border-bottom: 2px solid #f0e2d4;
+padding-bottom: 0.7rem;
+}
+.question-card {
+background: #fefaf5;
+border-radius: 1.5rem;
+margin-bottom: 1.8rem;
+padding: 1.2rem 1.5rem;
+box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+border: 1px solid #eee0d2;
+}
+.question-text {
+font-weight: 700;
+font-size: 1.2rem;
+margin-bottom: 1rem;
+color: #3b2a20;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+margin-bottom: 0.5rem;
+}
+.option {
+display: flex;
+align-items: flex-start;
+gap: 0.8rem;
+background: #ffffff;
+padding: 0.6rem 1rem;
+border-radius: 2rem;
+border: 1px solid #e0cfbe;
+cursor: pointer;
+transition: all 0.1s;
+}
+.option:hover {
+background-color: #fdf1e6;
+border-color: #bb8a60;
+}
+input[type="radio"] {
+margin-top: 0.2rem;
+accent-color: #b45f2b;
+width: 1.1rem;
+height: 1.1rem;
+}
+.option label {
+flex: 1;
+cursor: pointer;
+font-weight: 500;
+color: #3d2c20;
+}
+.feedback {
+margin-top: 0.9rem;
+font-size: 0.9rem;
+padding: 0.6rem 1rem;
+border-radius: 2rem;
+background: #f8f1e9;
+display: none;
+}
+.feedback.correct {
+background: #e2f3e4;
+color: #1f6132;
+border-left: 4px solid #2e7d32;
+display: block;
+}
+.feedback.incorrect {
+background: #ffe7e3;
+color: #bc3f2c;
+border-left: 4px solid #c5382b;
+display: block;
+}
+.score-area {
+position: sticky;
+bottom: 1rem;
+background: #ffffffdd;
+backdrop-filter: blur(8px);
+border-radius: 3rem;
+padding: 0.8rem 1.2rem;
+text-align: center;
+margin-top: 2rem;
+font-weight: bold;
+font-size: 1.2rem;
+border: 1px solid #dacbbc;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+button {
+background: #b45f2b;
+border: none;
+color: white;
+font-weight: bold;
+font-size: 1rem;
+padding: 0.65rem 1.8rem;
+border-radius: 3rem;
+cursor: pointer;
+transition: 0.2s;
+margin: 0.4rem;
+}
+button:hover {
+background: #8d471e;
+transform: scale(0.97);
+}
+.reset-btn {
+background: #5f4d3b;
+}
+.reset-btn:hover {
+background: #44362a;
+}
+.footer-note {
+margin-top: 2rem;
+font-size: 0.75rem;
+text-align: center;
+color: #b49a7c;
+border-top: 1px solid #efe0d2;
+padding-top: 1.2rem;
+}
+@media (max-width: 650px) {
+.quiz-container {
+padding: 1.2rem;
+}
+.question-text {
+font-size: 1rem;
+}
+.option label {
+font-size: 0.85rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <h1>📖 Part II – The Maithili Ghazal Revival & Ashish Anchinhar</h1> <div class="sub">📜 Based on “A Parallel History of Mithila & Maithili Literature” (Videha, ISSN 2229-547X) — Ghazal tradition, Anchinhar movement, formal prosody & democratic poetics</div> <p style="background:#f6efe8; padding:0.8rem 1.2rem; border-radius: 2rem; margin-bottom: 1.6rem;">
+🎤 This quiz covers the classical ghazal architecture, the “dark interlude” of incorrect ghazal writing, the Anchinhar Ākhar revival, Ghazalsastram, new Maithili bahars, and the democratic counter‑canon. 
+</p> <div id="questions-area"></div> <div class="score-area" id="scoreDisplay">
+⚡ 0 / 0 questions answered
+</div> <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;"> <button id="submitBtn">✅ Submit & Check</button> <button id="resetBtn" class="reset-btn">⟳ Reset Quiz</button> </div> </div>
+<script>
+    // ----- PART 2: Ghazal, Anchinhar movement, formal poetics, new bahars, democratic revival -----
+    const questions = [
+        {
+            text: "Which Arabic‑Persian term refers to the consistent metrical pattern (quantal syllables) that a classical ghazal must follow?",
+            options: ["Radif", "Qāfiyā", "Bahr", "Takhallus"],
+            correct: 2,
+            explanation: "Bahr is the metre derived from Arabic ‘aruz; every ghazal must maintain the same bahr throughout all shers."
+        },
+        {
+            text: "What was the ‘dark interlude’ of Maithili ghazal, according to the Videha Parallel History?",
+            options: [
+                "Complete absence of ghazal writing for 50 years",
+                "Era when grammatically incorrect ghazals (violating bahr & qāfiyā) dominated, and correct poets like Vijaynath Jha were erased",
+                "Ban on Maithili poetry by British rulers",
+                "Loss of all manuscripts due to floods"
+            ],
+            correct: 1,
+            explanation: "The document describes a period of weak, grammatically incorrect ghazals; poets like Vijaynath Jha and Yoganand Heera were erased by the flood of incorrect practice."
+        },
+        {
+            text: "Who is described as ‘the other name of Maithili ghazal’ and led the Anchinhar Ākhar revival starting 2008?",
+            options: ["Gajendra Thakur", "Kundan Kumar Karn", "Ashish Anchinhar", "Jagdish Chandra Thakur ‘Anil’"],
+            correct: 2,
+            explanation: "Ashish Anchinhar (born 1985, Madhubani) revived formal standards through the blog, authored Ghazalsastram, and brought 350–400 new writers into the mainstream."
+        },
+        {
+            text: "What are the three axes of the ‘Anchinhar Formula’ for literary evaluation?",
+            options: [
+                "Rasa, Dhvani, Alaṃkāra",
+                "Shakti-kadrat, Vishay-kadrat, Tatya-kadrat",
+                "Bahr, Qāfiyā, Radif",
+                "Matla, Maqta, Takhallus"
+            ],
+            correct: 1,
+            explanation: "Shakti-kadrat (power proximity), Vishay-kadrat (subject expansion), Tatya-kadrat (factual evidence) – an epistemological framework for literary worth."
+        },
+        {
+            text: "Which text by Gajendra Thakur is recognised as the first comprehensive Maithili‑language theoretical account of ghazal prosody?",
+            options: [
+                "Maithili Ghazalak Vyakaran O Itihas",
+                "Ghajalsastram (Maithili Ghazal Poetics)",
+                "Sandarbh Sahit",
+                "Anchinhar Aakhar blog"
+            ],
+            correct: 1,
+            explanation: "Ghajalsastram, authored by Gajendra Thakur (Maithili’s first ‘Aruji’), provides systematic coverage of bahr, qāfiyā, radif, etc."
+        },
+        {
+            text: "What is the purpose of the ‘radif’ in a classical ghazal?",
+            options: [
+                "It is the poet’s pen name in the final couplet",
+                "It is an identical word/phrase following the qāfiyā at the end of each second hemistich, creating incantatory repetition",
+                "It is the opening couplet where both lines rhyme",
+                "It is the metre determined by syllable length"
+            ],
+            correct: 1,
+            explanation: "Radif is the refrain word/phrase that follows the rhyme (qāfiyā) and repeats in every sher’s second line – a key ghazal feature."
+        },
+        {
+            text: "Which two poets were systematically erased during the ‘dark interlude’ despite writing grammatically correct Maithili ghazals?",
+            options: [
+                "Vijaynath Jha and Yoganand Heera",
+                "Kashikant Mishra ‘Madhup’ and Sitaram Jha",
+                "Pandit Jivan Jha and Kavivara Sitaram Jha",
+                "Jagdanand Jha ‘Manu’ and Pradeep Pushpa"
+            ],
+            correct: 0,
+            explanation: "Vijaynath Jha and Yoganand Heera were correct practitioners who were erased by weak poets; their restoration was a key goal of Anchinhar movement."
+        },
+        {
+            text: "What is a ‘bāl ghazal’ (children’s ghazal), as innovated by the Anchinhar movement?",
+            options: [
+                "A ghazal without radif",
+                "Ghazal composed in very short bahr, with child‑friendly themes, maintaining full formal correctness",
+                "Free‑verse ghazal ignoring qāfiyā",
+                "A devotional ghazal addressed to Krishna"
+            ],
+            correct: 1,
+            explanation: "Bal ghazal maintains bahr, qāfiyā, radif while adapting content for children; it expands ghazal’s thematic range. Videha Issue 111 was dedicated to this sub‑genre."
+        },
+        {
+            text: "According to the document, which new Maithili bahr was named after the Videha eJournal and the ancient name of Mithila?",
+            options: ["Bahar-e-Govinda", "Bahar-e-Lochan", "Bahar-e-Videha", "Bahar-e-Pradeep"],
+            correct: 2,
+            explanation: "Bahar‑e‑Videha (22‑22‑22‑22‑21) – named after Videha journal and Mithila’s ancient kingdom; part of Ashish Anchinhar’s nativised prosody."
+        },
+        {
+            text: "What was the role of the ‘Anchinhar Aakhar’ blog (launched April 11, 2008)?",
+            options: [
+                "Only political commentary",
+                "First Maithili e‑commerce site",
+                "A research blog on Maithili ghazal and sher‑o‑shayari, restoring bahar, qāfiyā, and creating digital mushairas",
+                "Sahitya Akademi official platform"
+            ],
+            correct: 2,
+            explanation: "It provided systematic theoretical articles, bahr analysis, ghazal pedagogy, and online mushairas, reviving correct practice after the weak era."
+        },
+        {
+            text: "Which concept from classical ghazal refers to the closing couplet where the poet incorporates their pen name (takhallus)?",
+            options: ["Matla", "Sher", "Maqta", "Radeef"],
+            correct: 2,
+            explanation: "Maqta – the final couplet, traditionally contains the poet’s takhallus, functioning as a signature. Anchinhar uses ‘Anchinhar’ as takhallus."
+        },
+        {
+            text: "The Anchinhar movement created new bahars specific to Maithili phonetics. Bahar‑e‑Govinda (1‑22‑22‑22‑22) was named after:",
+            options: [
+                "Poet Govindadas",
+                "Pandit Govinda Jha, architect of modern Maithili grammar",
+                "Govind Mishra",
+                "Govind Jha (Sahitya Akademi fellow)"
+            ],
+            correct: 1,
+            explanation: "Bahar‑e‑Govinda honours Pandit Govinda Jha, known for his work on Maithili grammar and language structure."
+        },
+        {
+            text: "According to the Parallel History, what was the first documented Maithili ghazal and who composed it?",
+            options: [
+                "Ghazals by Ashish Anchinhar (2008)",
+                "Ghazals by Kashikant Mishra ‘Madhup’ (1931)",
+                "Ghazals by Pandit Jivan Jha in his play Sundar‑Samyog (c. 1905)",
+                "Ghazals by Kavivara Sitaram Jha"
+            ],
+            correct: 2,
+            explanation: "Pandit Jivan Jha’s Sundar‑Samyog (early 1900s) contained the earliest documented Maithili ghazals, observing bahr and qāfiyā."
+        },
+        {
+            text: "The movement’s insistence on strict ghazal form (bahr, radif, qāfiyā) is described as a tool for:",
+            options: [
+                "Elitist exclusion of non‑Sanskrit speakers",
+                "Democratic anti‑caste poetics – form as a leveller, anyone who masters beher can write, breaking caste barriers",
+                "Promotion of Persian over Maithili",
+                "Increasing complexity to limit writers"
+            ],
+            correct: 1,
+            explanation: "By making formal prosody accessible (Ghajalsastram online), the movement democratised the ghazal; a Dalit or OBC poet could master the form without traditional guru – shishya networks."
+        },
+        {
+            text: "Which aspect of ghazal prosody did Gajendra Thakur and Ashish Anchinhar revive using numerical notation (matrakram) for teaching?",
+            options: ["Takhallus", "Bahrain (metre patterns)", "Qāfiyā dictionaries", "Maqta composition"],
+            correct: 1,
+            explanation: "Bahr/matrakram (e.g., 2122‑1222‑2122) was used to make metre learnable; the blog’s ‘Ghazal ka Iskool’ section taught prosody through notation and Hindi film examples."
+        },
+        {
+            text: "What is the significance of the 2026 reconvergence of Maithili ghazal with drama (play ‘Sakha’)?",
+            options: [
+                "It ended the 120‑year separation, integrating a grammatically correct ghazal as core narrative element in Maithili theatre",
+                "It banned ghazals from stage",
+                "It introduced English ghazal in Maithili",
+                "It rejected Anchinhar’s formal rules"
+            ],
+            correct: 0,
+            explanation: "The staging of Sakha (17 Feb 2026) reintegrated ghazal into drama after a century, using Anchinhar’s ghazal ‘Apan aukat anurupe vidhata taki lene chhi’."
+        },
+        {
+            text: "According to the document, which institution’s RTI data (2011‑14) revealed >90% of Maithili assignments went to friends/relatives of advisory board, leading to the parallel movement’s institutional independence?",
+            options: [
+                "Lalit Kala Akademi",
+                "Sangeet Natak Akademi",
+                "Sahitya Akademi",
+                "Maithili Akademi, Patna"
+            ],
+            correct: 2,
+            explanation: "Vinit Utpal and Ashish Anchinhar filed RTI to Sahitya Akademi, exposing the exclusion of women and subaltern writers, motivating the Videha parallel awards."
+        },
+        {
+            text: "What is ‘Bhajan par Ghazal ka Prabhav’ as a section in Anchinhar Aakhar blog?",
+            options: [
+                "Criticism of bhajans",
+                "Historical exploration of ghazal’s influence on Maithili devotional songs, showing deep indigenous resonance",
+                "Translation of Persian poetry",
+                "Analysis of political speeches"
+            ],
+            correct: 1,
+            explanation: "The blog section highlights mutual influence between ghazal and bhajan traditions, arguing the ghazal form has long been embedded in Maithili devotional culture."
+        },
+        {
+            text: "Which two new ghazal sub‑genres were promoted by the Anchinhar movement, expanding beyond classical love themes?",
+            options: [
+                "Marsiya and Qasida",
+                "Bhakti Ghazal (devotional) and Bal Ghazal (children’s)",
+                "Rubā’ī and Qita",
+                "Nazm and Musaddas"
+            ],
+            correct: 1,
+            explanation: "Bhakti Ghazal (devotional) and Bal Ghazal (children’s ghazal) were developed, bringing spiritual and child‑friendly themes into the form."
+        },
+        {
+            text: "The phrase ‘Desil bayana sab jan mithta’ (the language of the land is sweet to all) is attributed to which pre‑Jyotirishwar poet, cited as proto‑ghazal sensibility?",
+            options: ["Jyotirishwar Thakur", "Vidyapati (pre‑Jyotirishwar / Padavali poet)", "Gangesa Upadhyaya", "Harimohan Jha"],
+            correct: 1,
+            explanation: "The pre‑Jyotirishwar Vidyapati (distinct from the Sanskrit/Avahatta Vidyapati) asserted vernacular Maithili as sweet, creating emotional soil for ghazal."
+        }
+    ];
+
+    let selectedAnswers = new Array(questions.length).fill(null);
+    let quizSubmitted = false;
+
+    function renderQuestions() {
+        const container = document.getElementById('questions-area');
+        container.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.setAttribute('data-qid', idx);
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qText);
+            
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const optWrap = document.createElement('div');
+                optWrap.className = 'option';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${idx}`;
+                radio.value = optIdx;
+                radio.id = `q_${idx}_opt_${optIdx}`;
+                if (selectedAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    if (!quizSubmitted) {
+                        selectedAnswers[idx] = parseInt(e.target.value);
+                        updateScoreDisplay();
+                        const fbDiv = card.querySelector('.feedback');
+                        if (fbDiv) fbDiv.style.display = 'none';
+                    }
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q_${idx}_opt_${optIdx}`;
+                label.innerText = opt;
+                optWrap.appendChild(radio);
+                optWrap.appendChild(label);
+                optionsDiv.appendChild(optWrap);
+            });
+            card.appendChild(optionsDiv);
+            const fbDiv = document.createElement('div');
+            fbDiv.className = 'feedback';
+            fbDiv.id = `fb_${idx}`;
+            card.appendChild(fbDiv);
+            container.appendChild(card);
+        });
+    }
+
+    function updateScoreDisplay() {
+        const answered = selectedAnswers.filter(a => a !== null).length;
+        document.getElementById('scoreDisplay').innerHTML = `📌 ${answered} / ${questions.length} questions answered ${quizSubmitted ? '· Final evaluation ready' : '· Submit to check answers'}`;
+    }
+
+    function evaluateQuiz() {
+        quizSubmitted = true;
+        let correctCount = 0;
+        for (let i = 0; i < questions.length; i++) {
+            const userChoice = selectedAnswers[i];
+            const isCorrect = (userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+            const fb = document.getElementById(`fb_${i}`);
+            if (fb) {
+                if (userChoice === null) {
+                    fb.innerHTML = `⚠️ Unanswered. Correct answer: ${questions[i].options[questions[i].correct]}. ${questions[i].explanation}`;
+                    fb.className = 'feedback incorrect';
+                } else if (isCorrect) {
+                    fb.innerHTML = `✅ Correct. ${questions[i].explanation}`;
+                    fb.className = 'feedback correct';
+                } else {
+                    fb.innerHTML = `❌ Incorrect. You chose: ${questions[i].options[userChoice]}. Correct: ${questions[i].options[questions[i].correct]}. ${questions[i].explanation}`;
+                    fb.className = 'feedback incorrect';
+                }
+                fb.style.display = 'block';
+            }
+        }
+        const scoreMsg = `🎯 You scored ${correctCount} out of ${questions.length}`;
+        document.getElementById('scoreDisplay').innerHTML = scoreMsg + (correctCount === questions.length ? ' — 🏆 Ghazal master!' : ' — Review explanations to strengthen knowledge of Maithili ghazal revival.');
+    }
+
+    function resetQuiz() {
+        selectedAnswers.fill(null);
+        quizSubmitted = false;
+        for (let i = 0; i < questions.length; i++) {
+            const radios = document.querySelectorAll(`input[name="q_${i}"]`);
+            radios.forEach(r => r.checked = false);
+            const fb = document.getElementById(`fb_${i}`);
+            if (fb) {
+                fb.style.display = 'none';
+                fb.innerHTML = '';
+            }
+        }
+        updateScoreDisplay();
+    }
+
+    document.getElementById('submitBtn').addEventListener('click', evaluateQuiz);
+    document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+
+    renderQuestions();
+    updateScoreDisplay();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

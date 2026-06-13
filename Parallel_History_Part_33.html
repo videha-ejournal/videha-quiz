@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <title>Quiz: Chapter 33 – Critical Appreciations & Theoretical Frameworks</title> <style>
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+max-width: 1000px;
+margin: 2rem auto;
+padding: 1rem;
+background: #f4f1ea;
+}
+.quiz-container {
+background: white;
+border-radius: 2rem;
+padding: 1.5rem;
+box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+h1 {
+color: #2c5e2c;
+border-left: 5px solid #b8860b;
+padding-left: 1rem;
+}
+.question {
+border-bottom: 1px solid #e0d6c5;
+padding: 1rem 0;
+}
+.question-text {
+font-weight: 700;
+margin-bottom: 0.5rem;
+font-size: 1.05rem;
+}
+.options {
+margin-left: 1.5rem;
+margin-bottom: 0.5rem;
+}
+.option {
+margin: 0.3rem 0;
+}
+.explanation {
+background: #f4f1e8;
+padding: 0.6rem;
+margin-top: 0.6rem;
+border-left: 4px solid #b8860b;
+display: none;
+border-radius: 0.5rem;
+}
+button {
+background: #2c5e2c;
+color: white;
+border: none;
+padding: 0.5rem 1.2rem;
+border-radius: 2rem;
+cursor: pointer;
+margin: 0.2rem;
+font-size: 1rem;
+}
+button:hover {
+background: #1e401e;
+}
+.score {
+font-size: 1.2rem;
+font-weight: bold;
+margin-top: 1rem;
+text-align: center;
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <h1>📖 Chapter 33 – Critical Appreciations, Dalit Literature & Theoretical Frameworks</h1> <p>Based on the Videha Parallel History (sections on Abhilash Thakur, Kundan Kumar Karn, Ashish Anchinhar, Bhavnath Jha, Navya-Nyāya, Rasa-Dhvani, and Dalit literary criticism)</p> <div id="quiz"></div> <div style="margin-top: 1rem;"> <button id="submitBtn">✔ Submit Answers</button> <button id="resetBtn">⟳ Reset Quiz</button> </div> <div id="score" class="score"></div>
+</div>
+<script>
+const questions = [
+    {
+        text: "In the critical appreciation of Abhilash Thakur, what is the ‘bīhani kathā’ form that he contributed to?",
+        options: [
+            "A long epic poem",
+            "A very short story (flash fiction) unique to Maithili, often with a single ironic twist",
+            "A type of folk dance",
+            "A devotional hymn"
+        ],
+        correct: 1,
+        explanation: "Abhilash Thakur wrote bīhani kathā (seed stories) such as ‘Sāṃṭha Gāṃṭha’ and ‘Noṭabandī’, a form championed by Videha."
+    },
+    {
+        text: "Kundan Kumar Karn is noted in the Videha archive for his innovations in which poetic form, including the ‘hajal’ (comic-satirical ghazal)?",
+        options: [
+            "Haiku",
+            "Ghazal",
+            "Rubā’ī",
+            "Sonnet"
+        ],
+        correct: 1,
+        explanation: "Karn contributed āzād ghazal, bāl ghazal, and the hybrid ‘hajal’ (satirical ghazal) across multiple Sadeha volumes."
+    },
+    {
+        text: "According to the critical appreciation of Ashish Anchinhar, what is the ‘Anchinhar Formula’ for literary evaluation?",
+        options: [
+            "A mathematical equation for rhyme schemes",
+            "Three axes: Shakti-kadrat (power proximity), Vishay-kadrat (subject expansion), Tatya-kadrat (factual evidence)",
+            "A prosodic metre",
+            "A type of folk song"
+        ],
+        correct: 1,
+        explanation: "The formula draws on Navya-Nyāya pramāṇa theory to assess courage, relevance, and verifiability."
+    },
+    {
+        text: "In the analysis of Ashish Anchinhar’s ghazal revival, what does the term ‘bahr’ refer to?",
+        options: [
+            "The refrain (radif)",
+            "The fixed metrical pattern of long and short syllables derived from Arabic prosody",
+            "The poet’s pen name",
+            "The opening couplet"
+        ],
+        correct: 1,
+        explanation: "Bahr (metre) is a core element of the ghazal; Anchinhar’s movement restored strict bahr discipline in Maithili."
+    },
+    {
+        text: "The scholar and manuscriptologist Pandit Bhavnath Jha, featured in Videha Issue 428, is known for:",
+        options: [
+            "Writing only poetry",
+            "Restoring lost Sanskrit texts such as the Buddhacharitam from Tibetan and Chinese translations",
+            "Founding a political party",
+            "Composing film songs"
+        ],
+        correct: 1,
+        explanation: "Bhavnath Jha reconstructed the lost cantos of Ashvaghosa’s Buddhacharitam and edited numerous manuscripts."
+    },
+    {
+        text: "Which theoretical framework from Mithila’s own intellectual tradition is repeatedly applied in Videha’s critical appreciations to evaluate literary truth-claims?",
+        options: [
+            "Mīmāṃsā ritualism",
+            "Navya-Nyāya epistemology (Gaṅgeśa’s Tattvacintāmaṇi)",
+            "Sāṃkhya dualism",
+            "Yoga Sutras"
+        ],
+        correct: 1,
+        explanation: "Navya-Nyāya’s four pramāṇas (pratyakṣa, anumāna, upamāna, śabda) are used to assess literary validity and testimony."
+    },
+    {
+        text: "In the Dalit literary criticism section, which Telugu Dalit poet wrote ‘Burning Skulls’ and ‘My Ancestral Rights’, using counter‑mythological readings?",
+        options: [
+            "Boyi Bhimana",
+            "J. Subhadra",
+            "Challpalli Swarooparani",
+            "Darishee Shashinirmala"
+        ],
+        correct: 0,
+        explanation: "Boyi Bhimana (1920–2001) is a foundational Telugu Dalit poet whose work questions caste violence and reclaims Vedic identity."
+    },
+    {
+        text: "The Gujarati Dalit poem ‘All the Broom-Sticks’ by Umesh Solanki is a satirical address to which iconic figure, critiquing the gap between his ideals and Dalit reality?",
+        options: [
+            "B.R. Ambedkar",
+            "Mahatma Gandhi",
+            "Jawaharlal Nehru",
+            "Sardar Patel"
+        ],
+        correct: 1,
+        explanation: "The poem directly addresses Gandhi, criticising khadi, cleanliness campaigns, and the failure to end caste oppression."
+    },
+    {
+        text: "In the translation of Telugu Dalit women’s poetry, which poet wrote ‘The Edge of the Sari’ (Kongu) using the sari as a symbol of labour, motherhood, and resistance?",
+        options: [
+            "J. Subhadra",
+            "M. Gauri",
+            "Madduri Vijayashri",
+            "Challpalli Swarooparani"
+        ],
+        correct: 0,
+        explanation: "J. Subhadra’s poem uses the sari’s edge as a metaphor for the Dalit woman’s multiple burdens and dignity."
+    },
+    {
+        text: "The Odia Dalit poet Basudev Sunani’s poem ‘Address’ critiques the invisibility of Dalit existence through which striking paradox?",
+        options: [
+            "‘I am everywhere but you cannot find my address’",
+            "‘I have no home’",
+            "‘My name is unknown’",
+            "‘I speak but no one hears’"
+        ],
+        correct: 0,
+        explanation: "The poem plays on the impossibility of locating the Dalit subject within dominant social geography."
+    },
+    {
+        text: "In the critical appreciation of Bhavnath Jha, what is the ‘Dooshan Panji’ (Black Book) and why was it significant?",
+        options: [
+            "A collection of love poems",
+            "A suppressed genealogical record revealing Gaṅgeśa Upādhyāya’s inter‑caste marriage and birth anomaly",
+            "A cookbook",
+            "A political manifesto"
+        ],
+        correct: 1,
+        explanation: "The Dooshan Panji (released by Videha in 2009) exposed facts that mainstream historians had concealed to maintain caste purity narratives."
+    },
+    {
+        text: "According to the critical framework applied to Ashish Anchinhar, what is ‘dhvani’ in the context of ghazal poetry?",
+        options: [
+            "The literal meaning",
+            "The resonant or suggested meaning beyond the literal and metaphorical",
+            "The rhyme scheme",
+            "The poet’s signature"
+        ],
+        correct: 1,
+        explanation: "Ānandavardhana’s dhvani theory is central to Anchinhar’s poetics: the ghazal’s power lies in suggestion, not direct statement."
+    },
+    {
+        text: "The Telugu Dalit woman poet M. Gauri’s poem ‘Henna-Stained Hands’ addresses which mythological figure, inverting the hierarchy of devotion?",
+        options: [
+            "Rama",
+            "Krishna",
+            "Shiva",
+            "Brahma"
+        ],
+        correct: 1,
+        explanation: "The poem directly challenges Krishna, asking if he can kiss her blood‑stained (labour‑stained) hands."
+    },
+    {
+        text: "In the Videha critical appreciation of Ashish Anchinhar, the term ‘kathit ghazal’ refers to:",
+        options: [
+            "A classical ghazal",
+            "So‑called ghazals that lack proper bahr, qāfiyā, or radīf – formally defective compositions",
+            "A devotional ghazal",
+            "A children’s ghazal"
+        ],
+        correct: 1,
+        explanation: "Anchinhar criticises ‘kathit ghazal’ (so‑called ghazal) for ignoring prosodic rules, which he calls a form of literary anarchy."
+    },
+    {
+        text: "The Maithili short‑story writer and satirist Abhilash Thakur’s piece ‘Noṭabandī’ (Demonetisation) captures the social disruption caused by which 2016 Indian government policy?",
+        options: [
+            "GST implementation",
+            "Demonetisation of ₹500 and ₹1000 notes",
+            "Farm laws",
+            "COVID lockdown"
+        ],
+        correct: 1,
+        explanation: "His bīhani kathā on demonetisation documents the impact on rural Mithila’s cash‑based economy."
+    },
+    {
+        text: "According to the document, which classical Indian aesthetic concept – the ‘soul of poetry’ according to Ānandavardhana – is frequently used to analyse Maithili ghazals and Dalit poetry?",
+        options: [
+            "Rasa",
+            "Dhvani",
+            "Alaṅkāra",
+            "Vakrokti"
+        ],
+        correct: 1,
+        explanation: "Dhvani (resonance/suggestion) is identified as the highest poetic function in the Dhvanyāloka."
+    },
+    {
+        text: "The Marathi ghazal poet Suresh Bhat, mentioned in the comparative section on ghazal movements, is known as ‘Ghazal Samrat’ and explicitly aligned his work with which socio‑political ideology?",
+        options: [
+            "Hindutva",
+            "Ambedkarite thought and Buddhism",
+            "Gandhian non‑violence",
+            "Communism"
+        ],
+        correct: 1,
+        explanation: "Bhat converted to Buddhism and used ghazals for social protest and Ambedkarite critique."
+    },
+    {
+        text: "In the critical appreciation of Abhilash Thakur, which concept from Kuntaka’s poetics is used to describe his satirical micro‑fiction?",
+        options: [
+            "Rasa",
+            "Vakrokti (oblique expression)",
+            "Auchitya (propriety)",
+            "Rīti (style)"
+        ],
+        correct: 1,
+        explanation: "Kuntaka’s vakrokti – indirect, deviant expression – is identified as the governing principle of Thakur’s satirical mode."
+    },
+    {
+        text: "The Nepalese Maithili writer Ram Bharos Kapari ‘Bhramar’ is praised in the Videha archive for his folk culture scholarship, including the study of which folk deity worshipped by the Musahar community?",
+        options: [
+            "Salhesh",
+            "Krishna",
+            "Shiva",
+            "Durga"
+        ],
+        correct: 0,
+        explanation: "Bhramar published multiple volumes on Raja Salhesh, a folk hero of the Musahar (Dalit) community in Mithila."
+    },
+    {
+        text: "According to the document, what is the primary contribution of the Anchinhar Aakhar movement to Maithili ghazal?",
+        options: [
+            "Creating new musical instruments",
+            "Restoring strict prosodic discipline (bahr, qāfiyā, radīf) and creating a theoretical grammar (Ghajalsastram)",
+            "Translating Persian ghazals",
+            "Banning ghazal writing"
+        ],
+        correct: 1,
+        explanation: "The movement revived formal correctness and democratised access through digital platforms."
+    }
+];
+
+let userSelections = new Array(questions.length).fill(null);
+let submitted = false;
+
+function renderQuiz() {
+    const container = document.getElementById('quiz');
+    if (!container) return;
+    let html = '';
+    questions.forEach((q, idx) => {
+        const selected = userSelections[idx] !== null ? userSelections[idx] : -1;
+        html += `<div class="question">
+                    <div class="question-text">${idx+1}. ${q.text}</div>
+                    <div class="options">`;
+        q.options.forEach((opt, optIdx) => {
+            const checked = (selected === optIdx) ? 'checked' : '';
+            html += `<div class="option">
+                        <input type="radio" name="q${idx}" value="${optIdx}" id="q${idx}_${optIdx}" ${checked} ${submitted ? 'disabled' : ''}>
+                        <label for="q${idx}_${optIdx}">${String.fromCharCode(65+optIdx)}. ${opt}</label>
+                     </div>`;
+        });
+        html += `</div><div class="explanation" id="expl${idx}"></div></div>`;
+    });
+    container.innerHTML = html;
+}
+
+function calculateScore() {
+    let correct = 0;
+    for (let i = 0; i < questions.length; i++) {
+        if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correct++;
+    }
+    return correct;
+}
+
+function submitQuiz() {
+    submitted = true;
+    for (let i = 0; i < questions.length; i++) {
+        const radios = document.getElementsByName(`q${i}`);
+        for (let j = 0; j < radios.length; j++) {
+            if (radios[j].checked) userSelections[i] = parseInt(radios[j].value);
+        }
+        const explDiv = document.getElementById(`expl${i}`);
+        if (explDiv) {
+            const userAns = (userSelections[i] !== null) ? questions[i].options[userSelections[i]] : "Not answered";
+            const correctAns = questions[i].options[questions[i].correct];
+            explDiv.innerHTML = `<strong>📖 Explanation:</strong> ${questions[i].explanation}<br>
+                                 <span style="color:#4b6b3e;">Your answer: ${userAns}</span><br>
+                                 <span style="color:#2c6e2c;">Correct answer: ${correctAns}</span>`;
+            explDiv.style.display = 'block';
+        }
+        const allRadios = document.getElementsByName(`q${i}`);
+        allRadios.forEach(r => r.disabled = true);
+    }
+    const score = calculateScore();
+    document.getElementById('score').innerHTML = `✅ Score: ${score} / ${questions.length}`;
+}
+
+function resetQuiz() {
+    submitted = false;
+    userSelections = new Array(questions.length).fill(null);
+    renderQuiz();
+    for (let i = 0; i < questions.length; i++) {
+        const explDiv = document.getElementById(`expl${i}`);
+        if (explDiv) explDiv.style.display = 'none';
+    }
+    document.getElementById('score').innerHTML = '';
+}
+
+document.getElementById('submitBtn').addEventListener('click', submitQuiz);
+document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+renderQuiz();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

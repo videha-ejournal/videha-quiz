@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <title>Quiz: Chapter 39 – Later Poets, Novelists & Dramatists of the Parallel Tradition</title> <style>
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+max-width: 1000px;
+margin: 2rem auto;
+padding: 1rem;
+background: #f4f1ea;
+}
+.quiz-container {
+background: white;
+border-radius: 2rem;
+padding: 1.5rem;
+box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+h1 {
+color: #2c5e2c;
+border-left: 5px solid #b8860b;
+padding-left: 1rem;
+}
+.question {
+border-bottom: 1px solid #e0d6c5;
+padding: 1rem 0;
+}
+.question-text {
+font-weight: 700;
+margin-bottom: 0.5rem;
+font-size: 1.05rem;
+}
+.options {
+margin-left: 1.5rem;
+margin-bottom: 0.5rem;
+}
+.option {
+margin: 0.3rem 0;
+}
+.explanation {
+background: #f4f1e8;
+padding: 0.6rem;
+margin-top: 0.6rem;
+border-left: 4px solid #b8860b;
+display: none;
+border-radius: 0.5rem;
+}
+button {
+background: #2c5e2c;
+color: white;
+border: none;
+padding: 0.5rem 1.2rem;
+border-radius: 2rem;
+cursor: pointer;
+margin: 0.2rem;
+font-size: 1rem;
+}
+button:hover {
+background: #1e401e;
+}
+.score {
+font-size: 1.2rem;
+font-weight: bold;
+margin-top: 1rem;
+text-align: center;
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <h1>📖 Chapter 39 – Later Poets, Novelists & Dramatists</h1> <p>Based on Videha Parallel History: Kameshwar Jha ‘Kamal’, Kamini Kamayini, Kapileshwar Raut, Kedar Nath Chaudhary, Kirtinath Jha, Kishan Karigar, Kumar Pawan, Munni Kamat, Nabo Narayan Mishra, Nachiketa & Nand Kumar Mishra</p> <div id="quiz"></div> <div style="margin-top: 1rem;"> <button id="submitBtn">✔ Submit Answers</button> <button id="resetBtn">⟳ Reset Quiz</button> </div> <div id="score" class="score"></div>
+</div>
+<script>
+const questions = [
+    {
+        text: "Kameshwar Jha ‘Kamal’, a poet and lyricist based in Kolkata, published his song collection ‘Kamal-Taal’ under the aegis of which diaspora institution?",
+        options: [
+            "Sahitya Akademi",
+            "Mithila Sanskritik Parishad, Kolkata",
+            "Videha eJournal",
+            "Pallavi Prakashan"
+        ],
+        correct: 1,
+        explanation: "‘Kamal-Taal’ (2022) was published by Mithila Sanskritik Parishad, Kolkata, as part of the Azadi ka Amrit Mahotsav celebration."
+    },
+    {
+        text: "Kamal’s collection includes songs in the ‘Nachhari’ tradition. What is unique about the Nachhari genre?",
+        options: [
+            "It is a form of classical Sanskrit drama",
+            "It is a comic‑devotional song about Shiva’s ecstatic dance, often from the perspective of an anxious Parvati or her mother Maina",
+            "It is a war ballad",
+            "It is a lullaby"
+        ],
+        correct: 1,
+        explanation: "Nachhari songs depict Shiva’s unconventional behaviour with humour and devotion, unique to Mithila’s folk tradition."
+    },
+    {
+        text: "Dr. Kamini Kamayini is a poet, short‑story writer, and co‑editor of which major Videha archival volume?",
+        options: [
+            "Videha Sadeha 31 (Maithili Prose and Verse Archive)",
+            "The Parallel History of Mithila",
+            "Maithili Ghazal Sangraha",
+            "Stri Kona anthology"
+        ],
+        correct: 0,
+        explanation: "She co‑edited Videha Sadeha 31, collecting significant prose and verse from the journal’s first 350 issues."
+    },
+    {
+        text: "Kapileshwar Raut, a farmer‑writer from Berma village, Madhubani, is known for his short story collection ‘Ulhan’. What does the title ‘Ulhan’ mean?",
+        options: [
+            "Joy",
+            "Reproach or taunt – a cutting remark that exposes a gap between expectation and reality",
+            "Harvest",
+            "Prayer"
+        ],
+        correct: 1,
+        explanation: "The title story turns on a son’s innocent remark that becomes an unconscious reproach to his migrant father."
+    },
+    {
+        text: "In Raut’s story ‘Chhuā-Chhūt’ (Untouchability), a Dalit man challenges a tea‑stall owner with which unanswerable question?",
+        options: [
+            "‘Why don’t you serve me tea?’",
+            "‘If you wash dishes to purify them, why don’t you wash mine after I use them?’",
+            "‘Am I not a human being?’",
+            "‘What is your caste?’"
+        ],
+        correct: 1,
+        explanation: "The question exposes the hypocrisy of ritual purity: the owner washes cups after use, so why discriminate?"
+    },
+    {
+        text: "Kedar Nath Chaudhary (1936–2018) was a novelist and co‑producer of the first Maithili feature film. What was the name of that film?",
+        options: [
+            "Mamta Gaaye Geet",
+            "Sita",
+            "Mithila Maayan",
+            "Vidyapati"
+        ],
+        correct: 0,
+        explanation: "‘Mamta Gaaye Geet’ was the first Maithili feature film; Chaudhary co‑produced it after rescuing the project from financial failure."
+    },
+    {
+        text: "Chaudhary’s novel ‘Abara Nahitan’ (The Wanderer Who Is Not a Wanderer) explores the experience of:",
+        options: [
+            "A tribal rebellion",
+            "A returned diaspora intellectual confronting a transformed Mithila",
+            "A love story between two villages",
+            "A detective solving a flood mystery"
+        ],
+        correct: 1,
+        explanation: "The novel deals with the protagonist’s disillusionment and search for belonging after years abroad."
+    },
+    {
+        text: "Dr. Kirtinath Jha, a physician based in Puducherry, is known for his Maithili translation of which work by Khalil Gibran?",
+        options: [
+            "The Prophet",
+            "Broken Wings (Tutal Pankhi)",
+            "Sand and Foam",
+            "Jesus the Son of Man"
+        ],
+        correct: 1,
+        explanation: "His ‘Tutal Pankhi’ (2016) is the first Maithili translation of Gibran’s ‘Broken Wings’."
+    },
+    {
+        text: "Kishan Karigar (Dr. Krishna Kumar Ray), a Delhi‑based journalist and poet, titled his debut poetry collection ‘Kichhu Fura Gel Hamra’. What does the title’s double meaning suggest?",
+        options: [
+            "‘Something has been lost to us’ and ‘something came to my mind’",
+            "‘All is well’",
+            "‘The crow has flown’",
+            "‘Harvest time’"
+        ],
+        correct: 0,
+        explanation: "The ambiguity captures both creative impulse and community loss – a key theme of the collection."
+    },
+    {
+        text: "Kishan Karigar’s satirical poem ‘Puraskaar Le Ke Nachoo’ (Dance for the Award) targets which aspect of Maithili literary culture?",
+        options: [
+            "Lack of readers",
+            "The corruption of the award system, where a coterie of friends and relatives distributes prizes",
+            "The absence of poetry",
+            "The dominance of Hindi"
+        ],
+        correct: 1,
+        explanation: "The poem directly criticises the ‘Academy and selection boards’ where ‘one’s own kin sit’ and awards are given to sycophants."
+    },
+    {
+        text: "Kumar Pawan (Dr. Pawan Kumar Jha) wrote the long story ‘Dāyrīk Khālī Pannā’ (The Empty Pages of the Diary). What does the blank diary symbolise?",
+        options: [
+            "The principal’s writer’s block",
+            "The impossibility of honest testimony under institutional corruption",
+            "A love letter never sent",
+            "The loss of memory"
+        ],
+        correct: 1,
+        explanation: "The diary remains empty because the principal can no longer produce valid cognition (pramā) in a corrupt environment – a Navya‑Nyāya reading."
+    },
+    {
+        text: "In Kumar Pawan’s story ‘Paiṭh’ (The Salvation), the railway crossing (phatak) functions as a symbol of:",
+        options: [
+            "Progress",
+            "The threshold between life and catastrophe, a liminal space where social violence becomes irreversible",
+            "A tourist destination",
+            "A wedding venue"
+        ],
+        correct: 1,
+        explanation: "The crossing is where the old woman Kaniyā Kākī faces the collision of social and mechanical forces."
+    },
+    {
+        text: "Munni Kamat’s poetry collection ‘Sukhal Man Tarsal Āṃkhi’ (Dry Heart, Longing Eyes) is notable for being the first Maithili collection to include:",
+        options: [
+            "Only love poems",
+            "A tripartite structure: poems, seed stories, and one‑act plays",
+            "Translations from English",
+            "Only children’s verse"
+        ],
+        correct: 1,
+        explanation: "The volume combines three genres, unified by the title’s dhvani of suppressed yearning and social critique."
+    },
+    {
+        text: "Kamat’s one‑act play ‘Zindagi ka mol’ (The Value of Life) exposes the exploitation of rural migrant workers by:",
+        options: [
+            "Landlords",
+            "Pharmaceutical companies using them as guinea pigs in clinical trials",
+            "Police",
+            "School officials"
+        ],
+        correct: 1,
+        explanation: "The play follows Ram Ratan, an eighteen‑year‑old who dies after being overdosed in a drug trial for eight thousand rupees."
+    },
+    {
+        text: "Nabo Narayan Mishra, a Kolkata‑based Maithili activist, is known for his interview collection ‘Hum Puchhait Chhī’. Which major Maithili playwright did he interview for the volume?",
+        options: [
+            "Bechan Thakur",
+            "Ramlochan Thakur",
+            "Lallan Prasad Thakur",
+            "Udaya Narayana Singh ‘Nachiketa’"
+        ],
+        correct: 1,
+        explanation: "One of the three interviews is with Ramlochan Thakur, conducted on the occasion of his parallel Sahitya Akademi award."
+    },
+    {
+        text: "Mishra’s essay ‘Maithili Rangmanch aur Kolkata’ provides a unique primary record of which theatre group’s annual productions?",
+        options: [
+            "Mithila Vikas Parishad",
+            "Kokil Manch",
+            "Mithila Sanskritik Parishad",
+            "Mailorang"
+        ],
+        correct: 1,
+        explanation: "The essay lists twenty‑four consecutive annual productions (1991–2006) by Kokil Manch, a vital diaspora theatre group."
+    },
+    {
+        text: "Udaya Narayana Singh ‘Nachiketa’ is a linguist, poet and playwright. His award‑winning Maithili poetry collection ‘Jahalak Diary’ won the Sahitya Akademi Award in which year?",
+        options: [
+            "2010",
+            "2017",
+            "2005",
+            "2020"
+        ],
+        correct: 1,
+        explanation: "‘Jahalak Diary’ received the Sahitya Akademi Award for Maithili Poetry in 2017."
+    },
+    {
+        text: "Nachiketa’s play ‘No Entry: Mā Pravish’ uses the bilingual title to critique:",
+        options: [
+            "Road safety",
+            "The exclusion of Maithili from official spaces, and the prohibition of the mother (mā) tongue",
+            "Gender discrimination",
+            "Caste violence"
+        ],
+        correct: 1,
+        explanation: "‘No Entry’ is the ubiquitous traffic sign; ‘Mā Pravish’ (Mother, Enter) inverts it, demanding entry for the mother language."
+    },
+    {
+        text: "Nand Kumar Mishra ‘Nand’ published twelve books between 2011 and 2022 under which regional press, outside the mainstream Delhi circuit?",
+        options: [
+            "Shruti Prakashan",
+            "Gosauni Baidyanath Smriti Manch, Darbhanga",
+            "Pallavi Prakashan",
+            "Navarambh Prakashan"
+        ],
+        correct: 1,
+        explanation: "Almost all of his works were published by this small Darbhanga institution, demonstrating regional literary production."
+    },
+    {
+        text: "Nand’s novel ‘Anthiya Kukur’ (The Solitary Hound) uses the title’s dhvani to represent:",
+        options: [
+            "A faithful pet",
+            "The socially marginalised individual, without protection, navigating a world organised by family and caste",
+            "A mythological animal",
+            "A political leader"
+        ],
+        correct: 1,
+        explanation: "The ‘lone dog’ is a metaphor for the vulnerable person excluded from community structures – a recurring theme in his social realism."
+    }
+];
+
+let userSelections = new Array(questions.length).fill(null);
+let submitted = false;
+
+function renderQuiz() {
+    const container = document.getElementById('quiz');
+    if (!container) return;
+    let html = '';
+    questions.forEach((q, idx) => {
+        const selected = userSelections[idx] !== null ? userSelections[idx] : -1;
+        html += `<div class="question">
+                    <div class="question-text">${idx+1}. ${q.text}</div>
+                    <div class="options">`;
+        q.options.forEach((opt, optIdx) => {
+            const checked = (selected === optIdx) ? 'checked' : '';
+            html += `<div class="option">
+                        <input type="radio" name="q${idx}" value="${optIdx}" id="q${idx}_${optIdx}" ${checked} ${submitted ? 'disabled' : ''}>
+                        <label for="q${idx}_${optIdx}">${String.fromCharCode(65+optIdx)}. ${opt}</label>
+                     </div>`;
+        });
+        html += `</div><div class="explanation" id="expl${idx}"></div></div>`;
+    });
+    container.innerHTML = html;
+}
+
+function calculateScore() {
+    let correct = 0;
+    for (let i = 0; i < questions.length; i++) {
+        if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correct++;
+    }
+    return correct;
+}
+
+function submitQuiz() {
+    submitted = true;
+    for (let i = 0; i < questions.length; i++) {
+        const radios = document.getElementsByName(`q${i}`);
+        for (let j = 0; j < radios.length; j++) {
+            if (radios[j].checked) userSelections[i] = parseInt(radios[j].value);
+        }
+        const explDiv = document.getElementById(`expl${i}`);
+        if (explDiv) {
+            const userAns = (userSelections[i] !== null) ? questions[i].options[userSelections[i]] : "Not answered";
+            const correctAns = questions[i].options[questions[i].correct];
+            explDiv.innerHTML = `<strong>📖 Explanation:</strong> ${questions[i].explanation}<br>
+                                 <span style="color:#4b6b3e;">Your answer: ${userAns}</span><br>
+                                 <span style="color:#2c6e2c;">Correct answer: ${correctAns}</span>`;
+            explDiv.style.display = 'block';
+        }
+        const allRadios = document.getElementsByName(`q${i}`);
+        allRadios.forEach(r => r.disabled = true);
+    }
+    const score = calculateScore();
+    document.getElementById('score').innerHTML = `✅ Score: ${score} / ${questions.length}`;
+}
+
+function resetQuiz() {
+    submitted = false;
+    userSelections = new Array(questions.length).fill(null);
+    renderQuiz();
+    for (let i = 0; i < questions.length; i++) {
+        const explDiv = document.getElementById(`expl${i}`);
+        if (explDiv) explDiv.style.display = 'none';
+    }
+    document.getElementById('score').innerHTML = '';
+}
+
+document.getElementById('submitBtn').addEventListener('click', submitQuiz);
+document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+renderQuiz();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

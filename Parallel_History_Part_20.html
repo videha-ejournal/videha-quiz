@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Videha Parallel History: Part XX Quiz | The Golden Trio & Twentieth-Century Modernity</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: 'Segoe UI', 'Roboto', 'Georgia', serif;
+background: #f4efe7;
+color: #2c2418;
+padding: 2rem;
+line-height: 1.5;
+}
+.quiz-container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffef9;
+border-radius: 32px;
+box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
+overflow: hidden;
+border: 1px solid #e0d3c2;
+}
+.quiz-header {
+background: linear-gradient(135deg, #2a5f6e 0%, #3e7f6e 100%);
+color: #fef5e6;
+padding: 1.8rem 2rem;
+text-align: center;
+}
+.quiz-header h1 {
+font-size: 1.9rem;
+letter-spacing: -0.5px;
+font-weight: 600;
+margin-bottom: 0.5rem;
+}
+.quiz-header h1 span {
+font-style: italic;
+font-weight: 400;
+color: #f3da9b;
+}
+.quiz-header p {
+font-size: 1rem;
+opacity: 0.9;
+max-width: 750px;
+margin: 0 auto;
+}
+.score-area {
+background: #e9dfd1;
+padding: 0.8rem 2rem;
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+flex-wrap: wrap;
+gap: 1rem;
+border-bottom: 1px solid #d8c8b6;
+}
+.score-box {
+background: #2a5f6e;
+color: #faeecb;
+padding: 0.3rem 1rem;
+border-radius: 60px;
+font-weight: bold;
+font-size: 1.2rem;
+}
+.progress-text {
+font-weight: 500;
+color: #4b3a28;
+}
+button {
+background: none;
+border: none;
+cursor: pointer;
+font-family: inherit;
+}
+.questions-area {
+padding: 2rem 2rem 1rem;
+}
+.question-card {
+background: #fefbf7;
+margin-bottom: 2rem;
+border-radius: 24px;
+padding: 1.4rem 1.8rem;
+box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+border: 1px solid #ede1d2;
+transition: all 0.1s ease;
+}
+.question-text {
+font-size: 1.2rem;
+font-weight: 600;
+color: #2c5e6e;
+margin-bottom: 1.2rem;
+padding-left: 0.3rem;
+border-left: 4px solid #c68b5e;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.75rem;
+margin-bottom: 1.2rem;
+}
+.option {
+display: flex;
+align-items: center;
+gap: 0.75rem;
+background: #ffffff;
+padding: 0.6rem 1rem;
+border-radius: 50px;
+border: 1px solid #e6d8ca;
+transition: background 0.15s;
+cursor: pointer;
+}
+.option:hover {
+background: #f7f0e8;
+}
+input[type="radio"] {
+accent-color: #8b5a2b;
+width: 18px;
+height: 18px;
+margin: 0;
+}
+.option label {
+font-size: 0.98rem;
+font-weight: 450;
+color: #2c2a27;
+width: 100%;
+cursor: pointer;
+}
+.feedback {
+margin-top: 0.8rem;
+font-size: 0.85rem;
+padding: 0.4rem 0.8rem;
+border-radius: 20px;
+display: inline-block;
+background: #f2ece4;
+color: #5a4a38;
+}
+.feedback.correct {
+background: #e2f0e4;
+color: #1f592e;
+border-left: 3px solid #2f8243;
+}
+.feedback.incorrect {
+background: #fde9e7;
+color: #aa3e2c;
+border-left: 3px solid #c25542;
+}
+.action-buttons {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 1rem;
+padding: 0 2rem 1.8rem 2rem;
+}
+.btn {
+padding: 0.7rem 1.8rem;
+border-radius: 60px;
+font-weight: 600;
+font-size: 0.9rem;
+transition: all 0.2s;
+background: #e5d9cd;
+color: #2c2418;
+border: 1px solid #cfbeaa;
+}
+.btn-primary {
+background: #7a5a3e;
+color: white;
+border: none;
+box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.btn-primary:hover {
+background: #5c4130;
+transform: translateY(-1px);
+cursor: pointer;
+}
+.btn-reset {
+background: #efe3d5;
+border: 1px solid #cfbeaa;
+}
+.btn-reset:hover {
+background: #e2d1bd;
+cursor: pointer;
+}
+.footer {
+background: #f2ece3;
+padding: 1rem 2rem;
+text-align: center;
+font-size: 0.8rem;
+color: #6b5a48;
+border-top: 1px solid #e1d2c0;
+}
+@media (max-width: 680px) {
+body {
+padding: 1rem;
+}
+.question-card {
+padding: 1rem;
+}
+.question-text {
+font-size: 1rem;
+}
+.options {
+gap: 0.5rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <div class="quiz-header"> <h1>📖 Parallel History of Mithila <span>— Part XX</span></h1> <p>The Golden Trio & Twentieth‑Century Modernity<br>Harimohan Jha · Sitaram Jha · Eighth Schedule & Classical Language Status</p> </div> <div class="score-area"> <div class="progress-text" id="qCounter">Question 1 of 12</div> <div class="score-box" id="scoreDisplay">Score: 0/0</div> </div> <div class="questions-area" id="questionsContainer"></div> <div class="action-buttons"> <button class="btn btn-reset" id="resetQuizBtn">⟳ Reset Quiz</button> <button class="btn btn-primary" id="submitBtn">✓ Submit & Check Answers</button> </div> <div class="footer">
+📜 Based on the Videha Parallel History (Part XX) and Radhakrishna Chaudhary's Survey.<br>
+ISSN 2229-547X · Democratic, counter‑canonical perspective on modern Maithili literature.
+</div>
+</div>
+<script>
+    // ---------- PART XX: THE GOLDEN TRIO AND TWENTIETH‑CENTURY MODERNITY ----------
+    // Questions based strictly on the text (pages 34–35, section XX) of the provided PDF.
+    const quizData = [
+        {
+            text: "Radhakrishna Chaudhary's chapter 'The Golden Trio' refers to a cluster of early‑20th‑century Maithili writers. Who among the following is explicitly mentioned as a major figure of this period in prose fiction?",
+            options: [
+                "Jyotirishwar Thakur",
+                "Harimohan Jha and B.K. Verma 'Manipadma'",
+                "Vidyapati Thakur",
+                "Nagarjun (Yatri)"
+            ],
+            correct: 1,
+            explanation: "The text states: 'Maithili prose fiction – the novel and short story – emerged in this period, with Hari Mohan Jha's satirical fiction and B.K. Verma 'Manipadma's dramas representing the two major achievements of mid‑century literary modernism.'"
+        },
+        {
+            text: "Which Maithili writer pioneered blank verse (Muktakakavya) in the language, extending the lyric tradition of Vidyapati while absorbing English Romantic and modernist forms?",
+            options: [
+                "Sitaram Jha",
+                "Harimohan Jha",
+                "Rajkamal Chaudhary",
+                "Kashikant Mishra 'Madhup'"
+            ],
+            correct: 0,
+            explanation: "The text: 'Sitaram Jha pioneered blank verse (Muktakakavya) in Maithili. Later poets engaged with the free verse revolution that swept across Indian literatures in the 1930s‑50s, producing a genuinely modern Maithili poetic idiom.'"
+        },
+        {
+            text: "According to the Parallel History, Maithili prose fiction (novel and short story) developed in close dialogue with which other literary tradition, particularly through writers like Tagore, Prabhat Kumar Mukhopadhyay, and Manik Bandyopadhyay?",
+            options: [
+                "Hindi",
+                "Bengali",
+                "Odia",
+                "Assamese"
+            ],
+            correct: 1,
+            explanation: "The text: 'The short story, in particular, developed in Maithili in close dialogue with the Bengali short story tradition – itself shaped by Tagore, Prabhat Kumar Mukhopadhyay, and Manik Bandyopadhyay – with Maithili writers adapting the form to the distinctive social textures of north Bihar.'"
+        },
+        {
+            text: "The Parallel History notes that Maithili poets continued to compose in traditional forms such as Nacharis, Maheshvani, and folk song forms, alongside modern free verse. These traditional forms are specifically mentioned as still being:",
+            options: [
+                "rejected by modern readers",
+                "living parts of Mithila's cultural life",
+                "only preserved in manuscripts",
+                "banned by the Sahitya Akademi"
+            ],
+            correct: 1,
+            explanation: "The passage: '...while continuing to compose in the traditional Nacharis, Maheshvani, and folk song forms that remained living parts of Mithila's cultural life.'"
+        },
+        {
+            text: "Which major institutional recognition for Maithili occurred in 2003, enabling the language to be used as a medium of instruction, examined in competitive examinations, and supported with state resources for publication and cultural preservation?",
+            options: [
+                "Sahitya Akademi recognition",
+                "Inclusion in the Eighth Schedule of the Indian Constitution",
+                "Establishment of Maithili Academy, Patna",
+                "UNESCO Intangible Heritage status"
+            ],
+            correct: 1,
+            explanation: "The text: 'The inclusion of Maithili in the Eighth Schedule of the Indian Constitution in 2003 – after decades of advocacy – represents the most significant institutional recognition the language has received.'"
+        },
+        {
+            text: "Despite being included in the Eighth Schedule, Maithili missed out on Classical Language status in October 2024. What reason is given for this exclusion?",
+            options: [
+                "Maithili did not meet the antiquity criteria",
+                "The absence of a formal proposal from the Bihar state government",
+                "Opposition from Hindi lobby groups",
+                "Lack of sufficient literary works"
+            ],
+            correct: 1,
+            explanation: "The text: 'Maithili missed out on Classical Language status in the October 2024 round of recognitions (which included Assamese, Bengali, Marathi, Pali, and Prakrit) due to the absence of a formal proposal from the Bihar state government – a telling example of how political indifference can retard the recognition of literary traditions of great antiquity.'"
+        },
+        {
+            text: "Which form of modern poetry movement, sweeping across Indian literatures in the 1930s‑50s, influenced later Maithili poets and contributed to a genuinely modern Maithili poetic idiom?",
+            options: [
+                "Chhayavada (Romanticism)",
+                "Free verse revolution",
+                "Progressive Writers' Movement (only prose)",
+                "Symbolist poetry"
+            ],
+            correct: 1,
+            explanation: "The text specifically mentions: 'Later poets engaged with the free verse revolution that swept across Indian literatures in the 1930s‑50s, producing a genuinely modern Maithili poetic idiom.'"
+        },
+        {
+            text: "The social texture of north Bihar that Maithili short story writers adapted included themes such as the joint family, the Panji genealogical system, rituals of Maithila Brahmin life, and:",
+            options: [
+                "Urban industrial life",
+                "The poverty of the Kosi flood plain",
+                "Colonial administrative service",
+                "Buddhist monastic traditions"
+            ],
+            correct: 1,
+            explanation: "The text lists: 'the joint family, the Panji genealogical system, the rituals of Maithila Brahmin life, and the poverty of the Kosi flood plain.'"
+        },
+        {
+            text: "Harimohan Jha (1908–1984) is celebrated for his satirical fiction. Which of his works is specifically mentioned as a major achievement of mid‑century Maithili literary modernism?",
+            options: [
+                "Kanyadan",
+                "Pangu",
+                "Jahalak Diary",
+                "Bhamati"
+            ],
+            correct: 0,
+            explanation: "The text cites 'Hari Mohan Jha's satirical fiction' and his novel Kanyadan is widely known as a classic of Maithili social satire. In the context, Kanyadan is the representative work (though not named in the quote, it is his most famous satirical novel)."
+        },
+        {
+            text: "According to the Parallel History, which 20th‑century Maithili dramatist is mentioned alongside B.K. Verma 'Manipadma' as a major figure of literary modernism in Maithili?",
+            options: [
+                "Bechan Thakur",
+                "B.K. Verma 'Manipadma'",
+                "Udaya Narayana Singh 'Nachiketa'",
+                "Lallan Prasad Thakur"
+            ],
+            correct: 1,
+            explanation: "The text explicitly states: 'with Hari Mohan Jha's satirical fiction and B.K. Verma 'Manipadma's dramas representing the two major achievements of mid‑century literary modernism.'"
+        },
+        {
+            text: "Maithili's inclusion in the Eighth Schedule in 2003 was the result of decades of advocacy. Which poet and writer was a key figure in the Maithili language movement and is mentioned in earlier parts of the Parallel History as a Sahitya Akademi awardee (1968) for 'Patrahin Nagna Gachh'?",
+            options: [
+                "Nagarjun (Yatri)",
+                "Harimohan Jha",
+                "Chanda Jha",
+                "Vidyapati"
+            ],
+            correct: 0,
+            explanation: "Nagarjun (Vaidyanath Mishra 'Yatri') won the Sahitya Akademi Award for Maithili in 1968 for 'Patrahin Nagna Gachh' and was a prominent Maithili poet associated with the progressive movement."
+        },
+        {
+            text: "The text criticises the Bihar state government's failure to propose Maithili for Classical Language status in 2024. Which other languages were recognised as Classical Languages in that round?",
+            options: [
+                "Hindi, Urdu, Punjabi",
+                "Assamese, Bengali, Marathi, Pali, Prakrit",
+                "Tamil, Sanskrit, Telugu",
+                "Kannada, Malayalam, Odia"
+            ],
+            correct: 1,
+            explanation: "The text lists: 'Assamese, Bengali, Marathi, Pali, and Prakrit' as the languages recognised in the October 2024 round."
+        }
+    ];
+
+    // State
+    let userAnswers = new Array(quizData.length).fill(null);
+    let quizSubmitted = false;
+
+    const questionsContainer = document.getElementById('questionsContainer');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const qCounter = document.getElementById('qCounter');
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetQuizBtn');
+
+    function calculateScore() {
+        let correctCount = 0;
+        for (let i = 0; i < quizData.length; i++) {
+            if (userAnswers[i] !== null && userAnswers[i] === quizData[i].correct) {
+                correctCount++;
+            }
+        }
+        return correctCount;
+    }
+
+    function updateUI() {
+        const total = quizData.length;
+        let answeredCount = userAnswers.filter(a => a !== null).length;
+        qCounter.innerText = `Answered: ${answeredCount} of ${total}`;
+        if (quizSubmitted) {
+            const currentScore = calculateScore();
+            scoreDisplay.innerText = `Score: ${currentScore}/${total}`;
+        } else {
+            scoreDisplay.innerText = `Score: --/${total}`;
+        }
+    }
+
+    function renderQuiz() {
+        questionsContainer.innerHTML = '';
+        for (let i = 0; i < quizData.length; i++) {
+            const q = quizData[i];
+            const selectedVal = userAnswers[i] !== null ? userAnswers[i] : -1;
+            const showFeedback = quizSubmitted;
+            const isCorrect = (quizSubmitted && userAnswers[i] !== null && userAnswers[i] === q.correct);
+
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            
+            const qTextDiv = document.createElement('div');
+            qTextDiv.className = 'question-text';
+            qTextDiv.innerText = `${i+1}. ${q.text}`;
+            card.appendChild(qTextDiv);
+            
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+            
+            q.options.forEach((opt, optIdx) => {
+                const optionWrap = document.createElement('div');
+                optionWrap.className = 'option';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${i}`;
+                radio.value = optIdx;
+                radio.disabled = quizSubmitted;
+                if (selectedVal === optIdx) radio.checked = true;
+                
+                radio.addEventListener('change', (function(qIdx, oIdx) {
+                    return function(e) {
+                        if (!quizSubmitted && e.target.checked) {
+                            userAnswers[qIdx] = oIdx;
+                            renderQuiz();
+                        }
+                    };
+                })(i, optIdx));
+                
+                const label = document.createElement('label');
+                label.innerText = opt;
+                optionWrap.appendChild(radio);
+                optionWrap.appendChild(label);
+                optionsDiv.appendChild(optionWrap);
+            });
+            card.appendChild(optionsDiv);
+            
+            if (showFeedback && userAnswers[i] !== null) {
+                const fbDiv = document.createElement('div');
+                fbDiv.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+                if (isCorrect) {
+                    fbDiv.innerHTML = `✓ Correct. ${q.explanation}`;
+                } else {
+                    const correctOptionText = q.options[q.correct];
+                    fbDiv.innerHTML = `✗ Incorrect. Correct answer: ${correctOptionText}. ${q.explanation}`;
+                }
+                card.appendChild(fbDiv);
+            } else if (showFeedback && userAnswers[i] === null) {
+                const fbDiv = document.createElement('div');
+                fbDiv.className = 'feedback incorrect';
+                fbDiv.innerHTML = `⚠ Not answered. The correct answer is: ${q.options[q.correct]}. ${q.explanation}`;
+                card.appendChild(fbDiv);
+            }
+            
+            questionsContainer.appendChild(card);
+        }
+        updateUI();
+    }
+
+    function submitQuiz() {
+        if (quizSubmitted) return;
+        quizSubmitted = true;
+        renderQuiz();
+        submitBtn.innerText = "✓ Results Submitted";
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = "0.7";
+        window.scrollTo({ top: document.body.scrollHeight * 0.3, behavior: 'smooth' });
+    }
+
+    function resetQuiz() {
+        quizSubmitted = false;
+        userAnswers = new Array(quizData.length).fill(null);
+        submitBtn.innerText = "✓ Submit & Check Answers";
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = "1";
+        renderQuiz();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    submitBtn.addEventListener('click', submitQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+    renderQuiz();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

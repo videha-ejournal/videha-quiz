@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Part 5 – Voices of the Parallel Tradition (Scholars, Poets, Novelists & Memoirists)</title> <style>
+* {
+box-sizing: border-box;
+}
+body {
+background: #ece4db;
+font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, sans-serif;
+margin: 0;
+padding: 2rem 1rem;
+color: #1e2a2e;
+}
+.quiz-container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffdf9;
+border-radius: 2rem;
+box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+overflow: hidden;
+padding: 2rem 1.8rem;
+}
+h1 {
+font-size: 1.8rem;
+margin-top: 0;
+margin-bottom: 0.2rem;
+color: #8b2c2c;
+border-left: 6px solid #b45f2b;
+padding-left: 1rem;
+}
+.sub {
+color: #6a4e38;
+font-style: italic;
+margin-bottom: 2rem;
+border-bottom: 2px solid #ecdfd1;
+padding-bottom: 0.7rem;
+}
+.question-card {
+background: #fefaf5;
+border-radius: 1.5rem;
+margin-bottom: 1.8rem;
+padding: 1.2rem 1.5rem;
+box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+border: 1px solid #ecdfd1;
+}
+.question-text {
+font-weight: 700;
+font-size: 1.2rem;
+margin-bottom: 1rem;
+color: #3b2a1c;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+margin-bottom: 0.5rem;
+}
+.option {
+display: flex;
+align-items: flex-start;
+gap: 0.8rem;
+background: #ffffff;
+padding: 0.6rem 1rem;
+border-radius: 2rem;
+border: 1px solid #e0cfbe;
+cursor: pointer;
+transition: all 0.1s;
+}
+.option:hover {
+background-color: #fdf1e6;
+border-color: #bb8a60;
+}
+input[type="radio"] {
+margin-top: 0.2rem;
+accent-color: #b45f2b;
+width: 1.1rem;
+height: 1.1rem;
+}
+.option label {
+flex: 1;
+cursor: pointer;
+font-weight: 500;
+color: #3d2c20;
+}
+.feedback {
+margin-top: 0.9rem;
+font-size: 0.9rem;
+padding: 0.6rem 1rem;
+border-radius: 2rem;
+background: #f8f1e9;
+display: none;
+}
+.feedback.correct {
+background: #e2f3e4;
+color: #1f6132;
+border-left: 4px solid #2e7d32;
+display: block;
+}
+.feedback.incorrect {
+background: #ffe7e3;
+color: #bc3f2c;
+border-left: 4px solid #c5382b;
+display: block;
+}
+.score-area {
+position: sticky;
+bottom: 1rem;
+background: #ffffffdd;
+backdrop-filter: blur(8px);
+border-radius: 3rem;
+padding: 0.8rem 1.2rem;
+text-align: center;
+margin-top: 2rem;
+font-weight: bold;
+font-size: 1.2rem;
+border: 1px solid #dacbbc;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+button {
+background: #b45f2b;
+border: none;
+color: white;
+font-weight: bold;
+font-size: 1rem;
+padding: 0.65rem 1.8rem;
+border-radius: 3rem;
+cursor: pointer;
+transition: 0.2s;
+margin: 0.4rem;
+}
+button:hover {
+background: #8d471e;
+transform: scale(0.97);
+}
+.reset-btn {
+background: #5f4d3b;
+}
+.reset-btn:hover {
+background: #44362a;
+}
+.footer-note {
+margin-top: 2rem;
+font-size: 0.75rem;
+text-align: center;
+color: #b49a7c;
+border-top: 1px solid #efe0d2;
+padding-top: 1.2rem;
+}
+@media (max-width: 650px) {
+.quiz-container {
+padding: 1.2rem;
+}
+.question-text {
+font-size: 1rem;
+}
+.option label {
+font-size: 0.85rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <h1>📖 Part V – Parallel Voices: Scholars, Poets, Novelists & Cultural Archivists</h1> <div class="sub">🧠 Based on “A Parallel History of Mithila & Maithili Literature” (Videha, ISSN 2229-547X) – Pandit Bhavnath Jha · Ram Bharos Kapari ‘Bhramar’ · Binay Bhushan · Ashok · Arvind Thakur · Kalpana Jha · Kameshwar Jha ‘Kamal’ · Dr. Kailash Mishra · Kedar Nath Chaudhary · Dr. Kirtinath Jha · Kishan Karigar · Kumar Pawan · Lal Dev Kamat · Lallan & Kusum Thakur · Laxman ‘Sagar’ · Dr. Prafulla ‘Maun’ · Meena Jha · Munnaji · Munni Kamat · Nabo Narayan Mishra · Nand ‘Nand’ · Nachiketa</div> <p style="background:#f6efe8; padding:0.8rem 1.2rem; border-radius: 2rem; margin-bottom: 1.6rem;">
+📚 This quiz covers the rich tapestry of modern Maithili literature: manuscript preservation, folkloristics, reportage, short fiction, poetry, translation, children’s literature, memoir, and the digital‑parallel archive.
+</p> <div id="questions-area"></div> <div class="score-area" id="scoreDisplay">
+⚡ 0 / 0 questions answered
+</div> <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;"> <button id="submitBtn">✅ Submit & Check</button> <button id="resetBtn" class="reset-btn">⟳ Reset Quiz</button> </div> </div>
+<script>
+    // ----- PART 5: 25 questions covering major figures from Bhavnath Jha to Nachiketa -----
+    const questions = [
+        {
+            text: "Pandit Bhavnath Jha, honoured in Videha Issue 428, is known for restoring which lost Buddhist epic from Tibetan and Chinese translations back into Sanskrit?",
+            options: ["Agastya Samhita", "Buddhacharitam of Ashvaghosha", "Ragatarangini", "Varna Ratnakara"],
+            correct: 1,
+            explanation: "Bhavnath Jha restored the lost cantos of Ashvaghosha’s Buddhacharitam, a technically demanding work praised in the special issue."
+        },
+        {
+            text: "Ram Bharos Kapari ‘Bhramar’ is a pioneering Nepalese Maithili writer. Which novel did he write, set against the Madhesh Movement (2006–07)?",
+            options: ["Anti-Virus", "Gharmuha", "Hoogli Upar Bahait Ganga", "Tora Sange Jaibau Re Kujba"],
+            correct: 1,
+            explanation: "‘Gharmuha’ (2012) is the first Nepalese Maithili novel on the Madhesh agitation, blending political documentary with family drama."
+        },
+        {
+            text: "Which Nepal‑based Maithili writer founded ‘Gamhar’ – the first and still‑running Maithili newspaper in Nepal?",
+            options: ["Dr. Dhirendra Jha", "Ram Bharos Kapari ‘Bhramar’", "Bhimnath Jha", "Laxman Jha ‘Sagar’"],
+            correct: 1,
+            explanation: "Bhramar founded Gamhar Maithili Weekly in 2039 BS, and also served as the first Madhesi President of Sajha Prakashan."
+        },
+        {
+            text: "Binay Bhushan’s poetry collection ‘Ujāra Parbak Khoj’ (Search for the Festival of Light) uses the metaphor of a white dove to symbolise:",
+            options: ["Urban migration", "Pre‑colonial, non‑violent, agrarian harmony destroyed by modern violence", "Dowry system", "Caste hierarchy"],
+            correct: 1,
+            explanation: "The ‘white dove’ represents a pre‑colonial, classless, peaceful Videha society whose absence is mourned under neoliberal globalisation."
+        },
+        {
+            text: "Which Maithili fiction writer, known as ‘Kathakar Ashok’, wrote the seminal story ‘Bouqa Chup Chhal’ (The Mute Was Silent), exposing class exploitation through a snake‑bite metaphor?",
+            options: ["Ashok (Ashok Kumar Jha)", "Arvind Thakur", "Kumar Pawan", "Jagdish Prasad Mandal"],
+            correct: 0,
+            explanation: "Ashok’s early collection ‘Ohi Raatik Bhor’ (1991) contains ‘Bouqa Chup Chhal’, a story of a mute man bitten by a snake who refuses to call for help – a devastating critique of social abandonment."
+        },
+        {
+            text: "Arvind Thakur, called ‘Swatantracheta’ (free‑spirited), is known for his long poem protesting stagnation. What is its title?",
+            options: ["Parti Tooti Rahal Achhi", "Jarataka Prativaad Me", "Sabad Mitaarath Ghaayyaa", "Bahurupiya Pradesh Me"],
+            correct: 1,
+            explanation: "‘Jarataka Prativaad Me’ (In Protest against Stagnation, 2022) is a deergh kavita criticising social and intellectual inertia."
+        },
+        {
+            text: "Which of the three Kalpana Jhas (Delhi, Bokaro, Patna) is a prose essayist and critical biographer who wrote a lead essay on her grandfather, novelist Upendra Nath Jha ‘Vyas’?",
+            options: ["Kalpana Jha (Delhi) – song‑poet", "Kalpana Jha (Bokaro) – diaspora poet", "Kalpana Jha (Patna) – prose writer and critic", "None of them"],
+            correct: 2,
+            explanation: "Kalpana Jha (Patna) contributed the lead 14‑page biography ‘Vidyavyasani‑Karmayogi‑Samajsevi: Upendra Nath Jha ‘Vyas’’ in Videha 409."
+        },
+        {
+            text: "Kameshwar Jha ‘Kamal’ published the geet collection ‘Kamal‑Taal’ (2022). What does the title’s dhvani convey?",
+            options: ["Only a musical instrument", "Lotus‑rhythm / lotus‑lake – poet’s name, rhythmic pulse, and sacred imagery of devotion", "A type of folk dance", "A political slogan"],
+            correct: 1,
+            explanation: "‘Kamal’ is the poet’s name, ‘taal’ means rhythm or lake; together they suggest the lotus of poetry, the rhythm of song, and the sacred pond – multi‑layered suggestion."
+        },
+        {
+            text: "Dr. Kailash Kumar Mishra’s novel ‘Mansarbi’ (2025) centres on Bulki, a Dalit woman, and Raghab, a poor Brahmin youth. What does the title evoke?",
+            options: ["A Sanskrit mantra", "Manasa (heart‑lake) + feminine suffix – the inner life of a subaltern woman", "A festival name", "A type of weaving"],
+            correct: 1,
+            explanation: "‘Mansarbi’ (from Sanskrit ‘mānasa’, the heart‑lake) suggests the depth of the woman’s interior world, set against caste‑feudal violence."
+        },
+        {
+            text: "Kedar Nath Chaudhary co‑produced the first Maithili feature film. What is its name?",
+            options: ["Mithila Bhasha Ramayan", "Mamta Gaaye Geet", "Sita Vivah", "Vidyapati Geet Natak"],
+            correct: 1,
+            explanation: "‘Mamta Gaaye Geet’ (first Maithili feature film) was rescued and completed by Kedar Nath Chaudhary after an earlier failure."
+        },
+        {
+            text: "Dr. Kirtinath Jha, a physician based in Puducherry, translated which world literary classic into Maithili as ‘Tutal Pankhi’?",
+            options: ["The Prophet by Gibran", "Broken Wings by Khalil Gibran", "The Rubaiyat of Omar Khayyam", "Tagore’s Gitanjali"],
+            correct: 1,
+            explanation: "‘Tutal Pankhi’ (Broken Wings, 2016) is the first Maithili translation of Gibran’s novella, dedicated to scholar Bheemnath Jha."
+        },
+        {
+            text: "Kishan Karigar’s debut poetry collection ‘Kichhu Fura Gel Hamra’ (2014) is known for its satirical poems. Which poem directly criticises the Maithili literary award system as a coterie‑based ‘panda‑dalal’ network?",
+            options: ["Bantwaraa", "Puraskaar Le Ke Nachoo", "Dahej", "Galchotaka Var"],
+            correct: 1,
+            explanation: "‘Puraskaar Le Ke Nachoo’ (Dance for the Award) exposes how academies and selection boards are packed with one’s own kin, excluding genuine talent."
+        },
+        {
+            text: "Kumar Pawan’s long story ‘Daayrik Khali Panna’ (The Empty Pages of the Diary) features a principal whose diary goes blank. What does this symbolise, in Navya‑Nyāya terms?",
+            options: ["Writer’s block", "Crisis of valid cognition (pramāṇa) – inability to record experience when social corruption disables testimony", "Loss of memory", "Political censorship"],
+            correct: 1,
+            explanation: "The principal can no longer produce valid cognition because the conditions of honest testimony have been destroyed – a direct parallel to Gaṅgeśa’s epistemology."
+        },
+        {
+            text: "Lal Dev Kamat’s ‘Vibhuti’ (2020) is a hybrid work combining biography, natural farming guidance, and cooperative enterprise. What is its subtitle?",
+            options: ["Preraṇādāyak Maithilī Bhāṣā‑Sāhitya Pustikā", "Divya Drishti", "Gahiki Najari", "Sheṣ Jīvan"],
+            correct: 0,
+            explanation: "‘Vibhuti’ is subtitled ‘An Inspirational Maithilī Language‑Literature Primer’, integrating literary art with practical ecological knowledge."
+        },
+        {
+            text: "Lallan Prasad Thakur (1953–1995) was a playwright, director and actor. Which of his plays won the best play award at the Fifth International Maithili Theatre Festival in Delhi?",
+            options: ["Badka Saheb", "Mistaar Nilo Kaka", "Baklel", "Loangia Miarchai"],
+            correct: 2,
+            explanation: "‘Baklel’ (the divided/confused one) won the award and is considered his most intellectually challenging play, exploring urban‑village dislocation."
+        },
+        {
+            text: "Kusum Thakur’s memoir ‘Pratyavartan’ (Return) is a landmark in Maithili women’s writing. What does the title signify?",
+            options: ["A religious pilgrimage", "Return to creative voice after grief and the restoration of her husband’s literary legacy", "Return to village", "A political comeback"],
+            correct: 1,
+            explanation: "The memoir traces her journey from child marriage to collaboration with Lallan Thakur, then her ‘return’ to writing after his death."
+        },
+        {
+            text: "Laxman Jha ‘Sagar’ is known for his interview collection ‘Jena O Kahlakan’ (As They Said). Whose interviews does it contain?",
+            options: ["Only Nepali writers", "Seven major figures of the Maithili movement, including Babu Saheb Choudhary and Dr. Jayakant Mishra", "Indian prime ministers", "Bollywood actors"],
+            correct: 1,
+            explanation: "The collection preserves oral testimony of movement leaders, reconstructed from memory, and is a primary source for Maithili institutional history."
+        },
+        {
+            text: "Dr. Prafulla Kumar Singh ‘Maun’ was a pioneering folklorist. Which of his works is the first systematic history of Maithili literature from Nepal?",
+            options: ["Tharu Lokgeet", "Nepalak Maithili Sahityak Itihas (1972)", "Maithili Lokgatha Anusheelan", "Brahmagrama"],
+            correct: 1,
+            explanation: "‘Nepalak Maithili Sahityak Itihas’ (revised 2011) filled a complete void, documenting Maithili literary production on the Nepal side of the border."
+        },
+        {
+            text: "Meena Jha’s short story, published in Videha, is noted as the first Maithili fiction to deal with which subject, predating Hindi stories by one or two years?",
+            options: ["Breast cancer", "Dowry death", "Child marriage", "Female foeticide"],
+            correct: 0,
+            explanation: "The Videha archive explicitly records that Meena Jha’s laghu katha was the first Maithili story on breast cancer, expanding women’s medical writing."
+        },
+        {
+            text: "Munnaji (Manoj Kumar Karna) is a key theorist of the bīhani kathā (seed story). Which 1995 gathering formally coined the term ‘bīhani kathā’?",
+            options: ["Sahitya Akademi seminar", "Sahayatri Manch gathering at Lohna, Madhubani", "Videha editorial meeting", "Kokil Manch conference"],
+            correct: 1,
+            explanation: "The 1995 Sahayatri Manch meeting at Lohna, where the word ‘bīhani kathā’ was proposed by Shri Raj, is documented in Munnaji’s preface to ‘Mokam Dis’."
+        },
+        {
+            text: "Munni Kamat’s tripartite collection ‘Sukhal Man Tarsal Āṃkhi’ (Dry Heart, Longing Eyes) includes poems, seed stories, and one‑act plays. Which of her one‑acts critiques pharmaceutical exploitation of rural migrants?",
+            options: ["Shikshit Beti", "Andhviśvās", "Zindagi ka mol", "Pāt‑pātsa banala parivār"],
+            correct: 2,
+            explanation: "‘Zindagi ka mol’ (The Value of Life) exposes how a poor village youth becomes an unwitting guinea pig in a drug trial and dies for 8,000 rupees."
+        },
+        {
+            text: "Nabo Narayan Mishra served as Secretary of Kokil Manch in Kolkata for 20 years. His Samagra includes a detailed record of annual Maithili theatre productions. How many consecutive years of productions are listed?",
+            options: ["12 years", "24 years (1991–2006)", "50 years", "10 years"],
+            correct: 1,
+            explanation: "The essay ‘Maithili Rangmanch aur Kolkata’ lists 24 annual productions from 1991 to 2006, making it an invaluable theatrical archive."
+        },
+        {
+            text: "Nand Kumar Mishra ‘Nand’ has published twelve books. His social novel ‘Anthiya Kukur’ (The Solitary Hound) uses the dog as a metaphor for:",
+            options: ["Loyalty", "The socially marginalised person who survives alone without community protection", "A pet", "Police informer"],
+            correct: 1,
+            explanation: "The ‘lone dog’ symbolises the untethered, unclaimed individual – a diagnosis of exclusion in Mithila village life, analysed through dhvani theory."
+        },
+        {
+            text: "Udaya Narayana Singh ‘Nachiketa’ won the Sahitya Akademi Award for Poetry (2017) for his collection ‘Jahalak Diary’. What does ‘jahalak’ mean?",
+            options: ["A long narrative", "A sudden flash / momentary glimpse", "A lament", "A devotional hymn"],
+            correct: 1,
+            explanation: "‘Jahalak’ means a sudden flash of perception; the collection presents poetry as discrete illuminations, reflecting his poetics of ‘thinking in figures of speech’."
+        },
+        {
+            text: "Nachiketa’s landmark play ‘No Entry: Mā Pravish’ (2008) was first serialised in Videha eJournal. What does the bilingual title ‘No Entry: Mā Pravish’ signify?",
+            options: [
+                "Only a traffic rule",
+                "The prohibition of the mother (mā) and the mother tongue from official spaces – a critique of linguistic exclusion and patriarchy",
+                "A festival name",
+                "A film title"
+            ],
+            correct: 1,
+            explanation: "‘Mā’ means mother (and the negative), ‘Pravish’ means enter; the title encodes the exclusion of both the feminine and the Maithili language from public authority."
+        }
+    ];
+
+    let selectedAnswers = new Array(questions.length).fill(null);
+    let quizSubmitted = false;
+
+    function renderQuestions() {
+        const container = document.getElementById('questions-area');
+        container.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.setAttribute('data-qid', idx);
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qText);
+            
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const optWrap = document.createElement('div');
+                optWrap.className = 'option';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${idx}`;
+                radio.value = optIdx;
+                radio.id = `q_${idx}_opt_${optIdx}`;
+                if (selectedAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    if (!quizSubmitted) {
+                        selectedAnswers[idx] = parseInt(e.target.value);
+                        updateScoreDisplay();
+                        const fbDiv = card.querySelector('.feedback');
+                        if (fbDiv) fbDiv.style.display = 'none';
+                    }
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q_${idx}_opt_${optIdx}`;
+                label.innerText = opt;
+                optWrap.appendChild(radio);
+                optWrap.appendChild(label);
+                optionsDiv.appendChild(optWrap);
+            });
+            card.appendChild(optionsDiv);
+            const fbDiv = document.createElement('div');
+            fbDiv.className = 'feedback';
+            fbDiv.id = `fb_${idx}`;
+            card.appendChild(fbDiv);
+            container.appendChild(card);
+        });
+    }
+
+    function updateScoreDisplay() {
+        const answered = selectedAnswers.filter(a => a !== null).length;
+        document.getElementById('scoreDisplay').innerHTML = `📌 ${answered} / ${questions.length} questions answered ${quizSubmitted ? '· Final scores below' : '· Submit to see correct answers'}`;
+    }
+
+    function evaluateQuiz() {
+        quizSubmitted = true;
+        let correctCount = 0;
+        for (let i = 0; i < questions.length; i++) {
+            const userChoice = selectedAnswers[i];
+            const isCorrect = (userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+            const fb = document.getElementById(`fb_${i}`);
+            if (fb) {
+                if (userChoice === null) {
+                    fb.innerHTML = `⚠️ Unanswered. Correct: ${questions[i].options[questions[i].correct]}. ${questions[i].explanation}`;
+                    fb.className = 'feedback incorrect';
+                } else if (isCorrect) {
+                    fb.innerHTML = `✅ Correct. ${questions[i].explanation}`;
+                    fb.className = 'feedback correct';
+                } else {
+                    fb.innerHTML = `❌ Incorrect. You chose: ${questions[i].options[userChoice]}. Correct: ${questions[i].options[questions[i].correct]}. ${questions[i].explanation}`;
+                    fb.className = 'feedback incorrect';
+                }
+                fb.style.display = 'block';
+            }
+        }
+        const scoreMsg = `🎯 You scored ${correctCount} out of ${questions.length}`;
+        document.getElementById('scoreDisplay').innerHTML = scoreMsg + (correctCount === questions.length ? ' — 🏆 Master of the parallel canon!' : ' — Review the explanations to deepen your understanding of Maithili’s parallel voices.');
+    }
+
+    function resetQuiz() {
+        selectedAnswers.fill(null);
+        quizSubmitted = false;
+        for (let i = 0; i < questions.length; i++) {
+            const radios = document.querySelectorAll(`input[name="q_${i}"]`);
+            radios.forEach(r => r.checked = false);
+            const fb = document.getElementById(`fb_${i}`);
+            if (fb) {
+                fb.style.display = 'none';
+                fb.innerHTML = '';
+            }
+        }
+        updateScoreDisplay();
+    }
+
+    document.getElementById('submitBtn').addEventListener('click', evaluateQuiz);
+    document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+
+    renderQuestions();
+    updateScoreDisplay();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

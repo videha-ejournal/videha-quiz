@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Chapter 1 - A Parallel History of Mithila & Maithili Literature</title> <style>
+* {
+box-sizing: border-box;
+}
+body {
+background: #f5f0e7;
+font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, -apple-system, sans-serif;
+margin: 0;
+padding: 2rem 1rem;
+color: #1e2a2e;
+}
+.quiz-container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffef7;
+border-radius: 2rem;
+box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+overflow: hidden;
+padding: 2rem 1.5rem 2rem 1.5rem;
+}
+h1 {
+font-size: 1.9rem;
+margin-top: 0;
+margin-bottom: 0.25rem;
+color: #7a3e1f;
+border-left: 6px solid #c57c3c;
+padding-left: 1rem;
+}
+.sub {
+color: #5c4b3a;
+font-style: italic;
+margin-bottom: 2rem;
+border-bottom: 2px solid #e7dacb;
+padding-bottom: 0.75rem;
+}
+.question-card {
+background: #fefaf5;
+border-radius: 1.5rem;
+margin-bottom: 1.8rem;
+padding: 1.2rem 1.5rem;
+box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+border: 1px solid #f0e2d4;
+transition: 0.1s;
+}
+.question-text {
+font-weight: 700;
+font-size: 1.2rem;
+margin-bottom: 1rem;
+color: #3a2c23;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+margin-bottom: 0.7rem;
+}
+.option {
+display: flex;
+align-items: flex-start;
+gap: 0.8rem;
+background: #ffffff;
+padding: 0.6rem 1rem;
+border-radius: 2rem;
+border: 1px solid #e2d4c6;
+cursor: pointer;
+transition: all 0.1s ease;
+}
+.option:hover {
+background-color: #fdf4e9;
+border-color: #c9aa7b;
+}
+input[type="radio"] {
+margin-top: 0.2rem;
+accent-color: #b1622c;
+width: 1.1rem;
+height: 1.1rem;
+}
+.option label {
+flex: 1;
+cursor: pointer;
+font-weight: 500;
+line-height: 1.4;
+color: #2f2a24;
+}
+.feedback {
+margin-top: 0.8rem;
+font-size: 0.9rem;
+padding: 0.5rem 1rem;
+border-radius: 2rem;
+background: #f8f3ec;
+display: none;
+}
+.feedback.correct {
+background: #e0f2e5;
+color: #1f5c2e;
+border-left: 4px solid #2e7d32;
+display: block;
+}
+.feedback.incorrect {
+background: #ffe9e6;
+color: #b13b2d;
+border-left: 4px solid #c5382b;
+display: block;
+}
+.score-area {
+position: sticky;
+bottom: 1rem;
+background: #ffffffdd;
+backdrop-filter: blur(8px);
+border-radius: 3rem;
+padding: 0.8rem 1.5rem;
+text-align: center;
+margin-top: 2rem;
+font-weight: bold;
+font-size: 1.3rem;
+border: 1px solid #ddcdbb;
+box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+button {
+background: #b1622c;
+border: none;
+color: white;
+font-weight: bold;
+font-size: 1rem;
+padding: 0.7rem 1.8rem;
+border-radius: 3rem;
+cursor: pointer;
+transition: 0.2s;
+margin: 0.5rem;
+border: none;
+}
+button:hover {
+background: #8f4b1f;
+transform: scale(0.97);
+}
+.reset-btn {
+background: #5a4a3a;
+}
+.reset-btn:hover {
+background: #3f3226;
+}
+.footer-note {
+margin-top: 2rem;
+font-size: 0.75rem;
+text-align: center;
+color: #ab947e;
+border-top: 1px solid #ede0d2;
+padding-top: 1.5rem;
+}
+@media (max-width: 650px) {
+.quiz-container {
+padding: 1.2rem;
+}
+.question-text {
+font-size: 1rem;
+}
+.option label {
+font-size: 0.9rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <h1>📜 Parallel History of Mithila & Maithili Literature</h1> <div class="sub">Chapter 1 — The Counter-Canon, Buddhist Roots, Suppressed Gangesa & the Videha Movement</div> <p style="margin-bottom: 1.5rem; background:#f3efe9; padding:0.8rem 1.2rem; border-radius: 2rem;">
+🧠 Based on <strong>Gajendra Thakur’s “A Parallel History of Mithila & Maithili Literature” (Parts 1–100, Videha eJournal, ISSN 2229-547X)</strong>.<br>
+Test your understanding of the democratic counter‑tradition, Charyapada origins, the two Vidyapatis, and the suppressed legacy of philosopher Gangesa Upadhyaya.
+</p> <div id="questions-area"></div> <div class="score-area" id="scoreDisplay">
+⚡ 0 / 0 questions answered
+</div> <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;"> <button id="submitBtn">✅ Submit & Check Answers</button> <button id="resetBtn" class="reset-btn">⟳ Reset Quiz</button> </div> </div>
+<script>
+    // ---------- QUESTION BANK (Chapter 1: from the provided document) ----------
+    const questions = [
+        {
+            text: "What is the foundational democratic‑spiritual corpus that the Parallel History identifies as the true root of Maithili lyric?",
+            options: [
+                "The Sanskrit Puranas",
+                "The Buddhist Charyapadas (8th–12th century CE, Siddha poets)",
+                "Vidyapati’s Padavali (14th century)",
+                "The Maithili Ghazals of Pandit Jivan Jha"
+            ],
+            correct: 1,
+            explanation: "The Parallel History states: 'Proto-Maithili: Buddhist Charyapada c.8th–12th cent. … 50 charyapadas by 23 Siddha poets are foundational democratic-spiritual corpus.'"
+        },
+        {
+            text: "Which three Siddha poets are named as authors of the Charyapadas in the parallel tradition?",
+            options: [
+                "Vidyapati, Jyotirishwar, Gangesa",
+                "Luipada, Kanhapada, Saraha",
+                "Chanda Jha, Raghunandan Das, Lal Das",
+                "Harimohan Jha, Rajkamal Chaudhary, Nagarjun"
+            ],
+            correct: 1,
+            explanation: "Luipada, Kanhapada, Bhusukupada, Saraha are explicitly mentioned as composers of the Charyapada mystic songs."
+        },
+        {
+            text: "According to the Videha Parallel History, what major scholarly correction is made regarding the poet Vidyapati?",
+            options: [
+                "Vidyapati never wrote in Maithili",
+                "There were two Vidyapatis: one pre-Jyotirishwar Padavali poet, and another Sanskrit/Avahatta writer (Vidyapati Thakkurah, 1350–1435)",
+                "Vidyapati was originally a Persian poet",
+                "Vidyapati’s works were all destroyed in 1857"
+            ],
+            correct: 1,
+            explanation: "The text says: 'The two Vidyapatis — the famous Padavali poet (pre‑Jyotirishwar) is distinct from the Sanskrit/Avahatta writer Vidyapati Thakkurah (1350–1435).'"
+        },
+        {
+            text: "What suppressed biographical fact about the great Nyaya philosopher Gangesa Upadhyaya was revealed by the Dooshan Panji (Black Book) released by Videha in 2009?",
+            options: [
+                "He was a king of Mithila",
+                "He married a Charmkarini (leather‑tanning caste woman) and was born five years after his father’s death",
+                "He never wrote any philosophical text",
+                "He migrated to Tibet"
+            ],
+            correct: 1,
+            explanation: "Panji records: 'Charmakarini Medha … pitri parokshe pancha varshayvatile Gangesotpatti' — he was born 5 years after father’s death and married a tanner woman. Ramanath Jha suppressed this."
+        },
+        {
+            text: "Who wrote the famine poetry of 1873‑74 (Akali Kavitt) documenting colonial misrule and agrarian suffering, which was ignored by mainstream canon?",
+            options: [
+                "Chanda Jha",
+                "Faturilal",
+                "G.A. Grierson",
+                "Munshi Raghunandan Das"
+            ],
+            correct: 1,
+            explanation: "The text explicitly mentions 'Faturilal - Famine poetry of 1873-74 (Akali Kavitt), documenting the Famine in vivid Maithili verse … a striking document from below.'"
+        },
+        {
+            text: "Which towering satirist and novelist was systematically denied the Sahitya Akademi Award? The year 1967 went unrewarded rather than giving it to him.",
+            options: [
+                "Rajkamal Chaudhary",
+                "Jagdish Prasad Mandal",
+                "Harimohan Jha",
+                "Nagarjun (Yatri)"
+            ],
+            correct: 2,
+            explanation: "Harimohan Jha (1908–1984) – his novel Kanyadan and works like Antika were widely read; the Akademi gave no award in 1967 instead of honouring him."
+        },
+        {
+            text: "What did the RTI applications filed by Vinit Utpal and Ashish Anchinhar (2011–14) reveal about Sahitya Akademi’s Maithili assignments?",
+            options: [
+                "All assignments were equally distributed",
+                "Over 90% of assignments went to friends/relatives of the 10‑member advisory board",
+                "Dalit writers received majority of assignments",
+                "Only Nepali Maithili writers were selected"
+            ],
+            correct: 1,
+            explanation: "RTI data revealed that more than 90% of assignments went to friends and relatives of the advisory board, excluding subaltern voices."
+        },
+        {
+            text: "How many Tirhuta palm‑leaf manuscripts has the Videha archive transcribed and preserved?",
+            options: [
+                "500",
+                "About 11,000",
+                "50,000",
+                "3,500"
+            ],
+            correct: 1,
+            explanation: "The document states: 'transcription of over 11,000 Tirhuta manuscripts' and 'Preeti Thakur compiled 11,000 palm‑leaf Panji manuscripts.'"
+        },
+        {
+            text: "Who are identified as the three ‘true living masters’ of Maithili literature long ignored by Sahitya Akademi?",
+            options: [
+                "Gajendra Thakur, Preeti Thakur, Ashish Anchinhar",
+                "Jagdish Prasad Mandal, Rajdeo Mandal, Bechan Thakur",
+                "Vidyapati, Jyotirishwar, Gangesa",
+                "Shivshankar Srinivas, Arvind Thakur, Hitnath Jha"
+            ],
+            correct: 1,
+            explanation: "The Parallel History states: 'Videha identifies three writers as the true living masters of Maithili – all ignored by the Sahitya Akademi advisory board until 2021: Jagdish Prasad Mandal, Rajdeo Mandal, Bechan Thakur.'"
+        },
+        {
+            text: "What is the name of the genealogical “black book” that recorded ‘impure’ lineage facts (including Gangesa’s inter‑caste marriage) and was released digitally by Videha in 2009?",
+            options: [
+                "Panji Prabandh",
+                "Dooshan Panji (The Black Book)",
+                "Tattvacintāmaṇi",
+                "Mithilakshar Granth"
+            ],
+            correct: 1,
+            explanation: "Dooshan Panji – the black book – contains suppressed records of Maithil Brahmin genealogies, including Gangesa’s birth anomaly and marriage to a Charmkarini."
+        },
+        {
+            text: "Which ancient Vedic parallel literature does the document refer to as an early example of ‘parallel tradition’?",
+            options: [
+                "Narashanshi songs in the Rigveda",
+                "Upanishadic dialogues",
+                "Puranic Sthala Puranas",
+                "Buddhist Jatakas"
+            ],
+            correct: 0,
+            explanation: "The text mentions: 'references to parallel literature are found in Vedas, where Narashanshi is referred to as parallel literature.'"
+        },
+        {
+            text: "What is the motto of Videha eJournal (ISSN 2229-547X) as mentioned in the front matter?",
+            options: [
+                "Vande Mataram",
+                "Mānuṣīm iha saṃskṛtām (Glorifying the human/cultural)",
+                "Satyameva Jayate",
+                "Maithili Sāhitya Chiranjeevi"
+            ],
+            correct: 1,
+            explanation: "Cover page shows 'Mānuṣīm iha saṃskṛtām' (Atharvaveda) – meaning 'Humans first in culture'."
+        },
+        {
+            text: "Who was the first convener of Maithili at Sahitya Akademi, described as ‘casteist, conservative and confused’ for suppressing Gangesa’s lineage and excluding liberal writers?",
+            options: [
+                "Ramanath Jha",
+                "Jaykant Mishra",
+                "Surendra Jha Suman",
+                "Chandranath Mishra Amar"
+            ],
+            correct: 0,
+            explanation: "Ramanath Jha, first convener, concealed the Dooshan Panji facts from historian Dinesh Chandra Bhattacharya and is accused of elitist gatekeeping."
+        },
+        {
+            text: "Which collection of Maithili women poets is cited as the ‘first anthology’ breaking the silence on women’s writing, according to the Parallel History’s feminist recovery?",
+            options: [
+                "Ijoriyak Angaithi-Mor (ed. Mala Jha & Vibha Jha)",
+                "Stri Kona Sangrah",
+                "Maithili Mahila Geet",
+                "Videha Stri Visheshank"
+            ],
+            correct: 0,
+            explanation: "Document explicitly mentions: 'First anthology of Maithili women poets: Ijoriyak Angaithi-Mor (ed. Mala Jha & Vibha Jha).'"
+        },
+        {
+            text: "Which modern Maithili movement restored the formal prosodic standards (behr, qafiya, radif) of ghazal after a “dark interlude” of grammatically incorrect ghazal writing?",
+            options: [
+                "Videha Parallel Literature Movement",
+                "Anchinhar Aakhar movement (2008)",
+                "Sahitya Akademi Maithili wing",
+                "Mithila Sanskritik Parishad"
+            ],
+            correct: 1,
+            explanation: "Anchinhar Aakhar movement (launched April 2008) revived classical ghazal grammar and created Ghajalsastram, correcting weak-era poets."
+        },
+        {
+            text: "What was the name of the first Maithili blog, which later evolved into the Videha eJournal?",
+            options: [
+                "Bhalsarik Gachh (2004)",
+                "Mithila Darshan",
+                "Karnamrit",
+                "Maithil Hit-Sadhana"
+            ],
+            correct: 0,
+            explanation: "The journey began with 'Bhalsarik Gachh' (5 July 2004), rechristened as Videha on 1 Jan 2008."
+        },
+        {
+            text: "Which dynasty of Mithila officially established the Panji-Prabandha genealogical system in 1326 AD, which the parallel history later used to recover suppressed histories?",
+            options: [
+                "Karnat dynasty (Harasimhadeva)",
+                "Oinwar dynasty",
+                "Gupta dynasty",
+                "Malla dynasty of Nepal"
+            ],
+            correct: 0,
+            explanation: "Harasimhadeva of the Karnat dynasty systematised Panji records in 1248 Shaka (1326 CE) to maintain brahmin genealogies."
+        },
+        {
+            text: "The Parallel History describes nine layers of suppressed literary tradition. Which layer deals with the recovery of the philosopher Gangesa Upadhyaya’s suppressed biography?",
+            options: [
+                "Layer 2 – The two Vidyapatis",
+                "Layer 3 – The suppressed Gangesa",
+                "Layer 5 – Harimohan Jha’s exclusion",
+                "Layer 8 – Nepal side"
+            ],
+            correct: 1,
+            explanation: "The nine layers include: '3. The suppressed Gangesa — original Panji manuscripts proving inter-caste union and birth anomaly.'"
+        },
+        {
+            text: "According to the text, what was the first Maithili feature film co-produced by Kedar Nath Chaudhary, and how does it connect to the Parallel History’s cultural preservation?",
+            options: [
+                "Mamta Gaaye Geet – first Maithili feature film",
+                "Mithila Bhasha Ramayan",
+                "Sita Vivah",
+                "Vidyapati Geet Natak"
+            ],
+            correct: 0,
+            explanation: "Kedar Nath Chaudhary co-produced 'Mamta Gaaye Geet', the first Maithili feature film; this is noted in his biographical section and linked to diaspora cultural activism."
+        },
+        {
+            text: "Which early 20th-century writer is credited as having the first documented Maithili ghazals, appearing in his play ‘Sundar-Samyog’?",
+            options: [
+                "Pandit Jivan Jha",
+                "Kavivara Sitaram Jha",
+                "Kashikant Mishra ‘Madhup’",
+                "Vijaynath Jha"
+            ],
+            correct: 0,
+            explanation: "Pandit Jivan Jha composed first Maithili ghazals and incorporated them into Sundar‑Samyog (dramatic debut)."
+        },
+        {
+            text: "What is the key mission of the ‘Videha Samman’ parallel awards instituted by the Videha movement?",
+            options: [
+                "To replace Sahitya Akademi entirely",
+                "To recognise Dalit, women, folk and subaltern voices ignored by mainstream academies",
+                "Only to honour Sanskrit scholars",
+                "To promote Hindi translations"
+            ],
+            correct: 1,
+            explanation: "Parallel Sahitya Akademi, Lalit Kala, Sangeet Natak awards honor non-casteist, democratic, subaltern traditions and artists from Mithila."
+        },
+        {
+            text: "Which text by Gangesa Upadhyaya is described as transforming Indian epistemology and founding the Navya-Nyāya school?",
+            options: [
+                "Varnaratnakara",
+                "Tattvacintāmaṇi (Jewel of Reflection on Truth)",
+                "Nyayasutra",
+                "Kāvyaprakāśa"
+            ],
+            correct: 1,
+            explanation: "Tattvacintāmaṇi is Gangesa’s magnum opus, inaugurating the Navya-Nyāya era and focusing on pramāṇa epistemology."
+        },
+        {
+            text: "As per the Parallel History, who established the ‘first Maithili fortnightly e‑journal’ and started the digital counter‑archive?",
+            options: [
+                "Ashish Anchinhar",
+                "Gajendra Thakur",
+                "Bechan Thakur",
+                "Rajdeo Mandal"
+            ],
+            correct: 1,
+            explanation: "Gajendra Thakur founded Videha eJournal (ISSN 2229-547X), launching the parallel literature movement and digital archive."
+        },
+        {
+            text: "Which female writer’s short story about breast cancer is noted as the ‘first Maithili story’ on that subject, pioneering women’s health writing?",
+            options: [
+                "Meena Jha",
+                "Vibha Rani",
+                "Kalpana Jha",
+                "Premlata Mishra ‘Prem’"
+            ],
+            correct: 0,
+            explanation: "The archive states: 'Meena Jha ker ek laghu katha … breast cancer par likhal gel. E Maithiliki pahil katha chhal.'"
+        }
+    ];
+
+    let selectedAnswers = new Array(questions.length).fill(null);
+    let quizSubmitted = false;
+
+    function renderQuestions() {
+        const container = document.getElementById('questions-area');
+        container.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const qDiv = document.createElement('div');
+            qDiv.className = 'question-card';
+            qDiv.setAttribute('data-qid', idx);
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            qDiv.appendChild(qText);
+            
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const optWrapper = document.createElement('div');
+                optWrapper.className = 'option';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${idx}`;
+                radio.value = optIdx;
+                radio.id = `q_${idx}_opt_${optIdx}`;
+                if (selectedAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    if (!quizSubmitted) {
+                        selectedAnswers[idx] = parseInt(e.target.value);
+                        updateScoreDisplay();
+                        // clear feedback if user changes after submit? we'll reset submit flag?
+                        // but we keep separate mode, you need to re-submit to see feedback. we'll handle in submit.
+                        const feedbackDiv = qDiv.querySelector('.feedback');
+                        if(feedbackDiv) feedbackDiv.style.display = 'none';
+                    }
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q_${idx}_opt_${optIdx}`;
+                label.innerText = opt;
+                optWrapper.appendChild(radio);
+                optWrapper.appendChild(label);
+                optionsDiv.appendChild(optWrapper);
+            });
+            qDiv.appendChild(optionsDiv);
+            const feedbackDiv = document.createElement('div');
+            feedbackDiv.className = 'feedback';
+            feedbackDiv.id = `fb_${idx}`;
+            qDiv.appendChild(feedbackDiv);
+            container.appendChild(qDiv);
+        });
+    }
+
+    function updateScoreDisplay() {
+        const answeredCount = selectedAnswers.filter(a => a !== null).length;
+        document.getElementById('scoreDisplay').innerHTML = `📖 ${answeredCount} / ${questions.length} questions answered ${quizSubmitted ? '· Final results shown' : '· Submit to check'}`;
+    }
+
+    function evaluateQuiz() {
+        quizSubmitted = true;
+        let correctCount = 0;
+        for (let i = 0; i < questions.length; i++) {
+            const userChoice = selectedAnswers[i];
+            const isCorrect = (userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+            const fbDiv = document.getElementById(`fb_${i}`);
+            const cardDiv = document.querySelector(`.question-card[data-qid="${i}"]`);
+            if (fbDiv) {
+                if (userChoice === null) {
+                    fbDiv.innerHTML = `⚠️ Not answered. Correct answer: ${questions[i].options[questions[i].correct]}. ${questions[i].explanation}`;
+                    fbDiv.className = 'feedback incorrect';
+                } else if (isCorrect) {
+                    fbDiv.innerHTML = `✅ Correct! ${questions[i].explanation}`;
+                    fbDiv.className = 'feedback correct';
+                } else {
+                    fbDiv.innerHTML = `❌ Incorrect. Your choice: ${questions[i].options[userChoice]}. Correct: ${questions[i].options[questions[i].correct]}. ${questions[i].explanation}`;
+                    fbDiv.className = 'feedback incorrect';
+                }
+                fbDiv.style.display = 'block';
+            }
+        }
+        const scoreMsg = `✨ You scored ${correctCount} out of ${questions.length} ✨`;
+        document.getElementById('scoreDisplay').innerHTML = scoreMsg + ' · ' + (correctCount === questions.length ? '📚 Perfect! Deep knowledge of parallel history!' : '📖 Review the explanations to deepen understanding.');
+        // Disable radio changes? not necessary, but we can make them readonly visually but keep consistency. just keep.
+    }
+
+    function resetQuiz() {
+        selectedAnswers.fill(null);
+        quizSubmitted = false;
+        // clear radio selections visually
+        for (let i = 0; i < questions.length; i++) {
+            const radios = document.querySelectorAll(`input[name="q_${i}"]`);
+            radios.forEach(r => r.checked = false);
+            const fb = document.getElementById(`fb_${i}`);
+            if (fb) {
+                fb.style.display = 'none';
+                fb.innerHTML = '';
+            }
+        }
+        updateScoreDisplay();
+    }
+
+    document.getElementById('submitBtn').addEventListener('click', () => {
+        evaluateQuiz();
+    });
+    document.getElementById('resetBtn').addEventListener('click', () => {
+        resetQuiz();
+    });
+
+    renderQuestions();
+    updateScoreDisplay();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

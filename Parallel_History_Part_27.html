@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Videha Parallel History: Part XXVII Quiz | Western & East Asian Gaṅgeśa Scholars</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: 'Segoe UI', 'Roboto', 'Georgia', serif;
+background: #f4efe7;
+color: #2c2418;
+padding: 2rem;
+line-height: 1.5;
+}
+.quiz-container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffef9;
+border-radius: 32px;
+box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
+overflow: hidden;
+border: 1px solid #e0d3c2;
+}
+.quiz-header {
+background: linear-gradient(135deg, #2c5e6e 0%, #3e7f6e 100%);
+color: #fef5e6;
+padding: 1.8rem 2rem;
+text-align: center;
+}
+.quiz-header h1 {
+font-size: 1.9rem;
+letter-spacing: -0.5px;
+font-weight: 600;
+margin-bottom: 0.5rem;
+}
+.quiz-header h1 span {
+font-style: italic;
+font-weight: 400;
+color: #f3da9b;
+}
+.quiz-header p {
+font-size: 1rem;
+opacity: 0.9;
+max-width: 750px;
+margin: 0 auto;
+}
+.score-area {
+background: #e9dfd1;
+padding: 0.8rem 2rem;
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+flex-wrap: wrap;
+gap: 1rem;
+border-bottom: 1px solid #d8c8b6;
+}
+.score-box {
+background: #2c5e6e;
+color: #faeecb;
+padding: 0.3rem 1rem;
+border-radius: 60px;
+font-weight: bold;
+font-size: 1.2rem;
+}
+.progress-text {
+font-weight: 500;
+color: #4b3a28;
+}
+button {
+background: none;
+border: none;
+cursor: pointer;
+font-family: inherit;
+}
+.questions-area {
+padding: 2rem 2rem 1rem;
+}
+.question-card {
+background: #fefbf7;
+margin-bottom: 2rem;
+border-radius: 24px;
+padding: 1.4rem 1.8rem;
+box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+border: 1px solid #ede1d2;
+transition: all 0.1s ease;
+}
+.question-text {
+font-size: 1.2rem;
+font-weight: 600;
+color: #2c5e6e;
+margin-bottom: 1.2rem;
+padding-left: 0.3rem;
+border-left: 4px solid #c68b5e;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.75rem;
+margin-bottom: 1.2rem;
+}
+.option {
+display: flex;
+align-items: center;
+gap: 0.75rem;
+background: #ffffff;
+padding: 0.6rem 1rem;
+border-radius: 50px;
+border: 1px solid #e6d8ca;
+transition: background 0.15s;
+cursor: pointer;
+}
+.option:hover {
+background: #f7f0e8;
+}
+input[type="radio"] {
+accent-color: #8b5a2b;
+width: 18px;
+height: 18px;
+margin: 0;
+}
+.option label {
+font-size: 0.98rem;
+font-weight: 450;
+color: #2c2a27;
+width: 100%;
+cursor: pointer;
+}
+.feedback {
+margin-top: 0.8rem;
+font-size: 0.85rem;
+padding: 0.4rem 0.8rem;
+border-radius: 20px;
+display: inline-block;
+background: #f2ece4;
+color: #5a4a38;
+}
+.feedback.correct {
+background: #e2f0e4;
+color: #1f592e;
+border-left: 3px solid #2f8243;
+}
+.feedback.incorrect {
+background: #fde9e7;
+color: #aa3e2c;
+border-left: 3px solid #c25542;
+}
+.action-buttons {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 1rem;
+padding: 0 2rem 1.8rem 2rem;
+}
+.btn {
+padding: 0.7rem 1.8rem;
+border-radius: 60px;
+font-weight: 600;
+font-size: 0.9rem;
+transition: all 0.2s;
+background: #e5d9cd;
+color: #2c2418;
+border: 1px solid #cfbeaa;
+}
+.btn-primary {
+background: #7a5a3e;
+color: white;
+border: none;
+box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.btn-primary:hover {
+background: #5c4130;
+transform: translateY(-1px);
+cursor: pointer;
+}
+.btn-reset {
+background: #efe3d5;
+border: 1px solid #cfbeaa;
+}
+.btn-reset:hover {
+background: #e2d1bd;
+cursor: pointer;
+}
+.footer {
+background: #f2ece3;
+padding: 1rem 2rem;
+text-align: center;
+font-size: 0.8rem;
+color: #6b5a48;
+border-top: 1px solid #e1d2c0;
+}
+@media (max-width: 680px) {
+body {
+padding: 1rem;
+}
+.question-card {
+padding: 1rem;
+}
+.question-text {
+font-size: 1rem;
+}
+.options {
+gap: 0.5rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <div class="quiz-header"> <h1>🌍 Parallel History of Mithila <span>— Part XXVII</span></h1> <p>ADDENDUM 4: Western and East Asian Gaṅgeśa Upādhyāya Scholars<br>Ingalls · Matilal · Phillips · Wada · Frege–Russell parallels · Empty terms</p> </div> <div class="score-area"> <div class="progress-text" id="qCounter">Question 1 of 12</div> <div class="score-box" id="scoreDisplay">Score: 0/0</div> </div> <div class="questions-area" id="questionsContainer"></div> <div class="action-buttons"> <button class="btn btn-reset" id="resetQuizBtn">⟳ Reset Quiz</button> <button class="btn btn-primary" id="submitBtn">✓ Submit & Check Answers</button> </div> <div class="footer">
+📜 Based on the Videha Parallel History, ADDENDUM 4 – "Western and East Asian Gaṅgeśa Upādhyāya Scholars".<br>
+ISSN 2229-547X · Democratic, counter‑canonical perspective on global Navya‑Nyāya scholarship.
+</div>
+</div>
+<script>
+    // ---------- PART XXVII: ADDENDUM 4 – WESTERN AND EAST ASIAN GANGESA SCHOLARS ----------
+    // Based on pages 144–149 of the provided PDF (ADDENDUM 4)
+    const quizData = [
+        {
+            text: "According to the Parallel History, which three main innovations of Navya‑Nyāya did Daniel H. H. Ingalls identify in his pioneering work 'Materials for the Study of Navya‑Nyāya Logic' (1951)?",
+            options: [
+                "Epistemic foundationalism, logical atomism, and verificationism",
+                "A new method of universalization through avacchedakatā (limitation); discovery of laws analogous to propositional logic; a new interest in defining relations",
+                "The theory of apoha, the concept of sphoṭa, and the doctrine of anumāna as perception",
+                "The four pramāṇas, the five‑membered syllogism, and the doctrine of negation"
+            ],
+            correct: 1,
+            explanation: "The text: 'Ingalls isolated three main innovations of Navya- Nyaya: a new method of universalization, rendered possible by the concept of limitation (avacchedakata); the discovery of a number of laws similar to the theorems of propositional logic; a new interest in the definition of relations.'"
+        },
+        {
+            text: "The Parallel History draws a comparison between Gaṅgeśa's project in the Anumānakhaṇḍa (examining and discarding 21 successive definitions of vyāpti) and the work of which Western philosopher?",
+            options: [
+                "Immanuel Kant on the categories",
+                "Gottlob Frege on the foundations of arithmetic and predicate logic",
+                "Ludwig Wittgenstein on language games",
+                "Bertrand Russell on definite descriptions"
+            ],
+            correct: 1,
+            explanation: "The text: 'What Gangesa did for vyapti ... is structurally parallel to what Frege did for the foundations of arithmetic and predicate logic. Frege unified the two strains of ancient logic ... one of his stated purposes was to isolate genuinely logical principles of inference. Gangesa's project ... was similarly to isolate the precise logical structure of the vyapti relation.'"
+        },
+        {
+            text: "Which Oxford philosopher, who served as Spalding Professor of Eastern Religion and Ethics, explicitly articulated a 'comparative motivation' and developed what scholars call the 'Matilal Strategy' of bringing Indian philosophy into dialogue with analytic philosophy?",
+            options: [
+                "Karl H. Potter",
+                "Stephen H. Phillips",
+                "Bimal Krishna Matilal",
+                "Toshihiro Wada"
+            ],
+            correct: 2,
+            explanation: "The text: 'Bimal Krishna Matilal (1935-1991) ... articulated his comparative motivation clearly... His key works include: The Navya-Nyaya Doctrine of Negation (Harvard, 1968); Perception: An Essay on Classical Indian Theories of Knowledge (Oxford, 1986) — a sustained defence of Nyāya direct realism.'"
+        },
+        {
+            text: "What is the central claim of the 'Matilal Strategy' as described in the Parallel History?",
+            options: [
+                "That Indian philosophy should be studied only in its original Sanskrit",
+                "That Indian philosophical traditions such as Nyāya are as analytically rigorous as Western philosophy and can be used to address the same problems in logic, epistemology, and language",
+                "That Gaṅgeśa's epistemology is purely theological and not philosophical",
+                "That Navya‑Nyāya has no relevance to modern logic"
+            ],
+            correct: 1,
+            explanation: "The text: 'Matilal articulated his comparative motivation clearly: 'Both contemporary analytical philosophy and the classical Nyaya and Buddhist tradition of India seem to be interested in the problems of knowledge and perception, the varieties of meaning and reference, the theory of inference, and the issue of psychologism.' He insisted on correcting misconceptions about Indian philosophy as 'mystical and non-argumentative.'"
+        },
+        {
+            text: "Karl H. Potter and Sibajiban Bhattacharyya's Encyclopedia of Indian Philosophies (Vol. VI) covers the period from Gaṅgeśa to which later Navya‑Nyāya philosopher?",
+            options: [
+                "Vardhamāna Upādhyāya",
+                "Jagadīśa Tarkālaṃkāra",
+                "Raghunātha Śiromaṇi",
+                "Gaṅgeśa Upādhyāya (only one volume)"
+            ],
+            correct: 2,
+            explanation: "The text: 'Karl H. Potter and Sibajiban Bhattacharyya (eds.). Encyclopedia of Indian Philosophies, Volume VI: Indian Philosophical Analysis — Nyāya-Vaiśeṣika from Gaṅgeśa to Raghunātha Śiromaṇi.'"
+        },
+        {
+            text: "Which Japanese scholar, based at Nagoya University, published 'Invariable Concomitance in Navya‑Nyāya' (1990) and 'The Analytical Method of Navya‑Nyāya' (2007), using diagrams based on the dharma‑dharmin relation?",
+            options: [
+                "Yūko Miyasaka",
+                "Toshihiro Wada",
+                "Shōun Hino",
+                "Takashi Iwata"
+            ],
+            correct: 1,
+            explanation: "The text: 'Toshihiro Wada (Nagoya University) ... published Invariable Concomitance in Navya- Nyaya (1990) and The Analytical Method of Navya- Nyaya (2007), employing 86 diagrams based on the dharma- dharmin (property and property- possessor) relation as a visual aid to explain the structure of Navya- Nyaya analysis.'"
+        },
+        {
+            text: "Which comparative philosophical parallel does Toshihiro Wada explicitly draw between Gaṅgeśa's analysis and Bertrand Russell's famous work 'On Denoting' (1905)?",
+            options: [
+                "The concept of vyāpti and Russell's theory of types",
+                "The treatment of empty terms such as 'rabbit's horn' (śaśaviśāṇa) and Russell's 'present King of France'",
+                "The theory of negation and Russell's theory of descriptions",
+                "The analysis of perception and Russell's sense‑data theory"
+            ],
+            correct: 1,
+            explanation: "The text: 'Wada makes this connection explicit, showing that Gangesa and Raghunatha Siromani already explored the logical consequences of 'rabbit's horn' (śaśaviśāṇa) as an empty term within a realist ontology. This directly parallels Russell's 'present King of France' problem.'"
+        },
+        {
+            text: "According to the Parallel History's structural comparison table (Gaṅgeśa vs. Western parallels), which concept corresponds to Frege's concept‑script quantification and Russell's Principia?",
+            options: [
+                "Vyāpti (invariable concomitance)",
+                "Pratyakṣa (direct perception)",
+                "Avacchedakatā (delimitor / limitation)",
+                "Śabda (verbal testimony)"
+            ],
+            correct: 2,
+            explanation: "The table in the text explicitly maps 'Avacchedakatā (delimitor/limitation)' to 'Frege's concept- script quantification; Russell's Principia'."
+        },
+        {
+            text: "Which region is noted as having 'minimal' engagement with Gaṅgeśa's work, receiving Navya‑Nyāya only indirectly through Buddhist pramāṇa traditions via Xuanzang?",
+            options: [
+                "Japan",
+                "Tibet",
+                "China",
+                "Korea"
+            ],
+            correct: 2,
+            explanation: "The table: 'China – Minimal – Buddhist pramana only via Xuanzang; no Nyāya transmission.'"
+        },
+        {
+            text: "In Ben‑Ami Scharfstein's 'A Comparative History of World Philosophy', Gaṅgeśa is placed alongside Descartes and Leibniz under what thematic category?",
+            options: [
+                "Rationalist Metaphysics",
+                "Empiricist Epistemology",
+                "Logic‑Sensitized, Methodological Metaphysics",
+                "Existential Phenomenology"
+            ],
+            correct: 2,
+            explanation: "The text: 'Scharfstein's Comparative History ... categorizes Gangesa's philosophy as 'Logic- Sensitized, Methodological Metaphysics,' grouping him alongside Western giants like Descartes and Leibniz.'"
+        },
+        {
+            text: "The Nagoya University Graduate School of Letters received a five‑year national grant to establish an International Centre of Excellence in the humanities focusing on Indian philosophy and text science. In which year was this grant awarded?",
+            options: [
+                "1995",
+                "2002",
+                "2010",
+                "2015"
+            ],
+            correct: 1,
+            explanation: "The text: 'In 2002, the Graduate School of Letters at Nagoya University received a five- year national grant to establish an International Centre of Excellence in the humanities, focusing on Indian philosophy and text science.'"
+        },
+        {
+            text: "According to the Parallel History, which of the following is NOT one of the key structural parallels drawn between Gaṅgeśa / Tattvacintāmaṇi and Western philosophy?",
+            options: [
+                "Vyāpti (invariable concomitance) : Aristotle's universal affirmation",
+                "Avacchedakatā (delimitor) : Frege's concept‑script quantification",
+                "Pratyakṣa (direct perception) : Kant's transcendental idealism",
+                "Empty terms (śaśaviśāṇa) : Russell's 'present King of France'"
+            ],
+            correct: 2,
+            explanation: "The table maps pratyakṣa to 'Locke's simple ideas; Russell's knowledge by acquaintance', not to Kant's transcendental idealism. Kant is not mentioned in this comparative table."
+        }
+    ];
+
+    // State
+    let userAnswers = new Array(quizData.length).fill(null);
+    let quizSubmitted = false;
+
+    const questionsContainer = document.getElementById('questionsContainer');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const qCounter = document.getElementById('qCounter');
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetQuizBtn');
+
+    function calculateScore() {
+        let correctCount = 0;
+        for (let i = 0; i < quizData.length; i++) {
+            if (userAnswers[i] !== null && userAnswers[i] === quizData[i].correct) {
+                correctCount++;
+            }
+        }
+        return correctCount;
+    }
+
+    function updateUI() {
+        const total = quizData.length;
+        let answeredCount = userAnswers.filter(a => a !== null).length;
+        qCounter.innerText = `Answered: ${answeredCount} of ${total}`;
+        if (quizSubmitted) {
+            const currentScore = calculateScore();
+            scoreDisplay.innerText = `Score: ${currentScore}/${total}`;
+        } else {
+            scoreDisplay.innerText = `Score: --/${total}`;
+        }
+    }
+
+    function renderQuiz() {
+        questionsContainer.innerHTML = '';
+        for (let i = 0; i < quizData.length; i++) {
+            const q = quizData[i];
+            const selectedVal = userAnswers[i] !== null ? userAnswers[i] : -1;
+            const showFeedback = quizSubmitted;
+            const isCorrect = (quizSubmitted && userAnswers[i] !== null && userAnswers[i] === q.correct);
+
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            
+            const qTextDiv = document.createElement('div');
+            qTextDiv.className = 'question-text';
+            qTextDiv.innerText = `${i+1}. ${q.text}`;
+            card.appendChild(qTextDiv);
+            
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+            
+            q.options.forEach((opt, optIdx) => {
+                const optionWrap = document.createElement('div');
+                optionWrap.className = 'option';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${i}`;
+                radio.value = optIdx;
+                radio.disabled = quizSubmitted;
+                if (selectedVal === optIdx) radio.checked = true;
+                
+                radio.addEventListener('change', (function(qIdx, oIdx) {
+                    return function(e) {
+                        if (!quizSubmitted && e.target.checked) {
+                            userAnswers[qIdx] = oIdx;
+                            renderQuiz();
+                        }
+                    };
+                })(i, optIdx));
+                
+                const label = document.createElement('label');
+                label.innerText = opt;
+                optionWrap.appendChild(radio);
+                optionWrap.appendChild(label);
+                optionsDiv.appendChild(optionWrap);
+            });
+            card.appendChild(optionsDiv);
+            
+            if (showFeedback && userAnswers[i] !== null) {
+                const fbDiv = document.createElement('div');
+                fbDiv.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+                if (isCorrect) {
+                    fbDiv.innerHTML = `✓ Correct. ${q.explanation}`;
+                } else {
+                    const correctOptionText = q.options[q.correct];
+                    fbDiv.innerHTML = `✗ Incorrect. Correct answer: ${correctOptionText}. ${q.explanation}`;
+                }
+                card.appendChild(fbDiv);
+            } else if (showFeedback && userAnswers[i] === null) {
+                const fbDiv = document.createElement('div');
+                fbDiv.className = 'feedback incorrect';
+                fbDiv.innerHTML = `⚠ Not answered. The correct answer is: ${q.options[q.correct]}. ${q.explanation}`;
+                card.appendChild(fbDiv);
+            }
+            
+            questionsContainer.appendChild(card);
+        }
+        updateUI();
+    }
+
+    function submitQuiz() {
+        if (quizSubmitted) return;
+        quizSubmitted = true;
+        renderQuiz();
+        submitBtn.innerText = "✓ Results Submitted";
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = "0.7";
+        window.scrollTo({ top: document.body.scrollHeight * 0.3, behavior: 'smooth' });
+    }
+
+    function resetQuiz() {
+        quizSubmitted = false;
+        userAnswers = new Array(quizData.length).fill(null);
+        submitBtn.innerText = "✓ Submit & Check Answers";
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = "1";
+        renderQuiz();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    submitBtn.addEventListener('click', submitQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+    renderQuiz();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

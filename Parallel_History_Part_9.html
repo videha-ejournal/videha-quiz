@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Part 9 – Critical Appreciations of Major Maithili Writers</title> <style>
+* {
+box-sizing: border-box;
+}
+body {
+background: #ece4db;
+font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, sans-serif;
+margin: 0;
+padding: 2rem 1rem;
+color: #1e2a2e;
+}
+.quiz-container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffdf9;
+border-radius: 2rem;
+box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+overflow: hidden;
+padding: 2rem 1.8rem;
+}
+h1 {
+font-size: 1.8rem;
+margin-top: 0;
+margin-bottom: 0.2rem;
+color: #8b2c2c;
+border-left: 6px solid #b45f2b;
+padding-left: 1rem;
+}
+.sub {
+color: #6a4e38;
+font-style: italic;
+margin-bottom: 2rem;
+border-bottom: 2px solid #ecdfd1;
+padding-bottom: 0.7rem;
+}
+.question-card {
+background: #fefaf5;
+border-radius: 1.5rem;
+margin-bottom: 1.8rem;
+padding: 1.2rem 1.5rem;
+box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+border: 1px solid #ecdfd1;
+}
+.question-text {
+font-weight: 700;
+font-size: 1.2rem;
+margin-bottom: 1rem;
+color: #3b2a1c;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+margin-bottom: 0.5rem;
+}
+.option {
+display: flex;
+align-items: flex-start;
+gap: 0.8rem;
+background: #ffffff;
+padding: 0.6rem 1rem;
+border-radius: 2rem;
+border: 1px solid #e0cfbe;
+cursor: pointer;
+transition: all 0.1s;
+}
+.option:hover {
+background-color: #fdf1e6;
+border-color: #bb8a60;
+}
+input[type="radio"] {
+margin-top: 0.2rem;
+accent-color: #b45f2b;
+width: 1.1rem;
+height: 1.1rem;
+}
+.option label {
+flex: 1;
+cursor: pointer;
+font-weight: 500;
+color: #3d2c20;
+}
+.feedback {
+margin-top: 0.9rem;
+font-size: 0.9rem;
+padding: 0.6rem 1rem;
+border-radius: 2rem;
+background: #f8f1e9;
+display: none;
+}
+.feedback.correct {
+background: #e2f3e4;
+color: #1f6132;
+border-left: 4px solid #2e7d32;
+display: block;
+}
+.feedback.incorrect {
+background: #ffe7e3;
+color: #bc3f2c;
+border-left: 4px solid #c5382b;
+display: block;
+}
+.score-area {
+position: sticky;
+bottom: 1rem;
+background: #ffffffdd;
+backdrop-filter: blur(8px);
+border-radius: 3rem;
+padding: 0.8rem 1.2rem;
+text-align: center;
+margin-top: 2rem;
+font-weight: bold;
+font-size: 1.2rem;
+border: 1px solid #dacbbc;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+button {
+background: #b45f2b;
+border: none;
+color: white;
+font-weight: bold;
+font-size: 1rem;
+padding: 0.65rem 1.8rem;
+border-radius: 3rem;
+cursor: pointer;
+transition: 0.2s;
+margin: 0.4rem;
+}
+button:hover {
+background: #8d471e;
+transform: scale(0.97);
+}
+.reset-btn {
+background: #5f4d3b;
+}
+.reset-btn:hover {
+background: #44362a;
+}
+.footer-note {
+margin-top: 2rem;
+font-size: 0.75rem;
+text-align: center;
+color: #b49a7c;
+border-top: 1px solid #efe0d2;
+padding-top: 1.2rem;
+}
+@media (max-width: 650px) {
+.quiz-container {
+padding: 1.2rem;
+}
+.question-text {
+font-size: 1rem;
+}
+.option label {
+font-size: 0.85rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <h1>📖 Part IX – Critical Appreciations of Major Maithili Writers</h1> <div class="sub">✍️ Abha Jha · Abhilash Thakur · Ajit Jha · Amod Jha · Anand Jha · Arvind Thakur · Badri Nath Roy · Binay Bhushan · Kailash Mishra · Hriday Jha · Jagdish ‘Anil’ · Jagdish Mandal · Kalpana Jha (Patna/Bokaro/Delhi) · Kameshwar ‘Kamal’ · Kamini Kamayini · Kapileshwar Raut · Kedar Chaudhary · Kirtinath Jha · Kishan Karigar · Kumar Pawan · Lal Dev Kamat · Lallan & Kusum Thakur · Laxman ‘Sagar’ · Prafulla ‘Maun’ · Meena Jha · Munnaji · Munni Kamat · Nabo Mishra · Nand ‘Nand’ · Nachiketa</div> <p style="background:#f6efe8; padding:0.8rem 1.2rem; border-radius: 2rem; margin-bottom: 1.6rem;">
+📚 Based on “A Parallel History of Mithila & Maithili Literature” (Videha, ISSN 2229-547X) – Part IX presents the critical apparatus on dozens of modern Maithili poets, novelists, playwrights, folklorists, and translators who constitute the parallel tradition.
+</p> <div id="questions-area"></div> <div class="score-area" id="scoreDisplay">
+⚡ 0 / 0 questions answered
+</div> <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;"> <button id="submitBtn">✅ Submit & Check</button> <button id="resetBtn" class="reset-btn">⟳ Reset Quiz</button> </div> </div>
+<script>
+    // ----- PART 9: Critical appreciations of major Maithili writers (25 questions) -----
+    const questions = [
+        {
+            text: "Abha Jha’s critical essay ‘Daidigam — Madhyamargak Anweshanki Katha’ (Videha 369) analyses Ashok’s short story collection. What does ‘madhyamarg’ (middle path) refer to in her reading?",
+            options: [
+                "A Buddhist meditation technique",
+                "Ashok’s narrative strategy of avoiding both pure nostalgia and cynical realism – a balanced, truth‑grounded vision",
+                "A political ideology",
+                "A type of folk dance"
+            ],
+            correct: 1,
+            explanation: "Abha Jha identifies ‘madhyamarg’ as the governing aesthetic of Ashok’s fiction: neither idealising the village nor dismissing it, but finding constructive response between extremes."
+        },
+        {
+            text: "Abhilash Thakur is known for his bīhani kathā (seed stories) in Videha. Which of his pieces directly satirises the demonetisation policy of 2016?",
+            options: ["Sāṃṭha Gāṃṭha (Collusion)", "Noṭabandī", "Ṭakadyāna", "Baklel"],
+            correct: 1,
+            explanation: "‘Noṭabandī’ captures the human impact of demonetisation on rural Mithila, using the flash‑fiction form to mirror the abrupt policy disruption."
+        },
+        {
+            text: "Kundan Kumar Karn is a prolific ghazal poet who helped pioneer the ‘hajal’ (comic‑satirical ghazal) in Maithili. What does ‘hajal’ blend?",
+            options: ["Hazl (jest) + ghazal – using the ghazal form for political and social satire", "Haiku + ghazal", "Hasya + alankar", "Hindi + ghazal"],
+            correct: 0,
+            explanation: "The hajal merges the dignified ghazal structure with comic, satirical content, often targeting social hypocrisy and political corruption."
+        },
+        {
+            text: "Ajit Kumar Jha’s first and only book is titled ‘Jatbe Bujhlanhu Tatbe Likhlanhu’ (As much as I understood, so much I wrote). What does this title signify about his epistemology?",
+            options: [
+                "A boast of full knowledge",
+                "Epistemic humility – writing is limited by understanding, and both are provisional; a Navya‑Nyāya‑inspired modesty",
+                "A rejection of writing",
+                "A call for censorship"
+            ],
+            correct: 1,
+            explanation: "The title encodes an epistemological stance: writing is not a transcription of pre‑existing knowledge but the very act of understanding, with acknowledged limits."
+        },
+        {
+            text: "Amod Kumar Jha’s poetry collection ‘Bimbak Pathar’ (The Reflective Stone) uses the title as an aesthetic programme. What does ‘bimba’ signify in Indian poetics?",
+            options: [
+                "A musical note",
+                "Image / reflection – the stone that holds reflections of social reality, aligned with alamkāra tradition",
+                "A type of metre",
+                "A ritual offering"
+            ],
+            correct: 1,
+            explanation: "‘Bimba’ (image/reflection) is a key term in alaṃkāra; Jha’s collection aims to make contemporary Mithila’s social reality legible through concentrated images."
+        },
+        {
+            text: "Anand Kumar Jha, a village‑based playwright from Madhubani, won the Sahitya Akademi Youth Prize for which play?",
+            options: ["Betik Apaman", "Hathat Parivartan", "Takak Mol", "Mukti Yatra"],
+            correct: 1,
+            explanation: "‘Hathat Parivartan’ (Sudden Change) won the Sahitya Akademi First Youth Prize for Maithili drama; it contrasts military heroism with urban degeneration."
+        },
+        {
+            text: "Arvind Thakur, called ‘Swatantracheta’ (free‑spirited), wrote a long poem protesting social stagnation. Which of his works is a deergh kavita?",
+            options: ["Parti Tooti Rahal Achhi", "Jarataka Prativaad Me", "Sabad Mitaarath Ghaayyaa", "Bahurupiya Pradesh Me"],
+            correct: 1,
+            explanation: "‘Jarataka Prativaad Me’ (In Protest against Stagnation) is a sustained long poem criticising social, intellectual and spiritual inertia."
+        },
+        {
+            text: "Badri Nath Roy ‘Amatya’ wrote the satirical poem ‘Maithil Bhaiya Karoo Vichar’, which uses Navya‑Nyāya concepts. What is the poem’s primary target?",
+            options: [
+                "Foreign invasion",
+                "Corruption, social decay, the loss of Maithili values and the hypocrisy of leaders",
+                "Love and romance",
+                "Agricultural policy"
+            ],
+            correct: 1,
+            explanation: "The poem catalogs lost traditions, corrupted leaders, and moral inversion – using the ‘bhasha-sevak’ lens to critique contemporary Mithila."
+        },
+        {
+            text: "Binay Bhushan’s poetry collection ‘Ujāra Parbak Khoj’ (Search for the Festival of Light) uses the white pigeon as a symbol for:",
+            options: [
+                "Material wealth",
+                "Pre‑colonial, non‑violent agrarian harmony destroyed by modern violence and globalisation",
+                "Religious pilgrimage",
+                "Urban migration"
+            ],
+            correct: 1,
+            explanation: "The ‘white dove’ represents a peaceful, classless Videha society that has been lost; the quest is both personal and political."
+        },
+        {
+            text: "Dr. Kailash Kumar Mishra, a researcher at IGNCA, wrote the novel ‘Mansarbi’ (2025) about a Dalit woman Bulki. What does the title evoke?",
+            options: [
+                "A mantra",
+                "‘Manasa’ (heart‑lake) + feminine suffix – the inner depth of a subaltern woman’s consciousness",
+                "A type of forest",
+                "A goddess name"
+            ],
+            correct: 1,
+            explanation: "‘Mansarbi’ suggests a woman who is the lake of the heart; the novel centres her interiority against caste‑feudal violence."
+        },
+        {
+            text: "Hriday Narayan Jha, an AIR B‑High Grade artist, documented endangered Maithili folk songs. Which genre of ritual possession song, performed by a nine‑member bhagat community, did he record from Batahū Yādava?",
+            options: ["Parātī", "Jhumra", "Sohar", "Viṣahārā Gīt"],
+            correct: 1,
+            explanation: "The Jhumra is a possession ritual with cymbal and drum; Batahū Yādava’s version is transcribed in Jha’s landmark essay."
+        },
+        {
+            text: "Jagdish Chandra Thakur ‘Anil’ wrote children’s poetry and ghazals. His autobiography is titled ‘Aankhime Chitra Ho Maithili Ker’. What is the dhvani of the title?",
+            options: [
+                "A simple travelogue",
+                "Maithili as beloved, as Madhubani painting inscribed in the eye – the poet’s visionary commitment to the language",
+                "A prayer for eyesight",
+                "A description of a painting exhibition"
+            ],
+            correct: 1,
+            explanation: "‘Chitra’ means picture/image and also refers to Madhubani paintings; the title is a layered dhvani of devotion to Maithili."
+        },
+        {
+            text: "Jagdish Prasad Mandal’s novel ‘Pangu’ (The Lame) won the Sahitya Akademi Award in 2021. How is physical lameness used metaphorically?",
+            options: [
+                "As a medical condition only",
+                "As a symbol for the social immobility imposed by caste, class and systemic neglect – the ‘lame’ body mirrors a ‘lame’ society",
+                "As a celebration of disability",
+                "As a comedic device"
+            ],
+            correct: 1,
+            explanation: "The novel uses lameness to critique structural exclusion, connecting bodily disability with social paralysis in rural Mithila."
+        },
+        {
+            text: "Kalpana Jha of Patna is a prose critic who wrote a lead essay on Upendra Nath Jha ‘Vyas’. What is the title of that 14‑page biographical essay?",
+            options: [
+                "Maithili Sahityak Sevak Nahi, Maithili Bhashaak Sevak",
+                "Vidyavyasani-Karmayogi-Samajsevi: Upendra Nath Jha ‘Vyas’",
+                "Yugpurush: Rajanandan Lal Das",
+                "Sarvaguna Sampanna Sagarji"
+            ],
+            correct: 1,
+            explanation: "The essay combines three evaluative terms (devoted to learning, action‑yogi, society‑servant) to honour her grandfather, a novelist‑translator."
+        },
+        {
+            text: "Kameshwar Jha ‘Kamal’s song collection ‘Kamal‑Taal’ (2022) was published to mark the Azadi ka Amrit Mahotsav. What does the title’s dhvani convey?",
+            options: [
+                "Only a musical instrument",
+                "Lotus‑rhythm / lotus‑lake – poet’s name, rhythmic pulse of song, and sacred devotion",
+                "A political slogan",
+                "A type of folk dance"
+            ],
+            correct: 1,
+            explanation: "‘Kamal’ is the poet’s name; ‘taal’ means rhythm or lake – together they suggest the lotus of poetry and the lake of aesthetic bliss."
+        },
+        {
+            text: "Dr. Kamini Kamayini co‑edited Videha Sadeha 31. Her poetry often explores women’s interiority. Which rasa is dominant in her work according to the Parallel History?",
+            options: ["Vīra", "Karuṇā combined with vipralambha śṛṅgāra", "Hāsya", "Adbhuta"],
+            correct: 1,
+            explanation: "Her work uses karuṇā (pathos) and love‑in‑separation (vipralambha) to portray women’s longing and social constraint."
+        },
+        {
+            text: "Kapileshwar Raut’s seed‑story collection ‘Ulhan’ contains a story about a childless couple wanting to adopt. The father‑in‑law refuses because the child’s caste is unknown. Which story?",
+            options: ["Vamś (Lineage)", "Tharharī", "Bhog", "Kumāri Bhojan"],
+            correct: 0,
+            explanation: "‘Vamś’ critiques caste endogamy; the patriarch values lineage purity over love, even though their own sons have abandoned them."
+        },
+        {
+            text: "Kedar Nath Chaudhary, a novelist and co‑producer of the first Maithili feature film, wrote ‘Abara Nahitan’ (The Wanderer Not‑Wanderer). What is the central tension of the novel?",
+            options: [
+                "Love vs duty",
+                "The diaspora intellectual’s return to Mithila – the dialectic between rootlessness and belonging",
+                "Religious conversion",
+                "Flood disaster"
+            ],
+            correct: 1,
+            explanation: "The title enacts the tension between wandering (abara) and staying (nahitan), reflecting the returned migrant’s dislocation."
+        },
+        {
+            text: "Dr. Kirtinath Jha, a physician, translated Khalil Gibran’s ‘Broken Wings’ into Maithili as ‘Tutal Pankhi’. What is the significance of this translation?",
+            options: [
+                "It is the first Maithili translation of any work by Gibran, bridging Lebanese and Maithili literary traditions",
+                "It is a translation of the Quran",
+                "It is a political manifesto",
+                "It is a children’s book"
+            ],
+            correct: 0,
+            explanation: "‘Tutal Pankhi’ (2016) is the first Maithili Gibran translation; the preface notes that no previous Maithili version existed."
+        },
+        {
+            text: "Kishan Karigar’s debut poetry collection ‘Kichhu Fura Gel Hamra’ includes a satirical poem on the Maithili award system. What is its title?",
+            options: ["Bantwaraa", "Puraskaar Le Ke Nachoo", "Dahej", "Galchotaka Var"],
+            correct: 1,
+            explanation: "‘Puraskaar Le Ke Nachoo’ (Dance for the Award) mocks the coterie‑based selection boards and the sycophancy required for recognition."
+        },
+        {
+            text: "Kumar Pawan’s long story ‘Daayrik Khali Panna’ (The Empty Pages of the Diary) features a principal whose diary goes blank. In Navya‑Nyāya terms, what does this symbolise?",
+            options: [
+                "Writer’s block",
+                "Crisis of pramāṇa – social corruption has disabled the very possibility of valid testimony and self‑knowledge",
+                "Loss of memory",
+                "Political censorship"
+            ],
+            correct: 1,
+            explanation: "The principal can no longer produce valid cognition (pramā) because the conditions of honest observation have been destroyed by systemic corruption."
+        },
+        {
+            text: "Lal Dev Kamat’s ‘Vibhuti’ combines biography, natural farming guidance, and cooperative enterprise. What is its subtitle?",
+            options: ["Divya Drishti", "Preraṇādāyak Maithilī Bhāṣā‑Sāhitya Pustikā", "Gahiki Najari", "Sheṣ Jīvan"],
+            correct: 1,
+            explanation: "‘Vibhuti’ is subtitled ‘An Inspirational Maithilī Language‑Literature Primer’, integrating literary art with practical ecological knowledge."
+        },
+        {
+            text: "Lallan Prasad Thakur’s play ‘Baklel’ won the best play award at the Fifth International Maithili Theatre Festival. What does ‘Baklel’ mean?",
+            options: ["The hero", "Confused / divided – a man between two worlds (village and city)", "The king", "The servant"],
+            correct: 1,
+            explanation: "‘Baklel’ denotes a divided, confused person; the play explores the existential dislocation of an urban‑educated Maithili migrant."
+        },
+        {
+            text: "Kusum Thakur’s memoir ‘Pratyavartan’ (Return) is a landmark of Maithili women’s writing. What does the title signify?",
+            options: [
+                "A religious pilgrimage",
+                "Return to creative voice after grief and the restoration of her husband’s literary legacy",
+                "Return to the village",
+                "A political comeback"
+            ],
+            correct: 1,
+            explanation: "The memoir traces her journey from child marriage to collaboration with Lallan Thakur, then her ‘return’ to writing after his death."
+        },
+        {
+            text: "Laxman Jha ‘Sagar’s interview collection ‘Jena O Kahlakan’ (As They Said) preserves oral testimony of Maithili movement leaders. Who was one of the seven interviewees?",
+            options: ["Babu Saheb Choudhary", "Gajendra Thakur", "Nachiketa", "Munnaji"],
+            correct: 0,
+            explanation: "The interviews include Babu Saheb Choudhary (Kolkata Maithili pioneer), Dr. Jayakant Mishra, Pitambar Pathak, Rajnandan Lal Das, and others."
+        },
+        {
+            text: "Dr. Prafulla Kumar Singh ‘Maun’ wrote the first history of Maithili literature from Nepal. What is the title of that 1972 work?",
+            options: ["Tharu Lokgeet", "Nepalak Maithili Sahityak Itihas", "Maithili Lokgatha Anusheelan", "Brahmagrama"],
+            correct: 1,
+            explanation: "‘Nepalak Maithili Sahityak Itihas’ (revised 2011) filled a complete void, documenting Maithili literary production on the Nepal side of the border."
+        },
+        {
+            text: "Meena Jha’s short story, published in Videha, is noted as the first Maithili fiction on breast cancer. How much earlier did it appear compared to Hindi stories on the same subject?",
+            options: ["Same year", "One to two years earlier", "Five years later", "Ten years earlier"],
+            correct: 1,
+            explanation: "The Videha archive records that this story preceded comparable Hindi fiction by 1–2 years, marking a landmark in Maithili women’s medical writing."
+        }
+    ];
+
+    let selectedAnswers = new Array(questions.length).fill(null);
+    let quizSubmitted = false;
+
+    function renderQuestions() {
+        const container = document.getElementById('questions-area');
+        container.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.setAttribute('data-qid', idx);
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qText);
+            
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const optWrap = document.createElement('div');
+                optWrap.className = 'option';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${idx}`;
+                radio.value = optIdx;
+                radio.id = `q_${idx}_opt_${optIdx}`;
+                if (selectedAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    if (!quizSubmitted) {
+                        selectedAnswers[idx] = parseInt(e.target.value);
+                        updateScoreDisplay();
+                        const fbDiv = card.querySelector('.feedback');
+                        if (fbDiv) fbDiv.style.display = 'none';
+                    }
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q_${idx}_opt_${optIdx}`;
+                label.innerText = opt;
+                optWrap.appendChild(radio);
+                optWrap.appendChild(label);
+                optionsDiv.appendChild(optWrap);
+            });
+            card.appendChild(optionsDiv);
+            const fbDiv = document.createElement('div');
+            fbDiv.className = 'feedback';
+            fbDiv.id = `fb_${idx}`;
+            card.appendChild(fbDiv);
+            container.appendChild(card);
+        });
+    }
+
+    function updateScoreDisplay() {
+        const answered = selectedAnswers.filter(a => a !== null).length;
+        document.getElementById('scoreDisplay').innerHTML = `📌 ${answered} / ${questions.length} questions answered ${quizSubmitted ? '· Final scores below' : '· Submit to see correct answers'}`;
+    }
+
+    function evaluateQuiz() {
+        quizSubmitted = true;
+        let correctCount = 0;
+        for (let i = 0; i < questions.length; i++) {
+            const userChoice = selectedAnswers[i];
+            const isCorrect = (userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+            const fb = document.getElementById(`fb_${i}`);
+            if (fb) {
+                if (userChoice === null) {
+                    fb.innerHTML = `⚠️ Unanswered. Correct: ${questions[i].options[questions[i].correct]}. ${questions[i].explanation}`;
+                    fb.className = 'feedback incorrect';
+                } else if (isCorrect) {
+                    fb.innerHTML = `✅ Correct. ${questions[i].explanation}`;
+                    fb.className = 'feedback correct';
+                } else {
+                    fb.innerHTML = `❌ Incorrect. You chose: ${questions[i].options[userChoice]}. Correct: ${questions[i].options[questions[i].correct]}. ${questions[i].explanation}`;
+                    fb.className = 'feedback incorrect';
+                }
+                fb.style.display = 'block';
+            }
+        }
+        const scoreMsg = `🎯 You scored ${correctCount} out of ${questions.length}`;
+        document.getElementById('scoreDisplay').innerHTML = scoreMsg + (correctCount === questions.length ? ' — 🌟 Master of the parallel canon!' : ' — Review the explanations to deepen your knowledge of Maithili’s contemporary writers.');
+    }
+
+    function resetQuiz() {
+        selectedAnswers.fill(null);
+        quizSubmitted = false;
+        for (let i = 0; i < questions.length; i++) {
+            const radios = document.querySelectorAll(`input[name="q_${i}"]`);
+            radios.forEach(r => r.checked = false);
+            const fb = document.getElementById(`fb_${i}`);
+            if (fb) {
+                fb.style.display = 'none';
+                fb.innerHTML = '';
+            }
+        }
+        updateScoreDisplay();
+    }
+
+    document.getElementById('submitBtn').addEventListener('click', evaluateQuiz);
+    document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+
+    renderQuestions();
+    updateScoreDisplay();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

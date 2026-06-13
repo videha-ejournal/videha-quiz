@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Chapter 8 – Special Studies | Women in Panji & Political Economy of Status</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #e6dfce;
+background: linear-gradient(145deg, #f0e7d8 0%, #ded0b8 100%);
+font-family: 'Segoe UI', 'Roboto', 'Noto Serif', Georgia, serif;
+padding: 2rem 1rem;
+}
+.quiz-wrapper {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffdf6;
+border-radius: 2.2rem;
+overflow: hidden;
+box-shadow: 0 28px 48px -12px rgba(0,0,0,0.35);
+border: 1px solid #e2cfaa;
+}
+.quiz-header {
+background: #2e3f33;
+background: linear-gradient(115deg, #2b5a47 0%, #1d4033 100%);
+padding: 1.8rem 2rem;
+color: #fef2e2;
+border-bottom: 5px solid #e0b67a;
+}
+.quiz-header h1 {
+font-size: 1.9rem;
+font-weight: 700;
+letter-spacing: -0.3px;
+display: flex;
+flex-wrap: wrap;
+align-items: baseline;
+gap: 0.7rem;
+}
+.quiz-header h1 span {
+background: #1f4237;
+font-size: 0.9rem;
+font-weight: 500;
+padding: 0.2rem 1rem;
+border-radius: 60px;
+}
+.quiz-header p {
+margin-top: 0.6rem;
+font-style: italic;
+font-size: 0.95rem;
+opacity: 0.9;
+}
+.quiz-body {
+padding: 1.5rem 2rem 0.8rem;
+}
+.question-card {
+background: white;
+border-radius: 1.4rem;
+margin-bottom: 2rem;
+box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
+border: 1px solid #e8dbc0;
+transition: 0.1s;
+}
+.q-text {
+background: #fefaf0;
+padding: 1.2rem 1.8rem 0.5rem 1.8rem;
+font-size: 1.2rem;
+font-weight: 700;
+color: #2e3a2c;
+border-radius: 1.4rem 1.4rem 0 0;
+}
+.options-area {
+padding: 0.3rem 1.8rem 1.2rem 1.8rem;
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+}
+.opt-row {
+display: flex;
+align-items: center;
+gap: 0.8rem;
+background: #fefcf5;
+padding: 0.6rem 1rem;
+border-radius: 80px;
+border: 1px solid #e9dec6;
+cursor: pointer;
+transition: 0.1s;
+}
+.opt-row:hover {
+background: #f6eee0;
+border-color: #c7ac7a;
+}
+input[type="radio"] {
+accent-color: #2d6b53;
+width: 1.1rem;
+height: 1.1rem;
+flex-shrink: 0;
+}
+.opt-row label {
+font-size: 1rem;
+font-weight: 450;
+color: #2e3a2a;
+width: 100%;
+cursor: pointer;
+line-height: 1.35;
+}
+.feedback {
+margin: 0rem 1.8rem 1.3rem 1.8rem;
+}
+.correct-feedback {
+background: #e1efe7;
+border-left: 5px solid #2c7355;
+padding: 0.6rem 1rem;
+border-radius: 14px;
+color: #1a553c;
+font-size: 0.9rem;
+}
+.wrong-feedback {
+background: #ffe3db;
+border-left: 5px solid #c2573a;
+padding: 0.6rem 1rem;
+border-radius: 14px;
+color: #9f3c1f;
+font-size: 0.9rem;
+}
+.quiz-footer {
+background: #fbf8ef;
+padding: 1.2rem 2rem 1.8rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 1rem;
+border-top: 1px solid #e7d9bb;
+}
+button {
+background: #2f6b54;
+border: none;
+font-size: 1rem;
+font-weight: 600;
+padding: 0.7rem 1.8rem;
+border-radius: 60px;
+color: white;
+cursor: pointer;
+transition: 0.2s;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+button:hover {
+background: #1f4f3e;
+transform: translateY(-2px);
+}
+.reset-btn {
+background: #6b654b;
+}
+.reset-btn:hover {
+background: #4e4935;
+}
+.score-badge {
+background: #2a473b;
+padding: 0.5rem 1.4rem;
+border-radius: 60px;
+color: #ffe2bd;
+font-weight: bold;
+font-size: 1rem;
+}
+@media (max-width: 680px) {
+.quiz-body {
+padding: 1rem;
+}
+.q-text {
+font-size: 1rem;
+padding: 1rem 1rem 0.2rem 1rem;
+}
+.options-area {
+padding: 0 1rem 1rem 1rem;
+}
+.opt-row label {
+font-size: 0.88rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-wrapper"> <div class="quiz-header"> <h1>⚡ Special Studies: Panji Q&A, Women & The Black Book <span>Chapter 8</span></h1> <p>Women in the Panji, Dooshan Panji records, Gangesha Upadhyaya controversy, hypergamy, cash-based status upgrades, and the political economy of status</p> </div> <div class="quiz-body" id="quizContainer"></div> <div class="quiz-footer"> <button id="submitBtn">📋 Submit & Assess</button> <button id="resetBtn" class="reset-btn">⟳ Reset Quiz</button> <div class="score-badge" id="scoreText">Score: 0/0</div> </div>
+</div>
+<script>
+    // ----------------------------------------------------------------
+    // CHAPTER 8 – SPECIAL STUDIES: Q&A; WOMEN IN THE PANJI; DOOSHAN PANJI AND POLITICAL ECONOMY OF STATUS
+    // Based on the document's "Chapter 8" section (pages 163–228)
+    // ----------------------------------------------------------------
+    const questions = [
+        {
+            text: "What was the significance of the 'Utedh' rules in determining marriage eligibility, as explained in Chapter 8?",
+            options: [
+                "It was a simple declaration of gotra only",
+                "It required mapping 32 Mools (ancestral roots) across paternal (6 gen.) and maternal (5 gen.) sides to compute the 16 Chhathi for prohibition",
+                "It was a ritual chant performed during weddings",
+                "It only listed the groom's property"
+            ],
+            correct: 1,
+            explanation: "The Utedh chart maps 32 ancestral Mools; six paternal and five maternal generations, then identifies 16 Chhathi. If any Chhathi overlaps in groom’s paternal lineage, marriage is forbidden."
+        },
+        {
+            text: "How does the Panji system define the prohibition of 'Same Gotra' marriage?",
+            options: [
+                "Allowed if the couple belongs to the same village",
+                "Members of the same Gotra are considered blood-related (Rakta Sambandha) and marriage is strictly forbidden",
+                "Only Pravara matters; Gotra is irrelevant",
+                "Same Gotra marriage is permitted after 3 generations"
+            ],
+            correct: 1,
+            explanation: "Gotra indicates patrilineal descent from a common sage. Marriage within same gotra is prohibited to avoid consanguinity."
+        },
+        {
+            text: "What does the 'Dooshan Panji' (Black Book) primarily record, according to Chapter 8’s special studies?",
+            options: [
+                "Only high-caste Shrotriya marriages",
+                "Lineage flaws, inter-caste marriages, unions with Muslims, children of unknown maternal origin, and even the unconventional birth of Gangesha Upadhyaya",
+                "List of all Panjikars",
+                "Property deeds of Darbhanga Raj"
+            ],
+            correct: 1,
+            explanation: "The Dooshan Panji documents 'impure' records: inter-caste marriages, Devadasi mothers, unknown lineage, and controversial births — including Gangesha's posthumous birth and Charmakarini wife."
+        },
+        {
+            text: "Which prominent philosopher’s entry in the Dooshan Panji records that he was born five years after his father’s death and married a Charmakarini (leather-worker caste woman)?",
+            options: [
+                "Vidyapati Thakur",
+                "Aryabhata",
+                "Gangesha Upadhyaya (founder of Navya-Nyaya)",
+                "Pakshadhara Mishra"
+            ],
+            correct: 2,
+            explanation: "The Dooshan Panji entry: 'Pitri Parokshe Panch Varsh Vyatite Gangeshotpattiḥ' and his wife Vallabha/Medha was a Charmakarini — later suppressed by 20th-century scholars."
+        },
+        {
+            text: "What was the ‘Shrotriya’ hierarchy’s impact on marriage practices, as described in Chapter 8’s analysis of political economy?",
+            options: [
+                "It ended polygamy completely",
+                "It caused hypergamy, where lower-tier families married daughters to higher-tier men, leading to child marriage, polygamy, and a rise in widows",
+                "It made marriages simpler",
+                "It abolished the Panjikar system"
+            ],
+            correct: 1,
+            explanation: "Rigid Shrotriya-Yogya-Panjibaddha hierarchy led to hypergamy (Anuloma), polygamy (Bikaua class), child marriage, and a dramatic increase in child widows."
+        },
+        {
+            text: "Explain the ‘Kathmama’ (or step-mother's brother) rule in the Panji’s matrimonial prohibitions.",
+            options: [
+                "A man may marry his step-mother's daughter",
+                "A bride must not be the offspring of the groom’s stepmother’s brother",
+                "Allowed if the step-mother approves",
+                "Only applies to Kshatriyas"
+            ],
+            correct: 1,
+            explanation: "The Kathmama prohibition: bride cannot be a descendant of the groom's stepmother's brother, one of the five primary marriage barriers."
+        },
+        {
+            text: "What does the term ‘Bikaua’ refer to in the context of Maithil social history (Chapter 8)?",
+            options: [
+                "A type of genealogical manuscript",
+                "High-ranking men who married multiple lower-status women for money, often abandoning the wives in their natal homes",
+                "A purification ritual after 6 generations",
+                "The official title of a Panjikar"
+            ],
+            correct: 1,
+            explanation: "Bikaua class emerged from hypergamy: high-status (usually Shrotriya) men married dozens of women from lower tiers, extracted cash payments, rarely cohabited, creating widespread widowhood."
+        },
+        {
+            text: "What evidence does Chapter 8 provide about cash-based status upgradation in the Panji hierarchy?",
+            options: [
+                "It mentions Lakshmipati Mishra gave a donation (1.5 lakh Takas) to Maharaja Rameshwar Singh to acquire official Panji status (Kodariye Mool, Shandilya Gotra)",
+                "All status changes were free",
+                "No monetary transactions ever occurred",
+                "Only Nepal had paid upgrades"
+            ],
+            correct: 0,
+            explanation: "Chapter 8 explicitly notes that Lakshmipati Mishra (Navalakhadhipati) paid 1.5 lakh Takas to Maharaja Rameshwar Singh for formal Panji classification, proving monetization of social status."
+        },
+        {
+            text: "What unique archival exception exists regarding the recording of women's names in the Panji?",
+            options: [
+                "Only the Rasarh-Araria Panji contains women’s personal names due to colonial property rights (land settlement in women’s names)",
+                "Women’s names are never recorded anywhere",
+                "Only Nepal Panjis record women",
+                "All Panjis record women's names fully"
+            ],
+            correct: 0,
+            explanation: "The Rasarh-Araria sub-register is exceptional because women’s names appear (strī-gaṇaka nāma), driven by colonial land registries requiring female names for legal ownership."
+        },
+        {
+            text: "Who was Thakurain Lakhima, and what role did she play according to Chapter 8’s historical account?",
+            options: [
+                "A queen who banned the Panji",
+                "A female scholar/jurist who corrected the legal interpretation in the Harinath Upadhyaya fire ordeal case, and contributed to Panji’s structural framework",
+                "The first female Panjikar",
+                "A poet in Vidyapati's court"
+            ],
+            correct: 1,
+            explanation: "Lakhima Thakurain (Lakkhima Devi), daughter of Mimamsaka Ravi Misra, was a brilliant Dharmaśāstra scholar who identified the sapinda violation and helped reform the genealogical system."
+        }
+    ];
+
+    // state
+    let userAnswers = new Array(questions.length).fill(null);
+    let quizSubmitted = false;
+
+    const container = document.getElementById('quizContainer');
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const scoreSpan = document.getElementById('scoreText');
+
+    function computeCorrectCount() {
+        let correct = 0;
+        for (let i = 0; i < questions.length; i++) {
+            if (userAnswers[i] !== null && userAnswers[i] === questions[i].correct) correct++;
+        }
+        return correct;
+    }
+
+    function updateScoreDisplay() {
+        const total = questions.length;
+        const correct = computeCorrectCount();
+        scoreSpan.innerText = `Score: ${correct}/${total}`;
+    }
+
+    function renderQuiz() {
+        container.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.dataset.idx = idx;
+
+            const qDiv = document.createElement('div');
+            qDiv.className = 'q-text';
+            qDiv.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qDiv);
+
+            const optsDiv = document.createElement('div');
+            optsDiv.className = 'options-area';
+
+            q.options.forEach((opt, optIdx) => {
+                const optRow = document.createElement('div');
+                optRow.className = 'opt-row';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${idx}`;
+                radio.value = optIdx;
+                radio.id = `q_${idx}_opt_${optIdx}`;
+                if (!quizSubmitted && userAnswers[idx] === optIdx) radio.checked = true;
+                if (quizSubmitted) radio.disabled = true;
+
+                const label = document.createElement('label');
+                label.htmlFor = `q_${idx}_opt_${optIdx}`;
+                label.innerText = opt;
+
+                radio.addEventListener('change', (e) => {
+                    if (!quizSubmitted) {
+                        userAnswers[idx] = parseInt(e.target.value);
+                    }
+                });
+
+                optRow.appendChild(radio);
+                optRow.appendChild(label);
+                optsDiv.appendChild(optRow);
+            });
+            card.appendChild(optsDiv);
+
+            if (quizSubmitted) {
+                const feedbackDiv = document.createElement('div');
+                feedbackDiv.className = 'feedback';
+                const isCorrect = (userAnswers[idx] === q.correct);
+                if (isCorrect) {
+                    feedbackDiv.innerHTML = `<div class="correct-feedback">✓ Correct. ${q.explanation}</div>`;
+                } else {
+                    const correctLetter = String.fromCharCode(65 + q.correct);
+                    feedbackDiv.innerHTML = `<div class="wrong-feedback">✗ Incorrect. Right answer: ${correctLetter}) ${q.options[q.correct]}.<br>${q.explanation}</div>`;
+                }
+                card.appendChild(feedbackDiv);
+            }
+            container.appendChild(card);
+        });
+    }
+
+    function submitQuiz() {
+        if (quizSubmitted) return;
+        // check if all answered
+        let allAnswered = true;
+        for (let i = 0; i < questions.length; i++) {
+            if (userAnswers[i] === null) {
+                allAnswered = false;
+                break;
+            }
+        }
+        if (!allAnswered) {
+            alert("⚠️ Please answer all 10 questions before submitting.");
+            return;
+        }
+        quizSubmitted = true;
+        updateScoreDisplay();
+        renderQuiz();
+    }
+
+    function resetQuiz() {
+        quizSubmitted = false;
+        userAnswers.fill(null);
+        updateScoreDisplay();
+        renderQuiz();
+    }
+
+    // initial
+    renderQuiz();
+    updateScoreDisplay();
+
+    submitBtn.addEventListener('click', submitQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

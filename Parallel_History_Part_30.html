@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <title>Quiz: Chapter 30 – Parallel History of Mithila & Maithili Literature</title> <style>
+body { font-family: sans-serif; max-width: 900px; margin: 2rem auto; padding: 1rem; background: #f9f7f3; }
+.question { background: white; border-radius: 1rem; padding: 1rem; margin-bottom: 1.5rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.options { margin: 0.5rem 0 0 1rem; }
+.explanation { background: #e8f0e5; padding: 0.5rem; margin-top: 0.5rem; border-left: 4px solid #2c6e2c; display: none; }
+button { background: #2c5e2c; color: white; border: none; padding: 0.5rem 1rem; border-radius: 2rem; cursor: pointer; margin: 0.2rem; }
+.score { font-weight: bold; }
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <h1>📖 Chapter 30 – Parallel History of Mithila & Maithili Literature</h1>
+<p>Multiple‑choice quiz based on the Videha research compendium (sections 85–100 and critical appreciations).</p>
+<div id="quiz"></div>
+<button id="submit">Submit Answers</button>
+<button id="reset">Reset Quiz</button>
+<div id="score" class="score"></div>
+<script>
+const questions = [
+    { text: "Which playwright is known as the pioneer of the ‘parallel Maithili stage’, confronting caste violence in plays like ‘Oonch-Neech’?",
+      options: ["Mahendra Malangia", "Bechan Thakur", "Lallan Prasad Thakur", "Nachiketa"], correct: 1, explanation: "Bechan Thakur created a parallel theatre movement against casteist drama." },
+    { text: "Which novel by Satyanand Pathak is the most significant fictional work on the Maithili diaspora in Northeast India?",
+      options: ["Gaam Gel Chhalahun", "Pangu", "Mansarbi", "Ulhan"], correct: 0, explanation: "Gaam Gel Chhalahun (I Had Gone to the Village) explores migration and identity." },
+    { text: "The Anchinhar Aakhar movement introduced which two new ghazal sub‑genres?",
+      options: ["Bāl Ghazal and Bhakti Ghazal", "Haiku Ghazal and Sonnet", "Political and Satirical", "Narrative and Elegiac"], correct: 0, explanation: "Children's ghazal (Bāl) and devotional ghazal (Bhakti) were Videha innovations." },
+    { text: "Who wrote ‘Kichhu Fura Gel Hamra’ and ‘Mechanism of Maithili Literature’, critiquing upper‑caste domination of Maithili institutions?",
+      options: ["Kishan Karigar", "Prabhat Rai Bhatt", "Ashok Avichal", "Nand Vilas Rai"], correct: 0, explanation: "Kishan Karigar (Dr. Krishna Kumar Ray) is a Delhi‑based poet and journalist." },
+    { text: "What does the Videha Parallel History Framework reveal about Sahitya Akademi awards?",
+      options: ["Full endorsement", "Systematic caste bias (42 Brahmins out of 51 pre‑2021) and parallel Samman", "Focus only on Nepal", "Opposition to all awards"], correct: 1, explanation: "RTI data exposed capture by upper‑caste networks." },
+    { text: "Who wrote the novel ‘Mansarbi’ (2025) about caste violence and love in a Madhubani village?",
+      options: ["Kailash Kumar Mishra", "Dinesh Kumar Mishra", "Nabo Narayan Mishra", "Kedar Nath Chaudhary"], correct: 0, explanation: "Dr. Kailash Kumar Mishra is an anthropologist and novelist." },
+    { text: "The posthumous collection ‘Kalanidhi’ (2010) by Kalikant Jha ‘Buch’ is significant because:",
+      options: ["First Maithili epic", "98 poems of social protest, nature, and satire – a ‘cursed poet’ ignored by establishment", "Won Sahitya Akademi", "Translation of Quran"], correct: 1, explanation: "Buch was a government employee; his poetry was rediscovered by Videha." },
+    { text: "Who wrote the memoir ‘Pratyavartan’ (Return), describing child marriage and creative partnership with Lallan Prasad Thakur?",
+      options: ["Shail Jha ‘Sagar’", "Kusum Thakur", "Meena Jha", "Kalpana Jha"], correct: 1, explanation: "Kusum Thakur’s memoir is a landmark feminist text in Maithili." },
+    { text: "Which Navya‑Nyāya concept is used by Videha to demand precision in literary criticism?",
+      options: ["Sphoṭa", "Avacchedakatā (limitor)", "Rasa-abhāsa", "Vyanjanā"], correct: 1, explanation: "Avacchedaka specifies exact scope, preventing vague judgments." },
+    { text: "Kameshwar Jha ‘Kamal’ published his song collection ‘Kamal-Taal’ under which diaspora institution?",
+      options: ["Mithila Sanskritik Parishad, Kolkata", "Sahitya Akademi", "Mithila Student Union", "Videha alone"], correct: 0, explanation: "Published by Kolkata‑based Mithila Sanskritik Parishad for Azadi ka Amrit Mahotsav." },
+    { text: "Hriday Narayan Jha’s ‘Luptraprāya Maithilī Lokagīta’ documents endangered folk genres. What is the main threat?",
+      options: ["Loss of notation", "Disappearance of performance context and transmission to youth", "Government ban", "Lack of script"], correct: 1, explanation: "Younger generations no longer learn ritual songs." },
+    { text: "Who wrote the village biography ‘Koilakh’ and the reader‑response collection ‘Lekh-Rekh’?",
+      options: ["Hitnath Jha", "Lal Dev Kamat", "Binay Bhushan", "Kumar Pawan"], correct: 0, explanation: "Hitnath Jha, a retired bank manager, also translated Shambhu Badal." },
+    { text: "The Dooshan Panji revealed that Gaṅgeśa Upādhyāya married a woman from which community?",
+      options: ["Brahmin", "Charmakāriṇī (leather‑worker)", "Kayastha", "Yadav"], correct: 1, explanation: "Suppressed fact – wife was a Charmkarini." },
+    { text: "Lal Dev Kamat’s ‘Vibhṛiti’ is a hybrid work that includes essays on natural farming and tributes to freedom fighters. True or false?",
+      options: ["True", "False"], correct: 0, explanation: "Vibhṛiti combines literature, ecology, and biography." },
+    { text: "Who is the farmer‑writer from Berma village, Madhubani, author of the short story collection ‘Ulhan’?",
+      options: ["Kapileshwar Raut", "Durganand Mandal", "Kumar Pawan", "Subhash Chandra Yadav"], correct: 0, explanation: "Kapileshwar Raut’s ‘Ulhan’ critiques caste and debt." },
+    { text: "The novel ‘Mansarbi’ by Kailash Kumar Mishra centres on Bulki, a woman from which background?",
+      options: ["Brahmin", "Dalit/lower‑caste", "Kayastha", "Rajput"], correct: 1, explanation: "Bulki is a Dalit woman facing caste violence." },
+    { text: "What is the purpose of Videha’s ‘Nit Naval’ monograph series?",
+      options: ["Publish Sanskrit works", "Recover ignored subaltern writers", "Celebrate Akademi winners", "Translate English bestsellers"], correct: 1, explanation: "Monographs on Dinesh Mishra, Subhash Yadav, etc." },
+    { text: "The Sahitya Akademi’s recognised Maithili organisations (Chetna Samiti etc.) are criticised as:",
+      options: ["Casteist pocket institutions", "Efficient publishers", "Folk song promoters", "Digital leaders"], correct: 0, explanation: "They exclude non‑Brahmin and progressive writers." },
+    { text: "Jagdish Chandra Thakur ‘Anil’ wrote an autobiography serialised in Videha. Its title is:",
+      options: ["Aankhime Chitra Ho Maithili Ker", "Jeevan Yatra", "Kist Kist Jeevan", "Pratyavartan"], correct: 0, explanation: "The title means ‘May Maithili’s picture be in my eyes’." },
+    { text: "Dinesh Kumar Mishra’s ‘Bhutahi Nadi Aur Takniki Jhad-Phook’ critiques what as ‘engineering witchcraft’?",
+      options: ["Folk healing", "Failed embankments ignoring silt", "Sanskrit poetics", "Digital archiving"], correct: 1, explanation: "Engineers focus only on water, not silt, causing floods." },
+    { text: "The ‘Anchinhar Formula’ for literary evaluation includes which three axes?",
+      options: ["Shakti‑kadrat, Vishay‑kadrat, Tatya‑kadrat", "Rasa, Dhvani, Alaṅkāra", "Metre, rhyme, refrain", "Caste, class, gender"], correct: 0, explanation: "Power proximity, subject expansion, factual evidence." },
+    { text: "Who is credited as the ‘creator of the word bīhani kathā’ and to whom Munnaji dedicated ‘Mokam Dis’?",
+      options: ["Shri Raj", "Gajendra Thakur", "Ramlochan Thakur", "Ashish Anchinhar"], correct: 0, explanation: "Shri Raj proposed the term at the 1995 Sahayatri Manch." }
+];
+
+let userAnswers = new Array(questions.length).fill(null);
+let submitted = false;
+
+function render() {
+    const container = document.getElementById('quiz');
+    if (!container) return;
+    let html = '';
+    questions.forEach((q, i) => {
+        const selected = userAnswers[i] !== null ? userAnswers[i] : -1;
+        html += `<div class="question"><strong>${i+1}. ${q.text}</strong><div class="options">`;
+        q.options.forEach((opt, j) => {
+            const checked = selected === j ? 'checked' : '';
+            html += `<label><input type="radio" name="q${i}" value="${j}" ${checked} ${submitted ? 'disabled' : ''}> ${opt}</label><br>`;
+        });
+        html += `<div class="explanation" id="expl${i}"></div></div></div>`;
+    });
+    container.innerHTML = html;
+}
+
+function calculateScore() {
+    let correct = 0;
+    for (let i = 0; i < questions.length; i++) {
+        if (userAnswers[i] !== null && userAnswers[i] === questions[i].correct) correct++;
+    }
+    return correct;
+}
+
+function submitQuiz() {
+    submitted = true;
+    for (let i = 0; i < questions.length; i++) {
+        const radios = document.getElementsByName(`q${i}`);
+        for (let j = 0; j < radios.length; j++) {
+            if (radios[j].checked) userAnswers[i] = parseInt(radios[j].value);
+        }
+        const explDiv = document.getElementById(`expl${i}`);
+        const isCorrect = (userAnswers[i] === questions[i].correct);
+        const userAnsText = (userAnswers[i] !== null) ? questions[i].options[userAnswers[i]] : "Not answered";
+        const correctText = questions[i].options[questions[i].correct];
+        explDiv.innerHTML = `<strong>Explanation:</strong> ${questions[i].explanation}<br>Your answer: ${userAnsText}<br>Correct: ${correctText}`;
+        explDiv.style.display = 'block';
+        // disable radios
+        const allRadios = document.getElementsByName(`q${i}`);
+        allRadios.forEach(r => r.disabled = true);
+    }
+    const score = calculateScore();
+    document.getElementById('score').innerHTML = `Score: ${score} / ${questions.length}`;
+}
+
+function resetQuiz() {
+    submitted = false;
+    userAnswers = new Array(questions.length).fill(null);
+    render();
+    for (let i = 0; i < questions.length; i++) {
+        const explDiv = document.getElementById(`expl${i}`);
+        if (explDiv) explDiv.style.display = 'none';
+    }
+    document.getElementById('score').innerHTML = '';
+}
+
+document.getElementById('submit').addEventListener('click', submitQuiz);
+document.getElementById('reset').addEventListener('click', resetQuiz);
+render();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

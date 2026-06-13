@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Meena Jha – Chapter 45 | Parallel History of Mithila & Maithili Literature</title> <style>
+* {
+box-sizing: border-box;
+}
+body {
+background: #f3efe5;
+font-family: 'Segoe UI', 'Noto Serif', Georgia, serif;
+margin: 0;
+padding: 24px 16px;
+color: #2c2a27;
+}
+.quiz-wrapper {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffef9;
+border-radius: 32px;
+box-shadow: 0 20px 35px rgba(0, 0, 0, 0.08);
+overflow: hidden;
+border: 1px solid #e2dac8;
+}
+.header {
+background: #2c5f4c;
+color: #fef5e6;
+padding: 1.6rem 2rem;
+text-align: center;
+border-bottom: 5px solid #c9a87b;
+}
+.header h1 {
+margin: 0 0 0.3rem;
+font-weight: 700;
+font-size: 1.9rem;
+letter-spacing: -0.2px;
+}
+.header p {
+margin: 0;
+font-style: italic;
+opacity: 0.9;
+font-size: 1rem;
+}
+.quiz-body {
+padding: 2rem 2rem 1.5rem;
+}
+.question-card {
+background: #ffffff;
+margin-bottom: 2rem;
+border-radius: 24px;
+padding: 1.3rem 1.6rem;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+border: 1px solid #ece2d2;
+transition: 0.15s;
+}
+.question-text {
+font-size: 1.2rem;
+font-weight: 600;
+margin: 0 0 1rem 0;
+color: #2d4a3b;
+line-height: 1.4;
+}
+.options {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+.options li {
+margin-bottom: 0.7rem;
+background: #fefaf2;
+border-radius: 40px;
+border: 1px solid #e0d5c2;
+transition: 0.2s;
+}
+.options li:hover {
+background: #f7efdf;
+}
+.options label {
+display: flex;
+align-items: center;
+padding: 0.7rem 1rem;
+cursor: pointer;
+font-size: 0.98rem;
+font-weight: 500;
+color: #2c241a;
+}
+input[type="radio"] {
+margin-right: 14px;
+transform: scale(1.05);
+accent-color: #6f9e86;
+}
+.feedback {
+margin-top: 0.8rem;
+padding: 0.7rem 1rem;
+border-radius: 28px;
+font-size: 0.9rem;
+font-weight: 500;
+background: #f1ede3;
+border-left: 5px solid #c2a578;
+display: none;
+}
+.feedback.correct {
+background: #e2f0e4;
+border-left-color: #2b7a3e;
+color: #1a4d2a;
+display: block;
+}
+.feedback.incorrect {
+background: #ffe8e6;
+border-left-color: #c23d2b;
+color: #8b2c1e;
+display: block;
+}
+.btn-submit {
+background: #6f9e86;
+border: none;
+color: white;
+font-size: 1.2rem;
+font-weight: bold;
+padding: 0.9rem 2rem;
+border-radius: 48px;
+cursor: pointer;
+width: 100%;
+transition: background 0.2s;
+margin-top: 1rem;
+font-family: inherit;
+}
+.btn-submit:hover {
+background: #4f7763;
+}
+.result-area {
+margin-top: 2rem;
+text-align: center;
+background: #eae3d2;
+padding: 1rem;
+border-radius: 60px;
+font-weight: bold;
+font-size: 1.2rem;
+}
+.reset-btn {
+background: #c9a87b;
+border: none;
+color: #2d241b;
+padding: 0.6rem 1.2rem;
+border-radius: 40px;
+font-weight: bold;
+cursor: pointer;
+margin-top: 1rem;
+font-size: 0.9rem;
+transition: 0.2s;
+}
+.reset-btn:hover {
+background: #b48b5a;
+}
+footer {
+font-size: 0.75rem;
+text-align: center;
+padding: 1rem;
+color: #7b6e5c;
+border-top: 1px solid #e2d8c8;
+background: #fffef7;
+}
+@media (max-width: 650px) {
+.quiz-body {
+padding: 1rem;
+}
+.question-text {
+font-size: 1rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-wrapper"> <div class="header"> <h1>📖 Meena Jha · Chapter 45</h1> <p>Feminist Voice · First Maithili Fiction on Breast Cancer · Videha Parallel History</p> </div> <div class="quiz-body" id="quizBody"> <div id="questionsContainer"></div> <button class="btn-submit" id="submitQuiz">✔ Submit Answers</button> <div id="resultArea" class="result-area"></div> <button class="reset-btn" id="resetQuiz" style="display: none;">⟳ Take Quiz Again</button> </div> </div>
+<script>
+    // Questions based exclusively on the Meena Jha chapter (pages 471–479)
+    const questions = [
+        {
+            text: "What landmark literary achievement is Meena Jha credited with in the Videha archive?",
+            options: [
+                "First Maithili novel to win Sahitya Akademi award",
+                "First Maithili fiction on breast cancer, predating Hindi stories by 1–2 years",
+                "First Maithili translation of a Shakespeare play",
+                "First Maithili children's picture book"
+            ],
+            correct: 1,
+            explanation: "The chapter notes that Meena Jha’s story on breast cancer was the first Maithili fiction on this subject, and Hindi had no such story until one to two years later."
+        },
+        {
+            text: "According to the chapter, which aesthetic sentiment (rasa) dominates Meena Jha's fiction, especially in her treatment of women’s suffering?",
+            options: [
+                "Śṛṅgāra (love/erotic)",
+                "Vīra (heroism)",
+                "Karuṇā (compassion/pathos)",
+                "Hāsya (comedy)"
+            ],
+            correct: 2,
+            explanation: "The critical analysis identifies Karuṇa-rasa as the dominant aesthetic emotion, generated through unjust, socially conditioned suffering, particularly of Maithili women."
+        },
+        {
+            text: "How does the chapter describe the ‘breast cancer story’ in terms of Western medical humanities?",
+            options: [
+                "A restitution narrative that ends with cure",
+                "A chaos narrative with no meaning",
+                "A quest narrative that makes the previously unspeakable speakable",
+                "A romanticisation of illness"
+            ],
+            correct: 2,
+            explanation: "Drawing on Arthur Frank’s ‘The Wounded Storyteller’, the chapter argues that Meena Jha’s story enacts a quest narrative, creating verbal forms for an experience that social discourse had rendered invisible."
+        },
+        {
+            text: "Which Indian aesthetic concept is used to explain that Meena Jha’s title ‘encroachment’ works on literal, psychological, gendered and institutional levels simultaneously?",
+            options: [
+                "Alaṃkāra (ornament)",
+                "Vakrokti (oblique expression)",
+                "Dhvani (resonance/suggestion)",
+                "Aucitya (propriety)"
+            ],
+            correct: 2,
+            explanation: "Ānandavardhana’s dhvani theory: the title resonates across multiple registers – literal land encroachment, patriarchal encroachment, and institutional exclusion – all suggested rather than directly stated."
+        },
+        {
+            text: "From the perspective of Navya-Nyāya epistemology (Gaṅgeśa Upādhyāya), what does Meena Jha’s breast cancer story achieve as a form of ‘śabda pramāṇa’?",
+            options: [
+                "It records a historical event exactly as it happened",
+                "It restores the conditions for valid testimony by providing a verbal form where social discourse had none",
+                "It rejects all oral testimony as unreliable",
+                "It proves that illness is purely imaginary"
+            ],
+            correct: 1,
+            explanation: "The chapter argues that the story resolves a ‘crisis of śabda’ (verbal testimony): the lump in the breast cannot be spoken in available domestic discourse; the story creates the verbal instrument, making valid testimony possible."
+        },
+        {
+            text: "Which Western feminist critic’s concept of the ‘madwoman in the attic’ is invoked to analyse Meena Jha’s negotiation between the pativrata ideal and the woman writer?",
+            options: [
+                "Simone de Beauvoir",
+                "Helene Cixous",
+                "Sandra Gilbert & Susan Gubar",
+                "Judith Butler"
+            ],
+            correct: 2,
+            explanation: "Gilbert and Gubar’s ‘The Madwoman in the Attic’ is used to describe the tension between the compliant domestic ideal (angel in the house) and the resistant, creative self (madwoman) in Meena Jha’s literary position."
+        },
+        {
+            text: "Meena Jha's work is positioned within the Videha Parallel History Framework primarily as:",
+            options: [
+                "A mainstream Sahitya Akademi award winner",
+                "A woman writer from the suppressed democratic and feminist counter-canon",
+                "A Sanskrit scholar rewriting classical texts",
+                "A poet in the oral tradition only"
+            ],
+            correct: 1,
+            explanation: "The Videha framework explicitly positions Meena Jha among the ‘parallel women tradition’ – voices systematically excluded from the official canon, recovered through the digital counter-archive."
+        },
+        {
+            text: "According to the chapter, which quality of Meena Jha’s language demonstrates ‘aucitya’ (propriety) as defined by Kshemendra?",
+            options: [
+                "Use of highly Sanskritized vocabulary",
+                "Writing in authentic Maithili without Hindi calques, fitting her subject and tradition",
+                "Exclusive use of English loanwords",
+                "Avoidance of any dialectal variation"
+            ],
+            correct: 1,
+            explanation: "Kshemendra’s aucitya (propriety) is evident in her linguistic discipline: she writes authentic, spoken Maithili, resisting Hindi-derived contamination – a form perfectly fitted to her social-realist subject matter."
+        },
+        {
+            text: "How does the chapter use Ranajit Guha’s Subaltern Studies to interpret Meena Jha’s literary project?",
+            options: [
+                "As a documentation of elite court poetry",
+                "As a counter-archive that inserts subaltern women’s voices into literary history",
+                "As a rejection of all historical narrative",
+                "As a purely aesthetic exercise"
+            ],
+            correct: 1,
+            explanation: "Guha’s concept of the subaltern counter-archive is applied: Meena Jha’s stories give voice to Maithili women whose experiences would otherwise remain epistemically invisible in dominant literary records."
+        },
+        {
+            text: "The chapter states that Meena Jha’s story on breast cancer ‘preceded comparable Hindi fiction by one to two years’. What does this indicate within the Videha framework?",
+            options: [
+                "That Maithili literature is always derivative of Hindi",
+                "That the parallel digital platform enabled greater literary courage and formal innovation than mainstream print",
+                "That Hindi writers had already covered the subject decades earlier",
+                "That Meena Jha was primarily a Hindi writer"
+            ],
+            correct: 1,
+            explanation: "The precedence over Hindi is cited as evidence that the Videha movement, working outside institutional gatekeeping, could publish the previously unpublishable and expand thematic range before the mainstream."
+        },
+        {
+            text: "What pramāṇa (valid means of knowledge) does Meena Jha’s fiction primarily rely on, according to the Navya-Nyāya analysis?",
+            options: [
+                "Anumāna (inference)",
+                "Upamāna (comparison)",
+                "Pratyakṣa (direct perception of social reality)",
+                "Arthāpatti (postulation)"
+            ],
+            correct: 2,
+            explanation: "Her fiction is grounded in pratyakṣa – the disciplined observation of specific Maithili social realities, from which universal social conditions emerge through precise particularity."
+        },
+        {
+            text: "The chapter applies Hélène Cixous’s concept of ‘écriture féminine’ to Meena Jha’s work. Which phrase from Cixous is used to describe the breast cancer story?",
+            options: [
+                "‘White ink’ – writing from the female body and experience",
+                "‘Laughter of the Medusa’ – subversive humour",
+                "‘The female imaginary’",
+                "‘Gender performativity’"
+            ],
+            correct: 0,
+            explanation: "Cixous’s ‘white ink’ (writing from the maternal body, from women’s embodied experience) is applied: the breast cancer story literally writes from the specific physical experience of women’s bodies, a territory dominant Maithili discourse had made invisible."
+        }
+    ];
+
+    let userAnswers = new Array(questions.length).fill(null);
+    let quizSubmitted = false;
+
+    function renderQuiz() {
+        const container = document.getElementById('questionsContainer');
+        if (!container) return;
+        let html = '';
+        questions.forEach((q, idx) => {
+            html += `
+                <div class="question-card" data-qidx="${idx}">
+                    <div class="question-text">${idx+1}. ${q.text}</div>
+                    <ul class="options">
+                        ${q.options.map((opt, optIdx) => `
+                            <li>
+                                <label>
+                                    <input type="radio" name="q${idx}" value="${optIdx}" ${userAnswers[idx] === optIdx ? 'checked' : ''}>
+                                    ${opt}
+                                </label>
+                            </li>
+                        `).join('')}
+                    </ul>
+                    <div class="feedback" id="fb-${idx}"></div>
+                </div>
+            `;
+        });
+        container.innerHTML = html;
+
+        // attach radio change listeners
+        for (let i = 0; i < questions.length; i++) {
+            const radios = document.querySelectorAll(`input[name="q${i}"]`);
+            radios.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    if (!quizSubmitted) {
+                        userAnswers[i] = parseInt(e.target.value);
+                    }
+                });
+            });
+        }
+    }
+
+    function evaluateQuiz() {
+        if (quizSubmitted) return;
+        let score = 0;
+        for (let i = 0; i < questions.length; i++) {
+            const selected = userAnswers[i];
+            const isCorrect = (selected !== null && selected === questions[i].correct);
+            if (isCorrect) score++;
+            const feedbackDiv = document.getElementById(`fb-${i}`);
+            if (feedbackDiv) {
+                if (selected === null) {
+                    feedbackDiv.innerHTML = `❌ No answer selected. Correct: ${questions[i].options[questions[i].correct]}. ${questions[i].explanation}`;
+                    feedbackDiv.className = 'feedback incorrect';
+                } else if (isCorrect) {
+                    feedbackDiv.innerHTML = `✅ Correct! ${questions[i].explanation}`;
+                    feedbackDiv.className = 'feedback correct';
+                } else {
+                    feedbackDiv.innerHTML = `❌ Incorrect. You chose: "${questions[i].options[selected]}". Correct: "${questions[i].options[questions[i].correct]}". ${questions[i].explanation}`;
+                    feedbackDiv.className = 'feedback incorrect';
+                }
+            }
+        }
+        const total = questions.length;
+        const percent = Math.round((score / total) * 100);
+        const resultDiv = document.getElementById('resultArea');
+        resultDiv.innerHTML = `📊 Score: ${score} / ${total} (${percent}%)<br>${score === total ? '✨ Excellent understanding of Meena Jha’s feminist and epistemological contributions!' : '📖 Revisit the chapter: Meena Jha’s landmark story, rasa/dhvani, and Videha parallel framework.'}`;
+        
+        // disable all radios after submission
+        for (let i = 0; i < questions.length; i++) {
+            const radios = document.querySelectorAll(`input[name="q${i}"]`);
+            radios.forEach(radio => radio.disabled = true);
+        }
+        quizSubmitted = true;
+        document.getElementById('resetQuiz').style.display = 'inline-block';
+        const submitBtn = document.getElementById('submitQuiz');
+        if (submitBtn) submitBtn.style.opacity = '0.6';
+    }
+
+    function resetQuiz() {
+        userAnswers.fill(null);
+        quizSubmitted = false;
+        for (let i = 0; i < questions.length; i++) {
+            const radios = document.querySelectorAll(`input[name="q${i}"]`);
+            radios.forEach(radio => {
+                radio.disabled = false;
+                radio.checked = false;
+            });
+            const fbDiv = document.getElementById(`fb-${i}`);
+            if (fbDiv) {
+                fbDiv.innerHTML = '';
+                fbDiv.className = 'feedback';
+            }
+        }
+        const resultDiv = document.getElementById('resultArea');
+        resultDiv.innerHTML = '';
+        const submitBtn = document.getElementById('submitQuiz');
+        if (submitBtn) submitBtn.style.opacity = '1';
+        document.getElementById('resetQuiz').style.display = 'none';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        renderQuiz();
+        document.getElementById('submitQuiz').addEventListener('click', evaluateQuiz);
+        document.getElementById('resetQuiz').addEventListener('click', resetQuiz);
+    });
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

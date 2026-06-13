@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Chapter 13 – Genome Mapping of Mithila Panji</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #f1f2e9;
+font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, -apple-system, sans-serif;
+padding: 2rem 1rem;
+color: #1e2a2f;
+}
+.quiz-wrapper {
+max-width: 950px;
+margin: 0 auto;
+background: #fffef7;
+border-radius: 2.5rem;
+box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+overflow: hidden;
+}
+.quiz-header {
+background: #2c5a2e;
+background-image: linear-gradient(135deg, #2d6a30, #1a3f1c);
+padding: 1.8rem 2rem;
+color: #fef3d6;
+text-align: center;
+border-bottom: 5px solid #e3b87c;
+}
+.quiz-header h1 {
+font-size: 1.9rem;
+letter-spacing: -0.3px;
+font-weight: 700;
+margin-bottom: 0.5rem;
+}
+.quiz-header h1 span {
+font-size: 2rem;
+}
+.quiz-header p {
+font-size: 1rem;
+background: #fef3d630;
+display: inline-block;
+padding: 0.3rem 1.2rem;
+border-radius: 40px;
+font-weight: 500;
+backdrop-filter: blur(2px);
+}
+.chapter-badge {
+background: #e3b87c;
+color: #2a3a1f;
+border-radius: 100px;
+padding: 0.25rem 1.2rem;
+font-size: 0.8rem;
+font-weight: bold;
+display: inline-block;
+margin-top: 0.7rem;
+}
+.quiz-body {
+padding: 2rem 2rem 1.2rem;
+}
+.question-card {
+background: #fefaf0;
+border-radius: 1.8rem;
+margin-bottom: 1.8rem;
+padding: 1.3rem 1.5rem;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+border: 1px solid #e9dbba;
+}
+.question-text {
+font-size: 1.28rem;
+font-weight: 700;
+margin-bottom: 1rem;
+color: #2b4b2a;
+display: flex;
+align-items: baseline;
+gap: 10px;
+flex-wrap: wrap;
+}
+.q-num {
+background: #c16f3a;
+color: white;
+width: 34px;
+height: 34px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+border-radius: 60px;
+font-size: 1rem;
+font-weight: bold;
+margin-right: 8px;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.75rem;
+margin-left: 0.5rem;
+}
+.option {
+display: flex;
+align-items: center;
+gap: 12px;
+background: #ffffff;
+padding: 0.6rem 1rem;
+border-radius: 2rem;
+border: 1px solid #ddd0aa;
+transition: all 0.1s;
+cursor: pointer;
+}
+.option:hover {
+background: #fff3e0;
+border-color: #bc8a52;
+}
+input[type="radio"] {
+accent-color: #2c6e2f;
+width: 1.2rem;
+height: 1.2rem;
+cursor: pointer;
+}
+.option label {
+font-size: 0.98rem;
+font-weight: 500;
+color: #2c2b28;
+width: 100%;
+cursor: pointer;
+line-height: 1.35;
+}
+.action-buttons {
+display: flex;
+gap: 1.2rem;
+justify-content: center;
+margin: 1.8rem 0 1.2rem;
+flex-wrap: wrap;
+}
+button {
+background: #2c6e2f;
+border: none;
+padding: 0.8rem 2rem;
+font-size: 1.1rem;
+font-weight: bold;
+border-radius: 3rem;
+color: white;
+cursor: pointer;
+transition: 0.15s;
+font-family: inherit;
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+button:hover {
+background: #408f44;
+transform: translateY(-2px);
+}
+button.reset-btn {
+background: #8b6a3c;
+}
+button.reset-btn:hover {
+background: #a88652;
+}
+.result-area {
+background: #f0ead8;
+border-radius: 2rem;
+padding: 1.3rem 1.8rem;
+margin: 1rem 0 1.8rem;
+border-left: 8px solid #c16f3a;
+}
+.score-badge {
+font-size: 1.7rem;
+font-weight: 800;
+background: #2c5a2e;
+display: inline-block;
+padding: 0.2rem 1.2rem;
+border-radius: 40px;
+color: #f9efcd;
+margin-bottom: 0.8rem;
+}
+.feedback-list {
+margin-top: 1rem;
+max-height: 450px;
+overflow-y: auto;
+padding-right: 6px;
+}
+.feedback-item {
+border-bottom: 1px dashed #cabb92;
+padding: 0.65rem 0;
+font-size: 0.92rem;
+}
+.correct-feedback {
+color: #1f6d2f;
+font-weight: 600;
+}
+.wrong-feedback {
+color: #b13b2b;
+}
+footer {
+text-align: center;
+padding: 1.2rem;
+font-size: 0.78rem;
+background: #f8f4e5;
+color: #5e4e34;
+border-top: 1px solid #e2d2b0;
+}
+@media (max-width: 600px) {
+.quiz-body {
+padding: 1.5rem;
+}
+.question-text {
+font-size: 1.1rem;
+}
+.option label {
+font-size: 0.87rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-wrapper"> <div class="quiz-header"> <h1>🧬 Chapter 13 <span>❯</span> Knowledge Check</h1> <p>Genome Mapping of Mithila – Panji Prabandha (450 AD – 2009 AD)</p> <div class="chapter-badge">📖 Volume II, Khaṇḍa 2 (Upatip) • Analytical Report</div> </div> <div class="quiz-body"> <form id="quizForm"> <div class="question-card"> <div class="question-text"><span class="q-num">1</span> What is the primary function of the Panji system as described in Chapter 13?</div> <div class="options"> <div class="option"><input type="radio" name="q1" value="0" id="q1a"><label for="q1a"> To record royal successions only</label></div> <div class="option"><input type="radio" name="q1" value="1" id="q1b"><label for="q1b"> A living genealogical database for marriage regulation, gotra verification, and social identity among Maithil Brahmins</label></div> <div class="option"><input type="radio" name="q1" value="2" id="q1c"><label for="q1c"> A purely religious text for Vedic rituals</label></div> <div class="option"><input type="radio" name="q1" value="3" id="q1d"><label for="q1d"> A colonial land revenue register</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">2</span> According to Chapter 13, who is traditionally credited with the formal institutionalization of the Panji system?</div> <div class="options"> <div class="option"><input type="radio" name="q2" value="0" id="q2a"><label for="q2a"> Maharaja Madhav Singh</label></div> <div class="option"><input type="radio" name="q2" value="1" id="q2b"><label for="q2b"> King Harsimha Deva (Harisimhadeva) of the Karnat dynasty</label></div> <div class="option"><input type="radio" name="q2" value="2" id="q2c"><label for="q2c"> Gangesa Upadhyaya</label></div> <div class="option"><input type="radio" name="q2" value="3" id="q2d"><label for="q2d"> The British colonial administration</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">3</span> The volume analysed in Chapter 13 is “Khanda 2 — Upatip”. What does “Upatip” (Upaṭīp) signify?</div> <div class="options"> <div class="option"><input type="radio" name="q3" value="0" id="q3a"><label for="q3a"> Main root register of gotras</label></div> <div class="option"><input type="radio" name="q3" value="1" id="q3b"><label for="q3b"> Supplementary / sub‑notes or detailed annotations to the main Panji</label></div> <div class="option"><input type="radio" name="q3" value="2" id="q3c"><label for="q3c"> List of royal marriages only</label></div> <div class="option"><input type="radio" name="q3" value="3" id="q3d"><label for="q3d"> Ritual prayer book for Panjikars</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">4</span> What does the genealogical marker “dau” (dau) indicate in Panji entries?</div> <div class="options"> <div class="option"><input type="radio" name="q4" value="0" id="q4a"><label for="q4a"> Direct paternal grandson</label></div> <div class="option"><input type="radio" name="q4" value="1" id="q4b"><label for="q4b"> Maternal side connection: daughter's son or the bride‑giving family</label></div> <div class="option"><input type="radio" name="q4" value="2" id="q4c"><label for="q4c"> Village of origin for the father</label></div> <div class="option"><input type="radio" name="q4" value="3" id="q4d"><label for="q4d"> Scholarly title (Mahāmahopādhyāya)</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">5</span> Which of the following titles represents the highest traditional scholarly honour recorded in the Panji?</div> <div class="options"> <div class="option"><input type="radio" name="q5" value="0" id="q5a"><label for="q5a"> Jyotirvid / Jyo.</label></div> <div class="option"><input type="radio" name="q5" value="1" id="q5b"><label for="q5b"> Vaiyākaraṇa (grammarian)</label></div> <div class="option"><input type="radio" name="q5" value="2" id="q5c"><label for="q5c"> Mahāmahopādhyāya (M.M.U. / ma.ma.)</label></div> <div class="option"><input type="radio" name="q5" value="3" id="q5d"><label for="q5d"> Paṇḍita</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">6</span> How are women primarily recorded in the standard Panji genealogical registers (except the Rasarh‑Araria exception)?</div> <div class="options"> <div class="option"><input type="radio" name="q6" value="0" id="q6a"><label for="q6a"> Women’s full names are always recorded in detail</label></div> <div class="option"><input type="radio" name="q6" value="1" id="q6b"><label for="q6b"> As independent lineage heads with their own gotra</label></div> <div class="option"><input type="radio" name="q6" value="2" id="q6c"><label for="q6c"> Structurally as relational nodes (dau/ddau) – rarely by personal name</label></div> <div class="option"><input type="radio" name="q6" value="3" id="q6d"><label for="q6d"> Women are completely absent from the Panji</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">7</span> Chapter 13 mentions modern professional credentials integrated into the Panji. Which modern title appears in entries such as those in the Khanda 3 sections?</div> <div class="options"> <div class="option"><input type="radio" name="q7" value="0" id="q7a"><label for="q7a"> Only traditional Sanskrit titles</label></div> <div class="option"><input type="radio" name="q7" value="1" id="q7b"><label for="q7b"> I.A.S., I.P.S., M.A., Ph.D., Engineer, Professor</label></div> <div class="option"><input type="radio" name="q7" value="2" id="q7c"><label for="q7c"> Knight and baronet titles only</label></div> <div class="option"><input type="radio" name="q7" value="3" id="q7d"><label for="q7d"> Military ranks exclusively</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">8</span> What does the “ddau” (ddau) abbreviation signify in the Panji notation?</div> <div class="options"> <div class="option"><input type="radio" name="q8" value="0" id="q8a"><label for="q8a"> Double daughter — step‑daughter record</label></div> <div class="option"><input type="radio" name="q8" value="1" id="q8b"><label for="q8b"> Maternal grandfather’s side / the dau’s dau (second maternal generation)</label></div> <div class="option"><input type="radio" name="q8" value="2" id="q8c"><label for="q8c"> Father’s brother’s lineage</label></div> <div class="option"><input type="radio" name="q8" value="3" id="q8d"><label for="q8d"> Village of the paternal grandmother</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">9</span> According to the document, why is the Panji metaphorically called “Genome Mapping”?</div> <div class="options"> <div class="option"><input type="radio" name="q9" value="0" id="q9a"><label for="q9a"> It contains DNA sequences of ancient Maithil Brahmins</label></div> <div class="option"><input type="radio" name="q9" value="1" id="q9b"><label for="q9b"> Because it tracks biological and social inheritance, consanguinity avoidance, and lineage data across 1,500 years like a genetic database</label></div> <div class="option"><input type="radio" name="q9" value="2" id="q9c"><label for="q9c"> It was originally written on genome‑shaped palm leaves</label></div> <div class="option"><input type="radio" name="q9" value="3" id="q9d"><label for="q9d"> The term is purely decorative without scientific meaning</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">10</span> Which village appears as the most frequent maternal‑source node in the analysed portion of the Panji (Chapter 13)?</div> <div class="options"> <div class="option"><input type="radio" name="q10" value="0" id="q10a"><label for="q10a"> Māṇḍar (Mandar) with 174 references</label></div> <div class="option"><input type="radio" name="q10" value="1" id="q10b"><label for="q10b"> Khandabala</label></div> <div class="option"><input type="radio" name="q10" value="2" id="q10c"><label for="q10c"> Darihara</label></div> <div class="option"><input type="radio" name="q10" value="3" id="q10d"><label for="q10d"> Sarisab</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">11</span> The Panji records cross‑references like “(B 86//2)”. What do these notations represent?</div> <div class="options"> <div class="option"><input type="radio" name="q11" value="0" id="q11a"><label for="q11a"> Astrological calculations</label></div> <div class="option"><input type="radio" name="q11" value="1" id="q11b"><label for="q11b"> Internal cross‑references to other volumes/entries, functioning as a pre‑digital relational database</label></div> <div class="option"><input type="radio" name="q11" value="2" id="q11c"><label for="q11c"> Royal tax collection codes</label></div> <div class="option"><input type="radio" name="q11" value="3" id="q11d"><label for="q11d"> Dates of manuscript copying</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">12</span> Chapter 13 mentions a specific scribal colophon dating an entry to “09..2008 Wednesday”. What does this colophon prove?</div> <div class="options"> <div class="option"><input type="radio" name="q12" value="0" id="q12a"><label for="q12a"> The Panji system became extinct after 2000</label></div> <div class="option"><input type="radio" name="q12" value="1" id="q12b"><label for="q12b"> That the Panji tradition was still being actively updated and used in the 21st century (real‑time genealogical recording)</label></div> <div class="option"><input type="radio" name="q12" value="2" id="q12c"><label for="q12c"> The British introduced new dating systems</label></div> <div class="option"><input type="radio" name="q12" value="3" id="q12d"><label for="q12d"> It is a forgery from the colonial era</label></div> </div> </div> <div class="action-buttons"> <button type="button" id="submitBtn">✅ Submit & Check Answers</button> <button type="button" id="resetBtn" class="reset-btn">⟳ Clear All Responses</button> </div> </form> <div id="resultBox" class="result-area" style="display: none;"></div> </div> </div>
+<script>
+    // Correct answers (value index corresponds to option order)
+    const correctAnswers = {
+        q1: "1",   // living genealogical database for marriage regulation
+        q2: "1",   // King Harsimha Deva (Harisimhadeva)
+        q3: "1",   // supplementary / sub-notes
+        q4: "1",   // maternal side connection (daughter's son / bride-giving family)
+        q5: "2",   // Mahāmahopādhyāya (M.M.U.)
+        q6: "2",   // structurally as relational nodes, rarely by name
+        q7: "1",   // IAS, IPS, MA, PhD, Engineer, Professor
+        q8: "1",   // maternal grandfather’s side / dau’s dau
+        q9: "1",   // tracks biological/social inheritance like a genetic database
+        q10: "0",  // Māṇḍar with 174 references (explicit in chapter: "Māṇḍara (174)")
+        q11: "1",  // internal cross-references to other volumes (relational database)
+        q12: "1"   // Panji still active & updated in 21st century
+    };
+
+    // Option texts for feedback display (matching each question's choices)
+    const optionTexts = {
+        q1: ["Record royal successions only", "Living genealogical database for marriage regulation, gotra verification, and social identity among Maithil Brahmins", "Purely religious text for Vedic rituals", "Colonial land revenue register"],
+        q2: ["Maharaja Madhav Singh", "King Harsimha Deva (Harisimhadeva) of the Karnat dynasty", "Gangesa Upadhyaya", "British colonial administration"],
+        q3: ["Main root register of gotras", "Supplementary / sub‑notes or detailed annotations to the main Panji", "List of royal marriages only", "Ritual prayer book for Panjikars"],
+        q4: ["Direct paternal grandson", "Maternal side connection: daughter's son or the bride‑giving family", "Village of origin for the father", "Scholarly title (Mahāmahopādhyāya)"],
+        q5: ["Jyotirvid / Jyo.", "Vaiyākaraṇa (grammarian)", "Mahāmahopādhyāya (M.M.U. / ma.ma.)", "Paṇḍita"],
+        q6: ["Women’s full names are always recorded in detail", "As independent lineage heads with their own gotra", "Structurally as relational nodes (dau/ddau) – rarely by personal name", "Women are completely absent from the Panji"],
+        q7: ["Only traditional Sanskrit titles", "I.A.S., I.P.S., M.A., Ph.D., Engineer, Professor", "Knight and baronet titles only", "Military ranks exclusively"],
+        q8: ["Double daughter — step‑daughter record", "Maternal grandfather’s side / the dau’s dau (second maternal generation)", "Father’s brother’s lineage", "Village of the paternal grandmother"],
+        q9: ["It contains DNA sequences of ancient Maithil Brahmins", "Because it tracks biological and social inheritance, consanguinity avoidance, and lineage data across 1,500 years like a genetic database", "It was originally written on genome‑shaped palm leaves", "The term is purely decorative without scientific meaning"],
+        q10: ["Māṇḍar (Mandar) with 174 references", "Khandabala", "Darihara", "Sarisab"],
+        q11: ["Astrological calculations", "Internal cross‑references to other volumes/entries, functioning as a pre‑digital relational database", "Royal tax collection codes", "Dates of manuscript copying"],
+        q12: ["The Panji system became extinct after 2000", "That the Panji tradition was still being actively updated and used in the 21st century (real‑time genealogical recording)", "The British introduced new dating systems", "It is a forgery from the colonial era"]
+    };
+
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const resultBox = document.getElementById('resultBox');
+
+    function resetQuiz() {
+        const allRadios = document.querySelectorAll('input[type="radio"]');
+        allRadios.forEach(radio => radio.checked = false);
+        resultBox.style.display = 'none';
+        resultBox.innerHTML = '';
+    }
+
+    function evaluateQuiz() {
+        let score = 0;
+        const total = 12;
+        const feedbackItems = [];
+
+        for (let i = 1; i <= total; i++) {
+            const qName = `q${i}`;
+            const selectedRadio = document.querySelector(`input[name="${qName}"]:checked`);
+            const selectedVal = selectedRadio ? selectedRadio.value : null;
+            const isCorrect = (selectedVal === correctAnswers[qName]);
+            
+            if (isCorrect && selectedVal !== null) score++;
+            
+            const correctIdx = parseInt(correctAnswers[qName]);
+            const correctText = optionTexts[qName][correctIdx];
+            let userText = "No option selected";
+            if (selectedVal !== null) {
+                userText = optionTexts[qName][parseInt(selectedVal)];
+            }
+            
+            let statusHtml = "";
+            if (selectedVal === null) {
+                statusHtml = `<span class="wrong-feedback">❌ Not answered</span>`;
+            } else if (isCorrect) {
+                statusHtml = `<span class="correct-feedback">✅ Correct</span>`;
+            } else {
+                statusHtml = `<span class="wrong-feedback">❌ Incorrect</span>`;
+            }
+            
+            feedbackItems.push({
+                num: i,
+                statusHtml: statusHtml,
+                correctAnswer: correctText,
+                userAnswer: userText
+            });
+        }
+        
+        const percent = Math.round((score / total) * 100);
+        let resultHtml = `
+            <div style="text-align:center;">
+                <div class="score-badge">🧬 ${score} / ${total}  (${percent}%)</div>
+                <p style="margin-bottom: 12px; font-weight:500;">📘 Chapter 13: Genome Mapping – Panji Prabandha of Mithila</p>
+            </div>
+            <div class="feedback-list">
+        `;
+        
+        feedbackItems.forEach(item => {
+            
+        resultBox.innerHTML = resultHtml;
+        resultBox.style.display = 'block';
+        resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    submitBtn.addEventListener('click', evaluateQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Chapter 10 – Prācīn Pañjī (continued) | Villages, Royal Records & Marriage Colophons</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #e3d5bd;
+background: radial-gradient(circle at 10% 20%, #f2ecd9 0%, #dfcfb0 100%);
+font-family: 'Segoe UI', 'Roboto', 'Noto Serif', Georgia, serif;
+padding: 2rem 1rem;
+}
+.quiz-wrapper {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffef7;
+border-radius: 2rem;
+overflow: hidden;
+box-shadow: 0 28px 45px -12px rgba(0, 0, 0, 0.35);
+border: 1px solid #dacfaa;
+}
+.quiz-header {
+background: #4f5a3a;
+background: linear-gradient(115deg, #5e6b45 0%, #3f4a2c 100%);
+padding: 1.8rem 2rem 1.6rem;
+color: #fff6e6;
+border-bottom: 5px solid #e2bc7a;
+}
+.quiz-header h1 {
+font-size: 1.9rem;
+font-weight: 700;
+letter-spacing: -0.3px;
+display: flex;
+flex-wrap: wrap;
+align-items: baseline;
+gap: 0.8rem;
+}
+.quiz-header h1 span {
+background: #2a351e;
+font-size: 0.9rem;
+font-weight: 500;
+padding: 0.2rem 1rem;
+border-radius: 60px;
+}
+.quiz-header p {
+margin-top: 0.6rem;
+font-style: italic;
+font-size: 0.95rem;
+opacity: 0.9;
+}
+.quiz-body {
+padding: 1.6rem 2rem 0.8rem;
+}
+.question-card {
+background: white;
+border-radius: 1.4rem;
+margin-bottom: 2rem;
+box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
+border: 1px solid #e8dec2;
+transition: 0.1s;
+}
+.q-text {
+background: #fefbf3;
+padding: 1.2rem 1.8rem 0.5rem 1.8rem;
+font-size: 1.2rem;
+font-weight: 700;
+color: #3b3a2a;
+border-radius: 1.4rem 1.4rem 0 0;
+}
+.options-area {
+padding: 0.3rem 1.8rem 1.2rem 1.8rem;
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+}
+.opt-row {
+display: flex;
+align-items: center;
+gap: 0.8rem;
+background: #fefcf6;
+padding: 0.6rem 1rem;
+border-radius: 80px;
+border: 1px solid #e9ddc4;
+cursor: pointer;
+transition: 0.1s;
+}
+.opt-row:hover {
+background: #f7f0e2;
+border-color: #c8ae7c;
+}
+input[type="radio"] {
+accent-color: #6d7846;
+width: 1.1rem;
+height: 1.1rem;
+flex-shrink: 0;
+}
+.opt-row label {
+font-size: 1rem;
+font-weight: 450;
+color: #2f2f20;
+width: 100%;
+cursor: pointer;
+line-height: 1.35;
+}
+.feedback {
+margin: 0.2rem 1.8rem 1.3rem 1.8rem;
+}
+.correct-feedback {
+background: #e1ede5;
+border-left: 5px solid #2f7352;
+padding: 0.65rem 1rem;
+border-radius: 14px;
+color: #15553a;
+font-size: 0.9rem;
+}
+.wrong-feedback {
+background: #ffe3db;
+border-left: 5px solid #c2573a;
+padding: 0.65rem 1rem;
+border-radius: 14px;
+color: #a13a1f;
+font-size: 0.9rem;
+}
+.quiz-footer {
+background: #fcfaf2;
+padding: 1.2rem 2rem 1.8rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 1rem;
+border-top: 1px solid #e7dbbb;
+}
+button {
+background: #5e6b45;
+border: none;
+font-size: 1rem;
+font-weight: 600;
+padding: 0.7rem 1.8rem;
+border-radius: 60px;
+color: white;
+cursor: pointer;
+transition: 0.2s;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+button:hover {
+background: #424e2f;
+transform: translateY(-2px);
+}
+.reset-btn {
+background: #6e684c;
+}
+.reset-btn:hover {
+background: #504b34;
+}
+.score-badge {
+background: #2f3f2b;
+padding: 0.5rem 1.4rem;
+border-radius: 60px;
+color: #ffe0b7;
+font-weight: bold;
+font-size: 1rem;
+}
+@media (max-width: 680px) {
+.quiz-body {
+padding: 1rem;
+}
+.q-text {
+font-size: 1rem;
+padding: 1rem 1rem 0.2rem 1rem;
+}
+.options-area {
+padding: 0 1rem 1rem 1rem;
+}
+.opt-row label {
+font-size: 0.88rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-wrapper"> <div class="quiz-header"> <h1>📖 Prācīn Pañjī – Khaṇḍa 1 (continued) <span>Chapter 10: Pages 66–347</span></h1> <p>Karmaharā emergence, royal Mādhavasiṃha records, Avalaṃba-Sarasvatī title, marriage colophons (2003–2004), Nepal diaspora & scholarly title compounds</p> </div> <div class="quiz-body" id="quizContainer"></div> <div class="quiz-footer"> <button id="submitBtn">📜 Submit Answers</button> <button id="resetBtn" class="reset-btn">⟳ Reset Quiz</button> <div class="score-badge" id="scoreDisplay">Score: 0/0</div> </div>
+</div>
+<script>
+    // --------------------------------------------------------------
+    // CHAPTER 10 – Prācīn Pañjī, Khaṇḍa 1 Continued (Pages 66–347)
+    // Villages, Lineages, Royal Records, Marriage Colophons, Unique Titles
+    // --------------------------------------------------------------
+    const questions = [
+        {
+            text: "Which village emerged as the single highest-frequency reference (292 occurrences) in pages 66–347, surpassing Māṇḍar from the earlier section?",
+            options: [
+                "Sodarapura",
+                "Karmaharā (karamahā)",
+                "Darihara",
+                "Khauāla"
+            ],
+            correct: 1,
+            explanation: "Karmaharā (modern Karmahe, Madhubani district) appears 292 times, becoming the dominant maternal-line anchor and scholarly center in this section."
+        },
+        {
+            text: "What extraordinary diaspora entry in pages 66–347 records a Maithil Brahmin family settled in the Kathmandu Valley (Nepal) while linked to Darihara?",
+            options: [
+                "Rataulī-Darihara",
+                "Bhauālavāsī (Bhauāla resident)",
+                "Simaravāḍa",
+                "Maliṅgiyā Kujaulī"
+            ],
+            correct: 1,
+            explanation: "'Bhauālavāsī' refers to a resident of Bhauāl (Kathmandu Valley). The entry links Bābu's sons to Bhauāla, Amarāvatī and Darihara, proving trans-border diaspora tracking."
+        },
+        {
+            text: "Which unique scholarly honorific, meaning 'bearing the seal of the Sustaining Sarasvatī,' appears in this section as a singular highest academic designation?",
+            options: [
+                "Mahāmahopādhyāya",
+                "Avalaṃba-Sarasvatī-dāṅkita",
+                "Sarvajña Garība",
+                "Jyotirvimaya"
+            ],
+            correct: 1,
+            explanation: "Avalaṃba-Sarasvatī-dāṅkita (Seal of the Sustaining Sarasvatī) is a unique compound title found only in §79, indicating a scholar recognized as a support-pillar of learning."
+        },
+        {
+            text: "Which royal figure's sons are completely listed with sibling-rank notation in this section, placing the Mithilā royal family within the Brahmin dau-bīji network?",
+            options: [
+                "Mahārāja Rāmeśvara Siṃha",
+                "Mahārāja Mādhava Siṃha",
+                "Mahārāja Samara Siṃha",
+                "Mahārāja Kāmeśvara Siṃha"
+            ],
+            correct: 1,
+            explanation: "Mahārāja Mādhava Siṃha's sons (Bābu Rāmapati Siṃha, Prajāpati Siṃha, etc.) are recorded with sibling-rank codes, integrating royalty into the Panjī network."
+        },
+        {
+            text: "What is the significance of the marriage colophons dated 2003–2004 embedded in this ancient genealogical register?",
+            options: [
+                "They are forgeries",
+                "They prove the Panjī tradition remained alive and juridically active into the 21st century, with real-time records",
+                "They record only deaths",
+                "They are from a different community"
+            ],
+            correct: 1,
+            explanation: "Dated colophons (e.g., 09.12.2003, 20.01.2004) show the Panjī was still consulted for marriage validation in the 2000s, demonstrating institutional continuity."
+        },
+        {
+            text: "Which new title compound meaning 'The All-Knowing Pauper' appears as a paradoxical epithet in pages 66–347?",
+            options: [
+                "Mahottara Pratāpuruṣottama",
+                "Sarvajña Garība",
+                "Cāturmāsika Mansabdār Hazārī",
+                "Kavindra-dāṅkita"
+            ],
+            correct: 1,
+            explanation: "Sarvajña Garība ('All-Knowing Pauper') encodes the paradox of omniscient knowledge combined with renunciation of wealth, used as a family identifier."
+        },
+        {
+            text: "Which entry integrates a Mughal administrative title ('Mansabdār Hazārī') directly into the Panjī genealogical chain, showing absorption of imperial service?",
+            options: [
+                "Vaidika Yudanātha",
+                "Cāturmāsika-Mansabdār-Hazārī Rāmānanda Caudharī",
+                "Pāṃ Rāmānanda",
+                "Rāya Candra Nārāyaṇa"
+            ],
+            correct: 1,
+            explanation: "Rāmānanda is recorded as 'Cāturmāsika-Mansabdār-Hazārī' (Four-Month Commander of a Thousand) – a Mughal mansabdar title integrated seamlessly."
+        },
+        {
+            text: "What does the prefix 'Pāṃ' (pā~) signify when attached to individuals in pages 66–347?",
+            options: [
+                "A low-caste designation",
+                "Highest Brahmin ranking (Pañca-śrotriya) – marker of families from whom Mahāmahopādhyāya title-holders emerge",
+                "A foreign migrant",
+                "A type of marriage"
+            ],
+            correct: 1,
+            explanation: "Pāṃ (short for Pañcāyatī or Pañca-śrotriya) indicates the highest Brahmin classification; these families frequently produce Mahāmahopādhyāya scholars."
+        },
+        {
+            text: "Which village appears as a new geographic corridor in this section, straddling the India–Nepal border and linking to Simaravāḍa (near Janakpur)?",
+            options: [
+                "Rataulī–Darihara",
+                "Karmaharā–Behaṭ",
+                "Rataulī-Darihara with Simaravāḍa",
+                "Sodarapura–Gaṅgolī"
+            ],
+            correct: 2,
+            explanation: "The Rataulī–Darihara sub-cluster connects through Simaravāḍa (near Janakpur, Nepal), documenting a genealogical corridor across the modern border."
+        },
+        {
+            text: "What does the mātṛkā-cakra completion 'evaṃ X mātṛka-cakraṃ' certify in the genealogical record?",
+            options: [
+                "The end of a village record",
+                "The completion of a genealogical circuit, certifying social legitimacy of the connected family network",
+                "The start of a new section",
+                "A royal decree"
+            ],
+            correct: 1,
+            explanation: "The mātṛkā-cakra formula marks the completion of a maternal cycle, certifying that every living male is validly connected to his mūla-grāma through both paternal and maternal lines."
+        }
+    ];
+
+    // state
+    let userAnswers = new Array(questions.length).fill(null);
+    let quizSubmitted = false;
+
+    const container = document.getElementById('quizContainer');
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const scoreSpan = document.getElementById('scoreDisplay');
+
+    function computeScore() {
+        let correctCount = 0;
+        for (let i = 0; i < questions.length; i++) {
+            if (userAnswers[i] !== null && userAnswers[i] === questions[i].correct) correctCount++;
+        }
+        return correctCount;
+    }
+
+    function updateScore() {
+        const total = questions.length;
+        const correct = computeScore();
+        scoreSpan.innerText = `Score: ${correct}/${total}`;
+    }
+
+    function renderQuiz() {
+        container.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.dataset.idx = idx;
+
+            const qDiv = document.createElement('div');
+            qDiv.className = 'q-text';
+            qDiv.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qDiv);
+
+            const optsDiv = document.createElement('div');
+            optsDiv.className = 'options-area';
+
+            q.options.forEach((opt, optIdx) => {
+                const optRow = document.createElement('div');
+                optRow.className = 'opt-row';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${idx}`;
+                radio.value = optIdx;
+                radio.id = `q_${idx}_opt_${optIdx}`;
+                if (!quizSubmitted && userAnswers[idx] === optIdx) radio.checked = true;
+                if (quizSubmitted) radio.disabled = true;
+
+                const label = document.createElement('label');
+                label.htmlFor = `q_${idx}_opt_${optIdx}`;
+                label.innerText = opt;
+
+                radio.addEventListener('change', (e) => {
+                    if (!quizSubmitted) {
+                        userAnswers[idx] = parseInt(e.target.value);
+                    }
+                });
+
+                optRow.appendChild(radio);
+                optRow.appendChild(label);
+                optsDiv.appendChild(optRow);
+            });
+            card.appendChild(optsDiv);
+
+            if (quizSubmitted) {
+                const fbDiv = document.createElement('div');
+                fbDiv.className = 'feedback';
+                const isCorrect = (userAnswers[idx] === q.correct);
+                if (isCorrect) {
+                    fbDiv.innerHTML = `<div class="correct-feedback">✓ Correct. ${q.explanation}</div>`;
+                } else {
+                    const correctLetter = String.fromCharCode(65 + q.correct);
+                    fbDiv.innerHTML = `<div class="wrong-feedback">✗ Incorrect. Right answer: ${correctLetter}) ${q.options[q.correct]}.<br>${q.explanation}</div>`;
+                }
+                card.appendChild(fbDiv);
+            }
+            container.appendChild(card);
+        });
+    }
+
+    function submitQuiz() {
+        if (quizSubmitted) return;
+        let allAnswered = true;
+        for (let i = 0; i < questions.length; i++) {
+            if (userAnswers[i] === null) {
+                allAnswered = false;
+                break;
+            }
+        }
+        if (!allAnswered) {
+            alert("⚠️ Please answer all 10 questions before submitting.");
+            return;
+        }
+        quizSubmitted = true;
+        updateScore();
+        renderQuiz();
+    }
+
+    function resetQuiz() {
+        quizSubmitted = false;
+        userAnswers.fill(null);
+        updateScore();
+        renderQuiz();
+    }
+
+    // initial render
+    renderQuiz();
+    updateScore();
+
+    submitBtn.addEventListener('click', submitQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

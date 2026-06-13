@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <title>Quiz: Chapter 32 – Institutional Critique, Parallel Awards & Later Writers</title> <style>
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+max-width: 1000px;
+margin: 2rem auto;
+padding: 1rem;
+background: #f0ede5;
+}
+.quiz-container {
+background: white;
+border-radius: 2rem;
+padding: 1.5rem;
+box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+h1 {
+color: #2c5e2c;
+border-left: 5px solid #b8860b;
+padding-left: 1rem;
+}
+.question {
+border-bottom: 1px solid #e0d6c5;
+padding: 1rem 0;
+}
+.question-text {
+font-weight: 700;
+margin-bottom: 0.5rem;
+font-size: 1.05rem;
+}
+.options {
+margin-left: 1.5rem;
+margin-bottom: 0.5rem;
+}
+.option {
+margin: 0.3rem 0;
+}
+.explanation {
+background: #f4f1e8;
+padding: 0.6rem;
+margin-top: 0.6rem;
+border-left: 4px solid #b8860b;
+display: none;
+border-radius: 0.5rem;
+}
+button {
+background: #2c5e2c;
+color: white;
+border: none;
+padding: 0.5rem 1.2rem;
+border-radius: 2rem;
+cursor: pointer;
+margin: 0.2rem;
+font-size: 1rem;
+}
+button:hover {
+background: #1e401e;
+}
+.score {
+font-size: 1.2rem;
+font-weight: bold;
+margin-top: 1rem;
+text-align: center;
+}
+hr {
+margin: 1rem 0;
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <h1>📖 Chapter 32 – Institutional Critique, Parallel Awards & Later Writers</h1> <p>Based on the Videha Parallel History (sections on award politics, RTI expose, and critical appreciations of Kumar Pawan, Jagdanand Jha 'Manu', Nand Kumar Mishra, etc.)</p> <div id="quiz"></div> <div style="margin-top: 1rem;"> <button id="submitBtn">✔ Submit Answers</button> <button id="resetBtn">⟳ Reset Quiz</button> </div> <div id="score" class="score"></div>
+</div>
+<script>
+const questions = [
+    {
+        text: "The RTI application filed by Vinit Utpal and Ashish Anchinhar (2011-14) revealed that over 90% of Sahitya Akademi translation and publication assignments for Maithili went to:",
+        options: [
+            "Young unpublished writers",
+            "Friends and relatives of the 10‑member advisory board",
+            "Nepali Maithili writers",
+            "Dalit authors"
+        ],
+        correct: 1,
+        explanation: "The RTI expose confirmed institutional capture: assignments were distributed within a closed network, excluding parallel tradition writers."
+    },
+    {
+        text: "What is the ‘Videha Parallel Samman’ and why was it instituted?",
+        options: [
+            "A government award for Hindi literature",
+            "A counter‑canonical award to honour writers ignored by the mainstream Sahitya Akademi, especially subaltern and Dalit voices",
+            "A prize for engineering students",
+            "An award for Nepali poetry"
+        ],
+        correct: 1,
+        explanation: "Videha created its own ‘Samantar Sahitya Akademi Samman’ to recognise artists and writers systematically excluded by the official award system."
+    },
+    {
+        text: "Which Maithili writer, known for his long story ‘Paiṭh’ (The Salvation) and the micro‑fiction ‘Dāyrīk Khālī Pannā’, critiques institutional corruption and rural displacement?",
+        options: [
+            "Kumar Pawan",
+            "Jagdanand Jha ‘Manu’",
+            "Nand Kumar Mishra ‘Nand’",
+            "Kapileshwar Raut"
+        ],
+        correct: 0,
+        explanation: "Kumar Pawan (Dr. Pawan Kumar Jha) wrote these dīrgha-kathā works, satirising bureaucracy and social decay in Mithila."
+    },
+    {
+        text: "The ‘Sagar Rati Deep Jaray’ all‑night literary gatherings, originally a democratic space, were later criticised for being ‘hijacked’ by which institution?",
+        options: [
+            "Sahitya Akademi",
+            "Maithili Academy Patna",
+            "Nepal Pragya Pratishthan",
+            "Chetna Samiti"
+        ],
+        correct: 0,
+        explanation: "The 2012 Delhi session was funded and organised by the Sahitya Akademi, breaking the independent character of Sagar Rati."
+    },
+    {
+        text: "Which writer is the author of the ghazal collection ‘Naḍhiyā Bhukaiye Hamar Ghaṛārīpar’ (101 ghazals) and the seed‑story collection ‘Tohār Katek Raṅg’?",
+        options: [
+            "Jagdanand Jha ‘Manu’",
+            "Ashish Anchinhar",
+            "Kumar Pawan",
+            "Kameshwar Jha ‘Kamal’"
+        ],
+        correct: 0,
+        explanation: "Jagdanand Jha ‘Manu’ is a prolific ghazal poet and seed‑story writer in the Anchinhar tradition."
+    },
+    {
+        text: "According to the Videha Parallel History, which of the following is a major failure of the Sahitya Akademi’s Fellowship (Sahitya Akademi Fellow) for Maithili?",
+        options: [
+            "It has been awarded to 10 Maithili writers",
+            "No Maithili writer has ever been elected a Fellow, despite Maithili’s ancient literary tradition",
+            "It only recognises poetry",
+            "It is given exclusively to Nepali writers"
+        ],
+        correct: 1,
+        explanation: "As of 2026, Maithili has produced zero Sahitya Akademi Fellows, a glaring institutional neglect."
+    },
+    {
+        text: "The novelist and short‑story writer Nand Kumar Mishra ‘Nand’ published his works primarily through which regional press, outside the mainstream Delhi‑based circuit?",
+        options: [
+            "Shruti Prakashan, Delhi",
+            "Gosauni Baidyanath Smriti Manch, Darbhanga",
+            "Pallavi Prakashan, Nirmali",
+            "Navarambh Prakashan"
+        ],
+        correct: 1,
+        explanation: "Nand’s twelve books (2011–2022) were all published by Gosauni Baidyanath Smriti Manch, Darbhanga, a small regional institution."
+    },
+    {
+        text: "The Maithili writer Kapileshwar Raut, a farmer from Berma village, is known for his collection ‘Ulhan’. What is the central theme of the title story?",
+        options: [
+            "A son’s reproach (ulhan) to his father for years of absence due to migration",
+            "A landlord’s cruelty",
+            "A woman’s dowry death",
+            "A mythological fable"
+        ],
+        correct: 0,
+        explanation: "In ‘Ulhan’, a son’s casual remark about past poverty becomes an unconscious reproach to his migrant father."
+    },
+    {
+        text: "The ‘Anchinhar Formula’ for literary evaluation includes ‘Shakti‑kadrat’ (power proximity). What does this criterion assess?",
+        options: [
+            "The writer’s use of Sanskrit vocabulary",
+            "The writer’s courage to critique proximate power (e.g., local politicians, institutions) rather than distant targets",
+            "The length of the text",
+            "The use of folk metres"
+        ],
+        correct: 1,
+        explanation: "Anchinhar argues that true literary courage is shown by attacking power close to the writer, not safe foreign targets."
+    },
+    {
+        text: "In the debate over Maithili drama, which playwright is credited with creating a ‘parallel Maithili stage’ that directly confronts caste violence, as opposed to mainstream casteist theatre?",
+        options: [
+            "Bechan Thakur",
+            "Mahendra Malangia",
+            "Lallan Prasad Thakur",
+            "Udaya Narayan Singh ‘Nachiketa’"
+        ],
+        correct: 0,
+        explanation: "Bechan Thakur’s plays (e.g., ‘Oonch-Neech’, ‘Betik Apaman’) are explicitly anti‑caste and form the core of Videha’s parallel theatre movement."
+    },
+    {
+        text: "Which Maithili novel by Jagdish Prasad Mandal, winner of the Sahitya Akademi Award 2021, uses physical disability as a metaphor for structural social exclusion?",
+        options: [
+            "Pangu",
+            "Gamak Jingi",
+            "Mansarbi",
+            "Ijjat Gama Ijjat Banchelo"
+        ],
+        correct: 0,
+        explanation: "‘Pangu’ (The Lame) broke the pattern of upper‑caste award winners and highlighted caste‑based immobility."
+    },
+    {
+        text: "The ‘Dooshan Panji’ (Black Book) released by Videha in 2009 contained genealogical records that proved which suppressed fact about the philosopher Gaṅgeśa Upādhyāya?",
+        options: [
+            "He was a poet",
+            "He was born five years after his father’s death and married a Charmkarini (leather‑worker caste)",
+            "He wrote only in Sanskrit",
+            "He rejected Nyāya"
+        ],
+        correct: 1,
+        explanation: "The Panji records exposed his ‘illegitimate’ birth and inter‑caste marriage, concealed by Ramanath Jha to preserve Brahminical purity."
+    },
+    {
+        text: "Which Maithili poet and journalist, based in Delhi, wrote the collection ‘Kichhu Fura Gel Hamra’ and explicitly critiques the ‘Brahmin‑Kayastha’ domination of Maithili literary awards?",
+        options: [
+            "Kishan Karigar",
+            "Arvind Thakur",
+            "Binay Bhushan",
+            "Prabhat Rai Bhatt"
+        ],
+        correct: 0,
+        explanation: "Kishan Karigar (Dr. Krishna Kumar Ray) is a poet and founder‑editor of ‘Mithilanchal Today’, a parallel voice."
+    },
+    {
+        text: "The ‘Sahitya Akademi’ began awarding the Maithili main prize in 1966, but the language was added to the Eighth Schedule of the Indian Constitution only in:",
+        options: [
+            "1975",
+            "1992",
+            "2003",
+            "2010"
+        ],
+        correct: 2,
+        explanation: "Maithili was recognised in the Eighth Schedule in 2003 (92nd Constitutional Amendment), 37 years after Sahitya Akademi recognition."
+    },
+    {
+        text: "According to the document, which organisation’s special issue (Videha 408) documented infrastructure achievements (train lines, roads) but also internal criticism of being a ‘one‑man show’?",
+        options: [
+            "Mithila Vikas Parishad, Kolkata",
+            "Kokil Manch",
+            "Mithila Student Union",
+            "Akhil Bharatiya Maithili Sahitya Parishad"
+        ],
+        correct: 0,
+        explanation: "The Mithila Vikas Parishad special issue (2024) included both praise for tangible projects and accusations of authoritarian leadership."
+    },
+    {
+        text: "What is the ‘Bīhani Kathā’ (seed story) form, as developed by the Videha movement?",
+        options: [
+            "A long epic poem",
+            "A very short, compressed narrative that functions as a ‘seed’ for larger meaning, unique to Maithili literature",
+            "A type of folk dance",
+            "A devotional hymn"
+        ],
+        correct: 1,
+        explanation: "The bīhani kathā (formally named in 1995) is a Maithili micro‑fiction form prized for its density and open ending."
+    },
+    {
+        text: "The poet‑playwright Udaya Narayana Singh ‘Nachiketa’ won the Sahitya Akademi Award (2017) for which Maithili poetry collection?",
+        options: [
+            "Jahalak Diary",
+            "Madhyampurush Ekvachan",
+            "No Entry: Mā Pravish",
+            "Kavyo Vadanti"
+        ],
+        correct: 0,
+        explanation: "‘Jahalak Diary’ (sudden flashes) earned Nachiketa the Sahitya Akademi Award for Maithili poetry in 2017."
+    },
+    {
+        text: "In the critical appreciation of Kumar Pawan’s story ‘Dāyrīk Khālī Pannā’ (The Empty Pages of the Diary), the blank diary symbolises:",
+        options: [
+            "The principal’s writer’s block",
+            "The impossibility of honest testimony when social conditions have become epistemologically corrupt",
+            "Lack of education",
+            "A love letter"
+        ],
+        correct: 1,
+        explanation: "The blank diary represents the collapse of valid cognition (pramā) under institutional corruption – a Navya‑Nyāya reading."
+    },
+    {
+        text: "Which Maithili writer and retired bank officer authored the village biography ‘Koilakh’ and the reader‑response collection ‘Lekh-Rekh’?",
+        options: [
+            "Hitnath Jha",
+            "Lal Dev Kamat",
+            "Nabo Narayan Mishra",
+            "Gajendra Thakur"
+        ],
+        correct: 0,
+        explanation: "Hitnath Jha, based in Hazaribagh, contributed gram‑itihās and innovative pāṭhakīya (reader‑response) criticism."
+    },
+    {
+        text: "The ‘Nit Naval’ (Ever New) monograph series by Videha focuses on:",
+        options: [
+            "Classical Sanskrit poets",
+            "Overlooked contemporary writers, often from subaltern or non‑institutional backgrounds",
+            "Children’s literature only",
+            "Political manifestos"
+        ],
+        correct: 1,
+        explanation: "The series includes monographs on Dinesh Kumar Mishra, Subhash Chandra Yadav, and others ignored by mainstream academia."
+    }
+];
+
+let userSelections = new Array(questions.length).fill(null);
+let submitted = false;
+
+function renderQuiz() {
+    const container = document.getElementById('quiz');
+    if (!container) return;
+    let html = '';
+    questions.forEach((q, idx) => {
+        const selected = userSelections[idx] !== null ? userSelections[idx] : -1;
+        html += `<div class="question">
+                    <div class="question-text">${idx+1}. ${q.text}</div>
+                    <div class="options">`;
+        q.options.forEach((opt, optIdx) => {
+            const checked = (selected === optIdx) ? 'checked' : '';
+            html += `<div class="option">
+                        <input type="radio" name="q${idx}" value="${optIdx}" id="q${idx}_${optIdx}" ${checked} ${submitted ? 'disabled' : ''}>
+                        <label for="q${idx}_${optIdx}">${String.fromCharCode(65+optIdx)}. ${opt}</label>
+                     </div>`;
+        });
+        html += `</div><div class="explanation" id="expl${idx}"></div></div>`;
+    });
+    container.innerHTML = html;
+}
+
+function calculateScore() {
+    let correct = 0;
+    for (let i = 0; i < questions.length; i++) {
+        if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correct++;
+    }
+    return correct;
+}
+
+function submitQuiz() {
+    submitted = true;
+    for (let i = 0; i < questions.length; i++) {
+        const radios = document.getElementsByName(`q${i}`);
+        for (let j = 0; j < radios.length; j++) {
+            if (radios[j].checked) userSelections[i] = parseInt(radios[j].value);
+        }
+        const explDiv = document.getElementById(`expl${i}`);
+        if (explDiv) {
+            const userAns = (userSelections[i] !== null) ? questions[i].options[userSelections[i]] : "Not answered";
+            const correctAns = questions[i].options[questions[i].correct];
+            explDiv.innerHTML = `<strong>📖 Explanation:</strong> ${questions[i].explanation}<br>
+                                 <span style="color:#4b6b3e;">Your answer: ${userAns}</span><br>
+                                 <span style="color:#2c6e2c;">Correct answer: ${correctAns}</span>`;
+            explDiv.style.display = 'block';
+        }
+        // disable radios
+        const allRadios = document.getElementsByName(`q${i}`);
+        allRadios.forEach(r => r.disabled = true);
+    }
+    const score = calculateScore();
+    document.getElementById('score').innerHTML = `✅ Score: ${score} / ${questions.length}`;
+}
+
+function resetQuiz() {
+    submitted = false;
+    userSelections = new Array(questions.length).fill(null);
+    renderQuiz();
+    for (let i = 0; i < questions.length; i++) {
+        const explDiv = document.getElementById(`expl${i}`);
+        if (explDiv) explDiv.style.display = 'none';
+    }
+    document.getElementById('score').innerHTML = '';
+}
+
+document.getElementById('submitBtn').addEventListener('click', submitQuiz);
+document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+renderQuiz();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

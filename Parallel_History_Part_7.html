@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Part 7 – Linguistic Sovereignty, Institutional Critique & the Counter‑Hegemonic Archive</title> <style>
+* {
+box-sizing: border-box;
+}
+body {
+background: #ece4db;
+font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, sans-serif;
+margin: 0;
+padding: 2rem 1rem;
+color: #1e2a2e;
+}
+.quiz-container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffdf9;
+border-radius: 2rem;
+box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+overflow: hidden;
+padding: 2rem 1.8rem;
+}
+h1 {
+font-size: 1.8rem;
+margin-top: 0;
+margin-bottom: 0.2rem;
+color: #8b2c2c;
+border-left: 6px solid #b45f2b;
+padding-left: 1rem;
+}
+.sub {
+color: #6a4e38;
+font-style: italic;
+margin-bottom: 2rem;
+border-bottom: 2px solid #ecdfd1;
+padding-bottom: 0.7rem;
+}
+.question-card {
+background: #fefaf5;
+border-radius: 1.5rem;
+margin-bottom: 1.8rem;
+padding: 1.2rem 1.5rem;
+box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+border: 1px solid #ecdfd1;
+}
+.question-text {
+font-weight: 700;
+font-size: 1.2rem;
+margin-bottom: 1rem;
+color: #3b2a1c;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+margin-bottom: 0.5rem;
+}
+.option {
+display: flex;
+align-items: flex-start;
+gap: 0.8rem;
+background: #ffffff;
+padding: 0.6rem 1rem;
+border-radius: 2rem;
+border: 1px solid #e0cfbe;
+cursor: pointer;
+transition: all 0.1s;
+}
+.option:hover {
+background-color: #fdf1e6;
+border-color: #bb8a60;
+}
+input[type="radio"] {
+margin-top: 0.2rem;
+accent-color: #b45f2b;
+width: 1.1rem;
+height: 1.1rem;
+}
+.option label {
+flex: 1;
+cursor: pointer;
+font-weight: 500;
+color: #3d2c20;
+}
+.feedback {
+margin-top: 0.9rem;
+font-size: 0.9rem;
+padding: 0.6rem 1rem;
+border-radius: 2rem;
+background: #f8f1e9;
+display: none;
+}
+.feedback.correct {
+background: #e2f3e4;
+color: #1f6132;
+border-left: 4px solid #2e7d32;
+display: block;
+}
+.feedback.incorrect {
+background: #ffe7e3;
+color: #bc3f2c;
+border-left: 4px solid #c5382b;
+display: block;
+}
+.score-area {
+position: sticky;
+bottom: 1rem;
+background: #ffffffdd;
+backdrop-filter: blur(8px);
+border-radius: 3rem;
+padding: 0.8rem 1.2rem;
+text-align: center;
+margin-top: 2rem;
+font-weight: bold;
+font-size: 1.2rem;
+border: 1px solid #dacbbc;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+button {
+background: #b45f2b;
+border: none;
+color: white;
+font-weight: bold;
+font-size: 1rem;
+padding: 0.65rem 1.8rem;
+border-radius: 3rem;
+cursor: pointer;
+transition: 0.2s;
+margin: 0.4rem;
+}
+button:hover {
+background: #8d471e;
+transform: scale(0.97);
+}
+.reset-btn {
+background: #5f4d3b;
+}
+.reset-btn:hover {
+background: #44362a;
+}
+.footer-note {
+margin-top: 2rem;
+font-size: 0.75rem;
+text-align: center;
+color: #b49a7c;
+border-top: 1px solid #efe0d2;
+padding-top: 1.2rem;
+}
+@media (max-width: 650px) {
+.quiz-container {
+padding: 1.2rem;
+}
+.question-text {
+font-size: 1rem;
+}
+.option label {
+font-size: 0.85rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <h1>📖 Part VII – Linguistic Sovereignty, Institutional Critique & the Counter‑Hegemonic Archive</h1> <div class="sub">⚖️ Harimohan Jha’s ‘Language as Kṣetra’ · Navya‑Nyāya epistemology · Sahitya Akademi vs Videha Samman · The seven literary associations · RTI expose · Counter‑hegemonic force of the parallel tradition</div> <p style="background:#f6efe8; padding:0.8rem 1.2rem; border-radius: 2rem; margin-bottom: 1.6rem;">
+📚 Based on “A Parallel History of Mithila & Maithili Literature” – Part VII covers Harimohan Jha’s linguistic battle, the failure of state academies, the parallel awards system, and the political economy of Maithili literary institutions.
+</p> <div id="questions-area"></div> <div class="score-area" id="scoreDisplay">
+⚡ 0 / 0 questions answered
+</div> <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;"> <button id="submitBtn">✅ Submit & Check</button> <button id="resetBtn" class="reset-btn">⟳ Reset Quiz</button> </div> </div>
+<script>
+    // ----- PART 7: Harimohan Jha, language as Kṣetra, institutional critique, parallel awards, counter‑hegemony -----
+    const questions = [
+        {
+            text: "In Prof. Harimohan Jha’s ‘Trends of Linguistic Analysis in Indian Philosophy’, what is the central metaphor for language?",
+            options: ["A mirror", "A river", "Kṣetra (field of battle) – loss of language means loss of sovereignty", "A temple"],
+            correct: 2,
+            explanation: "Jha viewed language as a battlefield where meaning, identity, and power are contested; losing linguistic precision equals losing the kingdom."
+        },
+        {
+            text: "Which concept from Navya‑Nyāya did Harimohan Jha use to argue that the coloniser turned the colonised into a mere adjective (viśeṣaṇa) of the empire?",
+            options: ["Sphoṭa", "Avacchedakatā (delimitation) – the colonised must reclaim their substantivity (viśeṣyatā)", "Śabda‑brahman", "Anumāna"],
+            correct: 1,
+            explanation: "Jha argued that the coloniser tried to reduce India to a qualifier (viśeṣaṇa) of the British Empire; reclaiming the ‘substantive’ was a linguistic decolonisation."
+        },
+        {
+            text: "According to Harimohan Jha’s framework, what are the four necessary conditions for valid verbal cognition (śābdabodha)?",
+            options: ["Raga, Tala, Laya, Bhava", "Ākāṅkṣā (expectancy), Asatti (proximity), Yogyatā (fitness), Tātparya (intention)", "Shabda, Artha, Rasa, Dhvani", "Varna, Pada, Vakya, Chandas"],
+            correct: 1,
+            explanation: "These four conditions, drawn from Navya‑Nyāya, ensure that a sentence produces valid meaning – a core principle of Jha’s semantic sovereignty."
+        },
+        {
+            text: "The Videha Parallel History reveals that before 1800 CE, the ‘Shrotriya’ sub‑caste among Maithil Brahmins did not exist. What is the significance of this finding?",
+            options: [
+                "It proves caste is eternal",
+                "It shows that elite sub‑castes were artificial creations of the colonial Permanent Settlement (c. 1760–1800) to consolidate power",
+                "It has no meaning",
+                "It proves migration from Nepal"
+            ],
+            correct: 1,
+            explanation: "The Panji records show that the Shrotriya sub‑caste emerged around 1800 CE as a revenue‑based category, not an ancient varna division – exposing caste as historically constructed."
+        },
+        {
+            text: "The RTI applications filed by Vinit Utpal and Ashish Anchinhar (2011–14) revealed that what percentage of Sahitya Akademi’s Maithili translation/publication assignments went to friends and relatives of the 10‑member advisory board?",
+            options: ["Over 90%", "50%", "25%", "10%"],
+            correct: 0,
+            explanation: "The RTI data confirmed systemic cronyism, with over 90% of assignments going to the inner circle, excluding Dalit, women, and parallel tradition writers."
+        },
+        {
+            text: "Which of the following is NOT one of the seven Maithili literary associations recognised by the Sahitya Akademi (as per the 2022 list)?",
+            options: [
+                "Chetna Samiti, Patna",
+                "Mithila Sanskritik Parishad, Kolkata",
+                "Videha Parallel eJournal",
+                "Akhil Bharatiya Mithila Sangh, New Delhi"
+            ],
+            correct: 2,
+            explanation: "Videha eJournal is explicitly a parallel, counter‑institutional platform and is not recognised by the Sahitya Akademi; the seven are legacy bodies like Chetna Samiti, Mithila Sanskritik Parishad, etc."
+        },
+        {
+            text: "According to the Parallel History’s award‑distribution analysis, how many times did Maithil Brahmins receive the Sahitya Akademi Award for Maithili between 1966 and 2019 (before Jagdish Prasad Mandal’s award in 2021)?",
+            options: ["42 times", "12 times", "25 times", "58 times"],
+            correct: 0,
+            explanation: "The data shows Brahmins won 42 times, Kayasthas 6 times, Rajputs 3 times, Others 0 – revealing extreme caste skew."
+        },
+        {
+            text: "What is the primary function of the ‘Videha Samman’ (parallel award system) instituted by Gajendra Thakur?",
+            options: [
+                "To replace the Sahitya Akademi",
+                "To recognise Dalit, women, folk, and subaltern artists ignored by mainstream academies, with categories mirroring Sahitya, Lalit Kala, and Sangeet Natak Akademi",
+                "To publish only poetry",
+                "To promote Hindi translation"
+            ],
+            correct: 1,
+            explanation: "Videha Samman (Parallel Sahitya Akademi, Lalit Kala Akademi, Sangeet Natak Akademi) honours village‑based artists, folk musicians, and marginalised voices systematically excluded by state academies."
+        },
+        {
+            text: "The Parallel History describes the ‘Nit Naval’ series as:",
+            options: [
+                "A series of children’s books",
+                "Videha monographs on overlooked living writers and artists, part of the counter‑hegemonic archive",
+                "A set of political essays",
+                "A translation project"
+            ],
+            correct: 1,
+            explanation: "The ‘Nit Naval’ (Ever New) series publishes focused critical monographs on writers and artists whose work is archived on Videha, ensuring they are not forgotten."
+        },
+        {
+            text: "According to Harimohan Jha’s analysis, what happens when the Tirhuta script and pure Maithili vocabulary are lost?",
+            options: [
+                "Nothing changes",
+                "The avacchedaka (limiting criteria) for what constitutes ‘Maithili’ is erased, leading to vyadhikaraṇa abhāva – the word exists but its meaning is relocated to a museum",
+                "Hindi becomes stronger",
+                "Nepali takes over"
+            ],
+            correct: 1,
+            explanation: "Jha argued that loss of script and pure vocabulary causes ‘non‑existence in a different locus’ – Maithili becomes a museum object, not a living language."
+        },
+        {
+            text: "Which concept from Harimohan Jha’s linguistic framework corresponds to the process of understanding a sentence as an indivisible whole, rejecting atomistic reading?",
+            options: ["Varṇavāda", "Padavāda", "Akhaṇḍa‑vākya‑sphoṭavāda (indivisible sentence‑sphota)", "Abhāva"],
+            correct: 2,
+            explanation: "Jha championed the Grammarian’s sphoṭa theory, arguing that meaning flashes as a whole, not as a sequence of isolated letters or words."
+        },
+        {
+            text: "In the Parallel History’s critique of the Lalit Kala Akademi, what is the main failure regarding Mithila painting?",
+            options: [
+                "It never recognised Mithila painting",
+                "It recognised individual ‘masters’ but failed to protect intellectual property or create regional infrastructure; commodified the tradition without benefit to artists",
+                "It banned Mithila painting",
+                "It promoted only male painters"
+            ],
+            correct: 1,
+            explanation: "While Mithila painting gained UNESCO recognition, the Akademi did not establish a regional centre, leaving artists vulnerable to commercial exploitation."
+        },
+        {
+            text: "According to the document, what was the main ideological flaw of the Sagar Rati Deep Jaray literary gatherings after they were ‘hijacked’ by the Sahitya Akademi?",
+            options: [
+                "They became more democratic",
+                "They turned into government‑sponsored storytelling sessions where genuine independent writers were sidelined, and the event was presented as the 76th Sagar Rati despite being funded by the Akademi",
+                "They stopped altogether",
+                "They moved to Nepal"
+            ],
+            correct: 1,
+            explanation: "The 2012 Delhi event funded by Sahitya Akademi broke the independent tradition; writers like Ashish Anchinhar protested, and the book stall by Videha was banned."
+        },
+        {
+            text: "The Videha Parallel History identifies three institutional ‘special issue’ series for holistic evaluation. Which of the following is one of them?",
+            options: [
+                "Mithila Vikas Parishad Visheshank (Issue 408)",
+                "Sahitya Akademi Special",
+                "Bihar Rajbhasha Parishad",
+                "Hindi Akademi Visheshank"
+            ],
+            correct: 0,
+            explanation: "Videha has published special issues on organisations like Mithila Vikas Parishad and Mithila Student Union, treating them as living institutions worthy of critical documentation."
+        },
+        {
+            text: "Which of the following is a key argument of the ‘Videha Parallel History Framework’ regarding Maithili literary historiography?",
+            options: [
+                "The mainstream Sahitya Akademi canon is fully representative",
+                "The mainstream has systematically promoted an upper‑caste canon while suppressing democratic, folk, Dalit, and women’s voices",
+                "There is no need for a parallel history",
+                "All Maithili writers have been equally recognised"
+            ],
+            correct: 1,
+            explanation: "The framework’s central thesis is that official literary history is caste‑skewed; the parallel history recovers subaltern and democratic traditions."
+        },
+        {
+            text: "In the Navya‑Nyāya analysis applied to literary criticism, what does ‘pratyakṣa’ correspond to?",
+            options: [
+                "Inference from textual evidence",
+                "Direct perception – the immediate, phenomenological encounter with the text",
+                "Verbal testimony of authorities",
+                "Comparison with other texts"
+            ],
+            correct: 1,
+            explanation: "Pratyakṣa (perception) in Gaṅgeśa’s system is direct sensory contact; in literary criticism it is the reader’s immediate, pre‑interpretive experience of the text."
+        },
+        {
+            text: "According to the RTI‑based findings, which category of writers received zero Sahitya Akademi awards for Maithili between 1966 and 2019 (before Jagdish Prasad Mandal’s award)?",
+            options: ["Kayasthas", "Dalits / OBC (Others)", "Rajputs", "Maithil Brahmins"],
+            correct: 1,
+            explanation: "The ‘Others’ category (Dalits, OBCs) received zero awards; Jagdish Prasad Mandal’s 2021 award was the first for a non‑upper‑caste writer."
+        },
+        {
+            text: "What is the ‘Dooshan Panji’ (Black Book) that the Videha movement released digitally in 2009?",
+            options: [
+                "A collection of banned poems",
+                "A genealogical record of ‘impure’ lineages, including Gangesa Upadhyaya’s inter‑caste marriage and birth anomaly, suppressed by Ramanath Jha",
+                "A list of Sahitya Akademi awardees",
+                "A modern novel"
+            ],
+            correct: 1,
+            explanation: "The Dooshan Panji (impure secret book) contains suppressed genealogical facts used to expose the constructed nature of caste purity and the ‘honour killing’ of Gangesa’s legacy."
+        },
+        {
+            text: "Which of the following best describes the ‘Anuvyavasāya’ concept in Navya‑Nyāya as applied to literary criticism?",
+            options: [
+                "The act of translation",
+                "Meta‑cognition – awareness of one’s own cognitive process; in criticism, reflexive self‑awareness about one’s reading and interpretation",
+                "The death of the author",
+                "Rasa production"
+            ],
+            correct: 1,
+            explanation: "Anuvyavasāya is the cognition of one’s own cognition; in literary criticism, it means the critic’s awareness of their own interpretive framework and biases."
+        },
+        {
+            text: "The Parallel History notes that the Sangeet Natak Akademi has never given its highest honour (Fellowship) to a Maithili artist. What does this indicate?",
+            options: [
+                "Maithili performing arts are weak",
+                "Institutional neglect of rich Maithili folk theatre, music, and dance traditions despite their antiquity",
+                "Maithili artists refuse awards",
+                "No artists exist"
+            ],
+            correct: 1,
+            explanation: "The absence of a Maithili Sangeet Natak Akademi Fellow, despite traditions like Nachari, Bidesia, and Kirtaniya, reflects deep institutional marginalisation."
+        },
+        {
+            text: "Harimohan Jha’s concept of ‘language as Kṣetra’ directly influenced the Videha movement’s emphasis on:",
+            options: [
+                "English medium education",
+                "Digital archiving and linguistic sovereignty – reclaiming the ‘substantivity’ of Maithili through digital counter‑archives",
+                "Sanskritisation",
+                "Migration to cities"
+            ],
+            correct: 1,
+            explanation: "The Videha movement’s digital archive, Unicode standardisation, and open‑access philosophy embody Jha’s call for linguistic self‑determination and sovereignty."
+        }
+    ];
+
+    let selectedAnswers = new Array(questions.length).fill(null);
+    let quizSubmitted = false;
+
+    function renderQuestions() {
+        const container = document.getElementById('questions-area');
+        container.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.setAttribute('data-qid', idx);
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qText);
+            
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const optWrap = document.createElement('div');
+                optWrap.className = 'option';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${idx}`;
+                radio.value = optIdx;
+                radio.id = `q_${idx}_opt_${optIdx}`;
+                if (selectedAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    if (!quizSubmitted) {
+                        selectedAnswers[idx] = parseInt(e.target.value);
+                        updateScoreDisplay();
+                        const fbDiv = card.querySelector('.feedback');
+                        if (fbDiv) fbDiv.style.display = 'none';
+                    }
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q_${idx}_opt_${optIdx}`;
+                label.innerText = opt;
+                optWrap.appendChild(radio);
+                optWrap.appendChild(label);
+                optionsDiv.appendChild(optWrap);
+            });
+            card.appendChild(optionsDiv);
+            const fbDiv = document.createElement('div');
+            fbDiv.className = 'feedback';
+            fbDiv.id = `fb_${idx}`;
+            card.appendChild(fbDiv);
+            container.appendChild(card);
+        });
+    }
+
+    function updateScoreDisplay() {
+        const answered = selectedAnswers.filter(a => a !== null).length;
+        document.getElementById('scoreDisplay').innerHTML = `📌 ${answered} / ${questions.length} questions answered ${quizSubmitted ? '· Final scores below' : '· Submit to see correct answers'}`;
+    }
+
+    function evaluateQuiz() {
+        quizSubmitted = true;
+        let correctCount = 0;
+        for (let i = 0; i < questions.length; i++) {
+            const userChoice = selectedAnswers[i];
+            const isCorrect = (userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+            const fb = document.getElementById(`fb_${i}`);
+            if (fb) {
+                if (userChoice === null) {
+                    fb.innerHTML = `⚠️ Unanswered. Correct: ${questions[i].options[questions[i].correct]}. ${questions[i].explanation}`;
+                    fb.className = 'feedback incorrect';
+                } else if (isCorrect) {
+                    fb.innerHTML = `✅ Correct. ${questions[i].explanation}`;
+                    fb.className = 'feedback correct';
+                } else {
+                    fb.innerHTML = `❌ Incorrect. You chose: ${questions[i].options[userChoice]}. Correct: ${questions[i].options[questions[i].correct]}. ${questions[i].explanation}`;
+                    fb.className = 'feedback incorrect';
+                }
+                fb.style.display = 'block';
+            }
+        }
+        const scoreMsg = `🎯 You scored ${correctCount} out of ${questions.length}`;
+        document.getElementById('scoreDisplay').innerHTML = scoreMsg + (correctCount === questions.length ? ' — 🏆 Complete parallel scholar!' : ' — Review the explanations to deepen your understanding of the counter‑hegemonic archive.');
+    }
+
+    function resetQuiz() {
+        selectedAnswers.fill(null);
+        quizSubmitted = false;
+        for (let i = 0; i < questions.length; i++) {
+            const radios = document.querySelectorAll(`input[name="q_${i}"]`);
+            radios.forEach(r => r.checked = false);
+            const fb = document.getElementById(`fb_${i}`);
+            if (fb) {
+                fb.style.display = 'none';
+                fb.innerHTML = '';
+            }
+        }
+        updateScoreDisplay();
+    }
+
+    document.getElementById('submitBtn').addEventListener('click', evaluateQuiz);
+    document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+
+    renderQuestions();
+    updateScoreDisplay();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Videha Parallel History: Part XVII Quiz | Maithili Drama – Nepal & Kirtaniya Tradition</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: 'Segoe UI', 'Roboto', 'Georgia', serif;
+background: #f2ede4;
+color: #2c2418;
+padding: 2rem;
+line-height: 1.5;
+}
+.quiz-container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffef9;
+border-radius: 32px;
+box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
+overflow: hidden;
+border: 1px solid #e0d3c2;
+}
+.quiz-header {
+background: linear-gradient(135deg, #5e3a2c 0%, #8b5a3c 100%);
+color: #fef5e6;
+padding: 1.8rem 2rem;
+text-align: center;
+}
+.quiz-header h1 {
+font-size: 1.9rem;
+letter-spacing: -0.5px;
+font-weight: 600;
+margin-bottom: 0.5rem;
+}
+.quiz-header h1 span {
+font-style: italic;
+font-weight: 400;
+color: #f3da9b;
+}
+.quiz-header p {
+font-size: 1rem;
+opacity: 0.9;
+max-width: 750px;
+margin: 0 auto;
+}
+.score-area {
+background: #e9dfd1;
+padding: 0.8rem 2rem;
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+flex-wrap: wrap;
+gap: 1rem;
+border-bottom: 1px solid #d8c8b6;
+}
+.score-box {
+background: #2c3e2b;
+color: #faeecb;
+padding: 0.3rem 1rem;
+border-radius: 60px;
+font-weight: bold;
+font-size: 1.2rem;
+}
+.progress-text {
+font-weight: 500;
+color: #4b3a28;
+}
+button {
+background: none;
+border: none;
+cursor: pointer;
+font-family: inherit;
+}
+.questions-area {
+padding: 2rem 2rem 1rem;
+}
+.question-card {
+background: #fefbf7;
+margin-bottom: 2rem;
+border-radius: 24px;
+padding: 1.4rem 1.8rem;
+box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+border: 1px solid #ede1d2;
+transition: all 0.1s ease;
+}
+.question-text {
+font-size: 1.2rem;
+font-weight: 600;
+color: #5e3a2c;
+margin-bottom: 1.2rem;
+padding-left: 0.3rem;
+border-left: 4px solid #c68b5e;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.75rem;
+margin-bottom: 1.2rem;
+}
+.option {
+display: flex;
+align-items: center;
+gap: 0.75rem;
+background: #ffffff;
+padding: 0.6rem 1rem;
+border-radius: 50px;
+border: 1px solid #e6d8ca;
+transition: background 0.15s;
+cursor: pointer;
+}
+.option:hover {
+background: #f7f0e8;
+}
+input[type="radio"] {
+accent-color: #8b5a2b;
+width: 18px;
+height: 18px;
+margin: 0;
+}
+.option label {
+font-size: 0.98rem;
+font-weight: 450;
+color: #2c2a27;
+width: 100%;
+cursor: pointer;
+}
+.feedback {
+margin-top: 0.8rem;
+font-size: 0.85rem;
+padding: 0.4rem 0.8rem;
+border-radius: 20px;
+display: inline-block;
+background: #f2ece4;
+color: #5a4a38;
+}
+.feedback.correct {
+background: #e2f0e4;
+color: #1f592e;
+border-left: 3px solid #2f8243;
+}
+.feedback.incorrect {
+background: #fde9e7;
+color: #aa3e2c;
+border-left: 3px solid #c25542;
+}
+.action-buttons {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 1rem;
+padding: 0 2rem 1.8rem 2rem;
+}
+.btn {
+padding: 0.7rem 1.8rem;
+border-radius: 60px;
+font-weight: 600;
+font-size: 0.9rem;
+transition: all 0.2s;
+background: #e5d9cd;
+color: #2c2418;
+border: 1px solid #cfbeaa;
+}
+.btn-primary {
+background: #7a5a3e;
+color: white;
+border: none;
+box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.btn-primary:hover {
+background: #5c4130;
+transform: translateY(-1px);
+cursor: pointer;
+}
+.btn-reset {
+background: #efe3d5;
+border: 1px solid #cfbeaa;
+}
+.btn-reset:hover {
+background: #e2d1bd;
+cursor: pointer;
+}
+.footer {
+background: #f2ece3;
+padding: 1rem 2rem;
+text-align: center;
+font-size: 0.8rem;
+color: #6b5a48;
+border-top: 1px solid #e1d2c0;
+}
+@media (max-width: 680px) {
+body {
+padding: 1rem;
+}
+.question-card {
+padding: 1rem;
+}
+.question-text {
+font-size: 1rem;
+}
+.options {
+gap: 0.5rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <div class="quiz-header"> <h1>🎭 Parallel History of Mithila <span>— Part XVII</span></h1> <p>Maithili Drama: Nepal & the Kirtaniya Tradition<br>Malla kings · Jyotirishwar · Umapati · Bhupatindra Malla</p> </div> <div class="score-area"> <div class="progress-text" id="qCounter">Question 1 of 12</div> <div class="score-box" id="scoreDisplay">Score: 0/0</div> </div> <div class="questions-area" id="questionsContainer"></div> <div class="action-buttons"> <button class="btn btn-reset" id="resetQuizBtn">⟳ Reset Quiz</button> <button class="btn btn-primary" id="submitBtn">✓ Submit & Check Answers</button> </div> <div class="footer">
+📜 Based on the Videha Parallel History, Radhakrishna Chaudhary's Survey & primary sources.<br>
+ISSN 2229-547X · Democratic, counter‑canonical perspective on Maithili drama.
+</div>
+</div>
+<script>
+    // ---------- PART XVII: MAITHILI DRAMA – NEPAL & KIRTANIYA TRADITION ----------
+    // Based on pages 32–33 (section XVII) of the provided PDF.
+    const quizData = [
+        {
+            text: "According to the Parallel History, the earliest extant Maithili drama — Jyotirishwar Thakur's 'Dhurtasamagamanataka' — was discovered in which country, where the manuscript tradition of Maithili literature was better preserved than in Mithila itself?",
+            options: [
+                "India (Bihar)",
+                "Nepal",
+                "Bangladesh",
+                "Tibet"
+            ],
+            correct: 1,
+            explanation: "The text states: 'The earliest extant Maithili drama – Jyotirishwar's Dhurtasamagamanataka – was discovered in Nepal, where the manuscript tradition of Maithili literature was better preserved than in Mithila itself.'"
+        },
+        {
+            text: "Which early Maithili dramatist established the model of Sanskrit‑Prakrit drama with interspersed Maithili songs, influencing both Vidyapati and the later Kirtaniya tradition?",
+            options: [
+                "Jyotirishwar Thakur",
+                "Umapati Upadhyaya",
+                "Vidyapati Thakur",
+                "Jagajyotirmalla"
+            ],
+            correct: 1,
+            explanation: "The text: 'Umapati's Parijataharananataka established the model of Sanskrit- Prakrit drama with interspersed Maithili songs, and the tradition crossed the border into Nepal.'"
+        },
+        {
+            text: "Vidyapati extended Umapati's dramatic model in his play 'Gorakshavijaya'. Under which Malla king did Maithili drama flourish at its height, for about 150 years, eventually replacing Sanskrit drama for all practical purposes?",
+            options: [
+                "Jagajyotirmalla",
+                "Jagatprakashamalla",
+                "The Malla kings of Bhatgaon, Patan, and Kathmandu",
+                "Siddhinarayana Malla"
+            ],
+            correct: 2,
+            explanation: "The passage: 'the tradition crossed the border into Nepal, where from the seventeenth century onward Maithili drama flourished at its height under the Malla kings... For about one hundred and fifty years, Maithili drama flourished at its height, replacing the Sanskrit drama for all practical purposes.'"
+        },
+        {
+            text: "Among the Malla poet‑kings, who alone wrote twenty‑six Maithili plays — an output comparable to any professional dramatist of the period?",
+            options: [
+                "Jagajyotirmalla",
+                "Jagatprakashamalla",
+                "Bhupatindra Malla (reigned 1695–1722)",
+                "Siddhinarayana Malla"
+            ],
+            correct: 2,
+            explanation: "The text: 'Bhupatindra Malla alone wrote twenty‑six Maithili plays – an output comparable to any professional dramatist of the period.'"
+        },
+        {
+            text: "The Kirtaniya drama tradition of Mithila — combining devotional song, gesture, and narrative — is compared in the Parallel History to which Assamese theatrical form?",
+            options: [
+                "Bhaona",
+                "Jatra",
+                "Ankianata of Assam",
+                "Sattriya"
+            ],
+            correct: 2,
+            explanation: "The passage: 'The Kirtaniya drama tradition... parallels the Ankianata of Assam as an instance of how Vaishnavism generated new dramatic forms across eastern India simultaneously.'"
+        },
+        {
+            text: "The 'Kirtaniya' tradition is specifically associated with which style of performance that combined devotional song, gesture, and narrative in a form peculiar to Mithila?",
+            options: [
+                "Naradiya style of kirian",
+                "Bhagavata Mela",
+                "Yakshagana",
+                "Therukoothu"
+            ],
+            correct: 0,
+            explanation: "The text mentions earlier (Part IX) that the tradition of Kirtaniya Natak in Mithila, beginning with Umapati's Parijataharana, was based on the 'Naradiya style of kirian'."
+        },
+        {
+            text: "Which Malla king, active from 1613–1633, is noted for his Maithili compositions including the play 'Hargauri Vivah'?",
+            options: [
+                "Jagatprakashamalla",
+                "Jagajyotirmalla",
+                "Bhupatindra Malla",
+                "Ranjit Malla"
+            ],
+            correct: 1,
+            explanation: "The table in Part XVII lists: Jagajyotirmalla (Bhatgaon) – 'Hargauri Vivah Natak, Kunjavihar Natak'. His reign is given as 1613–1633."
+        },
+        {
+            text: "The tradition of Maithili songs in Sanskrit plays eventually evolved into purely Maithili 'Geetinatya' (musical dramas). Which Malla ruler is credited with composing 19 identified plays in Maithili?",
+            options: [
+                "Jagatprakashamalla",
+                "Jagajyotirmalla",
+                "Ranjit Malla",
+                "Siddhinarayanadeva"
+            ],
+            correct: 2,
+            explanation: "The table: 'Ranjit Malla (Bhatgaon) – 19 identified plays – Drama.'"
+        },
+        {
+            text: "According to the Parallel History, the 'classical age' of Newar‑Maithili civilization ended in 1768 following which political event?",
+            options: [
+                "The conquest by Prithviraj Narayan Shah",
+                "The death of Bhupatindra Malla",
+                "The British annexation of Nepal",
+                "The Gorkha earthquake"
+            ],
+            correct: 0,
+            explanation: "The text: 'The sudden end of this tradition in 1768, following the conquest by Prithviraj Narayan Shah, led to a second migration of scholars back toward the Indian heartland.'"
+        },
+        {
+            text: "Which Malla poet‑king from Bhaktapur authored 'Prabhavatiharan Natak' and is known for his Maithili drama dealing with themes of love and separation?",
+            options: [
+                "Jagatprakashamalla",
+                "Jagajyotirmalla",
+                "Bhupatindra Malla",
+                "Siddhinarayanadeva"
+            ],
+            correct: 0,
+            explanation: "The table lists: Jagatprakash Malla (Bhatgaon) – 'Prabhavatiharan Natak' – Drama / Geetinatya."
+        },
+        {
+            text: "The Kirtaniya tradition, as it developed in Mithila and Nepal, was primarily a form of devotional theatre centred on which religious movement?",
+            options: [
+                "Shaivism",
+                "Shaktism",
+                "Vaishnavism",
+                "Buddhism"
+            ],
+            correct: 2,
+            explanation: "The text explicitly states: 'The Kirtaniya drama tradition – combining devotional song, gesture, and narrative in a form peculiar to Mithila – parallels the Ankianata of Assam as an instance of how Vaishnavism generated new dramatic forms.'"
+        },
+        {
+            text: "The Parallel History notes that Maithili drama in Nepal predates the vernacular drama of Bengal and Assam. Which early work by Umapati Upadhyaya, containing twenty‑one lyrical songs in Maithili, is considered the earliest surviving Maithili drama?",
+            options: [
+                "Parijataharananataka",
+                "Dhurtasamagamanataka",
+                "Gorakshavijaya",
+                "Kirtilata"
+            ],
+            correct: 0,
+            explanation: "As earlier in Part XIV, Umapati Upadhyaya's 'Parijataharananataka' is identified as the earliest surviving Maithili drama with vernacular songs, and this tradition later flourished in Nepal under the Mallas."
+        }
+    ];
+
+    // State
+    let userAnswers = new Array(quizData.length).fill(null);
+    let quizSubmitted = false;
+
+    const questionsContainer = document.getElementById('questionsContainer');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const qCounter = document.getElementById('qCounter');
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetQuizBtn');
+
+    function calculateScore() {
+        let correctCount = 0;
+        for (let i = 0; i < quizData.length; i++) {
+            if (userAnswers[i] !== null && userAnswers[i] === quizData[i].correct) {
+                correctCount++;
+            }
+        }
+        return correctCount;
+    }
+
+    function updateUI() {
+        const total = quizData.length;
+        let answeredCount = userAnswers.filter(a => a !== null).length;
+        qCounter.innerText = `Answered: ${answeredCount} of ${total}`;
+        if (quizSubmitted) {
+            const currentScore = calculateScore();
+            scoreDisplay.innerText = `Score: ${currentScore}/${total}`;
+        } else {
+            scoreDisplay.innerText = `Score: --/${total}`;
+        }
+    }
+
+    function renderQuiz() {
+        questionsContainer.innerHTML = '';
+        for (let i = 0; i < quizData.length; i++) {
+            const q = quizData[i];
+            const selectedVal = userAnswers[i] !== null ? userAnswers[i] : -1;
+            const showFeedback = quizSubmitted;
+            const isCorrect = (quizSubmitted && userAnswers[i] !== null && userAnswers[i] === q.correct);
+
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            
+            const qTextDiv = document.createElement('div');
+            qTextDiv.className = 'question-text';
+            qTextDiv.innerText = `${i+1}. ${q.text}`;
+            card.appendChild(qTextDiv);
+            
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+            
+            q.options.forEach((opt, optIdx) => {
+                const optionWrap = document.createElement('div');
+                optionWrap.className = 'option';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${i}`;
+                radio.value = optIdx;
+                radio.disabled = quizSubmitted;
+                if (selectedVal === optIdx) radio.checked = true;
+                
+                radio.addEventListener('change', (function(qIdx, oIdx) {
+                    return function(e) {
+                        if (!quizSubmitted && e.target.checked) {
+                            userAnswers[qIdx] = oIdx;
+                            renderQuiz();
+                        }
+                    };
+                })(i, optIdx));
+                
+                const label = document.createElement('label');
+                label.innerText = opt;
+                optionWrap.appendChild(radio);
+                optionWrap.appendChild(label);
+                optionsDiv.appendChild(optionWrap);
+            });
+            card.appendChild(optionsDiv);
+            
+            if (showFeedback && userAnswers[i] !== null) {
+                const fbDiv = document.createElement('div');
+                fbDiv.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+                if (isCorrect) {
+                    fbDiv.innerHTML = `✓ Correct. ${q.explanation}`;
+                } else {
+                    const correctOptionText = q.options[q.correct];
+                    fbDiv.innerHTML = `✗ Incorrect. Correct answer: ${correctOptionText}. ${q.explanation}`;
+                }
+                card.appendChild(fbDiv);
+            } else if (showFeedback && userAnswers[i] === null) {
+                const fbDiv = document.createElement('div');
+                fbDiv.className = 'feedback incorrect';
+                fbDiv.innerHTML = `⚠ Not answered. The correct answer is: ${q.options[q.correct]}. ${q.explanation}`;
+                card.appendChild(fbDiv);
+            }
+            
+            questionsContainer.appendChild(card);
+        }
+        updateUI();
+    }
+
+    function submitQuiz() {
+        if (quizSubmitted) return;
+        quizSubmitted = true;
+        renderQuiz();
+        submitBtn.innerText = "✓ Results Submitted";
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = "0.7";
+        window.scrollTo({ top: document.body.scrollHeight * 0.3, behavior: 'smooth' });
+    }
+
+    function resetQuiz() {
+        quizSubmitted = false;
+        userAnswers = new Array(quizData.length).fill(null);
+        submitBtn.innerText = "✓ Submit & Check Answers";
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = "1";
+        renderQuiz();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    submitBtn.addEventListener('click', submitQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+    renderQuiz();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

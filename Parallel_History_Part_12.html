@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Part 12 – Gaṅgeśa’s Tattvacintāmaṇi: Epistemology, Logic & the Navya-Nyāya Revolution</title> <style>
+* {
+box-sizing: border-box;
+}
+body {
+background: #ece4db;
+font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, sans-serif;
+margin: 0;
+padding: 2rem 1rem;
+color: #1e2a2e;
+}
+.quiz-container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffdf9;
+border-radius: 2rem;
+box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+overflow: hidden;
+padding: 2rem 1.8rem;
+}
+h1 {
+font-size: 1.8rem;
+margin-top: 0;
+margin-bottom: 0.2rem;
+color: #8b2c2c;
+border-left: 6px solid #b45f2b;
+padding-left: 1rem;
+}
+.sub {
+color: #6a4e38;
+font-style: italic;
+margin-bottom: 2rem;
+border-bottom: 2px solid #ecdfd1;
+padding-bottom: 0.7rem;
+}
+.question-card {
+background: #fefaf5;
+border-radius: 1.5rem;
+margin-bottom: 1.8rem;
+padding: 1.2rem 1.5rem;
+box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+border: 1px solid #ecdfd1;
+}
+.question-text {
+font-weight: 700;
+font-size: 1.2rem;
+margin-bottom: 1rem;
+color: #3b2a1c;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+margin-bottom: 0.5rem;
+}
+.option {
+display: flex;
+align-items: flex-start;
+gap: 0.8rem;
+background: #ffffff;
+padding: 0.6rem 1rem;
+border-radius: 2rem;
+border: 1px solid #e0cfbe;
+cursor: pointer;
+transition: all 0.1s;
+}
+.option:hover {
+background-color: #fdf1e6;
+border-color: #bb8a60;
+}
+input[type="radio"] {
+margin-top: 0.2rem;
+accent-color: #b45f2b;
+width: 1.1rem;
+height: 1.1rem;
+}
+.option label {
+flex: 1;
+cursor: pointer;
+font-weight: 500;
+color: #3d2c20;
+}
+.feedback {
+margin-top: 0.9rem;
+font-size: 0.9rem;
+padding: 0.6rem 1rem;
+border-radius: 2rem;
+background: #f8f1e9;
+display: none;
+}
+.feedback.correct {
+background: #e2f3e4;
+color: #1f6132;
+border-left: 4px solid #2e7d32;
+display: block;
+}
+.feedback.incorrect {
+background: #ffe7e3;
+color: #bc3f2c;
+border-left: 4px solid #c5382b;
+display: block;
+}
+.score-area {
+position: sticky;
+bottom: 1rem;
+background: #ffffffdd;
+backdrop-filter: blur(8px);
+border-radius: 3rem;
+padding: 0.8rem 1.2rem;
+text-align: center;
+margin-top: 2rem;
+font-weight: bold;
+font-size: 1.2rem;
+border: 1px solid #dacbbc;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+button {
+background: #b45f2b;
+border: none;
+color: white;
+font-weight: bold;
+font-size: 1rem;
+padding: 0.65rem 1.8rem;
+border-radius: 3rem;
+cursor: pointer;
+transition: 0.2s;
+margin: 0.4rem;
+}
+button:hover {
+background: #8d471e;
+transform: scale(0.97);
+}
+.reset-btn {
+background: #5f4d3b;
+}
+.reset-btn:hover {
+background: #44362a;
+}
+.footer-note {
+margin-top: 2rem;
+font-size: 0.75rem;
+text-align: center;
+color: #b49a7c;
+border-top: 1px solid #efe0d2;
+padding-top: 1.2rem;
+}
+@media (max-width: 650px) {
+.quiz-container {
+padding: 1.2rem;
+}
+.question-text {
+font-size: 1rem;
+}
+.option label {
+font-size: 0.85rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <h1>📖 Part XII – Gaṅgeśa’s Tattvacintāmaṇi: Epistemology, Logic & the Navya-Nyāya Revolution</h1> <div class="sub">🧠 Detailed analysis of the four pramāṇas · Vyāpti · Avacchedakatā · Perception (pratyakṣa) · Inference (anumāna) · Verbal testimony (śabda) · Fallacies · Comparative philosophy (Descartes, Leibniz) · Dooshan Panji evidence</div> <p style="background:#f6efe8; padding:0.8rem 1.2rem; border-radius: 2rem; margin-bottom: 1.6rem;">
+📚 Based on “A Parallel History of Mithila & Maithili Literature” – Part XII focuses exclusively on Gaṅgeśa Upādhyāya’s <strong>Tattvacintāmaṇi</strong>, the technical architecture of Navya-Nyāya epistemology, and the suppressed biographical details recovered from the Dooshan Panji.
+</p> <div id="questions-area"></div> <div class="score-area" id="scoreDisplay">
+⚡ 0 / 0 questions answered
+</div> <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;"> <button id="submitBtn">✅ Submit & Check</button> <button id="resetBtn" class="reset-btn">⟳ Reset Quiz</button> </div> </div>
+<script>
+    // ----- PART 12: Deep dive into Gaṅgeśa’s Tattvacintāmaṇi, Navya-Nyāya epistemology, logic, and suppressed biography -----
+    const questions = [
+        {
+            text: "The Tattvacintāmaṇi is divided into four books (khaṇḍas). Which order did Gaṅgeśa follow?",
+            options: ["Śabda, Anumāna, Pratyakṣa, Upamāna", "Pratyakṣa, Anumāna, Upamāna, Śabda", "Anumāna, Pratyakṣa, Upamāna, Śabda", "Upamāna, Śabda, Pratyakṣa, Anumāna"],
+            correct: 1,
+            explanation: "The work opens with Perception (Pratyakṣa), then Inference (Anumāna), Comparison (Upamāna), and ends with Verbal Testimony (Śabda)."
+        },
+        {
+            text: "Gaṅgeśa defines perception (pratyakṣa) as:",
+            options: ["Knowledge produced by sense‑object contact", "Immediate knowledge (sākṣātkāritva) produced without the instrumentality of any antecedent knowledge", "Only sensory awareness", "Inferential cognition"],
+            correct: 1,
+            explanation: "The Navya‑Nyāya definition emphasises immediacy and non‑inferential nature, improving on the older Nyāya‑sūtra definition."
+        },
+        {
+            text: "Which of the following is NOT one of the six ordinary (laukika) sense‑object contacts enumerated by Gaṅgeśa in the Pratyakṣa‑khaṇḍa?",
+            options: ["Samyoga (conjunction)", "Samavāya (inherence)", "Yogaja (mystical perception)", "Samyukta‑samavāya (inherence in the conjoined)"],
+            correct: 2,
+            explanation: "Yogaja (mystical perception) is an extraordinary (alaukika) contact, not ordinary. The six ordinary contacts include samyoga, samyukta‑samavāya, samyukta‑samaveta‑samavāya, samavāya, samaveta‑samavāya, and viśeṣaṇatā."
+        },
+        {
+            text: "What is Gaṅgeśa’s term for the pre‑conceptual, non‑verbalisable first moment of perception?",
+            options: ["Savikalpaka", "Nirvikalpaka", "Anuvyavasāya", "Sannikarṣa"],
+            correct: 1,
+            explanation: "Nirvikalpaka (indeterminate) perception is the raw, pre‑linguistic apprehension before relational predication. Savikalpaka is determinate, concept‑laden perception."
+        },
+        {
+            text: "The doctrine of ‘anuvyavasāya’ refers to:",
+            options: ["Inferential reasoning", "Apperception – a perception that takes a preceding cognition as its object (meta‑cognition)", "Divine perception", "Illusory cognition"],
+            correct: 1,
+            explanation: "Anuvyavasāya is the perception of a perception – reflective self‑awareness that the cognition has occurred, used in certification of knowledge."
+        },
+        {
+            text: "Gaṅgeśa’s theory of error (anyathākhyātivāda) holds that illusion occurs when:",
+            options: ["The sense organs are defective", "The content of a current perception is supplied by a memory‑disposition (saṃskāra) from a genuine prior perception", "The object is unreal", "The mind is distracted"],
+            correct: 1,
+            explanation: "When one sees shell as silver, the silverhood content comes from a real prior silver experience; the current sensory event fuses with that memory‑trace, producing illusion."
+        },
+        {
+            text: "What is the foundational logical relation that makes inference (anumāna) possible, and which Gaṅgeśa defined with unprecedented precision?",
+            options: ["Upamāna (comparison)", "Vyāpti (invariable concomitance / pervasion)", "Pakṣatā (subjecthood)", "Hetvābhāsa (fallacy)"],
+            correct: 1,
+            explanation: "Vyāpti is the invariable relation between the probans (hetu) and the probandum (sādhya) – e.g., ‘wherever there is smoke, there is fire’. Gaṅgeśa’s definition solved classical problems."
+        },
+        {
+            text: "Gaṅgeśa examined and rejected how many provisional definitions of vyāpti before arriving at his conclusive definition?",
+            options: ["5", "12", "21 or 24 (depending on counting)", "3"],
+            correct: 2,
+            explanation: "Scharfstein notes 21 proposals; the Jha ‘Ashok’ monograph says 24 counting sub‑variants. This exhaustive method is his signature."
+        },
+        {
+            text: "What is the role of ‘avacchedaka’ (limitor / delimiter) in Gaṅgeśa’s logic?",
+            options: ["A type of poetic ornament", "A property that specifies the exact scope of a relation or definition, preventing over‑application or ambiguity", "A ritual offering", "A grammatical case"],
+            correct: 1,
+            explanation: "Avacchedaka is the delimiter that limits a property to a specific domain, essential for precise definitions of vyāpti and for avoiding fallacies."
+        },
+        {
+            text: "Gaṅgeśa’s ‘parataḥprāmāṇya’ (extrinsic validity) thesis holds that:",
+            options: ["All knowledge is self‑certifying", "Knowledge is presumptively valid but requires external confirmation (through successful activity or meta‑cognition)", "All knowledge is false", "Only perception is valid"],
+            correct: 1,
+            explanation: "Against the Mīmāṃsaka view of intrinsic validity (svataḥprāmāṇya), Gaṅgeśa argued that certification requires an extrinsic check – practical success or a separate cognitive act."
+        },
+        {
+            text: "Which of the five classical fallacies (hetvābhāsa) does Gaṅgeśa identify as the ‘deviant’ or ‘erratic’ reason – a middle term that occurs in both homogeneous and heterogeneous instances?",
+            options: ["Asiddha (unestablished)", "Viruddha (contradictory)", "Savyabhicāra", "Bādhita (defeated in advance)"],
+            correct: 2,
+            explanation: "Savyabhicāra (erratic) is the fallacy where the probans is found in both sapakṣa and vipakṣa, violating vyāpti."
+        },
+        {
+            text: "In Gaṅgeśa’s analysis of verbal testimony (śabda), what are the four necessary conditions for a sentence to produce valid verbal cognition (śābdabodha)?",
+            options: ["Raga, Tala, Laya, Bhava", "Ākāṅkṣā (expectancy), Yogyatā (fitness), Āsatti (proximity), Tātparya (intention)", "Varna, Pada, Vakya, Chandas", "Śakti, Lakṣaṇā, Vyañjanā, Rasāsvāda"],
+            correct: 1,
+            explanation: "These four conditions – syntactic expectancy, semantic fitness, temporal contiguity, and speaker’s intention – are required for testimonial knowledge."
+        },
+        {
+            text: "Gaṅgeśa’s ‘anyathākhyātivāda’ is his theory of:",
+            options: ["Perception", "Illusion / error", "Inference", "Liberation"],
+            correct: 1,
+            explanation: "Anyathākhyāti literally means ‘knowledge of a thing as other than it is’. Gaṅgeśa’s realist account traces illusory content to real prior perceptions."
+        },
+        {
+            text: "In the Pratyakṣa‑khaṇḍa, Gaṅgeśa discusses three types of extraordinary (alaukika) perception. Which of the following is one of them?",
+            options: ["Sāmānyalakṣaṇa (perceiving all members of a universal through one instance)", "Samyoga", "Samavāya", "Viprayoga"],
+            correct: 0,
+            explanation: "The three alaukika contacts are sāmānyalakṣaṇa (universal‑based), jñānalakṣaṇa (knowledge‑based), and yogaja (mystical)."
+        },
+        {
+            text: "Ben‑Ami Scharfstein’s comparative study places Gaṅgeśa alongside Descartes and Leibniz under the theme of:",
+            options: ["Continental rationalism", "Logic‑sensitized methodological metaphysics – pursuing certainty through methodically applied logic", "Empiricism", "Skepticism"],
+            correct: 1,
+            explanation: "All three sought to ground knowledge by perfecting reasoning methods; Gaṅgeśa’s exhaustive definitional analysis parallels Descartes’ methodological doubt and Leibniz’s characteristic universalis."
+        },
+        {
+            text: "According to the Dooshan Panji (Black Book) evidence, Gaṅgeśa was born five years after his father’s death and married a woman of which caste?",
+            options: ["Brahmin", "Kayastha", "Charmkarini (leather‑tanning caste)", "Rajput"],
+            correct: 2,
+            explanation: "The suppressed Panji records clearly state ‘Vallabha Charmakarini’ – a woman of the leather‑worker caste – and ‘pitri parokshe pancha varshayvatile Gangesotpatti’."
+        },
+        {
+            text: "Who suppressed these Dooshan Panji facts and misled historian Dinesh Chandra Bhattacharya, leading to the ‘honour killing’ of Gaṅgeśa’s legacy?",
+            options: ["Gajendra Thakur", "Ramanath Jha", "Udayanath Jha ‘Ashok’", "Both B and C"],
+            correct: 3,
+            explanation: "Ramanath Jha concealed the facts from Bhattacharya (1958), and Udayanath Jha’s 2016 Sahitya Akademi monograph continued the suppression – an act the Parallel History calls ‘honour killing’."
+        },
+        {
+            text: "Gaṅgeśa’s son Vardhamāna, himself a philosopher, called Gaṅgeśa ‘sukavikairava kānānenduḥ’. What does this epithet mean?",
+            options: ["The great logician", "The moon in the lotus grove of fine poets", "The destroyer of arguments", "The lord of grammar"],
+            correct: 1,
+            explanation: "Vardhamāna praised his father as a poet, indicating that Gaṅgeśa’s poetic works have been lost – another dimension of the suppression."
+        },
+        {
+            text: "In the Anumāna‑khaṇḍa, Gaṅgeśa introduces the concept of ‘upādhi’ (additional condition). What does upādhi do?",
+            options: ["It strengthens an inference", "It blocks a pseudo‑inference by showing a condition that pervades the probandum but not the probans", "It is a type of perception", "It is a rhetorical figure"],
+            correct: 1,
+            explanation: "Upādhi is a limiting condition that reveals an apparent vyāpti to be spurious – e.g., ‘wet fuel’ is an upādhi for the inference ‘smoke‑producing things are fire‑producing’."
+        },
+        {
+            text: "Which later commentator’s ‘Dīdhiti’ became the single most influential secondary text on the Tattvacintāmaṇi, shifting the centre of Navya‑Nyāya to Navadvipa?",
+            options: ["Vardhamāna Upādhyāya", "Raghunātha Śiromaṇi", "Pakṣadhara Miśra", "Jagadīśa Tarkālaṃkāra"],
+            correct: 1,
+            explanation: "Raghunātha Śiromaṇi’s Dīdhiti eclipsed all earlier commentaries and established the Bengal (Navadvipa) tradition of Navya‑Nyāya."
+        },
+        {
+            text: "What is the meaning of the term ‘pakṣatā’ in Navya‑Nyāya inference?",
+            options: ["The conclusion", "The property of being the subject (pakṣa) of inference – the locus in which something is to be proved", "The middle term", "The example"],
+            correct: 1,
+            explanation: "Pakṣatā is the ‘inferential focus’ – the condition of being the subject (e.g., the hill) about which the inference is made."
+        },
+        {
+            text: "Gaṅgeśa’s discussion of Īśvarānumāna (inference of God) is found in which khaṇḍa?",
+            options: ["Pratyakṣa‑khaṇḍa", "Anumāna‑khaṇḍa", "Upamāna‑khaṇḍa", "Śabda‑khaṇḍa"],
+            correct: 1,
+            explanation: "The theistic inference is part of the Anumāna‑khaṇḍa, where Gaṅgeśa argues that effects like the earth require an intelligent creator."
+        },
+        {
+            text: "The Potter‑Bhattacharyya Encyclopedia of Indian Philosophies (Vol. VI) states that Gaṅgeśa’s ‘unique talent’ places him among:",
+            options: ["Indian poets only", "The premiere philosophical minds the world has produced", "Medieval theologians", "Grammarians"],
+            correct: 1,
+            explanation: "The Encyclopedia places Gaṅgeśa among the world’s greatest philosophers, noting that his Tattvacintāmaṇi generated over a million pages of commentary."
+        },
+        {
+            text: "Which modern scholar completed the first full English translation of all four volumes of the Tattvacintāmaṇi in 2020?",
+            options: ["V.P. Bhatta", "Stephen H. Phillips", "Karl Potter", "Bimal Krishna Matilal"],
+            correct: 1,
+            explanation: "Stephen Phillips published ‘Jewel of Reflection on the Truth about Epistemology’ (Bloomsbury, 2020). V.P. Bhatta also completed a multi‑volume translation (2005‑2025)."
+        },
+        {
+            text: "Gaṅgeśa’s epistemology is sometimes compared to modern analytic philosophy. Which Western philosopher’s ‘theory of descriptions’ did J.L. Shaw analyse using Navya‑Nyāya tools?",
+            options: ["Bertrand Russell", "Ludwig Wittgenstein", "W.V.O. Quine", "Gottlob Frege"],
+            correct: 0,
+            explanation: "J.L. Shaw and earlier Harimohan Jha compared Navya‑Nyāya’s precision with Russell’s theory of descriptions, showing Indian logic could match Western analytic rigour."
+        },
+        {
+            text: "The Parallel History notes that Gaṅgeśa’s Navya‑Nyāya methodology influenced not only philosophy but also grammar, poetics, law and even:",
+            options: ["Modern Artificial Intelligence and Natural Language Processing (through avacchedaka logic)", "Astronomy", "Music", "Architecture"],
+            correct: 0,
+            explanation: "Modern researchers have noted that Navya‑Nyāya’s hierarchical use of limitors is compatible with knowledge representation in AI and NLP."
+        }
+    ];
+
+    let selectedAnswers = new Array(questions.length).fill(null);
+    let quizSubmitted = false;
+
+    function renderQuestions() {
+        const container = document.getElementById('questions-area');
+        container.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.setAttribute('data-qid', idx);
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qText);
+            
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const optWrap = document.createElement('div');
+                optWrap.className = 'option';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${idx}`;
+                radio.value = optIdx;
+                radio.id = `q_${idx}_opt_${optIdx}`;
+                if (selectedAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    if (!quizSubmitted) {
+                        selectedAnswers[idx] = parseInt(e.target.value);
+                        updateScoreDisplay();
+                        const fbDiv = card.querySelector('.feedback');
+                        if (fbDiv) fbDiv.style.display = 'none';
+                    }
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q_${idx}_opt_${optIdx}`;
+                label.innerText = opt;
+                optWrap.appendChild(radio);
+                optWrap.appendChild(label);
+                optionsDiv.appendChild(optWrap);
+            });
+            card.appendChild(optionsDiv);
+            const fbDiv = document.createElement('div');
+            fbDiv.className = 'feedback';
+            fbDiv.id = `fb_${idx}`;
+            card.appendChild(fbDiv);
+            container.appendChild(card);
+        });
+    }
+
+    function updateScoreDisplay() {
+        const answered = selectedAnswers.filter(a => a !== null).length;
+        document.getElementById('scoreDisplay').innerHTML = `📌 ${answered} / ${questions.length} questions answered ${quizSubmitted ? '· Final scores below' : '· Submit to see correct answers'}`;
+    }
+
+    function evaluateQuiz() {
+        quizSubmitted = true;
+        let correctCount = 0;
+        for (let i = 0; i < questions.length; i++) {
+            const userChoice = selectedAnswers[i];
+            const isCorrect = (userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+            const fb = document.getElementById(`fb_${i}`);
+            if (fb) {
+                if (userChoice === null) {
+                    fb.innerHTML = `⚠️ Unanswered. Correct: ${questions[i].options[questions[i].correct]}. ${questions[i].explanation}`;
+                    fb.className = 'feedback incorrect';
+                } else if (isCorrect) {
+                    fb.innerHTML = `✅ Correct. ${questions[i].explanation}`;
+                    fb.className = 'feedback correct';
+                } else {
+                    fb.innerHTML = `❌ Incorrect. You chose: ${questions[i].options[userChoice]}. Correct: ${questions[i].options[questions[i].correct]}. ${questions[i].explanation}`;
+                    fb.className = 'feedback incorrect';
+                }
+                fb.style.display = 'block';
+            }
+        }
+        const scoreMsg = `🎯 You scored ${correctCount} out of ${questions.length}`;
+        document.getElementById('scoreDisplay').innerHTML = scoreMsg + (correctCount === questions.length ? ' — 🧠 Master of Navya-Nyāya epistemology!' : ' — Review the explanations to deepen your understanding of Gaṅgeśa’s logical revolution.');
+    }
+
+    function resetQuiz() {
+        selectedAnswers.fill(null);
+        quizSubmitted = false;
+        for (let i = 0; i < questions.length; i++) {
+            const radios = document.querySelectorAll(`input[name="q_${i}"]`);
+            radios.forEach(r => r.checked = false);
+            const fb = document.getElementById(`fb_${i}`);
+            if (fb) {
+                fb.style.display = 'none';
+                fb.innerHTML = '';
+            }
+        }
+        updateScoreDisplay();
+    }
+
+    document.getElementById('submitBtn').addEventListener('click', evaluateQuiz);
+    document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+
+    renderQuestions();
+    updateScoreDisplay();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

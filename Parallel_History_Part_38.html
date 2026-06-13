@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <title>Quiz: Chapter 38 – Kamat, Thakur, Maun & Meena Jha</title> <style>
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+max-width: 1000px;
+margin: 2rem auto;
+padding: 1rem;
+background: #f4f1ea;
+}
+.quiz-container {
+background: white;
+border-radius: 2rem;
+padding: 1.5rem;
+box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+h1 {
+color: #2c5e2c;
+border-left: 5px solid #b8860b;
+padding-left: 1rem;
+}
+.question {
+border-bottom: 1px solid #e0d6c5;
+padding: 1rem 0;
+}
+.question-text {
+font-weight: 700;
+margin-bottom: 0.5rem;
+font-size: 1.05rem;
+}
+.options {
+margin-left: 1.5rem;
+margin-bottom: 0.5rem;
+}
+.option {
+margin: 0.3rem 0;
+}
+.explanation {
+background: #f4f1e8;
+padding: 0.6rem;
+margin-top: 0.6rem;
+border-left: 4px solid #b8860b;
+display: none;
+border-radius: 0.5rem;
+}
+button {
+background: #2c5e2c;
+color: white;
+border: none;
+padding: 0.5rem 1.2rem;
+border-radius: 2rem;
+cursor: pointer;
+margin: 0.2rem;
+font-size: 1rem;
+}
+button:hover {
+background: #1e401e;
+}
+.score {
+font-size: 1.2rem;
+font-weight: bold;
+margin-top: 1rem;
+text-align: center;
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <h1>📖 Chapter 38 – Lāl Dev Kāmat, Lallan–Kusum Thakur, Dr. Prafulla Singh ‘Maun’ & Meena Jha</h1> <p>Based on Videha Parallel History critical appreciations (sections on Vibhṛiti, drama, folk scholarship, and women’s writing)</p> <div id="quiz"></div> <div style="margin-top: 1rem;"> <button id="submitBtn">✔ Submit Answers</button> <button id="resetBtn">⟳ Reset Quiz</button> </div> <div id="score" class="score"></div>
+</div>
+<script>
+const questions = [
+    {
+        text: "Lāl Dev Kāmat’s book ‘Vibhṛiti’ (2020) is described as a ‘Preraṇādāyak Maithilī Bhāṣā-Sāhitya Pustikā’. What unique feature does it contain alongside literary and biographical content?",
+        options: [
+            "A full Sanskrit grammar",
+            "A detailed section on organic/natural farming and cooperative enterprise",
+            "A collection of film songs",
+            "A political manifesto"
+        ],
+        correct: 1,
+        explanation: "‘Vibhṛiti’ combines poetry, biography of freedom fighters, and practical guidance on natural farming and farmer producer groups."
+    },
+    {
+        text: "Kāmat’s work ‘Gahiki Najari’ (The Deep Gaze) is a collection of narrative prose vignettes. Its title uses a Persian‑derived word (najari) to signal:",
+        options: [
+            "Rejection of Maithili",
+            "A turn toward everyday, granular social observation rather than transcendent vision",
+            "Exclusive focus on mythology",
+            "Political sloganeering"
+        ],
+        correct: 1,
+        explanation: "Unlike ‘Divya Dṛiṣṭi’ (divine vision), ‘Gahiki Najari’ turns inward to the texture of daily life, debt, caste, and village politics."
+    },
+    {
+        text: "Which of Kāmat’s works is described as his most introspective, a meditation on ageing, memory, and the ethics of retrospection?",
+        options: [
+            "Vibhṛiti",
+            "Divya Dṛiṣṭi",
+            "Sheṣ Jīvan",
+            "Gaamghar"
+        ],
+        correct: 2,
+        explanation: "‘Sheṣ Jīvan’ (The Remaining Life) explores what it means to survey one’s life near its end, blending prose and poetry."
+    },
+    {
+        text: "Lallan Prasad Thakur (1953–1995) was a playwright, director and actor. His first play, staged at Rabindra Bhavan, Jamshedpur in 1983, was:",
+        options: [
+            "Mistaar Nilo Kaka",
+            "Badka Saheb",
+            "Baklel",
+            "Loangia Miarchai"
+        ],
+        correct: 1,
+        explanation: "‘Badka Saheb’ (Big Sahib) premiered on 20 November 1983 and satirised an IAS officer out of touch with his village roots."
+    },
+    {
+        text: "Lallan Prasad Thakur’s play ‘Mistaar Nilo Kaka’ features a hunger strike. What is the bitterly comic outcome of the strike?",
+        options: [
+            "The government refuses to negotiate",
+            "The minister agrees to all demands, but Nilo has already died",
+            "Nilo abandons the strike",
+            "The play ends with a dance"
+        ],
+        correct: 1,
+        explanation: "Nilo dies of starvation just as the Chief Minister arrives to concede all demands – a savage satire of political inaction."
+    },
+    {
+        text: "Kusum Thakur, Lallan Prasad Thakur’s wife, wrote a memoir titled ‘Pratyavartan’ (Return). The memoir opens with the confession that she had ‘lost her pen’. What does this metaphor signify?",
+        options: [
+            "She had no education",
+            "The suppression of her creative voice due to domestic and social roles, later reclaimed",
+            "She never wrote again",
+            "Her pen was stolen"
+        ],
+        correct: 1,
+        explanation: "The memoir traces her journey from child marriage to creative partnership and finally to reclaiming her own voice after her husband’s death."
+    },
+    {
+        text: "Kusum Thakur’s poem ‘Chul Buli Kanya Bani Gelahuṃ’ (I Became a Mischievous Girl Again) enacts which feminist theme?",
+        options: [
+            "Rejection of marriage",
+            "Recovery of playful selfhood after years of grief and duty",
+            "Celebration of old age",
+            "Mourning a lost child"
+        ],
+        correct: 1,
+        explanation: "The speaker, who had ‘forgotten her desires’, transforms back into the mischievous girl she was before marriage – a return to authentic self."
+    },
+    {
+        text: "Dr. Prafulla Kumar Singh ‘Maun’ (1938–2014) is best known for his pioneering work in which area of Maithili scholarship?",
+        options: [
+            "Navya-Nyāya logic",
+            "Folk ballad documentation, Tharu culture, and the first literary history of Nepal’s Maithili literature",
+            "Modernist poetry",
+            "Science fiction"
+        ],
+        correct: 1,
+        explanation: "Maun wrote the first history of Maithili literature from Nepal (‘Nepalak Maithili Sahityak Itihas’, 1972) and extensively documented folk ballads like Salahes and Lorik."
+    },
+    {
+        text: "Maun’s reportage collection ‘Brahmagrama’ (1972) is a landmark in Maithili prose. What genre did it help establish?",
+        options: [
+            "The detective novel",
+            "Maithili reportage (riportaaj), blending documentary, ethnography, and literary narrative",
+            "The epic poem",
+            "The one‑act play"
+        ],
+        correct: 1,
+        explanation: "Maun is credited as the ‘reportage king’ of Maithili, creating a hybrid form that influenced later writers."
+    },
+    {
+        text: "Maun’s research on the Tharu community’s folk songs led him to argue that Tharu culture belongs to which civilisational complex?",
+        options: [
+            "Tibetan",
+            "Mithila (Maithili)",
+            "Dravidian",
+            "Austro-Asiatic"
+        ],
+        correct: 1,
+        explanation: "In ‘Tharu Lokgeet’ (1968), he argued that the Tharu people’s primary folk‑song tradition is in Maithili, placing them within the Mithila cultural sphere."
+    },
+    {
+        text: "Which Maithili writer is known for the landmark short story on breast cancer – identified as the first Maithili fiction to treat this subject, predating Hindi by one to two years?",
+        options: [
+            "Meena Jha",
+            "Kusum Thakur",
+            "Shail Jha ‘Sagar’",
+            "Premlata Mishra ‘Prem’"
+        ],
+        correct: 0,
+        explanation: "Meena Jha’s story, archived in Videha, is a pioneering work of medical feminist fiction in Maithili."
+    },
+    {
+        text: "According to the Videha Parallel History, which of the following is a key contribution of Meena Jha beyond her creative writing?",
+        options: [
+            "She founded a publishing house",
+            "Her work helped expand Maithili women’s literary subject matter into bodily health, illness, and medical experience",
+            "She translated the Vedas",
+            "She was a Sahitya Akademi award winner"
+        ],
+        correct: 1,
+        explanation: "Her breast cancer story broke new ground by addressing women’s health issues that the canonical tradition had rendered unwritable."
+    },
+    {
+        text: "Lallan Prasad Thakur’s play ‘Baklel’ (The Confused/Divided One) won the best play award at which festival?",
+        options: [
+            "Mithila Rang Mahotsav",
+            "Fifth International Maithili Theatre Festival in Delhi",
+            "Sahitya Akademi Drama Festival",
+            "Kolkata International Theatre Festival"
+        ],
+        correct: 1,
+        explanation: "‘Baklel’ won the best play award at the Fifth International Maithili Theatre Festival in Delhi (Pyarelal Bhavan, Akhil Bhartiya Mithila Sangh)."
+    },
+    {
+        text: "Kusum Thakur’s poem ‘Abhilasha’ (Longing) expresses the unfulfilled desire to have a daughter. What social reality does it acknowledge?",
+        options: [
+            "Daughters are preferred everywhere",
+            "The cultural preference for sons, while the poem quietly subverts it by mourning the absence of a daughter",
+            "The daughter is always welcomed",
+            "The poem rejects motherhood"
+        ],
+        correct: 1,
+        explanation: "The poem imagines the care a daughter would receive and ends with ‘One only deficiency remained – the tilak was not applied’, highlighting son‑preference."
+    },
+    {
+        text: "Maun’s pen‑name ‘Maun’ (silence) was chosen with deliberate irony because:",
+        options: [
+            "He never spoke",
+            "He was a man of few words in public but extraordinarily productive in writing, and the name challenged the very idea of silence",
+            "He was mute",
+            "He opposed literature"
+        ],
+        correct: 1,
+        explanation: "Witnesses describe him as quiet in social settings but a torrential writer; the pen‑name captures this productive paradox."
+    },
+    {
+        text: "Lāl Dev Kāmat’s ‘Divya Dṛiṣṭi’ (Divine Vision) and ‘Gahiki Najari’ (Deep Gaze) represent two different modes of perception. Which Navya-Nyāya concept is invoked by the title ‘Divya Dṛiṣṭi’?",
+        options: [
+            "Nirvikalpaka pratyakṣa (non‑conceptual perception)",
+            "Savikalpaka pratyakṣa (determinate perception)",
+            "Alaukika pratyakṣa (extraordinary perception – beyond ordinary senses)",
+            "Anumāna (inference)"
+        ],
+        correct: 2,
+        explanation: "‘Divya’ means transcendent or divine, suggesting a mode of perception that goes beyond ordinary sensory cognition – alaukika pratyakṣa."
+    },
+    {
+        text: "Maun’s work ‘Maithili Lokgatha Anusheelan’ (2014) analyses twenty‑two Maithili folk ballads. Which of the following is a major ballad tradition he studied?",
+        options: [
+            "Heer‑Ranjha",
+            "Salahes (Raja Salhesh, the Musahar folk hero)",
+            "Laila‑Majnu",
+            "Shirin‑Farhad"
+        ],
+        correct: 1,
+        explanation: "Maun extensively documented the Salahes cycle, a folk epic of the Musahar (Dalit) community of Mithila."
+    },
+    {
+        text: "Lallan Prasad Thakur’s one‑act play ‘Maithili Film’ is historically significant as:",
+        options: [
+            "The first Maithili film script",
+            "One of the earliest theatrical treatments of the aspiration for Maithili cinema, satirising the gap between ambition and infrastructure",
+            "A documentary about Vidyapati",
+            "A children’s play"
+        ],
+        correct: 1,
+        explanation: "Written before Maithili cinema was well‑established, the play satirises the difficulties of making a film in a minority language."
+    },
+    {
+        text: "Meena Jha’s fiction, according to the critical appreciation, is grounded in which epistemological stance?",
+        options: [
+            "Scepticism",
+            "Pratyakṣa – direct social observation and the ‘middle path’ between extremes",
+            "Mysticism",
+            "Pure fantasy"
+        ],
+        correct: 1,
+        explanation: "Her writing is based on direct perception of Maithili social reality and avoids both sentimental idealism and cynical despair – a ‘middle path’."
+    },
+    {
+        text: "Kusum Thakur’s memoir ‘Pratyavartan’ is described as a ‘sabda pramāṇa’ (valid verbal testimony) in the Navya-Nyāya framework because:",
+        options: [
+            "It is a work of fiction",
+            "She is an ‘āpta’ – a reliable, knowledgeable witness with firsthand experience of Lallan Prasad Thakur’s creative process",
+            "It was written in Sanskrit",
+            "It has no narrative"
+        ],
+        correct: 1,
+        explanation: "As his wife and first critic, she has direct knowledge, sincerity, and competence – meeting Gaṅgeśa’s criteria for reliable testimony."
+    }
+];
+
+let userSelections = new Array(questions.length).fill(null);
+let submitted = false;
+
+function renderQuiz() {
+    const container = document.getElementById('quiz');
+    if (!container) return;
+    let html = '';
+    questions.forEach((q, idx) => {
+        const selected = userSelections[idx] !== null ? userSelections[idx] : -1;
+        html += `<div class="question">
+                    <div class="question-text">${idx+1}. ${q.text}</div>
+                    <div class="options">`;
+        q.options.forEach((opt, optIdx) => {
+            const checked = (selected === optIdx) ? 'checked' : '';
+            html += `<div class="option">
+                        <input type="radio" name="q${idx}" value="${optIdx}" id="q${idx}_${optIdx}" ${checked} ${submitted ? 'disabled' : ''}>
+                        <label for="q${idx}_${optIdx}">${String.fromCharCode(65+optIdx)}. ${opt}</label>
+                     </div>`;
+        });
+        html += `</div><div class="explanation" id="expl${idx}"></div></div>`;
+    });
+    container.innerHTML = html;
+}
+
+function calculateScore() {
+    let correct = 0;
+    for (let i = 0; i < questions.length; i++) {
+        if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correct++;
+    }
+    return correct;
+}
+
+function submitQuiz() {
+    submitted = true;
+    for (let i = 0; i < questions.length; i++) {
+        const radios = document.getElementsByName(`q${i}`);
+        for (let j = 0; j < radios.length; j++) {
+            if (radios[j].checked) userSelections[i] = parseInt(radios[j].value);
+        }
+        const explDiv = document.getElementById(`expl${i}`);
+        if (explDiv) {
+            const userAns = (userSelections[i] !== null) ? questions[i].options[userSelections[i]] : "Not answered";
+            const correctAns = questions[i].options[questions[i].correct];
+            explDiv.innerHTML = `<strong>📖 Explanation:</strong> ${questions[i].explanation}<br>
+                                 <span style="color:#4b6b3e;">Your answer: ${userAns}</span><br>
+                                 <span style="color:#2c6e2c;">Correct answer: ${correctAns}</span>`;
+            explDiv.style.display = 'block';
+        }
+        const allRadios = document.getElementsByName(`q${i}`);
+        allRadios.forEach(r => r.disabled = true);
+    }
+    const score = calculateScore();
+    document.getElementById('score').innerHTML = `✅ Score: ${score} / ${questions.length}`;
+}
+
+function resetQuiz() {
+    submitted = false;
+    userSelections = new Array(questions.length).fill(null);
+    renderQuiz();
+    for (let i = 0; i < questions.length; i++) {
+        const explDiv = document.getElementById(`expl${i}`);
+        if (explDiv) explDiv.style.display = 'none';
+    }
+    document.getElementById('score').innerHTML = '';
+}
+
+document.getElementById('submitBtn').addEventListener('click', submitQuiz);
+document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+renderQuiz();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

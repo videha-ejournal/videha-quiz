@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Part 6 – Folklorists, Institutional Critique, Flood Historians & Further Parallel Voices</title> <style>
+* {
+box-sizing: border-box;
+}
+body {
+background: #ece4db;
+font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, sans-serif;
+margin: 0;
+padding: 2rem 1rem;
+color: #1e2a2e;
+}
+.quiz-container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffdf9;
+border-radius: 2rem;
+box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+overflow: hidden;
+padding: 2rem 1.8rem;
+}
+h1 {
+font-size: 1.8rem;
+margin-top: 0;
+margin-bottom: 0.2rem;
+color: #8b2c2c;
+border-left: 6px solid #b45f2b;
+padding-left: 1rem;
+}
+.sub {
+color: #6a4e38;
+font-style: italic;
+margin-bottom: 2rem;
+border-bottom: 2px solid #ecdfd1;
+padding-bottom: 0.7rem;
+}
+.question-card {
+background: #fefaf5;
+border-radius: 1.5rem;
+margin-bottom: 1.8rem;
+padding: 1.2rem 1.5rem;
+box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+border: 1px solid #ecdfd1;
+}
+.question-text {
+font-weight: 700;
+font-size: 1.2rem;
+margin-bottom: 1rem;
+color: #3b2a1c;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+margin-bottom: 0.5rem;
+}
+.option {
+display: flex;
+align-items: flex-start;
+gap: 0.8rem;
+background: #ffffff;
+padding: 0.6rem 1rem;
+border-radius: 2rem;
+border: 1px solid #e0cfbe;
+cursor: pointer;
+transition: all 0.1s;
+}
+.option:hover {
+background-color: #fdf1e6;
+border-color: #bb8a60;
+}
+input[type="radio"] {
+margin-top: 0.2rem;
+accent-color: #b45f2b;
+width: 1.1rem;
+height: 1.1rem;
+}
+.option label {
+flex: 1;
+cursor: pointer;
+font-weight: 500;
+color: #3d2c20;
+}
+.feedback {
+margin-top: 0.9rem;
+font-size: 0.9rem;
+padding: 0.6rem 1rem;
+border-radius: 2rem;
+background: #f8f1e9;
+display: none;
+}
+.feedback.correct {
+background: #e2f3e4;
+color: #1f6132;
+border-left: 4px solid #2e7d32;
+display: block;
+}
+.feedback.incorrect {
+background: #ffe7e3;
+color: #bc3f2c;
+border-left: 4px solid #c5382b;
+display: block;
+}
+.score-area {
+position: sticky;
+bottom: 1rem;
+background: #ffffffdd;
+backdrop-filter: blur(8px);
+border-radius: 3rem;
+padding: 0.8rem 1.2rem;
+text-align: center;
+margin-top: 2rem;
+font-weight: bold;
+font-size: 1.2rem;
+border: 1px solid #dacbbc;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+button {
+background: #b45f2b;
+border: none;
+color: white;
+font-weight: bold;
+font-size: 1rem;
+padding: 0.65rem 1.8rem;
+border-radius: 3rem;
+cursor: pointer;
+transition: 0.2s;
+margin: 0.4rem;
+}
+button:hover {
+background: #8d471e;
+transform: scale(0.97);
+}
+.reset-btn {
+background: #5f4d3b;
+}
+.reset-btn:hover {
+background: #44362a;
+}
+.footer-note {
+margin-top: 2rem;
+font-size: 0.75rem;
+text-align: center;
+color: #b49a7c;
+border-top: 1px solid #efe0d2;
+padding-top: 1.2rem;
+}
+@media (max-width: 650px) {
+.quiz-container {
+padding: 1.2rem;
+}
+.question-text {
+font-size: 1rem;
+}
+.option label {
+font-size: 0.85rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <h1>📖 Part VI – Folklorists, Institutional Critique & the Parallel Archive</h1> <div class="sub">🎵 Hriday Narayan Jha · Jagdish Chandra Thakur ‘Anil’ · Dr. Kamini Kamayini · Kapileshwar Raut · Badri Nath Roy ‘Amatya’ · Dinesh Kumar Mishra · Sahitya Akademi RTI expose · Videha parallel awards</div> <p style="background:#f6efe8; padding:0.8rem 1.2rem; border-radius: 2rem; margin-bottom: 1.6rem;">
+📚 This quiz covers endangered folk songs, children’s ghazals, micro‑fiction, satirical poetry, the politics of river embankments, and the institutional counter‑archive that defines the parallel tradition.
+</p> <div id="questions-area"></div> <div class="score-area" id="scoreDisplay">
+⚡ 0 / 0 questions answered
+</div> <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;"> <button id="submitBtn">✅ Submit & Check</button> <button id="resetBtn" class="reset-btn">⟳ Reset Quiz</button> </div> </div>
+<script>
+    // ----- PART 6: Folklorists, institutional critique, flood historian, and more parallel voices -----
+    const questions = [
+        {
+            text: "Hriday Narayan Jha, an AIR B‑High Grade artist, documented endangered Maithili folk songs in his essay ‘Luptraprāya Maithilī Lokagīta’. Which ritual song genre did he record from Batahū Yādava, a bhagat (possessed devotee)?",
+            options: ["Parātī", "Jhumra", "Sohar", "Viṣahārā Gīt"],
+            correct: 1,
+            explanation: "The Jhumra is a ritual possession song performed by a nine‑member bhagat community with jhāli and māṃḍara; Batahū Yādava’s version is transcribed in the essay."
+        },
+        {
+            text: "Jagdish Chandra Thakur ‘Anil’ wrote children’s poetry in Videha and pioneered the bāl ghazal. Which of his collections is a long poem (dīrgha kavitā) titled ‘Across the Threshold’?",
+            options: ["Geet Ganga", "Tora Angana Me", "Dhar Kai Oi Par", "Ghazal Ganga"],
+            correct: 2,
+            explanation: "‘Dhar Kai Oi Par’ (Across the Threshold) is a long poem exploring liminality, desire, and the ‘other shore’ – a philosophical work in his oeuvre."
+        },
+        {
+            text: "Dr. Kamini Kamayini co‑edited Videha Sadeha 31, a major anthology of Maithili prose and verse. Her poetry is known for which dominant rasa according to the Parallel History?",
+            options: ["Vīra (heroism)", "Karuṇā (pathos) combined with vipralambha śṛṅgāra (love in separation)", "Hāsya (comedy)", "Adbhuta (wonder)"],
+            correct: 1,
+            explanation: "Her work often uses karuṇā and the separation mode of śṛṅgāra to portray women’s longing, social constraint, and the pain of displacement."
+        },
+        {
+            text: "Kapileshwar Raut’s debut seed‑story collection ‘Ulhan’ (Reproach) contains which story that critiques caste‑endogamy and the idea of lineage by showing a childless couple wanting to adopt an orphan?",
+            options: ["Tharharī", "Vamś", "Bhog", "Kumāri Bhojan"],
+            correct: 1,
+            explanation: "‘Vamś’ (Lineage) exposes caste hypocrisy: the father‑in‑law refuses adoption from an orphanage because the child’s caste would be unknown, even though the couple’s own sons have abandoned them."
+        },
+        {
+            text: "In Kapileshwar Raut’s ‘Ulhan’, the title story follows a father returning from Bombay with gifts. The son’s casual remark that there was never money for fairs when they were poor becomes an ‘ulhan’ – what does it signify?",
+            options: ["A happy memory", "A reproach that exposes the emotional cost of migration – material wealth cannot replace absence", "A financial lesson", "A religious sermon"],
+            correct: 1,
+            explanation: "The story reveals that the father’s years away, despite the gifts, have created an emotional debt; the son’s words become an unwitting reproach (ulhan)."
+        },
+        {
+            text: "Badri Nath Roy ‘Amatya’ wrote the satirical poem ‘Maithil Bhaiya Karoo Vichar’. What is the central image of the poem’s title?",
+            options: ["A call to arms", "A plea to the Maithil community to think and reflect on social decay", "A love song", "A devotional hymn"],
+            correct: 1,
+            explanation: "The poem’s refrain urges Maithils to ‘do think’ about the loss of traditions, the corruption of leaders, and the erosion of moral values."
+        },
+        {
+            text: "Which engineer‑turned‑flood historian wrote ‘Bandini Mahananda’, ‘Dui Patan Ke Bich Mein’ and ‘Bagmati Ki Sadgati’, exposing the failure of embankments in North Bihar?",
+            options: ["Dinesh Kumar Mishra", "Gajendra Thakur", "Pankaj Jha Parashar", "Rajdeo Mandal"],
+            correct: 0,
+            explanation: "Dinesh Kumar Mishra (IIT Kharagpur) dedicated his life to studying Mithila’s rivers, calling embankment‑based flood control ‘engineering witchcraft’."
+        },
+        {
+            text: "Dinesh Kumar Mishra’s research was plagiarised by which Sahitya Akademi advisory committee member in the novel ‘Jalprantar’ (2017), as exposed by the Videha movement?",
+            options: ["Ramanath Jha", "Pankaj Jha ‘Parashar’", "Udayanath Jha ‘Ashok’", "Kamalanand Jha"],
+            correct: 1,
+            explanation: "Pankaj Jha ‘Parashar’ lifted paragraphs from Mishra’s ‘Dui Patan Ke Bich Mein’ (2006) without attribution; Videha published side‑by‑side evidence."
+        },
+        {
+            text: "The Sahitya Akademi RTI applications filed by Vinit Utpal and Ashish Anchinhar (2011‑14) revealed that over 90% of Maithili translation/publication assignments went to:",
+            options: ["Dalit writers", "Women writers", "Friends and relatives of the 10‑member advisory board", "Writers from Nepal"],
+            correct: 2,
+            explanation: "The RTI data confirmed systematic exclusion of subaltern, Dalit, and women writers, leading to the creation of the Videha parallel awards."
+        },
+        {
+            text: "Which parallel award category did Videha institute to honour lifetime contributions to Maithili literature, mirroring the Sahitya Akademi Fellowship?",
+            options: ["Videha Yuva Puraskar", "Videha Samantarar Sahitya Akademi Fellow Puraskar", "Videha Bal Sahitya Samman", "Videha Translation Prize"],
+            correct: 1,
+            explanation: "The Videha Samantarar Sahitya Akademi Fellow Puraskar was the very first category of the Videha Samman, awarded to Govind Jha (2010) and Ramanand Renu (2011)."
+        },
+        {
+            text: "According to the Parallel History, the first Maithili fiction on breast cancer was written by Meena Jha. How much earlier did it appear compared to Hindi stories on the same subject?",
+            options: ["Same year", "One to two years earlier", "Five years later", "Ten years earlier"],
+            correct: 1,
+            explanation: "The Videha archive notes that this story predated comparable Hindi fiction by 1–2 years, marking a landmark in Maithili women’s medical writing."
+        },
+        {
+            text: "Which of Dinesh Kumar Mishra’s books predicted the 2008 Kosi embankment breach, calling the situation of people ‘imprisoned’ between embankments a ‘time bomb’?",
+            options: ["Na Ghaat Na Ghar – Refugees of the Kosi Embankments", "Bagavat Par Majboor Mithila Ki Kamla Nadi", "Bhutahi Nadi Aur Takniki Jhad-Phook", "Pani Ka Shaap"],
+            correct: 0,
+            explanation: "‘Na Ghaat Na Ghar’ (2008, published just before the Kushaha tragedy) documented the plight of 380 villages trapped inside Kosi embankments."
+        },
+        {
+            text: "Hriday Narayan Jha’s essay lists nine Gosaunik Gīta (devotional songs) in nine tunes. One of them is a composition by Mahākavi Vidyapati. Which goddess does that song address?",
+            options: ["Saraswati", "Kali/Bhavani", "Lakshmi", "Ganga"],
+            correct: 1,
+            explanation: "The Vidyapati song ‘Ādi bhavānī vinaya tua pāya’ is addressed to Kali/Bhavani, showing the continuity between classical Maithili and folk devotional traditions."
+        },
+        {
+            text: "In Kapileshwar Raut’s story ‘Chhuā-Chhūt’ (Untouchability), set during Durga Puja, a Dalit man is refused entry to the temple and later at a tea‑stall. What is the story’s devastating question?",
+            options: ["Why don’t you wash the cup after me like you do for others?", "Why is there no reservation?", "Why is the temple closed?", "Why is the priest a Brahmin?"],
+            correct: 0,
+            explanation: "The Dalit customer asks: ‘If you wash dishes to purify them after others use them, why don’t you wash mine and serve me?’ – exposing the irrationality of untouchability."
+        },
+        {
+            text: "Jagdish Chandra Thakur ‘Anil’s autobiography is titled ‘Aankhime Chitra Ho Maithili Ker’ (‘May there be pictures of Maithili in my eyes’). What does the title’s dhvani convey?",
+            options: [
+                "Only a wish to see Mithila",
+                "Maithili as beloved, as Madhubani painting inscribed in the eye, and as the poet’s visionary commitment to the language",
+                "A prayer for eyesight",
+                "A travelogue description"
+            ],
+            correct: 1,
+            explanation: "‘Chitra’ means picture/image and also refers to Madhubani paintings; the title is a multi‑layered dhvani of devotion to Maithili language and culture."
+        },
+        {
+            text: "Which of the following best describes the ‘Anchinhar Formula’ for literary evaluation (Shakti‑kadrat, Vishay‑kadrat, Tatya‑kadrat)?",
+            options: [
+                "A formula for ghazal metre",
+                "An epistemological framework judging courage in confronting power, expansion of subject matter, and factual/evidentiary honesty",
+                "A recipe for writing seed stories",
+                "A political party manifesto"
+            ],
+            correct: 1,
+            explanation: "The formula (power proximity, subject expansion, factual evidence) is used by Ashish Anchinhar and the Videha movement to evaluate literature beyond institutional awards."
+        },
+        {
+            text: "In Dinesh Kumar Mishra’s analysis, what is the main reason embankments fail to control floods in North Bihar?",
+            options: [
+                "Lack of government funds",
+                "Silt accumulation inside embankments raises the riverbed, making breaches inevitable and floods more devastating",
+                "Nepal refuses to cooperate",
+                "Excessive rainfall"
+            ],
+            correct: 1,
+            explanation: "Mishra argues that embankments trap silt, causing the riverbed to rise above surrounding land; when they breach, the devastation is far worse than natural flooding."
+        },
+        {
+            text: "Dr. Kamini Kamayini’s short stories often depict the lives of ordinary Mithila women. Her editorial work on Videha Sadeha 31 is described in the Parallel History as:",
+            options: [
+                "A minor contribution",
+                "A counter‑canonical archive‑building act, preserving voices that the mainstream had excluded",
+                "A political manifesto",
+                "A translation project"
+            ],
+            correct: 1,
+            explanation: "As co‑editor, she helped select and preserve prose and poetry from 350 issues, creating a democratic literary record outside the Sahitya Akademi canon."
+        },
+        {
+            text: "Which satirical poet wrote the line ‘Buddhiinath Mishraak sakal rachna arthapraDhaan / Hindi me tain gawait chahi sohar aa samdaaun’, attacking a writer who performs folk songs in Hindi for patronage?",
+            options: ["Badri Nath Roy ‘Amatya’", "Ramlochan Thakur (quoted by Nabo Narayan Mishra)", "Kishan Karigar", "Kumar Pawan"],
+            correct: 1,
+            explanation: "The couplet is by Ramlochan Thakur, preserved in Nabo Narayan Mishra’s essay, critiquing the betrayal of Maithili folk tradition for Hindi acceptance."
+        },
+        {
+            text: "According to the Parallel History, the Sahitya Akademi gave its first Maithili award in 1966 to a non‑literary work. What was it?",
+            options: ["A novel", "A poetry collection", "An academic philosophy text (Mithila-Baibhav)", "A short story collection"],
+            correct: 2,
+            explanation: "The first award went to Yashodhar Jha’s philosophical treatise ‘Mithila-Baibhav’ – setting a template for ignoring creative, democratic literature."
+        },
+        {
+            text: "Which of the following is a key finding of the RTI expose by Vinit Utpal and Ashish Anchinhar?",
+            options: [
+                "All Maithili writers received equal assignments",
+                "Women writers were entirely excluded from Sahitya Akademi assignments",
+                "The advisory board had no influence",
+                "Translation assignments were fairly distributed"
+            ],
+            correct: 1,
+            explanation: "The RTI revealed that women and subaltern writers were systematically excluded, confirming the need for the Videha parallel awards."
+        }
+    ];
+
+    let selectedAnswers = new Array(questions.length).fill(null);
+    let quizSubmitted = false;
+
+    function renderQuestions() {
+        const container = document.getElementById('questions-area');
+        container.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.setAttribute('data-qid', idx);
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qText);
+            
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const optWrap = document.createElement('div');
+                optWrap.className = 'option';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${idx}`;
+                radio.value = optIdx;
+                radio.id = `q_${idx}_opt_${optIdx}`;
+                if (selectedAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    if (!quizSubmitted) {
+                        selectedAnswers[idx] = parseInt(e.target.value);
+                        updateScoreDisplay();
+                        const fbDiv = card.querySelector('.feedback');
+                        if (fbDiv) fbDiv.style.display = 'none';
+                    }
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q_${idx}_opt_${optIdx}`;
+                label.innerText = opt;
+                optWrap.appendChild(radio);
+                optWrap.appendChild(label);
+                optionsDiv.appendChild(optWrap);
+            });
+            card.appendChild(optionsDiv);
+            const fbDiv = document.createElement('div');
+            fbDiv.className = 'feedback';
+            fbDiv.id = `fb_${idx}`;
+            card.appendChild(fbDiv);
+            container.appendChild(card);
+        });
+    }
+
+    function updateScoreDisplay() {
+        const answered = selectedAnswers.filter(a => a !== null).length;
+        document.getElementById('scoreDisplay').innerHTML = `📌 ${answered} / ${questions.length} questions answered ${quizSubmitted ? '· Final scores below' : '· Submit to see correct answers'}`;
+    }
+
+    function evaluateQuiz() {
+        quizSubmitted = true;
+        let correctCount = 0;
+        for (let i = 0; i < questions.length; i++) {
+            const userChoice = selectedAnswers[i];
+            const isCorrect = (userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+            const fb = document.getElementById(`fb_${i}`);
+            if (fb) {
+                if (userChoice === null) {
+                    fb.innerHTML = `⚠️ Unanswered. Correct: ${questions[i].options[questions[i].correct]}. ${questions[i].explanation}`;
+                    fb.className = 'feedback incorrect';
+                } else if (isCorrect) {
+                    fb.innerHTML = `✅ Correct. ${questions[i].explanation}`;
+                    fb.className = 'feedback correct';
+                } else {
+                    fb.innerHTML = `❌ Incorrect. You chose: ${questions[i].options[userChoice]}. Correct: ${questions[i].options[questions[i].correct]}. ${questions[i].explanation}`;
+                    fb.className = 'feedback incorrect';
+                }
+                fb.style.display = 'block';
+            }
+        }
+        const scoreMsg = `🎯 You scored ${correctCount} out of ${questions.length}`;
+        document.getElementById('scoreDisplay').innerHTML = scoreMsg + (correctCount === questions.length ? ' — 🌟 Complete parallel scholar!' : ' — Review the explanations to deepen your knowledge of the parallel archive.');
+    }
+
+    function resetQuiz() {
+        selectedAnswers.fill(null);
+        quizSubmitted = false;
+        for (let i = 0; i < questions.length; i++) {
+            const radios = document.querySelectorAll(`input[name="q_${i}"]`);
+            radios.forEach(r => r.checked = false);
+            const fb = document.getElementById(`fb_${i}`);
+            if (fb) {
+                fb.style.display = 'none';
+                fb.innerHTML = '';
+            }
+        }
+        updateScoreDisplay();
+    }
+
+    document.getElementById('submitBtn').addEventListener('click', evaluateQuiz);
+    document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+
+    renderQuestions();
+    updateScoreDisplay();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

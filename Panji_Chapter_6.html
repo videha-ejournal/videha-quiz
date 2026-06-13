@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>Quiz: Chapter 6 – Panji: Anthropological, Legal & Socio-Historical Analysis</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: #e9e0cf;
+background: linear-gradient(135deg, #f3ecd9 0%, #e2d5bd 100%);
+font-family: 'Segoe UI', 'Roboto', 'Noto Serif', Georgia, serif;
+padding: 2rem 1rem;
+}
+.quiz-container {
+max-width: 980px;
+margin: 0 auto;
+background: #fffdf7;
+border-radius: 2rem;
+overflow: hidden;
+box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.35);
+border: 1px solid #e2cfad;
+}
+.quiz-header {
+background: #3e2a1f;
+background: linear-gradient(105deg, #462b1c 0%, #7e4a32 100%);
+padding: 1.8rem 2rem 1.6rem;
+color: #fff2e2;
+border-bottom: 5px solid #dcb27a;
+}
+.quiz-header h1 {
+font-size: 1.9rem;
+font-weight: 700;
+letter-spacing: -0.3px;
+display: flex;
+flex-wrap: wrap;
+align-items: baseline;
+gap: 0.8rem;
+}
+.quiz-header h1 span {
+background: #2b1b12b3;
+font-size: 0.9rem;
+font-weight: 500;
+padding: 0.2rem 1rem;
+border-radius: 60px;
+}
+.quiz-header p {
+margin-top: 0.7rem;
+font-style: italic;
+opacity: 0.92;
+font-size: 0.98rem;
+}
+.quiz-body {
+padding: 1.6rem 2rem 0.8rem;
+}
+.question-card {
+background: white;
+border-radius: 1.4rem;
+margin-bottom: 2rem;
+box-shadow: 0 6px 14px rgba(0, 0, 0, 0.04);
+border: 1px solid #e7dcc4;
+transition: 0.1s ease;
+}
+.q-text {
+background: #fef8ec;
+padding: 1.2rem 1.8rem 0.5rem 1.8rem;
+font-size: 1.22rem;
+font-weight: 700;
+color: #34271a;
+border-radius: 1.4rem 1.4rem 0 0;
+}
+.options-area {
+padding: 0.2rem 1.8rem 1.2rem 1.8rem;
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+}
+.option-row {
+display: flex;
+align-items: center;
+gap: 0.8rem;
+background: #fefaf2;
+padding: 0.6rem 1rem;
+border-radius: 60px;
+border: 1px solid #e9ddc4;
+transition: all 0.15s;
+cursor: pointer;
+}
+.option-row:hover {
+background: #f5ecde;
+border-color: #c9ad82;
+}
+input[type="radio"] {
+accent-color: #8b482e;
+width: 1.1rem;
+height: 1.1rem;
+flex-shrink: 0;
+}
+.option-row label {
+font-size: 1rem;
+font-weight: 450;
+color: #2f281e;
+width: 100%;
+cursor: pointer;
+line-height: 1.35;
+}
+.feedback {
+margin: 0 1.8rem 1.4rem 1.8rem;
+}
+.correct-feedback {
+background: #e2f3ea;
+border-left: 5px solid #2c784e;
+padding: 0.7rem 1rem;
+border-radius: 14px;
+color: #155c38;
+font-size: 0.9rem;
+}
+.wrong-feedback {
+background: #ffe5df;
+border-left: 5px solid #c44524;
+padding: 0.7rem 1rem;
+border-radius: 14px;
+color: #a33a1e;
+font-size: 0.9rem;
+}
+.quiz-footer {
+background: #fcf8ef;
+padding: 1.2rem 2rem 1.8rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 1rem;
+border-top: 1px solid #eadbba;
+}
+button {
+background: #6f3a24;
+border: none;
+font-size: 1rem;
+font-weight: 600;
+padding: 0.7rem 1.8rem;
+border-radius: 60px;
+color: white;
+cursor: pointer;
+transition: 0.2s;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+button:hover {
+background: #552c1b;
+transform: translateY(-2px);
+}
+.reset-btn {
+background: #6a624c;
+}
+.reset-btn:hover {
+background: #4e4836;
+}
+.score-badge {
+background: #2f2820;
+padding: 0.5rem 1.4rem;
+border-radius: 60px;
+color: #ffddb0;
+font-weight: bold;
+font-size: 1.05rem;
+}
+@media (max-width: 680px) {
+.quiz-body {
+padding: 1rem;
+}
+.q-text {
+font-size: 1rem;
+padding: 1rem 1rem 0.2rem 1rem;
+}
+.options-area {
+padding: 0 1rem 1rem 1rem;
+}
+.option-row label {
+font-size: 0.88rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <div class="quiz-header"> <h1>⚖️ The Mithila Panji Prabandha <span>Chapter 6: Anthropological, Legal & Socio-Historical Analysis</span></h1> <p>Based on "Decoding the Panji of Mithila" — legal genesis, structural typology, exogamy rules, social hierarchy, and the Dushan Panji.</p> </div> <div class="quiz-body" id="quizBody"></div> <div class="quiz-footer"> <button id="submitBtn">📜 Submit & Validate Answers</button> <button id="resetBtn" class="reset-btn">⟳ Reset Quiz</button> <div class="score-badge" id="scoreDisplay">Score: 0/0</div> </div>
+</div>
+<script>
+  // ----- Chapter 6 specific questions (derived from document: anthropological/legal/socio-historical) -----
+  const questions = [
+    {
+      text: "According to Chapter 6, what unique event triggered the institutionalization of the Panji Prabandha under King Harisimhadeva?",
+      options: [
+        "An invasion by the Delhi Sultanate that burned all family manuscripts",
+        "The trial of Harinatha Upadhyaya: his wife underwent a fire ordeal, revealing that their marriage was incestuous (within prohibited sapinda)",
+        "A decree from the British East India Company",
+        "The mass migration of Maithil Brahmins to Nepal"
+      ],
+      correct: 1,
+      explanation: "Harinatha Upadhyaya married a relation within the prohibited fifth degree; his wife’s ordeal led to the realization that oral genealogy had failed. King Harisimhadeva then instituted the state-run Panji system."
+    },
+    {
+      text: "Which female scholar’s intervention corrected the legal interpretation of the fire ordeal and helped establish the need for written genealogies?",
+      options: [
+        "Queen Visvasa Devi",
+        "Lakkhima Devi (Thakurain Lakhima), daughter of Rati Mishra",
+        "Chandrakala (poet)",
+        "Dhiramati, queen of Shivasimha"
+      ],
+      correct: 1,
+      explanation: "Lakkhima Devi, a learned philosopher, recognized that the marriage was sapinda (consanguineous) and advised a retrial, proving the fault was genealogical not moral."
+    },
+    {
+      text: "What are the three primary caste groups for which the Panji system was originally maintained?",
+      options: [
+        "Maithil Brahmins, Karna Kayasthas, and Kshatriyas (Gandhavariya Rajputs)",
+        "Shrotriya, Yogya, and Jaibar only",
+        "Maithil Brahmins, Bhumihars, and Muslims",
+        "Only Karna Kayasthas and Rajputs"
+      ],
+      correct: 0,
+      explanation: "King Harisimhadeva appointed Panjikars for Maithil Brahmins (Gunakar Jha), Karna Kayasthas (Shankardatt), and Kshatriyas (Vijayadatt)."
+    },
+    {
+      text: "How does the Panji define structural identity for a Maithil Brahmin? (Select the most complete set)",
+      options: [
+        "Only Gotra and Pravara",
+        "Gotra, Biji Purush (founding ancestor), Mool (ancestral village), Moolgram and Shakha (branch)",
+        "Only the current village of residence",
+        "Only the title Mahamahopadhyaya"
+      ],
+      correct: 1,
+      explanation: "Chapter 6 explains that a person’s identity includes Gotra, Biji Purush, Mool (ancestral village), Moolgram (migration branch) and Shakha (specific lineage)."
+    },
+    {
+      text: "What is the ‘Kashta Matula’ rule within the Panji’s marriage prohibitions?",
+      options: [
+        "A man cannot marry the offspring of his stepmother’s brother",
+        "Marriage is allowed only if gotra is identical",
+        "The bride must be from the father's sister's family",
+        "Only 3 generations are checked on maternal side"
+      ],
+      correct: 0,
+      explanation: "Kashta Matula (or Katha Mamak) prohibits a man from marrying the child of his stepmother’s brother — one of the five absolute prohibitions of the system."
+    },
+    {
+      text: "Which of the following best describes the 16 bloodline vectors (Kul) evaluated by the Panjikar before issuing a Siddhanta?",
+      options: [
+        "Only ancestors from the groom’s father’s side",
+        "Sixteen specific maternal and paternal vectors including paternal grandfather’s paternal grandfather, mother’s maternal grandfather, etc.",
+        "Only maternal grandfather’s lineage",
+        "Only the Biji Purush"
+      ],
+      correct: 1,
+      explanation: "The Panjikar evaluates 16 specific vectors (e.g., paternal grandfather of father’s paternal grandfather, maternal grandfather of mother’s paternal grandmother) to ensure no sapinda violation."
+    },
+    {
+      text: "What does the term ‘Parmaangi’ refer to in the later evolution of the Panji hierarchy?",
+      options: [
+        "A mandatory written permission from the Darbhanga Raja for Shrotriya marriages",
+        "A purification ritual after inter-caste marriage",
+        "The title of a female genealogist",
+        "A type of palm-leaf manuscript"
+      ],
+      correct: 0,
+      explanation: "Raja Madhav Singh required Shrotriya families to obtain his personal written permission (Parmaangi) before any marriage, turning them into dependent landlords."
+    },
+    {
+      text: "What makes the ‘Dushan Panji’ (Dooshan Panji) a unique counter-archive within the Panji system?",
+      options: [
+        "It records only royal decrees",
+        "It preserves records of inter-caste marriages, widow remarriages, and illegitimate births — including the suppressed details of Gangesha Upadhyaya’s lineage",
+        "It replaced the main Panji after 1800 CE",
+        "It is written exclusively in Kaithi script"
+      ],
+      correct: 1,
+      explanation: "The Dushan Panji is the ‘fault register’ documenting transgressions (inter-caste unions, unknown maternal lines, etc.), including the birth of Gangesha Upadhyaya five years after his father’s death and his marriage to a Charmakarini."
+    },
+    {
+      text: "According to Chapter 6, which medieval logician’s genealogy was suppressed by 20th-century scholars, only to be revealed through the Dushan Panji?",
+      options: [
+        "Vidyapati Thakur",
+        "Gangesha Upadhyaya (founder of Navya-Nyāya)",
+        "Pakshadhara Mishra",
+        "Mandana Mishra"
+      ],
+      correct: 1,
+      explanation: "The Dushan Panji records that Gangesha Upadhyaya was born posthumously and his wife was from the Charmakar (cobbler) caste — facts later concealed by scholars like Ramanath Jha."
+    },
+    {
+      text: "Which statement accurately reflects the training and professional status of Panjikars during the Darbhanga Raj period?",
+      options: [
+        "Any village elder could become a Panjikar without examination",
+        "Candidates underwent a ten-year course and passed the rigorous Dhaut Pariksha (public examination) to receive royal certification",
+        "Panjikars were appointed only by the British government",
+        "Women were the primary Panjikars in Mithila"
+      ],
+      correct: 1,
+      explanation: "Panjikars were highly trained: 10 years of study, then Dhaut Pariksha overseen by leading scholars, after which they received formal title and ceremonial white cloth."
+    }
+  ];
+
+  // application state
+  let userAnswers = new Array(questions.length).fill(null);
+  let quizSubmitted = false;
+  let currentScore = 0;
+
+  const quizContainer = document.getElementById('quizBody');
+  const submitButton = document.getElementById('submitBtn');
+  const resetButton = document.getElementById('resetBtn');
+  const scoreElement = document.getElementById('scoreDisplay');
+
+  function renderQuiz() {
+    quizContainer.innerHTML = '';
+    questions.forEach((q, idx) => {
+      const card = document.createElement('div');
+      card.classList.add('question-card');
+      card.dataset.qIndex = idx;
+
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('q-text');
+      questionDiv.innerText = `${idx+1}. ${q.text}`;
+      card.appendChild(questionDiv);
+
+      const optionsDiv = document.createElement('div');
+      optionsDiv.classList.add('options-area');
+
+      q.options.forEach((opt, optIdx) => {
+        const optRow = document.createElement('div');
+        optRow.classList.add('option-row');
+        const radio = document.createElement('input');
+        radio.type = 'radio';
+        radio.name = `q_${idx}`;
+        radio.value = optIdx;
+        radio.id = `q_${idx}_opt_${optIdx}`;
+
+        if (!quizSubmitted && userAnswers[idx] === optIdx) radio.checked = true;
+        if (quizSubmitted) radio.disabled = true;
+
+        const label = document.createElement('label');
+        label.htmlFor = `q_${idx}_opt_${optIdx}`;
+        label.innerText = opt;
+
+        radio.addEventListener('change', (e) => {
+          if (!quizSubmitted) {
+            userAnswers[idx] = parseInt(e.target.value);
+          }
+        });
+
+        optRow.appendChild(radio);
+        optRow.appendChild(label);
+        optionsDiv.appendChild(optRow);
+      });
+
+      card.appendChild(optionsDiv);
+
+      // feedback if submitted
+      if (quizSubmitted) {
+        const feedbackDiv = document.createElement('div');
+        feedbackDiv.classList.add('feedback');
+        const isCorrect = (userAnswers[idx] === q.correct);
+        if (isCorrect) {
+          feedbackDiv.innerHTML = `<div class="correct-feedback">✓ Correct. ${q.explanation}</div>`;
+        } else {
+          const correctLetter = String.fromCharCode(65 + q.correct);
+          feedbackDiv.innerHTML = `<div class="wrong-feedback">✗ Incorrect. Right answer: ${correctLetter}) ${q.options[q.correct]}.<br>${q.explanation}</div>`;
+        }
+        card.appendChild(feedbackDiv);
+      }
+
+      quizContainer.appendChild(card);
+    });
+  }
+
+  function computeTotalScore() {
+    let correctCount = 0;
+    for (let i = 0; i < questions.length; i++) {
+      if (userAnswers[i] !== null && userAnswers[i] === questions[i].correct) {
+        correctCount++;
+      }
+    }
+    return correctCount;
+  }
+
+  function updateScoreDisplay() {
+    const total = questions.length;
+    const correctCount = computeTotalScore();
+    currentScore = correctCount;
+    scoreElement.innerText = `Score: ${correctCount}/${total}`;
+  }
+
+  function submitQuiz() {
+    if (quizSubmitted) return;
+
+    let allAnswered = true;
+    for (let i = 0; i < questions.length; i++) {
+      if (userAnswers[i] === null) {
+        allAnswered = false;
+        break;
+      }
+    }
+    if (!allAnswered) {
+      alert("⚠️ Please answer all 10 questions before submitting.");
+      return;
+    }
+
+    quizSubmitted = true;
+    updateScoreDisplay();
+    renderQuiz();   // show explanations and disable radios
+  }
+
+  function resetQuiz() {
+    quizSubmitted = false;
+    userAnswers.fill(null);
+    updateScoreDisplay();
+    renderQuiz();
+  }
+
+  // initial rendering
+  renderQuiz();
+  updateScoreDisplay();
+
+  submitButton.addEventListener('click', submitQuiz);
+  resetButton.addEventListener('click', resetQuiz);
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

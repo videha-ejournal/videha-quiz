@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Videha Parallel History: Part XIV Quiz | Early Maithili Literature (900–1350 CE)</title> <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: 'Segoe UI', 'Roboto', 'Georgia', serif;
+background: #f2ede4;
+color: #2b241a;
+padding: 2rem;
+line-height: 1.5;
+}
+.quiz-container {
+max-width: 1000px;
+margin: 0 auto;
+background: #fffdf9;
+border-radius: 32px;
+box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
+overflow: hidden;
+border: 1px solid #e0d3c4;
+}
+.quiz-header {
+background: linear-gradient(135deg, #2e4a33 0%, #4a6b3c 100%);
+color: #fef5e6;
+padding: 1.8rem 2rem;
+text-align: center;
+}
+.quiz-header h1 {
+font-size: 1.9rem;
+letter-spacing: -0.5px;
+font-weight: 600;
+margin-bottom: 0.5rem;
+}
+.quiz-header h1 span {
+font-style: italic;
+font-weight: 400;
+color: #f3da9b;
+}
+.quiz-header p {
+font-size: 1rem;
+opacity: 0.9;
+max-width: 750px;
+margin: 0 auto;
+}
+.score-area {
+background: #e9dfd1;
+padding: 0.8rem 2rem;
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+flex-wrap: wrap;
+gap: 1rem;
+border-bottom: 1px solid #d8c8b6;
+}
+.score-box {
+background: #2b3b24;
+color: #faeecb;
+padding: 0.3rem 1rem;
+border-radius: 60px;
+font-weight: bold;
+font-size: 1.2rem;
+}
+.progress-text {
+font-weight: 500;
+color: #4b3a28;
+}
+button {
+background: none;
+border: none;
+cursor: pointer;
+font-family: inherit;
+}
+.questions-area {
+padding: 2rem 2rem 1rem;
+}
+.question-card {
+background: #fefbf7;
+margin-bottom: 2rem;
+border-radius: 24px;
+padding: 1.4rem 1.8rem;
+box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+border: 1px solid #ede1d2;
+transition: all 0.1s ease;
+}
+.question-text {
+font-size: 1.2rem;
+font-weight: 600;
+color: #2a3b22;
+margin-bottom: 1.2rem;
+padding-left: 0.3rem;
+border-left: 4px solid #b58b5b;
+}
+.options {
+display: flex;
+flex-direction: column;
+gap: 0.75rem;
+margin-bottom: 1.2rem;
+}
+.option {
+display: flex;
+align-items: center;
+gap: 0.75rem;
+background: #ffffff;
+padding: 0.6rem 1rem;
+border-radius: 50px;
+border: 1px solid #e6d8ca;
+transition: background 0.15s;
+cursor: pointer;
+}
+.option:hover {
+background: #f7f0e8;
+}
+input[type="radio"] {
+accent-color: #7c5d3e;
+width: 18px;
+height: 18px;
+margin: 0;
+}
+.option label {
+font-size: 0.98rem;
+font-weight: 450;
+color: #2c2a27;
+width: 100%;
+cursor: pointer;
+}
+.feedback {
+margin-top: 0.8rem;
+font-size: 0.85rem;
+padding: 0.4rem 0.8rem;
+border-radius: 20px;
+display: inline-block;
+background: #f2ece4;
+color: #5a4a38;
+}
+.feedback.correct {
+background: #e2f0e4;
+color: #1f592e;
+border-left: 3px solid #2f8243;
+}
+.feedback.incorrect {
+background: #fde9e7;
+color: #aa3e2c;
+border-left: 3px solid #c25542;
+}
+.action-buttons {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 1rem;
+padding: 0 2rem 1.8rem 2rem;
+}
+.btn {
+padding: 0.7rem 1.8rem;
+border-radius: 60px;
+font-weight: 600;
+font-size: 0.9rem;
+transition: all 0.2s;
+background: #e5d9cd;
+color: #2c2418;
+border: 1px solid #cfbeaa;
+}
+.btn-primary {
+background: #7a5a3e;
+color: white;
+border: none;
+box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.btn-primary:hover {
+background: #5c4130;
+transform: translateY(-1px);
+cursor: pointer;
+}
+.btn-reset {
+background: #efe3d5;
+border: 1px solid #cfbeaa;
+}
+.btn-reset:hover {
+background: #e2d1bd;
+cursor: pointer;
+}
+.footer {
+background: #f2ece3;
+padding: 1rem 2rem;
+text-align: center;
+font-size: 0.8rem;
+color: #6b5a48;
+border-top: 1px solid #e1d2c0;
+}
+@media (max-width: 680px) {
+body {
+padding: 1rem;
+}
+.question-card {
+padding: 1rem;
+}
+.question-text {
+font-size: 1rem;
+}
+.options {
+gap: 0.5rem;
+}
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <div class="quiz-header"> <h1>📖 Parallel History of Mithila <span>— Part XIV</span></h1> <p>Early Maithili Literature (c. 900–1350 CE): The Triumph of the Vernacular<br>Karnata dynasty · Jyotirishwar Thakur · Umapati Upadhyaya · Early prose & lyric drama</p> </div> <div class="score-area"> <div class="progress-text" id="qCounter">Question 1 of 12</div> <div class="score-box" id="scoreDisplay">Score: 0/0</div> </div> <div class="questions-area" id="questionsContainer"></div> <div class="action-buttons"> <button class="btn btn-reset" id="resetQuizBtn">⟳ Reset Quiz</button> <button class="btn btn-primary" id="submitBtn">✓ Submit & Check Answers</button> </div> <div class="footer">
+📚 Based on Radhakrishna Chaudhary's Survey & the Videha Parallel History (Part XIV).<br>
+ISSN 2229-547X · Democratic, counter‑canonical perspective on Mithila's literary heritage.
+</div>
+</div>
+<script>
+    // ---------- PART XIV: EARLY MAITHILI LITERATURE (c. 900–1350 CE) ----------
+    // Questions based on the provided text: Karnata dynasty, Jyotirishwar, Umapati, Varnanaratnakara, etc.
+    const quizData = [
+        {
+            text: "According to Radhakrishna Chaudhary's survey, the real history of Mithila as an independent cultural unit begins in 1097 AD with which dynasty?",
+            options: [
+                "Oinwara dynasty",
+                "Karnata dynasty under Nanyadeva",
+                "Gupta dynasty",
+                "Pala dynasty"
+            ],
+            correct: 1,
+            explanation: "The text states: 'The real history of Mithila as an independent cultural unit begins, as Chaudhary notes, in 1097 A.D. with the Karnata dynasty under Nanyadeva.'"
+        },
+        {
+            text: "Nanyadeva (c. 1097–1147) was not only a warrior but also a connoisseur of music and Sanskrit scholarship. Which work of his links metre with melody — a feature that defined Maithili lyric poetry?",
+            options: [
+                "Gitagovinda",
+                "Saraswatihridayalankarahara",
+                "Varnanaratnakara",
+                "Kirtilata"
+            ],
+            correct: 1,
+            explanation: "The passage: 'Nanyadeva's Saraswatihridayalankarahara (c. 1097-1147) is among the earliest texts linking the joining of metre with melody.'"
+        },
+        {
+            text: "Which poet's Gitagovinda (c. 1180) was directly influenced by Nanyadeva's work and later cast its shadow over Maithili and Bengali lyric poetry?",
+            options: [
+                "Vidyapati",
+                "Jayadeva",
+                "Jyotirishwar Thakur",
+                "Govindadasa"
+            ],
+            correct: 1,
+            explanation: "The text: 'His work influenced Jayadeva's Gitagovinda (c. 1180), which in turn cast its shadow over all subsequent Maithili and Bengali lyric poetry.'"
+        },
+        {
+            text: "The single most important monument of early Maithili prose is the 'Varnanaratnakara', an encyclopaedic work in seven Kallolas. Who composed it under the patronage of King Harisimhadeva?",
+            options: [
+                "Umapati Upadhyaya",
+                "Vidyapati Thakur",
+                "Jyotirishwar Thakur",
+                "Keshava Mishra"
+            ],
+            correct: 2,
+            explanation: "The chapter: 'The single most important monument of early Maithili prose is the Varnanaratnakara of Jyotirishwar Thakur (c. 1280-1340), composed under the patronage of Harisimhadeva.'"
+        },
+        {
+            text: "According to S.K. Chatterji, the Varnanaratnakara is 'a document of first‑rate importance in the study of culture in early and mid‑medieval times in northern India'. How does Chaudhary describe its prose style?",
+            options: [
+                "Highly Sanskritised and metrical",
+                "Staccato, rhymed prose",
+                "Purely conversational dialogue",
+                "Blank verse with no rhyme"
+            ],
+            correct: 1,
+            explanation: "Chaudhary describes it as 'a staccato, rhymed prose encyclopaedia ... covering urban life, heroic ideals, seasons, arts, music and cosmology.'"
+        },
+        {
+            text: "Which early Maithili drama, composed by Umapati Upadhyaya, is the earliest surviving Maithili play and includes twenty‑one lyrical songs in Maithili?",
+            options: [
+                "Dhurtasamagama",
+                "Goraksha Vijaya",
+                "Parijataharananataka",
+                "Kirtilata"
+            ],
+            correct: 2,
+            explanation: "The text: 'Umapati Upadhyaya's Parijataharananataka (drama, with twenty‑one lyrical songs in Maithili) is the earliest surviving Maithili drama.'"
+        },
+        {
+            text: "Umapati's drama introduced vernacular songs within a Sanskrit‑Prakrit dramatic framework. This model would later be emulated in which Assamese theatrical tradition?",
+            options: [
+                "Jatra",
+                "Bhaona",
+                "Ankianata (under Sankaradeva)",
+                "Kirtaniya"
+            ],
+            correct: 2,
+            explanation: "The text: '... establishes the model that would characterise Maithili dramatic literature for centuries and that would be emulated in the Ankianata tradition of Assam under Sankaradeva.'"
+        },
+        {
+            text: "The Varnanaratnakara was studied in Mithila, Nepal, and Bengal as late as the sixteenth century, evidencing its status as a pan‑eastern standard text. How many chapters (Kallolas) does it contain?",
+            options: [
+                "Five Kallolas",
+                "Seven Kallolas",
+                "Ten Kallolas",
+                "Twelve Kallolas"
+            ],
+            correct: 1,
+            explanation: "The text explicitly says: 'seven Kallolas (chapters).'"
+        },
+        {
+            text: "According to the comparative timeline, the period c. 1097–1350 (Karnata dynasty, Jyotirishwar, Umapati) is marked by which shared literary event across Eastern India?",
+            options: [
+                "Brajabuli synthesis begins",
+                "Vernacular challenge to Sanskrit begins",
+                "Colonial modernity reshapes vernaculars",
+                "Vaishnava pan‑eastern literary culture peaks"
+            ],
+            correct: 1,
+            explanation: "The timeline table in Part XIV: c.1097–1350 – 'Vernacular challenge to Sanskrit begins'."
+        },
+        {
+            text: "The features of Umapati's songs are described as more archaic than anything in Vidyapati, with forms closer to which linguistic stage?",
+            options: [
+                "Avahatta Apabhramsa",
+                "Classical Sanskrit",
+                "Magadhi Prakrit",
+                "Tirhuta script"
+            ],
+            correct: 0,
+            explanation: "The text says: 'The songs display features more archaic than anything in Vidyapati – forms closer to Avahatta Apabhramsa.'"
+        },
+        {
+            text: "Which king of the Karnata dynasty was the patron of Jyotirishwar Thakur, and was later defeated by Ghiyasuddin Tughlaq (1324–25 CE), after which he fled to Nepal?",
+            options: [
+                "Nanyadeva",
+                "Gangadeva",
+                "Harisimhadeva",
+                "Shivasimha"
+            ],
+            correct: 2,
+            explanation: "The text: 'Jyotirishwar Thakur (c. 1280-1340), composed under the patronage of Harisimhadeva, last great ruler of the Karnataka dynasty.' The defeat is described in the same section."
+        },
+        {
+            text: "The early Maithili prose tradition before Vidyapati is represented by the Varnanaratnakara. Which later poet's songs are noted as having a more polished language but less archaic forms compared to Umapati's lyrics?",
+            options: [
+                "Govindadasa",
+                "Vidyapati (c. 1360–1480)",
+                "Nagarjun",
+                "Chanda Jha"
+            ],
+            correct: 1,
+            explanation: "Sukumar Sen observed that Umapati's songs are more archaic than anything in Vidyapati. The Parallel History emphasizes the distinction between early pre‑Vidyapati tradition and the later poet."
+        }
+    ];
+
+    // State
+    let userAnswers = new Array(quizData.length).fill(null);
+    let quizSubmitted = false;
+    let score = 0;
+
+    // DOM elements
+    const questionsContainer = document.getElementById('questionsContainer');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const qCounter = document.getElementById('qCounter');
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetQuizBtn');
+
+    function calculateScore() {
+        let correctCount = 0;
+        for (let i = 0; i < quizData.length; i++) {
+            if (userAnswers[i] !== null && userAnswers[i] === quizData[i].correct) {
+                correctCount++;
+            }
+        }
+        return correctCount;
+    }
+
+    function updateUI() {
+        const total = quizData.length;
+        let answeredCount = userAnswers.filter(a => a !== null).length;
+        qCounter.innerText = `Answered: ${answeredCount} of ${total}`;
+        if (quizSubmitted) {
+            const currentScore = calculateScore();
+            scoreDisplay.innerText = `Score: ${currentScore}/${total}`;
+        } else {
+            scoreDisplay.innerText = `Score: --/${total}`;
+        }
+    }
+
+    function renderQuiz() {
+        questionsContainer.innerHTML = '';
+        for (let i = 0; i < quizData.length; i++) {
+            const q = quizData[i];
+            const selectedVal = userAnswers[i] !== null ? userAnswers[i] : -1;
+            const showFeedback = quizSubmitted;
+            const isCorrect = (quizSubmitted && userAnswers[i] !== null && userAnswers[i] === q.correct);
+
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            
+            const qTextDiv = document.createElement('div');
+            qTextDiv.className = 'question-text';
+            qTextDiv.innerText = `${i+1}. ${q.text}`;
+            card.appendChild(qTextDiv);
+            
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+            
+            q.options.forEach((opt, optIdx) => {
+                const optionWrap = document.createElement('div');
+                optionWrap.className = 'option';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q_${i}`;
+                radio.value = optIdx;
+                radio.disabled = quizSubmitted;
+                if (selectedVal === optIdx) radio.checked = true;
+                
+                radio.addEventListener('change', (function(qIdx, oIdx) {
+                    return function(e) {
+                        if (!quizSubmitted && e.target.checked) {
+                            userAnswers[qIdx] = oIdx;
+                            renderQuiz();
+                        }
+                    };
+                })(i, optIdx));
+                
+                const label = document.createElement('label');
+                label.innerText = opt;
+                optionWrap.appendChild(radio);
+                optionWrap.appendChild(label);
+                optionsDiv.appendChild(optionWrap);
+            });
+            card.appendChild(optionsDiv);
+            
+            if (showFeedback && userAnswers[i] !== null) {
+                const fbDiv = document.createElement('div');
+                fbDiv.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+                if (isCorrect) {
+                    fbDiv.innerHTML = `✓ Correct. ${q.explanation}`;
+                } else {
+                    const correctOptionText = q.options[q.correct];
+                    fbDiv.innerHTML = `✗ Incorrect. Correct answer: ${correctOptionText}. ${q.explanation}`;
+                }
+                card.appendChild(fbDiv);
+            } else if (showFeedback && userAnswers[i] === null) {
+                const fbDiv = document.createElement('div');
+                fbDiv.className = 'feedback incorrect';
+                fbDiv.innerHTML = `⚠ Not answered. The correct answer is: ${q.options[q.correct]}. ${q.explanation}`;
+                card.appendChild(fbDiv);
+            }
+            
+            questionsContainer.appendChild(card);
+        }
+        updateUI();
+    }
+
+    function submitQuiz() {
+        if (quizSubmitted) return;
+        quizSubmitted = true;
+        renderQuiz();
+        submitBtn.innerText = "✓ Results Submitted";
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = "0.7";
+        window.scrollTo({ top: document.body.scrollHeight * 0.3, behavior: 'smooth' });
+    }
+
+    function resetQuiz() {
+        quizSubmitted = false;
+        userAnswers = new Array(quizData.length).fill(null);
+        submitBtn.innerText = "✓ Submit & Check Answers";
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = "1";
+        renderQuiz();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    submitBtn.addEventListener('click', submitQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+    renderQuiz();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <title>Quiz: Chapter 36 – Institutions, Awards, and the Parallel History</title> <style>
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+max-width: 1000px;
+margin: 2rem auto;
+padding: 1rem;
+background: #f4f1ea;
+}
+.quiz-container {
+background: white;
+border-radius: 2rem;
+padding: 1.5rem;
+box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+h1 {
+color: #2c5e2c;
+border-left: 5px solid #b8860b;
+padding-left: 1rem;
+}
+.question {
+border-bottom: 1px solid #e0d6c5;
+padding: 1rem 0;
+}
+.question-text {
+font-weight: 700;
+margin-bottom: 0.5rem;
+font-size: 1.05rem;
+}
+.options {
+margin-left: 1.5rem;
+margin-bottom: 0.5rem;
+}
+.option {
+margin: 0.3rem 0;
+}
+.explanation {
+background: #f4f1e8;
+padding: 0.6rem;
+margin-top: 0.6rem;
+border-left: 4px solid #b8860b;
+display: none;
+border-radius: 0.5rem;
+}
+button {
+background: #2c5e2c;
+color: white;
+border: none;
+padding: 0.5rem 1.2rem;
+border-radius: 2rem;
+cursor: pointer;
+margin: 0.2rem;
+font-size: 1rem;
+}
+button:hover {
+background: #1e401e;
+}
+.score {
+font-size: 1.2rem;
+font-weight: bold;
+margin-top: 1rem;
+text-align: center;
+}
+.vq-footer {
+text-align: center;
+padding: 12px;
+font-size: 0.82em;
+color: #7a8aaa;
+border-top: 1px solid #ccc;
+margin-top: 12px;
+font-family: 'Noto Serif Devanagari', serif;
+}
+.vq-back {
+display: block;
+text-align: center;
+margin: 16px auto 8px;
+font-family: 'Noto Serif Devanagari', serif;
+font-size: 0.9em;
+color: #8B1A1A;
+}
+</style>
+</head>
+<body>
+<a class="vq-back" href="../videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a> <div class="quiz-container"> <h1>📖 Chapter 36 – Institutions, Awards & the Parallel History Framework</h1> <p>Based on the Videha Parallel History’s analysis of the Sahitya Akademi, Lalit Kala Akademi, Sangeet Natak Akademi, Nepal’s literary bodies, and the Videha Samman</p> <div id="quiz"></div> <div style="margin-top: 1rem;"> <button id="submitBtn">✔ Submit Answers</button> <button id="resetBtn">⟳ Reset Quiz</button> </div> <div id="score" class="score"></div>
+</div>
+<script>
+const questions = [
+    {
+        text: "When did the Sahitya Akademi begin giving its main award for Maithili, and when was Maithili added to the Eighth Schedule of the Indian Constitution?",
+        options: [
+            "1966 (Akademi) / 2003 (Eighth Schedule)",
+            "1950 / 1990",
+            "1975 / 2000",
+            "1980 / 2010"
+        ],
+        correct: 0,
+        explanation: "The Sahitya Akademi recognised Maithili in 1966, while constitutional recognition came later in 2003 (92nd Amendment)."
+    },
+    {
+        text: "According to the RTI investigation by Vinit Utpal and Ashish Anchinhar (2011–14), what percentage of Sahitya Akademi translation and publication assignments for Maithili went to friends or relatives of the advisory board?",
+        options: [
+            "~50%",
+            "~70%",
+            ">90%",
+            "~30%"
+        ],
+        correct: 2,
+        explanation: "The RTI expose confirmed that over 90% of assignments were captured by a closed network, systematically excluding parallel tradition writers."
+    },
+    {
+        text: "Which of the following is NOT one of the seven Maithili literary associations recognised by the Sahitya Akademi (as per the 2022 list)?",
+        options: [
+            "Akhil Bharatiya Maithili Sahitya Parishad (Darbhanga)",
+            "Chetna Samiti (Patna)",
+            "Videha eJournal (Delhi)",
+            "Mithila Sanskritik Parishad (Kolkata)"
+        ],
+        correct: 2,
+        explanation: "Videha eJournal is a parallel institution, not one of the seven officially recognised associations, which include Chetna Samiti, Mithila Sanskritik Parishad, etc."
+    },
+    {
+        text: "What is the most glaring institutional failure of the Sahitya Akademi regarding Maithili, as noted in the document?",
+        options: [
+            "No Maithili writer has ever been elected a Sahitya Akademi Fellow (highest honour)",
+            "They have never published any Maithili book",
+            "They gave awards only to Nepali writers",
+            "They abolished the Maithili award"
+        ],
+        correct: 0,
+        explanation: "As of 2025, Maithili has produced zero Sahitya Akademi Fellows – a stark omission given the language’s ancient literary tradition."
+    },
+    {
+        text: "The Videha Parallel Samman (Samantar Sahitya Akademi Samman) was instituted in 2010–11. Who were the first two recipients of the ‘Fellow’ category?",
+        options: [
+            "Bechan Thakur and Rajdeo Mandal",
+            "Govind Jha and Ramanand Renu",
+            "Jagdish Prasad Mandal and Ashish Anchinhar",
+            "Gajendra Thakur and Preeti Thakur"
+        ],
+        correct: 1,
+        explanation: "Govind Jha (2010) and Ramanand Renu (2011) were the first Parallel Sahitya Akademi Fellows, honouring scholars ignored by the mainstream."
+    },
+    {
+        text: "Which category of the Videha Samman explicitly honours folk artists such as dholak players, rasnachauki players, and Mithila painters – categories absent from the official Sangeet Natak Akademi?",
+        options: [
+            "Samantar Sahitya Akademi Samman",
+            "Samantar Lalit Kala Akademi Samman",
+            "Samantar Sangeet Natak Akademi Samman",
+            "Videha Journalism Samman"
+        ],
+        correct: 2,
+        explanation: "The parallel Sangeet Natak Samman recognises folk instrumentalists and performers who are invisible to the state academy."
+    },
+    {
+        text: "Which of the seven recognised Maithili literary associations is based in Kolkata and serves the Maithili diaspora in West Bengal?",
+        options: [
+            "Akhil Bharatiya Mithila Sangh (Delhi)",
+            "Mithila Sanskritik Parishad (Kolkata)",
+            "Anand Samajik Sanskritik Sahityik Manch (Darbhanga)",
+            "Vidhya Pati Sewa Sansthan (Darbhanga)"
+        ],
+        correct: 1,
+        explanation: "The Mithila Sanskritik Parishad, Kolkata (address: 6B, Kailash Saha Lane) is a diaspora institution recognised by the Akademi."
+    },
+    {
+        text: "What does the Videha Parallel History Framework identify as the core problem with the seven recognised literary associations?",
+        options: [
+            "They are all based outside India",
+            "They are ‘pocket institutions’ dominated by upper‑caste networks and have not adapted to digital or democratic realities",
+            "They publish only in English",
+            "They reject Maithili language"
+        ],
+        correct: 1,
+        explanation: "The framework critiques these legacy institutions as casteist, exclusionary, and disconnected from contemporary Maithili literary life."
+    },
+    {
+        text: "The Lalit Kala Akademi has recognised individual Mithila painters, but what is a major institutional failure noted in the document?",
+        options: [
+            "It has no dedicated centre in the Mithila region and has failed to protect artists’ intellectual property",
+            "It has never given any award to a Mithila painter",
+            "It only recognises male artists",
+            "It has banned Madhubani painting"
+        ],
+        correct: 0,
+        explanation: "While Sita Devi, Ganga Devi, etc., received National Awards, the Akademi lacks regional infrastructure and has not addressed commercial exploitation."
+    },
+    {
+        text: "Which Nepal-based literary award, named after the great Maithili poet, is mentioned as Nepal’s most prestigious prize connected to Maithili heritage?",
+        options: [
+            "Prithvi Pragya Puraskar",
+            "Vidyapati Puraskar",
+            "Mahendra Pragya Puraskar",
+            "Sajha Puraskar"
+        ],
+        correct: 1,
+        explanation: "The Vidyapati Puraskar is Nepal’s major award linked to Maithili culture, though it has often recognised Nepali‑medium works."
+    },
+    {
+        text: "According to the document, what is a major criticism of the Sangeet Natak Akademi regarding Maithili performing arts?",
+        options: [
+            "No Maithili artist has ever received the Sangeet Natak Akademi Fellowship (Ratna Sadasya)",
+            "It has banned Maithili folk music",
+            "It only funds Hindi plays",
+            "It has no awards for music"
+        ],
+        correct: 0,
+        explanation: "Despite Mithila’s rich performance traditions (Bidesia, Kirtaniya, folk songs), no Maithili artist has been elected a Fellow."
+    },
+    {
+        text: "The Videha Parallel Lalit Kala Akademi Samman has included awards for which categories not covered by the official Lalit Kala Akademi?",
+        options: [
+            "Oil painting only",
+            "Woodcraft (kāṣṭha‑kalā), pottery (mritkā), and folk art",
+            "Digital art",
+            "Architecture"
+        ],
+        correct: 1,
+        explanation: "The parallel awards recognise traditional crafts and folk visual arts that fall outside the fine‑arts framework of the official Akademi."
+    },
+    {
+        text: "Which of the following is NOT a category of the Videha Samman (parallel awards)?",
+        options: [
+            "Samantar Sahitya Akademi Samman",
+            "Samantar Lalit Kala Akademi Samman",
+            "Samantar Sangeet Natak Akademi Samman",
+            "Samantar UGC Research Award"
+        ],
+        correct: 3,
+        explanation: "The Videha Samman mirrors the three national academies (Sahitya, Lalit Kala, Sangeet Natak) but does not include a UGC award."
+    },
+    {
+        text: "According to the performance evaluation matrix, which institution scores highest on ‘inclusivity’ (caste, gender, region) and ‘support for new authors’?",
+        options: [
+            "Sahitya Akademi (Main Award)",
+            "Lalit Kala Akademi",
+            "Sangeet Natak Akademi",
+            "Videha Samman"
+        ],
+        correct: 3,
+        explanation: "The matrix shows Videha Samman as ‘Very High’ on inclusivity and new author support, while mainstream academies score low to medium."
+    },
+    {
+        text: "The Nepal Pragya Pratishthan (Nepal Academy) has been criticised for:",
+        options: [
+            "Giving too many awards to Maithili writers",
+            "Systematic underrepresentation of Maithili and Madheshi voices, despite Maithili being a national language",
+            "Publishing only in English",
+            "Abolishing all literary prizes"
+        ],
+        correct: 1,
+        explanation: "Despite constitutional recognition, Maithili representation in Nepal’s national academy has been minimal, dominated by Khas‑Nepali interests."
+    },
+    {
+        text: "The ‘Phulkumari Mahato Memorial Trust’ in Kathmandu is noted as one of the most consistent recognisers of Maithili literature in Nepal. What type of institution is it?",
+        options: [
+            "Government academy",
+            "Civil‑society / private trust",
+            "University department",
+            "Political party"
+        ],
+        correct: 1,
+        explanation: "This private trust fills a gap left by the Nepal Pragya Pratishthan, specifically honouring Maithili literary production."
+    },
+    {
+        text: "Which Sahitya Akademi award was discontinued, but had been given to Jagdish Prasad Mandal (for Maithili) before its discontinuation?",
+        options: [
+            "Bal Sahitya Puraskar",
+            "Yuva Puraskar",
+            "Tagore Sahitya Puraskar",
+            "Bhasha Samman"
+        ],
+        correct: 2,
+        explanation: "The Tagore Sahitya Puraskar (carrying ₹1 lakh) was given to Jagdish Prasad Mandal before the Akademi discontinued it."
+    },
+    {
+        text: "The ‘Akhil Bharatiya Mithila Sangh’ is one of the seven recognised organisations. Where is it headquartered?",
+        options: [
+            "Darbhanga",
+            "Patna",
+            "New Delhi (I.T.O. area)",
+            "Kolkata"
+        ],
+        correct: 2,
+        explanation: "It is located in I.T.O., Bahadurshah Zafar Marg, New Delhi – strategically placed for advocacy."
+    },
+    {
+        text: "According to the document, what is the primary epistemological claim of the Videha Parallel History Framework?",
+        options: [
+            "Maithili literature should be written only in Tirhuta script",
+            "Mainstream literary history has suppressed democratic, subaltern, and folk traditions; a parallel counter‑archive is required for valid literary cognition",
+            "Only poetry is real literature",
+            "All awards should be abolished"
+        ],
+        correct: 1,
+        explanation: "The framework argues that institutional gatekeeping has produced a distorted canon; the parallel tradition recovers suppressed voices."
+    },
+    {
+        text: "The ‘Sahitya Akademi Translation Prize’ for Maithili has been awarded for translations from major languages. Which of the following is NOT a noted translation winner listed in the document?",
+        options: [
+            "Rajanand Jha for Kaalbela (Bengali)",
+            "Ratneshwar Mishra for Azadi (English)",
+            "Keshkar Thakur for Aaranyak (Bengali)",
+            "Gajendra Thakur for Tattvacintāmaṇi (Sanskrit)"
+        ],
+        correct: 3,
+        explanation: "While Gajendra Thakur translated the Tattvacintāmaṇi, it was not a Sahitya Akademi Translation Prize winner as per the list; the others are listed."
+    }
+];
+
+let userSelections = new Array(questions.length).fill(null);
+let submitted = false;
+
+function renderQuiz() {
+    const container = document.getElementById('quiz');
+    if (!container) return;
+    let html = '';
+    questions.forEach((q, idx) => {
+        const selected = userSelections[idx] !== null ? userSelections[idx] : -1;
+        html += `<div class="question">
+                    <div class="question-text">${idx+1}. ${q.text}</div>
+                    <div class="options">`;
+        q.options.forEach((opt, optIdx) => {
+            const checked = (selected === optIdx) ? 'checked' : '';
+            html += `<div class="option">
+                        <input type="radio" name="q${idx}" value="${optIdx}" id="q${idx}_${optIdx}" ${checked} ${submitted ? 'disabled' : ''}>
+                        <label for="q${idx}_${optIdx}">${String.fromCharCode(65+optIdx)}. ${opt}</label>
+                     </div>`;
+        });
+        html += `</div><div class="explanation" id="expl${idx}"></div></div>`;
+    });
+    container.innerHTML = html;
+}
+
+function calculateScore() {
+    let correct = 0;
+    for (let i = 0; i < questions.length; i++) {
+        if (userSelections[i] !== null && userSelections[i] === questions[i].correct) correct++;
+    }
+    return correct;
+}
+
+function submitQuiz() {
+    submitted = true;
+    for (let i = 0; i < questions.length; i++) {
+        const radios = document.getElementsByName(`q${i}`);
+        for (let j = 0; j < radios.length; j++) {
+            if (radios[j].checked) userSelections[i] = parseInt(radios[j].value);
+        }
+        const explDiv = document.getElementById(`expl${i}`);
+        if (explDiv) {
+            const userAns = (userSelections[i] !== null) ? questions[i].options[userSelections[i]] : "Not answered";
+            const correctAns = questions[i].options[questions[i].correct];
+            explDiv.innerHTML = `<strong>📖 Explanation:</strong> ${questions[i].explanation}<br>
+                                 <span style="color:#4b6b3e;">Your answer: ${userAns}</span><br>
+                                 <span style="color:#2c6e2c;">Correct answer: ${correctAns}</span>`;
+            explDiv.style.display = 'block';
+        }
+        const allRadios = document.getElementsByName(`q${i}`);
+        allRadios.forEach(r => r.disabled = true);
+    }
+    const score = calculateScore();
+    document.getElementById('score').innerHTML = `✅ Score: ${score} / ${questions.length}`;
+}
+
+function resetQuiz() {
+    submitted = false;
+    userSelections = new Array(questions.length).fill(null);
+    renderQuiz();
+    for (let i = 0; i < questions.length; i++) {
+        const explDiv = document.getElementById(`expl${i}`);
+        if (explDiv) explDiv.style.display = 'none';
+    }
+    document.getElementById('score').innerHTML = '';
+}
+
+document.getElementById('submitBtn').addEventListener('click', submitQuiz);
+document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+renderQuiz();
+</script><div class="vq-footer">© सम्पादक, videha.co.in</div>
+</body>
+</html>
