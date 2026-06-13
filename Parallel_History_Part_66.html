@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Quiz: Chapter 66 – Ramesh & Mala Jha | Critical Logic & Witness Poetics</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4efe6;
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            padding: 2rem 1rem;
+            color: #2d2a24;
+        }
+
+        .quiz-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fffef9;
+            border-radius: 36px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
+            overflow: hidden;
+            border: 1px solid #e2d9cc;
+        }
+
+        .quiz-header {
+            background: #5a6e4a;
+            background: linear-gradient(135deg, #3e5e2f, #6b8c4e);
+            padding: 1.8rem 2rem;
+            color: white;
+        }
+
+        .quiz-header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+            margin-bottom: 0.4rem;
+        }
+
+        .quiz-header h1 span {
+            font-weight: 400;
+            font-style: italic;
+            font-size: 1rem;
+            background: #e1eac080;
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+        }
+
+        .quiz-header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 0.6rem;
+            border-left: 3px solid #c7e0a3;
+            padding-left: 1rem;
+        }
+
+        .quiz-body {
+            padding: 2rem 2rem 1rem;
+        }
+
+        .question-card {
+            background: #ffffff;
+            border: 1px solid #e8e0d4;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.8rem;
+            margin-bottom: 2rem;
+            transition: all 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .question-card:hover {
+            border-color: #bfc9b3;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #3a5e2e;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .options {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .options li {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+        }
+
+        .options input {
+            margin-top: 0.25rem;
+            width: 1.1rem;
+            height: 1.1rem;
+            accent-color: #6b8c4e;
+            flex-shrink: 0;
+        }
+
+        .options label {
+            font-size: 1rem;
+            line-height: 1.4;
+            color: #3e3a32;
+            font-weight: normal;
+        }
+
+        .feedback {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 30px;
+            display: inline-block;
+            background: #f3f2ec;
+            color: #4a5b4a;
+        }
+
+        .feedback.correct {
+            background: #e0f2e9;
+            color: #1f5e3a;
+            border-left: 4px solid #2b7a4b;
+        }
+
+        .feedback.wrong {
+            background: #ffeae6;
+            color: #b34141;
+            border-left: 4px solid #c4554b;
+        }
+
+        .explanation {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #6c685b;
+            font-style: italic;
+            border-left: 2px solid #dbd2c2;
+            padding-left: 12px;
+        }
+
+        .quiz-footer {
+            padding: 1.2rem 2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-top: 1px solid #e8e0d4;
+            background: #fefcf7;
+        }
+
+        .score-area {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: #e5ede2;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            color: #2b523b;
+        }
+
+        button {
+            background: #6b8c4e;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.7rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.15s;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background: #4e6e37;
+            transform: scale(0.97);
+        }
+
+        .reset-btn {
+            background: #8f7a64;
+        }
+        .reset-btn:hover {
+            background: #6d5b49;
+        }
+
+        @media (max-width: 650px) {
+            .quiz-body {
+                padding: 1.5rem;
+            }
+            .question-card {
+                padding: 1.1rem;
+            }
+            .quiz-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="quiz-container">
+    <div class="quiz-header">
+        <h1>📖 Chapter 66 · Ramesh & Mala Jha <span>Critical Logic · Witness Poetics · Parallel Tradition</span></h1>
+        <p>Based on “RAMESH: A Complete Research and Critical Appreciation of Works in Maithili Literature” (Videha Parallel History, Tome III)<br>Katha-Samay · Kavita-Samay · Nikti · Ijoriyak Angaithi-Mor · Navya-Nyāya · Bahār debate · Fusion of tension · Subramental brain</p>
+    </div>
+    <div class="quiz-body" id="quizBody"></div>
+    <div class="quiz-footer">
+        <div class="score-area" id="scoreDisplay">Score: 0 / 0</div>
+        <div>
+            <button id="checkBtn">✅ Check answers</button>
+            <button id="resetBtn" class="reset-btn">⟳ Reset quiz</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ---- QUESTIONS BASED ON CHAPTER 66: Ramesh & Mala Jha (pages 336-402) ----
+    const questions = [
+        {
+            text: "Ramesh's critical work 'Nikti' (2018) takes its title from the Sanskrit nikaṣa, meaning 'touchstone'. What is the primary function of this critical collection according to the chapter?",
+            options: [
+                "A collection of love poems",
+                "A systematic theoretical framework for Maithili literary criticism, introducing concepts like 'narrative layers', 'fusion of tension', 'subramental brain', and 'flow of ideas'",
+                "A grammar textbook",
+                "A translation of Western literary theory"
+            ],
+            correct: 1,
+            explanation: "Nikti is Ramesh's most theoretically ambitious work, developing a distinctive critical vocabulary: layers (narrative strata), fusion of tension (sangharsh-sangam), subramental brain (from Sri Aurobindo), and flow of ideas (vichar-pravah)."
+        },
+        {
+            text: "Which concept from Sri Aurobindo's integral psychology does Ramesh adapt as a critical category, designating the layer of narrative and imaginative habit that underlies conscious textual surface?",
+            options: [
+                "Overmind",
+                "Subramental brain (subramental chitta)",
+                "Supermind",
+                "Psychic being"
+            ],
+            correct: 1,
+            explanation: "The 'subramental brain' refers to the domain of habit, instinct, and subconscious patterning. Ramesh translates this into a narrative-critical concept: the layer of inherited patterns that give writing its root in shared human experience."
+        },
+        {
+            text: "Ramesh's theory of 'Fusion of Tension' (Sangharsh-Sangam) is contrasted with 'Fission'. What does fusion represent in literary terms?",
+            options: [
+                "The splitting apart of narrative elements",
+                "The higher-order synthesis of disparate emotional and narrative elements, analogous to the production of rasa in Bharata's Nāṭyaśāstra",
+                "The complete absence of conflict",
+                "The use of only one emotional register"
+            ],
+            correct: 1,
+            explanation: "Fusion of tension is the process by which literary elements achieve a new, higher-order unity – comparable to the 'cooking' (pakva) of emotional states into rasa. Fission is the scattering of elements without synthesis."
+        },
+        {
+            text: "Ramesh's poetry omnibus 'Kavita-Samay' includes five collections. Which title means 'Serpent's Hood' and also refers to a cactus, symbolising dangerous beauty and resilient survival?",
+            options: [
+                "Pathar Par Doobhi (Drowned on Stone)",
+                "Samvet Swarak (Collective Voice)",
+                "Nagpheni",
+                "Sangor (Gathering)"
+            ],
+            correct: 2,
+            explanation: "Nagpheni names both the hooded cobra (nāgaphaṇī) and a cactus found in Mithila whose shape mimics the hood – a double reference to danger, protection, and survival in inhospitable conditions."
+        },
+        {
+            text: "Mala Jha's editorial anthology 'Ijoriyak Angaithi-Mor' (The Fireplace of Light That Is Mine) is described as a landmark work. What is its primary significance?",
+            options: [
+                "It is a collection of Maithili folk tales",
+                "It is the first and largest curated collection of Maithili women's poetry, recovering voices historically marginalised by the male-dominated literary establishment",
+                "It is a grammar of the Maithili language",
+                "It is a translation of the Ramayana"
+            ],
+            correct: 1,
+            explanation: "First published in 2004 and updated in 2022, this anthology documents the 'half population' of Mithila, presenting the 'witness voice' of women poets from Ilarani Singh to the present generation."
+        },
+        {
+            text: "Ramesh's story collections 'Samanantar' and 'Samang' are brought together in 'Katha-Samay'. What does 'Samanantar' (Parallel) signify in the context of the Videha Parallel History Framework?",
+            options: [
+                "A story about two friends",
+                "The notion of parallel histories – lives and worlds running alongside the dominant narrative, acknowledging the existence of the other stream while asserting its own validity",
+                "A parallel railway line",
+                "A grammatical term"
+            ],
+            correct: 1,
+            explanation: "The title directly invokes the Videha Parallel History framework: a story called 'parallel' knows itself to be running alongside the dominant, Brahmin-centred canon, asserting its own truth as equally valid."
+        },
+        {
+            text: "In his critical work 'Nikti', Ramesh deploys the Navya-Nyāya concept of 'pramāṇa' (valid means of knowledge). Which pramāṇa corresponds to close reading of the textual surface – the actual sounds, rhythms, and images?",
+            options: [
+                "Anumāna (inference)",
+                "Upamāna (analogy)",
+                "Pratyakṣa (direct perception)",
+                "Śabda (verbal testimony)"
+            ],
+            correct: 2,
+            explanation: "Pratyakṣa in Navya-Nyāya is direct perceptual knowledge. For Ramesh, literary criticism must begin from the perceived fact of the text as a linguistic and sensory event – the actual words, rhythms, and structures."
+        },
+        {
+            text: "The Bahār debate in Maithili ghazal, discussed in the chapter, centres on what formal question?",
+            options: [
+                "Whether ghazals should be written at all",
+                "Whether Maithili ghazal should strictly observe the Arabic-Persian quantitative metre (bahr) or adapt to Maithili's own prosodic sensibilities",
+                "Whether the radif (refrain) should be used",
+                "Whether takhallus (pen-name) is necessary"
+            ],
+            correct: 1,
+            explanation: "The debate is about metrical fidelity vs. creative adaptation: should Maithili ghazal follow the Arabic-Persian bahr system, or should it develop a Maithili bahr that honours the spirit of the form while respecting the language's own rhythmic nature?"
+        },
+        {
+            text: "Ramesh's position in the Bahār debate is characterised as 'principled adaptation'. What does this mean?",
+            options: [
+                "He rejects the ghazal form entirely",
+                "He argues that formal conventions must serve the literary work, not constrain it – the best Maithili ghazal is not the most formally correct by external standards, but the most appropriate (aucitya-observant) to its linguistic and cultural substrate",
+                "He insists on strict Persian metres without any change",
+                "He only writes free verse"
+            ],
+            correct: 1,
+            explanation: "Drawing on Kuntaka's vakrokti and Kṣemendra's aucitya, Ramesh argues that creative deviation from expected formal norms is not failure but the highest expression of craft – when it serves the poem's meaning and the language's resources."
+        },
+        {
+            text: "The chapter applies Navya-Nyāya's 'avacchedaka' (limitor) to literary classification. How does this concept help in analysing Ramesh's work?",
+            options: [
+                "It counts the number of poems",
+                "It specifies the precise scope of a literary attribution – e.g., 'Ramesh's poetry is innovative as limited by (avacchinna by) the Maithili literary tradition, not by world flash fiction'",
+                "It measures syllable count",
+                "It determines the rasa of a text"
+            ],
+            correct: 1,
+            explanation: "The avacchedaka prevents sloppy generalisation by requiring specification of the domain within which a property holds. This is crucial for accurate comparative criticism that respects local literary traditions."
+        },
+        {
+            text: "Mala Jha's poem 'Gau Mātā' (Cow Mother) satirises societal expectations of the ideal woman. What is the central critique of the poem?",
+            options: [
+                "It praises the sacred cow",
+                "It exposes how women are domesticated into mute compliance – expected to be educated, beautiful, respectful, but silent ('mu~h nai kholay'), using the sacred-cow trope ironically",
+                "It advocates for cow protection",
+                "It is a devotional hymn"
+            ],
+            correct: 1,
+            explanation: "The poem subverts the sacred-cow trope: the 'ideal woman' is educated, graceful, respects elders, endures suffering – but never opens her mouth. The satire targets the patriarchal demand for silent, compliant femininity."
+        },
+        {
+            text: "What is the significance of the title 'Nikti' (touchstone) in relation to the Videha Parallel History's critique of literary evaluation?",
+            options: [
+                "It celebrates existing Sahitya Akademi standards",
+                "It asks who decides what counts as good Maithili literature, by what criteria, from what social position – the touchstone tests not only literary works but the standards of evaluation themselves",
+                "It rejects all evaluation",
+                "It only tests gold"
+            ],
+            correct: 1,
+            explanation: "Nikti is a meta-critical work: it questions the epistemological foundations of literary judgment, asking whose standards prevail and why. This aligns with the Parallel History's project of interrogating caste-based gatekeeping in Maithili literary institutions."
+        }
+    ];
+
+    let userAnswers = new Array(questions.length).fill(null);
+    const quizBody = document.getElementById('quizBody');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const checkBtn = document.getElementById('checkBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    function renderQuiz() {
+        quizBody.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.setAttribute('data-qidx', idx);
+
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${idx+1}. ${q.text}`;
+            card.appendChild(qText);
+
+            const optionsList = document.createElement('ul');
+            optionsList.className = 'options';
+            q.options.forEach((opt, optIdx) => {
+                const li = document.createElement('li');
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `q${idx}`;
+                radio.value = optIdx;
+                radio.id = `q${idx}_opt${optIdx}`;
+                if (userAnswers[idx] === optIdx) radio.checked = true;
+                radio.addEventListener('change', (e) => {
+                    userAnswers[idx] = parseInt(e.target.value);
+                    const oldFeedback = card.querySelector('.feedback');
+                    const oldExpl = card.querySelector('.explanation');
+                    if (oldFeedback) oldFeedback.remove();
+                    if (oldExpl) oldExpl.remove();
+                });
+                const label = document.createElement('label');
+                label.htmlFor = `q${idx}_opt${optIdx}`;
+                label.innerText = opt;
+                li.appendChild(radio);
+                li.appendChild(label);
+                optionsList.appendChild(li);
+            });
+            card.appendChild(optionsList);
+            quizBody.appendChild(card);
+        });
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    function evaluateQuiz() {
+        // sync current selections
+        for (let i = 0; i < questions.length; i++) {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selected) {
+                userAnswers[i] = parseInt(selected.value);
+            } else {
+                if (userAnswers[i] !== null) userAnswers[i] = null;
+            }
+        }
+
+        let correctCount = 0;
+        // clear old feedback
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const oldFeedback = card.querySelector('.feedback');
+            const oldExpl = card.querySelector('.explanation');
+            if (oldFeedback) oldFeedback.remove();
+            if (oldExpl) oldExpl.remove();
+        }
+
+        for (let i = 0; i < questions.length; i++) {
+            const card = document.querySelector(`.question-card[data-qidx='${i}']`);
+            if (!card) continue;
+            const userChoice = userAnswers[i];
+            const isCorrect = (userChoice !== null && userChoice === questions[i].correct);
+            if (isCorrect) correctCount++;
+
+            const feedbackSpan = document.createElement('div');
+            feedbackSpan.className = 'feedback';
+            if (userChoice === null) {
+                feedbackSpan.innerText = '⚠️ Not answered';
+                feedbackSpan.classList.add('wrong');
+            } else if (isCorrect) {
+                feedbackSpan.innerText = '✓ Correct';
+                feedbackSpan.classList.add('correct');
+            } else {
+                const correctLetter = String.fromCharCode(65 + questions[i].correct);
+                const correctText = questions[i].options[questions[i].correct];
+                feedbackSpan.innerText = `✗ Incorrect. Correct: ${correctLetter}. ${correctText.substring(0, 100)}${correctText.length > 100 ? '…' : ''}`;
+                feedbackSpan.classList.add('wrong');
+            }
+
+            const explDiv = document.createElement('div');
+            explDiv.className = 'explanation';
+            explDiv.innerHTML = `📖 ${questions[i].explanation}`;
+            card.appendChild(feedbackSpan);
+            card.appendChild(explDiv);
+        }
+        scoreDisplay.innerText = `Score: ${correctCount} / ${questions.length}`;
+    }
+
+    function resetQuiz() {
+        for (let i = 0; i < questions.length; i++) userAnswers[i] = null;
+        renderQuiz();
+        scoreDisplay.innerText = `Score: 0 / ${questions.length}`;
+    }
+
+    checkBtn.addEventListener('click', evaluateQuiz);
+    resetBtn.addEventListener('click', resetQuiz);
+
+    renderQuiz();
+</script>
+</body>
+</html>
