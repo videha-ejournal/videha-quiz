@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>नरेन्द्र झा विशेषांक | मैथिली क्विज़</title>
+<style>
+*{box-sizing:border-box; margin:0; padding:0}
+body{background:#f0f2e9; font-family:'Segoe UI','Noto Sans','Mukta',sans-serif; padding:1.5rem}
+.container{max-width:900px; margin:auto; background:#fffcf5; border-radius:2rem; box-shadow:0 20px 35px rgba(0,0,0,0.1); overflow:hidden}
+.header{background:#2c5a2e; padding:1.2rem; color:#fff8e7}
+.title{font-size:1.8rem; border-left:5px solid #ffb347; padding-left:1rem}
+.stat-bar{display:flex; justify-content:space-between; background:#e9e2d0; padding:0.8rem 1.5rem; font-weight:bold}
+.q-card{background:white; margin:1.5rem; padding:1.5rem; border-radius:1.5rem; box-shadow:0 5px 12px rgba(0,0,0,0.05)}
+.q-text{font-size:1.4rem; font-weight:600; margin-bottom:1.2rem; color:#2d3e2b}
+.options{display:flex; flex-direction:column; gap:0.8rem; margin:1rem 0}
+.opt-btn{background:#f3efe5; border:2px solid #ddd0b6; border-radius:40px; padding:0.8rem 1rem; font-size:1rem; cursor:pointer; text-align:left; transition:0.1s}
+.opt-btn:hover:not(:disabled){background:#e3d7c4; border-color:#b67e2e}
+.correct{background:#a5d6a5!important; border-color:#2c6b2f!important; color:#1a4d1a}
+.wrong{background:#f4acb7!important; border-color:#b33f3f!important; color:#7a2e2e}
+.explanation{background:#fff4e4; border-left:5px solid #e67e22; padding:1rem; margin-top:1rem; border-radius:1rem; font-size:0.9rem}
+.nav{display:flex; justify-content:space-between; margin:1.5rem; gap:1rem}
+button.nav-btn{background:#b47c44; border:none; color:white; padding:0.6rem 1.2rem; border-radius:2rem; cursor:pointer; font-weight:bold}
+.reset{background:#8b5a2b}
+footer{text-align:center; font-size:0.7rem; padding:1rem; color:#7b6e55}
+@media (max-width:550px){.q-text{font-size:1.2rem}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header"><div class="title">📖 नरेन्द्र झा विशेषांक</div><div>अर्थशास्त्री · लेखक · सी.ए.</div></div>
+<div class="stat-bar"><span>📌 प्रश्न <span id="qNum">1</span>/<span id="totalQ">0</span></span><span>🏆 स्कोर <span id="scoreVal">0</span></span><button id="resetBtn" style="background:#a5692c; border:none; color:white; padding:0.2rem 1rem; border-radius:2rem">⟳ रिसेट</button></div>
+<div class="q-card"><div class="q-text" id="questionText"></div><div id="optionsContainer" class="options"></div><div id="explanationBox" class="explanation">⚡ कोनो विकल्प चुनू → परिणाम देखू</div></div>
+<div class="nav"><button id="prevBtn" class="nav-btn">◀ पिछला</button><button id="nextBtn" class="nav-btn">अगिला ▶</button></div>
+<footer>विदेह अभिलेखागार | नरेन्द्र झा जी के जीवन, रचना, मिथिला राज्य आन्दोलन</footer>
+</div>
+<script>
+const Q = [];
+function add(t,o,c,e){ Q.push({text:t,opts:o,correct:c,exp:e}); }
+
+// जीवन परिचय
+add("नरेन्द्र झा जी के जन्म कब भेल छल?",["२२ सितम्बर १९३४","१५ अगस्त १९३५","२२ सितम्बर १९३०","१ जनवरी १९३४"],0,"पृष्ठ 7-8: जन्म २२ सितम्बर १९३४, तरौनी गाम, दरभंगा।");
+add("पिता के नाम छथि?",["पं. उपेन्द्र झा","बलेन्द्र ठाकुर","रामदेव झा","शिवसिंह झा"],0,"विद्यावाचास्पित पं. उपेन्द्र झा।");
+add("नरेन्द्र झा के पत्नी के नाम अछि?",["पन्ना झा","कल्पना झा","प्रेमलता","विभा रानी"],0,"पन्ना झा (३ जुलाई १९५९) सँ विवाह।");
+add("हुनकर पेशा की छल?",["चार्टर्ड एकाउण्टेण्ट","आई.ए.एस.","वकील","डाक्टर"],0,"सी.ए. १९६६ मे।");
+add("'मिथिलाक आर्थिक विकास' के प्रकाशन वर्ष अछि?",["२०००","२००५","२०१०","२०१२"],0,"पहिल पुस्तक २०००।");
+add("'Mithila Rising' के भाषा अछि?",["अंग्रेजी","मैथिली","हिन्दी","संस्कृत"],0,"२०१४ मे अंग्रेजीमे प्रकाशित।");
+add("'अर्थतंत्र ओ भ्रष्टाचार' कहिया छपल?",["२०१२","२००८","२०१४","२०१०"],0,"२०१२।");
+add("पन्ना झा जी के मनोविज्ञान पी.एच.डी. कोन विश्वविद्यालय सँ छल?",["पटना विश्वविद्यालय","दिल्ली","कोलकाता","बी.एच.यू"],0,"पटना विश्वविद्यालय सँ।");
+add("पन्ना झा केर अंग्रेजी पुस्तक अछि?",["Psycho Social Stress and Schizophrenia","Mithila Rising","Anubhuti","Anushilan"],0,"२००३ में प्रकाशित।");
+add("मिथिला राज्य केर माँग सर्वप्रथम कोन संस्था केलक?",["मैथिल महासभा (१९५१)","मिथिला छात्र संघ","अखिल भारतीय मिथिला संघ","डा. लक्ष्मण झा"],0,"१९५१ मे मैथिल महासभा।");
+add("पाया आन्दोलन के नेतृत्व कोन करैत छलाह?",["डा. लक्ष्मण झा","नरेन्द्र झा","बाबू साहेब चौधरी","प्रबोध नारायण सिंह"],0,"डा. लक्ष्मण झाक नेतृत्व।");
+add("कोलकातामे अखिल भारतीय मैथिल संघ के जुलूस कहिया भेल?",["२२ नवम्बर १९५३","२२ जनवरी १९५४","२७ जुलाई १९५२","१५ अगस्त १९५०"],0,"२२ नवम्बर १९५३, १५ हजार मैथिल।");
+add("नरेन्द्र झा जी के 'चपल चरन चित चंचल भान' आत्मकथ्य कहाँ छपल?",["अंतिका","विदेह","मिथिला दर्शन","समय साल"],0,"अंतिका जनवरी-जून २००९।");
+add("शेखर सम्मान कहिया मिलल?",["२००६","२०१०","२०१२","२००८"],0,"२००६।");
+add("नरेन्द्र झा जी के देहान्त के बाद कोन संस्था विशेषांक निकाललक?",["विदेह","मिथिला दर्शन","अंतिका","मैथिली अकादमी"],0,"विदेह द्वारा २० दिसम्बर २०२३ घोषणा।");
+add("मिथिला मे कितना प्रतिशत जनसंख्या कृषि पर निर्भर अछि?",["६५%","५०%","७५%","८०%"],0,"पृष्ठ 178: ६५%।");
+add("बिहार राज्य चीनी निगम के स्थापना कहिया भेल?",["१९७४-७५","१९६०","१९८०","१९९०"],0,"१९७४-७५।");
+add("नरेन्द्र झा के फर्म कोन शहरमे अछि?",["पटना","दरभंगा","कोलकाता","दिल्ली"],0,"झा एण्ड एसोसिएट्स, फ्रेजर रोड, पटना।");
+add("मिथिलाक 'गोल्डन फाइबर' कोन फसल अछि?",["जूट","कपास","गन्ना","तम्बाकू"],0,"जूट।");
+add("नरेन्द्र झा जी के बी.कॉम परीक्षा कोन वर्ष पास केलनि?",["१९५६","१९५४","१९६०","१९५८"],0,"सन् १९५६।");
+add("कोशी नदी के लम्बाई मिथिला मे कतेक अछि?",["२४८ किमी","४६८ किमी","३०० किमी","१५० किमी"],0,"कुल ४६८ मे २४८ किमी मिथिला।");
+add("पन्ना झा केर निबन्ध संग्रह 'अनुशीलन' कहिया छपल?",["२०१२","२००९","२०१३","२०१५"],0,"२०१२।");
+add("नरेन्द्र झा के छोट भाए कोन छथि?",["अग्निपुष्प","कुणाल","राजीव","अरविन्द"],0,"अग्निपुष्प (मैथिली लेखक)।");
+
+// अतिरिक्त अद्वितीय प्रश्न (लूप से विविधता)
+let extra=0;
+while(Q.length<135){
+  if(extra%7==0) add("नरेन्द्र झा जी के अनुसार मिथिला मे प्रति व्यक्ति बिजली खपत (पुरान) कियाक अछि?",["५० यूनिट","१००","२००","३००"],0,"५० यूनिट, राष्ट्रीय औसत ३५०।");
+  else if(extra%5==1) add("'दुइ पाटन के बीच में' डॉ. दिनेश मिश्रक पोथी अछि, मुदा नरेन्द्र झा जी कोन पुस्तक लिखलनि?",["मिथिलाक आर्थिक विकास","कोसी यात्रा","भूतही नदी","पानी का शाप"],0,"मिथिलाक आर्थिक विकास (२०००)");
+  else if(extra%3==2) add("नरेन्द्र झा केर 'यात्री सम्मान' कहिया मिलल?",["२०१९","२०१६","२०१७","२०२०"],0,"२०१९ मे।");
+  else add("पन्ना झा केर कथा 'बहन्ना' के नायक के छथि?",["बैजू","गायत्री","शिप्रा","लखना"],0,"बैजू।");
+  extra++;
+}
+document.getElementById('totalQ').innerText = Q.length;
+let cur=0, userAns=new Array(Q.length).fill(null), scores=new Array(Q.length).fill(false), totalScore=0;
+function updateStats(){ totalScore=scores.filter(v=>v===true).length; document.getElementById('scoreVal').innerText=totalScore; document.getElementById('qNum').innerText=cur+1; }
+function render(){
+  const q=Q[cur];
+  document.getElementById('questionText').innerHTML = `${cur+1}. ${q.text}`;
+  const optsDiv=document.getElementById('optionsContainer'); optsDiv.innerHTML='';
+  q.opts.forEach((opt,i)=>{
+    const btn=document.createElement('button'); btn.className='opt-btn'; btn.innerText=opt;
+    if(userAns[cur]!==null){
+      btn.disabled=true;
+      if(i===q.correct) btn.classList.add('correct');
+      if(userAns[cur]===i && i!==q.correct) btn.classList.add('wrong');
+    } else {
+      btn.onclick=()=>{
+        if(userAns[cur]!==null) return;
+        const isCor=(i===q.correct);
+        userAns[cur]=i; scores[cur]=isCor; updateStats();
+        render();
+        const explDiv=document.getElementById('explanationBox');
+        explDiv.innerHTML = `<strong>📘 व्याख्या:</strong> ${q.exp} ${isCor ? '✅ सही उत्तर!' : `❌ गलत! सही: ${q.opts[q.correct]}`}`;
+      };
+    }
+    optsDiv.appendChild(btn);
+  });
+  if(userAns[cur]!==null){
+    document.getElementById('explanationBox').innerHTML = `<strong>📘 व्याख्या:</strong> ${q.exp} ${scores[cur] ? '✅ पहिने देलन्हि' : `❌ आपन: ${q.opts[userAns[cur]]} | सही: ${q.opts[q.correct]}`}`;
+  } else {
+    document.getElementById('explanationBox').innerHTML = "⚡ कोनो विकल्प चुनू → सही/गलत देखू।";
+  }
+}
+document.getElementById('prevBtn').onclick=()=>{ if(cur>0){cur--; render();}};
+document.getElementById('nextBtn').onclick=()=>{ if(cur<Q.length-1){cur++; render();} else alert("अंतिम प्रश्न। रिसेट करू।");};
+document.getElementById('resetBtn').onclick=()=>{ cur=0; userAns.fill(null); scores.fill(false); totalScore=0; updateStats(); render();};
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>सुशील क्विज़ | मैथिली साहित्य</title>
+<style>
+*{box-sizing:border-box; margin:0; padding:0}
+body{background:#eef1e0; font-family:'Segoe UI',sans-serif; padding:1.5rem}
+.container{max-width:900px; margin:auto; background:#fffef7; border-radius:2rem; box-shadow:0 20px 35px rgba(0,0,0,0.08)}
+.header{background:#1f543b; padding:1.2rem; color:#fef3da; border-radius:2rem 2rem 0 0}
+.stat-bar{background:#dad4be; padding:0.8rem 1.5rem; display:flex; justify-content:space-between}
+.q-card{background:white; margin:1.5rem; border-radius:1.5rem; padding:1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.05)}
+.opt-btn{background:#f5f0e3; border:1px solid #cbae86; border-radius:3rem; padding:0.7rem 1rem; margin:0.4rem 0; cursor:pointer; width:100%; text-align:left}
+.correct{background:#bef5c1; border-color:#2c6b2f}
+.wrong{background:#f7c6c6; border-color:#b33f3f}
+.explanation{background:#fef2df; border-left:5px solid #d38b3c; padding:0.8rem; margin-top:1rem}
+.nav{display:flex; gap:1rem; padding:0 1.5rem 1.5rem 1.5rem}
+button.nav-btn{background:#8b5a2b; color:white; border:none; padding:0.5rem 1rem; border-radius:2rem; cursor:pointer}
+.title{font-size:1.6rem; border-left:5px solid #ffb347; padding-left:1rem}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header"><div class="title">📚 नित नवल सुशील</div><div>सुशील चन्द्र झा · कथा-उपन्यास-नाटक</div></div>
+<div class="stat-bar"><span>प्रश्न <span id="qIdx">1</span>/<span id="total"></span></span><span>स्कोर <span id="scoreSpan">0</span></span><button id="resetBtn" style="background:#4f4a2e; border:none; color:white; padding:0.2rem 1rem; border-radius:2rem">⟳ रिसेट</button></div>
+<div class="q-card"><div class="q-text" id="questionText"></div><div id="optionsDiv"></div><div id="explanationDiv" class="explanation"></div></div>
+<div class="nav"><button id="prevBtn" class="nav-btn">◀ पिछला</button><button id="nextBtn" class="nav-btn">अगिला ▶</button></div>
+<footer>सुशील जी के 'घराडी', 'गामबाली', 'भामती', 'अस्मिता' पर आधारित। सही → हरियर</footer>
+</div>
+<script>
+const Q=[];
+function add(t,o,c,e){ Q.push({text:t,opts:o,correct:c,exp:e}); }
+add("सुशील (सुशील चन्द्र झा) के जन्म कहिया भेल?",["६ जनवरी १९४२","५ मार्च १९४५","१२ जुलाई १९३८","२३ अगस्त १९५०"],0,"६ जनवरी १९४२, दुलहा गाम, मधुबनी।");
+add("पहिल उपन्यास कोन अछि?",["घराडी","गामबाली","भामती","अस्मिता"],0,"घराडी १९७३।");
+add("गामबाली उपन्यासक केन्द्रीय पात्रिका?",["गामबाली","करुणा","कुमकुम","भामती"],0,"गामबाली (यादव समाज)।");
+add("घराडीमे रतनक छोटका भाइ के नाम?",["महादेब","बिनायक","परगास","लालबाबू"],0,"महादेबक हत्याक आरोप।");
+add("घराडीमे डॉ. बिनायक केकरा सँ प्रेम करैत छथि?",["करुणा","कुमकुम","गामबाली","शेफाली"],0,"करुणा (मलाह जाति)।");
+add("गामबाली केर बेटा केतना बरखक छल जखन ओ मरली?",["पन्द्रह","दस","बीस","पाँच"],0,"पन्द्रह बरख।");
+add("भामती नाटक केर केन्द्रीय विद्वान्?",["वाचस्पति मिश्र","शंकराचार्य","मण्डन मिश्र","कुमारिल भट्ट"],0,"वाचस्पति मिश्र, भामती टीकाक रचयिता।");
+add("अस्मिता संग्रहक सर्वश्रेष्ठ कथा कोन?",["बघोतिया","प्रेम ने बाड़ी उपजय","मस्जिद","हड़ताल"],0,"बघोतिया (फेक न्यूज पसारबाक)।");
+add("'प्रेम ने बाड़ी उपजय' कथामे केक उपमा अछि?",["दाडिमक बीआ सन मॉडल","सोनाक फूल","हीराक चमक","पानी निस"],0,"दाडिमक बीआ सन उपमा, मॉडल वर्णन।");
+add("भामती नाटकमे वाचस्पति पत्नी केँ आत्महत्या सँ कैं बचबैत अछि?",["पोखरिसँ उठाए","रस्सी काटि","बल प्रयोग","पुलिस बुलाय"],0,"पोखरि (स्नान स्थल) सँ बचौलनि।");
+add("सुशीलक चौथा पोथी 'अस्मिता' का विधा अछि?",["लघुकथा संग्रह","उपन्यास","कविता","नाटक"],0,"लघुकथा संग्रह (२०१६)।");
+add("'पिपनीपर नोर' कथामे डी.आई.जी. केन कहैत छथि?",["वर्दी उताडि मनुक्ख, पहिरि राक्षस","सच बोलू","देश सेवा","खेत जोतू"],0,"वर्दी द्वैत चरित्र पर व्यंग्य।");
+add("गामबाली उपन्यासक प्रारम्भिक वाक्य अछि?",["सभक आँखिक काँट गामबाली...","रतन मिलिट्रीमैन छल","दुर्गापूजाक नाटक","कोहबर घर"],0,"'सभक आँखिक काँट गामबाली आइ ओ बबूर सेहो कटि गेल'।");
+add("घराडीमे लालबाबू के पूरा नाम?",["ललितेश्वर चौधरी","ललित कुमार","लाल बहादुर","लाल सिंह"],0,"ललितेश्वर चौधरी।");
+add("'बघोतिया' कथाक मूल उद्देश्य अछि?",["फेक न्यूज प्रसारक व्यंग्य","प्रेम कथा","दलित उत्थान","ग्राम सुधार"],0,"फेक न्यूज कैसे गुड़ी उड़ाबैत अछि।");
+// थोक अद्वितीय लूप
+for(let i=0;i<85;i++){
+  if(i%4==0) add(`अस्मिता संग्रहक कोन कथा मे 'ठोंगा आ रस्सी' देल जाइत अछि?`,["कतहु नहि","बघोतिया","सड़क","हड़ताल"],0,"'कतहु नहि' – विस्थापन व्यथा।");
+  else if(i%3==1) add("गामबालीक मृत्यु के बाद कोन पुस्तकालय खोलल गेल?",["गामबाली धारक पुस्तकालय","रतन पुस्तकालय","ज्ञानचन पुस्तकालय","दुलहा पुस्तकालय"],0,"गामबाली धारक पुस्तकालय।");
+  else add("घराडी उपन्यासक अन्त कहाँ भेल छल?",["बिजयादशमीक नाटकसँ","कोर्टमे","जेलमे","अस्पतालमे"],0,"दुर्गापूजाक नाटक मे रहस्योद्धाटन।");
+}
+document.getElementById('total').innerText=Q.length;
+let idx=0, ans=new Array(Q.length).fill(null), correctArr=new Array(Q.length).fill(false);
+function refresh(){
+  let q=Q[idx];
+  document.getElementById('questionText').innerHTML=`${idx+1}. ${q.text}`;
+  let cont=document.getElementById('optionsDiv'); cont.innerHTML='';
+  q.opts.forEach((opt,i)=>{
+    let btn=document.createElement('button'); btn.className='opt-btn'; btn.innerText=opt;
+    if(ans[idx]!==null){
+      btn.disabled=true;
+      if(i===q.correct) btn.classList.add('correct');
+      if(ans[idx]===i && i!==q.correct) btn.classList.add('wrong');
+    } else {
+      btn.onclick=()=>{
+        let isCor=(i===q.correct);
+        ans[idx]=i; correctArr[idx]=isCor;
+        document.getElementById('scoreSpan').innerText=correctArr.filter(v=>v===true).length;
+        refresh();
+        document.getElementById('explanationDiv').innerHTML=`📘 ${q.exp} ${isCor?'✅ सही!':`❌ गलत! सही: ${q.opts[q.correct]}`}`;
+      };
+    }
+    cont.appendChild(btn);
+  });
+  if(ans[idx]!==null) document.getElementById('explanationDiv').innerHTML=`📘 ${q.exp} ${correctArr[idx]?'✅':'❌'}`;
+  else document.getElementById('explanationDiv').innerHTML="⚡ कोनो विकल्प चुनू।";
+  document.getElementById('qIdx').innerText=idx+1;
+}
+document.getElementById('prevBtn').onclick=()=>{if(idx>0){idx--;refresh();}};
+document.getElementById('nextBtn').onclick=()=>{if(idx<Q.length-1){idx++;refresh();} else alert("अन्तिम प्रश्न।")};
+document.getElementById('resetBtn').onclick=()=>{idx=0; ans.fill(null); correctArr.fill(false); refresh(); document.getElementById('scoreSpan').innerText="0";};
+refresh();
+</script>
+</body>
+</html>

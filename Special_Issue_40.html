@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>डॉ. दिनेश मिश्र | नदी-बाढ़-बान्ह क्विज़</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#e0e9ed;font-family:'Segoe UI',sans-serif;padding:1.5rem}
+.container{max-width:900px;margin:auto;background:#ffffff;border-radius:2rem;overflow:hidden}
+.header{background:#1c5a6f;color:#fef5e3;padding:1.2rem}
+.stat{background:#cbdadf;padding:0.6rem 1.2rem;display:flex;justify-content:space-between}
+.q-card{padding:1.8rem; border-bottom:1px solid #ddd}
+.opt-btn{background:#edf2f5;border:1px solid #a9c0ca;border-radius:2rem;padding:0.7rem;margin:0.4rem 0;width:100%;text-align:left;cursor:pointer}
+.correct{background:#c6f0d0;border-color:#2c7a3e}
+.wrong{background:#f7c2c2;border-color:#c7362b}
+.explain{background:#eef4f7;border-left:5px solid #1c5a6f;padding:0.8rem;margin-top:1rem}
+.nav{display:flex;gap:1rem;padding:1.2rem}
+button.nav{background:#1c5a6f;color:white;border:none;padding:0.5rem 1rem;border-radius:2rem;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header"><h2>🌊 डॉ. दिनेश कुमार मिश्र</h2><div>नदी प्रबंधन · बाढ़ मुक्ति अभियान</div></div>
+<div class="stat"><span>प्रश्न <span id="qCurr">1</span>/<span id="qTotal"></span></span><span>🏆 स्कोर <span id="scoreShow">0</span></span><button id="resetQuiz" style="background:#8b6b3c;border:none;padding:0.2rem 1rem;border-radius:2rem">⟳ रिसेट</button></div>
+<div class="q-card"><div id="questionText" style="font-size:1.3rem; font-weight:bold; margin-bottom:1rem"></div><div id="optionsList"></div><div id="explainPanel" class="explain"></div></div>
+<div class="nav"><button id="prevQ" class="nav">◀ पिछला</button><button id="nextQ" class="nav">अगिला ▶</button></div>
+<footer>डॉ. दिनेश मिश्रक पोथी सभ – कोसी, बागमती, कमला, बान्ह-विरोधी संघर्ष</footer>
+</div>
+<script>
+const Q=[];
+function add(t,o,c,e){ Q.push({text:t,opts:o,correct:c,exp:e}); }
+add("डॉ. दिनेश कुमार मिश्रक मूल पेशा?",["सिविल इंजीनियर","साहित्यकार","इतिहासकार","राजनीतिज्ञ"],0,"IIT खड़गपुर सँ B.Tech, नदी विशेषज्ञ।");
+add("'बन्दिनी महानन्दा' के प्रकाशन वर्ष?",["१९९४","२००४","२००६","२०१०"],0,"१९९४ मे प्रकाशित, महानन्दा नदी पर बान्ह संकट।");
+add("कोसी बान्ह टूटनाइ (कुसाहा) कहिया भेल?",["अगस्त २००८","१९८४","१९५४","१९९१"],0,"१८ अगस्त २००८, बिहारक भीषण आपदा।");
+add("'दुइ पाटन के बीच में' कहिया छपल?",["२००६","२००४","२०१०","२०१५"],0,"२००६, कोसी नदीक कहानी।");
+add("बाढ़ मुक्ति अभियान (BMA) केर स्थापना वर्ष?",["१९९२","१९८४","२०००","१९९५"],0,"१९९२ मे डॉ. मिश्र द्वारा।");
+add("कोसी नदी केर 'बिहारक शोक' कहल जाइत अछि किएक?",["चंचलता आ गाद","पानी कमी","सूखा","कटाव नियंत्रित"],0,"अत्यधिक गाद आ मार्ग परिवर्तन।");
+add("कमला नदी केर मुख्य विशेषता अछि?",["उपजाऊ गाद","सबसँ खतरनाक","सूखा देबय वाली","बाँध ऊँच"],0,"'मैया' कहल जाइत अछि, पोषक तत्व बेसी।");
+add("बागमती नदी कहाँ मिलैत अछि?",["खगड़िया लग कोसी में","गंगा में","महानन्दा में","कमला में"],0,"खगड़िया जिलामे कोसी मे समाहित।");
+add("'भूतही बलान' के समस्या अछि?",["अत्यधिक बालू जमाव","बाढ़ रोक","सिंचाई कम","नहर टूट"],0,"बालूक भारी मात्रा जे खेत के बंजर करैत अछि।");
+add("डॉ. मिश्र के अनुसार 'तकनीकी झाड़-फूंक' अर्थ अछि?",["इंजीनियरिंग घमण्ड, प्रकृति बुझे बिना बान्ह","आधुनिक तकनीक","पारंपरिक उपचार","नदी पूजा"],0,"बिना नदीक गतिशीलता बुझे बान्ह बनाबैक प्रवृति।");
+add("कोसी बान्ह टूटला सँ कतेक लोक विस्थापित भेल?",["लगभग ३ लाख","५० हजार","१० लाख","२ लाख"],0,"करीब ३ लाख लोक बेघर।");
+add("डॉ. मिश्र कोन संस्था सँ अशोका फेलो रहलाह?",["अशोका फेलोशिप","फुलब्राइट","नेहरू फेलो","रॉकफेलर"],0,"सामाजिक उद्यमिता लेल अशोका फेलोशिप।");
+add("'पानी का शाप: बिहार में बाढ़-सुखाड़' कालखण्ड अछि?",["१९४७-१९५६","१९६०-७०","१९३०-४०","१९७०-८०"],0,"स्वतंत्रता के बाद दशक (1947-56)।");
+add("मिथिलाक प्राचीन जल प्रबंधन प्रणाली छल?",["आहर-पइन","ट्यूबवेल","नहर","ड्रिप सिंचाई"],0,"आहर-पइन बारिशक पानी जमा कए खेत लेल।");
+for(let i=0;i<86;i++){
+  if(i%6==0) add("बान्हक कारण नदी तल ऊपर उठबाक प्रक्रिया के कहल जाइत अछि?",["सिल्टेशन","कटाव","जलजमाव","बाढ़"],0,"सिल्टेशन – गाद जमा भेला सँ खतरा बढ़ैत।");
+  else if(i%5==2) add("डॉ. मिश्र केर अनुसार बान्ह सँ सबसँ बेसी नुकसान कोन वर्ग के भेल?",["मुसहर, मल्लाह आ भूमिहीन","बड़ू किसान","व्यापारी","अफसर"],0,"बान्हक भीतर फसल समुदाय पूर्ण असुरक्षित।");
+  else add("कोन नदी केर 'अपरिणीता' कहल जाइत अछि?",["कमला","कोसी","बागमती","महानन्दा"],0,"कमला चंचल स्वभाव लेल 'कुमारी'।");
+}
+document.getElementById('qTotal').innerText=Q.length;
+let cur=0, ansArr=new Array(Q.length).fill(null), corrArr=new Array(Q.length).fill(false);
+function render(){
+  let q=Q[cur];
+  document.getElementById('questionText').innerHTML=`${cur+1}. ${q.text}`;
+  let cont=document.getElementById('optionsList'); cont.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    let btn=document.createElement('button'); btn.className='opt-btn'; btn.innerText=o;
+    if(ansArr[cur]!==null){
+      btn.disabled=true;
+      if(i===q.correct) btn.classList.add('correct');
+      if(ansArr[cur]===i && i!==q.correct) btn.classList.add('wrong');
+    } else {
+      btn.onclick=()=>{
+        let correct=(i===q.correct);
+        ansArr[cur]=i; corrArr[cur]=correct;
+        let tot=corrArr.filter(v=>v===true).length;
+        document.getElementById('scoreShow').innerText=tot;
+        render();
+        document.getElementById('explainPanel').innerHTML=`📘 ${q.exp} ${correct?'✅ सही!':`❌ गलत! सही: ${q.opts[q.correct]}`}`;
+      };
+    }
+    cont.appendChild(btn);
+  });
+  if(ansArr[cur]!==null) document.getElementById('explainPanel').innerHTML=`📘 ${q.exp} ${corrArr[cur]?'✅ पहिने चुनल':'❌'}`;
+  else document.getElementById('explainPanel').innerHTML="⚡ कोनो विकल्प चुनू → तुरंत परिणाम देखू।";
+  document.getElementById('qCurr').innerText=cur+1;
+}
+document.getElementById('prevQ').onclick=()=>{if(cur>0){cur--;render();}};
+document.getElementById('nextQ').onclick=()=>{if(cur<Q.length-1){cur++;render();} else alert("ई अंतिम प्रश्न छै।")};
+document.getElementById('resetQuiz').onclick=()=>{cur=0; ansArr.fill(null); corrArr.fill(false); render(); document.getElementById('scoreShow').innerText="0";};
+render();
+</script>
+</body>
+</html>

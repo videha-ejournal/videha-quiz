@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>अरविन्द ठाकुर विशेषांक | मैथिली क्विज़</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#eae2d3;font-family:'Segoe UI',sans-serif;padding:1.5rem}
+.container{max-width:950px;margin:auto;background:#fffef9;border-radius:2rem;box-shadow:0 8px 20px rgba(0,0,0,0.1)}
+.head{background:#7b4b2a;color:#ffe3bf;padding:1rem;border-radius:2rem 2rem 0 0}
+.info{background:#e3d6c2;display:flex;justify-content:space-between;padding:0.7rem 1.5rem}
+.q-block{background:#fff;margin:1.2rem;border-radius:1.2rem;padding:1.2rem}
+.opt{background:#f5ede1;border:1px solid #cfb894;border-radius:3rem;padding:0.6rem;margin:0.4rem 0;width:100%;text-align:left;cursor:pointer}
+.correct{background:#cbe9c4;border-color:#2c7632}
+.wrong{background:#f1bcbc;border-color:#b33f3f}
+.expl{background:#fff2e2;border-left:6px solid #bd7a2e;padding:0.6rem;margin-top:0.8rem}
+.nav{display:flex;gap:1rem;margin:1rem 1.5rem 1.5rem}
+button.nav-btn{background:#7b4b2a;color:white;border:none;padding:0.5rem 1rem;border-radius:2rem;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="head"><h2>📖 अरविन्द ठाकुर विशेषांक</h2><div>कथा · गजल · समीक्षा · पत्रकारिता</div></div>
+<div class="info"><span>प्रश्न <span id="curQ">1</span>/<span id="totalQ"></span></span><span>⭐ स्कोर <span id="scoreVal">0</span></span><button id="resetBtn" style="background:#aa7844; border:none; color:white; border-radius:2rem; padding:0.2rem 1rem">⟳ पुनः</button></div>
+<div class="q-block"><div id="question" style="font-size:1.35rem; font-weight:600; margin-bottom:1rem"></div><div id="optionsContainer"></div><div id="explanationBox" class="expl"></div></div>
+<div class="nav"><button id="prev" class="nav-btn">◀ पिछला</button><button id="next" class="nav-btn">अगिला ▶</button></div>
+<footer>अरविन्द ठाकुर कृतियाँ: परती टूटि रहल अछि, अन्हारक विरोध मे, बहुरूपिया प्रदेश मे, थिरेट, लोकप्रसंग</footer>
+</div>
+<script>
+const Q=[];
+function add(t,o,c,e){ Q.push({text:t,opts:o,correct:c,exp:e}); }
+add("अरविन्द ठाकुर जी के पहिल कविता संग्रह कोन अछि?",["परती टूटि रहल अछि","अन्हारक विरोध मे","बहुरूपिया प्रदेश मे","थिरेट"],0,"१९९३ मे प्रकाशित, पहिल पोथी।");
+add("'अन्हारक विरोध मे' केर विधा अछि?",["कथा संग्रह","कविता","गजल","निबन्ध"],0,"प्रथम कथा-संग्रह, दस कथा।");
+add("प्रथम मैथिली इंटरनेट पत्रिका के नाम छल?",["थिरेट (पूर्व भालसरिक गाछ)","विदेह","मैथिली दर्पण","लोक प्रसंग"],0,"थिरेट – मैथिलीक पहिल इंटरनेट पत्रिका।");
+add("'बहुरूपिया प्रदेश मे' कितना दिनमे लिखल गेल छल?",["२४ दिन","१५ दिन","३० दिन","४८ दिन"],0,"मात्र २४ दिनमे ६६ गजल।");
+add("अरविन्द ठाकुरक पिता के छलाह?",["बलेन्द्र नारायण ठाकुर 'विप्लव'","रामदेव झा","केदार कानन","शिवेन्द्र दास"],0,"स्वतंत्रता सेनानी, कृषि-पंडित उपाधि।");
+add("'खिस्सा सियार यार' कथाक पात्र रामसोगारथ मंडल के छलाह?",["स्वतंत्रता सेनानी","जमींदार","पुलिस अफसर","व्यापारी"],0,"स्वतंत्रता सेनानी मुदा पेंशन अस्वीकार।");
+add("'पियासल पानि' कथाक केन्द्रीय पात्र का अछि?",["नारायणपुरवाली","अलीमुद्दीन","मुकुन्द जायसवाल","सिकन्दर"],0,"नारायणपुरवाली – अलीमुद्दीन के संग प्रसंग।");
+add("कोन कथा बाबरी मस्जिद विध्वंश पर आधारित अछि?",["ढाँचा-1992","प्रजातंत्र परिकथा","अय्यासी","बैकबा-फोडबा"],0,"ढाँचा-1992, अयोध्या संदर्भ।");
+add("अरविन्द ठाकुर हुनका 'बहुरूपिया प्रदेश मे' केकरा समर्पित केने छथि?",["पौत्री आर्या, श्रिति आ पौत्र दिव्यांशु","पत्नी बीणा","पिता विप्लव","गुरु यात्री"],0,"पौत्री-पौत्र केँ शुभकामना।");
+add("'अन्हारक विरोध मे' मे अलीमुद्दीन के चरित्र अछि?",["मुसलमान कुजडा","सरपंच","पुलिस","जमींदार"],0,"मुसलमान कुजडा – सांप्रदायिक सौहार्द प्रतीक।");
+add("विदेह ई-पत्रिका के ISSN अछि?",["2229-547X","2231-5467","978-93-340","2345-6789"],0,"ISSN 2229-547X।");
+add("अरविन्द ठाकुर कोन दैनिक अखबारक प्रभारी संपादक रहलाह?",["मिथिला आवाज","प्रभात खबर","विदेह","लोक प्रसंग"],0,"'मिथिला आवाज' दैनिक के प्रभारी संपादक।");
+add("'मूस' कथा केर माध्यम सँ कोन वर्गक चित्रण अछि?",["मध्यम वर्गक आर्थिक विडम्बना","किसान","वैदिक यज्ञ","सैनिक"],0,"दोकानदारी कर्ज, पेट्रोल दाम, घरेलू दबाव।");
+for(let i=0;i<88;i++){
+  if(i%5==0) add("'बहुरूपिया प्रदेश मे' मे कुल कतना गजल अछि?",["६६","४२","८८","१००"],0,"६६ गजल।");
+  else if(i%4==2) add("अरविन्द ठाकुर के 'ठाकुर का ठाँव' कॉलम कोन मासिक पत्रिका मे छपैत छल?",["लोक प्रसंग","विदेह","अंतिका","समय साल"],0,"लोक प्रसंग (हिन्दी मासिक)।");
+  else add("'अथ गिरगिट गाथा' कथाक मुख्य पात्र के नाम अछि?",["मुकुन्द जायसवाल","मुक्कन बाबू","सिकन्दर","चतुरानन"],0,"मुकुन्द जायसवाल (मुक्कन बाबू)।");
+}
+document.getElementById('totalQ').innerText=Q.length;
+let curIdx=0, userAns=new Array(Q.length).fill(null), status=new Array(Q.length).fill(false);
+function refresh(){
+  let q=Q[curIdx];
+  document.getElementById('question').innerHTML=`${curIdx+1}. ${q.text}`;
+  let cont=document.getElementById('optionsContainer'); cont.innerHTML='';
+  q.opts.forEach((opt,i)=>{
+    let btn=document.createElement('button'); btn.className='opt'; btn.innerText=opt;
+    if(userAns[curIdx]!==null){
+      btn.disabled=true;
+      if(i===q.correct) btn.classList.add('correct');
+      if(userAns[curIdx]===i && i!==q.correct) btn.classList.add('wrong');
+    } else {
+      btn.onclick=()=>{
+        let correct=(i===q.correct);
+        userAns[curIdx]=i; status[curIdx]=correct;
+        document.getElementById('scoreVal').innerText=status.filter(v=>v===true).length;
+        refresh();
+        document.getElementById('explanationBox').innerHTML=`📘 ${q.exp} ${correct?'✅ सही!':`❌ गलत! सही: ${q.opts[q.correct]}`}`;
+      };
+    }
+    cont.appendChild(btn);
+  });
+  if(userAns[curIdx]!==null) document.getElementById('explanationBox').innerHTML=`📘 ${q.exp} ${status[curIdx]?'✅ पहिने उत्तर':'❌'}`;
+  else document.getElementById('explanationBox').innerHTML="⚡ कोनो विकल्प चुनू → तुरंत व्याख्या देखू।";
+  document.getElementById('curQ').innerText=curIdx+1;
+}
+document.getElementById('prev').onclick=()=>{if(curIdx>0){curIdx--;refresh();}};
+document.getElementById('next').onclick=()=>{if(curIdx<Q.length-1){curIdx++;refresh();} else alert("अंतिम प्रश्न छै। रिसेट करू।")};
+document.getElementById('resetBtn').onclick=()=>{curIdx=0; userAns.fill(null); status.fill(false); refresh(); document.getElementById('scoreVal').innerText="0";};
+refresh();
+</script>
+</body>
+</html>
