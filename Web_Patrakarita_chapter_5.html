@@ -1,363 +1,201 @@
 <!DOCTYPE html>
 <html lang="mai">
-<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> <title>मैथिली वेब पत्रकारिता - अध्याय ५ क्विज़ (प्रारंभिक बहस आ तथ्य)</title> <style>
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
-body {
-background: linear-gradient(145deg, #f0ede3 0%, #e2d9c8 100%);
-font-family: 'Segoe UI', 'Nirmala UI', 'Mukta', 'Noto Sans Devanagari', 'Poppins', system-ui, sans-serif;
-padding: 30px 20px;
-color: #2c2b28;
-}
-.quiz-container {
-max-width: 950px;
-margin: 0 auto;
-background-color: #fffef7;
-border-radius: 48px;
-box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.35);
-overflow: hidden;
-padding: 2rem 2rem 2.5rem;
-border: 1px solid #ecd9b0;
-}
-h1 {
-font-size: 1.9rem;
-color: #9b2e1b;
-border-left: 8px solid #c06a3e;
-padding-left: 1.2rem;
-margin-bottom: 0.5rem;
-font-weight: 700;
-}
-.sub {
-font-size: 1rem;
-color: #7e5a41;
-margin-bottom: 2rem;
-border-bottom: 2px dashed #eedcb3;
-padding-bottom: 0.9rem;
-padding-left: 1.5rem;
-}
-.book-chapter {
-background: #f3e5cf;
-display: inline-block;
-padding: 0.3rem 1rem;
-border-radius: 40px;
-font-size: 0.8rem;
-font-weight: 600;
-color: #a1512a;
-margin-bottom: 1rem;
-}
-.question-card {
-background: #ffffff;
-border-radius: 28px;
-padding: 1.5rem 1.8rem;
-margin-bottom: 1.7rem;
-box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
-border: 1px solid #f0e2c2;
-transition: 0.2s;
-}
-.question-text {
-font-size: 1.3rem;
-font-weight: 600;
-color: #3b2a21;
-line-height: 1.4;
-margin-bottom: 1.2rem;
-display: flex;
-align-items: baseline;
-gap: 10px;
-flex-wrap: wrap;
-}
-.q-num {
-background: #e8cfa6;
-padding: 0.2rem 0.8rem;
-border-radius: 60px;
-font-size: 0.85rem;
-font-weight: bold;
-color: #4b2f1d;
-}
-.options {
-display: flex;
-flex-direction: column;
-gap: 0.75rem;
-margin-left: 0.5rem;
-}
-.option {
-display: flex;
-align-items: flex-start;
-gap: 12px;
-cursor: pointer;
-padding: 0.5rem 0.8rem;
-border-radius: 60px;
-transition: background 0.2s;
-font-size: 1rem;
-}
-.option:hover {
-background: #faf2e4;
-}
-input[type="radio"] {
-accent-color: #c06a3e;
-width: 18px;
-height: 18px;
-margin-top: 3px;
-flex-shrink: 0;
-}
-label {
-font-weight: 500;
-color: #2f2a24;
-line-height: 1.4;
-cursor: pointer;
-width: 100%;
-}
-.btn-submit {
-background: #9b2e1b;
-border: none;
-padding: 14px 30px;
-font-size: 1.2rem;
-font-weight: bold;
-color: white;
-border-radius: 50px;
-width: 100%;
-cursor: pointer;
-transition: 0.2s;
-margin-top: 1rem;
-font-family: inherit;
-box-shadow: 0 5px 10px rgba(155, 46, 27, 0.3);
-}
-.btn-submit:hover {
-background: #7e2b1a;
-transform: scale(0.98);
-}
-.result-area {
-margin-top: 2rem;
-background: #ede3cf;
-border-radius: 32px;
-padding: 1.3rem 1.8rem;
-text-align: center;
-font-size: 1.2rem;
-font-weight: bold;
-color: #3d2a1b;
-}
-.feedback {
-margin-top: 20px;
-background: #fff2e2;
-border-radius: 24px;
-padding: 1rem 1.5rem;
-font-size: 0.95rem;
-color: #5f3e2c;
-border-left: 5px solid #c06a3e;
-}
-footer {
-text-align: center;
-font-size: 0.75rem;
-margin-top: 2rem;
-color: #866e50;
-}
-@media (max-width: 650px) {
-.quiz-container { padding: 1.2rem; }
-.question-card { padding: 1rem; }
-.question-text { font-size: 1.1rem; }
-}
-.vq-footer {
-text-align: center;
-padding: 12px;
-font-size: 0.82em;
-color: #7a8aaa;
-border-top: 1px solid #ccc;
-margin-top: 12px;
-font-family: 'Noto Serif Devanagari', serif;
-}
-.vq-back {
-display: block;
-text-align: center;
-margin: 16px auto 8px;
-font-family: 'Noto Serif Devanagari', serif;
-font-size: 0.9em;
-color: #8B1A1A;
-}
-
-.vq-site-header {
-  background: #0a1628;
-  color: #fff;
-  padding: 14px 20px 11px;
-  text-align: center;
-  border-bottom: 4px solid #c49a3c;
-}
-.vq-site-header h1 {
-  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
-  font-size: 1.35em;
-  line-height: 1.3;
-  margin: 0 0 3px 0;
-  letter-spacing: .02em;
-}
-.vq-site-header .mai {
-  font-family: 'Noto Serif Devanagari', serif;
-}
-.vq-site-header .sub {
-  font-size: .78em;
-  color: #c49a3c;
-  font-style: italic;
-  letter-spacing: .12em;
-  font-family: 'Lato', sans-serif;
-  display: block;
-  margin-top: 2px;
-}
-.vq-site-header p {
-  font-size: .75em;
-  color: #8aa0c8;
-  margin: 4px 0 0 0;
-  font-style: italic;
-}
-.vq-site-header a {
-  color: #c49a3c;
-  text-decoration: none;
-}
-
-.vq-footer {
-  text-align: center;
-  padding: 12px;
-  font-size: .82em;
-  background: #0a1628;
-  color: #8aa0c8;
-  border-top: 3px solid #c49a3c;
-  margin-top: 14px;
-  font-family: 'Noto Serif Devanagari', serif;
-}
-.vq-footer a { color: #c49a3c; text-decoration: none; }
-.vq-back {
-  display: block;
-  text-align: center;
-  margin: 16px auto 8px;
-  font-family: 'Noto Serif Devanagari', serif;
-  font-size: .9em;
-  color: #8B1A1A;
-}
-</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>मैथिली वेब पत्रकारिता - अध्याय ५ क्विज़ (प्रारंभिक बहस आ तथ्य)</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(145deg, #f0ede3 0%, #e2d9c8 100%);
+      font-family: 'Segoe UI', 'Nirmala UI', 'Mukta', 'Noto Sans Devanagari', 'Poppins', system-ui, sans-serif;
+      padding: 30px 20px;
+    }
+    .quiz-container {
+      max-width: 950px;
+      margin: 0 auto;
+      background: #fffef7;
+      border-radius: 48px;
+      padding: 2rem;
+      box-shadow: 0 25px 45px -12px rgba(0,0,0,0.35);
+      border: 1px solid #ecd9b0;
+    }
+    h1 { font-size: 1.9rem; color: #9b2e1b; border-left: 8px solid #c06a3e; padding-left: 1.2rem; margin-bottom: 0.5rem; }
+    .book-chapter { background: #f3e5cf; display: inline-block; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; color: #a1512a; margin-bottom: 1rem; }
+    .question-card { background: white; border-radius: 28px; padding: 1.2rem 1.5rem; margin-bottom: 1.5rem; border: 1px solid #f0e2c2; }
+    .question-text { font-size: 1.2rem; font-weight: 600; color: #3b2a21; margin-bottom: 1rem; }
+    .options { display: flex; flex-direction: column; gap: 0.6rem; }
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0.5rem 1rem;
+      border-radius: 60px;
+      border: 1px solid #e0d0b5;
+      cursor: pointer;
+      transition: 0.1s;
+      background: white;
+    }
+    .option:hover { background: #faf2e4; }
+    input[type="radio"] { width: 18px; height: 18px; accent-color: #c06a3e; cursor: pointer; }
+    label { font-weight: 500; color: #2f2a24; cursor: pointer; flex: 1; }
+    .correct-highlight { background: #c8e6c9 !important; border-color: #2e7d32 !important; }
+    .wrong-highlight { background: #ffcdd2 !important; border-color: #c62828 !important; }
+    .btn-submit {
+      background: #9b2e1b;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: white;
+      border-radius: 50px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 1rem;
+    }
+    .btn-submit:hover { background: #7e2b1a; }
+    .result-area { margin-top: 1.5rem; background: #ede3cf; border-radius: 32px; padding: 1rem; text-align: center; }
+    .score { font-size: 1.8rem; font-weight: bold; color: #9b2e1b; }
+    .vq-site-header {
+      background: #0a1628; color: #fff; padding: 14px 20px; text-align: center;
+      border-bottom: 4px solid #c49a3c; margin-bottom: 20px;
+    }
+    .vq-site-header h1 { font-size: 1.35em; margin: 0; color: white; border: none; padding: 0; }
+    .vq-footer { text-align: center; background: #0a1628; color: #8aa0c8; padding: 12px; margin-top: 20px; }
+    .vq-back { display: block; text-align: center; margin: 16px auto 8px; color: #8B1A1A; }
+    a { color: #c49a3c; text-decoration: none; }
+  </style>
 </head>
 <body>
 <header class="vq-site-header">
-  <h1>Videha QUIZ &nbsp;|&nbsp; <span class="mai">विदेह ई-लर्निङ्ग क्विज</span>
-    <span class="sub">Videha eLearning Quiz</span>
-  </h1>
-  <p>Videha &mdash; First Maithili Fortnightly eJournal &nbsp;|&nbsp; <a href="https://www.videha.co.in" target="_blank">www.videha.co.in</a></p>
+  <h1>Videha QUIZ | विदेह ई-लर्निङ्ग क्विज</h1>
+  <p>Videha — First Maithili Fortnightly eJournal | <a href="https://www.videha.co.in">www.videha.co.in</a></p>
 </header>
 
- <div class="quiz-container"> <div class="book-chapter">⚔️ अध्याय ५ : प्रारंभिक बहस, तथ्य आ विवाद (परिशिष्ट-१ सँ ISSN धरि)</div> <h1>🔎 मैथिली वेब इतिहासक गुत्थी – क्विज़</h1> <div class="sub">📍 पोथी “मैथिली वेब पत्रकारिताक इतिहास” केर अध्याय ४ परिशिष्ट, पद्मनाभजीक बहस, ब्लॉगर सुविधा, आरंभिक ब्लाग सभ (पृष्ठ ३९-५६) पर आधारित।</div> <form id="quizForm"> <div class="question-card"> <div class="question-text"><span class="q-num">प्रश्न १</span> ब्लॉगर (Blogger) मे भविष्यक तारीख संग पोस्ट राखि देबाक सुविधा (future-dated post) कोन वर्ष मे शुरू भेल छल?</div> <div class="options"> <div class="option"><input type="radio" name="q1" value="A" id="q1_a"><label for="q1_a">(क) मई २००६</label></div> <div class="option"><input type="radio" name="q1" value="B" id="q1_b"><label for="q1_b">(ख) मई २००८</label></div> <div class="option"><input type="radio" name="q1" value="C" id="q1_c"><label for="q1_c">(ग) दिसम्बर २००८</label></div> <div class="option"><input type="radio" name="q1" value="D" id="q1_d"><label for="q1_d">(घ) फरवरी २०१०</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">प्रश्न २</span> “कतेक रास बात” ब्लागक संचालक सभ पहिल पोस्टक तारीख केतबक बना देलकै जखन की वास्तविक पोस्ट २००५ के अगस्त मे छल ?</div> <div class="options"> <div class="option"><input type="radio" name="q2" value="A" id="q2_a"><label for="q2_a">(क) १ जुलाई २००१</label></div> <div class="option"><input type="radio" name="q2" value="B" id="q2_b"><label for="q2_b">(ख) १ जुलाई १९९९</label></div> <div class="option"><input type="radio" name="q2" value="C" id="q2_c"><label for="q2_c">(ग) १ नवम्बर २०००</label></div> <div class="option"><input type="radio" name="q2" value="D" id="q2_d"><label for="q2_d">(घ) २८ नवम्बर २००४</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">प्रश्न ३</span> कतेक रास बातक संचालक पद्मनाभ मिश्र (आदि यायावर) के अनुसार २००४ मे हुनकर ब्लाग शुरू भेल छल, मुदा ओ इतिहासमे कोन दोसरो ब्लाग/साइट के अस्तित्व नै मानैत छलाह ?</div> <div class="options"> <div class="option"><input type="radio" name="q3" value="A" id="q3_a"><label for="q3_a">(क) विदेह</label></div> <div class="option"><input type="radio" name="q3" value="B" id="q3_b"><label for="q3_b">(ख) समदिया</label></div> <div class="option"><input type="radio" name="q3" value="C" id="q3_c"><label for="q3_c">(ग) भालसरिक गाछ आ पल्लव मिथिला</label></div> <div class="option"><input type="radio" name="q3" value="D" id="q3_d"><label for="q3_d">(घ) मैथिल आर मिथिला</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">प्रश्न ४</span> ब्लॉगरमे “कस्टम लिंक” (Custom Permalink) केर सुविधा कोन तारीखसँ शुरू भेलै, जकरा अहाँ URL मे अपन अनुकूल शब्द दे सकैत छी ?</div> <div class="options"> <div class="option"><input type="radio" name="q4" value="A" id="q4_a"><label for="q4_a">(क) १७ जुलाई २०१२</label></div> <div class="option"><input type="radio" name="q4" value="B" id="q4_b"><label for="q4_b">(ख) १० दिसम्बर २००८</label></div> <div class="option"><input type="radio" name="q4" value="C" id="q4_c"><label for="q4_c">(ग) ३ फरवरी २०१०</label></div> <div class="option"><input type="radio" name="q4" value="D" id="q4_d"><label for="q4_d">(घ) १ मई २००८</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">प्रश्न ५</span> पोथी मे उल्लेख अछि जे हिंदीक पहिल ब्लाग “9-2-11” (९-२-११) केर शुरुआत कोन तिथि मे भेल छल ?</div> <div class="options"> <div class="option"><input type="radio" name="q5" value="A" id="q5_a"><label for="q5_a">(क) २१ अप्रैल २००२</label></div> <div class="option"><input type="radio" name="q5" value="B" id="q5_b"><label for="q5_b">(ख) २१ अप्रैल २००३</label></div> <div class="option"><input type="radio" name="q5" value="C" id="q5_c"><label for="q5_c">(ग) १ जनवरी २००४</label></div> <div class="option"><input type="radio" name="q5" value="D" id="q5_d"><label for="q5_d">(घ) १५ अगस्त २०००</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">प्रश्न ६</span> गजेन्द्र ठाकुरजी कोन पोथी/आलेख मे भालसरिक गाछ केर विस्तृत चर्चा केलाह जाहिसँ “पहिल केर भ्रम” दूर भेल ?</div> <div class="options"> <div class="option"><input type="radio" name="q6" value="A" id="q6_a"><label for="q6_a">(क) कुरुक्षेत्रम् अन्तर्मनक</label></div> <div class="option"><input type="radio" name="q6" value="B" id="q6_b"><label for="q6_b">(ख) सोशल मीडिया (पोथी)</label></div> <div class="option"><input type="radio" name="q6" value="C" id="q6_c"><label for="q6_c">(ग) अंतिका पत्रिकाक “अंतजालि विशेषांक”</label></div> <div class="option"><input type="radio" name="q6" value="D" id="q6_d"><label for="q6_d">(घ) विदेहक ३१३ अंक</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">प्रश्न ७</span> “हम पुछैत छी” नामक साक्षात्कार शृंखला कोन ब्लागपर अक्टूबर २०११ सँ चलल छल, आ एकरा मैथिली वेब पत्रकारितामे पहिल बेर शुरू करल गेल छल ?</div> <div class="options"> <div class="option"><input type="radio" name="q7" value="A" id="q7_a"><label for="q7_a">(क) समदिया</label></div> <div class="option"><input type="radio" name="q7" value="B" id="q7_b"><label for="q7_b">(ख) विदेह</label></div> <div class="option"><input type="radio" name="q7" value="C" id="q7_c"><label for="q7_c">(ग) हेलो मिथिला</label></div> <div class="option"><input type="radio" name="q7" value="D" id="q7_d"><label for="q7_d">(घ) कतेक रास बात</label></div> </div> </div> <div class="question-card"> <div class="question-text"><span class="q-num">प्रश्न ८</span> ISSN (International Standard Serial Number) लेल पत्रिकाक प्रकाशन वर्ष कोन आधारपर तय होइत छै ?</div> <div class="options"> <div class="option"><input type="radio" name="q8" value="A" id="q8_a"><label for="q8_a">(क) पहिल आवेदन केर वर्ष</label></div> <div class="option"><input type="radio" name="q8" value="B" id="q8_b"><label for="q8_b">(ख) पत्रिकाक पहिल अंक केर प्रकाशन तिथिक सबूत</label></div> <div class="option"><input type="radio" name="q8" value="C" id="q8_c"><label for="q8_c">(ग) संपादकक जन्म वर्ष</label></div> <div class="option"><input type="radio" name="q8" value="D" id="q8_d"><label for="q8_d">(घ) डोमेन पंजीकरण वर्ष</label></div> </div> </div> </form> <button type="button" class="btn-submit" id="submitQuiz">📜 उत्तर जाँचू | परिणाम देखू</button> <div id="resultDisplay" class="result-area" style="display: none;"></div> <div id="feedbackArea" class="feedback" style="display: none;"></div> </div>
-<script>
-    // सही उत्तर (अध्याय ५ सामग्री पर आधारित)
-    const correctAnswers = {
-        q1: "B",   // May 01, 2008 (पृष्ठ 29: May 01, 2008 सँ ब्लागर फ्यूचर पोस्ट केर सुविधा)
-        q2: "D",   // 28 नवम्बर 2004 (चित्र-1 के नीचा घेरामे, पृष्ठ 34)
-        q3: "C",   // भालसरिक गाछ आ पल्लव मिथिला (हुनका 2003-2004 केर पहिनेक उपस्थिति नै मानब छलाह)
-        q4: "A",   // July 17, 2012 (पृष्ठ 30: July 17, 2012 सँ ब्लागर कस्टम लिंक)
-        q5: "B",   // 21 अप्रैल 2003 (पृष्ठ 36: िहंदीक पहिल ब्लाग "9-2-11" आलोक कुमार जी 21 अप्रैल 2003 के शुरू केने छलाह)
-        q6: "C",   // अंतिका पत्रिकाक "अंतजालि विशेषांक" (पृष्ठ 35: आलेख अंतिका पत्रिकाक अंतजालि विशेषांकमे "अंतजालि आ मैथिली" नामसँ प्रकाशित)
-        q7: "A",   // समदिया (पृष्ठ 36: समदिया अक्टूबर 2011सँ "हम पुछैत छी" नामक साक्षात्कार शृंखला चलेलक)
-        q8: "B"    // पहिल अंक केर प्रति लगा क' ओही बखंक सबूत देबै पर (पृष्ठ 55: जाहि बखंक सबूत देबै ताही बखंसँ ओकरा देल जाएत)
-    };
+<div class="quiz-container">
+  <div class="book-chapter">⚔️ अध्याय ५ : प्रारंभिक बहस, तथ्य आ विवाद (परिशिष्ट-१ सँ ISSN धरि)</div>
+  <h1>🔎 मैथिली वेब इतिहासक गुत्थी – क्विज़</h1>
+  <div class="sub" style="margin-bottom: 1.5rem;">📍 अध्याय ५ (पृष्ठ ३९-५६) पर आधारित – विकल्प चुनते ही हरियर/लाल फीडबैक</div>
 
-    // व्याख्या मैथिलीमे
-    const explanations = {
-        q1: "✅ पृष्ठ २९: 'May 01, 2008 सँ ब्लागर फ्यूचर पोस्ट केर सुविधा देलकै ... ओ पोस्ट नियत तारीखमे अपने-आप पोस्ट भउ जाइत छै।'",
-        q2: "✅ पृष्ठ ३४: 'कतेक रास बात' केर पहिल पोस्ट (चित्र-१) मे प्रकाशन तारीख November 28, 2004 बना देल गेल अछि जखन की URL सँ पता चलैत अछि जे ई २०१३ केर पोस्ट छल।",
-        q3: "✅ पद्मनाभ मिश्र केर मत छल जे २००३ सँ पहिने देवनागरी टूल नै छल आ २००४ सँ पहिने कोनो मैथिली वेबसाइट नै छल। ओ 'भालसरिक गाछ' (२०००) आ 'पल्लव मिथिला' (२००३) केर अस्तित्व नै मानैत छलाह।",
-        q4: "✅ पृष्ठ ३०: 'July 17, 2012 सँ ब्लागर कस्टम लिंक बनेबाक सुविधा देलकै ... अहाँ अपना मोनक हिसाबें कोनो पोस्टक URL बना सकै छी।'",
-        q5: "✅ पृष्ठ ३६: 'हिंदीक पहिल ब्लाग "9-2-11" अछि जे आलोक कुमार जी 21 अप्रैल 2003 के शुरू केने छलाह।'",
-        q6: "✅ पृष्ठ ३५: गजेन्द्र ठाकुर केर आलेख 'अंतजालि आ मैथिली' अंतिका पत्रिकाक 'अंतजालि विशेषांक' (अक्टूबर-दिसम्बर 2009) मे प्रकाशित भेल। एहिमे भालसरिक गाछ केर चर्चा कएल गेल।",
-        q7: "✅ पृष्ठ ३६: 'समदिया अक्टूबर 2011सँ "हम पुछैत छी" नामक साक्षात्कार शृंखला चलेलक आ एहिमे कुल सत्तावनसँ बेसी व्यक्तित्वक साक्षात्कार प्रस्तुत कएल गेल अछि।'",
-        q8: "✅ पृष्ठ ५५: 'जाहि बखंक सबूत देबै ताही बखंसँ ओकरा (ISSN) देल जाएत। माने जँ अहाँक पत्रिका १९९० मे छपल मुदा आबेदन २०२३ मे केलहुँ आ पहिल अंक केर प्रति लगा देलहुँ तँ १९९० सँ ISSN देल जाएत।'"
-    };
+  <div id="quizForm"></div>
+  <button class="btn-submit" id="submitBtn">📊 पूर्ण परिणाम देखू</button>
+  <div id="resultArea" style="display: none;" class="result-area"></div>
+</div>
 
-    const submitBtn = document.getElementById('submitQuiz');
-    const resultDiv = document.getElementById('resultDisplay');
-    const feedbackDiv = document.getElementById('feedbackArea');
-
-    submitBtn.addEventListener('click', function() {
-        let userAnswers = {
-            q1: document.querySelector('input[name="q1"]:checked')?.value,
-            q2: document.querySelector('input[name="q2"]:checked')?.value,
-            q3: document.querySelector('input[name="q3"]:checked')?.value,
-            q4: document.querySelector('input[name="q4"]:checked')?.value,
-            q5: document.querySelector('input[name="q5"]:checked')?.value,
-            q6: document.querySelector('input[name="q6"]:checked')?.value,
-            q7: document.querySelector('input[name="q7"]:checked')?.value,
-            q8: document.querySelector('input[name="q8"]:checked')?.value
-        };
-
-        let allAttempted = true;
-        for (let key in userAnswers) {
-            if (!userAnswers[key]) { allAttempted = false; break; }
-        }
-
-        if (!allAttempted) {
-            resultDiv.style.display = "block";
-            resultDiv.innerHTML = "⚠️ कृपया सबटा प्रश्न के उत्तर दियौ (८ प्रश्न अछि) । कोनो प्रश्न छुटल अछि।";
-            feedbackDiv.style.display = "none";
-            return;
-        }
-
-        const qMeta = {
-            q1: { text: "ब्लॉगर मे future-dated post सुविधा केर वर्ष?", correct: "B", correctText: "(ख) मई २००८" },
-            q2: { text: "कतेक रास बातक संचालक पहिल पोस्टक तारीख केतबक बनौलनि?", correct: "D", correctText: "(घ) २८ नवम्बर २००४" },
-            q3: { text: "पद्मनाभ मिश्र कोन-कोन साइट केर अस्तित्व नै मानैत छलाह?", correct: "C", correctText: "(ग) भालसरिक गाछ आ पल्लव मिथिला" },
-            q4: { text: "ब्लॉगरमे कस्टम लिंक सुविधा कहिया सँ शुरू?", correct: "A", correctText: "(क) १७ जुलाई २०१२" },
-            q5: { text: "हिंदीक पहिल ब्लाग '9-2-11' केर शुरुआत तिथि?", correct: "B", correctText: "(ख) २१ अप्रैल २००३" },
-            q6: { text: "गजेन्द्र ठाकुरजी कोन विशेषांक मे भालसरिक गाछ केर चर्चा केलाह?", correct: "C", correctText: "(ग) अंतिकाक 'अंतजालि विशेषांक'" },
-            q7: { text: "'हम पुछैत छी' साक्षात्कार शृंखला कोन ब्लागपर चलल?", correct: "A", correctText: "(क) समदिया" },
-            q8: { text: "ISSN लेल प्रकाशन वर्ष कोन आधारपर तय होइत छै?", correct: "B", correctText: "(ख) पहिल अंक केर प्रकाशन तिथिक सबूत" }
-        };
-
-        const optionMaps = {
-            q1: { A: "(क) मई २००६", B: "(ख) मई २००८", C: "(ग) दिसम्बर २००८", D: "(घ) फरवरी २०१०" },
-            q2: { A: "(क) १ जुलाई २००१", B: "(ख) १ जुलाई १९९९", C: "(ग) १ नवम्बर २०००", D: "(घ) २८ नवम्बर २००४" },
-            q3: { A: "(क) विदेह", B: "(ख) समदिया", C: "(ग) भालसरिक गाछ आ पल्लव मिथिला", D: "(घ) मैथिल आर मिथिला" },
-            q4: { A: "(क) १७ जुलाई २०१२", B: "(ख) १० दिसम्बर २००८", C: "(ग) ३ फरवरी २०१०", D: "(घ) १ मई २००८" },
-            q5: { A: "(क) २१ अप्रैल २००२", B: "(ख) २१ अप्रैल २००३", C: "(ग) १ जनवरी २००४", D: "(घ) १५ अगस्त २०००" },
-            q6: { A: "(क) कुरुक्षेत्रम् अन्तर्मनक", B: "(ख) सोशल मीडिया पोथी", C: "(ग) अंतिकाक अंतजालि विशेषांक", D: "(घ) विदेहक ३१३ अंक" },
-            q7: { A: "(क) समदिया", B: "(ख) विदेह", C: "(ग) हेलो मिथिला", D: "(घ) कतेक रास बात" },
-            q8: { A: "(क) पहिल आवेदन केर वर्ष", B: "(ख) पहिल अंक केर प्रकाशन तिथिक सबूत", C: "(ग) संपादकक जन्म वर्ष", D: "(घ) डोमेन पंजीकरण वर्ष" }
-        };
-
-        let score = 0;
-        let detailsHtml = `<div><strong>📖 अध्याय ५ – प्रारंभिक बहस, ब्लॉगर फीचर, आ ISSN:</strong></div><ul style="margin-top: 12px; padding-left: 20px;">`;
-
-        for (let i = 1; i <= 8; i++) {
-            let qKey = `q${i}`;
-            let userVal = userAnswers[qKey];
-            let correctVal = qMeta[qKey].correct;
-            let isCorrect = (userVal === correctVal);
-            if (isCorrect) score++;
-
-            let userOptionText = optionMaps[qKey][userVal] || "अनुत्तरित";
-            let correctTextDisplay = qMeta[qKey].correctText;
-            let statusIcon = isCorrect ? "✅" : "❌";
-            detailsHtml += `<li style="margin-bottom: 14px;"><strong>प्रश्न ${i}: ${qMeta[qKey].text}</strong><br> 
-                            ${statusIcon} अहाँक उत्तर: ${userOptionText}<br>
-                            📗 सही उत्तर: ${correctTextDisplay}<br>
-                            <span style="font-size:0.85rem; color:#7c5a42;">📖 व्याख्या: ${explanations[qKey]}</span></li>`;
-        }
-        detailsHtml += `</ul>`;
-
-        const percentage = (score / 8) * 100;
-        let starMsg = "";
-        if (percentage === 100) starMsg = "🎉 शानदार! अध्याय ५ केर बहस, तारीख हेराफेरी आ साक्षात्कार शृंखला सब बुझलहुँ।";
-        else if (percentage >= 75) starMsg = "👍 बहुत नीक! मैथिली वेब इतिहासक विवादित तथ्य सभ अछा सँ समझलहुँ।";
-        else if (percentage >= 50) starMsg = "📚 ठीक अछि, मुदा अध्याय ५ (परिशिष्ट आ बहस) फेर पढ़ू – ई वास्तविक तथ्य जानबाक लेल आवश्यक अछि।";
-        else starMsg = "📖 कृपया अध्याय ४ केर परिशिष्ट आ पद्मनाभजीक बहस पुनः पढ़ू। तारीख केर हेराफेरी आ पहिल केर दावा सभ ऐतिहासिक दृष्टि सँ महत्वपूर्ण अछि।";
-
-        resultDiv.style.display = "block";
-        resultDiv.innerHTML = `
-            <div style="font-size: 1.8rem; font-weight: bold;">🏆 ${score} / ८ सही उत्तर</div>
-            <div style="margin: 12px 0;">${starMsg}</div>
-            <div style="background: #e7dac4; border-radius: 40px; padding: 8px 12px; display: inline-block; font-size:1rem;">📊 स्कोर: ${Math.round(percentage)}%</div>
-        `;
-
-        feedbackDiv.style.display = "block";
-        feedbackDiv.innerHTML = detailsHtml;
-        feedbackDiv.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    });
-</script>
 <a class="vq-back" href="https://www.videha.co.in/videha-elearning.htm">&larr; विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
-<div class="vq-footer">&copy; Gajendra Thakur, Editor &mdash; <a href="https://www.videha.co.in">Videha eJournal</a></div>
+<div class="vq-footer">&copy; Gajendra Thakur, Editor — <a href="https://www.videha.co.in">Videha eJournal</a></div>
+
+<script>
+  // Questions for Chapter 5 (based on original content)
+  const questions = [
+    { text: "ब्लॉगर (Blogger) मे भविष्यक तारीख संग पोस्ट राखि देबाक सुविधा (future-dated post) कोन वर्ष मे शुरू भेल छल?", options: ["मई २००६", "मई २००८", "दिसम्बर २००८", "फरवरी २०१०"], correct: "मई २००८" },
+    { text: "“कतेक रास बात” ब्लागक संचालक सभ पहिल पोस्टक तारीख केतबक बना देलकै जखन की वास्तविक पोस्ट २००५ के अगस्त मे छल ?", options: ["१ जुलाई २००१", "१ जुलाई १९९९", "१ नवम्बर २०००", "२८ नवम्बर २००४"], correct: "२८ नवम्बर २००४" },
+    { text: "कतेक रास बातक संचालक पद्मनाभ मिश्र (आदि यायावर) के अनुसार २००४ मे हुनकर ब्लाग शुरू भेल छल, मुदा ओ इतिहासमे कोन दोसरो ब्लाग/साइट के अस्तित्व नै मानैत छलाह ?", options: ["विदेह", "समदिया", "भालसरिक गाछ आ पल्लव मिथिला", "मैथिल आर मिथिला"], correct: "भालसरिक गाछ आ पल्लव मिथिला" },
+    { text: "ब्लॉगरमे “कस्टम लिंक” (Custom Permalink) केर सुविधा कोन तारीखसँ शुरू भेलै, जकरा अहाँ URL मे अपन अनुकूल शब्द दे सकैत छी ?", options: ["१७ जुलाई २०१२", "१० दिसम्बर २००८", "३ फरवरी २०१०", "१ मई २००८"], correct: "१७ जुलाई २०१२" },
+    { text: "पोथी मे उल्लेख अछि जे हिंदीक पहिल ब्लाग “9-2-11” (९-२-११) केर शुरुआत कोन तिथि मे भेल छल ?", options: ["२१ अप्रैल २००२", "२१ अप्रैल २००३", "१ जनवरी २००४", "१५ अगस्त २०००"], correct: "२१ अप्रैल २००३" },
+    { text: "गजेन्द्र ठाकुरजी कोन पोथी/आलेख मे भालसरिक गाछ केर विस्तृत चर्चा केलाह जाहिसँ “पहिल केर भ्रम” दूर भेल ?", options: ["कुरुक्षेत्रम् अन्तर्मनक", "सोशल मीडिया (पोथी)", "अंतिका पत्रिकाक 'अंतजालि विशेषांक'", "विदेहक ३१३ अंक"], correct: "अंतिका पत्रिकाक 'अंतजालि विशेषांक'" },
+    { text: "“हम पुछैत छी” नामक साक्षात्कार शृंखला कोन ब्लागपर अक्टूबर २०११ सँ चलल छल, आ एकरा मैथिली वेब पत्रकारितामे पहिल बेर शुरू करल गेल छल ?", options: ["समदिया", "विदेह", "हेलो मिथिला", "कतेक रास बात"], correct: "समदिया" },
+    { text: "ISSN (International Standard Serial Number) लेल पत्रिकाक प्रकाशन वर्ष कोन आधारपर तय होइत छै ?", options: ["पहिल आवेदन केर वर्ष", "पहिल अंक केर प्रकाशन तिथिक सबूत", "संपादकक जन्म वर्ष", "डोमेन पंजीकरण वर्ष"], correct: "पहिल अंक केर प्रकाशन तिथिक सबूत" }
+  ];
+
+  let userSelections = new Array(questions.length).fill(null);
+
+  function renderQuiz() {
+    const container = document.getElementById('quizForm');
+    let html = '';
+    for (let i = 0; i < questions.length; i++) {
+      const q = questions[i];
+      html += `<div class="question-card" data-qidx="${i}">
+        <div class="question-text"><strong>प्रश्न ${i+1}:</strong> ${q.text}</div>
+        <div class="options" id="options-${i}">`;
+      for (let optIdx = 0; optIdx < q.options.length; optIdx++) {
+        const opt = q.options[optIdx];
+        const isChecked = (userSelections[i] === opt);
+        let extraClass = '';
+        if (userSelections[i] !== null && userSelections[i] === opt) {
+          extraClass = (opt === q.correct) ? 'correct-highlight' : 'wrong-highlight';
+        }
+        html += `<div class="option ${extraClass}" data-qidx="${i}" data-opt="${opt.replace(/"/g, '&quot;')}">
+          <input type="radio" name="q${i}" value="${opt.replace(/"/g, '&quot;')}" id="q${i}_opt${optIdx}" ${isChecked ? 'checked' : ''}>
+          <label for="q${i}_opt${optIdx}">${opt}</label>
+        </div>`;
+      }
+      html += `</div></div>`;
+    }
+    container.innerHTML = html;
+
+    for (let i = 0; i < questions.length; i++) {
+      const optionDivs = document.querySelectorAll(`.question-card[data-qidx="${i}"] .option`);
+      optionDivs.forEach(div => {
+        div.addEventListener('click', function(e) {
+          if (e.target.tagName === 'INPUT' && e.target.type === 'radio') return;
+          const radio = this.querySelector('input[type="radio"]');
+          if (radio) { radio.checked = true; radio.dispatchEvent(new Event('change', { bubbles: true })); }
+        });
+        const radio = div.querySelector('input[type="radio"]');
+        if (radio) {
+          radio.addEventListener('change', (function(idx, optText) {
+            return function() { if (this.checked) { userSelections[idx] = optText; updateSingleQuestion(idx); } };
+          })(i, radio.value));
+        }
+      });
+    }
+  }
+
+  function updateSingleQuestion(qidx) {
+    const q = questions[qidx];
+    const selected = userSelections[qidx];
+    const optionsDiv = document.getElementById(`options-${qidx}`);
+    if (!optionsDiv) return;
+    const optionDivs = optionsDiv.querySelectorAll('.option');
+    for (let i = 0; i < optionDivs.length; i++) {
+      const div = optionDivs[i];
+      const optText = div.querySelector('input[type="radio"]').value;
+      div.classList.remove('correct-highlight', 'wrong-highlight');
+      if (selected === optText) {
+        if (optText === q.correct) div.classList.add('correct-highlight');
+        else div.classList.add('wrong-highlight');
+      }
+    }
+  }
+
+  function showFinalResult() {
+    let score = 0;
+    for (let i = 0; i < questions.length; i++) {
+      if (userSelections[i] === questions[i].correct) score++;
+    }
+    const percent = Math.round((score / questions.length) * 100);
+    let message = '';
+    if (percent === 100) message = '🎉 शानदार! अध्याय ५ केर बहस, तारीख हेराफेरी आ साक्षात्कार शृंखला सब बुझलहुँ।';
+    else if (percent >= 75) message = '👍 बहुत नीक! मैथिली वेब इतिहासक विवादित तथ्य सभ अछा सँ समझलहुँ।';
+    else if (percent >= 50) message = '📚 ठीक अछि, मुदा अध्याय ५ (परिशिष्ट आ बहस) फेर पढ़ू – ई वास्तविक तथ्य जानबाक लेल आवश्यक अछि।';
+    else message = '📖 कृपया अध्याय ४ केर परिशिष्ट आ पद्मनाभजीक बहस पुनः पढ़ू। तारीख केर हेराफेरी आ पहिल केर दावा सभ ऐतिहासिक दृष्टि सँ महत्वपूर्ण अछि।';
+
+    let details = '<ul style="text-align: left; margin-top: 10px;">';
+    for (let i = 0; i < questions.length; i++) {
+      const userAns = userSelections[i] || 'कोनो उत्तर नै';
+      const correctAns = questions[i].correct;
+      const status = (userSelections[i] === correctAns) ? '✅' : '❌';
+      details += `<li><strong>प्रश्न ${i+1}:</strong> ${status} आपन: ${userAns} | सही: ${correctAns}</li>`;
+    }
+    details += '</ul>';
+
+    const resultDiv = document.getElementById('resultArea');
+    resultDiv.innerHTML = `<div class="score">${score} / ${questions.length} (${percent}%)</div><div>${message}</div>${details}`;
+    resultDiv.style.display = 'block';
+    resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  document.getElementById('submitBtn').addEventListener('click', function() {
+    let allAnswered = true;
+    for (let i = 0; i < userSelections.length; i++) {
+      if (userSelections[i] === null) { allAnswered = false; break; }
+    }
+    if (!allAnswered) { alert('⚠️ कृपया सब ८ प्रश्न के उत्तर दियौ।'); return; }
+    showFinalResult();
+  });
+
+  renderQuiz();
+</script>
 </body>
 </html>
