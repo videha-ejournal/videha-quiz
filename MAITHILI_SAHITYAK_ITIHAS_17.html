@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videha QUIZ | Chapter IX</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f6f9; color: #333; margin: 0; padding: 0; }
+        header { background-color: #002060; color: white; padding: 25px; text-align: center; border-bottom: 5px solid #001040; }
+        header h1 { margin: 0; font-size: 24px; font-weight: bold; }
+        header h2 { margin: 5px 0 0 0; font-size: 18px; font-weight: normal; opacity: 0.9; }
+        header p { margin: 5px 0 0 0; font-size: 14px; font-style: italic; opacity: 0.8; }
+        .nav-container { display: flex; justify-content: space-between; max-width: 800px; margin: 20px auto; padding: 0 20px; }
+        .nav-btn { background-color: #002060; color: white; padding: 8px 15px; text-decoration: none; border-radius: 4px; font-size: 14px; }
+        .nav-btn:hover { background-color: #001040; }
+        .container { max-width: 800px; margin: 0 auto 40px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .chapter-title { border-bottom: 2px solid #002060; padding-bottom: 10px; color: #002060; margin-bottom: 25px; }
+        .quiz-item { margin-bottom: 25px; padding: 15px; border: 1px solid #e0e0e0; border-radius: 6px; background-color: #fbfbfb; }
+        .question { font-weight: bold; font-size: 16px; margin-bottom: 12px; color: #111; }
+        .option-label { display: block; margin: 8px 0; padding: 10px; background: white; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; transition: all 0.2s; }
+        .option-label:hover { background-color: #f0f4f8; }
+        .option-label input { margin-right: 10px; }
+        .explanation { display: none; margin-top: 12px; padding: 12px; border-left: 4px solid; border-radius: 4px; font-size: 14px; }
+        .correct-bg { background-color: #d4edda !important; border-color: #c3e6cb !important; color: #155724; }
+        .incorrect-bg { background-color: #f8d7da !important; border-color: #f5c6cb !important; color: #721c24; }
+        .explanation.visible { display: block; }
+        .correct-expl { border-color: #28a745; background-color: #e8f5e9; color: #1b5e20; }
+        .incorrect-expl { border-color: #dc3545; background-color: #ffebee; color: #b71c1c; }
+        .action-area { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; }
+        .hub-link { display: inline-block; margin-top: 15px; color: #002060; font-weight: bold; text-decoration: none; font-size: 16px; }
+        .hub-link:hover { text-decoration: underline; }
+        footer { background-color: #002060; color: white; text-align: center; padding: 15px; position: relative; bottom: 0; width: 100%; font-size: 14px; border-top: 3px solid #001040; box-sizing: border-box; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Videha QUIZ  |  विदेह ई-लर्निङ्ग क्विज</h1>
+    <h2>Videha eLearning Quiz</h2>
+    <p>Videha — First Maithili Fortnightly eJournal  |  www.videha.co.in</p>
+</header>
+
+<div class="nav-container">
+    <a href="https://videha-ejournal.github.io/videha-quiz/MAITHILI_SAHITYAK_ITIHAS_16.html" class="nav-btn">← Previous Chapter</a>
+    <a href="https://videha-ejournal.github.io/videha-quiz/MAITHILI_SAHITYAK_ITIHAS_18.html" class="nav-btn">Next Chapter →</a>
+</div>
+
+<div class="container">
+    <h2 class="chapter-title">Chapter IX: A Comfort to the Grieved</h2>
+    
+    <form id="quizForm">
+        <div class="quiz-item" data-q="q1">
+            <div class="question">1. Which dramatist authored the comprehensive medieval Maithili play Gaurisvayamvaranataka, which invokes Ganesha, Gosaauni, and Kamala?</div>
+            <label class="option-label"><input type="radio" name="q1" value="A"> A"> A) Shivadatta</label>
+            <label class="option-label"><input type="radio" name="q1" value="B"> B) Karan Jayananda</label>
+            <label class="option-label"><input type="radio" name="q1" value="C" data-correct="true"> C) Kanharadasa</label>
+            <label class="option-label"><input type="radio" name="q1" value="D"> D) Srikanta Ganaka</label>
+            <div class="explanation"></div>
+        </div>
+    </form>
+
+    <div class="action-area">
+        <a href="https://www.videha.co.in/videha-elearning.htm" class="hub-link">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+    </div>
+</div>
+
+<footer>
+    © Gajendra Thakur, Editor — Videha eJournal
+</footer>
+
+<script>
+    document.querySelectorAll('.option-label input').forEach(input => {
+        input.addEventListener('change', function() {
+            const item = this.closest('.quiz-item');
+            const explanationDiv = item.querySelector('.explanation');
+            const labels = item.querySelectorAll('.option-label');
+            
+            labels.forEach(label => { label.style.pointerEvents = 'none'; });
+
+            const isCorrect = this.getAttribute('data-correct') === 'true';
+            if (isCorrect) {
+                this.parentElement.classList.add('correct-bg');
+                explanationDiv.className = "explanation visible correct-expl";
+                explanationDiv.innerHTML = "<strong>Correct!</strong> Kanharadasa composed the highly structurally intact Gaurisvayamvaranataka in complete native style. [cite: 412, 413]";
+            } else {
+                this.parentElement.classList.add('incorrect-bg');
+                explanationDiv.className = "explanation visible incorrect-expl";
+                labels.forEach(l => {
+                    if(l.querySelector('input').getAttribute('data-correct') === 'true') l.classList.add('correct-bg');
+                });
+                explanationDiv.innerHTML = "<strong>Incorrect.</strong> The work belongs to Kanharadasa. [cite: 412]";
+            }
+        });
+    });
+</script>
+</body>
+</html>
