@@ -1,556 +1,146 @@
 <!DOCTYPE html>
 <html lang="mai">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>मैथिली क्विज़ - पं. भवनाथ झा विशेषांक (विदेह ४२८)</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', 'Poppins', 'Noto Sans Devanagari', 'Mukta', system-ui, sans-serif;
-        }
-        body {
-            background: linear-gradient(145deg, #1e3c2c 0%, #0e2a1c 100%);
-            min-height: 100vh;
-            padding: 25px 20px;
-        }
-        .quiz-container {
-            max-width: 950px;
-            margin: 0 auto;
-            background: #fffaf2;
-            border-radius: 48px;
-            box-shadow: 0 25px 45px rgba(0,0,0,0.3);
-            overflow: hidden;
-            padding: 20px 28px 35px;
-            transition: all 0.2s;
-        }
-        h1 {
-            font-size: 2rem;
-            color: #c4450c;
-            border-left: 8px solid #2b7a3e;
-            padding-left: 20px;
-            margin: 0 0 8px 0;
-            font-weight: 700;
-        }
-        .sub {
-            color: #4a5b3e;
-            margin-bottom: 25px;
-            padding-left: 28px;
-            font-weight: 500;
-            border-bottom: 2px dotted #e2c7a3;
-            display: inline-block;
-        }
-        .stats-bar {
-            display: flex;
-            justify-content: space-between;
-            background: #e9f0e3;
-            padding: 12px 20px;
-            border-radius: 60px;
-            margin: 15px 0 25px;
-            flex-wrap: wrap;
-            gap: 12px;
-            font-weight: bold;
-        }
-        .score-card, .q-counter {
-            background: #2c5e2f;
-            padding: 6px 18px;
-            border-radius: 40px;
-            color: white;
-            font-size: 1rem;
-            box-shadow: inset 0 -1px 0 #1f3f21;
-        }
-        .score-card span, .q-counter span {
-            font-weight: 800;
-            font-size: 1.3rem;
-            margin-left: 8px;
-            background: #ffd966;
-            color: #2d4a22;
-            padding: 2px 10px;
-            border-radius: 50px;
-        }
-        progress {
-            width: 100%;
-            height: 14px;
-            border-radius: 20px;
-            overflow: hidden;
-        }
-        progress::-webkit-progress-bar { background-color: #ddd9ce; }
-        progress::-webkit-progress-value { background-color: #e67e22; border-radius: 20px; transition: width 0.2s;}
-        .question-text {
-            font-size: 1.65rem;
-            font-weight: 700;
-            background: #fff5e8;
-            padding: 25px 22px;
-            border-radius: 40px;
-            margin: 15px 0 20px;
-            line-height: 1.4;
-            color: #1f3b26;
-            border: 1px solid #f0dec0;
-        }
-        .options-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            margin: 20px 0 25px;
-        }
-        .option-btn {
-            background: #ffffff;
-            border: 2px solid #cfbc92;
-            border-radius: 100px;
-            padding: 14px 20px;
-            font-size: 1.05rem;
-            font-weight: 500;
-            text-align: left;
-            cursor: pointer;
-            transition: 0.1s linear;
-            color: #2a452a;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .option-prefix {
-            font-weight: 800;
-            background: #f2e0be;
-            width: 38px;
-            height: 38px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 60px;
-            font-size: 1.2rem;
-        }
-        .option-btn:hover:not(.disabled-opt) {
-            background: #fbefdb;
-            transform: scale(0.99);
-            border-color: #b97f3a;
-        }
-        .correct-highlight {
-            background: #c8e6d9 !important;
-            border-color: #2e7d32 !important;
-            color: #1c441c;
-        }
-        .wrong-highlight {
-            background: #ffe0db !important;
-            border-color: #c7362b !important;
-            color: #a12218;
-            text-decoration: line-through;
-        }
-        .disabled-opt {
-            cursor: default;
-            opacity: 0.95;
-        }
-        .explanation-box {
-            background: #ecf3e5;
-            border-left: 6px solid #3b8c40;
-            padding: 16px 20px;
-            border-radius: 28px;
-            margin: 10px 0 15px;
-            font-size: 1rem;
-            color: #2c3e2f;
-            line-height: 1.45;
-        }
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 15px;
-        }
-        button {
-            background: #f1cf9a;
-            border: none;
-            padding: 10px 22px;
-            border-radius: 40px;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.1s;
-            color: #3a2a1c;
-        }
-        button.primary {
-            background: #c95a0f;
-            color: white;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-        }
-        button.primary:hover { background: #a84305; transform: scale(1.02);}
-        .jump-area {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-            background: #fff0e0;
-            padding: 6px 15px;
-            border-radius: 80px;
-        }
-        select {
-            padding: 8px 12px;
-            border-radius: 40px;
-            border: 1px solid #b78f54;
-            background: white;
-            font-size: 1rem;
-            font-weight: bold;
-        }
-        footer {
-            text-align: center;
-            margin-top: 35px;
-            font-size: 0.8rem;
-            color: #6b5c42;
-        }
-        @media (max-width: 600px) {
-            .quiz-container { padding: 15px; }
-            .question-text { font-size: 1.3rem; padding: 18px; }
-            .option-btn { font-size: 0.9rem; padding: 10px 14px;}
-        }
-        .reset-btn {
-            background: #b5651e;
-            color: white;
-        }
-    
-/* Videha standard quiz header/footer */
-.videha-quiz-top{
-  background:linear-gradient(135deg,#071f4e,#0b2d6b);
-  color:#fff;text-align:center;padding:24px 16px;
-  border-bottom:6px solid #f4c542;font-weight:700;
-  font-family:Arial,'Noto Serif Devanagari',sans-serif;
-  font-size:24px;line-height:1.45;margin:0 0 18px 0;
-}
-.videha-quiz-top span{font-size:16px;font-weight:500}
-.videha-quiz-top a{color:#f4c542;text-decoration:none}
-.videha-hub-return{
-  display:block;text-align:center;margin:14px auto 18px;
-  color:#071f4e !important;font-weight:700;text-decoration:none;
-  font-family:'Noto Serif Devanagari',Arial,sans-serif;font-size:16px;
-}
-.videha-hub-return:hover{text-decoration:underline}
-.videha-quiz-footer{
-  background:#071f4e;color:#fff;text-align:center;padding:16px;
-  margin-top:28px;border-top:5px solid #f4c542;
-  font-family:Arial,'Noto Serif Devanagari',sans-serif;
-}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>भवनाथ झा विशेषांक — विदेह क्विज</title>
+<style>
+:root{--navy:#1a2744;--crimson:#8B1A1A;--gold:#c49a3c;--cream:#FAF6EE;
+--ok-fg:#1d7a3e;--bad-fg:#a32020}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:#1A1A1A;
+font-family:'Lato','Segoe UI',system-ui,sans-serif;line-height:1.55;padding-bottom:60px}
+header{background:linear-gradient(180deg,#16213b,var(--navy));color:#fff;
+padding:28px 20px 22px;text-align:center;border-bottom:4px solid var(--gold)}
+header h1{margin:0;font-family:'Noto Serif Devanagari',serif;font-size:1.7em}
+header .sub{color:var(--gold);font-size:.82em;letter-spacing:.1em;font-style:italic;margin-top:8px}
+header .src{color:#cdd6ea;font-size:.78em;margin-top:6px}
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;justify-content:center}
+.tab{font-family:'Noto Serif Devanagari',serif;font-weight:700;font-size:.9em;
+padding:8px 16px;border-radius:20px;border:2px solid var(--navy);background:#fff;
+color:var(--navy);cursor:pointer;transition:.15s}
+.tab.active{background:var(--navy);color:#fff}
+.counter-badge{background:var(--crimson);color:#fff;font-size:.72em;font-weight:700;
+padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle}
+.progress{height:6px;background:#e7dcc2;border-radius:4px;margin-bottom:18px;overflow:hidden}
+.progress > div{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--crimson));transition:width .3s}
+.pane{display:none}.pane.active{display:block}
+.card{background:#fff;border-radius:11px;box-shadow:0 4px 16px rgba(26,39,68,.1);
+padding:22px 22px 18px;margin-bottom:16px}
+.qmeta{font-size:.78em;color:#8a93ab;font-weight:700;margin-bottom:8px}
+.q{font-family:'Noto Serif Devanagari',serif;font-size:1.12em;font-weight:600;
+color:var(--navy);margin-bottom:14px}
+.opt{display:block;width:100%;text-align:left;
+font-family:'Noto Serif Devanagari',serif;font-size:1em;
+padding:11px 15px;margin-bottom:9px;border:1.5px solid #d8cfb8;border-radius:8px;
+background:#fffdf8;cursor:pointer;transition:.13s;color:#1A1A1A}
+.opt:hover{border-color:var(--gold);background:#fff8e8}
+.opt.ok{border-color:var(--ok-fg);background:#eafaf0;color:var(--ok-fg);font-weight:700}
+.opt.bad{border-color:var(--bad-fg);background:#fdeeee;color:var(--bad-fg)}
+.opt:disabled{cursor:default}
+.fb{margin-top:11px;font-size:.92em;font-weight:600;min-height:20px;
+font-family:'Noto Serif Devanagari',serif}
+.fb.ok{color:var(--ok-fg)}.fb.bad{color:var(--bad-fg)}
+.hint-box{background:#fffbef;border:1px solid var(--gold);border-radius:7px;
+padding:10px 14px;margin-top:10px;font-family:'Noto Serif Devanagari',serif;
+font-size:.88em;color:#5a4010;display:none}
+.hint-box.show{display:block}
+.nav{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
+.nbtn{font-family:'Lato',sans-serif;font-size:.9em;font-weight:700;
+padding:9px 20px;border-radius:6px;border:none;cursor:pointer;transition:.15s}
+.nbtn.pri{background:var(--crimson);color:#fff}.nbtn.pri:hover{background:var(--navy)}
+.nbtn.sec{background:transparent;color:var(--navy);border:2px solid var(--navy)}
+.nbtn.sec:hover{background:var(--navy);color:#fff}
+.scoreboard{background:#fff;border-radius:11px;box-shadow:0 4px 18px rgba(26,39,68,.11);
+padding:34px 26px;text-align:center;margin-bottom:18px}
+.scbig{font-family:'Playfair Display',serif;font-size:2.8em;color:var(--crimson);font-weight:700;margin-bottom:6px}
+.scpct{font-size:1.05em;color:#5a6a8a;margin-bottom:9px}
+.scmsg{font-family:'Noto Serif Devanagari',serif;font-size:1.05em;color:var(--navy);margin-bottom:20px}
+.orn{text-align:center;color:var(--gold);font-size:1em;letter-spacing:.2em;margin:14px 0;opacity:.65}
+footer{text-align:center;color:#8a7a4a;font-size:.78em;padding:24px 16px 0}
+footer a{color:var(--crimson);text-decoration:none}
+@media(max-width:520px){header h1{font-size:1.35em}.q{font-size:1.05em}}
 </style>
 </head>
 <body>
-<header class="videha-quiz-top">Videha QUIZ  |  विदेह ई-लर्निङ्ग क्विज<br>Videha eLearning Quiz<br><span>Videha — First Maithili Fortnightly eJournal  |  <a href="https://www.videha.co.in">www.videha.co.in</a></span></header>
-
-<div class="quiz-container" id="quizApp">
-    <h1>📖 मैथिली क्विज़ : पं. भवनाथ झा विशेषांक</h1>
-    <div class="sub">विदेह ४२८ (२०२५) – पाण्डुलिपि, शिलालेख, मिथिलाक्षर, ज्ञान परम्परा</div>
-    
-    <div class="stats-bar">
-        <div class="score-card">✅ स्कोर : <span id="scoreValue">0</span> / <span id="totalQSpan">0</span></div>
-        <div class="q-counter">📌 प्रश्न <span id="currentQSpan">1</span> / <span id="totalQSpan2">0</span></div>
-        <div class="jump-area">
-            <span>🔢 जाउ :</span>
-            <select id="jumpSelect"></select>
-        </div>
-    </div>
-    <div class="progress-area">
-        <progress id="quizProgress" value="0" max="100"></progress>
-    </div>
-
-    <div id="questionContainer" class="question-text">लोड होइत अछि...</div>
-    <div class="options-grid" id="optionsContainer"></div>
-    <div id="explanationDiv" class="explanation-box" style="display: none;"></div>
-
-    <div class="nav-buttons">
-        <button id="prevBtn" class="primary">◀ पिछला</button>
-        <button id="nextBtn" class="primary">अगला ▶</button>
-        <button id="resetQuizBtn" class="reset-btn">⟳ रिसेट करू</button>
-    </div>
-    </div>
-
+<header>
+  <h1>भवनाथ झा विशेषांक</h1>
+  <div class="sub">BHAVNATH JHA SPECIAL ISSUE · विदेह अंक ४२८ · १५ अक्टूबर २०२५</div>
+  <div class="src">विदेह : प्रथम मैथिली पाक्षिक ई-पत्रिका · videha.co.in · ISSN 2229-547X</div>
+</header>
+<div class="orn">❖ ❖ ❖</div>
+<div class="wrap">
+  <div class="tabs" id="tabs"></div>
+  <div class="progress"><div id="bar"></div></div>
+  <div id="panes"></div>
+</div>
+<footer>© विदेह Videha · <a href="https://videha.co.in">videha.co.in</a> · विदेह विशेषांक प्रश्नोत्तरी</footer>
 <script>
-// --------------------------------------------------------------
-// अद्वितीय मैथिली प्रश्न संग्रह (विदेह ४२८ – पं. भवनाथ झा विशेषांक)
-// विषय : पं. भवनाथ झा जीवन, पाण्डुलिपि विज्ञान, शिलालेख, मिथिलाक्षर,
-//        सम्पादित ग्रन्थ, बुद्धचरितम् पुनर्स्थापन, राष्ट्रीय पाण्डुलिपि मिशन
-//        महावीर मन्दिर, धर्मायण पत्रिका आदि।
-// --------------------------------------------------------------
-
-function generateUniqueQuestions() {
-    const questions = [];
-    function add(qText, opts, correctIdx, expl) {
-        questions.push({
-            text: qText,
-            options: [...opts],
-            correct: correctIdx,
-            explanation: expl
-        });
-    }
-
-    // ----- १. जीवन परिचय -----
-    add("पं. भवनाथ झा जी केर जन्म कतय भेल छल?", 
-        ["हटाढ रुपौली (मधुबनी)", "दरभंगा", "मधुबनी शहर", "पटना"], 0,
-        "पृष्ठ ९८, २१०: ग्राम हटाढ स्पाली, झंझारपुर, मधुबनी।");
-    add("भवनाथ झा जी केर जन्म तिथि कोन छै?", 
-        ["२३ सितम्बर १९६८", "२ जुलाई १९५३", "१५ अगस्त १९५९", "३० अगस्त १९६८"], 0,
-        "पृष्ठ ९८: २३ सितम्बर १९६८, साथहि पिता पं. अमरनाथ झा।");
-    add("भवनाथ झा जी केर पिताक नाम की छै?", 
-        ["पं. अमरनाथ झा", "पं. बदरीनाथ झा", "पं. विघानाथ झा", "पं. बुद्धिनाथ झा"], 0,
-        "पृष्ठ ९८, ११७: पिता पं. अमरनाथ झा (१९१९-२०००)।");
-    add("पं. भवनाथ झा केर माताक नाम की छै?", 
-        ["गोरेश्वरी देवी", "योगेश्वरी देवी", "नया देवी", "रामप्यारी देवी"], 0,
-        "पृष्ठ ९८: माता गोरेश्वरी देवी।");
-    add("भवनाथ झा जीक पत्नी केर नाम की छै?", 
-        ["कुमुद झा", "मीना मधु", "वसुन्धरा देवी", "कल्पना झा"], 0,
-        "पृष्ठ ९८: पत्नी श्रीमती कुमुद झा।");
-    add("पं. भवनाथ झा केर मुख्य पेशा / संलग्नता कोन छल?", 
-        ["महावीर मन्दिर, पटना (शोध एवं प्रकाशन प्रभारी)", "प्रोफेसर", "वकील", "डॉक्टर"], 0,
-        "पृष्ठ १४९, २०२: महावीर मन्दिर पटनाक प्रकाशन विभाग प्रभारी एवं सम्पादक।");
-    add("भवनाथ झा जी सम्पादित करैत छलाह कोन पत्रिका?", 
-        ["धर्मायण", "विदेह", "मैथिली दर्शन", "मिथिला मिहिर"], 0,
-        "पृष्ठ १७१, २०२: धर्मायण पत्रिकाक सम्पादक।");
-
-    // ----- २. पाण्डुलिपि एवं शिलालेख विज्ञान -----
-    add("पं. भवनाथ झा के कोन-कोन लिपि पढ़बामे पट्टता छल?", 
-        ["मिथिलाक्षर (तिरहुता), देवनागरी, बांग्ला, असमिया", "केवल देवनागरी", "केवल मिथिलाक्षर", "रोमन लिपि"], 0,
-        "पृष्ठ १६७, २२६: मिथिलाक्षर, बांग्ला, असमिया, देवनागरी आदिक विद्वान्।");
-    add("राष्ट्रीय पाण्डुलिपि मिशन (National Manuscript Mission) केर स्थापना कोन प्रधानमन्त्रीक कालमे भेल छल?", 
-        ["अटल बिहारी वाजपेयी", "मनमोहन सिंह", "नरेन्द्र मोदी", "राजीव गाँधी"], 0,
-        "पृष्ठ १६४-१६५: अटल बिहारी वाजपेयीक शासनमे विचार आ घोषणा।");
-    add("शिलालेख सुरक्षित राखबाक सबसँ नीक उपाय कोन अछि?", 
-        ["इंक स्टैम्पेज (रगड़न)", "फोटोग्राफी मात्र", "डिजिटल स्कैन", "पानि मे भिगोएब"], 0,
-        "पृष्ठ १२६: इंक स्टैम्पेज (कागज ठोवक-ठोवक अक्षर उभारल) सर्वोत्तम।");
-    add("पाण्डुलिपि पढबाक लेल कति प्रतिशत लिपि ज्ञान आवश्यक अछि (भवनाथ झा अनुसार)?", 
-        ["१००% (शत प्रतिशत)", "७५%", "५०%", "२५%"], 0,
-        "पृष्ठ १३५: लिपिज्ञान शत-प्रतिशत चाही।");
-    add("भवनाथ झा जी कोन-कोन क्षेत्र मे पाण्डुलिपि अध्ययन केलनि?", 
-        ["धर्मशास्त्र, साहित्य, इतिहास, पुराण, व्याकरण", "केवल संस्कृत काव्य", "केवल मैथिली साहित्य", "केवल वैदिक ग्रन्थ"], 0,
-        "पृष्ठ १६७: विविध विषय – धर्मशास्त्र, साहित्य, इतिहास, पुराण, व्याकरण।");
-
-    // ----- ३. बुद्धचरितम् पुनर्स्थापन -----
-    add("पं. भवनाथ झा कें कवि अश्वघोषक कोन महाकाव्यक खण्डित अंशक पुनर्स्थापन (restoration) हेतु जानल जाइत अछि?", 
-        ["बुद्धचरितम्", "सौन्दरानन्दम्", "शारीपुत्रप्रकरणम्", "मेघदूतम्"], 0,
-        "पृष्ठ २०, १५०: बुद्धचरितम् (अश्वघोष) क २८ सर्गमे सँ १५ सर्ग लुप्त, भवनाथ जी पुनः प्रतिस्थापित केलनि।");
-    add("बुद्धचरितम् केर खण्डित अंशक पुनर्स्थापना हेतु भवनाथ झा कोन दू भाषाक अनुवादक सहायता लेलनि?", 
-        ["चीनी आ तिब्बती", "अंग्रेजी आ जर्मन", "फ्रेंच आ रूसी", "पाली आ प्राकृत"], 0,
-        "पृष्ठ २०, १५०: ५म शती चीनी (धर्मरक्षा) एवं ७म शती तिब्बती अनुवाद।");
-    add("बुद्धचरितम् केर अंग्रेजी अनुवाद कोन केलक?", 
-        ["ई.एच. जॉन्सटन (E.H. Johnston)", "मैक्स मूलर", "विलियम जोन्स", "मोनियर विलियम्स"], 0,
-        "पृष्ठ २०, १५०: E.H. Johnston।");
-
-    // ----- ४. सम्पादित ग्रन्थ एवं प्रकाशन -----
-    add("भवनाथ झा द्वारा सम्पादित ‘सुबोध’ ग्रन्थ केर रचयिता कोन छै?", 
-        ["म.म. पक्षधर", "कुमुदनाथ मिश्र", "विद्यापति", "जगदीश चन्द्र ठाकुर"], 0,
-        "पृष्ठ १५२: महामहोपाध्याय पक्षधर।");
-    add("भवनाथ झा जी के संपादनमे ‘श्रीमद्भागवतमहात्म्यम्’ सन कोन ग्रन्थ सेहो प्रकाशित अछि?", 
-        ["दुर्गासप्तशती (महावीर मन्दिर)", "रामचरितमानस", "वेदान्त सूत्र", "योगवाशिष्ठ"], 0,
-        "पृष्ठ १०४: दुर्गासप्तशतीक संस्करण बहुवर्ष धरि।");
-    add("भवनाथ झा द्वारा संपादित ‘अगस्त्य संहिता’ केर मूल पाण्डुलिपि कोन लिपिमे छल?", 
-        ["देवनागरी", "मिथिलाक्षर", "बांग्ला", "गुरुमुखी"], 0,
-        "पृष्ठ १३७: देवनागरी पाण्डुलिपिक आधार पर, मुदा मिथिलाक्षरक सहायता सेहो।");
-    add("भवनाथ झा जी संपादित ‘नाहिदत्तपञ्चविंशिकाविवरणम्’ मुख्यतः कोन विषय पर अछि?", 
-        ["व्यवहार-ज्योतिष (पंचांग)", "आयुर्वेद", "ज्योतिष फलित", "वास्तुशास्त्र"], 0,
-        "पृष्ठ १५४: पञ्चविंशिका – सामान्य व्यवहार-ज्योतिषक सूत्र।");
-    add("‘व्यवहार-रत्नावली’ केर रचनाकार कोन छै?", 
-        ["म.म. पशुपति", "मदन उपाध्याय", "नाहिदत्त", "पक्षधर"], 0,
-        "पृष्ठ १५६: म.म. पशुपति।");
-
-    // ----- ५. मिथिलाक्षर एवं लिपि -----
-    add("मिथिलाक्षर (तिरहुता) लिपि केर प्राचीनता के बारेमे भवनाथ झा केर मत अछि?", 
-        ["प्राकृतिक रूपें विकसित, बांग्ला-असमियासँ पुरान नहि", "सबसँ पुरान लिपि ब्राह्मी", "मिथिलाक्षरै प्राचीनतम", "ई सिन्धु लिपि अछि"], 0,
-        "पृष्ठ १७५-१७६: भवनाथ जी सिद्ध केलनि जे मिथिलाक्षर ब्राह्मी परिवारक अछि, बांग्ला-असमियाक प्रभावित।");
-    add("कैथी लिपि के बारेमे भवनाथ झा जी केर मत छै?", 
-        ["ई उत्तर भारतक जनभाषाक लिपि छै, मिथिला विशेष नहि", "ई मिथिलाक मूल लिपि छै", "ई केवल मैथिली लेल अछि", "ई फारसी लिपि अछि"], 0,
-        "पृष्ठ १३१: कैथी मूलरूपें उत्तर भारतक सब जनभाषाक लिपि, मैथिली साहित्य मिथिलाक्षरमे लिखल।");
-    add("भवनाथ झा केर मानना छै जे मैथिली लेल सबसँ उपयुक्त लिपि कोन छै?", 
-        ["मिथिलाक्षर (तिरहुता)", "देवनागरी", "रोमन", "कैथी"], 0,
-        "पृष्ठ १३२: मिथिलाक्षर केँ मैथिलीक मूल लिपि मानबाक समर्थन।");
-
-    // ----- ६. विदेह विशेषांक एवं संपादकीय -----
-    add("विदेह पत्रिका केर ई विशेषांक (४२८) केर सम्पादक कोन छथि?", 
-        ["गजेन्द्र ठाकुर", "आशीष अनचिन्हार", "प्रणव झा", "हितनाथ झा"], 0,
-        "मुखपृष्ठ: सम्पादक गजेन्द्र ठाकुर।");
-    add("विदेह ४२८ केर विषय कोन अछि?", 
-        ["पं. भवनाथ झा विशेषांक", "नारायणजी चौधरी विशेषांक", "शिवशंकर श्रीनिवास विशेषांक", "मैथिली साहित्य सर्वे"], 0,
-        "शीर्षक: विदेह भवनाथ झा विशेषांक।");
-    add("भवनाथ झा विशेषांक केर घोषणा विदेह द्वारा कहाँ कएल गेल छल?", 
-        ["१६ अगस्त २०२५ फेसबुक घोषणा", "१ जून २०२५", "१५ अक्टूबर २०२५", "दिसम्बर २०२४"], 0,
-        "पृष्ठ ५२: १६ अगस्त २०२५ कें घोषणा।");
-    add("विदेह पत्रिका केर ‘नित नवल सीरीज’ केर पहिल पोथी कोन छल?", 
-        ["राजदेव मण्डल", "सुभाष चन्द्र यादव", "जगदीश प्रसाद मण्डल", "सुशील"], 0,
-        "पृष्ठ ६१: राजदेव मण्डल (मैथिली लेखक) २०२२।");
-
-    // ----- ७. विविध (साक्षात्कार, अन्य लेखक) -----
-    add("पं. भवनाथ झा केर साक्षात्कार ई विशेषांकमे केन लेलक?", 
-        ["कल्पना झा", "आशीष अनचिन्हार", "प्रणव झा", "विजय देओ झा"], 0,
-        "पृष्ठ १२१: कल्पना झा द्वारा साक्षात्कार।");
-    add("भवनाथ झा केर फेसबुक पोस्ट (२३ सितम्बर २०२५) मे जीवनक उपलब्धि सभ मे कोन सम्मान भेटल छल?", 
-        ["हस्तप्रति लिपि विशेष सम्मान (आसाम)", "पद्मश्री", "साहित्य अकादमी", "मैथिली रत्न"], 0,
-        "पृष्ठ २१९: कुमार भास्कर वर्मा संस्कृत विवि., नलबाड़ी, आसाम।");
-    add("‘ज्ञान भारतम् मिशन’ केर घोषणा कखन भेल छल?", 
-        ["११-१३ सितम्बर २०२५", "१ जनवरी २०२५", "१५ अगस्त २०२५", "२ अक्टूबर २०२५"], 0,
-        "पृष्ठ १२९: दिनांक ११-१३ सितम्बर २०२५ दिल्ली विज्ञान भवनमे।");
-    add("भवनाथ झा जीक शोधपत्र ‘कोशी क्षेत्र के पौराणिक सन्दर्भ’ केर प्रकाशन वर्ष कोन छै?", 
-        ["२०२४", "२०२३", "२०२२", "२०२५"], 0,
-        "पृष्ठ ११२: २०२४ धरोहर अंक ११।");
-    add("भवनाथ झा जी के द्वारा सम्पादित ‘भूपरिक्रमणम्’ (विद्यापति) केर अंग्रेजी अनुवाद केन केलनि?", 
-        ["विजय देओ झा", "गजेन्द्र ठाकुर", "विनयानन्द झा", "रमेश झा"], 0,
-        "पृष्ठ १६३, २१८: विजय देओ झा।");
-    add("पं. भवनाथ झा केर ‘भ्रूणपञ्चाशिका’ (५० श्लोक) केर विषय की छै?", 
-        ["कन्या भ्रूण हत्या विरुद्ध", "शिव स्तुति", "रामकथा", "विद्यापति व्याख्या"], 0,
-        "पृष्ठ १५१, १९५: भ्रूणहत्याक विरुद्ध ५० श्लोकक मार्मिक काव्य।");
-    add("मैथिली बीहिन कथा केर शास्त्रीय पक्ष निर्धारणमे मुख्य योगदान कोनक अछि?", 
-        ["पं. भवनाथ झा", "मुन्ना जी", "अशोक", "घनश्याम घनेरो"], 0,
-        "पृष्ठ १८३-१८५: डा. भवनाथ झा ‘भवन’।");
-    add("भवनाथ झा जी केर दीर्घकथा / उपन्यासिका ‘घुरि आउ कमला’ केर मुख्य पात्र कोन अछि?", 
-        ["श्री मिस्टर एक्स (अंग्रेज अधिकारी)", "कल्याणी", "रामभद्र", "सिद्धार्थ"], 0,
-        "पृष्ठ १९०-२०४: मुख्य पात्र ‘श्री मिस्टर एक्स’ (पाण्डुलिपि विशेषज्ञ)।");
-    add("धर्मायण पत्रिका केर सम्पादकक रूपमे भवनाथ झा जी कोन-कोन विषय पर विशेष अंक निकालने रहथिन?", 
-        ["विविध धर्म, तीर्थ, पूजा आदि", "केवल रामायण", "केवल महाभारत", "केवल वेद"], 0,
-        "पृष्ठ १७१, १८७: विभिन्न धार्मिक एवं तीर्थ विषयक अंक।");
-    add("पं. भवनाथ झा केर प्रपितामह के नाम छै?", 
-        ["पं. दीनादीन झा", "पं. जनार्दन झा", "पं. बुद्धिनाथ झा", "पं. ललितनाथ झा"], 0,
-        "पृष्ठ १२१, १५६: दीनादीन झा हाथक पाण्डुलिपि भेटल।");
-
-    // ----- आठ  – अनेक अन्य तथ्य (लूप द्वारा २५०+ प्रश्न) -----
-    // सुरक्षित रूपें विविधता बढ़ावाक लेल additional प्रश्न
-    const extraFacts = [
-        ["भवनाथ झा जीक जन्म स्थान हटाढ रुपौली कोन जिलामे अछि?", ["मधुबनी", "दरभंगा", "समस्तीपुर", "सहरसा"], 0, "पृष्ठ ९८: मधुबनी जिला।"],
-        ["भवनाथ झा केर एम.ए. (संस्कृत) कतय सँ केलनि?", ["मिथिला विश्वविद्यालय, दरभंगा", "पटना विश्वविद्यालय", "दिल्ली विश्वविद्यालय", "बी.एच.यू"], 0, "पृष्ठ ११५: मिथिला विश्वविद्यालय।"],
-        ["मिथिला शोध संस्थान (दरभंगा) केर स्थापना कोन कालमे भेल छल?", ["१९५१", "१९४७", "१९६०", "१९७५"], 0, "पृष्ठ १३०: १९५१ ई.मे पाण्डुलिपि संरक्षण हेतु।"],
-        ["भवनाथ झा जी द्वारा सम्पादित ‘सभाविनोद’ केर लेखक छै?", ["दैवज्ञ दामोदर", "रामानन्द आचार्य", "विद्यापति", "श्रीकृष्ण ठाकुर"], 0, "पृष्ठ १६३: दैवज्ञ दामोदर।"],
-        ["‘अगस्त्य संहिता’ केर प्रकाशन (भवनाथ झा सम्पादित) मे कोन समस्या स्पष्ट भेल?", ["रामानन्द बला ३३ अध्याय आगाँ जोड़ल गेल छल", "ग्रन्थ नष्ट", "अनुवाद कठिन", "कोनो नै"], 0, "पृष्ठ १३७: मूल मे ३२ अध्याय, ३३ सँ १३१ अध्याय बादमे जोड़ल।"],
-        ["भवनाथ झा जी के ‘हस्तप्रति लिपि विशेष सम्मान’ कहाँ भेटल?", ["कुमार भास्कर वर्मा संस्कृत विश्वविद्यालय, आसाम", "पटना", "दरभंगा", "दिल्ली"], 0, "पृष्ठ २१९: नालबाड़ी, आसाम।"]
-    ];
-    for (let ef of extraFacts) add(ef[0], ef[1], ef[2], ef[3]);
-
-    // व्यापक प्रश्न (pattern से अद्वितीय)
-    for (let i = 0; i < 150; i++) {
-        let r = i % 20;
-        if (r === 0) add(`पं. भवनाथ झा द्वारा सम्पादित 'मांसपीयूषलता' केर लेखक कोन छै?`, 
-            ["म.म. मदन उपाध्याय", "नाहिदत्त", "पशुपति", "पक्षधर"], 0, "पृष्ठ १५७: मदन उपाध्याय।");
-        else if (r === 1) add("भवनाथ झा के अनुसार शिलालेख पढ़बाक लेल कतना प्रतिशत इतिहासक ज्ञान आवश्यक?", 
-            ["पचास प्रतिशत सेहो काम नहि, आवश्यक", "शून्य", "२५%", "पूरा अनिवार्य"], 0, "पृष्ठ १२५-१२६: क्षेत्रक इतिहास ज्ञान अनिवार्य।");
-        else if (r === 2) add("महावीर मन्दिर, पटना द्वारा प्रकाशित धर्मायण पत्रिकाक सम्पादक कोन छल?", 
-            ["भवनाथ झा", "किशोर कुणाल", "गजेन्द्र ठाकुर", "रामदरश मिश्र"], 0, "पृष्ठ १७१: भवनाथ झा।");
-        else if (r === 3) add("भवनाथ झा केर बडका भाइ के नाम छै?", 
-            ["पं. शम्भुनाथ झा", "पं. राकेश कुमार", "पं. ललितनाथ झा", "पं. बुद्धिनाथ झा"], 0, "पृष्ठ ११४: शम्भुनाथ झा।");
-        else if (r === 4) add("विदेह विशेषांक ४२८ मे कुल कति लेखक सभ लिखलनि?", 
-            ["१७ सँ बेसी", "१०", "२५", "३०"], 0, "पृष्ठ १२: विविध लेखक (अशोक, कल्पना झा, डॉ. कैलाश, डॉ. धनाकर आदि)।");
-        else if (r === 5) add("भवनाथ झा जी केर द्वारा लिखल पोथी ‘मैथिली क्रियापदकोष’ केर भाषा छै?", 
-            ["मैथिली", "संस्कृत", "हिन्दी", "अंग्रेजी"], 0, "पृष्ठ ९७: मैथिली व्याकरण ग्रन्थ।");
-        else if (r === 6) add("भवनाथ झा जी के अनुसार जशलालेख संरक्षणक कोन विधि सबसँ पुरान आ नीक अछि?", 
-            ["इंक स्टैम्पेज (रगड़न)", "फोटो खींचब", "जल में रगड़ब", "आगि से तपब"], 0, "पृष्ठ १२६: इंक स्टैम्पेज।");
-        else if (r === 7) add("भवनाथ झा जी के पुत्र श्री राकेश कुमार केर व्यवसाय छै?", 
-            ["बिहार सरकारमे 'चित्रकला एवं संस्कृति पदाधिकारी'", "वकील", "डॉक्टर", "प्रोफेसर"], 0, "पृष्ठ ११६: निला कला एवं संस्कृति पदाधिकारी।");
-        else if (r === 8) add("भवनाथ झा केर सम्पादित पोथी ‘रुद्रयामल सारोद्धार’ से कोन-कोन तथ्य प्राप्त भेल?", 
-            ["मिथिलाक तीर्थ, स्थान, नदी विवरण", "राजनीतिक इतिहास", "आयुर्वेद", "ज्योतिष"], 0, "पृष्ठ १५८-१५९: तीर्थ, सीमा, नदी, मन्दिर।");
-        else if (r === 9) add("‘भारतीय ज्ञान परम्परामे भवनाथ झाक महत्व’ शीर्षक लेख कोन लिखलनि?", 
-            ["आशीष अनचिन्हार", "हितनाथ झा", "डॉ. शैलेन्द्र मिश्र", "विजय देओ झा"], 0, "पृष्ठ २४५: आशीष अनचिन्हार।");
-        else if (r === 10) add("भवनाथ झा जी केर एक प्रमुख संस्मरणात्मक लेख कोन छै?", 
-            ["स्वतन्त्रता आन्दोलनक एक स्मृति", "महावीर मन्दिरक इतिहास", "बुद्धचरितम्", "भ्रूणहत्या विरोध"], 0, "पृष्ठ २१३: ‘पण्डित भवनाथ झा’ (हितनाथ झा)।");
-        else add(`भवनाथ झा जी द्वारा सम्पादित ‘सोमवारी व्रतकथा’ मे कति श्लोक छल मूल पाण्डुलिपिमे (प्रकाशित ११९ श्लोकक विपरीत)?`,
-            ["१३२", "१००", "१५०", "१२२"], 0, "पृष्ठ १५८: १३२ श्लोक।");
-    }
-
-    // सुनिश्चित करब जे प्रश्न अद्वितीय अछि – Set माध्यम; हम already unique
-    return questions;
+const DATA = [{"tab": "विशेषांक परिचय", "items": [{"q": "विदेहक ई भवनाथ झा विशेषांक कोन अंक छल?", "opts": ["४२८ म अंक", "४२४ म अंक", "४१९ म अंक", "४०५ म अंक"], "correct": 0, "hint": "१५ अक्टूबर २०२५, वर्ष १८ अंक ४२८।"}, {"q": "ई विशेषांक कोन तिथिकेँ प्रकाशित भेल?", "opts": ["१५ अक्टूबर २०२५", "०१ जून २०२५", "नवम्बर २०२४", "१५ नवम्बर २०२२"], "correct": 0, "hint": "वर्ष १८ मास २१४ अंक ४२८।"}, {"q": "ई विशेषांक कोन साहित्यकारकेँ समर्पित छल?", "opts": ["भवनाथ झा", "शिवशंकर श्रीनिवास", "नारायणजी चौधरी", "दिनेश कुमार मिश्र"], "correct": 0, "hint": "विशेषांकक नामे उत्तर।"}]}];
+let score=0,total=0,answered=0;
+DATA.forEach(g=>total+=g.items.length);
+const tabsEl=document.getElementById('tabs');
+const panesEl=document.getElementById('panes');
+const bar=document.getElementById('bar');
+DATA.forEach((g,gi)=>{
+  const tb=document.createElement('button');
+  tb.className='tab'+(gi===0?' active':'');
+  tb.innerHTML=g.tab+'<span class="counter-badge">'+g.items.length+'</span>';
+  tb.onclick=()=>switchTab(gi);
+  tabsEl.appendChild(tb);
+  const pane=document.createElement('div');
+  pane.className='pane'+(gi===0?' active':'');
+  pane.id='pane-'+gi;
+  g.items.forEach((q,qi)=>pane.appendChild(buildCard(g,gi,qi,q)));
+  panesEl.appendChild(pane);
+});
+function buildCard(g,gi,qi,q){
+  const card=document.createElement('div');card.className='card';
+  const meta=document.createElement('div');meta.className='qmeta';
+  meta.textContent=g.tab+' · प्रश्न '+(qi+1)+'/'+g.items.length;card.appendChild(meta);
+  const qd=document.createElement('div');qd.className='q';qd.textContent=q.q;card.appendChild(qd);
+  const opts=[];
+  q.opts.forEach((o,oi)=>{
+    const b=document.createElement('button');b.className='opt';b.textContent=o;
+    b.onclick=()=>pick(b,oi);card.appendChild(b);opts.push(b);
+  });
+  const fb=document.createElement('div');fb.className='fb';card.appendChild(fb);
+  let hintBox=null;
+  if(q.hint){hintBox=document.createElement('div');hintBox.className='hint-box';
+    hintBox.textContent='💡 '+q.hint;card.appendChild(hintBox);}
+  const nav=document.createElement('div');nav.className='nav';
+  if(q.hint){const hb=document.createElement('button');hb.className='nbtn sec';hb.textContent='संकेत';
+    hb.onclick=()=>hintBox.classList.toggle('show');nav.appendChild(hb);}
+  card.appendChild(nav);
+  let done=false;
+  function pick(btn,oi){
+    if(done)return;done=true;answered++;
+    opts.forEach((b,bi)=>{b.disabled=true;
+      if(bi===q.correct)b.classList.add('ok');
+      else if(b===btn)b.classList.add('bad');});
+    if(oi===q.correct){score++;fb.className='fb ok';fb.textContent='✓ सही उत्तर!';}
+    else{fb.className='fb bad';fb.textContent='✗ सही उत्तर: '+q.opts[q.correct];}
+    bar.style.width=(answered/total*100)+'%';
+    if(answered===total)showScore();
+  }
+  return card;
 }
-
-// ---------- क्विज़ नियंत्रक ----------
-let questions = [];
-let userAnswers = [];
-let currentIndex = 0;
-let score = 0;
-
-function recalcScore() {
-    let s = 0;
-    for (let i = 0; i < userAnswers.length; i++) {
-        if (userAnswers[i] && userAnswers[i].isCorrect === true) s++;
-    }
-    score = s;
-    document.getElementById('scoreValue').innerText = score;
-    let answeredCount = userAnswers.filter(a => a !== null).length;
-    document.getElementById('quizProgress').value = answeredCount;
-    document.getElementById('quizProgress').max = questions.length;
+function switchTab(gi){
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===gi));
+  document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',i===gi));
+  window.scrollTo({top:0,behavior:'smooth'});
 }
-
-function updateUI() {
-    if (!questions.length) return;
-    const q = questions[currentIndex];
-    document.getElementById('questionContainer').innerHTML = `<span>${currentIndex+1}. </span> ${q.text}`;
-    const optsDiv = document.getElementById('optionsContainer');
-    optsDiv.innerHTML = '';
-    const letters = ['क', 'ख', 'ग', 'घ'];
-    q.options.forEach((opt, idx) => {
-        const btn = document.createElement('div');
-        btn.className = 'option-btn';
-        btn.setAttribute('data-opt-index', idx);
-        btn.innerHTML = `<span class="option-prefix">${letters[idx]}</span><span>${opt}</span>`;
-        const saved = userAnswers[currentIndex];
-        if (saved !== null) {
-            btn.classList.add('disabled-opt');
-            if (idx === q.correct) btn.classList.add('correct-highlight');
-            if (idx === saved.selectedIdx && saved.isCorrect === false) btn.classList.add('wrong-highlight');
-            else if (idx === saved.selectedIdx && saved.isCorrect === true) btn.classList.add('correct-highlight');
-        } else {
-            btn.addEventListener('click', (e) => {
-                if (userAnswers[currentIndex] !== null) return;
-                const isCor = (idx === q.correct);
-                if (isCor) {
-                    btn.classList.add('correct-highlight');
-                } else {
-                    btn.classList.add('wrong-highlight');
-                    document.querySelectorAll('.option-btn').forEach((b, i2) => {
-                        if (i2 === q.correct) b.classList.add('correct-highlight');
-                    });
-                }
-                userAnswers[currentIndex] = { selectedIdx: idx, isCorrect: isCor };
-                recalcScore();
-                document.querySelectorAll('.option-btn').forEach(b => b.classList.add('disabled-opt'));
-                const expDiv = document.getElementById('explanationDiv');
-                expDiv.style.display = 'block';
-                expDiv.innerHTML = `<strong>📘 व्याख्या :</strong> ${q.explanation}<br>✔ सही उत्तर : ${q.options[q.correct]}`;
-            });
-        }
-        optsDiv.appendChild(btn);
-    });
-    if (userAnswers[currentIndex] !== null) {
-        const expDiv = document.getElementById('explanationDiv');
-        expDiv.style.display = 'block';
-        expDiv.innerHTML = `<strong>📘 व्याख्या :</strong> ${q.explanation}<br>✔ सही उत्तर : ${q.options[q.correct]}`;
-    } else {
-        document.getElementById('explanationDiv').style.display = 'none';
-    }
-    document.getElementById('currentQSpan').innerText = currentIndex+1;
-    document.getElementById('jumpSelect').value = currentIndex;
-    document.getElementById('totalQSpan').innerText = questions.length;
-    document.getElementById('totalQSpan2').innerText = questions.length;
+function showScore(){
+  const pct=Math.round(score/total*100);
+  let msg=pct>=80?'उत्कृष्ट! अहाँक ज्ञान अद्भुत अछि।':pct>=50?'नीक प्रयास — आओर पढ़ू।':'फेर सँ प्रयास करू, अहाँ नीक करब।';
+  const sb=document.createElement('div');sb.className='scoreboard';
+  sb.innerHTML='<div class="orn">❖ ❖ ❖</div><div class="scbig">'+score+' / '+total+'</div>'+
+    '<div class="scpct">'+pct+'%</div><div class="scmsg">'+msg+'</div>'+
+    '<button class="nbtn pri" onclick="location.reload()">फेर सँ खेलू</button>';
+  const w=document.querySelector('.wrap');w.insertBefore(sb,w.firstChild);
+  window.scrollTo({top:0,behavior:'smooth'});
 }
-
-function nextQuestion() { if (currentIndex < questions.length-1) { currentIndex++; updateUI(); } else alert("सब प्रश्न देखि चुकल छी! रिसेट करू।"); }
-function prevQuestion() { if (currentIndex > 0) { currentIndex--; updateUI(); } }
-function resetQuiz() { userAnswers = new Array(questions.length).fill(null); score=0; currentIndex=0; recalcScore(); updateUI(); }
-function jumpToQuestion() { const idx = parseInt(document.getElementById('jumpSelect').value); if (!isNaN(idx) && idx>=0 && idx<questions.length) { currentIndex=idx; updateUI(); } }
-function populateJump() {
-    const sel = document.getElementById('jumpSelect');
-    sel.innerHTML = '';
-    for (let i=0; i<questions.length; i++) {
-        let opt = document.createElement('option');
-        opt.value = i;
-        opt.innerText = `प्रश्न ${i+1}`;
-        sel.appendChild(opt);
-    }
-    sel.addEventListener('change', jumpToQuestion);
-}
-
-function init() {
-    questions = generateUniqueQuestions();
-    userAnswers = new Array(questions.length).fill(null);
-    currentIndex = 0;
-    score = 0;
-    recalcScore();
-    populateJump();
-    updateUI();
-    document.getElementById('prevBtn').addEventListener('click', prevQuestion);
-    document.getElementById('nextBtn').addEventListener('click', nextQuestion);
-    document.getElementById('resetQuizBtn').addEventListener('click', resetQuiz);
-}
-init();
 </script>
-<a class="videha-hub-return" href="https://www.videha.co.in/videha-elearning.htm">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
-<footer class="videha-quiz-footer">© Gajendra Thakur, Editor — Videha eJournal</footer>
 </body>
 </html>

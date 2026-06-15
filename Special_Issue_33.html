@@ -1,116 +1,146 @@
 <!DOCTYPE html>
-<html lang="maithili">
+<html lang="mai">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>हितनाथ झा | मैथिली क्विज़ (102 प्रश्न)</title>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: #e6dcc8; font-family: 'Segoe UI', system-ui; padding: 20px; }
-        .container { max-width: 950px; margin: auto; background: #fffef8; border-radius: 48px; padding: 24px 28px; }
-        h1 { border-left: 8px solid #b68b40; padding-left: 20px; color: #4a3a22; }
-        .stats { display: flex; justify-content: space-between; background: #f5ede3; padding: 12px 20px; border-radius: 60px; margin-bottom: 25px; }
-        .q-text { font-size: 1.55rem; background: #fef8ed; padding: 20px; border-radius: 32px; border-left: 7px solid #b68b40; margin: 15px 0; }
-        .opt-btn { background: #fef9f0; border: 2px solid #e1cfb5; border-radius: 60px; padding: 12px 18px; margin: 8px 0; cursor: pointer; }
-        .opt-correct { background: #dcfce7 !important; border-color: #2b7a3e !important; }
-        .opt-wrong { background: #ffe0e0 !important; border-color: #c7362b !important; text-decoration: line-through; }
-        .explanation { background: #fef3e8; border-left: 6px solid #b68b40; padding: 14px 20px; border-radius: 28px; margin-top: 16px; }
-        .nav { display: flex; gap: 16px; justify-content: space-between; margin-top: 20px; }
-        button { background: #b68b40; border: none; padding: 10px 24px; border-radius: 40px; color: white; font-weight: bold; cursor: pointer; }
-        .reset { background: #9b6a32; }
-        footer { text-align: center; margin-top: 30px; font-size: 0.75rem; }
-    
-/* Videha standard quiz header/footer */
-.videha-quiz-top{
-  background:linear-gradient(135deg,#071f4e,#0b2d6b);
-  color:#fff;text-align:center;padding:24px 16px;
-  border-bottom:6px solid #f4c542;font-weight:700;
-  font-family:Arial,'Noto Serif Devanagari',sans-serif;
-  font-size:24px;line-height:1.45;margin:0 0 18px 0;
-}
-.videha-quiz-top span{font-size:16px;font-weight:500}
-.videha-quiz-top a{color:#f4c542;text-decoration:none}
-.videha-hub-return{
-  display:block;text-align:center;margin:14px auto 18px;
-  color:#071f4e !important;font-weight:700;text-decoration:none;
-  font-family:'Noto Serif Devanagari',Arial,sans-serif;font-size:16px;
-}
-.videha-hub-return:hover{text-decoration:underline}
-.videha-quiz-footer{
-  background:#071f4e;color:#fff;text-align:center;padding:16px;
-  margin-top:28px;border-top:5px solid #f4c542;
-  font-family:Arial,'Noto Serif Devanagari',sans-serif;
-}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>हितनाथ झा विशेषांक — विदेह क्विज</title>
+<style>
+:root{--navy:#1a2744;--crimson:#8B1A1A;--gold:#c49a3c;--cream:#FAF6EE;
+--ok-fg:#1d7a3e;--bad-fg:#a32020}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:#1A1A1A;
+font-family:'Lato','Segoe UI',system-ui,sans-serif;line-height:1.55;padding-bottom:60px}
+header{background:linear-gradient(180deg,#16213b,var(--navy));color:#fff;
+padding:28px 20px 22px;text-align:center;border-bottom:4px solid var(--gold)}
+header h1{margin:0;font-family:'Noto Serif Devanagari',serif;font-size:1.7em}
+header .sub{color:var(--gold);font-size:.82em;letter-spacing:.1em;font-style:italic;margin-top:8px}
+header .src{color:#cdd6ea;font-size:.78em;margin-top:6px}
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;justify-content:center}
+.tab{font-family:'Noto Serif Devanagari',serif;font-weight:700;font-size:.9em;
+padding:8px 16px;border-radius:20px;border:2px solid var(--navy);background:#fff;
+color:var(--navy);cursor:pointer;transition:.15s}
+.tab.active{background:var(--navy);color:#fff}
+.counter-badge{background:var(--crimson);color:#fff;font-size:.72em;font-weight:700;
+padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle}
+.progress{height:6px;background:#e7dcc2;border-radius:4px;margin-bottom:18px;overflow:hidden}
+.progress > div{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--crimson));transition:width .3s}
+.pane{display:none}.pane.active{display:block}
+.card{background:#fff;border-radius:11px;box-shadow:0 4px 16px rgba(26,39,68,.1);
+padding:22px 22px 18px;margin-bottom:16px}
+.qmeta{font-size:.78em;color:#8a93ab;font-weight:700;margin-bottom:8px}
+.q{font-family:'Noto Serif Devanagari',serif;font-size:1.12em;font-weight:600;
+color:var(--navy);margin-bottom:14px}
+.opt{display:block;width:100%;text-align:left;
+font-family:'Noto Serif Devanagari',serif;font-size:1em;
+padding:11px 15px;margin-bottom:9px;border:1.5px solid #d8cfb8;border-radius:8px;
+background:#fffdf8;cursor:pointer;transition:.13s;color:#1A1A1A}
+.opt:hover{border-color:var(--gold);background:#fff8e8}
+.opt.ok{border-color:var(--ok-fg);background:#eafaf0;color:var(--ok-fg);font-weight:700}
+.opt.bad{border-color:var(--bad-fg);background:#fdeeee;color:var(--bad-fg)}
+.opt:disabled{cursor:default}
+.fb{margin-top:11px;font-size:.92em;font-weight:600;min-height:20px;
+font-family:'Noto Serif Devanagari',serif}
+.fb.ok{color:var(--ok-fg)}.fb.bad{color:var(--bad-fg)}
+.hint-box{background:#fffbef;border:1px solid var(--gold);border-radius:7px;
+padding:10px 14px;margin-top:10px;font-family:'Noto Serif Devanagari',serif;
+font-size:.88em;color:#5a4010;display:none}
+.hint-box.show{display:block}
+.nav{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
+.nbtn{font-family:'Lato',sans-serif;font-size:.9em;font-weight:700;
+padding:9px 20px;border-radius:6px;border:none;cursor:pointer;transition:.15s}
+.nbtn.pri{background:var(--crimson);color:#fff}.nbtn.pri:hover{background:var(--navy)}
+.nbtn.sec{background:transparent;color:var(--navy);border:2px solid var(--navy)}
+.nbtn.sec:hover{background:var(--navy);color:#fff}
+.scoreboard{background:#fff;border-radius:11px;box-shadow:0 4px 18px rgba(26,39,68,.11);
+padding:34px 26px;text-align:center;margin-bottom:18px}
+.scbig{font-family:'Playfair Display',serif;font-size:2.8em;color:var(--crimson);font-weight:700;margin-bottom:6px}
+.scpct{font-size:1.05em;color:#5a6a8a;margin-bottom:9px}
+.scmsg{font-family:'Noto Serif Devanagari',serif;font-size:1.05em;color:var(--navy);margin-bottom:20px}
+.orn{text-align:center;color:var(--gold);font-size:1em;letter-spacing:.2em;margin:14px 0;opacity:.65}
+footer{text-align:center;color:#8a7a4a;font-size:.78em;padding:24px 16px 0}
+footer a{color:var(--crimson);text-decoration:none}
+@media(max-width:520px){header h1{font-size:1.35em}.q{font-size:1.05em}}
 </style>
 </head>
 <body>
-<header class="videha-quiz-top">Videha QUIZ  |  विदेह ई-लर्निङ्ग क्विज<br>Videha eLearning Quiz<br><span>Videha — First Maithili Fortnightly eJournal  |  <a href="https://www.videha.co.in">www.videha.co.in</a></span></header>
-
-<div class="container">
-    <h1>📖 हितनाथ झा – कोइलख ग्रामगाथा</h1>
-    <div class="stats"><span>📌 प्रश्न <span id="qCurr">1</span>/<span id="qTotal">102</span></span><span>✅ स्कोर <span id="scoreSpan">0</span></span><button id="resetBtn" class="reset">⟳ रिसेट</button></div>
-    <div class="q-text" id="questionText">लोड होइत अछि…</div>
-    <div id="optionsDiv" class="options-grid"></div>
-    <div id="explanationDiv" class="explanation">⚡ कोनो विकल्प चुनू → परिणाम देखू</div>
-    <div class="nav"><button id="prevBtn">◀ पिछला</button><button id="nextBtn">अगला ▶</button></div>
-    </div>
+<header>
+  <h1>हितनाथ झा विशेषांक</h1>
+  <div class="sub">HITNATH JHA SPECIAL ISSUE · विदेह अंक ४०५ · ०१ नवम्बर २०२४</div>
+  <div class="src">विदेह : प्रथम मैथिली पाक्षिक ई-पत्रिका · videha.co.in · ISSN 2229-547X</div>
+</header>
+<div class="orn">❖ ❖ ❖</div>
+<div class="wrap">
+  <div class="tabs" id="tabs"></div>
+  <div class="progress"><div id="bar"></div></div>
+  <div id="panes"></div>
+</div>
+<footer>© विदेह Videha · <a href="https://videha.co.in">videha.co.in</a> · विदेह विशेषांक प्रश्नोत्तरी</footer>
 <script>
-    const Q = [];
-    function add(t,o,c,e) { Q.push({text:t, opts:o, correct:c, exp:e}); }
-    // -- 102 genuinely distinct questions --
-    add("हितनाथ झाक जन्म कहिया भेल छल?", ["६ जून १९५६","१५ अगस्त १९५४","१ जनवरी १९६०","१० सितम्बर १९४२"],0,"६ जून १९५६, गाम कोइलख।");
-    add("हितनाथ झाक पिताक नाम अछि?", ["स्व. तारानाथ झा","भीमनाथ झा","मित्रनाथ झा","रामनाथ झा"],0,"पं. तारानाथ झा, 'प्रभात' पत्रिकाक सम्पादक।");
-    add("हितनाथ झा केर भाई कोन अछि जे साहित्य अकादेमी पुरस्कारसँ सम्मानित छथि?", ["प्रो. भीमनाथ झा","मित्रनाथ झा","धनञ्जय झा","रामनाथ झा"],0,"बड़का भाय डा. भीमनाथ झा।");
-    add("हितनाथ झाक ग्रामगाथा पोथीक नाम अछि?", ["कोइलख","लेख-रेख","त्रिवेणी","राजापोता बलगर"],0,"कोइलख (२०१७)।");
-    add("'कोइलख' पोथीक प्रकाशन वर्ष अछि?", ["२०१७","२०२०","२०२३","२०१३"],0,"प्रियदर्शी प्रकाशन, पटना।");
-    add("हितनाथ झाक समीक्षात्मक पोथी 'लेख-रेख' कहिया प्रकाशित भेल?", ["२०२३","२०२१","२०२४","२०१८"],0,"२०२३, ५९ पोथीक समीक्षा।");
-    add("'कोइलख' गाम कोन जिलामे अछि?", ["मधुबनी","दरभंगा","सहरसा","सुपौल"],0,"मधुबनी जिलाक गाम।");
-    add("कोइलख गामक साक्षरता प्रतिशत (२०११) अछि?", ["५९.७०%","७५.२%","६८%","८२%"],0,"५९.७०%।");
-    add("कोइलखमे स्थित प्रसिद्ध देवी के छथि?", ["कोकिलाक्षी भद्रकाली","दुर्गा","काली","सरस्वती"],0,"भद्रकाली कोकिलाक्षी देवी।");
-    add("कोइलख गामके 'हीराक खान' कहल जाइत अछि किएक?", ["अनेक विद्वान आ प्रतिभा उपजाबाक कारण","कोयला खान","हीरा खनन","व्यापार"],0,"एक पर एक विद्वान उत्पन्न करबाक कारण।");
-    add("विदेह पत्रिकाक सम्पादक कोन अछि?", ["गजेन्द्र ठाकुर","हितनाथ झा","आशीष अनचिन्हार","नारायण झा"],0,"गजेन्द्र ठाकुर।");
-    add("हितनाथ झा विशेषांक (अंक ४०५) कहिया प्रकाशित भेल छल?", ["०१ नवम्बर २०२४","१५ अगस्त २०२४","१ जनवरी २०२४","१५ जून २०२३"],0,"०१ नवम्बर २०२४।");
-    add("विदेहक 'नित नवल सिरीज' के अंतर्गत कोन-कोन पोथी अछि?", ["नित नवल सुशील, सुभाष चन्द्र यादव, राजदेव मंडल, दिनेश मिश्र","केवल गजेन्द्र ठाकुर","कमलानन्द झा","नारायणजी"],0,"सुशील, सुभाष, राजदेव, दिनेश मिश्र।");
-    add("कोइलख गामक प्रसिद्ध कवि कोन छल?", ["काशीकान्त मिश्र 'मधुप'","जयदेव","दिनकर","नागार्जुन"],0,"काशीकान्त मिश्र 'मधुप'।");
-    add("पं. हरिनाथ मिश्र (कोइलख) के लेल प्रसिद्ध अछि?", ["बिहार स्वास्थ्य मंत्री (1952-57), DMC स्थापना","न्यायविद","कवि","वैज्ञानिक"],0,"३३ वर्ष विधायक, स्वास्थ्य मंत्री।");
-    add("हितनाथ झाक अनूदित पोथी कोन अछि?", ["कविता: शम्भु बादलक","कोइलख","त्रिवेणी","लेख-रेख"],0,"शम्भु बादलक २९ कविताक मैथिली अनुवाद।");
-    add("हितनाथ झाक बाल कविता संग्रहक नाम अछि?", ["राजापोता बलगर","बाल-गीत","नेना भुटका","परियोंक बगिया"],0,"२०२४, मैत्रेयी प्रकाशन।");
-    add("हितनाथ झाक पहिल प्रकाशित रचना कहिया कविता छल?", ["१९६५ (हे माँ भारतकैं बचाउ)","१९७०","१९७३","१९८२"],0,"पाँचम कक्षामे भारत-पाक युद्धक समय।");
-    // ... (remaining 84 questions are similarly unique, not shown here for brevity)
-    while(Q.length < 102) Q.push({ text:"अतिरिक्त अद्वितीय प्रश्न "+Q.length, opts:["क","ख","ग","घ"], correct:0, exp:"पूर्ति" });
-    const TOTAL = Q.length;
-    let ans = new Array(TOTAL).fill(null), score = 0, idx = 0;
-    function updateScore(){ let s=0; for(let i=0;i<TOTAL;i++) if(ans[i]!==null && ans[i]===Q[i].correct) s++; score=s; document.getElementById('scoreSpan').innerText=score; }
-    function render(){
-        let q=Q[idx];
-        document.getElementById('questionText').innerHTML = (idx+1)+". "+q.text;
-        let div=document.getElementById('optionsDiv'); div.innerHTML='';
-        q.opts.forEach((opt,i)=>{
-            let btn=document.createElement('div'); btn.className='opt-btn'; btn.innerText=opt;
-            if(ans[idx]!==null){
-                btn.style.pointerEvents='none';
-                if(i===q.correct) btn.classList.add('opt-correct');
-                if(ans[idx]===i && i!==q.correct) btn.classList.add('opt-wrong');
-            } else {
-                btn.onclick=()=>{
-                    if(ans[idx]!==null) return;
-                    ans[idx]=i; updateScore(); render();
-                    let expl = (i===q.correct) ? `✅ सही! ${q.exp}` : `❌ गलत! सही उत्तर: ${q.opts[q.correct]}। ${q.exp}`;
-                    document.getElementById('explanationDiv').innerHTML = `<strong>📘 व्याख्या:</strong> ${expl}`;
-                };
-            }
-            div.appendChild(btn);
-        });
-        if(ans[idx]!==null) document.getElementById('explanationDiv').innerHTML = `<strong>📘 व्याख्या:</strong> ${q.exp} ${ans[idx]===q.correct?'✅':'❌'}`;
-        else document.getElementById('explanationDiv').innerHTML = "⚡ विकल्प चुनू → सही/गलत देखाइत।";
-        document.getElementById('qCurr').innerText = idx+1; document.getElementById('qTotal').innerText = TOTAL;
-    }
-    document.getElementById('prevBtn').onclick = () => { if(idx>0){ idx--; render(); } };
-    document.getElementById('nextBtn').onclick = () => { if(idx<TOTAL-1){ idx++; render(); } else alert("अंतिम प्रश्न।"); };
-    document.getElementById('resetBtn').onclick = () => { ans.fill(null); idx=0; updateScore(); render(); };
-    updateScore(); render();
+const DATA = [{"tab": "विशेषांक परिचय", "items": [{"q": "विदेहक ई हितनाथ झा विशेषांक कोन अंक छल?", "opts": ["४०५ म अंक", "४०० म अंक", "४०८ म अंक", "४१९ म अंक"], "correct": 0, "hint": "०१ नवम्बर २०२४, वर्ष १७ अंक ४०५।"}, {"q": "ई विशेषांक कोन तिथिकेँ प्रकाशित भेल?", "opts": ["०१ नवम्बर २०२४", "१५ अगस्त २०२४", "१५ नवम्बर २०२४", "०१ जून २०२५"], "correct": 0, "hint": "वर्ष १७ मास २०३ अंक ४०५।"}, {"q": "ई विशेषांक कोन साहित्यकारकेँ समर्पित छल?", "opts": ["हितनाथ झा", "नरेन्द्र झा", "रामावतार यादव", "भवनाथ झा"], "correct": 0, "hint": "विशेषांकक नामे उत्तर।"}]}];
+let score=0,total=0,answered=0;
+DATA.forEach(g=>total+=g.items.length);
+const tabsEl=document.getElementById('tabs');
+const panesEl=document.getElementById('panes');
+const bar=document.getElementById('bar');
+DATA.forEach((g,gi)=>{
+  const tb=document.createElement('button');
+  tb.className='tab'+(gi===0?' active':'');
+  tb.innerHTML=g.tab+'<span class="counter-badge">'+g.items.length+'</span>';
+  tb.onclick=()=>switchTab(gi);
+  tabsEl.appendChild(tb);
+  const pane=document.createElement('div');
+  pane.className='pane'+(gi===0?' active':'');
+  pane.id='pane-'+gi;
+  g.items.forEach((q,qi)=>pane.appendChild(buildCard(g,gi,qi,q)));
+  panesEl.appendChild(pane);
+});
+function buildCard(g,gi,qi,q){
+  const card=document.createElement('div');card.className='card';
+  const meta=document.createElement('div');meta.className='qmeta';
+  meta.textContent=g.tab+' · प्रश्न '+(qi+1)+'/'+g.items.length;card.appendChild(meta);
+  const qd=document.createElement('div');qd.className='q';qd.textContent=q.q;card.appendChild(qd);
+  const opts=[];
+  q.opts.forEach((o,oi)=>{
+    const b=document.createElement('button');b.className='opt';b.textContent=o;
+    b.onclick=()=>pick(b,oi);card.appendChild(b);opts.push(b);
+  });
+  const fb=document.createElement('div');fb.className='fb';card.appendChild(fb);
+  let hintBox=null;
+  if(q.hint){hintBox=document.createElement('div');hintBox.className='hint-box';
+    hintBox.textContent='💡 '+q.hint;card.appendChild(hintBox);}
+  const nav=document.createElement('div');nav.className='nav';
+  if(q.hint){const hb=document.createElement('button');hb.className='nbtn sec';hb.textContent='संकेत';
+    hb.onclick=()=>hintBox.classList.toggle('show');nav.appendChild(hb);}
+  card.appendChild(nav);
+  let done=false;
+  function pick(btn,oi){
+    if(done)return;done=true;answered++;
+    opts.forEach((b,bi)=>{b.disabled=true;
+      if(bi===q.correct)b.classList.add('ok');
+      else if(b===btn)b.classList.add('bad');});
+    if(oi===q.correct){score++;fb.className='fb ok';fb.textContent='✓ सही उत्तर!';}
+    else{fb.className='fb bad';fb.textContent='✗ सही उत्तर: '+q.opts[q.correct];}
+    bar.style.width=(answered/total*100)+'%';
+    if(answered===total)showScore();
+  }
+  return card;
+}
+function switchTab(gi){
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===gi));
+  document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',i===gi));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function showScore(){
+  const pct=Math.round(score/total*100);
+  let msg=pct>=80?'उत्कृष्ट! अहाँक ज्ञान अद्भुत अछि।':pct>=50?'नीक प्रयास — आओर पढ़ू।':'फेर सँ प्रयास करू, अहाँ नीक करब।';
+  const sb=document.createElement('div');sb.className='scoreboard';
+  sb.innerHTML='<div class="orn">❖ ❖ ❖</div><div class="scbig">'+score+' / '+total+'</div>'+
+    '<div class="scpct">'+pct+'%</div><div class="scmsg">'+msg+'</div>'+
+    '<button class="nbtn pri" onclick="location.reload()">फेर सँ खेलू</button>';
+  const w=document.querySelector('.wrap');w.insertBefore(sb,w.firstChild);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
 </script>
-<a class="videha-hub-return" href="https://www.videha.co.in/videha-elearning.htm">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
-<footer class="videha-quiz-footer">© Gajendra Thakur, Editor — Videha eJournal</footer>
 </body>
 </html>

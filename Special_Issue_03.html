@@ -1,491 +1,146 @@
 <!DOCTYPE html>
 <html lang="mai">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>मैथिली विहनि कथा विशेषांक - प्रश्नोत्तरी</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: linear-gradient(145deg, #fef9e4 0%, #fff4e0 100%);
-            font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Mukta', 'Arial', sans-serif;
-            padding: 2rem 1rem;
-            color: #2e241f;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: #fffef7;
-            border-radius: 2.5rem;
-            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            border: 1px solid #f0e2c5;
-        }
-
-        .header {
-            background: #1f5e3a;
-            background-image: linear-gradient(135deg, #2a7a4b, #144d2e);
-            padding: 1.5rem 2rem;
-            text-align: center;
-            color: #f7f3e0;
-            border-bottom: 8px solid #e9b35f;
-        }
-
-        .header h1 {
-            font-size: 1.8rem;
-            letter-spacing: 1px;
-            font-weight: 700;
-            text-shadow: 2px 2px 0 #0a2e1c;
-        }
-
-        .header p {
-            font-size: 1rem;
-            margin-top: 0.5rem;
-            font-style: italic;
-            opacity: 0.9;
-        }
-
-        .quiz-body {
-            padding: 2rem 2rem 1.5rem;
-        }
-
-        .question-card {
-            background: #fefaf2;
-            border-radius: 2rem;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
-            transition: all 0.2s;
-            border-left: 6px solid #e9b35f;
-        }
-
-        .question-text {
-            font-size: 1.35rem;
-            font-weight: 600;
-            line-height: 1.4;
-            margin-bottom: 1.4rem;
-            color: #3b2a1f;
-            padding-right: 0.5rem;
-        }
-
-        .options {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .option {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            background: #ffffff;
-            padding: 0.75rem 1.2rem;
-            border-radius: 2rem;
-            border: 1px solid #e8dcc8;
-            transition: all 0.2s;
-            cursor: pointer;
-        }
-
-        .option:hover {
-            background: #fff3e2;
-            border-color: #d4a373;
-            transform: translateX(4px);
-        }
-
-        input[type="radio"] {
-            accent-color: #1f5e3a;
-            width: 1.2rem;
-            height: 1.2rem;
-            cursor: pointer;
-        }
-
-        .option label {
-            font-size: 1.05rem;
-            font-weight: 500;
-            cursor: pointer;
-            flex: 1;
-            letter-spacing: 0.3px;
-        }
-
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 1.8rem;
-            gap: 1rem;
-        }
-
-        button {
-            background: #e9b35f;
-            border: none;
-            padding: 0.85rem 1.8rem;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 3rem;
-            cursor: pointer;
-            transition: 0.2s;
-            color: #2e241f;
-            font-family: inherit;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        button:hover {
-            background: #d49c3b;
-            transform: scale(0.97);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-
-        .submit-area {
-            text-align: center;
-            margin-top: 2rem;
-        }
-
-        .submit-btn {
-            background: #1f5e3a;
-            color: #ffefcf;
-            padding: 0.9rem 2.2rem;
-            font-size: 1.2rem;
-            border-radius: 3rem;
-            box-shadow: 0 6px 14px rgba(31,94,58,0.3);
-        }
-
-        .submit-btn:hover {
-            background: #144d2e;
-            transform: translateY(-2px);
-        }
-
-        .result-box {
-            margin-top: 2rem;
-            background: #f0e4d0;
-            border-radius: 2rem;
-            padding: 1.2rem;
-            text-align: center;
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #3b2a1f;
-            border: 1px solid #e0c8a8;
-        }
-
-        .feedback {
-            margin-top: 1rem;
-            font-size: 1rem;
-            font-weight: normal;
-            color: #4a3a2a;
-        }
-
-        footer {
-            text-align: center;
-            padding: 1.2rem;
-            font-size: 0.8rem;
-            background: #f9f1e4;
-            color: #7e5a3a;
-            border-top: 1px solid #ecdcaa;
-        }
-
-        @media (max-width: 550px) {
-            .quiz-body {
-                padding: 1.2rem;
-            }
-            .question-text {
-                font-size: 1.1rem;
-            }
-            .option label {
-                font-size: 0.9rem;
-            }
-        }
-    
-/* Videha standard quiz header/footer */
-.videha-quiz-top{
-  background:linear-gradient(135deg,#071f4e,#0b2d6b);
-  color:#fff;text-align:center;padding:24px 16px;
-  border-bottom:6px solid #f4c542;font-weight:700;
-  font-family:Arial,'Noto Serif Devanagari',sans-serif;
-  font-size:24px;line-height:1.45;margin:0 0 18px 0;
-}
-.videha-quiz-top span{font-size:16px;font-weight:500}
-.videha-quiz-top a{color:#f4c542;text-decoration:none}
-.videha-hub-return{
-  display:block;text-align:center;margin:14px auto 18px;
-  color:#071f4e !important;font-weight:700;text-decoration:none;
-  font-family:'Noto Serif Devanagari',Arial,sans-serif;font-size:16px;
-}
-.videha-hub-return:hover{text-decoration:underline}
-.videha-quiz-footer{
-  background:#071f4e;color:#fff;text-align:center;padding:16px;
-  margin-top:28px;border-top:5px solid #f4c542;
-  font-family:Arial,'Noto Serif Devanagari',sans-serif;
-}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>विहनि कथा विशेषांक — विदेह क्विज</title>
+<style>
+:root{--navy:#1a2744;--crimson:#8B1A1A;--gold:#c49a3c;--cream:#FAF6EE;
+--ok-fg:#1d7a3e;--bad-fg:#a32020}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:#1A1A1A;
+font-family:'Lato','Segoe UI',system-ui,sans-serif;line-height:1.55;padding-bottom:60px}
+header{background:linear-gradient(180deg,#16213b,var(--navy));color:#fff;
+padding:28px 20px 22px;text-align:center;border-bottom:4px solid var(--gold)}
+header h1{margin:0;font-family:'Noto Serif Devanagari',serif;font-size:1.7em}
+header .sub{color:var(--gold);font-size:.82em;letter-spacing:.1em;font-style:italic;margin-top:8px}
+header .src{color:#cdd6ea;font-size:.78em;margin-top:6px}
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;justify-content:center}
+.tab{font-family:'Noto Serif Devanagari',serif;font-weight:700;font-size:.9em;
+padding:8px 16px;border-radius:20px;border:2px solid var(--navy);background:#fff;
+color:var(--navy);cursor:pointer;transition:.15s}
+.tab.active{background:var(--navy);color:#fff}
+.counter-badge{background:var(--crimson);color:#fff;font-size:.72em;font-weight:700;
+padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle}
+.progress{height:6px;background:#e7dcc2;border-radius:4px;margin-bottom:18px;overflow:hidden}
+.progress > div{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--crimson));transition:width .3s}
+.pane{display:none}.pane.active{display:block}
+.card{background:#fff;border-radius:11px;box-shadow:0 4px 16px rgba(26,39,68,.1);
+padding:22px 22px 18px;margin-bottom:16px}
+.qmeta{font-size:.78em;color:#8a93ab;font-weight:700;margin-bottom:8px}
+.q{font-family:'Noto Serif Devanagari',serif;font-size:1.12em;font-weight:600;
+color:var(--navy);margin-bottom:14px}
+.opt{display:block;width:100%;text-align:left;
+font-family:'Noto Serif Devanagari',serif;font-size:1em;
+padding:11px 15px;margin-bottom:9px;border:1.5px solid #d8cfb8;border-radius:8px;
+background:#fffdf8;cursor:pointer;transition:.13s;color:#1A1A1A}
+.opt:hover{border-color:var(--gold);background:#fff8e8}
+.opt.ok{border-color:var(--ok-fg);background:#eafaf0;color:var(--ok-fg);font-weight:700}
+.opt.bad{border-color:var(--bad-fg);background:#fdeeee;color:var(--bad-fg)}
+.opt:disabled{cursor:default}
+.fb{margin-top:11px;font-size:.92em;font-weight:600;min-height:20px;
+font-family:'Noto Serif Devanagari',serif}
+.fb.ok{color:var(--ok-fg)}.fb.bad{color:var(--bad-fg)}
+.hint-box{background:#fffbef;border:1px solid var(--gold);border-radius:7px;
+padding:10px 14px;margin-top:10px;font-family:'Noto Serif Devanagari',serif;
+font-size:.88em;color:#5a4010;display:none}
+.hint-box.show{display:block}
+.nav{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
+.nbtn{font-family:'Lato',sans-serif;font-size:.9em;font-weight:700;
+padding:9px 20px;border-radius:6px;border:none;cursor:pointer;transition:.15s}
+.nbtn.pri{background:var(--crimson);color:#fff}.nbtn.pri:hover{background:var(--navy)}
+.nbtn.sec{background:transparent;color:var(--navy);border:2px solid var(--navy)}
+.nbtn.sec:hover{background:var(--navy);color:#fff}
+.scoreboard{background:#fff;border-radius:11px;box-shadow:0 4px 18px rgba(26,39,68,.11);
+padding:34px 26px;text-align:center;margin-bottom:18px}
+.scbig{font-family:'Playfair Display',serif;font-size:2.8em;color:var(--crimson);font-weight:700;margin-bottom:6px}
+.scpct{font-size:1.05em;color:#5a6a8a;margin-bottom:9px}
+.scmsg{font-family:'Noto Serif Devanagari',serif;font-size:1.05em;color:var(--navy);margin-bottom:20px}
+.orn{text-align:center;color:var(--gold);font-size:1em;letter-spacing:.2em;margin:14px 0;opacity:.65}
+footer{text-align:center;color:#8a7a4a;font-size:.78em;padding:24px 16px 0}
+footer a{color:var(--crimson);text-decoration:none}
+@media(max-width:520px){header h1{font-size:1.35em}.q{font-size:1.05em}}
 </style>
 </head>
 <body>
-<header class="videha-quiz-top">Videha QUIZ  |  विदेह ई-लर्निङ्ग क्विज<br>Videha eLearning Quiz<br><span>Videha — First Maithili Fortnightly eJournal  |  <a href="https://www.videha.co.in">www.videha.co.in</a></span></header>
-
-<div class="container">
-    <div class="header">
-        <h1>📖 मैथिली विहनि कथा विशेषांक 📖</h1>
-        <p>‘विदेह’ पत्रिका (अंक ६७, ०१ अक्टूबर २०१०) पर आधारित बहुविकल्पी प्रश्नोत्तरी</p>
-        <p style="font-size:0.85rem;">✍️ विहनि कथा (लघुकथा) : स्वरूप, इतिहास, प्रमुख हस्ताक्षर</p>
-    </div>
-    <div class="quiz-body" id="quizApp">
-        <div id="questionsContainer"></div>
-        <div class="submit-area">
-            <button class="submit-btn" id="submitQuiz">✅ उत्तर जमा करू</button>
-        </div>
-<a class="videha-hub-return" href="https://www.videha.co.in/videha-elearning.htm">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
-        <div id="resultArea" class="result-box" style="display: none;"></div>
-    </div>
-    </div>
-
+<header>
+  <h1>विहनि कथा विशेषांक</h1>
+  <div class="sub">VIHANI (LAGHUKATHA) SPECIAL ISSUE · विदेह अंक ६७ · ०१ अक्टूबर २०१०</div>
+  <div class="src">विदेह : प्रथम मैथिली पाक्षिक ई-पत्रिका · videha.co.in · ISSN 2229-547X</div>
+</header>
+<div class="orn">❖ ❖ ❖</div>
+<div class="wrap">
+  <div class="tabs" id="tabs"></div>
+  <div class="progress"><div id="bar"></div></div>
+  <div id="panes"></div>
+</div>
+<footer>© विदेह Videha · <a href="https://videha.co.in">videha.co.in</a> · विदेह विशेषांक प्रश्नोत्तरी</footer>
 <script>
-    // ---------- प्रश्न संग्रह – पूर्णत: 'विहनि कथा' (लघुकथा) विशेषांक पर आधारित ----------
-    const quizData = [
-        {
-            question: "‘विहनि कथा’ विशेषांकक अतिथि सम्पादक के छथि?",
-            options: [
-                "गजेन्द्र ठाकुर",
-                "मुत्राजी (मनोज कुमार कर्ण)",
-                "डॉ. तारानन्द वियोगी",
-                "देवशंकर नवीन"
-            ],
-            answer: 1  // मुत्राजी (अतिथि सम्पादक, पृष्ठ १० पर उल्लेख)
-        },
-        {
-            question: "मैथिलीमे लघुकथा हेतु प्रस्तावित स्वतंत्र नाम कोन अछि?",
-            options: [
-                "क्षुद्र कथा",
-                "विहनि कथा (बीआ कथा)",
-                "निमिष कथा",
-                "छोट कथा"
-            ],
-            answer: 1  // विहनि अर्थात् बीआ कथा (संपादकीय)
-        },
-        {
-            question: "सम्पादकीय अनुसार, मलयालम भाषामे लघुकथाकें की कहल जाइत अछि?",
-            options: [
-                "क्षुधकथा",
-                "मिनी कथा",
-                "निमिषा",
-                "एक मिनटेर कथा"
-            ],
-            answer: 2  // मलयालममे 'निमिषा' (पृ. १०)
-        },
-        {
-            question: "मैथिलीक पहिल लघुकथा संग्रह ‘क्षिणका’ के रचनाकार छथि?",
-            options: [
-                "तारानन्द वियोगी",
-                "देवशंकर नवीन",
-                "अमरनाथ",
-                "गजेन्द्र ठाकुर"
-            ],
-            answer: 2  // अमरनाथ जी (पृ. १०-११)
-        },
-        {
-            question: "‘क्षिणका’ के प्रकाशन वर्ष कोन छल?",
-            options: [
-                "१९६५",
-                "१९७०",
-                "१९७५",
-                "१९८०"
-            ],
-            answer: 2  // १९७५ ई. (पृ. ११)
-        },
-        {
-            question: "विहनि कथा विशेषांकमे डॉ. तारानन्द वियोगीक संग साक्षात्कार केने छथि?",
-            options: [
-                "गजेन्द्र ठाकुर",
-                "मुत्राजी",
-                "देवशंकर नवीन",
-                "प्रेमशंकर सिंह"
-            ],
-            answer: 1  // मुत्राजी (पृ. २२-२५)
-        },
-        {
-            question: "तारानन्द वियोगीक अनुसार, प्रारम्भिक दौरमे पत्रिका सभ लघुकथाकें कोना प्रयोग करैत छल?",
-            options: [
-                "मुख्य आकर्षणक रूपमे",
-                "फीलर (बचल जगह भरबाक लेल)",
-                "विशेषांकक रूपमे",
-                "व्यंग्य स्तम्भक रूपमे"
-            ],
-            answer: 1  // “फीलर”क रूपमे उपयोग (पृ. २२)
-        },
-        {
-            question: "देवशंकर नवीनक अनुसार लघुकथा-लेखनमे मुख्य अवरोधक तत्व कोन छै?",
-            options: [
-                "विषयक अभाव",
-                "सांस्थानिक प्रोत्साहनक कमी",
-                "हास्य-व्यंग्य आ फैशनक रूपमे प्रयोग",
-                "लम्बा कथाक प्रभुत्व"
-            ],
-            answer: 2  // हास्य-किणका आ फैशन (पृ. २७)
-        },
-        {
-            question: "पहिल मैथिली लघुकथा गोष्ठी (२० फरवरी १९९५) के संयोजक छलाह?",
-            options: [
-                "मुत्राजी आ मलयनाथ मण्डन",
-                "गजेन्द्र ठाकुर आ अमरनाथ",
-                "तारानन्द वियोगी आ देवशंकर नवीन",
-                "चण्डेश्वर खाँ आ रघुनाथ मुखिया"
-            ],
-            answer: 0  // मुन्नाजी (मुत्राजी) आ मलयनाथ मण्डन (पृ. १३६)
-        },
-        {
-            question: "लघुकथाक समीक्षाशास्त्र पर विदेह अंकमे लेख लिखने छथि?",
-            options: [
-                "तारानन्द वियोगी",
-                "मानेश्वर मनुज",
-                "गजेन्द्र ठाकुर",
-                "शिव कुमार झा"
-            ],
-            answer: 2  // गजेन्द्र ठाकुर – "गद्य साहित्य मध्य लघुकथाक स्थान आ लघुकथाक समीक्षाशास्त्र"
-        },
-        {
-            question: "पंजाबी भाषामे लघुकथाकें कोन नामसँ जानल जाइत अछि?",
-            options: [
-                "क्षुधकथा",
-                "मिनी कथा",
-                "निमिषा",
-                "एक मिनटेर कथा"
-            ],
-            answer: 1  // पंजाबीमे “मिनी कथा” (पृ. १०)
-        },
-        {
-            question: "विहनि कथा विशेषांकमे ‘लघुकथा लेखनमे अवरोधक तत्व’ शीर्षक आलेख कोन लिखने छथि?",
-            options: [
-                "मुत्राजी",
-                "देवशंकर नवीन",
-                "डॉ. तारानन्द वियोगी",
-                "प्रेमशंकर सिंह"
-            ],
-            answer: 1  // देवशंकर नवीन (पृ. २६-२८)
-        }
-    ];
-
-    let userAnswers = new Array(quizData.length).fill(null);
-    let quizSubmitted = false;
-
-    // render quiz
-    function renderQuiz() {
-        const container = document.getElementById('questionsContainer');
-        if (!container) return;
-        let html = '';
-        quizData.forEach((item, idx) => {
-            const selectedVal = userAnswers[idx] !== null ? userAnswers[idx] : -1;
-            html += `
-                <div class="question-card" data-qidx="${idx}">
-                    <div class="question-text">${idx+1}. ${item.question}</div>
-                    <div class="options">
-            `;
-            item.options.forEach((opt, optIdx) => {
-                const isChecked = (selectedVal === optIdx) ? 'checked' : '';
-                html += `
-                    <div class="option" data-qidx="${idx}" data-optidx="${optIdx}">
-                        <input type="radio" name="q${idx}" id="q${idx}_opt${optIdx}" value="${optIdx}" ${isChecked}>
-                        <label for="q${idx}_opt${optIdx}">${opt}</label>
-                    </div>
-                `;
-            });
-            html += `</div></div>`;
-        });
-        container.innerHTML = html;
-
-        // attach event listeners to options
-        document.querySelectorAll('.option').forEach(optDiv => {
-            const qIdx = parseInt(optDiv.getAttribute('data-qidx'));
-            const optIdx = parseInt(optDiv.getAttribute('data-optidx'));
-            const radio = optDiv.querySelector(`input[type="radio"]`);
-            if (radio) {
-                radio.addEventListener('change', () => {
-                    if (!quizSubmitted) {
-                        userAnswers[qIdx] = optIdx;
-                    } else {
-                        radio.checked = false;
-                        alert("प्रश्नोत्तरी पहिने जमा भऽ चुकल अछि। नवीन प्रयास लेल पृष्ठ रिफ्रेश करू।");
-                    }
-                });
-                if (radio.checked) {
-                    userAnswers[qIdx] = optIdx;
-                }
-            }
-            // whole div clickable
-            optDiv.addEventListener('click', (e) => {
-                if (e.target.tagName !== 'INPUT' && !quizSubmitted) {
-                    const inp = optDiv.querySelector('input');
-                    if (inp) {
-                        inp.checked = true;
-                        userAnswers[qIdx] = optIdx;
-                        const changeEvent = new Event('change', { bubbles: true });
-                        inp.dispatchEvent(changeEvent);
-                    }
-                } else if (quizSubmitted && e.target.tagName !== 'INPUT') {
-                    alert("परिणाम देखि चुकल छी। रिफ्रेश कऽ नवीन प्रयास करू।");
-                }
-            });
-        });
-    }
-
-    // evaluate quiz
-    function evaluateQuiz() {
-        if (quizSubmitted) {
-            alert("अहाँ पहिने ही उत्तर जमा करि चुकल छी। रिफ्रेश कय नवीन प्रयास करू।");
-            return;
-        }
-        let score = 0;
-        let feedbackLines = [];
-        for (let i = 0; i < quizData.length; i++) {
-            const userAns = userAnswers[i];
-            const isCorrect = (userAns !== null && userAns === quizData[i].answer);
-            if (isCorrect) score++;
-            const correctOpt = quizData[i].options[quizData[i].answer];
-            if (userAns === null) {
-                feedbackLines.push(`❌ प्रश्न ${i+1}: अनुत्तरित (सही: "${correctOpt}")`);
-            } else if (!isCorrect) {
-                feedbackLines.push(`❌ प्रश्न ${i+1}: गलत — सही उत्तर: "${correctOpt}"`);
-            } else {
-                feedbackLines.push(`✅ प्रश्न ${i+1}: सही`);
-            }
-        }
-        const percentage = Math.round((score / quizData.length) * 100);
-        const resultDiv = document.getElementById('resultArea');
-        resultDiv.style.display = 'block';
-        let message = `🏆 अंक: ${score}/${quizData.length} (${percentage}%) 🏆\n`;
-        if (percentage >= 80) message += "✨ उत्तम! अहाँ विहनि कथा (मैथिली लघुकथा) के गहन जानकार छी। ✨";
-        else if (percentage >= 50) message += "📖 बढ़िया प्रयास, विहनि कथा विशेषांक पढ़ि आरो ज्ञान अर्जित करू। 📖";
-        else message += "🎭 फेर सँ विशेषांक पढ़ू आ विहनि कथाक समृद्ध परम्पराकें समझू। 🎭";
-        
-        let feedbackHtml = `<div style="font-size:1rem; margin-top:12px; text-align:left;"><strong>💡 विवरण:</strong><br>${feedbackLines.join('<br>')}</div>`;
-        resultDiv.innerHTML = `<div style="font-size:1.4rem;">${message}</div>${feedbackHtml}<div style="margin-top:15px;"><button id="resetQuizBtn" style="background:#1f5e3a; color:white;">🔄 नवीन प्रश्नोत्तरी (रीसेट)</button></div>`;
-        
-        quizSubmitted = true;
-        document.querySelectorAll('input[type="radio"]').forEach(radio => {
-            radio.disabled = true;
-        });
-        const resetBtn = document.getElementById('resetQuizBtn');
-        if (resetBtn) {
-            resetBtn.addEventListener('click', () => {
-                location.reload();
-            });
-        }
-    }
-
-    function initSubmit() {
-        const submitBtn = document.getElementById('submitQuiz');
-        if (submitBtn) {
-            submitBtn.addEventListener('click', () => {
-                evaluateQuiz();
-            });
-        }
-    }
-
-    renderQuiz();
-    initSubmit();
+const DATA = [{"tab": "विशेषांक परिचय", "items": [{"q": "विदेहक ई विहनि (लघु) कथा विशेषांक कोन अंक छल?", "opts": ["६७म अंक", "२१म अंक", "१२म अंक", "७२म अंक"], "correct": 0, "hint": "१ अक्टूबर २०१० केर अंक।"}, {"q": "ई विशेषांक कोन विधाकेँ समर्पित छल?", "opts": ["विहनि (लघु) कथा", "गजल", "नाटक", "समीक्षा"], "correct": 0, "hint": "\"विहनि कथा\" = बीज-कथा।"}, {"q": "\"विहनि कथा\" शब्द मूलतः कोन शब्दसँ बनल अछि?", "opts": ["विहनि (बीज)", "विहान (भोर)", "विहीन", "विहग"], "correct": 0, "hint": "छोट गातमे सम्पूर्ण कथा।"}]}, {"tab": "लघुकथा शब्दावली", "items": [{"q": "\"लघुकथा\" मूलतः कोन भाषाक शब्द थिक?", "opts": ["हिन्दी", "मैथिली", "पंजाबी", "मलयालम"], "correct": 0, "hint": "मैथिलीमे एकरा \"विहनि कथा\" कहल गेल।"}, {"q": "पंजाबीमे लघुकथाकेँ की कहल जाइत अछि?", "opts": ["मिन्नी कथा", "निमिषा", "क्षुद्रकथा", "विहनि कथा"], "correct": 0, "hint": "आलेखमे भाषावार नाम देल अछि।"}, {"q": "मलयाळममे लघुकथाकेँ की कहल जाइत अछि?", "opts": ["निमिषा", "मिन्नी कथा", "विहनि कथा", "क्षुद्रकथा"], "correct": 0, "hint": "\"निमिष\" (क्षण) सँ।"}]}, {"tab": "रचना आ रचनाकार", "items": [{"q": "एहि अंकमे लघुकथाक संग कोन वरिष्ठ साहित्यकारक रचना (लघुकथा) देल गेल?", "opts": ["देवशंकर नवीन", "मुन्नाजी", "गजेन्द्र ठाकुर", "गंगेश गुंजन"], "correct": 0, "hint": "\"...नवीन- लघुकथा\" रूपमे सूचीमे।"}, {"q": "\"मइटूगर\" कथाक शेषांश एहि अंकमे प्रकाशित भेल — ई कोन विधाक रचना थिक?", "opts": ["कथा", "गजल", "नाटक", "निबन्ध"], "correct": 0, "hint": "\"कथा 'मइटूगर'क शेषांश\"।"}, {"q": "एहि अंकमे \"चारिटा लघुकथा\" केकर देल गेल?", "opts": ["मुन्नाजी", "देवशंकर नवीन", "गजेन्द्र ठाकुर", "भारत भूषण झा"], "correct": 0, "hint": "सूचीमे \"मुन्नाजी-चारिटा लघुकथा\"।"}]}];
+let score=0,total=0,answered=0;
+DATA.forEach(g=>total+=g.items.length);
+const tabsEl=document.getElementById('tabs');
+const panesEl=document.getElementById('panes');
+const bar=document.getElementById('bar');
+DATA.forEach((g,gi)=>{
+  const tb=document.createElement('button');
+  tb.className='tab'+(gi===0?' active':'');
+  tb.innerHTML=g.tab+'<span class="counter-badge">'+g.items.length+'</span>';
+  tb.onclick=()=>switchTab(gi);
+  tabsEl.appendChild(tb);
+  const pane=document.createElement('div');
+  pane.className='pane'+(gi===0?' active':'');
+  pane.id='pane-'+gi;
+  g.items.forEach((q,qi)=>pane.appendChild(buildCard(g,gi,qi,q)));
+  panesEl.appendChild(pane);
+});
+function buildCard(g,gi,qi,q){
+  const card=document.createElement('div');card.className='card';
+  const meta=document.createElement('div');meta.className='qmeta';
+  meta.textContent=g.tab+' · प्रश्न '+(qi+1)+'/'+g.items.length;card.appendChild(meta);
+  const qd=document.createElement('div');qd.className='q';qd.textContent=q.q;card.appendChild(qd);
+  const opts=[];
+  q.opts.forEach((o,oi)=>{
+    const b=document.createElement('button');b.className='opt';b.textContent=o;
+    b.onclick=()=>pick(b,oi);card.appendChild(b);opts.push(b);
+  });
+  const fb=document.createElement('div');fb.className='fb';card.appendChild(fb);
+  let hintBox=null;
+  if(q.hint){hintBox=document.createElement('div');hintBox.className='hint-box';
+    hintBox.textContent='💡 '+q.hint;card.appendChild(hintBox);}
+  const nav=document.createElement('div');nav.className='nav';
+  if(q.hint){const hb=document.createElement('button');hb.className='nbtn sec';hb.textContent='संकेत';
+    hb.onclick=()=>hintBox.classList.toggle('show');nav.appendChild(hb);}
+  card.appendChild(nav);
+  let done=false;
+  function pick(btn,oi){
+    if(done)return;done=true;answered++;
+    opts.forEach((b,bi)=>{b.disabled=true;
+      if(bi===q.correct)b.classList.add('ok');
+      else if(b===btn)b.classList.add('bad');});
+    if(oi===q.correct){score++;fb.className='fb ok';fb.textContent='✓ सही उत्तर!';}
+    else{fb.className='fb bad';fb.textContent='✗ सही उत्तर: '+q.opts[q.correct];}
+    bar.style.width=(answered/total*100)+'%';
+    if(answered===total)showScore();
+  }
+  return card;
+}
+function switchTab(gi){
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===gi));
+  document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',i===gi));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function showScore(){
+  const pct=Math.round(score/total*100);
+  let msg=pct>=80?'उत्कृष्ट! अहाँक ज्ञान अद्भुत अछि।':pct>=50?'नीक प्रयास — आओर पढ़ू।':'फेर सँ प्रयास करू, अहाँ नीक करब।';
+  const sb=document.createElement('div');sb.className='scoreboard';
+  sb.innerHTML='<div class="orn">❖ ❖ ❖</div><div class="scbig">'+score+' / '+total+'</div>'+
+    '<div class="scpct">'+pct+'%</div><div class="scmsg">'+msg+'</div>'+
+    '<button class="nbtn pri" onclick="location.reload()">फेर सँ खेलू</button>';
+  const w=document.querySelector('.wrap');w.insertBefore(sb,w.firstChild);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
 </script>
-<footer class="videha-quiz-footer">© Gajendra Thakur, Editor — Videha eJournal</footer>
 </body>
 </html>

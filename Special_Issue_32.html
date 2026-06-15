@@ -1,418 +1,146 @@
 <!DOCTYPE html>
 <html lang="mai">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>विदेह विशेषांक पर आधारित मैथिली क्विज़ | 1000 प्रश्न</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            user-select: none;
-        }
-        body {
-            background: #f3eed9;
-            font-family: 'Segoe UI', 'Poppins', 'Noto Sans Devanagari', system-ui, sans-serif;
-            margin: 0;
-            padding: 20px;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #2c2418;
-        }
-        .quiz-wrapper {
-            max-width: 950px;
-            width: 100%;
-            background: #fffdf7;
-            border-radius: 48px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-            overflow: hidden;
-        }
-        .quiz-header {
-            background: #9b2e1c;
-            background: linear-gradient(98deg, #aa3a24, #7b2a18);
-            padding: 20px 28px;
-            color: white;
-            text-align: center;
-        }
-        .quiz-header h1 {
-            margin: 0;
-            font-size: 1.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .badge {
-            background: #ffc107;
-            color: #5a2a1a;
-            padding: 4px 14px;
-            border-radius: 60px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-        .stats-bar {
-            display: flex;
-            justify-content: space-between;
-            background: #fef1df;
-            padding: 12px 28px;
-            border-bottom: 1px solid #f0e0c4;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-        .stat-card {
-            background: white;
-            padding: 6px 20px;
-            border-radius: 50px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-            font-weight: 600;
-        }
-        .stat-card span {
-            color: #b3422a;
-            margin-right: 8px;
-        }
-        .question-area {
-            padding: 28px 28px 20px;
-        }
-        .q-progress {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.85rem;
-            margin-bottom: 18px;
-            color: #7a5a42;
-        }
-        .q-text {
-            font-size: 1.55rem;
-            line-height: 1.4;
-            font-weight: 600;
-            background: #fef8ed;
-            padding: 20px;
-            border-radius: 32px;
-            border-left: 7px solid #bc4e2e;
-            margin: 15px 0 25px;
-        }
-        .options-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            margin-bottom: 20px;
-        }
-        .opt-btn {
-            background: #f5efe3;
-            border: 2px solid #e2d2b6;
-            border-radius: 80px;
-            padding: 12px 18px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.1s linear;
-            font-weight: 500;
-            color: #2c2418;
-        }
-        .opt-btn:hover:not(.disabled) {
-            background: #e7dbc8;
-            border-color: #b83b1a;
-            transform: scale(0.99);
-        }
-        .opt-correct {
-            background: #c8e6d9 !important;
-            border-color: #2a6b47 !important;
-            box-shadow: inset 0 0 0 1px #2e7d5c;
-        }
-        .opt-wrong {
-            background: #f4dbd6 !important;
-            border-color: #b3412a !important;
-            text-decoration: line-through;
-        }
-        .disabled {
-            cursor: default;
-            opacity: 0.9;
-        }
-        .explanation {
-            background: #eef2f5;
-            border-radius: 24px;
-            padding: 14px 20px;
-            margin: 10px 0 20px;
-            border-left: 5px solid #2a7f6e;
-            font-size: 0.9rem;
-        }
-        .nav-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: space-between;
-        }
-        button {
-            background: #6b3f2c;
-            border: none;
-            padding: 10px 28px;
-            border-radius: 40px;
-            color: white;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.15s;
-        }
-        button:hover {
-            background: #9b3d20;
-            transform: scale(0.97);
-        }
-        .reset-btn {
-            background: #227799;
-        }
-        .footer {
-            background: #faf4e8;
-            text-align: center;
-            padding: 14px;
-            font-size: 0.75rem;
-            border-top: 1px solid #ecdcaa;
-        }
-        @media (max-width: 550px) {
-            .q-text { font-size: 1.2rem; }
-            .opt-btn { font-size: 0.85rem; padding: 10px 12px; }
-        }
-    
-/* Videha standard quiz header/footer */
-.videha-quiz-top{
-  background:linear-gradient(135deg,#071f4e,#0b2d6b);
-  color:#fff;text-align:center;padding:24px 16px;
-  border-bottom:6px solid #f4c542;font-weight:700;
-  font-family:Arial,'Noto Serif Devanagari',sans-serif;
-  font-size:24px;line-height:1.45;margin:0 0 18px 0;
-}
-.videha-quiz-top span{font-size:16px;font-weight:500}
-.videha-quiz-top a{color:#f4c542;text-decoration:none}
-.videha-hub-return{
-  display:block;text-align:center;margin:14px auto 18px;
-  color:#071f4e !important;font-weight:700;text-decoration:none;
-  font-family:'Noto Serif Devanagari',Arial,sans-serif;font-size:16px;
-}
-.videha-hub-return:hover{text-decoration:underline}
-.videha-quiz-footer{
-  background:#071f4e;color:#fff;text-align:center;padding:16px;
-  margin-top:28px;border-top:5px solid #f4c542;
-  font-family:Arial,'Noto Serif Devanagari',sans-serif;
-}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>अन्तर्राष्ट्रीय मैथिली परिषद विशेषांक — विदेह क्विज</title>
+<style>
+:root{--navy:#1a2744;--crimson:#8B1A1A;--gold:#c49a3c;--cream:#FAF6EE;
+--ok-fg:#1d7a3e;--bad-fg:#a32020}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:#1A1A1A;
+font-family:'Lato','Segoe UI',system-ui,sans-serif;line-height:1.55;padding-bottom:60px}
+header{background:linear-gradient(180deg,#16213b,var(--navy));color:#fff;
+padding:28px 20px 22px;text-align:center;border-bottom:4px solid var(--gold)}
+header h1{margin:0;font-family:'Noto Serif Devanagari',serif;font-size:1.7em}
+header .sub{color:var(--gold);font-size:.82em;letter-spacing:.1em;font-style:italic;margin-top:8px}
+header .src{color:#cdd6ea;font-size:.78em;margin-top:6px}
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;justify-content:center}
+.tab{font-family:'Noto Serif Devanagari',serif;font-weight:700;font-size:.9em;
+padding:8px 16px;border-radius:20px;border:2px solid var(--navy);background:#fff;
+color:var(--navy);cursor:pointer;transition:.15s}
+.tab.active{background:var(--navy);color:#fff}
+.counter-badge{background:var(--crimson);color:#fff;font-size:.72em;font-weight:700;
+padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle}
+.progress{height:6px;background:#e7dcc2;border-radius:4px;margin-bottom:18px;overflow:hidden}
+.progress > div{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--crimson));transition:width .3s}
+.pane{display:none}.pane.active{display:block}
+.card{background:#fff;border-radius:11px;box-shadow:0 4px 16px rgba(26,39,68,.1);
+padding:22px 22px 18px;margin-bottom:16px}
+.qmeta{font-size:.78em;color:#8a93ab;font-weight:700;margin-bottom:8px}
+.q{font-family:'Noto Serif Devanagari',serif;font-size:1.12em;font-weight:600;
+color:var(--navy);margin-bottom:14px}
+.opt{display:block;width:100%;text-align:left;
+font-family:'Noto Serif Devanagari',serif;font-size:1em;
+padding:11px 15px;margin-bottom:9px;border:1.5px solid #d8cfb8;border-radius:8px;
+background:#fffdf8;cursor:pointer;transition:.13s;color:#1A1A1A}
+.opt:hover{border-color:var(--gold);background:#fff8e8}
+.opt.ok{border-color:var(--ok-fg);background:#eafaf0;color:var(--ok-fg);font-weight:700}
+.opt.bad{border-color:var(--bad-fg);background:#fdeeee;color:var(--bad-fg)}
+.opt:disabled{cursor:default}
+.fb{margin-top:11px;font-size:.92em;font-weight:600;min-height:20px;
+font-family:'Noto Serif Devanagari',serif}
+.fb.ok{color:var(--ok-fg)}.fb.bad{color:var(--bad-fg)}
+.hint-box{background:#fffbef;border:1px solid var(--gold);border-radius:7px;
+padding:10px 14px;margin-top:10px;font-family:'Noto Serif Devanagari',serif;
+font-size:.88em;color:#5a4010;display:none}
+.hint-box.show{display:block}
+.nav{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
+.nbtn{font-family:'Lato',sans-serif;font-size:.9em;font-weight:700;
+padding:9px 20px;border-radius:6px;border:none;cursor:pointer;transition:.15s}
+.nbtn.pri{background:var(--crimson);color:#fff}.nbtn.pri:hover{background:var(--navy)}
+.nbtn.sec{background:transparent;color:var(--navy);border:2px solid var(--navy)}
+.nbtn.sec:hover{background:var(--navy);color:#fff}
+.scoreboard{background:#fff;border-radius:11px;box-shadow:0 4px 18px rgba(26,39,68,.11);
+padding:34px 26px;text-align:center;margin-bottom:18px}
+.scbig{font-family:'Playfair Display',serif;font-size:2.8em;color:var(--crimson);font-weight:700;margin-bottom:6px}
+.scpct{font-size:1.05em;color:#5a6a8a;margin-bottom:9px}
+.scmsg{font-family:'Noto Serif Devanagari',serif;font-size:1.05em;color:var(--navy);margin-bottom:20px}
+.orn{text-align:center;color:var(--gold);font-size:1em;letter-spacing:.2em;margin:14px 0;opacity:.65}
+footer{text-align:center;color:#8a7a4a;font-size:.78em;padding:24px 16px 0}
+footer a{color:var(--crimson);text-decoration:none}
+@media(max-width:520px){header h1{font-size:1.35em}.q{font-size:1.05em}}
 </style>
 </head>
 <body>
-<header class="videha-quiz-top">Videha QUIZ  |  विदेह ई-लर्निङ्ग क्विज<br>Videha eLearning Quiz<br><span>Videha — First Maithili Fortnightly eJournal  |  <a href="https://www.videha.co.in">www.videha.co.in</a></span></header>
-
-<div class="quiz-wrapper" id="quizApp">
-    <div class="quiz-header">
-        <h1>📖 विदेह विशेषांक पर आधारित <span class="badge">अंतर्राष्ट्रीय मैथिली परिषद्</span></h1>
-        <p style="margin:5px 0 0">पीडीएफ से साक्ष्य-आधारित 1000 प्रश्न | मैथिली आ मिथिला केर पहिचान</p>
-    </div>
-    <div class="stats-bar" id="statsPanel">
-        <div class="stat-card">📌 प्रश्न: <span id="qNum">1</span> / <span id="qTotal">1000</span></div>
-        <div class="stat-card">✅ सही उत्तर: <span id="scoreVal">0</span></div>
-        <div class="stat-card">✍️ उत्तर दिहल: <span id="attemptVal">0</span></div>
-    </div>
-    <div class="question-area" id="questionArea">
-        <div class="q-progress"><span>🎯 अंतर्राष्ट्रीय मैथिली परिषद् (AMP)</span><span>⚡ सत्य तथ्य आधारित</span></div>
-        <div class="q-text" id="questionText">लोड होइत अछि…</div>
-        <div class="options-grid" id="optionsContainer"></div>
-        <div class="explanation" id="explanationBox">📖 व्याख्या: उत्तर देबाक बाद स्पष्टीकरण देखबाई।</div>
-        <div class="nav-buttons">
-            <button id="prevBtn">◀ पिछला</button>
-            <button id="resetBtn" class="reset-btn">⟳ पुनः प्रारंभ</button>
-            <button id="nextBtn">अगला ▶</button>
-        </div>
-    </div>
-    <div class="footer">
-        📄 आधार: विदेह ४००म अंक (15 अगस्त 2024) – अन्तर्राष्ट्रीय मैथिली परिषद् पर केन्द्रित | सभी प्रश्न पीडीएफ सामग्रीसँ निर्मित
-    </div>
+<header>
+  <h1>अन्तर्राष्ट्रीय मैथिली परिषद विशेषांक</h1>
+  <div class="sub">ANTARRASHTRIYA MAITHILI PARISHAD SPECIAL ISSUE · विदेह अंक ४०० · १५ अगस्त २०२४</div>
+  <div class="src">विदेह : प्रथम मैथिली पाक्षिक ई-पत्रिका · videha.co.in · ISSN 2229-547X</div>
+</header>
+<div class="orn">❖ ❖ ❖</div>
+<div class="wrap">
+  <div class="tabs" id="tabs"></div>
+  <div class="progress"><div id="bar"></div></div>
+  <div id="panes"></div>
 </div>
-
+<footer>© विदेह Videha · <a href="https://videha.co.in">videha.co.in</a> · विदेह विशेषांक प्रश्नोत्तरी</footer>
 <script>
-    // --------------------------------------------------------------
-    // पूर्ण 1000 प्रश्न – केवल पीडीएफ "VIDEHA_400 ANTARRASHTRIYA MAITHILI PARISHAD.pdf" सामग्री पर आधारित
-    // तथ्य संकलन: स्थापना, सम्मेलन, यात्रा, व्यक्तित्व, ऐतिहासिक घटना, मैथिली भाषा संदर्भ
-    // --------------------------------------------------------------
-    const questionBank = [];
-
-    // ---- 1. मूल तथ्य (स्थापना, संस्था, प्रमुख व्यक्ति) ----
-    function addFact(q, opts, correct, exp) {
-        questionBank.push({ text: q, options: opts, correct: correct, explanation: exp });
-    }
-
-    // PDF से सीधे उद्धृत / पुष्टि कएल गेल तथ्य
-    addFact("अंतर्राष्ट्रीय मैथिली परिषद् (AMP) केर स्थापना कखन भेल छल?", ["19-20 जून 1993", "15 अगस्त 2000", "1 जनवरी 1992", "12 अप्रैल 1995"], "19-20 जून 1993", "PDF के अनुसार: 20.6.1993, आषाढ़ी अमावस्या, प्रथम अंतर्राष्ट्रीय मैथिली सम्मेलन राँची में भेल।");
-    addFact("AMP केर संस्थापक कोन छथि?", ["डा. धनाकर ठाकुर", "डा. जयकांत मिश्र", "बाबू साहेब चौधरी", "डा. कमलकांत झा"], "डा. धनाकर ठाकुर", "PDF परिचय अध्याय: स्थापना – डा. धनाकर ठाकुर।");
-    addFact("प्रथम अंतर्राष्ट्रीय मैथिली सम्मेलन कतय भेल छल?", ["राँची", "मधुबनी", "दरभंगा", "काठमांडू"], "राँची", "20.6.1993, राँची के श्यामली कम्युनिटी हॉल में।");
-    addFact("AMP केर मुख्यालय कतय अछि?", ["राँची", "दरभंगा", "पटना", "जनकपुरधाम"], "राँची", "परिचय: राँची स्थित मुख्यालय, संस्था देशभर में उपस्थिति।");
-    addFact("कोन व्यक्ति AMP के प्रथम अध्यक्ष छलाह?", ["डा. सुरेश झा 'अजीत'", "डा. धनाकर ठाकुर", "डा. भुवनेश्वर गुरुमैता", "पं. जयकांत मिश्र"], "डा. सुरेश झा 'अजीत'", "पृष्ठ 120 के अनुसार प्रथम अध्यक्ष डा. सुरेश झा अजीत, बाद में डा. धनाकर ठाकुर।");
-    addFact("मैथिली भाषा केर प्राचीन लिपि कोन अछि?", ["तिरहुता (मिथिलाक्षर)", "देवनागरी", "कैथी", "गुरुमुखी"], "तिरहुता (मिथिलाक्षर)", "PDF मे मिथिलाक्षर प्रचारिणी सभाक उल्लेख, तिरहुता लिपि मैथिली के पारम्परिक लिपि।");
-    addFact("मैथिली केर संवैधानिक मान्यता (8वीं अनुसूची) कब भेल?", ["8 जनवरी 2004", "26 जनवरी 2005", "15 अगस्त 2003", "20 जून 1993"], "8 जनवरी 2004", "पृष्ठ 162: 8.1.2004 भारत के राजपत्र में अधिसूचित।");
-    addFact("कोन मैथिली पत्रिका केर प्रथम अंक 13 अक्टूबर 1994 में प्रकाशित भेल?", ["मैथिली संदेश", "विदेह", "मिथिला दर्पण", "बागमती"], "मैथिली संदेश", "पृष्ठ 626: 13.10.1994 प्रथम प्रति जारी, सम्पादक मंडल में डा. धनाकर ठाकुर।");
-    addFact("मैथिली भाषा केर साहित्यकार 'विद्यापति' क संबंध में कोन कथन सत्य अछि?", ["पदावली के लेल प्रसिद्ध", "आधुनिक कवि", "उपन्यासकार", "विज्ञान लेखक"], "पदावली के लेल प्रसिद्ध", "PDF में विद्यापति के श्रृंगारिक पद, लोकगीत, 14वी शताब्दी।");
-    addFact("AMP द्वारा मैथिली भाषा के लेल आन्दोलन के प्रमुख मुद्दा छल?", ["अष्टम अनुसूची स्थान", "मैथिली विश्वविद्यालय", "देवनागरी लिपि", "केवल साहित्य पुरस्कार"], "अष्टम अनुसूची स्थान", "1993 सँ मांग, 2004 में मिलल, PDF के अनुच्छेद।");
-    addFact("प्रथम अंतर्राष्ट्रीय मैथिली सम्मेलन के स्वागताध्यक्ष कोन छलाह?", ["एन.के. गामी", "डा. धनाकर ठाकुर", "चन्द्रशेखर झा", "परमानन्द मिश्र"], "एन.के. गामी", "पृष्ठ 67: स्वागत अध्यक्ष हनुमाल कुमार गामी (एन.के. गामी)।");
-
-    // ---- 2. सम्मेलन, यात्रा, प्रशिक्षण शिविर (MWTC) ----
-    addFact("द्वितीय अंतर्राष्ट्रीय मैथिली सम्मेलन कतय भेल छल?", ["मधुबनी", "जयनगर", "दरभंगा", "राँची"], "मधुबनी", "पृष्ठ 103: II IMC मधुबनी 7-8 जनवरी 1996।");
-    addFact("कोन सम्मेलन में मिथिला राज्य संघर्ष समिति के अध्यक्ष के रूप में डा. जयकांत मिश्र केर घोषणा भेल?", ["द्वितीय सम्मेलन मधुबनी", "प्रथम सम्मेलन राँची", "तृतीय सम्मेलन नेपाल", "चतुर्थ सम्मेलन राउरकेला"], "द्वितीय सम्मेलन मधुबनी", "पृष्ठ 98: 8.1.1996 मधुबनी में MRSS अध्यक्ष घोषित।");
-    addFact("प्रथम मैथिली कार्यकर्ता प्रशिक्षण शिविर (MWTC) कहाँ भेल छल?", ["जयनगर (मधुबनी)", "राँची", "दलसिंगसराय", "सहरसा"], "जयनगर (मधुबनी)", "पृष्ठ 107: 1-4 अप्रैल 2001, जयनगर, 31 प्रशिक्षित।");
-    addFact("कोन ठाम 'मिथिला राज्य' हेतु धरना पटना में 27 मार्च 1995 आयोजित भेल छल?", ["पटना गाँधी मैदान", "दरभंगा रेलवे स्टेशन", "जंतर मंतर दिल्ली", "राँची बिरसा चौक"], "पटना गाँधी मैदान", "पृष्ठ 118: 27.3.1995 पटना धरना।");
-    addFact("कोन वर्ष में मैथिली केर झारखंड में द्वितीय राजभाषा हेतु धरना राँची (बिरसा चौक) में भेल?", ["11 मार्च 2011", "2 फरवरी 2008", "15 अगस्त 2005", "10 दिसंबर 2012"], "11 मार्च 2011", "पृष्ठ 119: 11.3.2011 बिरसा चौक राँची।");
-    addFact("AMP द्वारा कुल कतना अंतर्राष्ट्रीय मैथिली सम्मेलन (AMS) भ चुकल अछि (2024 तक)?", ["33", "25", "40", "28"], "33", "PDF सारिणी: 33 सम्मेलन 2022 तक, 2024 में 34वाँ आयोजन संभावित।");
-    addFact("कोन सम्मेलन में नेपालकी मिथिला क्षेत्र में पर्यटन पर केन्द्रित चर्चा भेल?", ["बिराटनगर (2000)", "काठमांडू (2009)", "जनकपुरधाम (2017)", "राँची (1993)"], "बिराटनगर (2000)", "पृष्ठ 100: VIII IMC बिराटनगर 23-24 दिसंबर 2000, विषय- पर्यटन।");
-    addFact("कोन प्रशिक्षण शिविर (MWTC) 100वाँ प्रशिक्षण शिविर आयोजित भेल छल?", ["कलिकापुर (मधुबनी)", "पिंडारुच", "तरलाही", "सिमरियाघाट"], "कलिकापुर (मधुबनी)", "पृष्ठ 576: 20.2.2023 – 100 MWTC concluded.");
-    addFact("प्रथम 'मैथिली जागरण पदयात्रा' 16-27 अक्टूबर 1993 कहाँ सँ आरम्भ भेल छल?", ["कोइलख (मधुबनी)", "सौराठ", "बेनीपट्टी", "रहिका"], "कोइलख (मधुबनी)", "पृष्ठ 145: 1992क दुर्गापूजा समय 'जागू मैथिल धीर' पम्पलेट, पदयात्रा कोइलख-गंगासागर।");
-
-    // ---- 3. PDF के विशिष्ट नाम, स्थान, संख्यात्मक तथ्य ----
-    addFact("'विदेह' पत्रिका केर ISSN कोन अछि?", ["2229-547X", "0975-426X", "2394-0467", "1234-5678"], "2229-547X", "PDF शीर्षक पृष्ठ: ISSN 2229-547X (online)");
-    addFact("AMP के प्रथम महासचिव कोन छलाह?", ["डा. कमलकांत झा", "उमेश झा 'लालन'", "प्रेमकांत झा", "रामरिजन यादव"], "उमेश झा 'लालन'", "अध्यक्ष/सचिव सूची: 1997-2009 महासचिव उमेश झा लालन।");
-    addFact("कोन तिथि केर 'मैथिली सम्मान दिवस' के रूप मनाओल जाइत अछि?", ["8 जनवरी", "15 अगस्त", "20 जून", "26 जनवरी"], "8 जनवरी", "पीडीएफ: 8.1.2004 मैथिली अष्टम अनुसूची में, ग्रियर्सन जयंती / मैथिली दिवस।");
-    addFact("1992 में डा. धनाकर ठाकुर केर पोस्टकार्ड जे राँची एक्सप्रेस में छपल छल, कोन विषय पर छल?", ["मैथिली बिहार लोक सेवा आयोग से हटावलाक विरोध", "मिथिला राज्य", "नीतीश कुमार", "शिक्षा सुधार"], "मैथिली बिहार लोक सेवा आयोग से हटावलाक विरोध", "पृष्ठ 27: 29.2.1992 मैथिली बीपीएससी से हटायल गेल पर विरोध।");
-    addFact("कोन पत्रिकाक संपादक 'लूटन ठाकुर' छलाह?", ["प्रवास भेंट", "बागमती दामोदर टाइम्स", "मैथिली संदेश", "मिथिला दिग्दर्शन"], "प्रवास भेंट", "पृष्ठ 626: अंतर्राष्ट्रीय मैथिली सम्मेलन में लूटन ठाकुर, प्रवास भेंट के संपादक।");
-    addFact("'मिथिला राज्य संघर्ष समिति' (MRSS) केर नियमावली कब बनल छल?", ["21-23 दिसंबर 1994", "1 जनवरी 1996", "13 अप्रैल 1997", "20 जून 1993"], "21-23 दिसंबर 1994", "पृष्ठ 94: 21-23/12/1994 MRSS नियमावली चुनचुन मिश्र राँची आवास पर।");
-    addFact("कोन वर्ष में डा. धनाकर ठाकुर मिथिला राज्य हेतु साइकिल यात्रा (दरभंगा-मधुबनी) केलन्हि?", ["1994", "1995", "1993", "1996"], "1994", "पृष्ठ 218: 22.5.1994 साइकिल यात्रा प्रारम्भ।");
-    addFact("कोन ठाम 'उग्रतारा मंदिर' स्थित अछि जे अंतर्राष्ट्रीय मैथिली सम्मेलन (33वाँ) केर आयोजन स्थल रहल?", ["महिषी (सहरसा)", "बिस्फी", "सिमरियाघाट", "कटिहार"], "महिषी (सहरसा)", "पृष्ठ 560: 23-25 अप्रैल 2022, सहरसा-महिषी 33वाँ सम्मेलन।");
-
-    // ---- 4. विविध तथ्य (व्यक्ति, प्रकाशन, घटना) – पीडीएफ से अनगिनत ----
-    addFact("कोन मैथिली विद्वान 'मैथिली व्याकरण (1909)' के रचयिता छथि?", ["गोविन्द झा", "धनाकर ठाकुर", "रामानन्द झा 'रमण'", "सुभाष चन्द्र यादव"], "गोविन्द झा", "पृष्ठ 138: गोविन्द झा द्वारा अनूदित, चेतना समिति प्रकाशित।");
-    addFact("कोन ऐतिहासिक स्थल 'विदेह राज्य' के राजधानी रहल?", ["जनकपुरधाम", "बलिराजगढ़", "दरभंगा", "राजनगर"], "जनकपुरधाम", "पीडीएफ उल्लेख: जनकपुरधाम प्राचीन मिथिला के केंद्र।");
-    addFact("AMP के अंग के रूप में 'मिथिला मुस्लिम मंच' केर प्रथम सम्मेलन कब भेल?", ["20 जुलाई 2017", "15 अगस्त 2015", "22 जनवरी 2014", "31 दिसंबर 2018"], "20 जुलाई 2017", "पृष्ठ 628: 20.7.2017 उजियारपुर जनता माइनॉरिटी कॉलेज में प्रथम सम्मेलन।");
-    addFact("कोन सम्मेलन में 'अंतर्राष्ट्रीय मैथिली परिषद' केर रजत जयंती (25 वर्ष) मनाओल गेल?", ["XXX सम्मेलन राँची 11-12 अगस्त 2018", "XXVIII मुंबई 2017", "XXIX जनकपुर 2017", "XXXI भागलपुर 2018"], "XXX सम्मेलन राँची 11-12 अगस्त 2018", "पृष्ठ 105: 11-12.8.2018 राँची सिल्वर जुबिली।");
-    addFact("मैथिली के प्रसिद्ध पत्र-पत्रिका 'मैथिली संदेश' के प्रकाशन वर्ष कोन छल?", ["1994", "1993", "1995", "2000"], "1994", "पृष्ठ 627: 13 अक्टूबर 1994 प्रथम अंक।");
-    addFact("कोन सम्मेलन में मैथिली केर झारखंड में द्वितीय राजभाषा के मांग पर जोर देल गेल?", ["देवघर (2003)", "जमशेदपुर (2000)", "सिंदरी (2013)", "बोकारो (2010)"], "देवघर (2003)", "पीडीएफ तालिका: 24.8.2003 देवघर झारखंड राज्य सम्मेलन I।");
-    addFact("कोन व्यक्ति 'आदर्श मिथिला पार्टी' केर पंजीकरण 2014 में करौलन्हि?", ["डा. धनाकर ठाकुर", "प्रेमकांत झा", "राजीव कर्ण", "उमेश मंडल"], "डा. धनाकर ठाकुर", "पृष्ठ 131: आदर्श मिथिला पार्टी पंजीकृत 26.3.2014, संस्थापक डा. धनाकर ठाकुर।");
-    addFact("कोन मैथिली साहित्यकार 'मैलाआँचल' (हिंदी) के लेखक छथि?", ["फणीश्वरनाथ रेणु", "नागार्जुन", "रामधारी सिंह दिनकर", "हरिमोहन झा"], "फणीश्वरनाथ रेणु", "पृष्ठ 865: 'मैला आँचल' रेणु, तिसरी कसम फिल्म। रेणु मैथिलीभाषी।");
-    addFact("डा. धनाकर ठाकुर कोन पेशा सँ जुड़ल छथि?", ["चिकित्सक (MD, DCH)", "इंजीनियर", "प्राध्यापक", "पत्रकार"], "चिकित्सक (MD, DCH)", "पृष्ठ 26: MBBS 1978, MD 1985, DCH 1987।");
-    addFact("AMP केर 'मिथिला बाल परिषद' के गठन कतय भेल छल?", ["चाकिया (बेगूसराय)", "मधुबनी", "दरभंगा", "समस्तीपुर"], "चाकिया (बेगूसराय)", "पृष्ठ 132: 14.12.2013, चाकिया, बेगूसराय।");
-
-    // अब लगभग 50+ तथ्य, बाकी 950 प्रश्न सरणीबद्ध रूप से उत्पन्न करब: व्यक्ति, स्थान, वर्ष, ग्राम, यात्रा, सम्मेलन नाम 
-    // PDF के लिस्ट से व्यवस्थित जनरेट - (दोहराव नहि, केवल PDF सामग्री)
-    const pdfYears = [1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024];
-    const pdfPlaces = ["राँची","मधुबनी","दरभंगा","जयनगर","सहरसा","सुपौल","पूर्णिया","कटिहार","भागलपुर","बेगूसराय","समस्तीपुर","बोकारो","जमशेदपुर","देघर","गोड्डा","फारबिसगंज","अररिया","किशनगंज","मुजफ्फरपुर","सीतामढ़ी","वैशाली","खगड़िया","मुंगेर","बाँका","साहेबगंज","दुमका","पाकुड़","जामताड़ा","नेपाल (जनकपुर)","बिराटनगर","काठमांडू","राजबिराज"];
-    const pdfPersons = ["डा. धनाकर ठाकुर","डा. जयकांत मिश्र","बाबू साहेब चौधरी","डा. भुवनेश्वर गुरुमैता","डा. कमलकांत झा","प्रेमकांत झा","उमेश मंडल","राम एकबाल सिंह 'विनीत'","चुनचुन मिश्र","श्रृंगेश मिश्र","विन्देश्वर झा","सुरेन्द्र पाठक","डा. सुरेश झा 'अजीत'","परमानन्द मिश्र","भोगेन्द्र झा","नागार्जुन","रामानन्द झा 'रमण'","गोविन्द झा","हरिमोहन झा","रामकृष्ण झा"];
-    const pdfEvents = ["प्रथम अंतर्राष्ट्रीय मैथिली सम्मेलन","मैथिली संदेश प्रकाशन","कोशी बाढ़ राहत","झारखंड में द्वितीय राजभाषा धरना","मिथिला राज्य गठन मांग","विदेह पत्रिका आरंभ","ग्रीयर्सन जयंती","विद्यापति पर्व","विनय तरुण पुरस्कार","अंतर्राष्ट्रीय मैथिली परिषद् स्थापना"];
-
-    // एक्सट्रा प्रश्न (PDF से व्युत्पन्न) – सुरक्षित मात्रा में 950 तक ले जाएब
-    function addBulkFromPDF() {
-        // सम्मेलन, वर्ष, स्थान के क्रम से
-        const confData = [
-            {sn:1, place:"राँची", year:1993}, {sn:2, place:"मधुबनी", year:1996}, {sn:3, place:"नेपाली मिथिला (मरारी)", year:1997},
-            {sn:4, place:"राउरकेला", year:1997}, {sn:5, place:"कटिहार", year:1998}, {sn:6, place:"चेन्नई", year:1998},
-            {sn:7, place:"जमशेदपुर", year:2000}, {sn:8, place:"बिराटनगर", year:2000}, {sn:9, place:"सहरसा", year:2001},
-            {sn:10, place:"धनबाद", year:2003}, {sn:11, place:"दलसिंगसराय", year:2003}, {sn:12, place:"मुजफ्फरपुर", year:2004}
-        ];
-        confData.forEach(c => {
-            let q = `${c.sn}. अंतर्राष्ट्रीय मैथिली सम्मेलन कतय भेल छल? (वर्ष ${c.year})`;
-            let opts = [c.place, "राँची", "पटना", "कोलकाता"].sort(()=>Math.random()-0.5);
-            if(!opts.includes(c.place)) opts[0]=c.place;
-            addFact(q, opts, c.place, `PDF सम्मेलन सूची: ${c.sn}. सम्मेलन ${c.place} में भेल छल।`);
-        });
-        // यात्रा आयोजक
-        addFact("कोन व्यक्ति 'मिथिला राज्य' हेतु सबसँ अधिक पदयात्रा, साइकिल यात्रा आयोजित केलन्हि?", ["डा. धनाकर ठाकुर", "प्रेमकांत झा", "डा. जयकांत मिश्र", "बाबू साहेब चौधरी"], "डा. धनाकर ठाकुर", "PDF के 265 यात्रा सूची: डा. धनाकर ठाकुर के द्वारा 1992 सँ 286 यात्रा।");
-        // मैथिली भाषा विषयक तथ्य
-        addFact("कोन वैयाकरण केर 'मैथिली व्याकरण' 1909 में प्रकाशित भेल छल?", ["गोविन्द झा", "अब्राहम ग्रियर्सन", "सुभद्रा झा", "रामानन्द झा"], "गोविन्द झा", "पृष्ठ 139: गोविन्द झा द्वारा अनुवाद, चेतना समिति प्रकाशित।");
-        addFact("ग्रियर्सन (Grierson) केर मैथिली मानचित्र कोन वर्ष के अछि?", ["1902", "1898", "1911", "1925"], "1902", "पृष्ठ 190: ग्रियर्सन केर 1902 केर मैथिली नक्शा।");
-        // विशिष्ट लेख / आन्दोलन
-        addFact("1992 में डा. धनाकर ठाकुर के लेख 'छोट राज्य विकास के लिए आवश्यक' कोन अखबार में छपल छल?", ["राँची एक्सप्रेस", "हिन्दुस्तान", "प्रभात खबर", "आज"], "राँची एक्सप्रेस", "पृष्ठ 27: 20.9.1992 के राँची एक्सप्रेस में।");
-        addFact("केकरा 'मिथिलाक गाँधी' कहल गेल छल?", ["शिवेश्वर ठाकुर", "डा. धनाकर ठाकुर", "डा. लक्ष्मी झा", "भोगेन्द्र झा"], "डा. धनाकर ठाकुर", "पृष्ठ 328: दरभंगा मेडिकल कॉलेज के एक कार्यक्रम में शिवेश्वर प्रसाद सिंह द्वारा उपाधि।");
-        addFact("कोन सम्मेलन में 'अंतर्राष्ट्रीय मैथिली परिषद' के संविधान स्वीकृत भेल छल?", ["प्रथम (1993)", "द्वितीय (1996)", "तृतीय (1997)", "चतुर्थ (1998)"], "प्रथम (1993)", "20.6.1993 राँची में AMP गठन संग संविधान निर्माण।");
-    }
-    addBulkFromPDF();
-
-    // अब 1000 तक पहुँचे लेल हमारे और स्थानीय प्रश्न जोड़ब: PDF अध्याय १.५, १.१२ यात्रा सूची, जिलावार नाम
-    // सेफ लूप, 1000 से अधिकता नहि। मौजूदा लगभग 150 के बाद रैंडम शफल नहि, मैन्युअल बढ़ाब।
-    for(let i=questionBank.length; i<1000; i++) {
-        let mod = i % 12;
-        let extraQ = "";
-        let optList = [];
-        let correctAns = "";
-        let explain = "PDF सूची के आधार पर तथ्य।";
-        if(mod===0){ extraQ = "कोन मैथिली लेखक 'मिथिला दिग्दर्शन' के रचयिता छथि?"; optList = ["इंद्रनारायण झा","धनाकर ठाकुर","गंगानाथ झा","उमेश कर्ण"]; correctAns="इंद्रनारायण झा"; explain="PDF पृष्ठ 59: इंद्रनारायण झा, लेखक मिथिला दिग्दर्शन।";}
-        else if(mod===1){ extraQ = "कोन ग्राम में प्रथम पदयात्रा केर समापन भेल छल?"; optList = ["गंगासागर (मधुबनी)","कोइलख","रहिका","जयनगर"]; correctAns="गंगासागर (मधुबनी)"; explain="1993 पदयात्रा 27 अक्टूबर 1993 गंगासागर पोखरा पर समाप्त।";}
-        else if(mod===2){ extraQ = "AMP के सहयोगी संगठन 'मिथिला व्यवसायी मंच' के गठन कब भेल?"; optList = ["20 अक्टूबर 2016","15 जून 2014","1 मार्च 2012","10 दिसंबर 2018"]; correctAns="20 अक्टूबर 2016"; explain="पृष्ठ 134: दरभंगा में 20.10.2016 स्थापना।";}
-        else if(mod===3){ extraQ = "कोन स्थान मिथिला के 'बृहद् विदेह' राजधानी मानल जाइत अछि?"; optList = ["जनकपुरधाम","दरभंगा","सीतामढ़ी","बलिराजगढ़"]; correctAns="जनकपुरधाम"; explain="प्राचीन विदेह राजधानी जनकपुर, PDF उल्लेख।";}
-        else if(mod===4){ extraQ = "डा. धनाकर ठाकुर द्वारा रचित 'मैथिली गीता' के अनुवाद कोन भाषा में अछि?"; optList = ["संस्कृत","हिंदी","अंग्रेजी","उर्दू"]; correctAns="संस्कृत"; explain="पीडीएफ पृष्ठ 921: मैथिली गीता, मैथिली में श्लोकानुवाद।";}
-        else if(mod===5){ extraQ = "कोन मैथिली लोकगीत 'भगवान हमर मिथिला सुख शान्ति के घर हो' सार्वकालिक प्रचलित अछि?"; optList = ["विद्यापति गीत","झिझिया","सामा चकेवा","विवाह गीत"]; correctAns="विद्यापति गीत"; explain="PDF के सम्मेलन समापन गीत के रूप में ई पंक्ति उद्धृत।";}
-        else if(mod===6){ extraQ = "कतना वर्ष बाद मैथिली संविधान की आठमीं अनुसूची में शामील भेल?"; optList = ["1993-2004 (11 वर्ष)","1990-2000 (10 वर्ष)","1992-2002 (10 वर्ष)","1980-2005 (25 वर्ष)"]; correctAns="1993-2004 (11 वर्ष)"; explain="AMP स्थापना 1993, मान्यता 2004।";}
-        else if(mod===7){ extraQ = "'मैथिली संदेश' पत्रिका केर कुल कितना अंक प्रकाशित भेल (फरवरी 2018 तक)?"; optList = ["40","30","52","75"]; correctAns="40"; explain="पृष्ठ 119: 40 अंक 213000 प्रतियाँ वितरित।";}
-        else if(mod===8){ extraQ = "AMP के स्थापना दिवस के रूप में कोन तिथि मनाओल जाइत अछि?"; optList = ["20 जून","19 जून","15 अगस्त","8 जनवरी"]; correctAns="20 जून"; explain="20 जून 1993 स्थापना, आषाढ़ी अमावस्या।";}
-        else if(mod===9){ extraQ = "कोन नदी के तीरे 'सीतामढ़ी' स्थित अछि?"; optList = ["लक्ष्मणा","बागमती","कमला","गंडक"]; correctAns="लक्ष्मणा"; explain="PDF में सीतामढ़ी लग लक्ष्मणा नदी के उल्लेख।";}
-        else if(mod===10){ extraQ = "कोन सम्मेलन में 'अन्तर्राष्ट्रीय मैथिली परिषद्' नेपालकी मिथिला राज्य के मांग पर जोर देलक?"; optList = ["XIX काठमांडू 2009","XV बेंगलुरु 2007","XXII मुंबई 2011","XXVII दरभंगा 2014"]; correctAns="XIX काठमांडू 2009"; explain="पृष्ठ 108: XIX IMC काठमांडू, नेपाल में मिथिला राज्य पर जोर।";}
-        else if(mod===11){ extraQ = "कोन व्यक्ति केर निधन 2024 में भेल आ ओ AMP के अध्यक्ष रहलाह?"; optList = ["डा. कमलकांत झा","डा. धनाकर ठाकुर","डा. भुवनेश्वर गुरुमैता","प्रेमकांत झा"]; correctAns="डा. कमलकांत झा"; explain="पृष्ठ 25: 2024 में डा. कमलकांत झा एवं गुरुमैता जी के निधन।";}
-        // गलत उत्तर बचाव 
-        if(!optList.includes(correctAns)) optList[0] = correctAns;
-        addFact(extraQ, optList, correctAns, explain);
-    }
-    // सुनिश्चित करब कि 1000 प्रश्न होइ
-    while(questionBank.length < 1000) questionBank.push(questionBank[questionBank.length % questionBank.length]);
-    if(questionBank.length > 1000) questionBank.length = 1000;
-
-    // --------------------------------------------------------------
-    // क्विज़ रेंडरर
-    // --------------------------------------------------------------
-    let userAnswers = new Array(1000).fill(null);
-    let currentIdx = 0;
-    let score = 0, attempted = 0;
-    function recalc() {
-        let sc = 0, att = 0;
-        for(let i=0;i<questionBank.length;i++){
-            if(userAnswers[i] !== null){
-                att++;
-                if(userAnswers[i] === questionBank[i].correct) sc++;
-            }
-        }
-        score = sc; attempted = att;
-        document.getElementById("scoreVal").innerText = score;
-        document.getElementById("attemptVal").innerText = attempted;
-        document.getElementById("qNum").innerText = currentIdx+1;
-    }
-    function render() {
-        const q = questionBank[currentIdx];
-        document.getElementById("questionText").innerText = q.text;
-        document.getElementById("qTotal").innerText = questionBank.length;
-        const optsDiv = document.getElementById("optionsContainer");
-        optsDiv.innerHTML = "";
-        q.options.forEach(opt => {
-            const btn = document.createElement("div");
-            btn.className = "opt-btn";
-            btn.innerText = opt;
-            const isAnswered = userAnswers[currentIdx] !== null;
-            if(isAnswered){
-                btn.classList.add("disabled");
-                if(opt === q.correct) btn.classList.add("opt-correct");
-                else if(opt === userAnswers[currentIdx] && opt !== q.correct) btn.classList.add("opt-wrong");
-            }
-            btn.onclick = () => {
-                if(userAnswers[currentIdx] !== null) return;
-                userAnswers[currentIdx] = opt;
-                if(opt === q.correct){
-                    //correct
-                }
-                recalc();
-                render();
-                let explText = q.explanation;
-                if(opt !== q.correct) explText += ` ✅ सही उत्तर: "${q.correct}" अछि।`;
-                document.getElementById("explanationBox").innerHTML = `<strong>📖 व्याख्या:</strong> ${explText}`;
-            };
-            optsDiv.appendChild(btn);
-        });
-        if(userAnswers[currentIdx] !== null){
-            let expl = q.explanation;
-            if(userAnswers[currentIdx] !== q.correct) expl += ` ✅ सही उत्तर: "${q.correct}" होतय।`;
-            document.getElementById("explanationBox").innerHTML = `<strong>📖 व्याख्या:</strong> ${expl}`;
-        } else {
-            document.getElementById("explanationBox").innerHTML = `<strong>📖 व्याख्या:</strong> उत्तर चुनी, व्याख्या देखबाई।`;
-        }
-        document.getElementById("qNum").innerText = currentIdx+1;
-        document.getElementById("scoreVal").innerText = score;
-    }
-    function next() { if(currentIdx+1 < 1000) { currentIdx++; render(); } else alert("बधाई! सब प्रश्न समाप्त।"); }
-    function prev() { if(currentIdx > 0) { currentIdx--; render(); } }
-    function reset() { userAnswers.fill(null); currentIdx=0; recalc(); render(); document.getElementById("explanationBox").innerHTML = "<strong>📖 व्याख्या:</strong> रीस्टार्ट भेल, नवका उत्तर दी।"; }
-
-    document.getElementById("prevBtn").onclick = prev;
-    document.getElementById("nextBtn").onclick = next;
-    document.getElementById("resetBtn").onclick = reset;
-    recalc();
-    render();
+const DATA = [{"tab": "विशेषांक परिचय", "items": [{"q": "विदेहक ई अन्तर्राष्ट्रीय मैथिली परिषद विशेषांक कोन अंक छल?", "opts": ["४०० म अंक", "३९६ म अंक", "४०५ म अंक", "४०८ म अंक"], "correct": 0, "hint": "१५ अगस्त २०२४, वर्ष १७ अंक ४००।"}, {"q": "ई विशेषांक कोन तिथिकेँ प्रकाशित भेल?", "opts": ["१५ अगस्त २०२४", "१५ जून २०२४", "०१ नवम्बर २०२४", "१५ नवम्बर २०२४"], "correct": 0, "hint": "वर्ष १७ मास २०० अंक ४००।"}, {"q": "ई विशेषांक कोन संस्थाकेँ समर्पित छल?", "opts": ["अन्तर्राष्ट्रीय मैथिली परिषद", "मिथिला विकास परिषद", "मिथिला स्टूडेण्ट यूनियन", "साहित्य अकादेमी"], "correct": 0, "hint": "विशेषांकक नामे उत्तर।"}, {"q": "अंक ४०० विदेहक कोन दृष्टिसँ महत्त्वपूर्ण पड़ाव थिक?", "opts": ["चारि-सय-म अंक", "पहिल अंक", "अन्तिम अंक", "विशेषांक नहि"], "correct": 0, "hint": "अंक संख्या ४००।"}]}];
+let score=0,total=0,answered=0;
+DATA.forEach(g=>total+=g.items.length);
+const tabsEl=document.getElementById('tabs');
+const panesEl=document.getElementById('panes');
+const bar=document.getElementById('bar');
+DATA.forEach((g,gi)=>{
+  const tb=document.createElement('button');
+  tb.className='tab'+(gi===0?' active':'');
+  tb.innerHTML=g.tab+'<span class="counter-badge">'+g.items.length+'</span>';
+  tb.onclick=()=>switchTab(gi);
+  tabsEl.appendChild(tb);
+  const pane=document.createElement('div');
+  pane.className='pane'+(gi===0?' active':'');
+  pane.id='pane-'+gi;
+  g.items.forEach((q,qi)=>pane.appendChild(buildCard(g,gi,qi,q)));
+  panesEl.appendChild(pane);
+});
+function buildCard(g,gi,qi,q){
+  const card=document.createElement('div');card.className='card';
+  const meta=document.createElement('div');meta.className='qmeta';
+  meta.textContent=g.tab+' · प्रश्न '+(qi+1)+'/'+g.items.length;card.appendChild(meta);
+  const qd=document.createElement('div');qd.className='q';qd.textContent=q.q;card.appendChild(qd);
+  const opts=[];
+  q.opts.forEach((o,oi)=>{
+    const b=document.createElement('button');b.className='opt';b.textContent=o;
+    b.onclick=()=>pick(b,oi);card.appendChild(b);opts.push(b);
+  });
+  const fb=document.createElement('div');fb.className='fb';card.appendChild(fb);
+  let hintBox=null;
+  if(q.hint){hintBox=document.createElement('div');hintBox.className='hint-box';
+    hintBox.textContent='💡 '+q.hint;card.appendChild(hintBox);}
+  const nav=document.createElement('div');nav.className='nav';
+  if(q.hint){const hb=document.createElement('button');hb.className='nbtn sec';hb.textContent='संकेत';
+    hb.onclick=()=>hintBox.classList.toggle('show');nav.appendChild(hb);}
+  card.appendChild(nav);
+  let done=false;
+  function pick(btn,oi){
+    if(done)return;done=true;answered++;
+    opts.forEach((b,bi)=>{b.disabled=true;
+      if(bi===q.correct)b.classList.add('ok');
+      else if(b===btn)b.classList.add('bad');});
+    if(oi===q.correct){score++;fb.className='fb ok';fb.textContent='✓ सही उत्तर!';}
+    else{fb.className='fb bad';fb.textContent='✗ सही उत्तर: '+q.opts[q.correct];}
+    bar.style.width=(answered/total*100)+'%';
+    if(answered===total)showScore();
+  }
+  return card;
+}
+function switchTab(gi){
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===gi));
+  document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',i===gi));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function showScore(){
+  const pct=Math.round(score/total*100);
+  let msg=pct>=80?'उत्कृष्ट! अहाँक ज्ञान अद्भुत अछि।':pct>=50?'नीक प्रयास — आओर पढ़ू।':'फेर सँ प्रयास करू, अहाँ नीक करब।';
+  const sb=document.createElement('div');sb.className='scoreboard';
+  sb.innerHTML='<div class="orn">❖ ❖ ❖</div><div class="scbig">'+score+' / '+total+'</div>'+
+    '<div class="scpct">'+pct+'%</div><div class="scmsg">'+msg+'</div>'+
+    '<button class="nbtn pri" onclick="location.reload()">फेर सँ खेलू</button>';
+  const w=document.querySelector('.wrap');w.insertBefore(sb,w.firstChild);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
 </script>
-<a class="videha-hub-return" href="https://www.videha.co.in/videha-elearning.htm">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
-<footer class="videha-quiz-footer">© Gajendra Thakur, Editor — Videha eJournal</footer>
 </body>
 </html>
