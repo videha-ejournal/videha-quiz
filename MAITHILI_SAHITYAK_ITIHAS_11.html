@@ -1,106 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Videha QUIZ | Chapter III</title>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #f4f6f9; color: #333; margin: 0; padding: 0; }
-        header { background-color: #002060; color: white; padding: 25px; text-align: center; border-bottom: 5px solid #001040; }
-        header h1 { margin: 0; font-size: 24px; font-weight: bold; }
-        header h2 { margin: 5px 0 0 0; font-size: 18px; font-weight: normal; opacity: 0.9; }
-        header p { margin: 5px 0 0 0; font-size: 14px; font-style: italic; opacity: 0.8; }
-        .nav-container { display: flex; justify-content: space-between; max-width: 800px; margin: 20px auto; padding: 0 20px; }
-        .nav-btn { background-color: #002060; color: white; padding: 8px 15px; text-decoration: none; border-radius: 4px; font-size: 14px; }
-        .nav-btn:hover { background-color: #001040; }
-        .container { max-width: 800px; margin: 0 auto 40px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .chapter-title { border-bottom: 2px solid #002060; padding-bottom: 10px; color: #002060; margin-bottom: 25px; }
-        .quiz-item { margin-bottom: 25px; padding: 15px; border: 1px solid #e0e0e0; border-radius: 6px; background-color: #fbfbfb; }
-        .question { font-weight: bold; font-size: 16px; margin-bottom: 12px; color: #111; }
-        .option-label { display: block; margin: 8px 0; padding: 10px; background: white; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; transition: all 0.2s; }
-        .option-label:hover { background-color: #f0f4f8; }
-        .option-label input { margin-right: 10px; }
-        .explanation { display: none; margin-top: 12px; padding: 12px; border-left: 4px solid; border-radius: 4px; font-size: 14px; }
-        .correct-bg { background-color: #d4edda !important; border-color: #c3e6cb !important; color: #155724; }
-        .incorrect-bg { background-color: #f8d7da !important; border-color: #f5c6cb !important; color: #721c24; }
-        .explanation.visible { display: block; }
-        .correct-expl { border-color: #28a745; background-color: #e8f5e9; color: #1b5e20; }
-        .incorrect-expl { border-color: #dc3545; background-color: #ffebee; color: #b71c1c; }
-        .action-area { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; }
-        .hub-link { display: inline-block; margin-top: 15px; color: #002060; font-weight: bold; text-decoration: none; font-size: 16px; }
-        .hub-link:hover { text-decoration: underline; }
-        footer { background-color: #002060; color: white; text-align: center; padding: 15px; position: relative; bottom: 0; width: 100%; font-size: 14px; border-top: 3px solid #001040; box-sizing: border-box; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Videha QUIZ | Maithili Sahityak Itihas Chapter 3</title>
+<style>
+body { font-family: Arial, sans-serif; background-color: #f4f6f9; color: #333; margin: 0; padding: 0; }
+header { background-color: #002060; color: white; padding: 25px; text-align: center; border-bottom: 5px solid #001040; }
+header h1 { margin: 0; font-size: 24px; font-weight: bold; }
+header h2 { margin: 5px 0 0 0; font-size: 18px; font-weight: normal; opacity: 0.9; }
+header p { margin: 5px 0 0 0; font-size: 14px; font-style: italic; opacity: 0.8; }
+.nav-container { display: flex; justify-content: space-between; max-width: 900px; margin: 20px auto; padding: 0 20px; }
+.nav-btn { background-color: #002060; color: white; padding: 8px 15px; text-decoration: none; border-radius: 4px; font-size: 14px; }
+.nav-btn:hover { background-color: #001040; }
+.container { max-width: 900px; margin: 0 auto 40px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+.chapter-title { border-bottom: 2px solid #002060; padding-bottom: 10px; color: #002060; margin-bottom: 8px; }
+.chapter-note { color:#555; margin:0 0 25px 0; font-size:14px; }
+.quiz-item { margin-bottom: 25px; padding: 15px; border: 1px solid #e0e0e0; border-radius: 6px; background-color: #fbfbfb; }
+.question { font-weight: bold; font-size: 16px; margin-bottom: 12px; color: #111; }
+.option-label { display: block; margin: 8px 0; padding: 10px; background: white; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; transition: all 0.2s; }
+.option-label:hover { background-color: #f0f4f8; }
+.option-label input { margin-right: 10px; }
+.explanation { display: none; margin-top: 12px; padding: 12px; border-left: 4px solid; border-radius: 4px; font-size: 14px; line-height:1.55; }
+.correct-bg { background-color: #d4edda !important; border-color: #c3e6cb !important; color: #155724; }
+.incorrect-bg { background-color: #f8d7da !important; border-color: #f5c6cb !important; color: #721c24; }
+.explanation.visible { display: block; }
+.correct-expl { border-color: #28a745; background-color: #e8f5e9; color: #1b5e20; }
+.incorrect-expl { border-color: #dc3545; background-color: #ffebee; color: #b71c1c; }
+.action-area { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; }
+.hub-link { display: inline-block; margin-top: 15px; color: #002060; font-weight: bold; text-decoration: none; font-size: 16px; }
+.hub-link:hover { text-decoration: underline; }
+.score-box { display:none; margin:20px 0; padding:15px; border:2px solid #002060; background:#eef4ff; color:#002060; font-weight:bold; text-align:center; border-radius:6px; }
+button.evaluate { background:#002060; color:white; border:none; padding:10px 18px; border-radius:5px; cursor:pointer; font-weight:bold; }
+button.evaluate:hover { background:#001040; }
+footer { background-color: #002060; color: white; text-align: center; padding: 15px; position: relative; bottom: 0; width: 100%; font-size: 14px; border-top: 3px solid #001040; box-sizing: border-box; }
+</style>
 </head>
 <body>
-
 <header>
-    <h1>Videha QUIZ  |  विदेह ई-लर्निङ्ग क्विज</h1>
-    <h2>Videha eLearning Quiz</h2>
-    <p>Videha — First Maithili Fortnightly eJournal  |  www.videha.co.in</p>
+<h1>Videha QUIZ  |  विदेह ई-लर्निङ्ग क्विज</h1>
+<h2>Videha eLearning Quiz</h2>
+<p>Videha — First Maithili Fortnightly eJournal  |  www.videha.co.in</p>
 </header>
-
-<div class="nav-container">
-    <a href="https://videha-ejournal.github.io/videha-quiz/MAITHILI_SAHITYAK_ITIHAS_10.html" class="nav-btn">← Previous Chapter</a>
-    <a href="https://videha-ejournal.github.io/videha-quiz/MAITHILI_SAHITYAK_ITIHAS_12.html" class="nav-btn">Next Chapter →</a>
-</div>
-
+<div class="nav-container"><a href="https://videha-ejournal.github.io/videha-quiz/MAITHILI_SAHITYAK_ITIHAS_10.html" class="nav-btn">← Previous Chapter</a><a href="https://videha-ejournal.github.io/videha-quiz/MAITHILI_SAHITYAK_ITIHAS_12.html" class="nav-btn">Next Chapter →</a></div>
 <div class="container">
-    <h2 class="chapter-title">Chapter III: Forms of Early Maithili Poetry</h2>
-    
-    <form id="quizForm">
-        <div class="quiz-item" data-q="q1">
-            <div class="question">1. What special term is used to describe the intentional code language used in Charya songs to hide esoteric Tantric meanings?</div>
-            <label class="option-label"><input type="radio" name="q1" value="A"> A) Avahatta</label>
-            <label class="option-label"><input type="radio" name="q1" value="B" data-correct="true"> B) Sandhyabhasha (Intentional Speech)</label>
-            <label class="option-label"><input type="radio" name="q1" value="C"> C) Apabhramsa</label>
-            <label class="option-label"><input type="radio" name="q1" value="D"> D) Laukikabhasha</label>
-            <div class="explanation"></div>
-        </div>
-
-        <div class="quiz-item" data-q="q2">
-            <div class="question">2. Who is recorded as the first historical figure to include Gorakhanatha in an official list of sixty-four spiritual masters?</div>
-            <label class="option-label"><input type="radio" name="q2" value="A"> A) Vidyapati Thakur</label>
-            <label class="option-label"><input type="radio" name="q2" value="B" data-correct="true"> B) Jyotirishwar Thakur in the VR</label>
-            <label class="option-label"><input type="radio" name="q2" value="C"> C) Sarahapada</label>
-            <label class="option-label"><input type="radio" name="q2" value="D"> D) Munidatta</label>
-            <div class="explanation"></div>
-        </div>
-    </form>
-
-    <div class="action-area">
-        <a href="https://www.videha.co.in/videha-elearning.htm" class="hub-link">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
-    </div>
+<h2 class="chapter-title">Chapter 3: Forms of Early Maithili Poetry</h2>
+<p class="chapter-note">Expanded exhaustive multiple-choice quiz based only on Radhakrishna Chaudhary’s <em>A Survey of Maithili Literature</em>.</p>
+<form id="quizForm">
+<div class="quiz-item" data-q="q1">
+<div class="question">1. Which early songs are treated as preserving proto-Maithili features?</div>
+<label class="option-label"><input type="radio" name="q1" value="A"> A) Harivamsa</label>
+<label class="option-label"><input type="radio" name="q1" value="B"> B) Meghaduta</label>
+<label class="option-label"><input type="radio" name="q1" value="C" data-correct="true"> C) Charyapadas</label>
+<label class="option-label"><input type="radio" name="q1" value="D"> D) Ritusamhara</label>
+<div class="explanation" data-expl="The chapter links early Maithili forms with Charyapadas."></div>
 </div>
 
-<footer>
-    © Gajendra Thakur, Editor — Videha eJournal
-</footer>
+<div class="quiz-item" data-q="q2">
+<div class="question">2. Which work is repeatedly important for early Maithili metre and vernacular poetry?</div>
+<label class="option-label"><input type="radio" name="q2" value="A"> A) Kanyadan</label>
+<label class="option-label"><input type="radio" name="q2" value="B" data-correct="true"> B) Prakritpaingalam</label>
+<label class="option-label"><input type="radio" name="q2" value="C"> C) Ain-i-Akbari</label>
+<label class="option-label"><input type="radio" name="q2" value="D"> D) Akali Kavitta</label>
+<div class="explanation" data-expl="Prakritpaingalam is used for early poetry and prosody evidence."></div>
+</div>
 
+<div class="quiz-item" data-q="q3">
+<div class="question">3. Which folk hero’s story is cited as having early literary importance?</div>
+<label class="option-label"><input type="radio" name="q3" value="A"> A) Nala</label>
+<label class="option-label"><input type="radio" name="q3" value="B"> B) Karna</label>
+<label class="option-label"><input type="radio" name="q3" value="C" data-correct="true"> C) Lorika</label>
+<label class="option-label"><input type="radio" name="q3" value="D"> D) Arjuna</label>
+<div class="explanation" data-expl="The chapter refers to Lorika as a major early popular narrative."></div>
+</div>
+
+<div class="quiz-item" data-q="q4">
+<div class="question">4. Which community is Daka said to have belonged to?</div>
+<label class="option-label"><input type="radio" name="q4" value="A" data-correct="true"> A) Ahir community</label>
+<label class="option-label"><input type="radio" name="q4" value="B"> B) Rajput community</label>
+<label class="option-label"><input type="radio" name="q4" value="C"> C) Kshatriya community</label>
+<label class="option-label"><input type="radio" name="q4" value="D"> D) Kayastha community</label>
+<div class="explanation" data-expl="The text says Daka belonged to the Ahir community of Mithila."></div>
+</div>
+
+<div class="quiz-item" data-q="q5">
+<div class="question">5. Which Sufi text is mentioned in relation to the story of Lorika?</div>
+<label class="option-label"><input type="radio" name="q5" value="A"> A) Padavali</label>
+<label class="option-label"><input type="radio" name="q5" value="B"> B) Varnanaratnakara</label>
+<label class="option-label"><input type="radio" name="q5" value="C"> C) Kirtipataka</label>
+<label class="option-label"><input type="radio" name="q5" value="D" data-correct="true"> D) Chandayana</label>
+<div class="explanation" data-expl="The Chandayana of Mulla Daud is mentioned in connection with Lorika."></div>
+</div>
+
+<div class="quiz-item" data-q="q6">
+<div class="question">6. In Chapter 3, which name, work or term is explicitly discussed in the context of “Forms of Early Maithili Poetry”?</div>
+<label class="option-label"><input type="radio" name="q6" value="A"> A) Govindadasa</label>
+<label class="option-label"><input type="radio" name="q6" value="B" data-correct="true"> B) Brajabuli</label>
+<label class="option-label"><input type="radio" name="q6" value="C"> C) Sitaram Jha</label>
+<label class="option-label"><input type="radio" name="q6" value="D"> D) Chandayana</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Brajabuli&lt;/strong&gt;. Source context: “ed by Forms of Early Maithili Poetry | 27 these Siddhas and their rhymes appear to have influenced Vidyapati and the poets of the Brajabuli literature of Assam and Bengal.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q7">
+<div class="question">7. In Chapter 3, which name, work or term is explicitly discussed in the context of “Forms of Early Maithili Poetry”?</div>
+<label class="option-label"><input type="radio" name="q7" value="A"> A) Varnanaratnakara</label>
+<label class="option-label"><input type="radio" name="q7" value="B"> B) Bhanjana</label>
+<label class="option-label"><input type="radio" name="q7" value="C"> C) Mithilakshara</label>
+<label class="option-label"><input type="radio" name="q7" value="D" data-correct="true"> D) Jyotirishwar</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Jyotirishwar&lt;/strong&gt;. Source context: “The example of the Charya lyric songs and Jayadeva vitalised the tradition of lyric in Mithila and by the time of Jyotirishwar Maithili had acquired prestige as a fit vehicle of expression of the highest emotions.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q8">
+<div class="question">8. In Chapter 3, which name, work or term is explicitly discussed in the context of “Forms of Early Maithili Poetry”?</div>
+<label class="option-label"><input type="radio" name="q8" value="A" data-correct="true"> A) Kirtilata</label>
+<label class="option-label"><input type="radio" name="q8" value="B"> B) Chandeshwar</label>
+<label class="option-label"><input type="radio" name="q8" value="C"> C) Nandipati</label>
+<label class="option-label"><input type="radio" name="q8" value="D"> D) Shankaradatta</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Kirtilata&lt;/strong&gt;. Source context: “The Dohakosha betrays great affinity with, the language of the VR, Kirtilata, Kirtipataka and Padavali of Vidyapati.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q9">
+<div class="question">9. In Chapter 3, which name, work or term is explicitly discussed in the context of “Forms of Early Maithili Poetry”?</div>
+<label class="option-label"><input type="radio" name="q9" value="A"> A) Likhnavali</label>
+<label class="option-label"><input type="radio" name="q9" value="B"> B) Shrinatha Bhatta</label>
+<label class="option-label"><input type="radio" name="q9" value="C"> C) journalism</label>
+<label class="option-label"><input type="radio" name="q9" value="D" data-correct="true"> D) Apabhramsa</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Apabhramsa&lt;/strong&gt;. Source context: “arly Maithili Poetry LINGUISTIC PECULIARITIES The language which Hiuentsang found spoken in the region of Tirhut was probably the Apabhramsa of the Magadhi Prakrit representing the transitional stage before the final emergence of Maithili.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q10">
+<div class="question">10. In Chapter 3, which name, work or term is explicitly discussed in the context of “Forms of Early Maithili Poetry”?</div>
+<label class="option-label"><input type="radio" name="q10" value="A"> A) Salhesa</label>
+<label class="option-label"><input type="radio" name="q10" value="B"> B) Harshanath Jha</label>
+<label class="option-label"><input type="radio" name="q10" value="C"> C) Karnatas</label>
+<label class="option-label"><input type="radio" name="q10" value="D" data-correct="true"> D) Padavali</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Padavali&lt;/strong&gt;. Source context: “The Dohakosha betrays great affinity with, the language of the VR, Kirtilata, Kirtipataka and Padavali of Vidyapati.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q11">
+<div class="question">11. In Chapter 3, which name, work or term is explicitly discussed in the context of “Forms of Early Maithili Poetry”?</div>
+<label class="option-label"><input type="radio" name="q11" value="A"> A) Krishnajanma</label>
+<label class="option-label"><input type="radio" name="q11" value="B" data-correct="true"> B) Kirtipataka</label>
+<label class="option-label"><input type="radio" name="q11" value="C"> C) Pratapamalla</label>
+<label class="option-label"><input type="radio" name="q11" value="D"> D) novel</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Kirtipataka&lt;/strong&gt;. Source context: “The Dohakosha betrays great affinity with, the language of the VR, Kirtilata, Kirtipataka and Padavali of Vidyapati.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q12">
+<div class="question">12. In Chapter 3, which name, work or term is explicitly discussed in the context of “Forms of Early Maithili Poetry”?</div>
+<label class="option-label"><input type="radio" name="q12" value="A"> A) Gananath Jha</label>
+<label class="option-label"><input type="radio" name="q12" value="B"> B) Badrinath Jha</label>
+<label class="option-label"><input type="radio" name="q12" value="C" data-correct="true"> C) Kamrupa</label>
+<label class="option-label"><input type="radio" name="q12" value="D"> D) Ratnapani</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Kamrupa&lt;/strong&gt;. Source context: “orm, in somewhat changed form, is still current in Maithili, and that is, “the woman fears a crow during the day time but goes to Kamrupa at night”.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q13">
+<div class="question">13. In Chapter 3, which name, work or term is explicitly discussed in the context of “Forms of Early Maithili Poetry”?</div>
+<label class="option-label"><input type="radio" name="q13" value="A"> A) Chedi Jha</label>
+<label class="option-label"><input type="radio" name="q13" value="B"> B) Harivamsa</label>
+<label class="option-label"><input type="radio" name="q13" value="C"> C) Krishnajanma</label>
+<label class="option-label"><input type="radio" name="q13" value="D" data-correct="true"> D) Magadhi Prakrit</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Magadhi Prakrit&lt;/strong&gt;. Source context: “ry LINGUISTIC PECULIARITIES The language which Hiuentsang found spoken in the region of Tirhut was probably the Apabhramsa of the Magadhi Prakrit representing the transitional stage before the final emergence of Maithili.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q14">
+<div class="question">14. In Chapter 3, which name, work or term is explicitly discussed in the context of “Forms of Early Maithili Poetry”?</div>
+<label class="option-label"><input type="radio" name="q14" value="A" data-correct="true"> A) Avahatta</label>
+<label class="option-label"><input type="radio" name="q14" value="B"> B) Chedi Jha</label>
+<label class="option-label"><input type="radio" name="q14" value="C"> C) Malla</label>
+<label class="option-label"><input type="radio" name="q14" value="D"> D) Jiwan Jha</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Avahatta&lt;/strong&gt;. Source context: “These songs betray some lingering traces of Avahatta.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q15">
+<div class="question">15. In Chapter 3, which name, work or term is explicitly discussed in the context of “Forms of Early Maithili Poetry”?</div>
+<label class="option-label"><input type="radio" name="q15" value="A"> A) Tantranath Jha</label>
+<label class="option-label"><input type="radio" name="q15" value="B"> B) Likhnavali</label>
+<label class="option-label"><input type="radio" name="q15" value="C" data-correct="true"> C) Hiuentsang</label>
+<label class="option-label"><input type="radio" name="q15" value="D"> D) Tirhuta</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Hiuentsang&lt;/strong&gt;. Source context: “CHAPTER—III Forms of Early Maithili Poetry LINGUISTIC PECULIARITIES The language which Hiuentsang found spoken in the region of Tirhut was probably the Apabhramsa of the Magadhi Prakrit representing the transitional stage before the final emergence of Maithili.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q16">
+<div class="question">16. Which of the following is mentioned in Chapter 3, “Forms of Early Maithili Poetry”?</div>
+<label class="option-label"><input type="radio" name="q16" value="A" data-correct="true"> A) Mithila</label>
+<label class="option-label"><input type="radio" name="q16" value="B"> B) Janaka</label>
+<label class="option-label"><input type="radio" name="q16" value="C"> C) Videha</label>
+<label class="option-label"><input type="radio" name="q16" value="D"> D) Tirabhukti</label>
+<div class="explanation" data-expl="The chapter mentions &lt;strong&gt;Mithila&lt;/strong&gt;. na are well known in Maithili of different periods and the genitive in ka found in the Charya songs characterises the language of Mithila."></div>
+</div>
+
+<div class="quiz-item" data-q="q17">
+<div class="question">17. Which of the following is mentioned in Chapter 3, “Forms of Early Maithili Poetry”?</div>
+<label class="option-label"><input type="radio" name="q17" value="A"> A) Tirabhukti</label>
+<label class="option-label"><input type="radio" name="q17" value="B"> B) Janaka</label>
+<label class="option-label"><input type="radio" name="q17" value="C"> C) Videha</label>
+<label class="option-label"><input type="radio" name="q17" value="D" data-correct="true"> D) Vidyapati</label>
+<div class="explanation" data-expl="The chapter mentions &lt;strong&gt;Vidyapati&lt;/strong&gt;. Third person forms in tu of these songs are common in Vidyapati and the abundance of verbal forms in U in the VR leaves no doubt as to their being in pure Maithili."></div>
+</div>
+
+<div class="quiz-item" data-q="q18">
+<div class="question">18. Which of the following is mentioned in Chapter 3, “Forms of Early Maithili Poetry”?</div>
+<label class="option-label"><input type="radio" name="q18" value="A"> A) Tirabhukti</label>
+<label class="option-label"><input type="radio" name="q18" value="B"> B) Janaka</label>
+<label class="option-label"><input type="radio" name="q18" value="C" data-correct="true"> C) Bengal</label>
+<label class="option-label"><input type="radio" name="q18" value="D"> D) Videha</label>
+<div class="explanation" data-expl="The chapter mentions &lt;strong&gt;Bengal&lt;/strong&gt;. e songs of the Buddhist saints, believed to be composed in Prakrit-Apabhramsa and equally claimed as their own by the scholars of Bengali."></div>
+</div>
+
+<div class="quiz-item" data-q="q19">
+<div class="question">19. Which of the following is mentioned in Chapter 3, “Forms of Early Maithili Poetry”?</div>
+<label class="option-label"><input type="radio" name="q19" value="A"> A) Janaka</label>
+<label class="option-label"><input type="radio" name="q19" value="B"> B) Videha</label>
+<label class="option-label"><input type="radio" name="q19" value="C"> C) Tirabhukti</label>
+<label class="option-label"><input type="radio" name="q19" value="D" data-correct="true"> D) Assam</label>
+<div class="explanation" data-expl="The chapter mentions &lt;strong&gt;Assam&lt;/strong&gt;. Assamese, Oriya and Hindi."></div>
+</div>
+
+<div class="quiz-item" data-q="q20">
+<div class="question">20. Which of the following is mentioned in Chapter 3, “Forms of Early Maithili Poetry”?</div>
+<label class="option-label"><input type="radio" name="q20" value="A"> A) Tirabhukti</label>
+<label class="option-label"><input type="radio" name="q20" value="B"> B) Janaka</label>
+<label class="option-label"><input type="radio" name="q20" value="C" data-correct="true"> C) Nepal</label>
+<label class="option-label"><input type="radio" name="q20" value="D"> D) Videha</label>
+<div class="explanation" data-expl="The chapter mentions &lt;strong&gt;Nepal&lt;/strong&gt;. i explains the non-Bengali elements in the Charya songs as deriving from the language of the scribes who were either Maithilas or Nepalesei."></div>
+</div>
+</form>
+<div id="scoreBox" class="score-box"></div>
+<div class="action-area">
+<button type="button" class="evaluate" onclick="evaluateQuiz()">Evaluate / Submit Quiz</button><br>
+<a href="https://www.videha.co.in/videha-elearning.htm" class="hub-link">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+</div>
+</div>
+<footer>© Gajendra Thakur, Editor — Videha eJournal</footer>
 <script>
-    document.querySelectorAll('.option-label input').forEach(input => {
-        input.addEventListener('change', function() {
-            const item = this.closest('.quiz-item');
-            const explanationDiv = item.querySelector('.explanation');
-            const labels = item.querySelectorAll('.option-label');
-            
-            labels.forEach(label => { label.style.pointerEvents = 'none'; });
-
-            const isCorrect = this.getAttribute('data-correct') === 'true';
-            if (isCorrect) {
-                this.parentElement.classList.add('correct-bg');
-                explanationDiv.className = "explanation visible correct-expl";
-                explanationDiv.innerHTML = "<strong>Correct!</strong> The text defines Sandhyabhasha as intentional speech[cite: 1863, 1864]. It explicitly credits Jyotirishwar with being the first to mention Gorakhanatha in his Varnanaratnakara list of sixty-four Siddhas. [cite: 1924]";
-            } else {
-                this.parentElement.classList.add('incorrect-bg');
-                explanationDiv.className = "explanation visible incorrect-expl";
-                labels.forEach(l => {
-                    if(l.querySelector('input').getAttribute('data-correct') === 'true') l.classList.add('correct-bg');
-                });
-                explanationDiv.innerHTML = "<strong>Incorrect.</strong> The intentional code dialect is called Sandhyabhasha [cite: 1863, 1864], and Jyotirishwar provides the earliest list containing Gorakhanatha. [cite: 1924]";
-            }
-        });
-    });
+document.querySelectorAll('.option-label input').forEach(input => {
+  input.addEventListener('change', function() {
+    const item = this.closest('.quiz-item');
+    const explanationDiv = item.querySelector('.explanation');
+    const labels = item.querySelectorAll('.option-label');
+    labels.forEach(label => { label.style.pointerEvents = 'none'; });
+    const isCorrect = this.getAttribute('data-correct') === 'true';
+    if (isCorrect) {
+      this.parentElement.classList.add('correct-bg');
+      explanationDiv.className = "explanation visible correct-expl";
+      explanationDiv.innerHTML = "<strong>Correct!</strong> " + explanationDiv.dataset.expl;
+    } else {
+      this.parentElement.classList.add('incorrect-bg');
+      explanationDiv.className = "explanation visible incorrect-expl";
+      labels.forEach(l => {
+        if(l.querySelector('input').getAttribute('data-correct') === 'true') l.classList.add('correct-bg');
+      });
+      explanationDiv.innerHTML = "<strong>Incorrect.</strong> " + explanationDiv.dataset.expl;
+    }
+  });
+});
+function evaluateQuiz() {
+  const items = document.querySelectorAll('.quiz-item');
+  let correct = 0, answered = 0;
+  items.forEach(item => {
+    const checked = item.querySelector('input:checked');
+    if (checked) {
+      answered++;
+      if (checked.getAttribute('data-correct') === 'true') correct++;
+    }
+  });
+  const box = document.getElementById('scoreBox');
+  box.style.display = 'block';
+  box.textContent = 'Score: ' + correct + ' / ' + items.length + ' correct. Answered: ' + answered + ' / ' + items.length + '.';
+  box.scrollIntoView({behavior:'smooth', block:'center'});
+}
 </script>
 </body>
 </html>

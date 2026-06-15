@@ -1,97 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Videha QUIZ | Chapter XIII</title>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #f4f6f9; color: #333; margin: 0; padding: 0; }
-        header { background-color: #002060; color: white; padding: 25px; text-align: center; border-bottom: 5px solid #001040; }
-        header h1 { margin: 0; font-size: 24px; font-weight: bold; }
-        header h2 { margin: 5px 0 0 0; font-size: 18px; font-weight: normal; opacity: 0.9; }
-        header p { margin: 5px 0 0 0; font-size: 14px; font-style: italic; opacity: 0.8; }
-        .nav-container { display: flex; justify-content: space-between; max-width: 800px; margin: 20px auto; padding: 0 20px; }
-        .nav-btn { background-color: #002060; color: white; padding: 8px 15px; text-decoration: none; border-radius: 4px; font-size: 14px; }
-        .nav-btn:hover { background-color: #001040; }
-        .container { max-width: 800px; margin: 0 auto 40px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .chapter-title { border-bottom: 2px solid #002060; padding-bottom: 10px; color: #002060; margin-bottom: 25px; }
-        .quiz-item { margin-bottom: 25px; padding: 15px; border: 1px solid #e0e0e0; border-radius: 6px; background-color: #fbfbfb; }
-        .question { font-weight: bold; font-size: 16px; margin-bottom: 12px; color: #111; }
-        .option-label { display: block; margin: 8px 0; padding: 10px; background: white; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; transition: all 0.2s; }
-        .option-label:hover { background-color: #f0f4f8; }
-        .option-label input { margin-right: 10px; }
-        .explanation { display: none; margin-top: 12px; padding: 12px; border-left: 4px solid; border-radius: 4px; font-size: 14px; }
-        .correct-bg { background-color: #d4edda !important; border-color: #c3e6cb !important; color: #155724; }
-        .incorrect-bg { background-color: #f8d7da !important; border-color: #f5c6cb !important; color: #721c24; }
-        .explanation.visible { display: block; }
-        .correct-expl { border-color: #28a745; background-color: #e8f5e9; color: #1b5e20; }
-        .incorrect-expl { border-color: #dc3545; background-color: #ffebee; color: #b71c1c; }
-        .action-area { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; }
-        .hub-link { display: inline-block; margin-top: 15px; color: #002060; font-weight: bold; text-decoration: none; font-size: 16px; }
-        .hub-link:hover { text-decoration: underline; }
-        footer { background-color: #002060; color: white; text-align: center; padding: 15px; position: relative; bottom: 0; width: 100%; font-size: 14px; border-top: 3px solid #001040; box-sizing: border-box; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Videha QUIZ | Maithili Sahityak Itihas Chapter 13</title>
+<style>
+body { font-family: Arial, sans-serif; background-color: #f4f6f9; color: #333; margin: 0; padding: 0; }
+header { background-color: #002060; color: white; padding: 25px; text-align: center; border-bottom: 5px solid #001040; }
+header h1 { margin: 0; font-size: 24px; font-weight: bold; }
+header h2 { margin: 5px 0 0 0; font-size: 18px; font-weight: normal; opacity: 0.9; }
+header p { margin: 5px 0 0 0; font-size: 14px; font-style: italic; opacity: 0.8; }
+.nav-container { display: flex; justify-content: space-between; max-width: 900px; margin: 20px auto; padding: 0 20px; }
+.nav-btn { background-color: #002060; color: white; padding: 8px 15px; text-decoration: none; border-radius: 4px; font-size: 14px; }
+.nav-btn:hover { background-color: #001040; }
+.container { max-width: 900px; margin: 0 auto 40px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+.chapter-title { border-bottom: 2px solid #002060; padding-bottom: 10px; color: #002060; margin-bottom: 8px; }
+.chapter-note { color:#555; margin:0 0 25px 0; font-size:14px; }
+.quiz-item { margin-bottom: 25px; padding: 15px; border: 1px solid #e0e0e0; border-radius: 6px; background-color: #fbfbfb; }
+.question { font-weight: bold; font-size: 16px; margin-bottom: 12px; color: #111; }
+.option-label { display: block; margin: 8px 0; padding: 10px; background: white; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; transition: all 0.2s; }
+.option-label:hover { background-color: #f0f4f8; }
+.option-label input { margin-right: 10px; }
+.explanation { display: none; margin-top: 12px; padding: 12px; border-left: 4px solid; border-radius: 4px; font-size: 14px; line-height:1.55; }
+.correct-bg { background-color: #d4edda !important; border-color: #c3e6cb !important; color: #155724; }
+.incorrect-bg { background-color: #f8d7da !important; border-color: #f5c6cb !important; color: #721c24; }
+.explanation.visible { display: block; }
+.correct-expl { border-color: #28a745; background-color: #e8f5e9; color: #1b5e20; }
+.incorrect-expl { border-color: #dc3545; background-color: #ffebee; color: #b71c1c; }
+.action-area { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; }
+.hub-link { display: inline-block; margin-top: 15px; color: #002060; font-weight: bold; text-decoration: none; font-size: 16px; }
+.hub-link:hover { text-decoration: underline; }
+.score-box { display:none; margin:20px 0; padding:15px; border:2px solid #002060; background:#eef4ff; color:#002060; font-weight:bold; text-align:center; border-radius:6px; }
+button.evaluate { background:#002060; color:white; border:none; padding:10px 18px; border-radius:5px; cursor:pointer; font-weight:bold; }
+button.evaluate:hover { background:#001040; }
+footer { background-color: #002060; color: white; text-align: center; padding: 15px; position: relative; bottom: 0; width: 100%; font-size: 14px; border-top: 3px solid #001040; box-sizing: border-box; }
+</style>
 </head>
 <body>
-
 <header>
-    <h1>Videha QUIZ  |  विदेह ई-लर्निङ्ग क्विज</h1>
-    <h2>Videha eLearning Quiz</h2>
-    <p>Videha — First Maithili Fortnightly eJournal  |  www.videha.co.in</p>
+<h1>Videha QUIZ  |  विदेह ई-लर्निङ्ग क्विज</h1>
+<h2>Videha eLearning Quiz</h2>
+<p>Videha — First Maithili Fortnightly eJournal  |  www.videha.co.in</p>
 </header>
-
-<div class="nav-container">
-    <a href="https://videha-ejournal.github.io/videha-quiz/MAITHILI_SAHITYAK_ITIHAS_20.html" class="nav-btn">← Previous Chapter</a>
-    <a href="https://videha-ejournal.github.io/videha-quiz/MAITHILI_SAHITYAK_ITIHAS_22.html" class="nav-btn">Next Chapter →</a>
-</div>
-
+<div class="nav-container"><a href="https://videha-ejournal.github.io/videha-quiz/MAITHILI_SAHITYAK_ITIHAS_20.html" class="nav-btn">← Previous Chapter</a><a href="https://videha-ejournal.github.io/videha-quiz/MAITHILI_SAHITYAK_ITIHAS_22.html" class="nav-btn">Next Chapter →</a></div>
 <div class="container">
-    <h2 class="chapter-title">Chapter XIII: The Golden Trio</h2>
-    
-    <form id="quizForm">
-        <div class="quiz-item" data-q="q1">
-            <div class="question">1. The 'Golden Trio' epoch defines the modern foundation of Maithili. Who is traditionally counted alongside Chanda Jha inside this classic modern framework?</div>
-            <label class="option-label"><input type="radio" name="q1" value="A"> A) Muralidhar Jha and Sitaram Jha</label>
-            <label class="option-label"><input type="radio" name="q1" value="B" data-correct="true"> B) Representative authors of the late 19th/early 20th century revival</label>
-            <label class="option-label"><input type="radio" name="q1" value="C"> C) Harshanatha and Manabodha</label>
-            <label class="option-label"><input type="radio" name="q1" value="D"> D) Vidyapati, Umapati, and Jyotirishwar</label>
-            <div class="explanation"></div>
-        </div>
-    </form>
-
-    <div class="action-area">
-        <a href="https://www.videha.co.in/videha-elearning.htm" class="hub-link">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
-    </div>
+<h2 class="chapter-title">Chapter 13: The Golden Trio</h2>
+<p class="chapter-note">Expanded exhaustive multiple-choice quiz based only on Radhakrishna Chaudhary’s <em>A Survey of Maithili Literature</em>.</p>
+<form id="quizForm">
+<div class="quiz-item" data-q="q1">
+<div class="question">1. Who are the three members of the Golden Trio?</div>
+<label class="option-label"><input type="radio" name="q1" value="A" data-correct="true"> A) Chanda Jha, Raghunandan Das and Lal Das</label>
+<label class="option-label"><input type="radio" name="q1" value="B"> B) Bharata, Kalidasa and Dhananjaya</label>
+<label class="option-label"><input type="radio" name="q1" value="C"> C) Daka, Ghagha and Lorika</label>
+<label class="option-label"><input type="radio" name="q1" value="D"> D) Vidyapati, Umapati and Jyotirishwar</label>
+<div class="explanation" data-expl="The chapter’s subtitle identifies Chanda Jha, Raghunandan Das and Lal Das."></div>
 </div>
 
-<footer>
-    © Gajendra Thakur, Editor — Videha eJournal
-</footer>
+<div class="quiz-item" data-q="q2">
+<div class="question">2. Which year is taken for convenience as the starting point of modern Maithili trends?</div>
+<label class="option-label"><input type="radio" name="q2" value="A" data-correct="true"> A) 1830 A.D.</label>
+<label class="option-label"><input type="radio" name="q2" value="B"> B) 1097 A.D.</label>
+<label class="option-label"><input type="radio" name="q2" value="C"> C) 1556 A.D.</label>
+<label class="option-label"><input type="radio" name="q2" value="D"> D) 900 A.D.</label>
+<div class="explanation" data-expl="The chapter says 1830 A.D. may be taken as the starting point of new trends."></div>
+</div>
 
+<div class="quiz-item" data-q="q3">
+<div class="question">3. Which member of the trio collaborated with Grierson?</div>
+<label class="option-label"><input type="radio" name="q3" value="A" data-correct="true"> A) Chanda Jha</label>
+<label class="option-label"><input type="radio" name="q3" value="B"> B) Lal Das</label>
+<label class="option-label"><input type="radio" name="q3" value="C"> C) Manabodha</label>
+<label class="option-label"><input type="radio" name="q3" value="D"> D) Raghunandan Das</label>
+<div class="explanation" data-expl="The chapter calls Pandit Chanda Jha a collaborator of Grierson."></div>
+</div>
+
+<div class="quiz-item" data-q="q4">
+<div class="question">4. Which member of the trio lived from 1860 to 1945?</div>
+<label class="option-label"><input type="radio" name="q4" value="A"> A) Vidyapati</label>
+<label class="option-label"><input type="radio" name="q4" value="B"> B) Chanda Jha</label>
+<label class="option-label"><input type="radio" name="q4" value="C"> C) Lal Das</label>
+<label class="option-label"><input type="radio" name="q4" value="D" data-correct="true"> D) Raghunandan Das</label>
+<div class="explanation" data-expl="The chapter gives Raghunandan Das’s dates as 1860–1945."></div>
+</div>
+
+<div class="quiz-item" data-q="q5">
+<div class="question">5. Which member of the trio lived from 1856 to 1921?</div>
+<label class="option-label"><input type="radio" name="q5" value="A"> A) Govindadasa</label>
+<label class="option-label"><input type="radio" name="q5" value="B" data-correct="true"> B) Lal Das</label>
+<label class="option-label"><input type="radio" name="q5" value="C"> C) Raghunandan Das</label>
+<label class="option-label"><input type="radio" name="q5" value="D"> D) Chanda Jha</label>
+<div class="explanation" data-expl="The chapter gives Lal Das’s dates as 1856–1921."></div>
+</div>
+
+<div class="quiz-item" data-q="q6">
+<div class="question">6. In Chapter 13, which name, work or term is explicitly discussed in the context of “The Golden Trio”?</div>
+<label class="option-label"><input type="radio" name="q6" value="A"> A) Rajkamal</label>
+<label class="option-label"><input type="radio" name="q6" value="B" data-correct="true"> B) Bangaon</label>
+<label class="option-label"><input type="radio" name="q6" value="C"> C) documentary prose</label>
+<label class="option-label"><input type="radio" name="q6" value="D"> D) Satikumari</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Bangaon&lt;/strong&gt;. Source context: “Jyotisha-charya Baldeva Mishra ( of Bangaon-Saharsa) has written an account of his life and works.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q7">
+<div class="question">7. In Chapter 13, which name, work or term is explicitly discussed in the context of “The Golden Trio”?</div>
+<label class="option-label"><input type="radio" name="q7" value="A"> A) Brajawali</label>
+<label class="option-label"><input type="radio" name="q7" value="B"> B) Lakshminatha Gossain</label>
+<label class="option-label"><input type="radio" name="q7" value="C" data-correct="true"> C) Harshanath</label>
+<label class="option-label"><input type="radio" name="q7" value="D"> D) Malla</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Harshanath&lt;/strong&gt;. Source context: “He had intimate relationship with Harshanath Jha, The Golden Trio | 143 Chanda Jha, Chetnatha Jha, Vishwanath Jha and other contemporary writers.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q8">
+<div class="question">8. In Chapter 13, which name, work or term is explicitly discussed in the context of “The Golden Trio”?</div>
+<label class="option-label"><input type="radio" name="q8" value="A"> A) Padavali</label>
+<label class="option-label"><input type="radio" name="q8" value="B"> B) Chedi Jha</label>
+<label class="option-label"><input type="radio" name="q8" value="C"> C) Yatri</label>
+<label class="option-label"><input type="radio" name="q8" value="D" data-correct="true"> D) Maheshvani</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Maheshvani&lt;/strong&gt;. Source context: “In the rare moments, he burst into magnificent poetry as will be evident from his Maheshvanis.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q9">
+<div class="question">9. In Chapter 13, which name, work or term is explicitly discussed in the context of “The Golden Trio”?</div>
+<label class="option-label"><input type="radio" name="q9" value="A"> A) Mithila Moda</label>
+<label class="option-label"><input type="radio" name="q9" value="B" data-correct="true"> B) Lochana</label>
+<label class="option-label"><input type="radio" name="q9" value="C"> C) Kalidasa</label>
+<label class="option-label"><input type="radio" name="q9" value="D"> D) Bhavabhuti</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Lochana&lt;/strong&gt;. Source context: “) He collected and compiled the poems of Vidyapati, Govindadasa and Lochana and attempted to revive the Maithili Ragas and Raginis and also to popularise the Kirtaniya drama.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q10">
+<div class="question">10. In Chapter 13, which name, work or term is explicitly discussed in the context of “The Golden Trio”?</div>
+<label class="option-label"><input type="radio" name="q10" value="A"> A) Chaitanya</label>
+<label class="option-label"><input type="radio" name="q10" value="B"> B) Magadhi Prakrit</label>
+<label class="option-label"><input type="radio" name="q10" value="C"> C) Gangesha</label>
+<label class="option-label"><input type="radio" name="q10" value="D" data-correct="true"> D) Mithila Mihir</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Mithila Mihir&lt;/strong&gt;. Source context: “rise the Kirtaniya drama, he himself wrote one such drama entitled “Ahalyachar-itanataka”, It was partly published in 1912 in the Mithila Mihira (of 1912).”"></div>
+</div>
+
+<div class="quiz-item" data-q="q11">
+<div class="question">11. In Chapter 13, which name, work or term is explicitly discussed in the context of “The Golden Trio”?</div>
+<label class="option-label"><input type="radio" name="q11" value="A"> A) Bengal</label>
+<label class="option-label"><input type="radio" name="q11" value="B" data-correct="true"> B) Kirtaniya drama</label>
+<label class="option-label"><input type="radio" name="q11" value="C"> C) Ekavaliparinaya</label>
+<label class="option-label"><input type="radio" name="q11" value="D"> D) Harisimhadeva</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Kirtaniya drama&lt;/strong&gt;. Source context: “the poems of Vidyapati, Govindadasa and Lochana and attempted to revive the Maithili Ragas and Raginis and also to popularise the Kirtaniya drama.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q12">
+<div class="question">12. In Chapter 13, which name, work or term is explicitly discussed in the context of “The Golden Trio”?</div>
+<label class="option-label"><input type="radio" name="q12" value="A"> A) Shankaradatta</label>
+<label class="option-label"><input type="radio" name="q12" value="B" data-correct="true"> B) Ramayana</label>
+<label class="option-label"><input type="radio" name="q12" value="C"> C) Bhana Jha</label>
+<label class="option-label"><input type="radio" name="q12" value="D"> D) Karmaditya</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Ramayana&lt;/strong&gt;. Source context: “The Ramayana in Maithili is his magnum opus.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q13">
+<div class="question">13. In Chapter 13, which name, work or term is explicitly discussed in the context of “The Golden Trio”?</div>
+<label class="option-label"><input type="radio" name="q13" value="A"> A) Khattar Kaka</label>
+<label class="option-label"><input type="radio" name="q13" value="B"> B) Lorika</label>
+<label class="option-label"><input type="radio" name="q13" value="C" data-correct="true"> C) Gananath Jha</label>
+<label class="option-label"><input type="radio" name="q13" value="D"> D) Sarvananda</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Gananath Jha&lt;/strong&gt;. Source context: “Mukunda Jha Bakshi, Gananath Jha, Lal Das and various others were his associates.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q14">
+<div class="question">14. In Chapter 13, which name, work or term is explicitly discussed in the context of “The Golden Trio”?</div>
+<label class="option-label"><input type="radio" name="q14" value="A" data-correct="true"> A) Govindadasa</label>
+<label class="option-label"><input type="radio" name="q14" value="B"> B) Kamrupa</label>
+<label class="option-label"><input type="radio" name="q14" value="C"> C) Shrinatha Bhatta</label>
+<label class="option-label"><input type="radio" name="q14" value="D"> D) Khattar Kaka</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Govindadasa&lt;/strong&gt;. Source context: “) He collected and compiled the poems of Vidyapati, Govindadasa and Lochana and attempted to revive the Maithili Ragas and Raginis and also to popularise the Kirtaniya drama.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q15">
+<div class="question">15. In Chapter 13, which name, work or term is explicitly discussed in the context of “The Golden Trio”?</div>
+<label class="option-label"><input type="radio" name="q15" value="A"> A) Likhnavali</label>
+<label class="option-label"><input type="radio" name="q15" value="B"> B) Mughal Governors</label>
+<label class="option-label"><input type="radio" name="q15" value="C"> C) Ratnakaras</label>
+<label class="option-label"><input type="radio" name="q15" value="D" data-correct="true"> D) Nachari</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Nachari&lt;/strong&gt;. Source context: “of a scientific enquiry into the subject, collected the old classics and compiled them, composed new series of Maheshavancis and Nacharis and set a new line of writing in different branches of Maithili literature.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q16">
+<div class="question">16. In Chapter 13, which name, work or term is explicitly discussed in the context of “The Golden Trio”?</div>
+<label class="option-label"><input type="radio" name="q16" value="A"> A) Chandayana</label>
+<label class="option-label"><input type="radio" name="q16" value="B"> B) Kirtilata</label>
+<label class="option-label"><input type="radio" name="q16" value="C" data-correct="true"> C) Daka</label>
+<label class="option-label"><input type="radio" name="q16" value="D"> D) Rajkamal</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Daka&lt;/strong&gt;. Source context: “His famous works are Mithila Nataka, Sudarshana Nataka, Dutang a da Vyayoga (Drama), Vratakathas (verse), Birbalaka (Khandakavya) and Subhadraharana in ten cantos (Mahakavya).”"></div>
+</div>
+
+<div class="quiz-item" data-q="q17">
+<div class="question">17. In Chapter 13, which name, work or term is explicitly discussed in the context of “The Golden Trio”?</div>
+<label class="option-label"><input type="radio" name="q17" value="A"> A) novel</label>
+<label class="option-label"><input type="radio" name="q17" value="B"> B) Bhanusimha</label>
+<label class="option-label"><input type="radio" name="q17" value="C" data-correct="true"> C) Subhadraharana</label>
+<label class="option-label"><input type="radio" name="q17" value="D"> D) Govinda Jha</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Subhadraharana&lt;/strong&gt;. Source context: “famous works are Mithila Nataka, Sudarshana Nataka, Dutang a da Vyayoga (Drama), Vratakathas (verse), Birbalaka (Khandakavya) and Subhadraharana in ten cantos (Mahakavya).”"></div>
+</div>
+
+<div class="quiz-item" data-q="q18">
+<div class="question">18. In Chapter 13, which name, work or term is explicitly discussed in the context of “The Golden Trio”?</div>
+<label class="option-label"><input type="radio" name="q18" value="A" data-correct="true"> A) Ramanath Jha</label>
+<label class="option-label"><input type="radio" name="q18" value="B"> B) Shankaradatta</label>
+<label class="option-label"><input type="radio" name="q18" value="C"> C) Bhavabhuti</label>
+<label class="option-label"><input type="radio" name="q18" value="D"> D) Hiuentsang</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Ramanath Jha&lt;/strong&gt;. Source context: “old Maithiii poets are very important and some of these collections are believed to have been in possession of the late Professor Ramanath Jha of Darbhanga.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q19">
+<div class="question">19. In Chapter 13, which name, work or term is explicitly discussed in the context of “The Golden Trio”?</div>
+<label class="option-label"><input type="radio" name="q19" value="A"> A) Krishnajanma</label>
+<label class="option-label"><input type="radio" name="q19" value="B"> B) documentary prose</label>
+<label class="option-label"><input type="radio" name="q19" value="C"> C) Ram Ekbal Singh Rakesh</label>
+<label class="option-label"><input type="radio" name="q19" value="D" data-correct="true"> D) Manabodha</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Manabodha&lt;/strong&gt;. Source context: “The tradition of the epic poems, set by Manabodha, was continued with equal vigour and intensity by Chanda Jha, Raghunandan Das and Lal Das.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q20">
+<div class="question">20. In Chapter 13, which name, work or term is explicitly discussed in the context of “The Golden Trio”?</div>
+<label class="option-label"><input type="radio" name="q20" value="A"> A) Ratnakaras</label>
+<label class="option-label"><input type="radio" name="q20" value="B"> B) Mithilakshara</label>
+<label class="option-label"><input type="radio" name="q20" value="C" data-correct="true"> C) British rule</label>
+<label class="option-label"><input type="radio" name="q20" value="D"> D) Brajawali</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;British rule&lt;/strong&gt;. Source context: “He was also critical of the British rule in India and has castigated it in a very sarcastic manner.”"></div>
+</div>
+</form>
+<div id="scoreBox" class="score-box"></div>
+<div class="action-area">
+<button type="button" class="evaluate" onclick="evaluateQuiz()">Evaluate / Submit Quiz</button><br>
+<a href="https://www.videha.co.in/videha-elearning.htm" class="hub-link">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+</div>
+</div>
+<footer>© Gajendra Thakur, Editor — Videha eJournal</footer>
 <script>
-    document.querySelectorAll('.option-label input').forEach(input => {
-        input.addEventListener('change', function() {
-            const item = this.closest('.quiz-item');
-            const explanationDiv = item.querySelector('.explanation');
-            const labels = item.querySelectorAll('.option-label');
-            
-            labels.forEach(label => { label.style.pointerEvents = 'none'; });
-
-            const isCorrect = this.getAttribute('data-correct') === 'true';
-            if (isCorrect) {
-                this.parentElement.classList.add('correct-bg');
-                explanationDiv.className = "explanation visible correct-expl";
-                explanationDiv.innerHTML = "<strong>Correct!</strong> The chapter profiles Chanda Jha and his primary contemporaries who laid the modern foundation. [cite: 33, 1042]";
-            } else {
-                this.parentElement.classList.add('incorrect-bg');
-                explanationDiv.className = "explanation visible incorrect-expl";
-                labels.forEach(l => {
-                    if(l.querySelector('input').getAttribute('data-correct') === 'true') l.classList.add('correct-bg');
-                });
-                explanationDiv.innerHTML = "<strong>Incorrect.</strong> The Golden Trio outlines the foundational early modernizing masters. ";
-            }
-        });
-    });
+document.querySelectorAll('.option-label input').forEach(input => {
+  input.addEventListener('change', function() {
+    const item = this.closest('.quiz-item');
+    const explanationDiv = item.querySelector('.explanation');
+    const labels = item.querySelectorAll('.option-label');
+    labels.forEach(label => { label.style.pointerEvents = 'none'; });
+    const isCorrect = this.getAttribute('data-correct') === 'true';
+    if (isCorrect) {
+      this.parentElement.classList.add('correct-bg');
+      explanationDiv.className = "explanation visible correct-expl";
+      explanationDiv.innerHTML = "<strong>Correct!</strong> " + explanationDiv.dataset.expl;
+    } else {
+      this.parentElement.classList.add('incorrect-bg');
+      explanationDiv.className = "explanation visible incorrect-expl";
+      labels.forEach(l => {
+        if(l.querySelector('input').getAttribute('data-correct') === 'true') l.classList.add('correct-bg');
+      });
+      explanationDiv.innerHTML = "<strong>Incorrect.</strong> " + explanationDiv.dataset.expl;
+    }
+  });
+});
+function evaluateQuiz() {
+  const items = document.querySelectorAll('.quiz-item');
+  let correct = 0, answered = 0;
+  items.forEach(item => {
+    const checked = item.querySelector('input:checked');
+    if (checked) {
+      answered++;
+      if (checked.getAttribute('data-correct') === 'true') correct++;
+    }
+  });
+  const box = document.getElementById('scoreBox');
+  box.style.display = 'block';
+  box.textContent = 'Score: ' + correct + ' / ' + items.length + ' correct. Answered: ' + answered + ' / ' + items.length + '.';
+  box.scrollIntoView({behavior:'smooth', block:'center'});
+}
 </script>
 </body>
 </html>

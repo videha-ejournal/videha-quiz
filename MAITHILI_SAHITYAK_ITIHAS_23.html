@@ -1,115 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Videha QUIZ | Chapter XV</title>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #f4f6f9; color: #333; margin: 0; padding: 0; }
-        header { background-color: #002060; color: white; padding: 25px; text-align: center; border-bottom: 5px solid #001040; }
-        header h1 { margin: 0; font-size: 24px; font-weight: bold; }
-        header h2 { margin: 5px 0 0 0; font-size: 18px; font-weight: normal; opacity: 0.9; }
-        header p { margin: 5px 0 0 0; font-size: 14px; font-style: italic; opacity: 0.8; }
-        .nav-container { display: flex; justify-content: space-between; max-width: 800px; margin: 20px auto; padding: 0 20px; }
-        .nav-btn { background-color: #002060; color: white; padding: 8px 15px; text-decoration: none; border-radius: 4px; font-size: 14px; }
-        .nav-btn:hover { background-color: #001040; }
-        .container { max-width: 800px; margin: 0 auto 40px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .chapter-title { border-bottom: 2px solid #002060; padding-bottom: 10px; color: #002060; margin-bottom: 25px; }
-        .quiz-item { margin-bottom: 25px; padding: 15px; border: 1px solid #e0e0e0; border-radius: 6px; background-color: #fbfbfb; }
-        .question { font-weight: bold; font-size: 16px; margin-bottom: 12px; color: #111; }
-        .option-label { display: block; margin: 8px 0; padding: 10px; background: white; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; transition: all 0.2s; }
-        .option-label:hover { background-color: #f0f4f8; }
-        .option-label input { margin-right: 10px; }
-        .explanation { display: none; margin-top: 12px; padding: 12px; border-left: 4px solid; border-radius: 4px; font-size: 14px; }
-        .correct-bg { background-color: #d4edda !important; border-color: #c3e6cb !important; color: #155724; }
-        .incorrect-bg { background-color: #f8d7da !important; border-color: #f5c6cb !important; color: #721c24; }
-        .explanation.visible { display: block; }
-        .correct-expl { border-color: #28a745; background-color: #e8f5e9; color: #1b5e20; }
-        .incorrect-expl { border-color: #dc3545; background-color: #ffebee; color: #b71c1c; }
-        .action-area { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; }
-        .hub-link { display: inline-block; margin-top: 15px; color: #002060; font-weight: bold; text-decoration: none; font-size: 16px; }
-        .hub-link:hover { text-decoration: underline; }
-        footer { background-color: #002060; color: white; text-align: center; padding: 15px; position: relative; bottom: 0; width: 100%; font-size: 14px; border-top: 3px solid #001040; box-sizing: border-box; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Videha QUIZ | Maithili Sahityak Itihas Chapter 15</title>
+<style>
+body { font-family: Arial, sans-serif; background-color: #f4f6f9; color: #333; margin: 0; padding: 0; }
+header { background-color: #002060; color: white; padding: 25px; text-align: center; border-bottom: 5px solid #001040; }
+header h1 { margin: 0; font-size: 24px; font-weight: bold; }
+header h2 { margin: 5px 0 0 0; font-size: 18px; font-weight: normal; opacity: 0.9; }
+header p { margin: 5px 0 0 0; font-size: 14px; font-style: italic; opacity: 0.8; }
+.nav-container { display: flex; justify-content: space-between; max-width: 900px; margin: 20px auto; padding: 0 20px; }
+.nav-btn { background-color: #002060; color: white; padding: 8px 15px; text-decoration: none; border-radius: 4px; font-size: 14px; }
+.nav-btn:hover { background-color: #001040; }
+.container { max-width: 900px; margin: 0 auto 40px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+.chapter-title { border-bottom: 2px solid #002060; padding-bottom: 10px; color: #002060; margin-bottom: 8px; }
+.chapter-note { color:#555; margin:0 0 25px 0; font-size:14px; }
+.quiz-item { margin-bottom: 25px; padding: 15px; border: 1px solid #e0e0e0; border-radius: 6px; background-color: #fbfbfb; }
+.question { font-weight: bold; font-size: 16px; margin-bottom: 12px; color: #111; }
+.option-label { display: block; margin: 8px 0; padding: 10px; background: white; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; transition: all 0.2s; }
+.option-label:hover { background-color: #f0f4f8; }
+.option-label input { margin-right: 10px; }
+.explanation { display: none; margin-top: 12px; padding: 12px; border-left: 4px solid; border-radius: 4px; font-size: 14px; line-height:1.55; }
+.correct-bg { background-color: #d4edda !important; border-color: #c3e6cb !important; color: #155724; }
+.incorrect-bg { background-color: #f8d7da !important; border-color: #f5c6cb !important; color: #721c24; }
+.explanation.visible { display: block; }
+.correct-expl { border-color: #28a745; background-color: #e8f5e9; color: #1b5e20; }
+.incorrect-expl { border-color: #dc3545; background-color: #ffebee; color: #b71c1c; }
+.action-area { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; }
+.hub-link { display: inline-block; margin-top: 15px; color: #002060; font-weight: bold; text-decoration: none; font-size: 16px; }
+.hub-link:hover { text-decoration: underline; }
+.score-box { display:none; margin:20px 0; padding:15px; border:2px solid #002060; background:#eef4ff; color:#002060; font-weight:bold; text-align:center; border-radius:6px; }
+button.evaluate { background:#002060; color:white; border:none; padding:10px 18px; border-radius:5px; cursor:pointer; font-weight:bold; }
+button.evaluate:hover { background:#001040; }
+footer { background-color: #002060; color: white; text-align: center; padding: 15px; position: relative; bottom: 0; width: 100%; font-size: 14px; border-top: 3px solid #001040; box-sizing: border-box; }
+</style>
 </head>
 <body>
-
 <header>
-    <h1>Videha QUIZ  |  विदेह ई-लर्निङ्ग क्विज</h1>
-    <h2>Videha eLearning Quiz</h2>
-    <p>Videha — First Maithili Fortnightly eJournal  |  www.videha.co.in</p>
+<h1>Videha QUIZ  |  विदेह ई-लर्निङ्ग क्विज</h1>
+<h2>Videha eLearning Quiz</h2>
+<p>Videha — First Maithili Fortnightly eJournal  |  www.videha.co.in</p>
 </header>
-
-<div class="nav-container">
-    <a href="https://videha-ejournal.github.io/videha-quiz/MAITHILI_SAHITYAK_ITIHAS_22.html" class="nav-btn">← Previous Chapter</a>
-    <span style="visibility: hidden;" class="nav-btn">Next →</span>
-</div>
-
+<div class="nav-container"><a href="https://videha-ejournal.github.io/videha-quiz/MAITHILI_SAHITYAK_ITIHAS_22.html" class="nav-btn">← Previous Chapter</a><span></span></div>
 <div class="container">
-    <h2 class="chapter-title">Chapter XV: The New Dimensions (A Survey of Maithili Prose)</h2>
-    
-    <form id="quizForm">
-        <div class="quiz-item" data-q="q1">
-            <div class="question">1. Which stable periodical, started in 1949 under the editorship of Prof. Krishna Kant Mishra, served as a core stable forum for modern writers?</div>
-            <label class="option-label"><input type="radio" name="q1" value="A"> A) Mithila Mihir</label>
-            <label class="option-label"><input type="radio" name="q1" value="B" data-correct="true"> B) Vaidehi</label>
-            <label class="option-label"><input type="radio" name="q1" value="C"> C) Swadesha</label>
-            <label class="option-label"><input type="radio" name="q1" value="D"> D) Abhivyanjana</label>
-            <div class="explanation"></div>
-        </div>
-
-        <div class="quiz-item" data-q="q2">
-            <div class="question">2. Which masterly social novel authored by Professor Harimohan Jha has been successfully adapted into a film?</div>
-            <label class="option-label"><input type="radio" name="q2" value="A" data-correct="true"> A) Kanyadana</label>
-            <label class="option-label"><input type="radio" name="q2" value="B"> B) Dviragamana</label>
-            <label class="option-label"><input type="radio" name="q2" value="C"> C) Rameshwara</label>
-            <label class="option-label"><input type="radio" name="q2" value="D"> D) Paro</label>
-            <div class="explanation"></div>
-        </div>
-
-        <div class="quiz-item" data-q="q3">
-            <div class="question">3. Whose exhaustive modern grammar work titled 'Mithila-Bhasha-Vidyotana' is written in the classic Paninian Sutra form?</div>
-            <label class="option-label"><input type="radio" name="q3" value="A"> A) Sir George Grierson</label>
-            <label class="option-label"><input type="radio" name="q3" value="B" data-correct="true"> B) Dinabandhu Jha</label>
-            <label class="option-label"><input type="radio" name="q3" value="C"> C) Bhola Lal Das</label>
-            <label class="option-label"><input type="radio" name="q3" value="D"> D) Murlidhar Jha</label>
-            <div class="explanation"></div>
-        </div>
-    </form>
-
-    <div class="action-area">
-        <a href="https://www.videha.co.in/videha-elearning.htm" class="hub-link">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
-    </div>
+<h2 class="chapter-title">Chapter 15: The New Dimensions</h2>
+<p class="chapter-note">Expanded exhaustive multiple-choice quiz based only on Radhakrishna Chaudhary’s <em>A Survey of Maithili Literature</em>.</p>
+<form id="quizForm">
+<div class="quiz-item" data-q="q1">
+<div class="question">1. What is the oldest obtainable specimen of Maithili prose according to the chapter?</div>
+<label class="option-label"><input type="radio" name="q1" value="A" data-correct="true"> A) Varnanaratnakara</label>
+<label class="option-label"><input type="radio" name="q1" value="B"> B) Khattar Kaka</label>
+<label class="option-label"><input type="radio" name="q1" value="C"> C) Mithila Mihir</label>
+<label class="option-label"><input type="radio" name="q1" value="D"> D) Kanyadan</label>
+<div class="explanation" data-expl="The chapter says the oldest specimen of Maithili prose so far obtainable is Jyotirishwar’s Varnanaratnakara."></div>
 </div>
 
-<footer>
-    © Gajendra Thakur, Editor — Videha eJournal
-</footer>
+<div class="quiz-item" data-q="q2">
+<div class="question">2. What did the medieval prose mainly become?</div>
+<label class="option-label"><input type="radio" name="q2" value="A" data-correct="true"> A) Documentary prose</label>
+<label class="option-label"><input type="radio" name="q2" value="B"> B) Romantic psychological fiction</label>
+<label class="option-label"><input type="radio" name="q2" value="C"> C) Blank verse</label>
+<label class="option-label"><input type="radio" name="q2" value="D"> D) Epic drama</label>
+<div class="explanation" data-expl="The chapter characterizes medieval prose as purely documentary."></div>
+</div>
 
+<div class="quiz-item" data-q="q3">
+<div class="question">3. Which period gave refined literary prose to Maithili?</div>
+<label class="option-label"><input type="radio" name="q3" value="A"> A) The Mauryan period</label>
+<label class="option-label"><input type="radio" name="q3" value="B"> B) The Gupta period only</label>
+<label class="option-label"><input type="radio" name="q3" value="C" data-correct="true"> C) The modern period</label>
+<label class="option-label"><input type="radio" name="q3" value="D"> D) The Vedic period</label>
+<div class="explanation" data-expl="The chapter calls refined prose a gift of the modern period."></div>
+</div>
+
+<div class="quiz-item" data-q="q4">
+<div class="question">4. Which writer is associated with Kanyadan?</div>
+<label class="option-label"><input type="radio" name="q4" value="A"> A) Lochana</label>
+<label class="option-label"><input type="radio" name="q4" value="B" data-correct="true"> B) Harimohan Jha</label>
+<label class="option-label"><input type="radio" name="q4" value="C"> C) Daka</label>
+<label class="option-label"><input type="radio" name="q4" value="D"> D) Bharata</label>
+<div class="explanation" data-expl="The prose survey discusses Harimohan Jha’s place in modern prose and fiction."></div>
+</div>
+
+<div class="quiz-item" data-q="q5">
+<div class="question">5. Which famous comic prose persona is associated with Harimohan Jha?</div>
+<label class="option-label"><input type="radio" name="q5" value="A"> A) Yajnavalkya</label>
+<label class="option-label"><input type="radio" name="q5" value="B" data-correct="true"> B) Khattar Kaka</label>
+<label class="option-label"><input type="radio" name="q5" value="C"> C) Lorika</label>
+<label class="option-label"><input type="radio" name="q5" value="D"> D) Janaka</label>
+<div class="explanation" data-expl="Khattar Kaka is connected with Harimohan Jha’s satirical prose tradition."></div>
+</div>
+
+<div class="quiz-item" data-q="q6">
+<div class="question">6. In Chapter 15, which name, work or term is explicitly discussed in the context of “The New Dimensions”?</div>
+<label class="option-label"><input type="radio" name="q6" value="A"> A) Gonu Jha</label>
+<label class="option-label"><input type="radio" name="q6" value="B" data-correct="true"> B) Lal Das</label>
+<label class="option-label"><input type="radio" name="q6" value="C"> C) Babua Khan</label>
+<label class="option-label"><input type="radio" name="q6" value="D"> D) Karnatas</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Lal Das&lt;/strong&gt;. Source context: “Mohamahopadhyaya Murlidhar Jha, Parmeshwar Jha, Raghunandan Das, Lal Das, Mm.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q7">
+<div class="question">7. In Chapter 15, which name, work or term is explicitly discussed in the context of “The New Dimensions”?</div>
+<label class="option-label"><input type="radio" name="q7" value="A" data-correct="true"> A) Kanyadan</label>
+<label class="option-label"><input type="radio" name="q7" value="B"> B) Parmanandadatta</label>
+<label class="option-label"><input type="radio" name="q7" value="C"> C) Maithili Lokgeet</label>
+<label class="option-label"><input type="radio" name="q7" value="D"> D) Nandipati</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Kanyadan&lt;/strong&gt;. Source context: “His novel like ‘Kanyadana’ (1930-33; already filmed) and ‘Dviragamana’ form a pair.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q8">
+<div class="question">8. In Chapter 15, which name, work or term is explicitly discussed in the context of “The New Dimensions”?</div>
+<label class="option-label"><input type="radio" name="q8" value="A"> A) Maithili Chrestomathy</label>
+<label class="option-label"><input type="radio" name="q8" value="B"> B) Achyutananda Datta</label>
+<label class="option-label"><input type="radio" name="q8" value="C"> C) Akali Kavitta</label>
+<label class="option-label"><input type="radio" name="q8" value="D" data-correct="true"> D) Govinda Jha</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Govinda Jha&lt;/strong&gt;. Source context: “Shri Balgovinda Jha ‘Vyathita’ has also written a history of Maithili literature in Maithili language.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q9">
+<div class="question">9. In Chapter 15, which name, work or term is explicitly discussed in the context of “The New Dimensions”?</div>
+<label class="option-label"><input type="radio" name="q9" value="A"> A) Harivamsa</label>
+<label class="option-label"><input type="radio" name="q9" value="B"> B) Harshanath Jha</label>
+<label class="option-label"><input type="radio" name="q9" value="C" data-correct="true"> C) Gangesha</label>
+<label class="option-label"><input type="radio" name="q9" value="D"> D) Orissa</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Gangesha&lt;/strong&gt;. Source context: “Gangesha Gunjana and Prabhash Kumar Chouduary are the promising writers of modern Maithili fiction and their wide imagination and style have attracted the notice of discerning critics.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q10">
+<div class="question">10. In Chapter 15, which name, work or term is explicitly discussed in the context of “The New Dimensions”?</div>
+<label class="option-label"><input type="radio" name="q10" value="A" data-correct="true"> A) Chanda Jha</label>
+<label class="option-label"><input type="radio" name="q10" value="B"> B) Oinwaras</label>
+<label class="option-label"><input type="radio" name="q10" value="C"> C) Satikumari</label>
+<label class="option-label"><input type="radio" name="q10" value="D"> D) sale deeds</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Chanda Jha&lt;/strong&gt;. Source context: “In the beginning of the modern period, prose writers like Chanda Jha and Tulapati Singh were artificial, uninspiring and lifeless.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q11">
+<div class="question">11. In Chapter 15, which name, work or term is explicitly discussed in the context of “The New Dimensions”?</div>
+<label class="option-label"><input type="radio" name="q11" value="A"> A) Kirtinath Upadhyay</label>
+<label class="option-label"><input type="radio" name="q11" value="B"> B) Maithili Lokgeet</label>
+<label class="option-label"><input type="radio" name="q11" value="C"> C) Prakritpaingalam</label>
+<label class="option-label"><input type="radio" name="q11" value="D" data-correct="true"> D) Raghunandan Das</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Raghunandan Das&lt;/strong&gt;. Source context: “Mohamahopadhyaya Murlidhar Jha, Parmeshwar Jha, Raghunandan Das, Lal Das, Mm.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q12">
+<div class="question">12. In Chapter 15, which name, work or term is explicitly discussed in the context of “The New Dimensions”?</div>
+<label class="option-label"><input type="radio" name="q12" value="A" data-correct="true"> A) Tantranath Jha</label>
+<label class="option-label"><input type="radio" name="q12" value="B"> B) Mughal Governors</label>
+<label class="option-label"><input type="radio" name="q12" value="C"> C) Shankaradatta</label>
+<label class="option-label"><input type="radio" name="q12" value="D"> D) Likhnavali</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Tantranath Jha&lt;/strong&gt;. Source context: “‘Kaolejap ravesha’ (Entry into College) and ‘Upanayanakabhoja’ (feast on the occasion of Upanayan ceremony) by Prof Tantranath Jha are based on the situation chosen from actual life.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q13">
+<div class="question">13. In Chapter 15, which name, work or term is explicitly discussed in the context of “The New Dimensions”?</div>
+<label class="option-label"><input type="radio" name="q13" value="A"> A) Salhesa</label>
+<label class="option-label"><input type="radio" name="q13" value="B"> B) Nebaraka Gita</label>
+<label class="option-label"><input type="radio" name="q13" value="C" data-correct="true"> C) Rasas</label>
+<label class="option-label"><input type="radio" name="q13" value="D"> D) Khandawalas</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Rasas&lt;/strong&gt;. Source context: “He presents illustration of Rasas from Maithili works and that is why the work is all the more important both for the scholar and lay readers.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q14">
+<div class="question">14. In Chapter 15, which name, work or term is explicitly discussed in the context of “The New Dimensions”?</div>
+<label class="option-label"><input type="radio" name="q14" value="A"> A) Apabhramsa</label>
+<label class="option-label"><input type="radio" name="q14" value="B"> B) Hiuentsang</label>
+<label class="option-label"><input type="radio" name="q14" value="C"> C) British rule</label>
+<label class="option-label"><input type="radio" name="q14" value="D" data-correct="true"> D) Ratipati Bhagat</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Ratipati Bhagat&lt;/strong&gt;. Source context: “The Maithili translation of Gitagovinda by Ratipati Bhagat (in poetry) is unique and has not suffered in lucidity and expressiveness.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q15">
+<div class="question">15. In Chapter 15, which name, work or term is explicitly discussed in the context of “The New Dimensions”?</div>
+<label class="option-label"><input type="radio" name="q15" value="A" data-correct="true"> A) Bharata</label>
+<label class="option-label"><input type="radio" name="q15" value="B"> B) Karana Shyama</label>
+<label class="option-label"><input type="radio" name="q15" value="C"> C) Tirhuta</label>
+<label class="option-label"><input type="radio" name="q15" value="D"> D) Ram Ekbal Singh Rakesh</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Bharata&lt;/strong&gt;. Source context: “Lal Das wrote ‘Strisiksha’, Kulanand Das ‘Naladmayantikatha’, Ramanand Thakur, ‘Samksipt Mahabharata’ and Chatradhari Thakur.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q16">
+<div class="question">16. In Chapter 15, which name, work or term is explicitly discussed in the context of “The New Dimensions”?</div>
+<label class="option-label"><input type="radio" name="q16" value="A"> A) Gautama</label>
+<label class="option-label"><input type="radio" name="q16" value="B"> B) Ragatarangini</label>
+<label class="option-label"><input type="radio" name="q16" value="C"> C) Varnanaratnakara</label>
+<label class="option-label"><input type="radio" name="q16" value="D" data-correct="true"> D) Sitaram Jha</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Sitaram Jha&lt;/strong&gt;. Source context: “Murlidhar Jha edited this learned journal and from 1920 to 1927, Anup Mishra and Sitaram Jha and from 1936 to 1951, Shri Upendra Nath Jha edited the new series of the ‘Moda’.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q17">
+<div class="question">17. In Chapter 15, which name, work or term is explicitly discussed in the context of “The New Dimensions”?</div>
+<label class="option-label"><input type="radio" name="q17" value="A" data-correct="true"> A) short story</label>
+<label class="option-label"><input type="radio" name="q17" value="B"> B) Prakritpaingalam</label>
+<label class="option-label"><input type="radio" name="q17" value="C"> C) Likhnavali</label>
+<label class="option-label"><input type="radio" name="q17" value="D"> D) Magadhi Prakrit</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;short story&lt;/strong&gt;. Source context: “He has succeeded in creating a school of short story.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q18">
+<div class="question">18. In Chapter 15, which name, work or term is explicitly discussed in the context of “The New Dimensions”?</div>
+<label class="option-label"><input type="radio" name="q18" value="A"> A) Karana Shyama</label>
+<label class="option-label"><input type="radio" name="q18" value="B" data-correct="true"> B) Parijataharana</label>
+<label class="option-label"><input type="radio" name="q18" value="C"> C) Maithil Mahasabha</label>
+<label class="option-label"><input type="radio" name="q18" value="D"> D) Padavali</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Parijataharana&lt;/strong&gt;. Source context: “Chetnath Jha in his introduction to Umapati’s Parijataharana in a very refined prose has traced the connected history of the leading Maithili poets of the past.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q19">
+<div class="question">19. In Chapter 15, which name, work or term is explicitly discussed in the context of “The New Dimensions”?</div>
+<label class="option-label"><input type="radio" name="q19" value="A"> A) Khattar Kaka</label>
+<label class="option-label"><input type="radio" name="q19" value="B" data-correct="true"> B) Brajabuli</label>
+<label class="option-label"><input type="radio" name="q19" value="C"> C) Pratapamalla</label>
+<label class="option-label"><input type="radio" name="q19" value="D"> D) Nachari</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Brajabuli&lt;/strong&gt;. Source context: “Shailendra Mohan Jha’s “ Brajabuli Kavya”, Dr.”"></div>
+</div>
+
+<div class="quiz-item" data-q="q20">
+<div class="question">20. In Chapter 15, which name, work or term is explicitly discussed in the context of “The New Dimensions”?</div>
+<label class="option-label"><input type="radio" name="q20" value="A"> A) Padavali</label>
+<label class="option-label"><input type="radio" name="q20" value="B"> B) Jagatprakashamalla</label>
+<label class="option-label"><input type="radio" name="q20" value="C"> C) Karana Shyama</label>
+<label class="option-label"><input type="radio" name="q20" value="D" data-correct="true"> D) Janaka</label>
+<div class="explanation" data-expl="The chapter explicitly discusses &lt;strong&gt;Janaka&lt;/strong&gt;. Source context: “‘Mithila Darsaana’, ‘Mithila’, ‘Mithila Sevaka’, ‘Chaupari’, ‘Pallava’, ‘Dhiyaputa’, ‘Mithiladoota’, ‘Ijota’, ‘kana’, ‘Batuka’, ‘Janaka’ etc.”"></div>
+</div>
+</form>
+<div id="scoreBox" class="score-box"></div>
+<div class="action-area">
+<button type="button" class="evaluate" onclick="evaluateQuiz()">Evaluate / Submit Quiz</button><br>
+<a href="https://www.videha.co.in/videha-elearning.htm" class="hub-link">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+</div>
+</div>
+<footer>© Gajendra Thakur, Editor — Videha eJournal</footer>
 <script>
-    document.querySelectorAll('.option-label input').forEach(input => {
-        input.addEventListener('change', function() {
-            const item = this.closest('.quiz-item');
-            const explanationDiv = item.querySelector('.explanation');
-            const labels = item.querySelectorAll('.option-label');
-            
-            labels.forEach(label => { label.style.pointerEvents = 'none'; });
-
-            const isCorrect = this.getAttribute('data-correct') === 'true';
-            if (isCorrect) {
-                this.parentElement.classList.add('correct-bg');
-                explanationDiv.className = "explanation visible correct-expl";
-                explanationDiv.innerHTML = "<strong>Correct!</strong> 'Vaidehi' was launched in 1949[cite: 753]. Harimohan Jha's 'Kanyadana' was adapted into film [cite: 848], and Dinabandhu Jha wrote 'Mithila-Bhasha-Vidyotana' in Sutra form. [cite: 1056, 1057]";
-            } else {
-                this.parentElement.classList.add('incorrect-bg');
-                explanationDiv.className = "explanation visible incorrect-expl";
-                labels.forEach(l => {
-                    if(l.querySelector('input').getAttribute('data-correct') === 'true') l.classList.add('correct-bg');
-                });
-                explanationDiv.innerHTML = "<strong>Incorrect.</strong> The requested fields represent Vaidehi [cite: 753], the filmed novel Kanyadana [cite: 848], and grammarian Dinabandhu Jha. [cite: 1056]";
-            }
-        });
-    });
+document.querySelectorAll('.option-label input').forEach(input => {
+  input.addEventListener('change', function() {
+    const item = this.closest('.quiz-item');
+    const explanationDiv = item.querySelector('.explanation');
+    const labels = item.querySelectorAll('.option-label');
+    labels.forEach(label => { label.style.pointerEvents = 'none'; });
+    const isCorrect = this.getAttribute('data-correct') === 'true';
+    if (isCorrect) {
+      this.parentElement.classList.add('correct-bg');
+      explanationDiv.className = "explanation visible correct-expl";
+      explanationDiv.innerHTML = "<strong>Correct!</strong> " + explanationDiv.dataset.expl;
+    } else {
+      this.parentElement.classList.add('incorrect-bg');
+      explanationDiv.className = "explanation visible incorrect-expl";
+      labels.forEach(l => {
+        if(l.querySelector('input').getAttribute('data-correct') === 'true') l.classList.add('correct-bg');
+      });
+      explanationDiv.innerHTML = "<strong>Incorrect.</strong> " + explanationDiv.dataset.expl;
+    }
+  });
+});
+function evaluateQuiz() {
+  const items = document.querySelectorAll('.quiz-item');
+  let correct = 0, answered = 0;
+  items.forEach(item => {
+    const checked = item.querySelector('input:checked');
+    if (checked) {
+      answered++;
+      if (checked.getAttribute('data-correct') === 'true') correct++;
+    }
+  });
+  const box = document.getElementById('scoreBox');
+  box.style.display = 'block';
+  box.textContent = 'Score: ' + correct + ' / ' + items.length + ' correct. Answered: ' + answered + ' / ' + items.length + '.';
+  box.scrollIntoView({behavior:'smooth', block:'center'});
+}
 </script>
 </body>
 </html>
