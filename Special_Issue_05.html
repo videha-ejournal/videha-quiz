@@ -1,146 +1,92 @@
 <!DOCTYPE html>
 <html lang="mai">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>नाटक-एकांकी विशेषांक — विदेह क्विज</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>विदेह विशेषांक ०५ — मैथिली नाटक प्रश्नोत्तरी</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#1a2744;--crimson:#8B1A1A;--gold:#c49a3c;--cream:#FAF6EE;
---ok-fg:#1d7a3e;--bad-fg:#a32020}
-*{box-sizing:border-box}
-body{margin:0;background:var(--cream);color:#1A1A1A;
-font-family:'Lato','Segoe UI',system-ui,sans-serif;line-height:1.55;padding-bottom:60px}
-header{background:linear-gradient(180deg,#16213b,var(--navy));color:#fff;
-padding:28px 20px 22px;text-align:center;border-bottom:4px solid var(--gold)}
-header h1{margin:0;font-family:'Noto Serif Devanagari',serif;font-size:1.7em}
-header .sub{color:var(--gold);font-size:.82em;letter-spacing:.1em;font-style:italic;margin-top:8px}
-header .src{color:#cdd6ea;font-size:.78em;margin-top:6px}
-.wrap{max-width:760px;margin:0 auto;padding:20px 16px}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;justify-content:center}
-.tab{font-family:'Noto Serif Devanagari',serif;font-weight:700;font-size:.9em;
-padding:8px 16px;border-radius:20px;border:2px solid var(--navy);background:#fff;
-color:var(--navy);cursor:pointer;transition:.15s}
-.tab.active{background:var(--navy);color:#fff}
-.counter-badge{background:var(--crimson);color:#fff;font-size:.72em;font-weight:700;
-padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle}
-.progress{height:6px;background:#e7dcc2;border-radius:4px;margin-bottom:18px;overflow:hidden}
-.progress > div{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--crimson));transition:width .3s}
-.pane{display:none}.pane.active{display:block}
-.card{background:#fff;border-radius:11px;box-shadow:0 4px 16px rgba(26,39,68,.1);
-padding:22px 22px 18px;margin-bottom:16px}
-.qmeta{font-size:.78em;color:#8a93ab;font-weight:700;margin-bottom:8px}
-.q{font-family:'Noto Serif Devanagari',serif;font-size:1.12em;font-weight:600;
-color:var(--navy);margin-bottom:14px}
-.opt{display:block;width:100%;text-align:left;
-font-family:'Noto Serif Devanagari',serif;font-size:1em;
-padding:11px 15px;margin-bottom:9px;border:1.5px solid #d8cfb8;border-radius:8px;
-background:#fffdf8;cursor:pointer;transition:.13s;color:#1A1A1A}
-.opt:hover{border-color:var(--gold);background:#fff8e8}
-.opt.ok{border-color:var(--ok-fg);background:#eafaf0;color:var(--ok-fg);font-weight:700}
-.opt.bad{border-color:var(--bad-fg);background:#fdeeee;color:var(--bad-fg)}
-.opt:disabled{cursor:default}
-.fb{margin-top:11px;font-size:.92em;font-weight:600;min-height:20px;
-font-family:'Noto Serif Devanagari',serif}
-.fb.ok{color:var(--ok-fg)}.fb.bad{color:var(--bad-fg)}
-.hint-box{background:#fffbef;border:1px solid var(--gold);border-radius:7px;
-padding:10px 14px;margin-top:10px;font-family:'Noto Serif Devanagari',serif;
-font-size:.88em;color:#5a4010;display:none}
-.hint-box.show{display:block}
-.nav{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
-.nbtn{font-family:'Lato',sans-serif;font-size:.9em;font-weight:700;
-padding:9px 20px;border-radius:6px;border:none;cursor:pointer;transition:.15s}
-.nbtn.pri{background:var(--crimson);color:#fff}.nbtn.pri:hover{background:var(--navy)}
-.nbtn.sec{background:transparent;color:var(--navy);border:2px solid var(--navy)}
-.nbtn.sec:hover{background:var(--navy);color:#fff}
-.scoreboard{background:#fff;border-radius:11px;box-shadow:0 4px 18px rgba(26,39,68,.11);
-padding:34px 26px;text-align:center;margin-bottom:18px}
-.scbig{font-family:'Playfair Display',serif;font-size:2.8em;color:var(--crimson);font-weight:700;margin-bottom:6px}
-.scpct{font-size:1.05em;color:#5a6a8a;margin-bottom:9px}
-.scmsg{font-family:'Noto Serif Devanagari',serif;font-size:1.05em;color:var(--navy);margin-bottom:20px}
-.orn{text-align:center;color:var(--gold);font-size:1em;letter-spacing:.2em;margin:14px 0;opacity:.65}
-footer{text-align:center;color:#8a7a4a;font-size:.78em;padding:24px 16px 0}
-footer a{color:var(--crimson);text-decoration:none}
-@media(max-width:520px){header h1{font-size:1.35em}.q{font-size:1.05em}}
+:root{--navy:#17264a;--crimson:#9b1c2e;--gold:#c8973a;--cream:#f7f2e8;--ok:#2e7d32;--ok-bg:#e8f5e9;--bad:#b71c1c;--bad-bg:#ffebee;--muted:#66708a}
+*{box-sizing:border-box} body{margin:0;background:var(--cream);font-family:Lato,Arial,sans-serif;color:var(--navy);line-height:1.55}
+header{background:var(--navy);color:#fff;text-align:center;padding:18px 12px;border-bottom:5px solid var(--gold)}
+header h1{font-family:'Noto Serif Devanagari',serif;font-size:1.45rem;margin:0 0 6px;line-height:1.35}
+header .brand{font-size:.86rem;color:var(--gold);font-weight:700;letter-spacing:.02em}
+header .sub{font-family:'Noto Serif Devanagari',serif;font-size:.95rem;margin-top:6px;color:#dbe4ff}
+main{max-width:980px;margin:18px auto 50px;padding:0 14px}
+.panel{background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(23,38,74,.12);padding:16px;margin-bottom:14px;border-left:5px solid var(--navy)}
+.topbar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.score{font-weight:700;color:var(--crimson)}
+.progress{flex:1;min-width:180px;height:9px;background:#d9dfeb;border-radius:20px;overflow:hidden} .bar{height:100%;background:var(--gold);width:0%;transition:.2s}
+button{font-family:Lato,Arial,sans-serif;font-weight:700;border:0;border-radius:7px;padding:9px 14px;cursor:pointer}
+.btn{background:var(--navy);color:#fff} .btn:hover{background:var(--crimson)} .btn2{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+.qmap{display:flex;gap:4px;flex-wrap:wrap;margin-top:12px} .dot{width:24px;height:24px;border-radius:5px;border:1px solid #b8c1d8;background:#eef2fa;color:var(--navy);font-size:.72rem;padding:0} .dot.answered{background:#dfe8f9} .dot.ok{background:var(--ok);color:#fff} .dot.bad{background:var(--bad);color:#fff}
+.qcard{background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(23,38,74,.10);padding:20px;margin:16px 0;border-left:5px solid var(--gold)}
+.qmeta{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:.82rem;font-weight:700;margin-bottom:8px}
+.qtext{font-family:'Noto Serif Devanagari',serif;font-size:1.13rem;font-weight:700;margin:0 0 14px;color:var(--navy)}
+.opts{display:grid;gap:9px} .opt{display:flex;gap:10px;align-items:flex-start;background:#f4f7fd;border:2px solid #d2daec;border-radius:10px;padding:10px 12px;cursor:pointer}
+.opt:hover{border-color:var(--navy)} .opt .key{font-weight:700;min-width:22px} .opt .txt{font-family:'Noto Serif Devanagari',serif}
+.opt.correct{background:var(--ok-bg);border-color:#7bc47f;color:var(--ok)} .opt.wrong{background:var(--bad-bg);border-color:#e57373;color:var(--bad)} .opt.locked{cursor:default}
+.fb{display:none;margin-top:10px;border-radius:8px;padding:10px 12px;font-family:'Noto Serif Devanagari',serif} .fb.show{display:block} .fb.ok{background:var(--ok-bg);border-left:4px solid var(--ok)} .fb.bad{background:var(--bad-bg);border-left:4px solid var(--bad)}
+.navrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.result{display:none;text-align:center} .big{font-size:2.6rem;font-weight:700;color:var(--crimson)}
+.back{text-align:center;margin:24px 0} .back a{color:var(--crimson);font-family:'Noto Serif Devanagari',serif;font-weight:700;text-decoration:none}
+footer{text-align:center;padding:20px;color:#6a728a;font-size:.85rem}
+@media(max-width:600px){.qtext{font-size:1rem}.topbar{align-items:stretch}.progress{min-width:100%}}
 </style>
 </head>
 <body>
 <header>
-  <h1>नाटक-एकांकी विशेषांक</h1>
-  <div class="sub">NATAK-EKANKI SPECIAL ISSUE · विदेह अंक ७२ · १५ दिसम्बर २०१०</div>
-  <div class="src">विदेह : प्रथम मैथिली पाक्षिक ई-पत्रिका · videha.co.in · ISSN 2229-547X</div>
+  <h1>विदेह विशेषांक ०५ — मैथिली नाटक प्रश्नोत्तरी</h1>
+  <div class="brand">Videha QUIZ | विदेह ई-लर्निङ्ग क्विज / Videha eLearning Quiz / Videha — First Maithili Fortnightly eJournal | www.videha.co.in</div>
+  <div class="sub">नाटक, रेडियो-नाटक, रिहर्सल, एकांकी, रंगमंचीय समीक्षा, विश्व-नाटक आ मैथिली रंग-संस्कृति पर ५१ उच्च-स्तरीय प्रश्न</div>
 </header>
-<div class="orn">❖ ❖ ❖</div>
-<div class="wrap">
-  <div class="tabs" id="tabs"></div>
-  <div class="progress"><div id="bar"></div></div>
-  <div id="panes"></div>
-</div>
-<footer>© विदेह Videha · <a href="https://videha.co.in">videha.co.in</a> · विदेह विशेषांक प्रश्नोत्तरी</footer>
+<main>
+  <section class="panel">
+    <div class="topbar">
+      <span><strong>विशेषांक ०५</strong> — प्रश्न <strong id="cur">1</strong> / <strong>51</strong></span>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <span class="score" id="score">✓ 0 &nbsp; ✗ 0</span>
+      <button class="btn2" onclick="showQ(0)">←← पहिल</button>
+      <button class="btn" onclick="restart()">नव क्विज</button>
+    </div>
+    <div class="qmap" id="qmap"></div>
+  </section>
+  <section id="quiz"></section>
+  <section class="panel result" id="result"></section>
+  <div class="back"><a href="https://www.videha.co.in/videha-elearning.htm">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a></div>
+</main>
+<footer>© Gajendra Thakur, Editor — Videha eJournal</footer>
 <script>
-const DATA = [{"tab": "विशेषांक परिचय", "items": [{"q": "विदेहक ई नाटक-एकांकी विशेषांक कोन तिथिकेँ प्रकाशित भेल?", "opts": ["१५ दिसम्बर २०१०", "१५ नवम्बर २०१०", "१५ जनवरी २०११", "०१ मार्च २०११"], "correct": 0, "hint": "बाल विशेषांक (७०) केर बाद।"}, {"q": "ई विशेषांक कोन विधाकेँ समर्पित छल?", "opts": ["नाटक-एकांकी", "विहनि कथा", "समीक्षा", "गजल"], "correct": 0, "hint": "मञ्चन-योग्य रचना।"}, {"q": "संपादकीय अनुसार एहि नाटक-एकांकी विशेषांकसँ पहिने कोन-कोन विशेषांक आबि चुकल छल?", "opts": ["हाइकू, गजल, लघुकथा, बाल-किशोर", "केवल गजल", "केवल हाइकू", "समीक्षा आ नारी"], "correct": 0, "hint": "संपादकीय एहि क्रमक उल्लेख करैत अछि।"}, {"q": "संपादकीय अनुसार एकर बाद आबय वला अंक कोन विशेषांक रहत?", "opts": ["मैथिली-समीक्षा विशेषांक", "नारी विशेषांक", "अनुवाद विशेषांक", "बाल विशेषांक"], "correct": 0, "hint": "१५ जनवरी २०११।"}]}, {"tab": "रचना आ सम्मान", "items": [{"q": "एहि अंकमे सुपौलक कथा केकर देल गेल?", "opts": ["उमेश मंडल", "भारत भूषण झा", "रामखेलावन मंडार", "राजेश"], "correct": 0, "hint": "सूचीमे \"उमेश मंडल सुपौलक कथा\"।"}, {"q": "\"आत्मबल\" कथाक रचनाकार के छथि?", "opts": ["भारत भूषण झा", "उमेश मंडल", "रामखेलावन मंडार", "गजेन्द्र ठाकुर"], "correct": 0, "hint": "\"भारत भूषण झा- कथा-आत्मबल\"।"}, {"q": "एहि अंकमे कोन सम्मानक उल्लेख अछि (अभिलेखित आ सम्मानित)?", "opts": ["ज्योतिरीश्वर सम्मान", "कीर्तिनारायण मिश्र सम्मान", "यात्री चेतना पुरस्कार", "साहित्य अकादमी"], "correct": 0, "hint": "मैथिलीक आदिकवि ज्योतिरीश्वरक नामपर।"}]}];
-let score=0,total=0,answered=0;
-DATA.forEach(g=>total+=g.items.length);
-const tabsEl=document.getElementById('tabs');
-const panesEl=document.getElementById('panes');
-const bar=document.getElementById('bar');
-DATA.forEach((g,gi)=>{
-  const tb=document.createElement('button');
-  tb.className='tab'+(gi===0?' active':'');
-  tb.innerHTML=g.tab+'<span class="counter-badge">'+g.items.length+'</span>';
-  tb.onclick=()=>switchTab(gi);
-  tabsEl.appendChild(tb);
-  const pane=document.createElement('div');
-  pane.className='pane'+(gi===0?' active':'');
-  pane.id='pane-'+gi;
-  g.items.forEach((q,qi)=>pane.appendChild(buildCard(g,gi,qi,q)));
-  panesEl.appendChild(pane);
-});
-function buildCard(g,gi,qi,q){
-  const card=document.createElement('div');card.className='card';
-  const meta=document.createElement('div');meta.className='qmeta';
-  meta.textContent=g.tab+' · प्रश्न '+(qi+1)+'/'+g.items.length;card.appendChild(meta);
-  const qd=document.createElement('div');qd.className='q';qd.textContent=q.q;card.appendChild(qd);
-  const opts=[];
-  q.opts.forEach((o,oi)=>{
-    const b=document.createElement('button');b.className='opt';b.textContent=o;
-    b.onclick=()=>pick(b,oi);card.appendChild(b);opts.push(b);
-  });
-  const fb=document.createElement('div');fb.className='fb';card.appendChild(fb);
-  let hintBox=null;
-  if(q.hint){hintBox=document.createElement('div');hintBox.className='hint-box';
-    hintBox.textContent='💡 '+q.hint;card.appendChild(hintBox);}
-  const nav=document.createElement('div');nav.className='nav';
-  if(q.hint){const hb=document.createElement('button');hb.className='nbtn sec';hb.textContent='संकेत';
-    hb.onclick=()=>hintBox.classList.toggle('show');nav.appendChild(hb);}
-  card.appendChild(nav);
-  let done=false;
-  function pick(btn,oi){
-    if(done)return;done=true;answered++;
-    opts.forEach((b,bi)=>{b.disabled=true;
-      if(bi===q.correct)b.classList.add('ok');
-      else if(b===btn)b.classList.add('bad');});
-    if(oi===q.correct){score++;fb.className='fb ok';fb.textContent='✓ सही उत्तर!';}
-    else{fb.className='fb bad';fb.textContent='✗ सही उत्तर: '+q.opts[q.correct];}
-    bar.style.width=(answered/total*100)+'%';
-    if(answered===total)showScore();
-  }
-  return card;
+const QDB = [{"q": "नाटक विशेषांकक संपादकीयमे ‘मैथिली नाटकक समानान्तर दुनिया’ कहबाक अर्थ की अछि?", "opts": ["लोक-रंगमंच, मंडली, गीत-नाटिका आ मंच-अनुभवक ओ परम्परा जे किताबक इतिहाससँ अलग जीवित रहल", "केवल अंग्रेजी नाटकक अनुवाद", "केवल विश्वविद्यालयी पाठ्यक्रमक नाटक", "केवल रेडियो-समाचारक परम्परा"], "ans": 0, "exp": "संपादकीय मैथिली नाटककेँ केवल मुद्रित साहित्य नहि, गाम-गामक मंडली, प्रस्तुति आ लोक-स्मृतिमे बाँचल रंग-संसार रूपमे देखैत अछि।"}, {"q": "रामखेलावन मंडार आ हुनक मंडलीक उल्लेख मैथिली रंगमंचक कोन पक्ष खोलैत अछि?", "opts": ["केवल लिखित नाटकक पुरस्कार-सूची", "गामक सामूहिक प्रदर्शन-परम्परा आ लोक-नाट्यक जीवंतता", "केवल शहरी सभागारक परम्परा", "केवल बालगीतक पाठशाला"], "ans": 1, "exp": "एहन उल्लेख देखबैत अछि जे मैथिली नाटकक जड़ केवल पुस्तकालयमे नहि, लोकमंच, कोरस, यात्रा आ सामूहिक अभिनयमे अछि।"}, {"q": "‘रेशमा-चूहड़’, ‘शीत-बसन्त’, ‘अल्हा-ऊदल’ आदि प्रस्तुति सभक विशेषांकमे उल्लेख किएक महत्त्वपूर्ण अछि?", "opts": ["ई मैथिली रंगमंचक लोककथा, वीरगाथा आ लोकप्रिय कथानकसँ सम्बन्ध देखबैत अछि", "ई सभ अनुवाद-शास्त्रक सूत्र अछि", "ई सभ गजल-संग्रहक शीर्षक अछि", "ई सभ केवल समीक्षा-पुस्तकक नाम अछि"], "ans": 0, "exp": "लोकप्रिय कथानक रंगमंचकेँ जनस्मृति आ सामूहिक मनोरंजनसँ जोड़ैत अछि।"}, {"q": "‘मैथिली-बिदेसिया’ प्रकारक प्रस्तुति विशेषांकमे कोन सांस्कृतिक पुल बनबैत अछि?", "opts": ["नाट्यलेखनकेँ पूर्णतः अंग्रेजी बनबैत अछि", "मिथिला क्षेत्रक रंग-परम्पराकेँ पड़ोसी लोक-रंग आ प्रवासी अनुभवसँ जोड़ैत अछि", "मैथिली नाटककेँ केवल संस्कृत नाटकमे सीमित करैत अछि", "नाटकमे संवादक भूमिका हटबैत अछि"], "ans": 1, "exp": "बिदेसिया-धारा प्रवास, विरह, लोकगीत आ अभिनयक संयुक्त रंगरूपसँ सम्बन्धित अछि, जे मैथिली मंचक फैलाव देखबैत अछि।"}, {"q": "‘आब मानि जाउ ने’केँ हास्य रेडियो नाटक कहल गेल अछि; रेडियो नाटकमे हास्य कोना प्रभावी बनैत अछि?", "opts": ["केवल मंच-प्रकाशसँ", "केवल रंगीन वेशभूषासँ", "केवल दृश्य-पर्दाक बदलावसँ", "संवाद, आवाज, ठहाका, विराम आ ध्वनि-संकेतसँ दृश्यक कल्पना बनैत अछि"], "ans": 3, "exp": "रेडियो नाटक दृश्यविहीन होइत अछि; तें आवाज, ध्वनि-प्रभाव आ बोलचाल हास्यक मुख्य साधन बनैत अछि।"}, {"q": "रेडियो नाटकमे ‘हँसबाक ध्वनि’ वा ‘बैग खोलबाक ध्वनि’ सन संकेतक साहित्यिक उपयोग की अछि?", "opts": ["ई मंचन निषिद्ध करैत अछि", "ई पात्र-सूची हटएबाक उपाय अछि", "श्रोता बिना दृश्यो पात्रक क्रिया आ वातावरण बुझि लैत अछि", "ई केवल टाइपिंगक गलती अछि"], "ans": 2, "exp": "ध्वनि-संकेत रेडियो-नाटकक दृश्य-निर्माण करैत अछि; श्रोता कानसँ मंच देखैत अछि।"}, {"q": "‘आब मानि जाउ ने’मे घरेलू मनुहार आ उपहारक प्रसंग हास्यक कोन प्रकार रचैत अछि?", "opts": ["शास्त्रीय त्रासदीक करुण-अन्त", "दाम्पत्य संवाद, रूठब-मनाएब आ छोटी इच्छा सभक नाटकीय अतिशयोक्ति", "वीर-रसक युद्ध-वर्णन", "राजनीतिक भाषणक व्यंग्य"], "ans": 1, "exp": "नाटक घर-परिवारक परिचित परिस्थिति सँ हास्य पैदा करैत अछि, जतय रेडियो, झुमका, मनुहार आ ठहाका नाट्य-ऊर्जा बनैत अछि।"}, {"q": "रेडियो नाटकक पात्र-भाषा किएक बोलचालक निकट होएब चाही?", "opts": ["भाषा जतेक कठिन हो ततेक असरदार", "रेडियोमे पात्रक आवाज आवश्यक नहि", "केवल संस्कृत श्लोक रेडियो-नाटक बनबैत अछि", "श्रोता तात्कालिकता आ निकटता अनुभव करए, आ दृश्य बिना अर्थ स्पष्ट रहए"], "ans": 3, "exp": "बोलचालक भाषा रेडियो नाटकमे पात्रक सामाजिकता, हास्य आ परिस्थिति तुरन्त खोलैत अछि।"}, {"q": "‘रिहर्सल’ शीर्षक नाटकमे शीर्षक स्वयं कोन संकेत दैत अछि?", "opts": ["केवल कवितापाठ", "केवल विद्यालयक परीक्षा-तैयारी", "केवल संगीत-सभा", "मंचनक तैयारीक भीतर समाजक वास्तविक अभिनय आ सांस्कृतिक विडम्बना देखाएब"], "ans": 3, "exp": "‘रिहर्सल’ मेटा-थिएटरक संभावना रखैत अछि—अभ्यासक बहाने समाजक सच, भूमिका आ पाखंड सामने आबैत अछि।"}, {"q": "रवीभूषण पाठक ‘रिहर्सल’केँ मिथिलाक सांस्कृतिक संकटक रूपक कहैत छथि; एहि संकटक केन्द्र कोन अछि?", "opts": ["केवल पुस्तकक आवरण", "केवल बरखा नहेबाक समस्या", "केवल छन्दक संख्या", "जाति, धर्म, राजनीति आ साहित्यक उलझल गठजोड़"], "ans": 3, "exp": "लेखकीय टिप्पणीमे नाटक सांस्कृतिक संकटकेँ जाति-धर्म-राजनीति-साहित्यक कॉकटेल रूपमे देखैत अछि।"}, {"q": "‘रिहर्सल’ सामाजिक कुरूपताकेँ ग्लैमराइज नहि करैत—एहि कथनक नाट्य-नैतिक अर्थ की?", "opts": ["नाटकक उद्देश्य केवल मनोरंजन नहि", "नाटक समीक्षा योग्य नहि", "नाटक सामाजिक विकृति देखबैत अछि, मुदा ओकरा आकर्षक वा सजावटी नहि बनबैत", "नाटकमे पात्र नहि रहैत"], "ans": 2, "exp": "सजावटीकरणसँ समस्या हलुक भऽ जाएत; यथार्थक कुरूपता केँ बिना चमकौने देखाएब आलोचनात्मक नाट्य-दृष्टि अछि।"}, {"q": "‘भोक्ता आ रचयिता बीच दूरी’क एलियट-सम्बन्धी विचारकेँ ‘रिहर्सल’मे चुनौती देबाक अर्थ की?", "opts": ["लेखककेँ पाठकसँ कहियो मिलबाक नहि चाही", "नाटकमे समाजक कोनो प्रवेश नहि", "रचना सदैव लेखकसँ पूर्णतः असंबद्ध होइत अछि", "लेखक-समाजक भोगल यथार्थ आ रचनात्मक हस्तक्षेप बीच दूरी घटि जाइत अछि"], "ans": 3, "exp": "गामक मंचन आ जीवित सामाजिक संकट लेखककेँ दूरस्थ दर्शक नहि रहने देत; रचना भोगल यथार्थसँ संवाद करैत अछि।"}, {"q": "गाममे ‘रिहर्सल’क मंचनसँ नाटकीय अभिरुचिक परिष्कारक आवश्यकता किएक सामने अबैत अछि?", "opts": ["मैथिलीमे अभिनय सम्भव नहि", "गामक लोक नाटक देखबे नहि करैत", "किएकि दर्शक, अभिनेता आ मंच-संस्कारक प्रशिक्षण बिना गम्भीर नाटकक असर अधूरा रहि सकैत अछि", "रिहर्सल केवल रेडियो लेल बनल छल"], "ans": 2, "exp": "लेखक गामक सहयोगसँ गदगद छथि, मुदा नाटकीय रुचि आ मंच-संस्कारक परिष्कारकेँ आवश्यक मानैत छथि।"}, {"q": "‘रिहर्सल’क कच्चापनकेँ लेखक ‘कचरसक आनंद’ किएक कहैत छथि?", "opts": ["मंचन बिना पाठ सर्वोत्तम अछि", "रचनाक अधूरापनहुँमे जीवंतता, तात्कालिकता आ स्थानीय ऊर्जा रहि सकैत अछि", "संपादन नाटककेँ नष्ट करैत अछि", "कच्चापन सदैव दोष मात्र अछि"], "ans": 1, "exp": "लेखकीय टिप्पणी ‘कचकूही’ स्वीकारैत अछि, मुदा ओहि जीवित कच्चापनमे रंगमंचक अपन रस देखैत अछि।"}, {"q": "‘मैथिली नाटकक विकासमे आनंद जीक योगदान’ शीर्षक लेखक मुख्य प्रयोजन की अछि?", "opts": ["गजल-छन्दक गणना करब", "मैथिली नाट्य-इतिहासमे छूटल/कम चर्चा भेल योगदानकेँ केंद्रमे आनब", "वेब-पत्रकारिताक तकनीक सिखाएब", "बालगीतक शब्दार्थ देब"], "ans": 1, "exp": "शीर्षकहि संकेत करैत अछि जे लेख नाट्य-विकासक इतिहासमे आनंद जीक योगदानक मूल्यांकन करैत अछि।"}, {"q": "आनंद जी पर लेखमे पं. जीवन झा आ आरंभिक नाटककारक प्रसंग किएक उठैत अछि?", "opts": ["मैथिली नाट्य-परम्पराक ऐतिहासिक पृष्ठभूमि बना कऽ योगदानक स्थान तय करबाक लेल", "कथा-संग्रहक मूल्य लिखबाक लेल", "केवल वंशावली जोड़बाक लेल", "रेडियो कार्यक्रमक समय बतएबाक लेल"], "ans": 0, "exp": "किसी रचनाकारक योगदान बुझबाक लेल पूर्ववर्ती परम्परा आ वर्तमान परिस्थिति दुनूकेँ सामने राखब आवश्यक अछि।"}, {"q": "नाटककारक मूल्यांकनमे भाषा-प्रयोग किएक संवेदनशील प्रश्न बनैत अछि?", "opts": ["संवादक स्थान पर चित्र काफी अछि", "किएकि मंच-भाषा पात्र, समाज आ मैथिली अस्मिता दुनूकेँ प्रभावित करैत अछि", "नाटकमे भाषा अप्रासंगिक अछि", "केवल विदेशी भाषा मंचयोग्य अछि"], "ans": 1, "exp": "मैथिली नाटकमे मातृभाषा, पात्रक स्थिति आ दर्शक-संपर्कक संतुलन महत्त्वपूर्ण अछि।"}, {"q": "महेश मलंगिया सन नाटककारक चर्चा मैथिली नाटकक कोन मानक उठबैत अछि?", "opts": ["लोकप्रियता, साहित्यिकता, मंचयोग्यता आ भाषा-स्वरूपक संयुक्त कसौटी", "केवल जन्म-तिथि", "केवल पृष्ठ-संख्या", "केवल आवरणक रंग"], "ans": 0, "exp": "नाटकक मूल्यांकनमे रचना, मंचन, भाषा, पात्र आ सांस्कृतिक अनुकूलता सभ देखल जाएत अछि।"}, {"q": "‘काठक लोक’ सन पाठ्यक्रमीय नाटक पर भाषा-सवाल उठबैत लेख कोन आलोचनात्मक दृष्टि अपनबैत अछि?", "opts": ["पाठ्यक्रममे शामिल कृति सेहो भाषा आ सांस्कृतिक प्रसंगक कसौटी पर परखल जाए", "विद्यार्थी नाटक नहि पढ़ि सकैत", "पाठ्यक्रमक कृति पर प्रश्न निषिद्ध अछि", "समीक्षा केवल प्रशंसा होएब चाही"], "ans": 0, "exp": "लेख पाठ्यक्रमक अधिकारकेँ अन्तिम सत्य नहि मानैत; पाठक/छात्रक अनुभव सेहो महत्त्वपूर्ण मानैत अछि।"}, {"q": "‘चटुल आ ओछ नाटक’क उल्लेख मैथिली रंगमंचक कोन जोखिम बतबैत अछि?", "opts": ["लोकप्रियता सदैव श्रेष्ठता अछि", "नाटक केवल शास्त्रीय संस्कृतमे होएब चाही", "रंगमंचमे हास्य निषिद्ध अछि", "लोकप्रियताक लोभमे साहित्यिक गुणवत्ता आ सांस्कृतिक जिम्मेदारी घटि सकैत अछि"], "ans": 3, "exp": "लेख लोकप्रिय मंचन आ साहित्यिक मानक बीच तनावकेँ रेखांकित करैत अछि।"}, {"q": "‘डॉक्टर फॉस्टस’ मैथिली पाठक लेल कोन नाट्य-विषयक शिक्षा दे सकैत अछि?", "opts": ["घरेलू उपहारक हास्य", "बाल-कविता मात्र", "केवल विवाह-गीत", "ज्ञान, महत्वाकांक्षा आ आत्म-विनाशक त्रासदीक संरचना"], "ans": 3, "exp": "फॉस्टसक कथा मानवक असीम इच्छा, नैतिक निर्णय आ त्रासदीक अध्ययन लेल उपयोगी अछि।"}, {"q": "‘सैमसन एगोनीस्टेस’क चर्चा नाटक विशेषांकमे किएक सार्थक अछि?", "opts": ["ई लोकगीतक मुखड़ा अछि", "विश्व-नाटकक धार्मिक, वीर आ आन्तरिक संघर्षपरक रूप मैथिली विमर्शसँ जोड़ैत अछि", "ई शब्दकोशक अनुच्छेद अछि", "ई केवल पाक-शास्त्रक ग्रन्थ अछि"], "ans": 1, "exp": "सैमसनक त्रासदी नायकत्व, आस्था, अपमान आ आत्म-संघर्षक नाटकीय उदाहरण दैत अछि।"}, {"q": "‘मर्डर इन द कैथेड्रल’ सन नाटक मैथिली नाट्य-विमर्शमे कोन धुरी जोड़ैत अछि?", "opts": ["केवल गीत-संग्रह", "धर्म, सत्ता, शहादत आ नैतिक निर्णयक मंचीय संघर्ष", "केवल बाल-मनोरंजन", "केवल हास्य-झुमका प्रसंग"], "ans": 1, "exp": "विश्व-नाटकक अध्ययन स्थानीय नाट्यलेखनकेँ विषय-विस्तार आ संरचना-सजगता दैत अछि।"}, {"q": "‘स्ट्राइफ’क उल्लेख मैथिली पाठककेँ कोन आधुनिक नाट्य-विषय दिस लऽ जाइत अछि?", "opts": ["केवल निजी आत्मकथा", "श्रम, पूँजी, वर्ग-संघर्ष आ सामाजिक तनावक रंगमंच", "केवल ऋतु-वर्णन", "केवल देव-स्तुति"], "ans": 1, "exp": "अंग्रेजी नाटक सभक चर्चा मैथिली नाट्य-विमर्शमे सामाजिक संघर्षक आधुनिक रूपक प्रवेश करबैत अछि।"}, {"q": "चारि अंग्रेजी नाटकक विवेचनक समावेश विशेषांकमे कोन काम करैत अछि?", "opts": ["मैथिली नाटककेँ अप्रासंगिक बतबैत अछि", "मैथिली नाटकक तुलना विश्व-नाट्य परम्परा आ विविध संघर्ष-रूपसँ करबैत अछि", "नाटकक स्थान पर कथा स्थापित करैत अछि", "समीक्षा हटएबाक घोषणा करैत अछि"], "ans": 1, "exp": "स्थानीय विशेषांकमे विश्व-नाटकक विवेचन तुलना, अध्ययन आ शिल्प-बोधक विस्तार दैत अछि।"}, {"q": "एकांकी ‘प्रयोग’क रंगमंचीय समीक्षा नाटकक कोन अलग पक्ष पर जोर दैत अछि?", "opts": ["लिखित पाठक संग मंच-संयोजन, प्रकाश, ध्वनि, अभिनय आ दर्शक-असर", "केवल छपाईक शुद्धता", "केवल पुरस्कारक नाम", "केवल लेखकक फोटो"], "ans": 0, "exp": "रंगमंचीय समीक्षा नाटककेँ पढ़ल पाठ नहि, पूर्ण प्रस्तुति मानि विश्लेषित करैत अछि।"}, {"q": "‘प्रयोग’ एकांकीमे प्रकाश-संयोजन पर टिप्पणी किएक महत्त्वपूर्ण अछि?", "opts": ["केवल दर्शकक सीट गनैत अछि", "केवल पुस्तकक मूल्य बतबैत अछि", "प्रकाश दृश्य, भाव, तनाव आ कथ्यक दिशा उभारैत अछि", "प्रकाशक नाटकसँ सम्बन्ध नहि"], "ans": 2, "exp": "मंच पर प्रकाश नाटकीय अर्थ बनबैत अछि; ओ पात्र आ परिस्थिति पर दर्शकक ध्यान केन्द्रित करैत अछि।"}, {"q": "मिथिलामे उपयुक्त प्रेक्षागृहक कमी पर टिप्पणी रंगकर्मक कोन व्यावहारिक समस्या देखबैत अछि?", "opts": ["नाटक लिखब असम्भव अछि", "रचनाकार/प्रस्तुतिकर्ताकेँ ध्वनि, मंच, प्रकाश आदिक व्यवस्था स्वयं सँ सँभालए पड़ैत अछि", "दर्शक मैथिली नहि बुझैत", "रेडियो नाटक निषिद्ध अछि"], "ans": 1, "exp": "समीक्षा मानैत अछि जे संरचनात्मक सुविधा अभावमे रंगकर्मक तकनीकी जिम्मेदारी बढ़ि जाइत अछि।"}, {"q": "मंचीय ध्वनि-व्यवस्था सफल हो तँ अभिनेता कोन लाभ पबैत अछि?", "opts": ["नाटक गीतमे बदलि जाइत अछि", "किसी कोनसँ बाजल संवाद सेहो दर्शकधरि स्पष्ट पहुँचैत अछि", "प्रकाशक उपयोग बन्द भऽ जाइत अछि", "अभिनयक जरूरत समाप्त भऽ जाइत अछि"], "ans": 1, "exp": "ध्वनि स्पष्टता दर्शक-संपर्कक मूल शर्त अछि; विशेषतः सभागार-अभावक स्थिति मे।"}, {"q": "नाटकमे संगीतक उपयोग पर समीक्षा कोन संतुलन सुझबैत अछि?", "opts": ["संगीत भावी वातावरण बनबैत अछि, मुदा पूर्वाभ्यास आ संयोजनक सजगता चाही", "संगीत भए गेल तँ संवाद हटि जाए", "संगीत सदैव नाटकक शत्रु अछि", "संगीत मात्र सजावट अछि"], "ans": 0, "exp": "संगीत नाटकीय मूड गाढ़ करैत अछि, मुदा असंयोजन नाटकक गति बिगाड़ि सकैत अछि।"}, {"q": "‘अभिनेता पात्र बनि गेल कि अभिनेता रूपेँ दिखैत रहल’—एहि कसौटीक अर्थ की?", "opts": ["संवाद याद नहि रहए", "अभिनेता मंच पर स्थिर रहए", "वेशभूषा नहि होए", "सफल अभिनयमे कलाकारक निजी छवि दबि पात्रक जीवन सामने अबैत अछि"], "ans": 3, "exp": "समीक्षा अभिनयक विश्वसनीयता परखैत अछि—दर्शक पात्र देखय कि अभिनेता, ई बड़ा प्रश्न अछि।"}, {"q": "संवादक उतार-चढ़ाव आ शब्द-संप्रेषण स्वाभाविक नहि बनल कहबाक नाट्य-आलोचनात्मक अर्थ की?", "opts": ["संवाद नाटकमे अनावश्यक अछि", "मंच पर मौन मात्र श्रेष्ठ अछि", "दर्शककेँ भाषा सुनए नहि पड़ैत", "बोलबाक लय, भाव आ अर्थ पात्रानुकूल नहि भेल तँ नाटकीय प्रभाव घटैत अछि"], "ans": 3, "exp": "नाटकमे शब्द केवल लिखल पंक्ति नहि; ओकर उच्चारण, गति आ भावहि मंचीय अर्थ बनबैत अछि।"}, {"q": "एकांकी विधा नाटक विशेषांकमे किएक अलग महत्त्व पबैत अछि?", "opts": ["एकांकीमे मंचन सम्भव नहि", "छोट आकारमे तीक्ष्ण स्थिति, सीमित पात्र आ केन्द्रित संघर्ष प्रस्तुत करए सकैत अछि", "एकांकी केवल कविता अछि", "एकांकी हमेशा बाल-साहित्य अछि"], "ans": 1, "exp": "एकांकी संक्षिप्त होइतहुँ नाटकीयता, चरित्र आ संघर्षक केंद्रित रूप प्रस्तुत करैत अछि।"}, {"q": "‘जरैत मोमबत्ती’ सन शीर्षक एकांकीक सम्भावित प्रतीकात्मक अर्थ कोना बुझल जा सकैत अछि?", "opts": ["केवल बाजारक वस्तु-सूची", "धीरे-धीरे गलैत जीवन, त्याग, समय वा उजासक तनाव", "केवल व्याकरणक नियम", "केवल मौसम-रिपोर्ट"], "ans": 1, "exp": "मोमबत्ती जळब, पिघलब आ उजास देब—नाटकीय प्रतीक लेल उपयुक्त छवि अछि।"}, {"q": "‘एकटा आर महाभिनिष्क्रमण’ शीर्षकमे बौद्ध सांस्कृतिक संकेत कोन अर्थ खोलि सकैत अछि?", "opts": ["त्याग, प्रस्थान, आत्म-निर्णय आ जीवनक निर्णायक मोड़", "केवल खेलकूदक घोषणा", "केवल हास्य-रेडियो संकेत", "केवल शब्दकोशक क्रम"], "ans": 0, "exp": "महाभिनिष्क्रमण गौतम बुद्धक गृहत्यागक सांस्कृतिक स्मृति जगबैत अछि; एकांकीमे ई गहन निर्णयक प्रतीक भऽ सकैत अछि।"}, {"q": "‘केसर’ एकांकीमे कैश बनएब कि केसर बनएब सन संकेत कोन मूल्य-संघर्ष दिस इशारा करैत अछि?", "opts": ["केवल रेडियो खरीदबाक प्रसंग", "केवल रंगक नाम चुनबाक बात", "सुविधा/धन आ समाजोपयोगी योगदानक बीच चयन", "केवल भोजन-विधि"], "ans": 2, "exp": "चयनक प्रश्न व्यक्ति-सफलता बनाम सांस्कृतिक/राष्ट्रीय योगदानक नैतिक तनाव खोलैत अछि।"}, {"q": "ज्योति सुनीत चौधरीसँ गप्प-सप्प नाटक विशेषांकमे किएक महत्त्वपूर्ण अछि?", "opts": ["ई पाठ्यक्रमक प्रश्नपत्र अछि", "ई प्रवासी/अंग्रेजी-माध्यम शिक्षित मैथिली अनुरागी लेखिकाक भाषा-संबंध आ प्रेरणा खोलैत अछि", "ई केवल विज्ञापन अछि", "ई मंच-निर्देशकक वेतन-सूची अछि"], "ans": 1, "exp": "वार्ता मैथिली लेखनक प्रेरणा, संस्कार, परिवार, गाम आ संपादकीय प्रोत्साहनक सम्बन्ध देखबैत अछि।"}, {"q": "ज्योति सुनीत चौधरीक कथनमे मैथिली अनुरागक मूल स्रोत कोन-कोन अछि?", "opts": ["केवल नाटक पुरस्कार", "परिवार, गाम, विद्यापति-समारोह, पितामहक मिथिला-विकास चिन्ता आ विदेहक प्रेरणा", "केवल सरकारी आदेश", "केवल विदेशी विश्वविद्यालय"], "ans": 1, "exp": "वार्तामे लेखिका अपन अंग्रेजी-माध्यम शिक्षा बावजूद मैथिल परिवेश, गाम आ संपादकीय प्रेरणा सँ मैथिली लेखनक सम्बन्ध बतबैत छथि।"}, {"q": "नाटक विशेषांकमे कविता, कथा, बहस आ वार्ता सेहो रहबाक अर्थ की?", "opts": ["विदेह विशेषांक नाटक-केंद्रित रहितहुँ व्यापक साहित्यिक-सांस्कृतिक मंच बनैत अछि", "विशेषांकक केन्द्र नाटक नहि रहल", "संपादकीय अनुपस्थित अछि", "नाटक विधा हटि गेल"], "ans": 0, "exp": "विशेषांक मुख्यतः नाटक-केन्द्रित अछि, मुदा ई पत्रिका-रूपमे समकालीन साहित्यिक बहस आ रचना सभ सेहो समेटैत अछि।"}, {"q": "मैथिली विधायक सभ द्वारा मैथिलीमे शपथ लेबाक उल्लेख नाटक विशेषांकमे कोन भाषा-राजनीतिक प्रश्न जोड़ैत अछि?", "opts": ["केवल गजलका काफिया", "मातृभाषाक सार्वजनिक प्रतिष्ठा आ संस्थागत प्रयोगक प्रश्न", "केवल हास्यक आखिरी दृश्य", "केवल नाटकक प्रकाश-संयोजन"], "ans": 1, "exp": "भाषाक सार्वजनिक उपयोग साहित्यिक आंदोलनसँ जुड़ल सांस्कृतिक अस्मिताक अंग अछि।"}, {"q": "साहित्यिक चोरी पर बहसक उपस्थिति नाटक विशेषांकमे कोन नैतिक चेतना देखबैत अछि?", "opts": ["बालगीतक नियम", "चोरीक समर्थन", "रचनात्मक मौलिकता आ साहित्यिक उत्तरदायित्व पर सजगता", "समीक्षाक निषेध"], "ans": 2, "exp": "पत्रिका केवल रचना नहि देत; साहित्यिक नैतिकता, मौलिकता आ आलोचनात्मक बहसकेँ सेहो स्थान दैत अछि।"}, {"q": "नाटक विधामे ‘मंचनयोग्यता’ आ ‘पाठयोग्यता’ अलग-अलग किएक परखल जाए?", "opts": ["लिखित संवाद नीक हो सकैत अछि, मुदा मंच पर गति, दृश्य, ध्वनि आ अभिनयक माँग अलग होइत अछि", "पाठयोग्यता नाटकमे बेकार अछि", "मंचनयोग्यता केवल कवितामे होइत अछि", "दुनू सदैव एके बात अछि"], "ans": 0, "exp": "नाटक पाठ सेहो अछि, पर मंचीय कला सेहो; तें समीक्षा दुनू पक्ष पर दृष्टि रखैत अछि।"}, {"q": "नाट्य-पात्रक सामाजिक पहचान नाटकमे किएक महत्त्वपूर्ण होइत अछि?", "opts": ["सामाजिकता नाटक नष्ट करैत अछि", "पात्र सदैव निरपेक्ष छाया होइत अछि", "पात्रक नाम पर्याप्त अछि", "पात्रक भाषा, देह-व्यवहार, संघर्ष आ सम्बन्ध सामाजिक सन्दर्भसँ बनैत अछि"], "ans": 3, "exp": "नाटक समाजक भूमिकासभ मंच पर आनैत अछि; जाति, वर्ग, लिंग, परिवार आ राजनीति पात्रक क्रिया प्रभावित करैत अछि।"}, {"q": "मेटा-थिएटरक दृष्टिसँ ‘रिहर्सल’क अध्ययन कोना होएब चाही?", "opts": ["मंचक भीतर मंच, अभिनयक भीतर सामाजिक अभिनय, आ तैयारीक भीतर सचक उद्घाटन खोजब", "केवल पात्रक वेशभूषा सूची बनएब", "केवल लेखकक ईमेल पढ़ब", "केवल दृश्य-संख्या गनब"], "ans": 0, "exp": "‘रिहर्सल’ शीर्षक स्वयं अभिनय आ समाजक भूमिकाक दोहरापन खोलैत अछि।"}, {"q": "नाटक समीक्षा करैत काल कथ्य मात्र नहि, ‘प्रस्तुति’ किएक जरूरी अछि?", "opts": ["नाटक केवल लेखकक निजी डायरी अछि", "ध्वनि आ प्रकाश साहित्यक बाहर अछि", "रंगमंच सामूहिक कला अछि—निर्देशन, अभिनय, प्रकाश, ध्वनि, संगीत आ दर्शक-संवाद मिलि नाटक बनबैत अछि", "दर्शकक भूमिका शून्य अछि"], "ans": 2, "exp": "मंचीय नाटक पाठक विस्तार अछि; प्रस्तुति-तत्त्व सभ नाटकीय अर्थ निर्माण करैत अछि।"}, {"q": "मिथिला रंगमंचक विकास लेल विशेषांक अप्रत्यक्ष रूपेँ कोन कार्य-सूची सुझबैत अछि?", "opts": ["केवल पुरस्कार-वितरण", "लेखन, मंचन, प्रशिक्षण, प्रेक्षागृह, ध्वनि-प्रकाश सुविधा आ आलोचना—सभक समन्वय", "केवल लोकगीत हटाएब", "केवल पृष्ठ-सूची"], "ans": 1, "exp": "विभिन्न लेख आ समीक्षा मिलि बतबैत अछि जे नाट्य-विकास केवल रचना-सृजन नहि, संस्थागत-सांस्कृतिक श्रम चाहैत अछि।"}, {"q": "हास्य-रेडियो नाटक आ सामाजिक-रूपक नाटक एके विशेषांकमे रहबाक अर्थ की अछि?", "opts": ["रेडियो नाटक मंचीय नाटककेँ हटबैत अछि", "मैथिली नाटकक रेंज घरेलू हास्यसँ गम्भीर सांस्कृतिक आलोचना धरि फैलल अछि", "हास्य आ आलोचना असंगत अछि", "नाटकमे विविधता नहि"], "ans": 1, "exp": "विशेषांक विधाक बहुलता देखबैत अछि—आवाज-आधारित हास्य, सामाजिक संकट, एकांकी आ विश्व-नाटकक विवेचन।"}, {"q": "‘कचरस’ वा लोक-रंगक स्वाद मैथिली नाटक लेल किएक बचाएब जरूरी अछि?", "opts": ["स्थानीयता साहित्यक विरोधी अछि", "कचरस सदैव अशिक्षितता अछि", "ओहि मे स्थानीय जीवन, बोली, देहभाषा आ दर्शकक अपना-पन रहैत अछि", "लोक-रंगक मंचसँ सम्बन्ध नहि"], "ans": 2, "exp": "रंगमंचक जीवन्तता अनेक बेर परिष्कृत सभागारसँ बेसी लोक-स्वर आ स्थानीय ऊर्जा मे रहैत अछि।"}, {"q": "नाटक विशेषांकक उच्च-स्तरीय अध्ययनमे कोन प्रश्न पृष्ठ-संख्या पूछबाक अपेक्षा बेसी सार्थक अछि?", "opts": ["कौन लिंकक रंग की अछि", "कौन शीर्षक कोन पृष्ठ पर अछि", "नाटक समाज, भाषा, मंच-संरचना आ सांस्कृतिक संकटकेँ कोना रूपान्तरित करैत अछि", "कतेक पंक्ति छपल अछि"], "ans": 2, "exp": "सार्थक क्विज पाठकें विधा, शिल्प, विचार आ सांस्कृतिक अर्थ बुझए प्रेरित करैत अछि।"}, {"q": "मैथिली नाटकमे स्त्री-पात्र आ घरेलू प्रसंगक उपयोग केवल मनोरंजन नहि किएक?", "opts": ["ओ परिवार, इच्छा, दबाव, मनुहार, सत्ता-सन्तुलन आ सामाजिक भूमिकाक अभिनय खोलि सकैत अछि", "घरक प्रसंग नाटक नहि बनि सकैत", "स्त्री-पात्र सदैव गौण होइत अछि", "घरेलू संवादमे सामाजिक अर्थ नहि"], "ans": 0, "exp": "हास्य आ घरेलू संवादक भीतर सेहो समाजक लिंग-भूमिका आ भाव-व्यवस्था देखल जा सकैत अछि।"}, {"q": "‘नाटकक विकास’क चर्चा केवल लेखक-नामसँ किएक पूर्ण नहि होइत?", "opts": ["विकासमे पाठ, मंच, दर्शक, संस्था, आलोचना, भाषा आ तकनीक सभ सम्मिलित अछि", "लेखक-नाम पर्याप्त अछि", "दर्शकक भूमिका शून्य अछि", "मंचन इतिहाससँ बाहर अछि"], "ans": 0, "exp": "नाट्य-विधा सामूहिक सामाजिक कला अछि; ओकर इतिहास कई स्तर पर बनैत अछि।"}];
+let idx=0, answers=Array(QDB.length).fill(null);
+const letters=['क','ख','ग','घ'];
+function initMap(){
+  const m=document.getElementById('qmap'); m.innerHTML='';
+  QDB.forEach((_,i)=>{const b=document.createElement('button'); b.className='dot'; b.textContent=i+1; b.onclick=()=>showQ(i); m.appendChild(b);});
 }
-function switchTab(gi){
-  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===gi));
-  document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',i===gi));
-  window.scrollTo({top:0,behavior:'smooth'});
+function updateTop(){
+  const done=answers.filter(x=>x!==null).length, ok=answers.filter((x,i)=>x===QDB[i].ans).length, bad=answers.filter((x,i)=>x!==null&&x!==QDB[i].ans).length;
+  document.getElementById('cur').textContent=idx+1; document.getElementById('score').innerHTML=`✓ ${ok} &nbsp; ✗ ${bad}`;
+  document.getElementById('bar').style.width=(done/QDB.length*100)+'%';
+  [...document.querySelectorAll('.dot')].forEach((d,i)=>{d.className='dot'+(answers[i]!==null?' answered':'')+(answers[i]===QDB[i].ans?' ok':'')+(answers[i]!==null&&answers[i]!==QDB[i].ans?' bad':'');});
 }
-function showScore(){
-  const pct=Math.round(score/total*100);
-  let msg=pct>=80?'उत्कृष्ट! अहाँक ज्ञान अद्भुत अछि।':pct>=50?'नीक प्रयास — आओर पढ़ू।':'फेर सँ प्रयास करू, अहाँ नीक करब।';
-  const sb=document.createElement('div');sb.className='scoreboard';
-  sb.innerHTML='<div class="orn">❖ ❖ ❖</div><div class="scbig">'+score+' / '+total+'</div>'+
-    '<div class="scpct">'+pct+'%</div><div class="scmsg">'+msg+'</div>'+
-    '<button class="nbtn pri" onclick="location.reload()">फेर सँ खेलू</button>';
-  const w=document.querySelector('.wrap');w.insertBefore(sb,w.firstChild);
-  window.scrollTo({top:0,behavior:'smooth'});
+function showQ(i){
+  idx=i; const q=QDB[i]; document.getElementById('result').style.display='none';
+  let chosen=answers[i];
+  let h=`<article class="qcard"><div class="qmeta"><span>प्रश्न ${i+1}</span><span>उच्च-स्तर / अवधारणा-आधारित</span></div><p class="qtext">${q.q}</p><div class="opts">`;
+  q.opts.forEach((o,k)=>{let cls='opt'; if(chosen!==null){cls+=' locked'; if(k===q.ans) cls+=' correct'; else if(k===chosen) cls+=' wrong';} h+=`<div class="${cls}" onclick="choose(${k})"><span class="key">${letters[k]}.</span><span class="txt">${o}</span></div>`;});
+  h+=`</div><div class="fb ${chosen===null?'':(chosen===q.ans?'ok show':'bad show')}"><strong>${chosen===null?'':(chosen===q.ans?'सही उत्तर।':'गलत उत्तर।')}</strong><br>${chosen===null?'':q.exp}</div><div class="navrow"><button class="btn2" onclick="showQ(Math.max(0,idx-1))">← पछिला</button><button class="btn" onclick="idx<QDB.length-1?showQ(idx+1):finish()">${idx<QDB.length-1?'अगिला →':'परिणाम देखू'}</button></div></article>`;
+  document.getElementById('quiz').innerHTML=h; updateTop(); window.scrollTo({top:0,behavior:'smooth'});
 }
+function choose(k){ if(answers[idx]!==null) return; answers[idx]=k; showQ(idx); }
+function finish(){
+  updateTop(); const ok=answers.filter((x,i)=>x===QDB[i].ans).length, bad=answers.filter((x,i)=>x!==null&&x!==QDB[i].ans).length, skip=answers.filter(x=>x===null).length;
+  const pct=Math.round(ok/QDB.length*100); const r=document.getElementById('result');
+  r.innerHTML=`<div class="big">${ok}/${QDB.length}</div><p><strong>${pct}%</strong> सही</p><p>गलत: ${bad} | अनुत्तरित: ${skip}</p><button class="btn" onclick="restart()">फेरसँ शुरू करू</button>`;
+  r.style.display='block'; window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});
+}
+function restart(){answers=Array(QDB.length).fill(null); idx=0; showQ(0);}
+initMap(); showQ(0);
 </script>
 </body>
 </html>

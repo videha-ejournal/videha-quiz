@@ -1,146 +1,92 @@
 <!DOCTYPE html>
 <html lang="mai">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>हाइकू विशेषांक — विदेह क्विज</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>विदेह विशेषांक ०१ — मैथिली हैकू प्रश्नोत्तरी</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#1a2744;--crimson:#8B1A1A;--gold:#c49a3c;--cream:#FAF6EE;
---ok-fg:#1d7a3e;--bad-fg:#a32020}
-*{box-sizing:border-box}
-body{margin:0;background:var(--cream);color:#1A1A1A;
-font-family:'Lato','Segoe UI',system-ui,sans-serif;line-height:1.55;padding-bottom:60px}
-header{background:linear-gradient(180deg,#16213b,var(--navy));color:#fff;
-padding:28px 20px 22px;text-align:center;border-bottom:4px solid var(--gold)}
-header h1{margin:0;font-family:'Noto Serif Devanagari',serif;font-size:1.7em}
-header .sub{color:var(--gold);font-size:.82em;letter-spacing:.1em;font-style:italic;margin-top:8px}
-header .src{color:#cdd6ea;font-size:.78em;margin-top:6px}
-.wrap{max-width:760px;margin:0 auto;padding:20px 16px}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;justify-content:center}
-.tab{font-family:'Noto Serif Devanagari',serif;font-weight:700;font-size:.9em;
-padding:8px 16px;border-radius:20px;border:2px solid var(--navy);background:#fff;
-color:var(--navy);cursor:pointer;transition:.15s}
-.tab.active{background:var(--navy);color:#fff}
-.counter-badge{background:var(--crimson);color:#fff;font-size:.72em;font-weight:700;
-padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle}
-.progress{height:6px;background:#e7dcc2;border-radius:4px;margin-bottom:18px;overflow:hidden}
-.progress > div{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--crimson));transition:width .3s}
-.pane{display:none}.pane.active{display:block}
-.card{background:#fff;border-radius:11px;box-shadow:0 4px 16px rgba(26,39,68,.1);
-padding:22px 22px 18px;margin-bottom:16px}
-.qmeta{font-size:.78em;color:#8a93ab;font-weight:700;margin-bottom:8px}
-.q{font-family:'Noto Serif Devanagari',serif;font-size:1.12em;font-weight:600;
-color:var(--navy);margin-bottom:14px}
-.opt{display:block;width:100%;text-align:left;
-font-family:'Noto Serif Devanagari',serif;font-size:1em;
-padding:11px 15px;margin-bottom:9px;border:1.5px solid #d8cfb8;border-radius:8px;
-background:#fffdf8;cursor:pointer;transition:.13s;color:#1A1A1A}
-.opt:hover{border-color:var(--gold);background:#fff8e8}
-.opt.ok{border-color:var(--ok-fg);background:#eafaf0;color:var(--ok-fg);font-weight:700}
-.opt.bad{border-color:var(--bad-fg);background:#fdeeee;color:var(--bad-fg)}
-.opt:disabled{cursor:default}
-.fb{margin-top:11px;font-size:.92em;font-weight:600;min-height:20px;
-font-family:'Noto Serif Devanagari',serif}
-.fb.ok{color:var(--ok-fg)}.fb.bad{color:var(--bad-fg)}
-.hint-box{background:#fffbef;border:1px solid var(--gold);border-radius:7px;
-padding:10px 14px;margin-top:10px;font-family:'Noto Serif Devanagari',serif;
-font-size:.88em;color:#5a4010;display:none}
-.hint-box.show{display:block}
-.nav{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
-.nbtn{font-family:'Lato',sans-serif;font-size:.9em;font-weight:700;
-padding:9px 20px;border-radius:6px;border:none;cursor:pointer;transition:.15s}
-.nbtn.pri{background:var(--crimson);color:#fff}.nbtn.pri:hover{background:var(--navy)}
-.nbtn.sec{background:transparent;color:var(--navy);border:2px solid var(--navy)}
-.nbtn.sec:hover{background:var(--navy);color:#fff}
-.scoreboard{background:#fff;border-radius:11px;box-shadow:0 4px 18px rgba(26,39,68,.11);
-padding:34px 26px;text-align:center;margin-bottom:18px}
-.scbig{font-family:'Playfair Display',serif;font-size:2.8em;color:var(--crimson);font-weight:700;margin-bottom:6px}
-.scpct{font-size:1.05em;color:#5a6a8a;margin-bottom:9px}
-.scmsg{font-family:'Noto Serif Devanagari',serif;font-size:1.05em;color:var(--navy);margin-bottom:20px}
-.orn{text-align:center;color:var(--gold);font-size:1em;letter-spacing:.2em;margin:14px 0;opacity:.65}
-footer{text-align:center;color:#8a7a4a;font-size:.78em;padding:24px 16px 0}
-footer a{color:var(--crimson);text-decoration:none}
-@media(max-width:520px){header h1{font-size:1.35em}.q{font-size:1.05em}}
+:root{--navy:#17264a;--crimson:#9b1c2e;--gold:#c8973a;--cream:#f7f2e8;--ok:#2e7d32;--ok-bg:#e8f5e9;--bad:#b71c1c;--bad-bg:#ffebee;--muted:#66708a}
+*{box-sizing:border-box} body{margin:0;background:var(--cream);font-family:Lato,Arial,sans-serif;color:var(--navy);line-height:1.55}
+header{background:var(--navy);color:#fff;text-align:center;padding:18px 12px;border-bottom:5px solid var(--gold)}
+header h1{font-family:'Noto Serif Devanagari',serif;font-size:1.45rem;margin:0 0 6px;line-height:1.35}
+header .brand{font-size:.86rem;color:var(--gold);font-weight:700;letter-spacing:.02em}
+header .sub{font-family:'Noto Serif Devanagari',serif;font-size:.95rem;margin-top:6px;color:#dbe4ff}
+main{max-width:980px;margin:18px auto 50px;padding:0 14px}
+.panel{background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(23,38,74,.12);padding:16px;margin-bottom:14px;border-left:5px solid var(--navy)}
+.topbar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.score{font-weight:700;color:var(--crimson)}
+.progress{flex:1;min-width:180px;height:9px;background:#d9dfeb;border-radius:20px;overflow:hidden} .bar{height:100%;background:var(--gold);width:0%;transition:.2s}
+button{font-family:Lato,Arial,sans-serif;font-weight:700;border:0;border-radius:7px;padding:9px 14px;cursor:pointer}
+.btn{background:var(--navy);color:#fff} .btn:hover{background:var(--crimson)} .btn2{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+.qmap{display:flex;gap:4px;flex-wrap:wrap;margin-top:12px} .dot{width:24px;height:24px;border-radius:5px;border:1px solid #b8c1d8;background:#eef2fa;color:var(--navy);font-size:.72rem;padding:0} .dot.answered{background:#dfe8f9} .dot.ok{background:var(--ok);color:#fff} .dot.bad{background:var(--bad);color:#fff}
+.qcard{background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(23,38,74,.10);padding:20px;margin:16px 0;border-left:5px solid var(--gold)}
+.qmeta{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:.82rem;font-weight:700;margin-bottom:8px}
+.qtext{font-family:'Noto Serif Devanagari',serif;font-size:1.13rem;font-weight:700;margin:0 0 14px;color:var(--navy)}
+.opts{display:grid;gap:9px} .opt{display:flex;gap:10px;align-items:flex-start;background:#f4f7fd;border:2px solid #d2daec;border-radius:10px;padding:10px 12px;cursor:pointer}
+.opt:hover{border-color:var(--navy)} .opt .key{font-weight:700;min-width:22px} .opt .txt{font-family:'Noto Serif Devanagari',serif}
+.opt.correct{background:var(--ok-bg);border-color:#7bc47f;color:var(--ok)} .opt.wrong{background:var(--bad-bg);border-color:#e57373;color:var(--bad)} .opt.locked{cursor:default}
+.fb{display:none;margin-top:10px;border-radius:8px;padding:10px 12px;font-family:'Noto Serif Devanagari',serif} .fb.show{display:block} .fb.ok{background:var(--ok-bg);border-left:4px solid var(--ok)} .fb.bad{background:var(--bad-bg);border-left:4px solid var(--bad)}
+.navrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.result{display:none;text-align:center} .big{font-size:2.6rem;font-weight:700;color:var(--crimson)}
+.back{text-align:center;margin:24px 0} .back a{color:var(--crimson);font-family:'Noto Serif Devanagari',serif;font-weight:700;text-decoration:none}
+footer{text-align:center;padding:20px;color:#6a728a;font-size:.85rem}
+@media(max-width:600px){.qtext{font-size:1rem}.topbar{align-items:stretch}.progress{min-width:100%}}
 </style>
 </head>
 <body>
 <header>
-  <h1>हाइकू विशेषांक</h1>
-  <div class="sub">HAIKU SPECIAL ISSUE · विदेह अंक १२ · १५ जून २००८</div>
-  <div class="src">विदेह : प्रथम मैथिली पाक्षिक ई-पत्रिका · videha.co.in · ISSN 2229-547X</div>
+  <h1>विदेह विशेषांक ०१ — मैथिली हैकू प्रश्नोत्तरी</h1>
+  <div class="brand">Videha QUIZ | विदेह ई-लर्निङ्ग क्विज / Videha eLearning Quiz / Videha — First Maithili Fortnightly eJournal | www.videha.co.in</div>
+  <div class="sub">हैकू, सेर्न्यू, किरेजी, किगो, रेंगा, होक्कु, हैकाइ आ हैबुन पर ४० उच्च-स्तरीय प्रश्न</div>
 </header>
-<div class="orn">❖ ❖ ❖</div>
-<div class="wrap">
-  <div class="tabs" id="tabs"></div>
-  <div class="progress"><div id="bar"></div></div>
-  <div id="panes"></div>
-</div>
-<footer>© विदेह Videha · <a href="https://videha.co.in">videha.co.in</a> · विदेह विशेषांक प्रश्नोत्तरी</footer>
+<main>
+  <section class="panel">
+    <div class="topbar">
+      <span><strong>विशेषांक ०१</strong> — प्रश्न <strong id="cur">1</strong> / <strong>40</strong></span>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <span class="score" id="score">✓ 0 &nbsp; ✗ 0</span>
+      <button class="btn2" onclick="showQ(0)">←← पहिल</button>
+      <button class="btn" onclick="restart()">नव क्विज</button>
+    </div>
+    <div class="qmap" id="qmap"></div>
+  </section>
+  <section id="quiz"></section>
+  <section class="panel result" id="result"></section>
+  <div class="back"><a href="https://www.videha.co.in/videha-elearning.htm">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a></div>
+</main>
+<footer>© Gajendra Thakur, Editor — Videha eJournal</footer>
 <script>
-const DATA = [{"tab": "विशेषांक परिचय", "items": [{"q": "विदेहक ई हाइकू (हैकू) विशेषांक केहन तिथिकेँ ई-प्रकाशित भेल छल?", "opts": ["१५ जून २००८", "०१ नवम्बर २००८", "१५ जनवरी २०११", "०१ मार्च २०११"], "correct": 0, "hint": "वर्ष १, मास ६, अंक १२।"}, {"q": "ई हाइकू विशेषांक विदेहक कोन अंक छल?", "opts": ["अंक १२", "अंक २१", "अंक ६७", "अंक ०१"], "correct": 0, "hint": "वर्ष १ मास ६ अंक १२।"}, {"q": "हैकू मूलतः कोन देशक पद्य विधा थिक?", "opts": ["जापान", "चीन", "कोरिया", "भारत"], "correct": 0, "hint": "विदेह एहि जापानी विधाकेँ मैथिलीमे आनलक।"}, {"q": "विदेहक दाबी अनुसार मैथिलीमे जापानी पद्य विधाक आधार पर ई विधा पहिल बेर के प्रस्तुत कएलक?", "opts": ["\"विदेह\"", "साहित्य अकादमी", "मिथिला मिहिर", "गद्य-पद्य भारती"], "correct": 0, "hint": "पत्रिकाक नामे उत्तर अछि।"}, {"q": "कोन प्रसिद्ध बंगला कविक सेहो हैकू लिखबाक उल्लेख एहि अंकमे अछि?", "opts": ["रवीन्द्रनाथ ठाकुर", "शरत्चन्द्र", "बंकिमचन्द्र", "काजी नजरुल इस्लाम"], "correct": 0, "hint": "गुरुदेव, गीतांजलिक रचयिता।"}]}, {"tab": "हैकू नियम", "items": [{"q": "विदेहक देल नियम अनुसार हैकू केतेक अक्षरमे लिखल जाइत अछि?", "opts": ["१७ अक्षर", "१४ अक्षर", "२१ अक्षर", "१० अक्षर"], "correct": 0, "hint": "तीन पंक्तिमे बँटल।"}, {"q": "हैकूक तीन पंक्तिमे अक्षरक क्रम की होइत अछि?", "opts": ["५–७–५", "७–५–७", "५–५–७", "७–७–५"], "correct": 0, "hint": "पहिल आ अन्तिम समान।"}, {"q": "हैकूक मूल विषय की मानल गेल अछि?", "opts": ["ऋतु", "व्यंग्य", "राजनीति", "प्रेम"], "correct": 0, "hint": "प्रकृतिक ऋतु-चक्र।"}, {"q": "जापानमे व्यंग्य आ मानव-दुर्बलताक लेल प्रयुक्त विधाकेँ की कहल जाइत अछि?", "opts": ["सेर्न्यू", "किरेजी", "किगो", "हैबुन"], "correct": 0, "hint": "ई हैकूसँ भिन्न विधा थिक।"}, {"q": "हैकूमे जे व्याकरण-विराम देल जाइत अछि तकरा जापानीमे की कहल जाइत अछि?", "opts": ["किरेजी", "सेर्न्यू", "किगो", "ताङ्का"], "correct": 0, "hint": "प्रथम ५ वा दोसर ७ ध्वनिक बाद।"}]}, {"tab": "रचनाकार", "items": [{"q": "एहि अंकमे केकर ९५ टा मैथिली हैकू प्रस्तुत भेल छल?", "opts": ["ज्योति झा चौधरी", "गजेन्द्र ठाकुर", "रामजी चौधरी", "गंगेश गुंजन"], "correct": 0, "hint": "९६–१०० धरि अंग्रेजीसँ अनूदित।"}, {"q": "गजेन्द्र ठाकुरक एहि अंकमे केतेक टा हैकू देल गेल छल?", "opts": ["१२ टा", "९५ टा", "५ टा", "२५ टा"], "correct": 0, "hint": "संगहि एकटा हैबुन सेहो।"}, {"q": "गजेन्द्र ठाकुर हैकूक संगहि कोन गद्य-पद्य मिश्रित विधाक एकटा रचना देलन्हि?", "opts": ["हैबुन", "सेर्न्यू", "ताङ्का", "रेन्गा"], "correct": 0, "hint": "हैकू + गद्यक मेल।"}, {"q": "एहि अंकमे केकर अप्रकाशित पद्य (विस्मृत कवि) ई-प्रकाशित भेल?", "opts": ["स्व. रामजी चौधरी", "उदय नारायण सिंह", "गंगेश गुंजन", "मायानन्द मिश्र"], "correct": 0, "hint": "१८७८–१९५२, ग्राम रुद्रपुर।"}, {"q": "\"नो एंट्री: मा प्रविश\" नाटकक नाटककार के छथि?", "opts": ["उदय नारायण सिंह नचिकेता", "गंगेश गुंजन", "गजेन्द्र ठाकुर", "मायानन्द मिश्र"], "correct": 0, "hint": "केन्द्रीय भारतीय भाषा संस्थान, मैसूरक निदेशक रहथि।"}]}, {"tab": "संपादन आ संदेश", "items": [{"q": "विदेहक संपादक के छथि?", "opts": ["गजेन्द्र ठाकुर", "नचिकेता", "गंगेश गुंजन", "रामाश्रय झा"], "correct": 0, "hint": "बसन्तकुंज, नव देहली।"}, {"q": "\"२० म शताब्दीक सर्वश्रेष्ठ मिथिला रत्न\" आ \"अभिनव भातखण्डे\" केकरा कहल गेल अछि?", "opts": ["रामाश्रय झा रामरंग", "नचिकेता", "गंगेश गुंजन", "ब्रजेन्द्र त्रिपाठी"], "correct": 0, "hint": "संगीत शिक्षा स्तंभसँ जुड़ल।"}, {"q": "मैथिली-अंग्रेजी आ अंग्रेजी-मैथिली शब्दकोशक संपादक गजेन्द्र ठाकुरक संग आर के छथि?", "opts": ["नागेन्द्र कुमार झा", "नचिकेता", "गंगेश गुंजन", "विद्यानंद झा"], "correct": 0, "hint": "विदेहक शोध आधारित कोश।"}, {"q": "\"गोबरक मूल्य\" कथाक रचनाकार के छथि?", "opts": ["गंगेश गुंजन", "गजेन्द्र ठाकुर", "मायानन्द मिश्र", "नचिकेता"], "correct": 0, "hint": "हुनकर संगहि गजेन्द्र ठाकुरक \"पहरराति\" सेहो छल।"}, {"q": "पञ्जी-संग्राहक श्री विद्यानंद झा कोन नामसँ प्रसिद्ध छथि?", "opts": ["मोहनजी", "रामरंग", "नचिकेता", "मौन"], "correct": 0, "hint": "पञ्जीकार, पञ्जी प्रबंध स्तंभ।"}]}];
-let score=0,total=0,answered=0;
-DATA.forEach(g=>total+=g.items.length);
-const tabsEl=document.getElementById('tabs');
-const panesEl=document.getElementById('panes');
-const bar=document.getElementById('bar');
-DATA.forEach((g,gi)=>{
-  const tb=document.createElement('button');
-  tb.className='tab'+(gi===0?' active':'');
-  tb.innerHTML=g.tab+'<span class="counter-badge">'+g.items.length+'</span>';
-  tb.onclick=()=>switchTab(gi);
-  tabsEl.appendChild(tb);
-  const pane=document.createElement('div');
-  pane.className='pane'+(gi===0?' active':'');
-  pane.id='pane-'+gi;
-  g.items.forEach((q,qi)=>pane.appendChild(buildCard(g,gi,qi,q)));
-  panesEl.appendChild(pane);
-});
-function buildCard(g,gi,qi,q){
-  const card=document.createElement('div');card.className='card';
-  const meta=document.createElement('div');meta.className='qmeta';
-  meta.textContent=g.tab+' · प्रश्न '+(qi+1)+'/'+g.items.length;card.appendChild(meta);
-  const qd=document.createElement('div');qd.className='q';qd.textContent=q.q;card.appendChild(qd);
-  const opts=[];
-  q.opts.forEach((o,oi)=>{
-    const b=document.createElement('button');b.className='opt';b.textContent=o;
-    b.onclick=()=>pick(b,oi);card.appendChild(b);opts.push(b);
-  });
-  const fb=document.createElement('div');fb.className='fb';card.appendChild(fb);
-  let hintBox=null;
-  if(q.hint){hintBox=document.createElement('div');hintBox.className='hint-box';
-    hintBox.textContent='💡 '+q.hint;card.appendChild(hintBox);}
-  const nav=document.createElement('div');nav.className='nav';
-  if(q.hint){const hb=document.createElement('button');hb.className='nbtn sec';hb.textContent='संकेत';
-    hb.onclick=()=>hintBox.classList.toggle('show');nav.appendChild(hb);}
-  card.appendChild(nav);
-  let done=false;
-  function pick(btn,oi){
-    if(done)return;done=true;answered++;
-    opts.forEach((b,bi)=>{b.disabled=true;
-      if(bi===q.correct)b.classList.add('ok');
-      else if(b===btn)b.classList.add('bad');});
-    if(oi===q.correct){score++;fb.className='fb ok';fb.textContent='✓ सही उत्तर!';}
-    else{fb.className='fb bad';fb.textContent='✗ सही उत्तर: '+q.opts[q.correct];}
-    bar.style.width=(answered/total*100)+'%';
-    if(answered===total)showScore();
-  }
-  return card;
+const QDB = [{"q": "हैकूकेँ केवल छोट कविता नहि, बल्कि जापानी काव्य-विधा मानबाक मूल कारण की अछि?", "opts": ["ओहिमे सौंदर्य आ भावक संक्षिप्त, तीव्र अनुभूति रूप ग्रहण करैत अछि", "ओ तीन पाँतिमे लिखल जाइत अछि, तें स्वतः महान होइत अछि", "ओ केवल जापानी शब्दक प्रयोग करैत अछि", "ओ कथाक सम्पूर्ण सार विस्तारसँ कहैत अछि"], "ans": 0, "exp": "लेखमे हैकूकेँ सौंदर्य आ भावक जापानी विधा कहल गेल अछि; ओकर सार छोट आकार नहि, संक्षिप्त रूपमे परम अनुभूति अछि।"}, {"q": "मात्सुओ बाशोकेँ हैकू-परम्परामे निर्णायक किएक मानल गेल अछि?", "opts": ["ओ हास्य-कविता हटाकऽ केवल दरबारी कविता लिखलन्हि", "ओ जापानमे हैकूक स्वतंत्र काव्य-विधा रूपक निर्धारण कएलन्हि", "ओ देवनागरीमे पहिल हैकू लिखलन्हि", "ओ रवीन्द्रनाथक अनुवादक सम्पादन कएलन्हि"], "ans": 1, "exp": "लेख बाशोकेँ ओहि कवि रूपमे राखैत अछि जिनका द्वारा हैकू स्वतंत्र काव्य-विधाक रूपमे प्रतिष्ठित भेल।"}, {"q": "‘परम अनुभूति’ हैकू रचनाक लेल आवश्यक कहल गेल अछि। एकर व्यावहारिक अर्थ की बुझबाक चाही?", "opts": ["कवि दीर्घ व्याख्या आ उपदेश देथि", "कवि प्रत्यक्ष अनुभूतिक एक क्षणकेँ सघन रूपमे पकड़थि", "कवि इतिहासक क्रमवार विवरण देथि", "कवि छन्द छोड़ि मुक्त गद्य लिखथि"], "ans": 1, "exp": "हैकू क्षण-विशेषक तीव्र अनुभूति पर टिकैत अछि; व्याख्यान, उपदेश वा विवरण ओकर स्वभाव नहि।"}, {"q": "बाशोक ‘३–५ हैकू लिखनिहार हैकू कवि, १० लिखनिहार महाकवि’ कथनसँ कोन निष्कर्ष निकलैत अछि?", "opts": ["हैकू संख्यात्मक उत्पादनक खेल अछि", "हैकू लिखब अत्यन्त कठिन, चयनशील आ साधनापरक विधा अछि", "कवि लेल हजार हैकू लिखब अनिवार्य अछि", "हैकू केवल वरिष्ठ कविक लेल आरक्षित अछि"], "ans": 1, "exp": "एहि कथनक अर्थ ई जे हैकूक गुणात्मक साधना कठिन अछि; कम संख्याओमे श्रेष्ठ रचना असाधारण मानल जाइत अछि।"}, {"q": "भारतमे रवीन्द्रनाथ ठाकुरक हैकू-संबन्धी योगदानक सार की अछि?", "opts": ["ओ हैकूकेँ केवल बंगला लोकगीतमे बदलि देलन्हि", "ओ जापानसँ घुरलाक बाद बाशोक दू हैकूक शाब्दिक अनुवाद कएलन्हि", "ओ मैथिलीमे १०० हैकू लिखलन्हि", "ओ हैबुनक पहिल भारतीय यात्रा-वृत्तान्त लिखलन्हि"], "ans": 1, "exp": "लेखक अनुसार १९१९ ई. मे रवीन्द्रनाथ ठाकुर जापानसँ घुरलाक बाद बाशोक दूटा हैकूक शाब्दिक अनुवाद कएने रहथि।"}, {"q": "लेखमे मैथिलीकेँ हैकू लेल विशेष उपयुक्त कहबाक ध्वन्यात्मक आधार की अछि?", "opts": ["मैथिलीमे दीर्घ कविता मात्र लिखल जाइत अछि", "मैथिली आ देवनागरी/भारतीय लिपि व्यवस्थामे लिखल आ बाजल ध्वनिक निकटता अछि", "मैथिलीमे ऋतुसूचक शब्द नहि अछि", "मैथिलीमे व्यञ्जन ध्वनि अनुपस्थित अछि"], "ans": 1, "exp": "लेख लिखल-बाजल ध्वनिक साम्यकेँ हैकू लेल उपयोगी मानैत अछि, कारण हैकू अक्षर/ध्वनि-संयम पर निर्भर अछि।"}, {"q": "देवनागरीमे ह्रस्व ‘इ’ केर चर्चा हैकू लेखनमे किएक महत्त्वपूर्ण अछि?", "opts": ["एहिसँ सिद्ध होइत अछि जे ध्वनि-गणना आ उच्चारणक संबंध सावधानीसँ देखबाक चाही", "ई बतबैत अछि जे देवनागरी हैकू लेल अनुपयुक्त अछि", "ई केवल व्याकरणक असम्बद्ध उदाहरण अछि", "ई हैकूकेँ गद्य बना दैत अछि"], "ans": 0, "exp": "ह्रस्व ‘इ’ लिखन-उच्चारणक सूक्ष्म भिन्नता देखबैत अछि; हैकूमे ध्वनि-गणना लेल ई सजगता जरूरी अछि।"}, {"q": "लेखमे संधि-संबन्धी उदाहरणक उद्देश्य की अछि?", "opts": ["अंग्रेजीमे ध्वनि-प्रवाह नहि होइत अछि, ई सिद्ध करब", "पाणिनि आ ध्वनि-विज्ञानक आधारपर लिखन-बोलनक संबंध बुझाएब", "सन्धिक कारण हैकू असम्भव अछि, ई कहब", "मैथिलीमे विभक्ति अलग लिखबाक आग्रह करब"], "ans": 1, "exp": "संधिक उदाहरणसँ लेख ध्वनि-विज्ञान, लिखन-बोलन आ उच्चारण-प्रवाहक संबंध पर बल दैत अछि।"}, {"q": "टनका/वाका, रेंगा, होक्कु आ हैकाइ केर क्रम बुझबाक मुख्य उपयोग की अछि?", "opts": ["हैकूक ऐतिहासिक विकास आ रूपान्तरण बुझबाक लेल", "हैकूकेँ गीतसँ अलग करबाक लेल मात्र", "मैथिली छन्दक गणना हटेबाक लेल", "हैबुनकेँ कथा सिद्ध करबाक लेल"], "ans": 0, "exp": "लेख जापानी प्रार्थना-रूप ५-७-५-७-७ सँ रेंगा, होक्कु/हैकाइ आ अंततः हैकू धरि विकास-क्रम देखबैत अछि।"}, {"q": "रेंगामे ५-७-५ आ ७-७ केर दू लेखकद्वारा लेखनसँ कोन बात स्पष्ट होइत अछि?", "opts": ["हैकूक मूलमे सह-रचना आ खण्ड-रचना परम्परा रहल अछि", "रेंगा सदैव एकल कविक आत्मकथा छल", "रेंगा मैथिलीमे उत्पन्न भेल", "रेंगा बिना ऋतु-सूचक शब्दक हास्य-विधा छल"], "ans": 0, "exp": "लेख कहैत अछि जे ५-७-५ आ ७-७ दू लेखकद्वारा लिखल जाए लागल; एहिसँ सह-रचनात्मक ऐतिहासिक पृष्ठभूमि स्पष्ट अछि।"}, {"q": "मसाओका शिकी केर भूमिका लेखमे कोना व्याख्यायित अछि?", "opts": ["ओ रेन्गाक अन्त घोषित कऽ होक्कु आ हैकाइक बदलामे ‘हैकू’ केर समन्वित रूप देलन्हि", "ओ सेर्न्यूकेँ ऋतु-कविता बना देलन्हि", "ओ मैथिली लिपि सुधारलन्हि", "ओ बाशोक हैबुन हटेलन्हि"], "ans": 0, "exp": "लेख शिकीकेँ ओ व्यक्ति मानैत अछि जे रेन्गाक अन्तक घोषणा कऽ होक्कु/हैकाइक स्थान पर हैकूक समन्वित रूप देलन्हि।"}, {"q": "हैकू निअम १ केर अनुसार संरचना कोन अछि?", "opts": ["चारि पाँति ७-७-७-७", "तीन पाँति ५-७-५, कुल १७ अक्षर/ध्वनि", "दू पाँति समान तुकान्त", "गद्य अनुच्छेदक अन्तमे एक लम्बा वाक्य"], "ans": 1, "exp": "लेखमे स्पष्ट अछि जे हैकू १७ अक्षरक होइत अछि आ ५-७-५ क्रममे तीन पाँतिमे लिखल जाइत अछि।"}, {"q": "संयुक्ताक्षर, हलन्त, बिकारी, इकार-आकार आदिक गणनाक नियमसँ कोन सावधानी निकलैत अछि?", "opts": ["प्रत्येक मात्रा स्वतंत्र अक्षर मानू", "संयुक्ताक्षरकेँ एक गानू, हलन्त/बिकारी/इकार-आकारकेँ अलग गणना नहि करू", "गणना पूर्णतः छोड़ि दिअ", "केवल शब्दसंख्या गानू"], "ans": 1, "exp": "लेखक ध्वनि-गणना सरल रखैत छथि—संयुक्ताक्षर एक, आ हलन्त/बिकारी/स्वर-चिह्न अलग गणना नहि।"}, {"q": "‘व्यंग्य हैकूक विषय नहि, ऋतु विषय अछि’—एहि वाक्यक सही अर्थ की अछि?", "opts": ["हैकूमे मानव-दुर्बलता आ व्यंग्य प्रमुख होए तँ ओ सेर्न्यूक क्षेत्रमे जाएत", "हैकूमे प्रकृति पूर्णतः निषिद्ध अछि", "हैकू सदैव राजनीतिक व्यंग्य होएब चाही", "ऋतु-संकेत केवल सजावट अछि"], "ans": 0, "exp": "लेख हैकूक मूल विषय ऋतु मानैत अछि आ व्यंग्य/मानव दुर्बलताक विधाकेँ सेर्न्यू कहैत अछि।"}, {"q": "सेर्न्यू आ हैकू बीच लेखानुसार मुख्य भेद कोन अछि?", "opts": ["सेर्न्यूमे ऋतु-केंद्रित अनुभूति आ किरेजी-किगो अनुशासन नहि, मानव-दुर्बलता/व्यंग्य मुख्य होइत अछि", "सेर्न्यू ५-७-५ सँ लम्बा महाकाव्य अछि", "सेर्न्यू केवल संस्कृत छन्द अछि", "सेर्न्यू यात्रा-वृत्तान्त अछि"], "ans": 0, "exp": "लेख सेर्न्यूकेँ व्यंग्य आ मानव दुर्बलताक विधा कहैत अछि, जकर अनुशासन हैकूक किगो-किरेजीसँ अलग अछि।"}, {"q": "किरेजीक कार्य हैकूमे की मानल गेल अछि?", "opts": ["पहिल ५ वा दोसर ७ ध्वनिक बाद व्याकरणिक/भावात्मक विराम देब", "हैकूकेँ पाँच अनुच्छेदमे बाँटब", "कवि-नाम जोड़ब", "गजल-जकाँ रदीफ दोहराएब"], "ans": 0, "exp": "लेखमे जापानी हैकूमे प्रथम ५ वा दोसर ७ ध्वनिक बाद किरेजी अर्थात व्याकरण विराम देबाक बात अछि।"}, {"q": "जापानीमे लिंग-वचन भिन्नता नहि होएबाक चर्चा मैथिली हैकूमे कोन निर्देश दैत अछि?", "opts": ["मैथिलीमे सेहो वचनक समानता/संगति राखब उचित अछि", "मैथिलीमे लिंग-वचन पूर्णतः हटाएब अनिवार्य अछि", "हैकूमे संज्ञा प्रयोग नहि करब", "जापानी शब्द ज्यों-का-त्यों राखब"], "ans": 0, "exp": "लेखक जापानीक एहि प्रकृतिक आधारपर मैथिलीमे वचन-समानता राखबाक सलाह दैत छथि।"}, {"q": "जापानी हैकू एक पंक्तिमे लिखल जाइत अछि, मुदा मैथिली लेल तीन पंक्ति किएक कहल गेल?", "opts": ["मैथिलीमे तीन ध्वनिखण्ड ५-७-५ स्पष्ट करबाक लेल", "मैथिलीमे एक पंक्ति लिखब निषिद्ध अछि", "देवनागरीमे पंक्ति बदललासँ अर्थ बदलि जाइत अछि", "हैकूकेँ गीत बनएबाक लेल"], "ans": 0, "exp": "लेख मैथिलीमे ५-७-५ केर तीन ध्वनिखण्ड स्पष्ट रखबाक लेल तीन पंक्ति-प्रयोगक सलाह दैत अछि।"}, {"q": "हैकू-पाठ ‘एकहि श्वासमे’ करबाक आग्रहसँ कोन सौंदर्यबोध प्रकट होइत अछि?", "opts": ["हैकू एक अखण्ड क्षणानुभूति अछि, केवल किरेजी-स्थल पर सूक्ष्म विराम चाही", "हैकू बहुत जोर-जोरसँ पढ़बाक विधा अछि", "हैकू पंक्ति-पंक्ति अलग कथा कहैत अछि", "हैकूमे विराम चिह्न निषिद्ध अछि"], "ans": 0, "exp": "एक श्वासमे पाठ हैकूक क्षणात्मक अखण्डता रक्षैत अछि; अर्द्धविराम किरेजीक मर्यादित विरामक संकेत अछि।"}, {"q": "हैबुनक मूल स्वरूप लेखमे की कहल गेल अछि?", "opts": ["संक्षिप्त वर्णनात्मक गद्य आ हैकू मिलल यात्रा-वृत्तान्त", "दोहा आ चौपाइक संग्रह", "गजल आ गीतक संयुक्त रूप", "केवल पाँच पंक्तिक प्रार्थना"], "ans": 0, "exp": "लेख हैबुनकेँ यात्रा-वृत्तान्त कहैत अछि जाहिमे संक्षिप्त वर्णनात्मक गद्य आ हैकू पद्य रहैत अछि।"}, {"q": "हैबुनमे बाशोक भूमिका की अछि?", "opts": ["ओ जापानक बौद्ध भिक्षु आ हैकू कवि छलाह आ हैबुनक प्रणेता मानल गेल छथि", "ओ मैथिली गजलक पहिल रचनाकार छलाह", "ओ केवल अनुवादक छलाह", "ओ सेर्न्यूक विरोधी सम्पादक छलाह"], "ans": 0, "exp": "लेख बाशोकेँ बौद्ध भिक्षु, हैकू कवि आ हैबुनक प्रणेता मानैत अछि।"}, {"q": "हैबुन लेल ‘पाँच अनुच्छेद आ पाँच हैकू’ केर ऊपरका सीमा किएक देल गेल?", "opts": ["संक्षिप्तता आ गद्य-पद्यक सघन आत्मा बचएबाक लेल", "पोथीक पृष्ठ संख्या घटेबाक लेल", "कवि-सूची बनेबाक लेल", "हैबुनकेँ उपन्यास बना देबाक लेल"], "ans": 0, "exp": "लेखक मानैत छथि जे अत्यधिक विस्तार हैबुनक आत्मा बिगाड़ि दैत अछि; तें संक्षिप्त सीमा आवश्यक अछि।"}, {"q": "हैबुनमे ‘१ अनुच्छेद १ हैकू’ केर नीचाँक सीमा की संकेत करैत अछि?", "opts": ["गद्य आ हैकू दुनूक उपस्थिति न्यूनतम शर्त अछि", "हैबुनमे गद्यक आवश्यकता नहि", "हैबुनमे पाँच हैकू अनिवार्य अछि", "हैबुन केवल कवि-जीवनी अछि"], "ans": 0, "exp": "हैबुन मिश्र-विधा अछि; एक अनुच्छेद आ एक हैकू ओकर न्यूनतम गद्य-पद्य संतुलन बनबैत अछि।"}, {"q": "‘हैकू गद्य अनुच्छेदक अन्तमे ओकर चरमक रूपमे रहैत अछि’—एहि कथनक अर्थ की?", "opts": ["हैकू गद्यक अनुभूतिक संक्षिप्त, तीव्र निष्कर्ष/उद्भास बनैत अछि", "हैकू गद्यक शीर्षक मात्र होइत अछि", "हैकू आर गद्य असम्बद्ध रहैत अछि", "हैकू गद्यक फुटनोट होइत अछि"], "ans": 0, "exp": "हैबुनमे गद्य अनुभव रचैत अछि आ अन्तक हैकू ओहि अनुभवक चरम क्षणकेँ पकड़ैत अछि।"}, {"q": "ज्योतिक ‘तारा दूरसँ / बुझाइत कतेक शीतल / वास्तवमे जड़ैत’ हैकूमे मुख्य काव्य-चाल की अछि?", "opts": ["दूरक दृश्य-भ्रम आ वस्तुक वास्तविक ताप बीच विरोध", "शब्दक मात्र गणना मात्र", "कथाक क्रमिक विकास", "राजनीतिक व्यंग्य"], "ans": 0, "exp": "एहि हैकूमे दूरसँ शीतल बुझाइत ताराक वास्तविक दाहकता—दृश्य आ सत्यक विपरीतता—क्षणमे उद्घाटित अछि।"}, {"q": "‘नागफनीक काँटक बीच / कुसुम खिलायल’ सन बिम्ब हैकूक दृष्टिसँ किएक प्रभावी अछि?", "opts": ["ओ कठोरता आ सौंदर्यक अचानक सह-अस्तित्व देखबैत अछि", "ओ विस्तृत कथा सुनबैत अछि", "ओ केवल नाम-सूची अछि", "ओ ऋतु आ प्रकृति दुनू हटबैत अछि"], "ans": 0, "exp": "हैकू क्षणिक बिम्बसँ गूढ़ अनुभूति देइत अछि; काँट आ फूलक संग-साथे सौंदर्यक चमत्कार रचैत अछि।"}, {"q": "‘ओसक बूँद... हीरा सन चमकैत’ पंक्ति-समूह हैकू-सौंदर्यक कोन गुण देखबैत अछि?", "opts": ["लघु प्राकृतिक दृश्यक दृश्यात्मक रूपान्तरण", "दीर्घ धार्मिक व्याख्यान", "कवि-जीवनीक विवरण", "व्याकरणिक सूची"], "ans": 0, "exp": "ओसक सूक्ष्म बूँदकेँ हीरा-चमकमे देखब हैकूक लघु दृश्य-बोध आ अप्रत्याशित रूपान्तरणक उदाहरण अछि।"}, {"q": "‘पतझड़क पात / पसारलक अप्पन सतरंजी’ मे किगो-संकेत कोना काम करैत अछि?", "opts": ["पतझड़ ऋतु-संकेत देइत अछि आ दृश्यकेँ मौसमी वातावरणमे स्थिर करैत अछि", "ओ केवल हास्य उत्पन्न करैत अछि", "ओ हैबुनक यात्रा आरम्भ करैत अछि", "ओ गजल-रदीफ बनैत अछि"], "ans": 0, "exp": "पतझड़क पात ऋतु-सूचक शब्द/छवि रूपमे पूरा हैकूकेँ मौसमी अनुभूति दैत अछि।"}, {"q": "‘पक्षीक चहक / आऽ आकाशक लाली संग / प्रकृति जागल’ हैकूमे अनुभवक केन्द्र की अछि?", "opts": ["भोरक ध्वनि आ दृश्यसँ प्रकृतिक जागरण", "नायकक आत्मकथा", "सभ्यता-इतिहासक विवरण", "व्यंग्यात्मक कटाक्ष"], "ans": 0, "exp": "पक्षीक स्वर आ आकाशक लाली मिलि भोरक क्षणानुभूति बनबैत अछि—ई हैकूक प्रकृति-केंद्रितता अछि।"}, {"q": "हैकू निअमक दृष्टिसँ कोन विकल्प सर्वाधिक शुद्ध आलोचनात्मक कसौटी अछि?", "opts": ["केवल ५-७-५ पर्याप्त नहि; ऋतु, अनुभूति, विराम आ संक्षिप्तता सेहो जरूरी", "तीन पंक्ति भेला मात्र हैकू सिद्ध", "कवि-नाम रहिते हैकू असफल", "हैकूमे प्रकृति आए तें गणना अनावश्यक"], "ans": 0, "exp": "लेख संरचना, विषय, किरेजी, वचन-संगति, पाठ-प्रवाह आ अनुभूति—सबकेँ संग रखैत अछि।"}, {"q": "‘विदेह’ द्वारा मैथिलीमे हैकू प्रस्तुत करबाक सांस्कृतिक अर्थ की अछि?", "opts": ["जापानी विधाकेँ मैथिली ध्वनि, लिपि आ संवेदनासँ अनुकूलित करब", "मैथिली गीतक परम्परा नकारि देब", "केवल जापानी भाषामे कविता छापब", "हैकूकेँ पृष्ठ-सूची बनएब"], "ans": 0, "exp": "अंक हैकूकेँ मैथिलीमे पहिल बेर जापानी विधाक आधार पर प्रस्तुत करैत अछि—ई अनुकरण नहि, अनुकूलनक संकेत अछि।"}, {"q": "हैकूमे ‘किगो’ केर निहित अर्थ कोन विकल्प नीकसँ पकड़ैत अछि?", "opts": ["ऋतु-सूचक शब्द/छवि जे हैकूकेँ प्रकृतिक समयसँ जोड़ैत अछि", "कवि-नामक संक्षेप", "गद्यक पहिल वाक्य", "व्यंग्यक चिह्न"], "ans": 0, "exp": "लेख हैकूक विषय ऋतु मानैत अछि; किगो ओहि ऋतु-बोधक संकेतक रूपमे बुझल जाएत।"}, {"q": "अर्द्धविरामक प्रयोग किरेजी लेल करबाक सलाहक मुख्य कारण की अछि?", "opts": ["ओ पाठमे सूक्ष्म विराम देइत अछि मुदा हैकूक एक-श्वास प्रवाह नहि तोड़ैत", "ओ प्रत्येक पंक्ति समाप्त करैत अछि", "ओ गणना १७ सँ बढ़ा दैत अछि", "ओ हैबुनकेँ संवाद बनबैत अछि"], "ans": 0, "exp": "अर्द्धविराम किरेजीक हलुक व्याकरणिक विरामक चिन्ह अछि; पाठक अखण्ड प्रवाह बनल रहैत अछि।"}, {"q": "दरबारी रेन्गा आ वणिक-वर्गीय रेन्गाक भेदसँ बाशोक काव्य-स्थिति कोना स्पष्ट होइत अछि?", "opts": ["बाशो गम्भीर दरबारी आग्रहसँ अलग, वणिक-वर्गीय रेन्गाक धरातल पर स्वतंत्रता खोजैत छथि", "बाशो दरबारक राजकवि मात्र छलाह", "बाशो सेर्न्यू छोड़ि नाटक लिखलन्हि", "बाशो मैथिलीमे रेन्गा लिखलन्हि"], "ans": 0, "exp": "लेख दरबारी रेन्गाक गांभीर्य आ वणिक-वर्गीय रूपक भेद बतबैत बाशोकेँ वणिक-वर्गीय रेन्गा रचनासँ जोड़ैत अछि।"}, {"q": "हैकूक संक्षिप्तता केहन संक्षिप्तता थिक?", "opts": ["अर्थ-समृद्ध आ अनुभूति-प्रधान संक्षिप्तता", "सूचना काटि अधूरा छोड़बाक संक्षिप्तता", "केवल शब्द कम करबाक यांत्रिक पद्धति", "विषयहीन मौन"], "ans": 0, "exp": "हैकू छोट अछि, मुदा ओकर छोटपन अनुभूति, बिम्ब आ ऋतु-बोधसँ अर्थवान् होइत अछि।"}, {"q": "हैकू आ हैबुनक सम्बन्धक सही व्याख्या कोन अछि?", "opts": ["हैबुनमे हैकू गद्यक चरम-बिन्दु बनि अबैत अछि", "हैकू हैबुनमे निषिद्ध अछि", "हैबुन हैकूक केवल अनुवाद अछि", "हैकू आ हैबुन पूर्णतः असम्बद्ध विधा अछि"], "ans": 0, "exp": "हैबुन वर्णनात्मक गद्य आ हैकूक संयोजन अछि; अन्तक हैकू अनुभवक उच्चतम संक्षेप बनैत अछि।"}, {"q": "कुनो रचना ५-७-५ मे अछि मुदा व्यंग्य आ मानव-दुर्बलता ओकर मुख्य विषय अछि। लेखानुसार ओकर निकटतम वर्गीकरण की होएत?", "opts": ["सेर्न्यू", "हैबुन", "टनका", "रेंगा"], "ans": 0, "exp": "लेख स्पष्ट करैत अछि जे व्यंग्य आ मानव दुर्बलताक क्षेत्र सेर्न्यूक अछि, हैकूक मुख्य विषय ऋतु अछि।"}, {"q": "मैथिली हैकू लेल ‘लिखल जाइत अछि सैह बाजल जाइत अछि’ सिद्धान्त किएक उपयोगी अछि?", "opts": ["ध्वनि-गणना, लय आ उच्चारणक विश्वसनीयता बढ़ैत अछि", "कवि भाषा बदले बिना जापानी लिखि सकैत छथि", "ई हैकूक विषय बदलि दैत अछि", "ई हैबुनमे गद्य हटबैत अछि"], "ans": 0, "exp": "हैकू ध्वनि-संयम पर आधारित अछि; ध्वन्यात्मक लिपि लेखन आ पाठक बीच दूरी घटबैत अछि।"}, {"q": "हैकू रचनामे ऋतु-संकेतक अनुपस्थिति कखन समस्याजनक मानल जाएत?", "opts": ["जखन रचना केवल चतुर व्यंग्य वा सामान्य कथन बनि रहि जाए", "जखन रचना तीन पंक्तिमे लिखल जाए", "जखन कवि प्रकृति देखथि", "जखन शब्द कम होथि"], "ans": 0, "exp": "लेख हैकूक विषय ऋतु मानैत अछि; ऋतु-संकेत नहिं होए आ व्यंग्य प्रधान होए तँ रचना हैकूसँ हटि सेर्न्यूक दिश जा सकैत अछि।"}, {"q": "हैकूक ‘एक क्षण’ आ हैबुनक ‘यात्रा’ बीच संतुलन कोना बनैत अछि?", "opts": ["यात्रा-गद्य अनुभवक पृष्ठभूमि दैत अछि, हैकू अन्तमे क्षणक चरम उजागर करैत अछि", "हैबुनमे यात्रा-विवरण हैकूकेँ हटबैत अछि", "हैकू पूरा यात्रा-वृत्तान्त विस्तारसँ कहैत अछि", "दूनू केवल छन्द-गणना अछि"], "ans": 0, "exp": "हैबुनमे गद्य यात्रा-परिप्रेक्ष्य बनबैत अछि, मुदा हैकू ओकर सबसे सघन अनुभूतिक क्षण समेटैत अछि।"}];
+let idx=0, answers=Array(QDB.length).fill(null);
+const letters=['क','ख','ग','घ'];
+function initMap(){
+  const m=document.getElementById('qmap'); m.innerHTML='';
+  QDB.forEach((_,i)=>{const b=document.createElement('button'); b.className='dot'; b.textContent=i+1; b.onclick=()=>showQ(i); m.appendChild(b);});
 }
-function switchTab(gi){
-  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===gi));
-  document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',i===gi));
-  window.scrollTo({top:0,behavior:'smooth'});
+function updateTop(){
+  const done=answers.filter(x=>x!==null).length, ok=answers.filter((x,i)=>x===QDB[i].ans).length, bad=answers.filter((x,i)=>x!==null&&x!==QDB[i].ans).length;
+  document.getElementById('cur').textContent=idx+1; document.getElementById('score').innerHTML=`✓ ${ok} &nbsp; ✗ ${bad}`;
+  document.getElementById('bar').style.width=(done/QDB.length*100)+'%';
+  [...document.querySelectorAll('.dot')].forEach((d,i)=>{d.className='dot'+(answers[i]!==null?' answered':'')+(answers[i]===QDB[i].ans?' ok':'')+(answers[i]!==null&&answers[i]!==QDB[i].ans?' bad':'');});
 }
-function showScore(){
-  const pct=Math.round(score/total*100);
-  let msg=pct>=80?'उत्कृष्ट! अहाँक ज्ञान अद्भुत अछि।':pct>=50?'नीक प्रयास — आओर पढ़ू।':'फेर सँ प्रयास करू, अहाँ नीक करब।';
-  const sb=document.createElement('div');sb.className='scoreboard';
-  sb.innerHTML='<div class="orn">❖ ❖ ❖</div><div class="scbig">'+score+' / '+total+'</div>'+
-    '<div class="scpct">'+pct+'%</div><div class="scmsg">'+msg+'</div>'+
-    '<button class="nbtn pri" onclick="location.reload()">फेर सँ खेलू</button>';
-  const w=document.querySelector('.wrap');w.insertBefore(sb,w.firstChild);
-  window.scrollTo({top:0,behavior:'smooth'});
+function showQ(i){
+  idx=i; const q=QDB[i]; document.getElementById('result').style.display='none';
+  let chosen=answers[i];
+  let h=`<article class="qcard"><div class="qmeta"><span>प्रश्न ${i+1}</span><span>उच्च-स्तर / अवधारणा-आधारित</span></div><p class="qtext">${q.q}</p><div class="opts">`;
+  q.opts.forEach((o,k)=>{let cls='opt'; if(chosen!==null){cls+=' locked'; if(k===q.ans) cls+=' correct'; else if(k===chosen) cls+=' wrong';} h+=`<div class="${cls}" onclick="choose(${k})"><span class="key">${letters[k]}.</span><span class="txt">${o}</span></div>`;});
+  h+=`</div><div class="fb ${chosen===null?'':(chosen===q.ans?'ok show':'bad show')}"><strong>${chosen===null?'':(chosen===q.ans?'सही उत्तर।':'गलत उत्तर।')}</strong><br>${chosen===null?'':q.exp}</div><div class="navrow"><button class="btn2" onclick="showQ(Math.max(0,idx-1))">← पछिला</button><button class="btn" onclick="idx<QDB.length-1?showQ(idx+1):finish()">${idx<QDB.length-1?'अगिला →':'परिणाम देखू'}</button></div></article>`;
+  document.getElementById('quiz').innerHTML=h; updateTop(); window.scrollTo({top:0,behavior:'smooth'});
 }
+function choose(k){ if(answers[idx]!==null) return; answers[idx]=k; showQ(idx); }
+function finish(){
+  updateTop(); const ok=answers.filter((x,i)=>x===QDB[i].ans).length, bad=answers.filter((x,i)=>x!==null&&x!==QDB[i].ans).length, skip=answers.filter(x=>x===null).length;
+  const pct=Math.round(ok/QDB.length*100); const r=document.getElementById('result');
+  r.innerHTML=`<div class="big">${ok}/${QDB.length}</div><p><strong>${pct}%</strong> सही</p><p>गलत: ${bad} | अनुत्तरित: ${skip}</p><button class="btn" onclick="restart()">फेरसँ शुरू करू</button>`;
+  r.style.display='block'; window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});
+}
+function restart(){answers=Array(QDB.length).fill(null); idx=0; showQ(0);}
+initMap(); showQ(0);
 </script>
 </body>
 </html>

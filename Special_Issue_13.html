@@ -1,146 +1,92 @@
 <!DOCTYPE html>
 <html lang="mai">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>अरविन्द ठाकुर विशेषांक — विदेह क्विज</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>अरविन्द ठाकुर विशेषांक — उच्च-स्तरीय प्रश्नोत्तरी</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#1a2744;--crimson:#8B1A1A;--gold:#c49a3c;--cream:#FAF6EE;
---ok-fg:#1d7a3e;--bad-fg:#a32020}
-*{box-sizing:border-box}
-body{margin:0;background:var(--cream);color:#1A1A1A;
-font-family:'Lato','Segoe UI',system-ui,sans-serif;line-height:1.55;padding-bottom:60px}
-header{background:linear-gradient(180deg,#16213b,var(--navy));color:#fff;
-padding:28px 20px 22px;text-align:center;border-bottom:4px solid var(--gold)}
-header h1{margin:0;font-family:'Noto Serif Devanagari',serif;font-size:1.7em}
-header .sub{color:var(--gold);font-size:.82em;letter-spacing:.1em;font-style:italic;margin-top:8px}
-header .src{color:#cdd6ea;font-size:.78em;margin-top:6px}
-.wrap{max-width:760px;margin:0 auto;padding:20px 16px}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;justify-content:center}
-.tab{font-family:'Noto Serif Devanagari',serif;font-weight:700;font-size:.9em;
-padding:8px 16px;border-radius:20px;border:2px solid var(--navy);background:#fff;
-color:var(--navy);cursor:pointer;transition:.15s}
-.tab.active{background:var(--navy);color:#fff}
-.counter-badge{background:var(--crimson);color:#fff;font-size:.72em;font-weight:700;
-padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle}
-.progress{height:6px;background:#e7dcc2;border-radius:4px;margin-bottom:18px;overflow:hidden}
-.progress > div{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--crimson));transition:width .3s}
-.pane{display:none}.pane.active{display:block}
-.card{background:#fff;border-radius:11px;box-shadow:0 4px 16px rgba(26,39,68,.1);
-padding:22px 22px 18px;margin-bottom:16px}
-.qmeta{font-size:.78em;color:#8a93ab;font-weight:700;margin-bottom:8px}
-.q{font-family:'Noto Serif Devanagari',serif;font-size:1.12em;font-weight:600;
-color:var(--navy);margin-bottom:14px}
-.opt{display:block;width:100%;text-align:left;
-font-family:'Noto Serif Devanagari',serif;font-size:1em;
-padding:11px 15px;margin-bottom:9px;border:1.5px solid #d8cfb8;border-radius:8px;
-background:#fffdf8;cursor:pointer;transition:.13s;color:#1A1A1A}
-.opt:hover{border-color:var(--gold);background:#fff8e8}
-.opt.ok{border-color:var(--ok-fg);background:#eafaf0;color:var(--ok-fg);font-weight:700}
-.opt.bad{border-color:var(--bad-fg);background:#fdeeee;color:var(--bad-fg)}
-.opt:disabled{cursor:default}
-.fb{margin-top:11px;font-size:.92em;font-weight:600;min-height:20px;
-font-family:'Noto Serif Devanagari',serif}
-.fb.ok{color:var(--ok-fg)}.fb.bad{color:var(--bad-fg)}
-.hint-box{background:#fffbef;border:1px solid var(--gold);border-radius:7px;
-padding:10px 14px;margin-top:10px;font-family:'Noto Serif Devanagari',serif;
-font-size:.88em;color:#5a4010;display:none}
-.hint-box.show{display:block}
-.nav{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
-.nbtn{font-family:'Lato',sans-serif;font-size:.9em;font-weight:700;
-padding:9px 20px;border-radius:6px;border:none;cursor:pointer;transition:.15s}
-.nbtn.pri{background:var(--crimson);color:#fff}.nbtn.pri:hover{background:var(--navy)}
-.nbtn.sec{background:transparent;color:var(--navy);border:2px solid var(--navy)}
-.nbtn.sec:hover{background:var(--navy);color:#fff}
-.scoreboard{background:#fff;border-radius:11px;box-shadow:0 4px 18px rgba(26,39,68,.11);
-padding:34px 26px;text-align:center;margin-bottom:18px}
-.scbig{font-family:'Playfair Display',serif;font-size:2.8em;color:var(--crimson);font-weight:700;margin-bottom:6px}
-.scpct{font-size:1.05em;color:#5a6a8a;margin-bottom:9px}
-.scmsg{font-family:'Noto Serif Devanagari',serif;font-size:1.05em;color:var(--navy);margin-bottom:20px}
-.orn{text-align:center;color:var(--gold);font-size:1em;letter-spacing:.2em;margin:14px 0;opacity:.65}
-footer{text-align:center;color:#8a7a4a;font-size:.78em;padding:24px 16px 0}
-footer a{color:var(--crimson);text-decoration:none}
-@media(max-width:520px){header h1{font-size:1.35em}.q{font-size:1.05em}}
+:root{--navy:#17264a;--crimson:#9b1c2e;--gold:#c8973a;--cream:#f7f2e8;--ok:#2e7d32;--ok-bg:#e8f5e9;--bad:#b71c1c;--bad-bg:#ffebee;--muted:#66708a}
+*{box-sizing:border-box} body{margin:0;background:var(--cream);font-family:Lato,Arial,sans-serif;color:var(--navy);line-height:1.55}
+header{background:var(--navy);color:#fff;text-align:center;padding:18px 12px;border-bottom:5px solid var(--gold)}
+header h1{font-family:'Noto Serif Devanagari',serif;font-size:1.45rem;margin:0 0 6px;line-height:1.35}
+header .brand{font-size:.86rem;color:var(--gold);font-weight:700;letter-spacing:.02em}
+header .sub{font-family:'Noto Serif Devanagari',serif;font-size:.95rem;margin-top:6px;color:#dbe4ff}
+main{max-width:980px;margin:18px auto 50px;padding:0 14px}
+.panel{background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(23,38,74,.12);padding:16px;margin-bottom:14px;border-left:5px solid var(--navy)}
+.topbar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.score{font-weight:700;color:var(--crimson)}
+.progress{flex:1;min-width:180px;height:9px;background:#d9dfeb;border-radius:20px;overflow:hidden} .bar{height:100%;background:var(--gold);width:0%;transition:.2s}
+button{font-family:Lato,Arial,sans-serif;font-weight:700;border:0;border-radius:7px;padding:9px 14px;cursor:pointer}
+.btn{background:var(--navy);color:#fff} .btn:hover{background:var(--crimson)} .btn2{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+.qmap{display:flex;gap:4px;flex-wrap:wrap;margin-top:12px} .dot{width:24px;height:24px;border-radius:5px;border:1px solid #b8c1d8;background:#eef2fa;color:var(--navy);font-size:.72rem;padding:0} .dot.answered{background:#dfe8f9} .dot.ok{background:var(--ok);color:#fff} .dot.bad{background:var(--bad);color:#fff}
+.qcard{background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(23,38,74,.10);padding:20px;margin:16px 0;border-left:5px solid var(--gold)}
+.qmeta{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:.82rem;font-weight:700;margin-bottom:8px}
+.qtext{font-family:'Noto Serif Devanagari',serif;font-size:1.13rem;font-weight:700;margin:0 0 14px;color:var(--navy)}
+.opts{display:grid;gap:9px} .opt{display:flex;gap:10px;align-items:flex-start;background:#f4f7fd;border:2px solid #d2daec;border-radius:10px;padding:10px 12px;cursor:pointer}
+.opt:hover{border-color:var(--navy)} .opt .key{font-weight:700;min-width:22px} .opt .txt{font-family:'Noto Serif Devanagari',serif}
+.opt.correct{background:var(--ok-bg);border-color:#7bc47f;color:var(--ok)} .opt.wrong{background:var(--bad-bg);border-color:#e57373;color:var(--bad)} .opt.locked{cursor:default}
+.fb{display:none;margin-top:10px;border-radius:8px;padding:10px 12px;font-family:'Noto Serif Devanagari',serif} .fb.show{display:block} .fb.ok{background:var(--ok-bg);border-left:4px solid var(--ok)} .fb.bad{background:var(--bad-bg);border-left:4px solid var(--bad)}
+.navrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.result{display:none;text-align:center} .big{font-size:2.6rem;font-weight:700;color:var(--crimson)}
+.back{text-align:center;margin:24px 0} .back a{color:var(--crimson);font-family:'Noto Serif Devanagari',serif;font-weight:700;text-decoration:none}
+footer{text-align:center;padding:20px;color:#6a728a;font-size:.85rem}
+@media(max-width:600px){.qtext{font-size:1rem}.topbar{align-items:stretch}.progress{min-width:100%}}
 </style>
 </head>
 <body>
 <header>
-  <h1>अरविन्द ठाकुर विशेषांक</h1>
-  <div class="sub">ARVIND THAKUR SPECIAL ISSUE · विदेह अंक १८९</div>
-  <div class="src">विदेह : प्रथम मैथिली पाक्षिक ई-पत्रिका · videha.co.in · ISSN 2229-547X</div>
+  <h1>अरविन्द ठाकुर विशेषांक — उच्च-स्तरीय प्रश्नोत्तरी</h1>
+  <div class="brand">Videha QUIZ | विदेह ई-लर्निङ्ग क्विज / Videha eLearning Quiz / Videha — First Maithili Fortnightly eJournal | www.videha.co.in</div>
+  <div class="sub">लघुकथा, आजाद गजल, आत्मकथा, आलोचना, संस्मरण आ सामाजिक प्रतिरोध</div>
 </header>
-<div class="orn">❖ ❖ ❖</div>
-<div class="wrap">
-  <div class="tabs" id="tabs"></div>
-  <div class="progress"><div id="bar"></div></div>
-  <div id="panes"></div>
-</div>
-<footer>© विदेह Videha · <a href="https://videha.co.in">videha.co.in</a> · विदेह विशेषांक प्रश्नोत्तरी</footer>
+<main>
+  <section class="panel">
+    <div class="topbar">
+      <span><strong>Special Issue 13</strong> — प्रश्न <strong id="cur">1</strong> / <strong>60</strong></span>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <span class="score" id="score">✓ 0 &nbsp; ✗ 0</span>
+      <button class="btn2" onclick="showQ(0)">←← पहिल</button>
+      <button class="btn" onclick="restart()">नव क्विज</button>
+    </div>
+    <div class="qmap" id="qmap"></div>
+  </section>
+  <section id="quiz"></section>
+  <section class="panel result" id="result"></section>
+  <div class="back"><a href="https://www.videha.co.in/videha-elearning.htm">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a></div>
+</main>
+<footer>© Gajendra Thakur, Editor — Videha eJournal</footer>
 <script>
-const DATA = [{"tab": "विशेषांक परिचय", "items": [{"q": "विदेहक ई अरविन्द ठाकुर विशेषांक विदेहक कोन अंक छल?", "opts": ["१८९ म अंक", "१६९ म अंक", "१९१ म अंक", "१४२ म अंक"], "correct": 0, "hint": "अनिल अंक (१९१) सँ पहिने।"}, {"q": "ई विशेषांक कोन साहित्यकारकेँ समर्पित छल?", "opts": ["अरविन्द ठाकुर", "काशीकांत मिश्र मधुप", "जगदीश चन्द्र ठाकुर 'अनिल'", "रामलोचन ठाकुर"], "correct": 0, "hint": "विशेषांकक नामे उत्तर अछि।"}]}, {"tab": "रचना", "items": [{"q": "एहि अंकमे अरविन्द ठाकुर कोन-कोन विधामे रचना देलन्हि?", "opts": ["कविता, आजाद गजल आ विहनि कथा", "केवल नाटक", "केवल समीक्षा", "केवल अनुवाद"], "correct": 0, "hint": "पद्य विभागमे कविता आ आजाद गजल; गद्यमे विहनि कथा।"}, {"q": "अरविन्दजीक \"आजाद गजल\" पर आलेख केकर अछि?", "opts": ["जगदीश चन्द्र ठाकुर 'अनिल'", "योगेन्द्र 'वियोगी'", "अरविन्द मिश्र नीरज", "रजनीश"], "correct": 0, "hint": "\"अरविन्दजीक आजाद गजल- जगदीश...\"।"}, {"q": "एहि अंकमे \"किछु विहनि कथा\" केकर देल गेल?", "opts": ["अरविन्द ठाकुर", "जगदीश चन्द्र ठाकुर 'अनिल'", "अरविन्द मिश्र नीरज", "योगेन्द्र वियोगी"], "correct": 0, "hint": "पद्य विभागसँ पहिने गद्य ३.२।"}]}];
-let score=0,total=0,answered=0;
-DATA.forEach(g=>total+=g.items.length);
-const tabsEl=document.getElementById('tabs');
-const panesEl=document.getElementById('panes');
-const bar=document.getElementById('bar');
-DATA.forEach((g,gi)=>{
-  const tb=document.createElement('button');
-  tb.className='tab'+(gi===0?' active':'');
-  tb.innerHTML=g.tab+'<span class="counter-badge">'+g.items.length+'</span>';
-  tb.onclick=()=>switchTab(gi);
-  tabsEl.appendChild(tb);
-  const pane=document.createElement('div');
-  pane.className='pane'+(gi===0?' active':'');
-  pane.id='pane-'+gi;
-  g.items.forEach((q,qi)=>pane.appendChild(buildCard(g,gi,qi,q)));
-  panesEl.appendChild(pane);
-});
-function buildCard(g,gi,qi,q){
-  const card=document.createElement('div');card.className='card';
-  const meta=document.createElement('div');meta.className='qmeta';
-  meta.textContent=g.tab+' · प्रश्न '+(qi+1)+'/'+g.items.length;card.appendChild(meta);
-  const qd=document.createElement('div');qd.className='q';qd.textContent=q.q;card.appendChild(qd);
-  const opts=[];
-  q.opts.forEach((o,oi)=>{
-    const b=document.createElement('button');b.className='opt';b.textContent=o;
-    b.onclick=()=>pick(b,oi);card.appendChild(b);opts.push(b);
-  });
-  const fb=document.createElement('div');fb.className='fb';card.appendChild(fb);
-  let hintBox=null;
-  if(q.hint){hintBox=document.createElement('div');hintBox.className='hint-box';
-    hintBox.textContent='💡 '+q.hint;card.appendChild(hintBox);}
-  const nav=document.createElement('div');nav.className='nav';
-  if(q.hint){const hb=document.createElement('button');hb.className='nbtn sec';hb.textContent='संकेत';
-    hb.onclick=()=>hintBox.classList.toggle('show');nav.appendChild(hb);}
-  card.appendChild(nav);
-  let done=false;
-  function pick(btn,oi){
-    if(done)return;done=true;answered++;
-    opts.forEach((b,bi)=>{b.disabled=true;
-      if(bi===q.correct)b.classList.add('ok');
-      else if(b===btn)b.classList.add('bad');});
-    if(oi===q.correct){score++;fb.className='fb ok';fb.textContent='✓ सही उत्तर!';}
-    else{fb.className='fb bad';fb.textContent='✗ सही उत्तर: '+q.opts[q.correct];}
-    bar.style.width=(answered/total*100)+'%';
-    if(answered===total)showScore();
-  }
-  return card;
+const QDB = [{"q": "अरविन्द ठाकुर विशेषांकक मूल साहित्यिक केन्द्र की अछि?", "opts": ["भाषिक सजावट मात्र", "केवल निजी प्रेमक वर्णन", "अरविन्द ठाकुरक लघुकथा, आजाद गजल, आत्मकथात्मक लेखन आ सामाजिक आलोचनाक संयुक्त मूल्यांकन", "पृष्ठ-सूची आधारित जानकारी"], "ans": 2, "exp": "ई विशेषांक लेखकक रचना-संसार केँ एकटा विधा तक सीमित नहि करैत; कथा, गजल, आत्मकथा, संस्मरण आ आलोचना सभकेँ जोड़ैत अछि।"}, {"q": "‘अन्हारक विरोध मे’ शीर्षकमे ‘अन्हार’ मुख्यतः कोन प्रतीक अछि?", "opts": ["केवल रातिक दृश्य", "केवल दुखद मौसम", "सामाजिक अन्याय, साम्प्रदायिकता, राजनीतिक हिंसा, पाखंड आ नैतिक अंधकार", "केवल व्यक्तिगत उदासी"], "ans": 2, "exp": "शीर्षकक अन्हार बाहरी राति मात्र नहि, बल्कि समाजक अन्यायपूर्ण संरचना आ मनुष्यक भीतरक अंधकार अछि।"}, {"q": "अरविन्द ठाकुरक लघुकथा सभक सशक्त पक्ष कोन मानल जा सकैत अछि?", "opts": ["केवल हास्य प्रसंग", "राजनीतिक-आर्थिक-सामाजिक यथार्थक तीक्ष्ण संक्षिप्त प्रस्तुति", "केवल मिथक-वर्णन", "केवल लोकगीतक पुनर्लेखन"], "ans": 1, "exp": "संपादकीय टिप्पणी हुनकर राजनीतिक-आर्थिक लघुकथा केँ मैथिली कथाक जड़ता तोड़यवला मानैत अछि।"}, {"q": "जाँ जेने आ अंतोन चेखवक उद्धरण एक संग राखब अरविन्द ठाकुरक कथाशिल्प लेल की संकेत दैत अछि?", "opts": ["दुनू लेखकक समान मत मात्र", "विरोधी सौंदर्य-दृष्टि आ स्वतंत्र लेखक-चेतना दुनूक बीच रचनात्मक तनाव", "विदेशी नामक सजावट", "केवल अनुवाद-अभ्यास"], "ans": 1, "exp": "जेने बहिष्कृत-सौंदर्य आ चेखव स्वतंत्रता-नैतिकताक संकेत दैत छथि; अरविन्दक लघुकथा एहि तनावमे पढ़ल जा सकैत अछि।"}, {"q": "चेखवक ‘स्वतंत्र लेखक’ सम्बन्धी भाव अरविन्द ठाकुरक लघुकथापर कोना लागू होइत अछि?", "opts": ["रचना केँ लोकप्रिय मान्यता वा तैयार सिद्धान्तक कसौटी पर मात्र नहि कसल जाए", "कथा केवल रोमांस हो", "लेखक कोनो सामाजिक प्रश्न न उठाबय", "कथा सदैव उपदेश हो"], "ans": 0, "exp": "लघुकथा केँ रूढ़ कसौटी सँ मुक्त रखबाक आग्रह लेखकक स्वतंत्रता आ प्रयोगशीलता केँ बल दैत अछि।"}, {"q": "जाँ जेनेक ‘भाषासँ घृणा’ वाली उक्ति अरविन्द ठाकुरक सन्दर्भमे कोन पाठ खोलैत अछि?", "opts": ["भाषा छोड़ि देबाक सलाह", "साहित्य-विरोध", "मातृभाषाक नकार", "भाषाक प्रति तीव्र असंतोष कखनो नव रूपाकार रचबाक ऊर्जा बनि सकैत अछि"], "ans": 3, "exp": "उक्ति विरोधाभासी अछि; ई भाषा-संघर्षक मार्फत नव अभिव्यक्ति खोजबाक संकेत बनैत अछि।"}, {"q": "‘खिस्सा सियार यार’मे राजनीतिक शब्दावलीक प्रयोगक साहित्यिक अर्थ की अछि?", "opts": ["एक व्यक्ति कोना समर्थक, विरोधी आ मनबढ़ू भाषिक निर्माणमे बदलैत अछि", "राजनीति अनुपस्थित", "शब्दावली अर्थहीन", "कथा केवल पशु-कथा"], "ans": 0, "exp": "कथा लोकतांत्रिक राजनीतिक व्यवहारमे भाषा द्वारा छवि-निर्माण आ विघटन देखबैत अछि।"}, {"q": "‘पियासल पानि’क स्त्री-पात्र सम्बन्धी जटिलता कोन अछि?", "opts": ["ई केवल हास्य कथा", "स्त्री-चरित्रक निर्णय समाजक तयशुदा नैतिक कसौटी सँ परे जटिल बनैत अछि", "स्त्री पात्र पूर्ण अनुपस्थित", "ई जल-संकट रिपोर्ट"], "ans": 1, "exp": "कथा प्रेम, चरित्र, आवेश आ सामाजिक आरोपक सीमाकेँ उलटि पाठक केँ पुनर्विचार लेल बाध्य करैत अछि।"}, {"q": "‘अन्हारक विरोध मे’ लघुकथा साम्प्रदायिक सम्बन्ध पर कोन बात रेखांकित करैत अछि?", "opts": ["समुदाय-विरोधी नारा", "हिंसा के उत्सव", "धर्मक पूर्ण असंबद्धता", "हिंसा के बाद बचे लोकमे लज्जा, करुणा आ नैतिक आत्म-परीक्षण सम्भव अछि"], "ans": 3, "exp": "अलीमुद्दीनक लज्जा कथा केँ साम्प्रदायिक आघातक मानवीय उत्तर बनबैत अछि।"}, {"q": "‘ढाँचा-१९९२’क पत्र-शैलीक महत्त्व की अछि?", "opts": ["पत्र लिखबाक नियम", "केवल औपचारिक चिट्ठी", "डाकघरक विवरण", "निजी पत्राचारक बहाना सँ सार्वजनिक साम्प्रदायिक तनाव आ इतिहासक घटना खोलब"], "ans": 3, "exp": "पत्रात्मक रूप कथा केँ निजी स्वर दैत अछि, मुदा अंतमे सार्वजनिक इतिहासक भयावहता सामने अबैत अछि।"}, {"q": "‘मूस’ लघुकथामे मूसक प्रयोग कोन साहित्यिक युक्ति बनैत अछि?", "opts": ["कृषि-विज्ञान", "एक बाहरी वस्तु/प्राणीक बहन्ने मनुष्यक मनोविश्लेषण", "पशु-पूजा मात्र", "नैतिकता-विहीन हास्य"], "ans": 1, "exp": "कथा मूस मारबाक विचारसँ आगाँ बढ़ि भीतरी भय, हिंसा आ मनःस्थिति खोलैत अछि।"}, {"q": "‘प्रजातंत्र परिकथा’ शीर्षकक विडम्बना कोन अछि?", "opts": ["राजतंत्रक प्रशंसा", "चुनावसँ असंबंधित कथा", "प्रजातंत्रक आदर्शक नामपर समाचार, हत्या आ राजनीतिक लाभक खेल उजागर होइत अछि", "बाल-परिकथा मात्र"], "ans": 2, "exp": "शीर्षक परिकथा कहैत अछि, मुदा भीतर वास्तविक राजनीति आ मीडिया-चयनक कठोर आलोचना अछि।"}, {"q": "‘अथ गिरगिट कथा’मे गिरगिट प्रतीक ककरा लेल उपयुक्त अछि?", "opts": ["मानवीय अवसरवाद, वोट-बैंक राजनीति आ रंग बदलैत सामाजिक गठजोड़", "प्रकृति-वर्णन मात्र", "गिरगिट विज्ञान", "बाल-कथा मात्र"], "ans": 0, "exp": "गिरगिट रंग बदलैत अछि; कथामे मनुष्यक राजनीतिक रंग-परिवर्तन ओकरो लजाबैत अछि।"}, {"q": "‘अय्यासी’मे अय्याशीक परिभाषा कोना उलटि जाइत अछि?", "opts": ["केवल पर्यटन", "राजदरबारक आनंद", "छोट व्यक्तिगत खर्च गरीब घरक जरूरतक संदर्भमे नैतिक प्रश्न बनि जाइत अछि", "धनक अपार विलास"], "ans": 2, "exp": "पत्रिका-सिगरेट-रिक्शा जे मामूली लगैत अछि, घरक तरकारी आ बच्चाक किताबक बरक्स अय्याशी बनैत अछि।"}, {"q": "‘बैकबा-फोड़बा’ जाति-राजनीति केँ कोना देखबैत अछि?", "opts": ["निजी उधारी विवादकेँ पिछड़ा-फॉरवर्ड राजनीति मे बदलैत सामाजिक तंत्र", "जाति प्रश्न अनुपस्थित", "केवल बाल-खेल", "सिर्फ व्यापारिक लेखा"], "ans": 0, "exp": "कथा बतबैत अछि जे स्वार्थ आ हिंसा जातीय पहचानक नामपर राजनीतिक तमाशा बनि सकैत अछि।"}, {"q": "‘बैकबा-फोड़बा’क बाल-खेल प्रसंगक गम्भीर अर्थ की अछि?", "opts": ["कथासँ असंबद्ध विराम", "बच्चा सभ वयस्क समाजक जातीय हिंसा केँ खेलक रूपमे पुनरावृत्त करैत अछि", "खेलक नियम सिखेनाइ", "बाल-निर्दोषता मात्र"], "ans": 1, "exp": "ई प्रसंग देखबैत अछि जे सामाजिक विषाक्तता अगिला पीढ़ी धरि पहुँचैत अछि।"}, {"q": "‘विष-पान’मे न्याय-प्रक्रिया कोन रूपमे देखाइत अछि?", "opts": ["न्याय व्यवस्था निष्पक्ष आ सरल", "कचहरीक उत्सव", "तारीख, गायब प्रमाण, वकीली दबाव आ राजनीतिक संरक्षणसँ पीड़ितक आत्मसमर्पण", "त्वरित न्यायक आदर्श"], "ans": 2, "exp": "कथा न्यायालयक क्रिया-प्रक्रिया केँ पीड़ित लेल विष-पान जकाँ अनुभव करबैत अछि।"}, {"q": "अरविन्द ठाकुरक लघुकथा शिल्पमे ‘रिपोर्ट’, ‘पत्र’, ‘झलकी’ आदि प्रयोगक महत्त्व की अछि?", "opts": ["कथ्यक सामाजिक जटिलता अनुरूप विविध संरचना अपनाएब", "केवल शैलीक प्रदर्शन", "शिल्पक असंगति", "कथाविहीन सजावट"], "ans": 0, "exp": "प्रत्येक रूप घटना केँ अलग दृष्टि दैत अछि; एहिसँ लघुकथा संक्षिप्त रहितो बहुस्तरीय बनैत अछि।"}, {"q": "‘अन्हारक विरोध मे’ संग्रह मैथिली लघुकथाक रिक्तता कोना भरैत अछि?", "opts": ["लोकगीत संग्रह बनाकऽ", "समाज-राजनीति, ब्यूरोक्रेसी, न्यायपालिका आ आर्थिक जीवनक कथात्मक प्रवेश कराकऽ", "केवल प्रेमकथा लिखिकऽ", "इतिहास-सूची देकऽ"], "ans": 1, "exp": "हुनकर कथा सभ मैथिली लघुकथामे दुर्लभ राजनीतिक-प्रशासनिक यथार्थ केँ केंद्रमे आनैत अछि।"}, {"q": "अरविन्द ठाकुरक कथा-दृष्टिमे ‘मनुष्यक स्वतंत्रता’ किएक केन्द्रीय अछि?", "opts": ["केवल उपदेशात्मक धर्म", "झूठ, अहंकार, ढोंग आ क्रूरता सँ मुक्त जीवनक आकांक्षा कथाक नैतिक आधार बनैत अछि", "केवल आर्थिक लाभ", "स्वतंत्रता अप्रासंगिक"], "ans": 1, "exp": "चेखवक उद्धरणक पृष्ठभूमि मे स्वतंत्रता कथा-संसारक मूल नैतिक आकांक्षा बनैत अछि।"}, {"q": "‘अन्हारक विरोधी व्यक्तित्व’ कहला सँ अरविन्द ठाकुरक कोन पक्ष उभरैत अछि?", "opts": ["अन्हारक सौंदर्य-पूजा", "अन्याय, पाखंड, सामंती मानसिकता आ साम्प्रदायिक अंधकारक प्रतिरोध", "सामाजिक प्रश्नसँ दूरी", "निष्क्रिय मौन"], "ans": 1, "exp": "व्यक्तित्वक मूल्यांकन रचना-कथ्यसँ जुड़ल अछि—अन्हारक विरोध सामाजिक-साहित्यिक प्रतिरोध अछि।"}, {"q": "‘सामंती सभहँक विरुद्ध तैयार कवि’ कथन अरविन्द ठाकुरक काव्य-दृष्टि पर की बतबैत अछि?", "opts": ["कवि सामंती प्रशंसा करैत", "कविता समाज-विहीन", "कविता सत्ता, सामंती अहंकार आ सामाजिक अन्यायक विरुद्ध तैयार हस्तक्षेप बनैत अछि", "कविता केवल श्रृंगार"], "ans": 2, "exp": "ई कथन अरविन्दजीक कविता केँ सामाजिक शक्ति-संरचनाक आलोचना सँ जोड़ैत अछि।"}, {"q": "‘परती टूटि गेलै’ सन शीर्षक अरविन्द ठाकुरक रचनामे कोन प्रतीकात्मक दिशा खोलैत अछि?", "opts": ["सूखा मौसम मात्र", "जड़, बंजर वा निष्क्रिय धरातल टूटि नव सामाजिक-सांस्कृतिक अंकुर फूटबाक संभावना", "खेती रिपोर्ट मात्र", "भूमि-मापन"], "ans": 1, "exp": "परती टूटब रचनात्मक जागरण आ स्थिरता-विरोधक प्रतीक बनि सकैत अछि।"}, {"q": "अरविन्द ठाकुरक ‘आजाद गजल’ पर चर्चा मैथिली गजल-विमर्श लेल किएक महत्त्वपूर्ण अछि?", "opts": ["केवल नामकरण", "छंदक पूर्ण नकार", "गजल-विमर्श समाप्त करैत", "किएकि ओ गजलमे अनुशासन, स्वतंत्रता आ भाषिक प्रयोगक सीमा पर बहस खोलैत अछि"], "ans": 3, "exp": "आजाद गजल पारंपरिक गजल-व्याकरण आ आधुनिक अभिव्यक्ति बीचक तनाव पर सोचय बाध्य करैत अछि।"}, {"q": "‘बहुरुपिया प्रदेश’ शीर्षकक आलोचनात्मक अर्थ की बुझाइत अछि?", "opts": ["नाट्य-वेशभूषा मात्र", "समाज आ राजनीति मे बदलैत चेहरा, भूमिका आ मुखौटाक परख", "रंग-बिरंगा उत्सव", "प्रदेशक पर्यटन"], "ans": 1, "exp": "बहुरूपियापन राजनीतिक-सामाजिक दोहरापनक संकेत अछि।"}, {"q": "अरविन्द ठाकुरक आत्मकथात्मक खंड विशेषांकमे किएक महत्त्वपूर्ण अछि?", "opts": ["आत्मकथा साहित्यसँ असंबंधित", "रचनाकारक आत्म-खोज, स्मृति, संवाद आ साहित्यिक संवेदनाक निजी पृष्ठभूमि दैत अछि", "केवल उम्र-सूची", "केवल औपचारिक घोषणा"], "ans": 1, "exp": "आत्मकथा रचना-व्यक्तित्वक भीतरी स्रोत चिन्हएबाक अवसर दैत अछि।"}, {"q": "‘बुल्लियाँ की जाणां मैं कौन’ शीर्षक आत्म-खोजक कोन स्वर दैत अछि?", "opts": ["राजनीतिक नारा", "केवल हास्य-पंक्ति", "अपन पहचान, भाषा, समाज आ अनुभवक जटिल खोज", "अहंकारक घोषणा"], "ans": 2, "exp": "शीर्षक ‘हम के छी’क गहिर प्रश्न उठबैत अछि, जे आत्मकथा आ रचना-दृष्टि सँ जुड़ल अछि।"}, {"q": "‘बात निकलल, कुठाम तक पहुँचल’ चलभाष-वार्ता किएक रोचक विधागत प्रयोग अछि?", "opts": ["वार्ता/संवादक बहुअर्थी गतिशीलता सँ आत्मकथा आ आलोचना मिलि जाइत अछि", "केवल फोन-नंबर सूची", "शब्दहीन मौन", "प्रश्नोत्तरीक अभाव"], "ans": 0, "exp": "चलभाष-वार्ता व्यक्तिगत संवादकेँ साहित्यिक अर्थ-क्षेत्र बना दैत अछि।"}, {"q": "जीवकान्त पर अरविन्द ठाकुरक स्मृति-टिप्पणी लेखक-विशेषांकमे कोन भूमिका निभबैत अछि?", "opts": ["केवल उद्धरण-संग्रह", "जीवनी हटबैत", "साहित्यिक परंपरा, मित्र-स्मृति आ आलोचनात्मक संवाद जोड़ैत अछि", "रचना-संबंध तोड़ैत"], "ans": 2, "exp": "लेखक अपन समकालीन आ पूर्ववर्ती साहित्यिक संसारसँ संवाद करैत छथि।"}, {"q": "‘मिथिलाक संस्कृति: किछु अप्रिय बिन्दु’ लेखनक साहस कोन अछि?", "opts": ["पर्यटन वर्णन", "अपन समाजक असुविधाजनक प्रश्नकेँ आलोचनात्मक ढंगसँ उठेनाइ", "संस्कृतिक नकार मात्र", "केवल प्रशंसा"], "ans": 1, "exp": "सांस्कृतिक प्रेमक अर्थ अंध-प्रशंसा नहि, बल्कि दोषक आत्मालोचना सेहो अछि।"}, {"q": "मिथिला मे सांस्कृतिक आन्दोलनक भविष्य पर विचार लेखकक कोन चिंता दैत अछि?", "opts": ["केवल उत्सव-प्रदर्शन", "भविष्यक नकार", "भाषा-संस्कृति केँ जीवित सामाजिक क्रिया आ जन-सहभागितासँ जोड़ब", "सांस्कृतिक निष्क्रियता"], "ans": 2, "exp": "सांस्कृतिक आन्दोलन भविष्य-दृष्टि, संगठन आ लोक-भागीदारीक मांग करैत अछि।"}, {"q": "लक्ष्मीनाथ गोसाईं पर ‘परम्परा, भाषा आ निर्गुण भाव’ चर्चा कोन सूत्र जोड़ैत अछि?", "opts": ["भक्ति-परंपरा, लोकभाषा आ निर्गुण आध्यात्मिक चेतनाक अंतर्संबंध", "निर्गुण भावक नकार", "केवल वंशावली", "भाषाहीन अध्यात्म"], "ans": 0, "exp": "लेख परंपरा केँ भाषा आ भाव-दर्शनक संग पढ़बाक आग्रह करैत अछि।"}, {"q": "‘ट्रान्सफर्मर’ कथा-संग्रह पर अरविन्द ठाकुरक समीक्षा विशेषांकमे किएक रखल गेल?", "opts": ["कथासँ असंबंधित सूचना", "केवल विज्ञापन", "समीक्षा-विरोध", "ओ लेखकक आलोचनात्मक पाठ-कौशल आ समकालीन कथा-संवाद देखबैत अछि"], "ans": 3, "exp": "लेखक केवल सृजक नहि, समकालीन साहित्यक पाठक-आलोचक सेहो छथि।"}, {"q": "अरविन्द ठाकुरक विहनि कथा खंड विशेषांकक प्रश्न-संख्या बढ़ेबाक किएक आधार बनैत अछि?", "opts": ["लेखकक नाम पर्याप्त", "प्रश्न केवल पृष्ठपर हो", "कथ्य, शिल्प, राजनीति, मनोविज्ञान, जाति, साम्प्रदायिकता आ न्याय-प्रक्रिया सभ विषय उपलब्ध अछि", "कथाएँ खाली सूचीमात्र"], "ans": 2, "exp": "समृद्ध विधा-वैविध्य गतिशील अधिक प्रश्नक अपेक्षा करैत अछि।"}, {"q": "‘गोरैया बहिन बन्दी/बन्नी’ आ कुलदेवी-स्मरणक प्रसंग लेखकक रचना-आरम्भमे कोन संकेत दैत अछि?", "opts": ["साहित्यसँ असंबंधित पूजा-सूची", "लोक-देवता, स्मृति, वाणी आ रचनात्मक आस्थाक संग कथा-संसारक प्रवेश", "केवल रंग-वर्णन", "देवीक नकार"], "ans": 1, "exp": "कुलदेवीक स्मरण रचना केँ स्थानीय सांस्कृतिक संवेदना सँ जोड़ैत अछि।"}, {"q": "अरविन्द ठाकुरक कथामे ‘राजनीति’ केवल पृष्ठभूमि किएक नहि?", "opts": ["राजनीति अनुपस्थित", "कथानकसँ कटल प्रसंग", "राजनीति पात्रक भाषा, निर्णय, हिंसा, नैतिकता आ सामाजिक संबंध बनबैत/बिगाड़ैत अछि", "केवल मंच-सजावट"], "ans": 2, "exp": "हुनकर लघुकथामे राजनीति कथा-संरचना आ पात्र-व्यवहारक केंद्र होइत अछि।"}, {"q": "‘प्रजातंत्र परिकथा’मे मीडिया-चयनक प्रश्न किएक उभरैत अछि?", "opts": ["समाचार असंगत", "मीडिया पूर्ण तटस्थ", "हत्या निजी घटना मात्र", "समाचारमे की छपैत अछि आ की छूटैत अछि, ताहिसँ सत्ता-संबंध देखाइत अछि"], "ans": 3, "exp": "डॉक्टरक सामाजिक भूमिका नहि छपब मीडियाक नैतिक चयन पर प्रश्न अछि।"}, {"q": "‘विष-पान’मे ‘मेल पेटीशन’ पर हस्ताक्षर कोन भाव पैदा करैत अछि?", "opts": ["न्याय-संघर्षक थकान आ व्यवस्था सामने विवश आत्मसमर्पण", "विजय-उत्सव", "निर्दोष हास्य", "मोकदमा प्रारम्भ"], "ans": 0, "exp": "लंबी कचहरी-यात्रा पीड़ित केँ समझौता/विष-पान दिस धकेलैत अछि।"}, {"q": "‘अथ गिरगिट कथा’मे नगरमे शान्ति लौटब व्यंग्यात्मक किएक अछि?", "opts": ["हिंसा समाप्त बिना कारण", "अशांति पैदा करनिहार शक्तिये चुनावी पद पाबि ‘शांति’क लाभ उठबैत अछि", "कथा आदर्श प्रशासन", "गिरगिटक प्राकृतिक शांति"], "ans": 1, "exp": "चेयरमैन-वाइस चेयरमैन बनलाक बाद शांति सत्ता-समझौता पर व्यंग्य करैत अछि।"}, {"q": "‘अय्यासी’मे पत्नीक लाल आँखि कथानकक अंतिम नैतिक दर्पण किएक बनैत अछि?", "opts": ["घर अप्रासंगिक", "मौज पूर्णतः निर्दोष", "घरक अभावक सामने कथानायकक छोटी मौज अपराध-बोध बनि उठैत अछि", "पत्नी हास्य पात्र"], "ans": 2, "exp": "अंतिम दृश्य घरक वास्तविकता केँ नायकक आत्म-छल पर भारी बना दैत अछि।"}, {"q": "‘ढाँचा-१९९२’मे क्लाइमेक्सक समाचार कथाक संरचना केँ कोना बदलैत अछि?", "opts": ["कथा बिना अंत", "समाचार असंगत", "इतिहास नहि", "लंबा निजी संवाद अचानक ऐतिहासिक-साम्प्रदायिक दुर्घटना सँ टकरा जाइत अछि"], "ans": 3, "exp": "टीवी-सूचना कथा केँ निजी पत्रसँ राष्ट्रीय आघात धरि लऽ जाइत अछि।"}, {"q": "अरविन्द ठाकुरक कथा सभमे ‘संक्षिप्तता’क मतलब की नहि अछि?", "opts": ["कम शब्दमे तीक्ष्ण कथ्य", "अर्थक बहुलता", "सघन संकेत", "गंभीर सामाजिक जटिलता हटाएब नहि"], "ans": 3, "exp": "लघुकथा छोटी होइत अछि, मुदा छोटका आकार गहिर विषयक निषेध नहि करैत।"}, {"q": "अरविन्द ठाकुरक रचनामे हास्य आ व्यंग्यक उपयोग कोना होइत अछि?", "opts": ["कथ्य मिटेबाक लेल", "विषय हल्का करबाक लेल", "केवल मनोरंजन", "व्यवस्था, राजनीति आ सामाजिक पाखंडक नकाब उतारबाक लेल"], "ans": 3, "exp": "हुनकर व्यंग्य समाजक गम्भीर प्रश्न केँ तेज बनबैत अछि।"}, {"q": "‘बहुरूपिया’ संज्ञा अरविन्द ठाकुरक सामाजिक दृष्टिमे कोन समस्या पर वार करैत अछि?", "opts": ["व्यक्ति, समाज आ सत्ता द्वारा लगातार भूमिका/चेहरा बदलि स्वार्थ साधब", "रंगमंचक पोशाक मात्र", "बच्चाक खेल", "मेला-नाच"], "ans": 0, "exp": "बहुरूपिया समाजक छद्म, अवसरवाद आ राजनीतिक रूपांतरणक प्रतीक अछि।"}, {"q": "अरविन्द ठाकुरक संस्मरण-खंड विशेषांकमे कोन मूल्य जोड़ैत अछि?", "opts": ["लेखकक मानवीय रूप, सम्बन्ध-संसार आ पाठक-समाजक स्मृति", "केवल तारीख भरैत", "साहित्यिक अर्थ नहि", "रचना हटबैत अछि"], "ans": 0, "exp": "संस्मरण रचनाकारक जीवित प्रभाव आ सामाजिक उपस्थिति देखबैत अछि।"}, {"q": "‘हाली-हाली बहथु कोसी’ सन संस्मरण शीर्षक अरविन्द ठाकुरक संदर्भमे कोन भावभूमि बना सकैत अछि?", "opts": ["सिर्फ जल-विज्ञान", "प्रश्नसूची", "मिथिला-भूगोल, स्मृति, प्रवाह आ व्यक्तित्वक आत्मीय सम्बन्ध", "कोसीक नक्शा"], "ans": 2, "exp": "शीर्षक स्मृति आ नदीक प्रवाहक माध्यमे व्यक्तित्वक आत्मीयता जगबैत अछि।"}, {"q": "‘हमरामे अहाँ, अहाँमे हम’ शीर्षक लेखक-व्यक्तित्वक कोन सम्बन्धात्मक पक्ष उभारैत अछि?", "opts": ["लेखक आ पाठक/मित्रक बीच आत्मीय परस्परता", "केवल विरोध", "पूर्ण दूरी", "निरपेक्ष तथ्य-सूची"], "ans": 0, "exp": "लेखक-विशेषांक मे व्यक्तित्व केवल बाहरी परिचय नहि, सम्बन्धक अनुभव सेहो अछि।"}, {"q": "अरविन्द ठाकुरक बाल-रचना ‘टिमटिम’क उपस्थिति विशेषांकमे किएक महत्त्वपूर्ण अछि?", "opts": ["बाल-साहित्य असंगत", "लेखकक कमजोरी", "केवल खाली स्थान भरब", "लेखकक गंभीर सामाजिक लेखन संग बाल-संवेदना आ सरल कल्पना सेहो देखाइत अछि"], "ans": 3, "exp": "लेखकक बहु-विधात्मकता बाल कविताक रूपमे सेहो देखल जाइत अछि।"}, {"q": "अरविन्द ठाकुरक लेखनमे ‘अन्हार’क विरोध आ ‘इजोत’क पक्ष ककरा संकेत करैत अछि?", "opts": ["आँखिक रोशनी मात्र", "रात्रि-वर्णन", "मानवीय न्याय, विवेक, स्वतंत्रता आ सामाजिक सजगता", "दीया-बाती पूजा मात्र"], "ans": 2, "exp": "अन्हार-इजोतक द्वंद्व नैतिक आ सामाजिक चेतनाक रूपक अछि।"}, {"q": "अरविन्द ठाकुरक कथा-पात्र सभ अकसर ‘साधारण’ किएक होइत अछि?", "opts": ["साधारण जीवनमे सत्ता, जाति, गरीबी, हिंसा आ पाखंडक वास्तविक असर देखाइत अछि", "उच्चवर्गीय पात्र अनिवार्य", "कथा केवल राजदरबार", "साधारण पात्र अर्थहीन"], "ans": 0, "exp": "सामान्य पात्रक माध्यमे समाजक असाधारण जटिलता देखाइत अछि।"}, {"q": "‘कनियाँ काकी आ बुच्ची दाइ सँ हटि कऽ’ कथा लिखबाक अर्थ की अछि?", "opts": ["कथा छोड़ि देब", "स्थिर पारिवारिक/परंपरागत कथ्यसँ बाहर समाज-राजनीति-आर्थिक यथार्थ केँ जोड़ब", "पुरान पात्रक अपमान मात्र", "बाल-कथा लिखब"], "ans": 1, "exp": "ई कथन मैथिली कथाक विषय-विस्तारक संकेत अछि।"}, {"q": "अरविन्द ठाकुरक लघुकथा मे नौकरशाही/ब्यूरोक्रेसीक उपस्थिति किएक महत्त्वपूर्ण अछि?", "opts": ["ब्यूरोक्रेसी कल्पना मात्र", "सत्ता-प्रक्रिया साधारण लोकक जीवनकेँ प्रत्यक्ष प्रभावित करैत अछि", "साहित्यसँ असंगत", "केवल पदनाम"], "ans": 1, "exp": "राजनीतिक यथार्थ बिना प्रशासनिक तंत्रक आलोचना अधूरा रहैत अछि।"}, {"q": "‘बैकबा-फोड़बा’मे दुकान, उधारी आ मारि-पीट ककरा रूपमे बदलैत अछि?", "opts": ["बाजारक साधारण हिसाब", "हास्य-रंगमंच", "कृषि-पंचांग", "आर्थिक लेन-देन जातीय-सामाजिक संघर्षक आगि बना देल जाइत अछि"], "ans": 3, "exp": "निजी आर्थिक प्रश्न राजनीतिक पहिचानक ईंधन बनि जाइत अछि।"}, {"q": "अरविन्द ठाकुरक गद्य आ पद्य दुनू पढ़बाक सर्वश्रेष्ठ तरीका की अछि?", "opts": ["केवल नाम याद रखब", "विषय, भाषा, शिल्प, सामाजिक दृष्टि आ विधागत प्रयोग केँ एक संग देखब", "केवल पुस्तक-लिंक", "केवल छंद गिनब"], "ans": 1, "exp": "लेखक बहु-विधात्मक छथि; एकांगी पठन हुनकर साहित्यिक जटिलता घटा देत।"}, {"q": "अरविन्द ठाकुरक आलोचना पर आलोचना लिखैत समय कोन सावधानी आवश्यक अछि?", "opts": ["केवल दोषारोपण", "केवल प्रशंसा", "पाठ पढ़ने बिना निष्कर्ष", "रचनाक सामाजिक साहसक संग शिल्पगत प्रयोगक सूक्ष्म परीक्षण"], "ans": 3, "exp": "हुनकर लेखन विषय-साहस आ शिल्प-दोन्हू आधार पर मूल्यांकन मांगैत अछि।"}, {"q": "‘स्वतंत्र लेखक’ बनल रहबाक इच्छा अरविन्द ठाकुरक समाज-दृष्टि सँ कोना जुड़ैत अछि?", "opts": ["लेखक जिम्मेदारी त्यागैत", "लेखक ककरो विचारधारात्मक कैदमे न फँसि मनुष्यक स्वतंत्रता आ क्रूरता-विरोध केँ प्राथमिकता दैत अछि", "लेखक केवल निजी सुख लिखैत", "लेखक समाज छोड़ैत अछि"], "ans": 1, "exp": "स्वतंत्रता समाज-विमुखता नहि; ई सचेत नैतिक आलोचनाक आधार अछि।"}, {"q": "अरविन्द ठाकुरक ‘स्खलनक प्रतिरोध’ काव्य/कथा-पठन मे कोन अवधारणा दैत अछि?", "opts": ["भाषा-सूची", "कथानक रहित व्याख्या", "स्खलनक उत्सव", "मूल्य-पतन, सामाजिक पतन आ नैतिक अंधकारक विरुद्ध साहित्यिक प्रतिरोध"], "ans": 3, "exp": "प्रतिरोध लेखकक रचनात्मक पहचानक प्रमुख सूत्र अछि।"}, {"q": "अरविन्द ठाकुरक लघुकथा सभक पाठक सँ अपेक्षा की अछि?", "opts": ["कथा-सार रटब", "तैयार नैतिक उत्तर नहि, जटिल सामाजिक प्रश्न पर सोचबाक क्षमता", "केवल हँसी", "प्रश्न न करब"], "ans": 1, "exp": "ई कथाएँ पाठककेँ निष्क्रिय नहि छोड़ैत; ओहिमे आलोचनात्मक सहभागिता चाहैत अछि।"}, {"q": "‘अन्हारक विरोध मे’क सफलताक एक कारण की मानल जा सकैत अछि?", "opts": ["कथा केवल सूचना", "शीर्षक लंबा अछि", "पात्रक नाम कठिन", "व्यक्तिगत घटना, सामुदायिक स्मृति आ नैतिक बेचैनीक सघन मेल"], "ans": 3, "exp": "कथा साम्प्रदायिक परिस्थिति केँ भावुक नारा नहि, मानवीय ग्लानिक रूपमे देखबैत अछि।"}, {"q": "अरविन्द ठाकुर विशेषांकमे प्रश्न ३०-४० सँ अधिक किएक उचित अछि?", "opts": ["किएकि पृष्ठ संख्या बेसी अछि मात्र", "किएकि प्रश्न दोहराएब अछि", "किएकि एहि मे साक्षात्कार, आलोचना, संस्मरण, आत्मकथा, लेख, विहनि कथा, कविता, आजाद गजल आ बाल-रचना सभ अछि", "किएकि क्रमांक बेसी अछि"], "ans": 2, "exp": "गतिशील प्रश्न-संख्या सामग्रीक वास्तविक घनत्व पर आधारित होयबाक चाही।"}];
+let idx=0, answers=Array(QDB.length).fill(null);
+const letters=['क','ख','ग','घ'];
+function initMap(){
+  const m=document.getElementById('qmap'); m.innerHTML='';
+  QDB.forEach((_,i)=>{const b=document.createElement('button'); b.className='dot'; b.textContent=i+1; b.onclick=()=>showQ(i); m.appendChild(b);});
 }
-function switchTab(gi){
-  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===gi));
-  document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',i===gi));
-  window.scrollTo({top:0,behavior:'smooth'});
+function updateTop(){
+  const done=answers.filter(x=>x!==null).length, ok=answers.filter((x,i)=>x===QDB[i].ans).length, bad=answers.filter((x,i)=>x!==null&&x!==QDB[i].ans).length;
+  document.getElementById('cur').textContent=idx+1; document.getElementById('score').innerHTML=`✓ ${ok} &nbsp; ✗ ${bad}`;
+  document.getElementById('bar').style.width=(done/QDB.length*100)+'%';
+  [...document.querySelectorAll('.dot')].forEach((d,i)=>{d.className='dot'+(answers[i]!==null?' answered':'')+(answers[i]===QDB[i].ans?' ok':'')+(answers[i]!==null&&answers[i]!==QDB[i].ans?' bad':'');});
 }
-function showScore(){
-  const pct=Math.round(score/total*100);
-  let msg=pct>=80?'उत्कृष्ट! अहाँक ज्ञान अद्भुत अछि।':pct>=50?'नीक प्रयास — आओर पढ़ू।':'फेर सँ प्रयास करू, अहाँ नीक करब।';
-  const sb=document.createElement('div');sb.className='scoreboard';
-  sb.innerHTML='<div class="orn">❖ ❖ ❖</div><div class="scbig">'+score+' / '+total+'</div>'+
-    '<div class="scpct">'+pct+'%</div><div class="scmsg">'+msg+'</div>'+
-    '<button class="nbtn pri" onclick="location.reload()">फेर सँ खेलू</button>';
-  const w=document.querySelector('.wrap');w.insertBefore(sb,w.firstChild);
-  window.scrollTo({top:0,behavior:'smooth'});
+function showQ(i){
+  idx=i; const q=QDB[i]; document.getElementById('result').style.display='none';
+  let chosen=answers[i];
+  let h=`<article class="qcard"><div class="qmeta"><span>प्रश्न ${i+1}</span><span>उच्च-स्तर / अवधारणा-आधारित</span></div><p class="qtext">${q.q}</p><div class="opts">`;
+  q.opts.forEach((o,k)=>{let cls='opt'; if(chosen!==null){cls+=' locked'; if(k===q.ans) cls+=' correct'; else if(k===chosen) cls+=' wrong';} h+=`<div class="${cls}" onclick="choose(${k})"><span class="key">${letters[k]}.</span><span class="txt">${o}</span></div>`;});
+  h+=`</div><div class="fb ${chosen===null?'':(chosen===q.ans?'ok show':'bad show')}"><strong>${chosen===null?'':(chosen===q.ans?'सही उत्तर।':'गलत उत्तर।')}</strong><br>${chosen===null?'':q.exp}</div><div class="navrow"><button class="btn2" onclick="showQ(Math.max(0,idx-1))">← पछिला</button><button class="btn" onclick="idx<QDB.length-1?showQ(idx+1):finish()">${idx<QDB.length-1?'अगिला →':'परिणाम देखू'}</button></div></article>`;
+  document.getElementById('quiz').innerHTML=h; updateTop(); window.scrollTo({top:0,behavior:'smooth'});
 }
+function choose(k){ if(answers[idx]!==null) return; answers[idx]=k; showQ(idx); }
+function finish(){
+  const ok=answers.filter((x,i)=>x===QDB[i].ans).length, bad=answers.filter((x,i)=>x!==null&&x!==QDB[i].ans).length, skip=answers.filter(x=>x===null).length;
+  const pct=Math.round(ok/QDB.length*100);
+  document.getElementById('result').innerHTML=`<div class="big">${ok} / ${QDB.length}</div><p><strong>${pct}%</strong> सही — गलत: ${bad}, अनुत्तरित: ${skip}</p><p class="qtext">${pct>=80?'बहुत नीक।':'फेर अभ्यास करू; अवधारणा पर ध्यान दिअ।'}</p><button class="btn" onclick="restart()">फेर शुरू करू</button>`;
+  document.getElementById('result').style.display='block'; updateTop(); document.getElementById('result').scrollIntoView({behavior:'smooth'});
+}
+function restart(){idx=0;answers=Array(QDB.length).fill(null);showQ(0);}
+initMap(); showQ(0);
 </script>
 </body>
 </html>

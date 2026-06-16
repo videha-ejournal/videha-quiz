@@ -1,146 +1,92 @@
 <!DOCTYPE html>
 <html lang="mai">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>समीक्षा विशेषांक — विदेह क्विज</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>विदेह विशेषांक ०६ — समीक्षा / समीक्षाशास्त्र प्रश्नोत्तरी</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#1a2744;--crimson:#8B1A1A;--gold:#c49a3c;--cream:#FAF6EE;
---ok-fg:#1d7a3e;--bad-fg:#a32020}
-*{box-sizing:border-box}
-body{margin:0;background:var(--cream);color:#1A1A1A;
-font-family:'Lato','Segoe UI',system-ui,sans-serif;line-height:1.55;padding-bottom:60px}
-header{background:linear-gradient(180deg,#16213b,var(--navy));color:#fff;
-padding:28px 20px 22px;text-align:center;border-bottom:4px solid var(--gold)}
-header h1{margin:0;font-family:'Noto Serif Devanagari',serif;font-size:1.7em}
-header .sub{color:var(--gold);font-size:.82em;letter-spacing:.1em;font-style:italic;margin-top:8px}
-header .src{color:#cdd6ea;font-size:.78em;margin-top:6px}
-.wrap{max-width:760px;margin:0 auto;padding:20px 16px}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;justify-content:center}
-.tab{font-family:'Noto Serif Devanagari',serif;font-weight:700;font-size:.9em;
-padding:8px 16px;border-radius:20px;border:2px solid var(--navy);background:#fff;
-color:var(--navy);cursor:pointer;transition:.15s}
-.tab.active{background:var(--navy);color:#fff}
-.counter-badge{background:var(--crimson);color:#fff;font-size:.72em;font-weight:700;
-padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle}
-.progress{height:6px;background:#e7dcc2;border-radius:4px;margin-bottom:18px;overflow:hidden}
-.progress > div{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--crimson));transition:width .3s}
-.pane{display:none}.pane.active{display:block}
-.card{background:#fff;border-radius:11px;box-shadow:0 4px 16px rgba(26,39,68,.1);
-padding:22px 22px 18px;margin-bottom:16px}
-.qmeta{font-size:.78em;color:#8a93ab;font-weight:700;margin-bottom:8px}
-.q{font-family:'Noto Serif Devanagari',serif;font-size:1.12em;font-weight:600;
-color:var(--navy);margin-bottom:14px}
-.opt{display:block;width:100%;text-align:left;
-font-family:'Noto Serif Devanagari',serif;font-size:1em;
-padding:11px 15px;margin-bottom:9px;border:1.5px solid #d8cfb8;border-radius:8px;
-background:#fffdf8;cursor:pointer;transition:.13s;color:#1A1A1A}
-.opt:hover{border-color:var(--gold);background:#fff8e8}
-.opt.ok{border-color:var(--ok-fg);background:#eafaf0;color:var(--ok-fg);font-weight:700}
-.opt.bad{border-color:var(--bad-fg);background:#fdeeee;color:var(--bad-fg)}
-.opt:disabled{cursor:default}
-.fb{margin-top:11px;font-size:.92em;font-weight:600;min-height:20px;
-font-family:'Noto Serif Devanagari',serif}
-.fb.ok{color:var(--ok-fg)}.fb.bad{color:var(--bad-fg)}
-.hint-box{background:#fffbef;border:1px solid var(--gold);border-radius:7px;
-padding:10px 14px;margin-top:10px;font-family:'Noto Serif Devanagari',serif;
-font-size:.88em;color:#5a4010;display:none}
-.hint-box.show{display:block}
-.nav{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
-.nbtn{font-family:'Lato',sans-serif;font-size:.9em;font-weight:700;
-padding:9px 20px;border-radius:6px;border:none;cursor:pointer;transition:.15s}
-.nbtn.pri{background:var(--crimson);color:#fff}.nbtn.pri:hover{background:var(--navy)}
-.nbtn.sec{background:transparent;color:var(--navy);border:2px solid var(--navy)}
-.nbtn.sec:hover{background:var(--navy);color:#fff}
-.scoreboard{background:#fff;border-radius:11px;box-shadow:0 4px 18px rgba(26,39,68,.11);
-padding:34px 26px;text-align:center;margin-bottom:18px}
-.scbig{font-family:'Playfair Display',serif;font-size:2.8em;color:var(--crimson);font-weight:700;margin-bottom:6px}
-.scpct{font-size:1.05em;color:#5a6a8a;margin-bottom:9px}
-.scmsg{font-family:'Noto Serif Devanagari',serif;font-size:1.05em;color:var(--navy);margin-bottom:20px}
-.orn{text-align:center;color:var(--gold);font-size:1em;letter-spacing:.2em;margin:14px 0;opacity:.65}
-footer{text-align:center;color:#8a7a4a;font-size:.78em;padding:24px 16px 0}
-footer a{color:var(--crimson);text-decoration:none}
-@media(max-width:520px){header h1{font-size:1.35em}.q{font-size:1.05em}}
+:root{--navy:#17264a;--crimson:#9b1c2e;--gold:#c8973a;--cream:#f7f2e8;--ok:#2e7d32;--ok-bg:#e8f5e9;--bad:#b71c1c;--bad-bg:#ffebee;--muted:#66708a}
+*{box-sizing:border-box} body{margin:0;background:var(--cream);font-family:Lato,Arial,sans-serif;color:var(--navy);line-height:1.55}
+header{background:var(--navy);color:#fff;text-align:center;padding:18px 12px;border-bottom:5px solid var(--gold)}
+header h1{font-family:'Noto Serif Devanagari',serif;font-size:1.45rem;margin:0 0 6px;line-height:1.35}
+header .brand{font-size:.86rem;color:var(--gold);font-weight:700;letter-spacing:.02em}
+header .sub{font-family:'Noto Serif Devanagari',serif;font-size:.95rem;margin-top:6px;color:#dbe4ff}
+main{max-width:980px;margin:18px auto 50px;padding:0 14px}
+.panel{background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(23,38,74,.12);padding:16px;margin-bottom:14px;border-left:5px solid var(--navy)}
+.topbar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.score{font-weight:700;color:var(--crimson)}
+.progress{flex:1;min-width:180px;height:9px;background:#d9dfeb;border-radius:20px;overflow:hidden} .bar{height:100%;background:var(--gold);width:0%;transition:.2s}
+button{font-family:Lato,Arial,sans-serif;font-weight:700;border:0;border-radius:7px;padding:9px 14px;cursor:pointer}
+.btn{background:var(--navy);color:#fff} .btn:hover{background:var(--crimson)} .btn2{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+.qmap{display:flex;gap:4px;flex-wrap:wrap;margin-top:12px} .dot{width:24px;height:24px;border-radius:5px;border:1px solid #b8c1d8;background:#eef2fa;color:var(--navy);font-size:.72rem;padding:0} .dot.answered{background:#dfe8f9} .dot.ok{background:var(--ok);color:#fff} .dot.bad{background:var(--bad);color:#fff}
+.qcard{background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(23,38,74,.10);padding:20px;margin:16px 0;border-left:5px solid var(--gold)}
+.qmeta{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:.82rem;font-weight:700;margin-bottom:8px}
+.qtext{font-family:'Noto Serif Devanagari',serif;font-size:1.13rem;font-weight:700;margin:0 0 14px;color:var(--navy)}
+.opts{display:grid;gap:9px} .opt{display:flex;gap:10px;align-items:flex-start;background:#f4f7fd;border:2px solid #d2daec;border-radius:10px;padding:10px 12px;cursor:pointer}
+.opt:hover{border-color:var(--navy)} .opt .key{font-weight:700;min-width:22px} .opt .txt{font-family:'Noto Serif Devanagari',serif}
+.opt.correct{background:var(--ok-bg);border-color:#7bc47f;color:var(--ok)} .opt.wrong{background:var(--bad-bg);border-color:#e57373;color:var(--bad)} .opt.locked{cursor:default}
+.fb{display:none;margin-top:10px;border-radius:8px;padding:10px 12px;font-family:'Noto Serif Devanagari',serif} .fb.show{display:block} .fb.ok{background:var(--ok-bg);border-left:4px solid var(--ok)} .fb.bad{background:var(--bad-bg);border-left:4px solid var(--bad)}
+.navrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.result{display:none;text-align:center} .big{font-size:2.6rem;font-weight:700;color:var(--crimson)}
+.back{text-align:center;margin:24px 0} .back a{color:var(--crimson);font-family:'Noto Serif Devanagari',serif;font-weight:700;text-decoration:none}
+footer{text-align:center;padding:20px;color:#6a728a;font-size:.85rem}
+@media(max-width:600px){.qtext{font-size:1rem}.topbar{align-items:stretch}.progress{min-width:100%}}
 </style>
 </head>
 <body>
 <header>
-  <h1>समीक्षा विशेषांक</h1>
-  <div class="sub">SAMIKSHA SPECIAL ISSUE · विदेह अंक ७४ · १५ जनवरी २०११</div>
-  <div class="src">विदेह : प्रथम मैथिली पाक्षिक ई-पत्रिका · videha.co.in · ISSN 2229-547X</div>
+  <h1>विदेह विशेषांक ०६ — समीक्षा / समीक्षाशास्त्र प्रश्नोत्तरी</h1>
+  <div class="brand">Videha QUIZ | विदेह ई-लर्निङ्ग क्विज / Videha eLearning Quiz / Videha — First Maithili Fortnightly eJournal | www.videha.co.in</div>
+  <div class="sub">समीक्षा-सिद्धान्त, पुस्तक-समीक्षा, संकलन, उपन्यास, गजल, अनुवाद, नारी/समाज-दृष्टि आ आलोचना-नैतिकता पर ६० उच्च-स्तरीय प्रश्न</div>
 </header>
-<div class="orn">❖ ❖ ❖</div>
-<div class="wrap">
-  <div class="tabs" id="tabs"></div>
-  <div class="progress"><div id="bar"></div></div>
-  <div id="panes"></div>
-</div>
-<footer>© विदेह Videha · <a href="https://videha.co.in">videha.co.in</a> · विदेह विशेषांक प्रश्नोत्तरी</footer>
+<main>
+  <section class="panel">
+    <div class="topbar">
+      <span><strong>विशेषांक ०६</strong> — प्रश्न <strong id="cur">1</strong> / <strong>60</strong></span>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <span class="score" id="score">✓ 0 &nbsp; ✗ 0</span>
+      <button class="btn2" onclick="showQ(0)">←← पहिल</button>
+      <button class="btn" onclick="restart()">नव क्विज</button>
+    </div>
+    <div class="qmap" id="qmap"></div>
+  </section>
+  <section id="quiz"></section>
+  <section class="panel result" id="result"></section>
+  <div class="back"><a href="https://www.videha.co.in/videha-elearning.htm">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a></div>
+</main>
+<footer>© Gajendra Thakur, Editor — Videha eJournal</footer>
 <script>
-const DATA = [{"tab": "विशेषांक परिचय", "items": [{"q": "विदेहक ई समीक्षा विशेषांक कोन तिथिकेँ प्रकाशित भेल?", "opts": ["१५ जनवरी २०११", "१५ दिसम्बर २०१०", "०१ मार्च २०११", "०१ जनवरी २०१२"], "correct": 0, "hint": "नाटक-एकांकी अंक (७२) केर बाद।"}, {"q": "ई विशेषांक कोन विधाकेँ समर्पित छल?", "opts": ["समीक्षा/समालोचना", "नाटक", "गजल", "विहनि कथा"], "correct": 0, "hint": "समालोचना, कथा-गल्प, उपन्यासक विवेचन।"}, {"q": "ई समीक्षा विशेषांक विदेहक कोन अंक छल?", "opts": ["अंक ७४", "अंक ७२", "अंक ७०", "अंक ६७"], "correct": 0, "hint": "नाटक अंक (७२) केर ठीक बाद।"}]}, {"tab": "रचना", "items": [{"q": "एहि अंकमे \"घोड़ीपर चढ़ि लेब\" कोन विधाक रचना थिक?", "opts": ["दीर्घकथा", "गजल", "नाटक", "समीक्षा"], "correct": 0, "hint": "सूचीमे \"दीर्घकथा-\" रूपमे।"}, {"q": "एहि अंकमे \"हिमदूत\" विहनि कथाक रचनाकार के छथि?", "opts": ["ज्योति सुनीत चौधरी", "रमाकान्त राय 'रमा'", "रामकृष्ण मंडल 'छोटू'", "जगदीश प्रसाद मंडल"], "correct": 0, "hint": "\"ज्योति सुनीत चौधरी- विहनि कथा- हिमदूत\"।"}, {"q": "\"गामक जिनगी\" कथा संग्रह केकर अछि (एहि अंकमे उल्लिखित)?", "opts": ["जगदीश प्रसाद मंडल", "रमाकान्त राय", "रामकृष्ण मंडल", "ज्योति सुनीत चौधरी"], "correct": 0, "hint": "सूचीमे \"...जिनगी- कथा संग्रह- जगदीश...\"।"}]}];
-let score=0,total=0,answered=0;
-DATA.forEach(g=>total+=g.items.length);
-const tabsEl=document.getElementById('tabs');
-const panesEl=document.getElementById('panes');
-const bar=document.getElementById('bar');
-DATA.forEach((g,gi)=>{
-  const tb=document.createElement('button');
-  tb.className='tab'+(gi===0?' active':'');
-  tb.innerHTML=g.tab+'<span class="counter-badge">'+g.items.length+'</span>';
-  tb.onclick=()=>switchTab(gi);
-  tabsEl.appendChild(tb);
-  const pane=document.createElement('div');
-  pane.className='pane'+(gi===0?' active':'');
-  pane.id='pane-'+gi;
-  g.items.forEach((q,qi)=>pane.appendChild(buildCard(g,gi,qi,q)));
-  panesEl.appendChild(pane);
-});
-function buildCard(g,gi,qi,q){
-  const card=document.createElement('div');card.className='card';
-  const meta=document.createElement('div');meta.className='qmeta';
-  meta.textContent=g.tab+' · प्रश्न '+(qi+1)+'/'+g.items.length;card.appendChild(meta);
-  const qd=document.createElement('div');qd.className='q';qd.textContent=q.q;card.appendChild(qd);
-  const opts=[];
-  q.opts.forEach((o,oi)=>{
-    const b=document.createElement('button');b.className='opt';b.textContent=o;
-    b.onclick=()=>pick(b,oi);card.appendChild(b);opts.push(b);
-  });
-  const fb=document.createElement('div');fb.className='fb';card.appendChild(fb);
-  let hintBox=null;
-  if(q.hint){hintBox=document.createElement('div');hintBox.className='hint-box';
-    hintBox.textContent='💡 '+q.hint;card.appendChild(hintBox);}
-  const nav=document.createElement('div');nav.className='nav';
-  if(q.hint){const hb=document.createElement('button');hb.className='nbtn sec';hb.textContent='संकेत';
-    hb.onclick=()=>hintBox.classList.toggle('show');nav.appendChild(hb);}
-  card.appendChild(nav);
-  let done=false;
-  function pick(btn,oi){
-    if(done)return;done=true;answered++;
-    opts.forEach((b,bi)=>{b.disabled=true;
-      if(bi===q.correct)b.classList.add('ok');
-      else if(b===btn)b.classList.add('bad');});
-    if(oi===q.correct){score++;fb.className='fb ok';fb.textContent='✓ सही उत्तर!';}
-    else{fb.className='fb bad';fb.textContent='✗ सही उत्तर: '+q.opts[q.correct];}
-    bar.style.width=(answered/total*100)+'%';
-    if(answered===total)showScore();
-  }
-  return card;
+const QDB = [{"q": "समीक्षा विशेषांकक संपादकीय ‘मैथिली लेल समीक्षाशास्त्रक सिद्धान्त’क मुख्य ध्येय की अछि?", "opts": ["केवल लेखकक जीवनी लिखब", "समीक्षा विधाकेँ समाप्त करब", "केवल पोथीक मूल्य-सूची देब", "मैथिली साहित्यक मूल्यांकन लेल सजग, तुलनात्मक, नैतिक आ विधा-विशेष कसौटी बनएब"], "ans": 3, "exp": "संपादकीय समीक्षा केँ स्वतंत्र बौद्धिक अनुशासन मानि ओकर सिद्धान्त, सीमा आ जिम्मेदारी पर विचार करैत अछि।"}, {"q": "संपादकीयमे कला, साहित्य आ संगीतक सामाजिक प्रयोजन पर चर्चा किएक आवश्यक अछि?", "opts": ["साहित्य केवल सजावट अछि", "कला समाजसँ पूर्णतः कटल अछि", "कृति-मूल्यांकन केवल रुचि नहि, समाज, नैतिकता, आनंद आ बौद्धिक प्रभावसँ जुड़ल अछि", "समीक्षा मे इतिहास निषिद्ध अछि"], "ans": 2, "exp": "समीक्षा कृति केँ व्यापक मानव-सांस्कृतिक प्रयोजनक भीतर पढ़बाक आग्रह करैत अछि।"}, {"q": "प्लेटो आ अरस्तू सन विचारकक प्रसंग समीक्षाशास्त्रमे कोन भूमिका निभबैत अछि?", "opts": ["गजल छन्द गनैत अछि", "कला पर प्राच्य-पाश्चात्य दार्शनिक बहसक पृष्ठभूमि देइत अछि", "केवल नाटकक पात्र-सूची बनबैत अछि", "कथा-कथन रोकैत अछि"], "ans": 1, "exp": "समीक्षा सिद्धान्त ऐतिहासिक दार्शनिक प्रश्नसँ जुड़ैत अछि—कला सत्य, आनंद, ज्ञान वा अनुकरण की अछि।"}, {"q": "वेद, सामवेद आ प्राचीन पाठ-पद्धतिक उल्लेख समीक्षा-विमर्शमे किएक सार्थक अछि?", "opts": ["कला, वाणी, स्मृति, संगीत आ अनुकरणक भारतीय परम्परा देखबैत अछि", "ई पुस्तक-समीक्षासँ असंबद्ध अछि", "ई केवल पूजा-विधि अछि", "ई आधुनिक समीक्षा निषिद्ध करैत अछि"], "ans": 0, "exp": "संपादकीय भारतीय ज्ञान-परम्परा मे साहित्य-कला-संगीतक आधार खोजि समीक्षाक ऐतिहासिक गहराइ बनबैत अछि।"}, {"q": "कला ‘सुखाय’ सेहो करैत अछि आ ‘उद्वेलित’ सेहो—एहि कथनक समीक्षा-संदर्भ की?", "opts": ["समीक्षा भावनासँ मुक्त गणना मात्र", "दुःखद कृति साहित्य नहि", "कला सदैव मनोरंजन मात्र", "समीक्षककेँ केवल आनंद नहि, बेचैनी, प्रश्न, प्रतिरोध आ अनुभवक तीव्रता सेहो देखबाक चाही"], "ans": 3, "exp": "कृति पाठककेँ शान्ति दे सकैत अछि, मुदा झकझोरियो सकैत अछि; दुनू मूल्यांकन योग्य प्रभाव अछि।"}, {"q": "उत्तर-आधुनिकता पर संपादकीय टिप्पणी समीक्षा केँ कोन सावधानी सिखबैत अछि?", "opts": ["पाठकक भूमिका शून्य", "समीक्षा सदैव एकरे निष्कर्ष दे", "एक सत्यक दावा पर प्रश्न उठबैत, अनेक दृष्टिकोण आ विखंडित अर्थ देखबाक सजगता", "अर्थ सदैव सरल आ स्थिर"], "ans": 2, "exp": "उत्तर-आधुनिक विचार सत्य, अर्थ, सत्ता आ भाषा पर संदेह करैत अछि; समीक्षककेँ एहि जटिलता सँ जूझब पड़ैत अछि।"}, {"q": "डेरिदा द्वारा भाषाक विखंडनक प्रसंग मैथिली समीक्षा लेल कोन चेतावनी दैत अछि?", "opts": ["समीक्षा असम्भव अछि", "भाषा केवल व्याकरण अछि", "शब्दक कोनो अर्थ नहि होइत", "भाषाक अर्थ अनेक आधार, सन्दर्भ आ भिन्नताओं पर निर्भर करैत अछि"], "ans": 3, "exp": "संपादकीय संकेत करैत अछि जे अर्थ एकरे पंक्ति मे बंद नहि; भाषा-सन्दर्भक तहें पढ़ब जरूरी अछि।"}, {"q": "‘संवादक पुनर्स्थापना’ लेल कथाकारमे विश्वास—तर्कपरक आ अनुभवपरक—किएक चाही?", "opts": ["कथाकारपर अविश्वासे साहित्य बनैत अछि", "कथा मे अनुभव नहि चाही", "कथा पाठक-संवाद तखन बनबैत अछि जखन तर्क आ अनुभव दुनू विश्वसनीय हो", "तर्क साहित्यक शत्रु अछि"], "ans": 2, "exp": "लेख संवादक आधार रूपमे रचनाकारक बौद्धिक आ अनुभूतिजन्य विश्वासनीयताकेँ मानैत अछि।"}, {"q": "अस्तित्ववाद, प्रत्यक्षवाद, घटनाशास्त्र आदि प्रसंग समीक्षा-सिद्धान्तक कोन विस्तार देखबैत अछि?", "opts": ["दर्शनक साहित्यसँ सम्बन्ध नहि", "कृति बिना विचार पढ़ल जाए", "कृति पढ़बाक दार्शनिक पद्धति अनेक अछि; समीक्षककेँ विचार-परम्परासँ परिचित रहब चाही", "समीक्षा केवल भावुक प्रतिक्रिया अछि"], "ans": 2, "exp": "संपादकीय समीक्षा केँ साधारण प्रशंसा नहि, बहु-विचारधारात्मक बौद्धिक अभ्यास मानैत अछि।"}, {"q": "अति-प्रशंसासँ बचबाक सलाहक मूल कारण की अछि?", "opts": ["प्रशंसा कृतिपर प्रकाश डालए, अंध-स्तुति नहि बनए", "समीक्षामे सदैव निंदा होए", "समीक्षक लेखकसँ शत्रुता राखए", "कृति पढ़बाक जरूरत नहि"], "ans": 0, "exp": "अति-प्रशंसा समीक्षा केँ विज्ञापन बना देत; विवेकपूर्ण संतुलन आवश्यक अछि।"}, {"q": "पोथी-समीक्षामे समान विषयक आन पोथीसँ तुलना किएक अपेक्षित अछि?", "opts": ["एहिसँ कृतिक विशिष्टता, रिक्त-स्थल-पूर्ति आ सीमाबोध स्पष्ट होइत अछि", "केवल आवरण देखब चाही", "लेखकक नाम काफी अछि", "तुलना सदैव अनैतिक अछि"], "ans": 0, "exp": "संपादकीय समीक्षा केँ तुलनात्मक पद्धति अपनएबाक सलाह दैत अछि।"}, {"q": "समीक्षा ‘पोथीक’ होए, ‘लेखकक’ नहि—एहि सिद्धान्तक अर्थ की?", "opts": ["लेखकक व्यक्तिगत जीवनपर आक्रमण करू", "पोथी न पढ़ू", "समीक्षा मे केवल फोटो-वर्णन करू", "मुख्य केन्द्र कृति, ओकर संरचना, कथ्य, भाषा आ योगदान रहए; लेखक-जीवनी नहि"], "ans": 3, "exp": "समीक्षा लेखकक समग्र जीवनक बदला सम्बन्धित कृतिपर केन्द्रित रहबाक चाही, जँ लेखक-जीवन सीधे कृतिसँ जुड़ल नहि हो।"}, {"q": "आत्मकथात्मक पोथीक समीक्षा मे लेखकक जीवनपर प्रकाश किएक देल जा सकैत अछि?", "opts": ["किएकि पाठ अप्रासंगिक होइत", "किएकि हर समीक्षा जीवनी बने", "किएकि ओहि विधामे जीवन-सन्दर्भ स्वयं कृतिक अंग होइत अछि", "किएकि आवरण फोटो पर्याप्त"], "ans": 2, "exp": "संपादकीय अपवाद मानैत अछि—आत्मकथा मे जीवन-सन्दर्भ समीक्षा केँ आवश्यक पृष्ठभूमि देत।"}, {"q": "समीक्षामे जिला-जवार, जाति-धर्म वा व्यक्तिगत पक्षपातक खतरा की अछि?", "opts": ["ओ पोथीक भाषा सुधारैत अछि", "ओ समीक्षा केँ अधिक वैज्ञानिक बनबैत अछि", "ओ कृतिमूल्यांकनकेँ साहित्यिक कसौटीसँ हटाकऽ सामाजिक पक्षधरता/विरोधमे बदलि देत", "ओ आलोचनाक अनिवार्य नियम अछि"], "ans": 2, "exp": "संपादकीय मैथिली समाजक आन्तरिक पूर्वग्रहसँ समीक्षा केँ बचएबाक चेतावनी दैत अछि।"}, {"q": "समीक्षकक भाषा सटीक आ अनावश्यक शब्द-विहीन किएक होएब चाही?", "opts": ["अस्पष्ट भाषा श्रेष्ठ समीक्षा", "लम्बा अलंकार सत्यक प्रमाण अछि", "समीक्षामे अर्थक जरूरत नहि", "स्पष्ट, संक्षिप्त आ प्रमाणित आलोचना पाठककेँ कृतिपर केन्द्रित रखैत अछि"], "ans": 3, "exp": "समीक्षा मे शब्दाडंबरक बदला विश्लेषणक स्पष्टता महत्त्वपूर्ण अछि।"}, {"q": "पोथीक रूप, रंग, आवरण वा लेखकक नामपर अति-चर्चा किएक आलोचित अछि?", "opts": ["कृति-पठन अनावश्यक अछि", "आवरणहि कृति अछि", "एहिसँ मूल कृति, कथ्य, शिल्प आ भाषा पर चर्चा दबि जाइत अछि", "नामहि साहित्यिक मूल्य तय करैत अछि"], "ans": 2, "exp": "संपादकीय समीक्षककेँ बाहरी वस्तु सँ आगे बढ़ि पुस्तकक वास्तविक साहित्यिक मूल्य देखबाक कहैत अछि।"}, {"q": "उपन्यासक समीक्षा लेल संपादकीय कोन प्रमुख घटक बतबैत अछि?", "opts": ["केवल मुखड़ा", "केवल तुकान्तता", "वातावरण, पात्र-विवरण, कथारूप, लोक आ परिस्थिति", "केवल मंच-प्रकाश"], "ans": 2, "exp": "उपन्यास जीवन-संसार बनबैत अछि; समीक्षा मे वातावरण, पात्र, कथानक आ सामाजिक स्थिति देखब जरूरी अछि।"}, {"q": "नाटकक समीक्षा मे ‘भावनापूर्ण संवाद आ क्रियाकलाप’ पर जोर किएक अछि?", "opts": ["नाटक केवल उपन्यासक सार अछि", "नाटक मंचीय क्रिया आ संवादसँ जीवित होइत अछि", "नाटकमे दर्शकक भूमिका नहि", "नाटकमे कथानक नहि होए"], "ans": 1, "exp": "संपादकीय नाटकक विशेषता रूपमे संवाद, भाव आ क्रियाकेँ चिन्हित करैत अछि।"}, {"q": "कविताक समीक्षा मे शब्दक प्रयोगसँ चित्र-निर्माण आ ध्वनि-विज्ञानक भूमिका किएक महत्त्वपूर्ण अछि?", "opts": ["कविता अर्थक संग ध्वनि, बिम्ब, लय आ भाव-उत्तेजना सँ काम करैत अछि", "कविता केवल सूचना अछि", "कवितामे ध्वनि अप्रासंगिक", "बिम्ब केवल चित्रकार लेल"], "ans": 0, "exp": "संपादकीय कविता केँ शब्द-चित्र, भाव-उद्वेलन आ ध्वनि-संरचना सँ पढ़बाक आग्रह करैत अछि।"}, {"q": "‘कोनो खास समीक्षासँ ओहि पोथीपर प्रकाश पड़ैत अछि वा नहि’—एहि प्रश्नक अर्थ की?", "opts": ["समीक्षाक लक्ष्य लेखकक प्रशंसा मात्र", "पोथी पढ़लासँ समीक्षा कमजोर होइत", "समीक्षा केवल शीर्षक बतए", "असली समीक्षा कृति बुझबामे सहायता करैत अछि, केवल सजावटी टिप्पणी नहि"], "ans": 3, "exp": "समीक्षा पाठकक दृष्टि साफ करैत अछि; जँ ओ कृति पर प्रकाश नहि डाले, तँ ओकर प्रयोजन संदिग्ध अछि।"}, {"q": "‘मैथिली कविता संचयन’क समीक्षा मे रचनाकार-चयन पर प्रश्न उठबैत अछि; ई कोन आलोचनात्मक कसौटी अछि?", "opts": ["संकलन केवल आवरणक कारण श्रेष्ठ", "छूटल लेखकक चर्चा निषिद्ध", "कविता मे चयनक कोनो मूल्य नहि", "संकलनक प्रतिनिधित्व, संतुलन, छूटल स्वर आ संपादकीय न्याय"], "ans": 3, "exp": "कविता-संचयनक समीक्षा मे केवल शामिल रचना नहि, चयनक नीति आ प्रतिनिधित्व सेहो मूल्यांकन योग्य अछि।"}, {"q": "गंगेश गुंजन संपादित संकलन पर चर्चा संकलन-समीक्षा लेल कोन मानक स्थापित करैत अछि?", "opts": ["केवल मित्रक कविता", "केवल नाम-प्रसिद्धि", "केवल एक जिलाक लेखक", "स्थापित, विस्मृत आ नवतुरिया रचनाकारक संतुलित उपस्थिति"], "ans": 3, "exp": "समीक्षक पूछैत अछि जे किन-किन महत्वपूर्ण कवि छूटल; ई संकलनक व्यापकता जाँचबाक तरीका अछि।"}, {"q": "समीक्षा मे छूटल कविक नाम गिनबाक उद्देश्य केवल शिकायत नहि किएक?", "opts": ["प्रकाशकक विज्ञापन", "ई साहित्यिक इतिहासक प्रतिनिधित्व आ स्मृति-न्यायक प्रश्न उठबैत अछि", "व्यक्तिगत बदला", "पृष्ठ भरबाक युक्ति"], "ans": 1, "exp": "संकलन जखन इतिहास-सदृश रूप लेत, तखन छूटल स्वर भविष्यक पाठकसँ गायब भऽ सकैत अछि।"}, {"q": "‘गोनू झा आ आन मैथिली चित्रकथा’क समीक्षा मे लोककथा आ चित्रकला कोन प्रकार जुड़ैत अछि?", "opts": ["चित्रकथा केवल वयस्क आलोचना", "गोनू झा नाटकक पात्र मात्र", "लोककथा चित्रकला सँ असंबद्ध", "गोनू झाक लोक-स्मृति केँ दृश्य-कथा रूपमे बाल/सामान्य पाठकधरि पहुँचबैत अछि"], "ans": 3, "exp": "चित्रकथा लोक-बुद्धि, हास्य आ दृश्य कला केँ एकत्र करि सांस्कृतिक प्रसार करैत अछि।"}, {"q": "मिथिला लोककला क संरक्षिका रूपमे महिलाक उल्लेख समीक्षा मे किएक महत्त्वपूर्ण अछि?", "opts": ["लोकगीत, लोकनृत्य आ चित्रकला घर-परिवारक स्त्री-सांस्कृतिक श्रमसँ जीवित रहल अछि", "चित्रकला केवल मशीन बनबैत अछि", "कला केवल राजदरबारमे जन्मैत अछि", "महिलाक लोकसंस्कृतिसँ सम्बन्ध नहि"], "ans": 0, "exp": "समीक्षा मिथिलाक लोककला-संरक्षणमे महिलाक सांस्कृतिक योगदानकेँ रेखांकित करैत अछि।"}, {"q": "‘जीवन संघर्ष’ उपन्यासक समीक्षा मे ‘मिनीएचर मिथिला’क अर्थ की अछि?", "opts": ["केवल बालचित्र", "एक गामक कथा मार्फत समस्त मिथिलाक सामाजिक समस्याक संक्षिप्त प्रतिरूप", "केवल लेखकक घर", "मिथिलाक नक्शा"], "ans": 1, "exp": "समीक्षा बॅसपुरा गामकेँ पलायन, विधवा, किसान, जलकर, कोशी, बेरोजगारी आदि समस्याक छोट मिथिला मानैत अछि।"}, {"q": "‘जीवन संघर्ष’ शीर्षकक समीक्षा मे संघर्षक अर्थ केवल दुःख नहि किएक?", "opts": ["उपन्यासमे समस्या निषिद्ध", "संघर्षक समाजसँ सम्बन्ध नहि", "संघर्ष केवल निराशा", "संघर्षमे जिजीविषा, नव चेतना, यथार्थवादी निदान आ जीवनक पुनर्सार्थकता सेहो अछि"], "ans": 3, "exp": "समीक्षा कहैत अछि जे पाठक उपन्यासक संग हँसैत, जुझैत, कानैत आ फेर नव उत्साह पबैत अछि।"}, {"q": "जगदीश प्रसाद मंडलक कथा/उपन्यास-समीक्षा मे यथार्थवाद कोना देखल जाइत अछि?", "opts": ["समस्या वर्णनक संग बदला नहि, निदान आ मानवीय धैर्यक खोज", "सामाजिक समस्या हटाएब", "केवल काल्पनिक राजकथा", "मात्र रोमानी पलायन"], "ans": 0, "exp": "समीक्षक मंडलजीक लेखनमे वास्तविक सामाजिक विडम्बना आ संयत समाधानक दृष्टि देखैत छथि।"}, {"q": "‘गामक जिनगी’ पर समीक्षा मे आस्था, जिजीविषा आ संघर्षक प्रवाह कहबाक अर्थ की?", "opts": ["कथा केवल हास्य", "गाम केवल स्थिर दृश्य", "गामक जीवनमे पीड़ा रहितहुँ जीवन-ऊर्जा, विश्वास आ टकराव एकसाथ बहैत अछि", "संघर्ष जीवनसँ अलग"], "ans": 2, "exp": "समीक्षात्मक शीर्षक स्वयं कथासंग्रहक जीवन-दृष्टि बतबैत अछि।"}, {"q": "‘मौलाइल गाछक फूल’ प्रकारक शीर्षक आलोचनात्मक रूपेँ कोन प्रतीक खोलैत अछि?", "opts": ["केवल वनस्पति-विज्ञान", "केवल हास्य-गीत", "केवल आवरण रंग", "क्षीण जीवन वा सूखल परिवेशमे सेहो आशा/सृजनक संभावना"], "ans": 3, "exp": "समीक्षा शीर्षकक प्रतीकात्मकता सँ आदर्श, संघर्ष आ आस्थाक अर्थ खोजि सकैत अछि।"}, {"q": "दुर्गानन्द मंडलजी केँ ‘शब्दक जादूगर’ आ ‘खर दृष्टिदर्श’ कहबाक आलोचनात्मक आशय की?", "opts": ["हुनक भाषा-शक्ति आ तीक्ष्ण, साफ आलोचनात्मक दृष्टि दुनू पर जोर", "हुनका केवल गीतकार मानब", "हुनक समीक्षा न पढ़ब", "हुनक भाषा अप्रासंगिक"], "ans": 0, "exp": "विशेषांकक वार्ता शीर्षकहि सँ दुर्गानन्द मंडलकेँ कथाकार-समीक्षक रूपमे मूल्यांकनक केन्द्र बनबैत अछि।"}, {"q": "समीक्षा विशेषांकमे लेखक-साक्षात्कारक समावेश किएक उपयोगी अछि?", "opts": ["साक्षात्कार समीक्षा-विरोधी अछि", "समीक्षक/रचनाकारक दृष्टि, प्रक्रिया आ साहित्य-बोध प्रत्यक्ष रूपेँ सामने अबैत अछि", "लेखकक विचारक मूल्य नहि", "वार्ता केवल मनोरंजन"], "ans": 1, "exp": "भेंटवार्ता आलोचना केँ जीवित संवाद बनबैत अछि।"}, {"q": "‘गजलक सार्थ्य’ शीर्षक आलोचना गजल-विधा लेल कोन प्रश्न उठबैत अछि?", "opts": ["गजल केवल छन्द नहि, भाव, कथ्य, लय, शेरक स्वतंत्रता आ भाषिक अनुशासनक प्रश्न", "गजल केवल कथा अछि", "गजल समीक्षा योग्य नहि", "गजलमे अर्थ आवश्यक नहि"], "ans": 0, "exp": "गजल-समीक्षा विधागत कसौटी पर आधारित होएब चाही—केवल तुकबन्दी पर्याप्त नहि।"}, {"q": "‘मैथिलीमे अनुवाद-कलाक शास्त्रीयकरणक इतिहास’ शीर्षकसँ कोन आलोचनात्मक क्षेत्र खुलैत अछि?", "opts": ["अनुवाद केँ स्वतन्त्र कला, सिद्धान्त आ इतिहास सहित पढ़बाक क्षेत्र", "अनुवादमे सांस्कृतिक अर्थ नहि", "अनुवाद समीक्षा सँ बाहर", "अनुवाद केवल शब्द बदलब"], "ans": 0, "exp": "अनुवाद-कलाक शास्त्रीयकरण मतलब ओकर विधि, परम्परा आ मूल्यांकनक मानक बनएब।"}, {"q": "‘यांत्रिक अनुवाद आ Polysemy’ पर लेख समीक्षा विशेषांकमे किएक अग्रगामी विषय अछि?", "opts": ["मशीन सदैव पूर्ण अनुवाद करैत अछि", "मैथिली भाषा-प्रसंस्करणमे बहुअर्थकता, संदर्भ आ मशीनक सीमा बुझब आवश्यक अछि", "अनुवादमे संदर्भ बेकार", "Polysemyक भाषासँ सम्बन्ध नहि"], "ans": 1, "exp": "बहुअर्थक शब्द मशीन अनुवादक प्रमुख चुनौती अछि; संदर्भ-बोध बिना अर्थ बिगड़ि सकैत अछि।"}, {"q": "समीक्षा मे ‘महिला-विरोधी वा जाति-क्षेत्रक मानसिकता’ दूर राखबाक आग्रह कोन नैतिक आधार बनबैत अछि?", "opts": ["पूर्वग्रहक संरक्षण", "व्यक्तिगत आक्षेपक अनुमति", "जातीय श्रेष्ठताक प्रमाण", "साहित्यिक न्याय, समावेशी दृष्टि आ कृति-केंद्रित मूल्यांकन"], "ans": 3, "exp": "समीक्षा तखन विश्वसनीय होइत अछि जखन ओ सामाजिक पूर्वग्रह छोड़ि कृतिक असली मूल्य देखैत अछि।"}, {"q": "‘लेखकक आन रचना’क चर्चा समीक्षा मे कब उचित अछि?", "opts": ["हर समीक्षा मे पूरा जीवन-कार्य देब जरूरी", "सम्बन्धहीन प्रसंगसँ समीक्षा भरू", "कृति बिना लेखकक फोटो लिखू", "जखन ओ समीक्षित कृतिसँ सीधा सम्बन्ध राखैत हो"], "ans": 3, "exp": "संपादकीय समीक्षाकेँ केन्द्रित राखबाक कहैत अछि; अनावश्यक लेखक-विस्तार समीक्षा केँ भटका सकैत अछि।"}, {"q": "समीक्षा हजारसँ दू हजार शब्दक भीतर होएबाक सलाहक व्यावहारिक अर्थ की?", "opts": ["समीक्षा पर्याप्त विश्लेषण दे, मुदा अनावश्यक विस्तार सँ न भरि जाए", "शब्द-सीमा कृतिपठन रोकैत अछि", "दस हजार शब्द बिना समीक्षा नहि", "दस शब्दहि समीक्षा अछि"], "ans": 0, "exp": "संपादकीय संतुलित आकार सुझबैत अछि—संक्षिप्तता आ पर्याप्तता दुनू चाही।"}, {"q": "‘कथा-गल्प, उपन्यास, पद्यात्मक साहित्य, यात्रा-संस्मरण, रिपोर्टाज, नाटक, एकांकी’क सूची किएक देल गेल?", "opts": ["विधा भेद निरर्थक", "कविता आ नाटक समान पाठ्य रूप", "सभ विधा एके नियमसँ पढ़ल जाए", "समीक्षाशास्त्र प्रत्येक विधाक अलग प्रकृति आ कसौटी पहचानए"], "ans": 3, "exp": "अलग विधाक अलग रचनात्मक तत्त्व होइत अछि; तें समीक्षा पद्धति सेहो विधा-सापेक्ष होए।"}, {"q": "समीक्षा विशेषांकमे रचनात्मक कथा/कविता सेहो रहबाक अर्थ की?", "opts": ["रचना आलोचना केँ नष्ट करैत अछि", "समीक्षा अनुपस्थित अछि", "विशेषांक केवल सूची बनि गेल", "पत्रिका आलोचना केँ रचना-संसारसँ अलग नहि, संवादरत रूपमे राखैत अछि"], "ans": 3, "exp": "विदेहक अंक समीक्षा-केंद्रित अछि, मुदा साहित्यिक जीवनक बहुविध रूप सेहो समेटैत अछि।"}, {"q": "‘भफाइत चाहक जिनगी’ नाटकक समीक्षा मे मंचनयोग्यता पर टिप्पणी कोन तथ्य देखबैत अछि?", "opts": ["मंचन समीक्षा-विरोधी अछि", "नाटक मंच पर चलि नहि सकैत", "नाटक केवल गीतक संग्रह", "कृति केवल साहित्यिक पाठ नहि, मंचीय प्रस्तुति लेल उपयुक्तता सेहो रखैत अछि"], "ans": 3, "exp": "समीक्षा निष्कर्ष देत अछि जे नाटक मंचन लेल उपयुक्त लागल—ई नाटक-समीक्षाक विशेष कसौटी अछि।"}, {"q": "रमाजी काव्य-यात्रा पर लेख जीवन-समर्पण आ साहित्यक सम्बन्ध कोना देखबैत अछि?", "opts": ["काव्य-यात्रा केवल पुरस्कारक सूची", "व्यक्तिगत संघर्षक काव्यसँ सम्बन्ध नहि", "साहित्य केवल सुविधा मे सम्भव", "व्यक्तिगत विपत्ति बादहुँ साहित्यिक आयोजन आ लेखनप्रति अटूट निष्ठा"], "ans": 3, "exp": "रमाजीक जीवन-घटना आ काव्य-संध्या आयोजन साहित्यिक समर्पणक प्रमाण रूपमे प्रस्तुत होइत अछि।"}, {"q": "समीक्षा विशेषांकमे ‘बाल कविताक योगदान’ सन विषय किएक महत्त्वपूर्ण अछि?", "opts": ["विधागत समीक्षा बाल-साहित्यकेँ साहित्यिक विकासक गंभीर हिस्सा मानैत अछि", "बाल-साहित्य समीक्षा योग्य नहि", "बाल-कविता केवल पाठशाला", "बाल-विधा भाषिक विकाससँ असंबद्ध"], "ans": 0, "exp": "बाल कविता मातृभाषा-पाठक, संवेदना आ सांस्कृतिक हस्तांतरणक मूल आधार बनि सकैत अछि।"}, {"q": "‘मैथिली उपन्यास साहित्यमे दलित पात्रक चित्रण’ पर समीक्षा कोन सामाजिक प्रश्न उठबैत अछि?", "opts": ["दलित पात्र साहित्यसँ बाहर", "साहित्यमे प्रतिनिधित्व, संवेदना, असमानता आ पात्र-निर्माणक प्रश्न", "उपन्यास केवल राजकथा", "समीक्षा सामाजिक प्रश्न नहि देखए"], "ans": 1, "exp": "एहन विषय आलोचना केँ समाजशास्त्रीय दृष्टि आ प्रतिनिधित्वक न्याय दिस लऽ जाइत अछि।"}, {"q": "‘भफाइत चाहक जिनगी’ शीर्षकमे ‘भफाइत चाह’ कोन सांस्कृतिक बिम्ब बनि सकैत अछि?", "opts": ["केवल चाय-दुकानक मूल्य", "केवल वनस्पति-विज्ञान", "दैनिक जीवनक उष्णता, बेचैनी, संवाद आ श्रम-जीवनक प्रतीक", "केवल छन्द-नियम"], "ans": 2, "exp": "चाय मिथिला/भारतीय सामाजिक संवादक सामान्य स्थल अछि; ‘भफाइत’ जीवनक ताप सेहो संकेत करैत अछि।"}, {"q": "समीक्षा मे ‘फरिछाएल कथाकार’ कहबाक अर्थ की?", "opts": ["आलोचना न पढ़ल जाए", "कथाकारक दृष्टि स्पष्ट, अनुभव पारदर्शी आ कथ्य सुसंगठित अछि", "कथा बिना भाषा अछि", "कथाकार अस्पष्ट अछि"], "ans": 1, "exp": "‘फरिछाएल’ शब्द साहित्यिक दृष्टि आ अभिव्यक्तिक साफगोईक संकेत दैत अछि।"}, {"q": "समीक्षा विशेषांकक व्यापकता—कविता संचयनसँ मशीन अनुवाद धरि—कोन बात सिद्ध करैत अछि?", "opts": ["अनुवाद अप्रासंगिक", "समीक्षा संकुचित अछि", "मैथिली समीक्षा केवल पारम्परिक पुस्तक-प्रशंसा नहि, आधुनिक भाषा-विज्ञान, तकनीक, समाज आ विधा-विस्तार धरि फैलल अछि", "तकनीक साहित्यक बाहर"], "ans": 2, "exp": "अंकक विषय-विस्तार समीक्षाकेँ बहुआयामी बौद्धिक क्षेत्र बनबैत अछि।"}, {"q": "समीक्षकक ‘खर दृष्टि’ आ ‘ममता’ बीच संतुलन किएक आवश्यक अछि?", "opts": ["कृति पर कठोर प्रश्न उठैतहुँ साहित्यिक न्याय आ संवेदनशीलता बचल रहए", "केवल कठोरता पर्याप्त", "समीक्षा मे तर्क नहि चाही", "केवल ममता समीक्षा"], "ans": 0, "exp": "समीक्षा न निजी आक्रमण हो, न अंध-प्रशंसा; ई कृतिपर सचेत करुण विवेक चाहैत अछि।"}, {"q": "कथा-संग्रहक समीक्षा मे ‘गाम’क चित्रण केवल स्थान-वर्णन नहि किएक?", "opts": ["गाम केवल नक्शाक बिंदु", "गामक कथा मे समाज नहि", "स्थान वर्णन समीक्षा योग्य नहि", "गाम सामाजिक सम्बन्ध, संघर्ष, संस्कृति, स्मृति आ परिवर्तनक जीवित संरचना होइत अछि"], "ans": 3, "exp": "‘गामक जिनगी’ सन कृतिमे गाम कथ्यक सक्रिय चरित्र बनि जाइत अछि।"}, {"q": "समीक्षामे उद्धरण देबाक सही उपयोग की अछि?", "opts": ["कृतिक भाषा, बिम्ब वा तर्कक प्रमाण देब, न कि समीक्षा केँ अनावश्यक भरब", "उद्धरणक अर्थ न समझब", "उद्धरण बिना पढ़ने देब", "पूरा पुस्तक उतारि देब"], "ans": 0, "exp": "समीक्षा प्रमाण-आधारित होए, मुदा उद्धरण विश्लेषणक सहायक रहए।"}, {"q": "‘की फर्क पड़ैत अछि’ सन कवितात्मक प्रश्न पर समीक्षा कोन कसौटी लगा सकैत अछि?", "opts": ["इतिहास/दर्शनक बिम्ब स्पष्ट अछि कि पाठकधरि अर्थ पहुँचैत अछि", "पाठकक समझ अप्रासंगिक", "शीर्षक मात्र काफी", "कविता पर प्रश्न नहि उठे"], "ans": 0, "exp": "समीक्षा मे बिम्बक सौंदर्यसंग ओकर संप्रेषणीयता सेहो परखल जाइत अछि।"}, {"q": "मधुश्रावणी आ नारी-परीक्षा पर कविता-समीक्षा कोन सांस्कृतिक आलोचना उठबैत अछि?", "opts": ["संस्कारक नाम पर स्त्री-जीवन पर थोपल असमान परीक्षा आ पितृसत्तात्मकता", "संस्कारक आलोचना असम्भव", "कविता केवल ऋतु-वर्णन", "नारी अनुभव साहित्य नहि"], "ans": 0, "exp": "समीक्षा सांस्कृतिक प्रथा भीतर छिपल लैंगिक अन्यायकेँ देखबाक क्षमता रखैत अछि।"}, {"q": "‘गौरी दाइ’क प्रसंग विधवा-संबंधी सामाजिक दृष्टि पर कोन प्रश्न उठबैत अछि?", "opts": ["समाजक दृष्टि सदैव न्यायपूर्ण", "समाज स्त्रीकेँ देवी/डाइनक चरम छविमे बाँधि मानवीय अस्तित्व नकारि सकैत अछि", "स्त्री-पात्र केवल सजावट", "विधवा प्रश्न साहित्यसँ बाहर"], "ans": 1, "exp": "समीक्षा कवितामे स्त्री-अनुभवक सामाजिक क्रूरता आ विरोधाभास देखैत अछि।"}, {"q": "समीक्षा विशेषांकक अध्ययनमे पृष्ठ-संख्या पूछबाक बदला कोन प्रश्न उच्च-स्तरीय मानल जाए?", "opts": ["कोन लेख कोन पृष्ठपर", "समीक्षा कोना कृति, समाज, भाषा, विधा आ नैतिकता पर प्रकाश डालैत अछि", "लिंक कोन रंगक", "कतेक फोटो छपल"], "ans": 1, "exp": "उच्च-स्तरीय प्रश्न पाठककेँ सिद्धान्त, पद्धति आ आलोचनात्मक सोच दिस लऽ जाइत अछि।"}, {"q": "समीक्षा कृति केँ ‘रिक्त स्थानक पूर्ति’ करैत अछि वा नहि—एहि कसौटीक अर्थ की?", "opts": ["ई छपाईक तकनीक", "रिक्त स्थान केवल पन्ना पर खाली जगह", "कृति अपन विषय-क्षेत्रमे नया जरूरत, दृष्टि वा सामग्री जोड़ैत अछि कि नहि", "ई आवरणक डिजाइन"], "ans": 2, "exp": "संपादकीय समीक्षककेँ पूछबाक कहैत अछि जे पोथी पूर्व उपलब्ध साहित्यसँ अलग की देलक।"}, {"q": "समीक्षा मे ‘लोकक भावना उद्वेलित करबाक योग्यता’ कविता लेल किएक महत्त्वपूर्ण अछि?", "opts": ["कविता भावनारहित सूचना", "भावना साहित्यक दोष", "ध्वनि से अर्थ नष्ट", "कविता शब्द-बिम्ब आ ध्वनिसँ पाठकक भीतरी संवेदना जगबैत अछि"], "ans": 3, "exp": "कविताक असर अर्थ मात्र नहि, भाव, लय, ध्वनि आ बिम्बक संयुक्त क्रिया अछि।"}, {"q": "समालोचना आ समीक्षामे अंतरक संकेत कोना बुझल जा सकैत अछि?", "opts": ["समीक्षा केवल विज्ञापन", "दुनू सदैव असंबद्ध", "समालोचना केवल सूची", "समालोचना व्यापक सिद्धान्तगत/विश्लेषणात्मक विमर्श हो सकैत अछि, समीक्षा प्रायः विशिष्ट कृतिपर केन्द्रित मूल्यांकन"], "ans": 3, "exp": "विशेषांक दुनू रूपक उपयोग करैत अछि—सिद्धान्त सेहो, विशिष्ट पुस्तक/विधा मूल्यांकन सेहो।"}, {"q": "समीक्षा विशेषांकमे ‘आर.सी. बाबू’ सेमिनारक उल्लेख कोन संस्थागत पक्ष देखबैत अछि?", "opts": ["साहित्यिक मूल्यांकन व्यक्तिगत लेख सँ आगाँ सेमिनार, विद्वत्-विमर्श आ सामूहिक स्मृति धरि जाइत अछि", "साहित्य केवल अकेले पढ़बाक वस्तु", "संस्था हमेशा रचना-विरोधी", "सेमिनारक साहित्यसँ सम्बन्ध नहि"], "ans": 0, "exp": "साहित्यक इतिहास सामूहिक चर्चा, आयोजन आ विद्वानक भागीदारीसँ बनैत अछि।"}, {"q": "समीक्षा मे मौलिकता आ साहित्यिक चोरी पर सजगता किएक अनिवार्य अछि?", "opts": ["स्रोत छिपाएब साहित्यिक कौशल", "कृति-मूल्यांकनक आधार लेखकीय ईमानदारी, स्रोत-संस्कार आ बौद्धिक नैतिकता अछि", "मौलिकता अप्रासंगिक", "चोरी आलोचना केँ समृद्ध करैत अछि"], "ans": 1, "exp": "समीक्षककेँ रचनात्मक नैतिकता पर सतर्क रहबाक चाही; अन्यथा साहित्यिक इतिहास दूषित होइत अछि।"}, {"q": "समीक्षा विशेषांकक dynamic quiz मे प्रश्न संख्या बेसी किएक होएबाक चाही?", "opts": ["किएकि प्रश्न दोहराएब अछि", "किएकि विकल्प छोट होएब चाही", "किएकि एके अंकमे सिद्धान्त, अनेक पुस्तक-समीक्षा, वार्ता, अनुवाद, गजल, उपन्यास, कविता आ तकनीक विषय अछि", "किएकि पृष्ठ संख्या पूछब अछि"], "ans": 2, "exp": "सामग्रीक वैविध्य आ गहराइ प्रश्न-संख्या बढ़बैत अछि; संख्या स्थिर नहि, विषय-समृद्धि पर आधारित होएब चाही।"}];
+let idx=0, answers=Array(QDB.length).fill(null);
+const letters=['क','ख','ग','घ'];
+function initMap(){
+  const m=document.getElementById('qmap'); m.innerHTML='';
+  QDB.forEach((_,i)=>{const b=document.createElement('button'); b.className='dot'; b.textContent=i+1; b.onclick=()=>showQ(i); m.appendChild(b);});
 }
-function switchTab(gi){
-  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===gi));
-  document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',i===gi));
-  window.scrollTo({top:0,behavior:'smooth'});
+function updateTop(){
+  const done=answers.filter(x=>x!==null).length, ok=answers.filter((x,i)=>x===QDB[i].ans).length, bad=answers.filter((x,i)=>x!==null&&x!==QDB[i].ans).length;
+  document.getElementById('cur').textContent=idx+1; document.getElementById('score').innerHTML=`✓ ${ok} &nbsp; ✗ ${bad}`;
+  document.getElementById('bar').style.width=(done/QDB.length*100)+'%';
+  [...document.querySelectorAll('.dot')].forEach((d,i)=>{d.className='dot'+(answers[i]!==null?' answered':'')+(answers[i]===QDB[i].ans?' ok':'')+(answers[i]!==null&&answers[i]!==QDB[i].ans?' bad':'');});
 }
-function showScore(){
-  const pct=Math.round(score/total*100);
-  let msg=pct>=80?'उत्कृष्ट! अहाँक ज्ञान अद्भुत अछि।':pct>=50?'नीक प्रयास — आओर पढ़ू।':'फेर सँ प्रयास करू, अहाँ नीक करब।';
-  const sb=document.createElement('div');sb.className='scoreboard';
-  sb.innerHTML='<div class="orn">❖ ❖ ❖</div><div class="scbig">'+score+' / '+total+'</div>'+
-    '<div class="scpct">'+pct+'%</div><div class="scmsg">'+msg+'</div>'+
-    '<button class="nbtn pri" onclick="location.reload()">फेर सँ खेलू</button>';
-  const w=document.querySelector('.wrap');w.insertBefore(sb,w.firstChild);
-  window.scrollTo({top:0,behavior:'smooth'});
+function showQ(i){
+  idx=i; const q=QDB[i]; document.getElementById('result').style.display='none';
+  let chosen=answers[i];
+  let h=`<article class="qcard"><div class="qmeta"><span>प्रश्न ${i+1}</span><span>उच्च-स्तर / अवधारणा-आधारित</span></div><p class="qtext">${q.q}</p><div class="opts">`;
+  q.opts.forEach((o,k)=>{let cls='opt'; if(chosen!==null){cls+=' locked'; if(k===q.ans) cls+=' correct'; else if(k===chosen) cls+=' wrong';} h+=`<div class="${cls}" onclick="choose(${k})"><span class="key">${letters[k]}.</span><span class="txt">${o}</span></div>`;});
+  h+=`</div><div class="fb ${chosen===null?'':(chosen===q.ans?'ok show':'bad show')}"><strong>${chosen===null?'':(chosen===q.ans?'सही उत्तर।':'गलत उत्तर।')}</strong><br>${chosen===null?'':q.exp}</div><div class="navrow"><button class="btn2" onclick="showQ(Math.max(0,idx-1))">← पछिला</button><button class="btn" onclick="idx<QDB.length-1?showQ(idx+1):finish()">${idx<QDB.length-1?'अगिला →':'परिणाम देखू'}</button></div></article>`;
+  document.getElementById('quiz').innerHTML=h; updateTop(); window.scrollTo({top:0,behavior:'smooth'});
 }
+function choose(k){ if(answers[idx]!==null) return; answers[idx]=k; showQ(idx); }
+function finish(){
+  updateTop(); const ok=answers.filter((x,i)=>x===QDB[i].ans).length, bad=answers.filter((x,i)=>x!==null&&x!==QDB[i].ans).length, skip=answers.filter(x=>x===null).length;
+  const pct=Math.round(ok/QDB.length*100); const r=document.getElementById('result');
+  r.innerHTML=`<div class="big">${ok}/${QDB.length}</div><p><strong>${pct}%</strong> सही</p><p>गलत: ${bad} | अनुत्तरित: ${skip}</p><button class="btn" onclick="restart()">फेरसँ शुरू करू</button>`;
+  r.style.display='block'; window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});
+}
+function restart(){answers=Array(QDB.length).fill(null); idx=0; showQ(0);}
+initMap(); showQ(0);
 </script>
 </body>
 </html>

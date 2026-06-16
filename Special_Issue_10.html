@@ -1,146 +1,92 @@
 <!DOCTYPE html>
 <html lang="mai">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>भक्ति गजल विशेषांक — विदेह क्विज</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>भक्ति गजल विशेषांक — उच्च-स्तरीय प्रश्नोत्तरी</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#1a2744;--crimson:#8B1A1A;--gold:#c49a3c;--cream:#FAF6EE;
---ok-fg:#1d7a3e;--bad-fg:#a32020}
-*{box-sizing:border-box}
-body{margin:0;background:var(--cream);color:#1A1A1A;
-font-family:'Lato','Segoe UI',system-ui,sans-serif;line-height:1.55;padding-bottom:60px}
-header{background:linear-gradient(180deg,#16213b,var(--navy));color:#fff;
-padding:28px 20px 22px;text-align:center;border-bottom:4px solid var(--gold)}
-header h1{margin:0;font-family:'Noto Serif Devanagari',serif;font-size:1.7em}
-header .sub{color:var(--gold);font-size:.82em;letter-spacing:.1em;font-style:italic;margin-top:8px}
-header .src{color:#cdd6ea;font-size:.78em;margin-top:6px}
-.wrap{max-width:760px;margin:0 auto;padding:20px 16px}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;justify-content:center}
-.tab{font-family:'Noto Serif Devanagari',serif;font-weight:700;font-size:.9em;
-padding:8px 16px;border-radius:20px;border:2px solid var(--navy);background:#fff;
-color:var(--navy);cursor:pointer;transition:.15s}
-.tab.active{background:var(--navy);color:#fff}
-.counter-badge{background:var(--crimson);color:#fff;font-size:.72em;font-weight:700;
-padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle}
-.progress{height:6px;background:#e7dcc2;border-radius:4px;margin-bottom:18px;overflow:hidden}
-.progress > div{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--crimson));transition:width .3s}
-.pane{display:none}.pane.active{display:block}
-.card{background:#fff;border-radius:11px;box-shadow:0 4px 16px rgba(26,39,68,.1);
-padding:22px 22px 18px;margin-bottom:16px}
-.qmeta{font-size:.78em;color:#8a93ab;font-weight:700;margin-bottom:8px}
-.q{font-family:'Noto Serif Devanagari',serif;font-size:1.12em;font-weight:600;
-color:var(--navy);margin-bottom:14px}
-.opt{display:block;width:100%;text-align:left;
-font-family:'Noto Serif Devanagari',serif;font-size:1em;
-padding:11px 15px;margin-bottom:9px;border:1.5px solid #d8cfb8;border-radius:8px;
-background:#fffdf8;cursor:pointer;transition:.13s;color:#1A1A1A}
-.opt:hover{border-color:var(--gold);background:#fff8e8}
-.opt.ok{border-color:var(--ok-fg);background:#eafaf0;color:var(--ok-fg);font-weight:700}
-.opt.bad{border-color:var(--bad-fg);background:#fdeeee;color:var(--bad-fg)}
-.opt:disabled{cursor:default}
-.fb{margin-top:11px;font-size:.92em;font-weight:600;min-height:20px;
-font-family:'Noto Serif Devanagari',serif}
-.fb.ok{color:var(--ok-fg)}.fb.bad{color:var(--bad-fg)}
-.hint-box{background:#fffbef;border:1px solid var(--gold);border-radius:7px;
-padding:10px 14px;margin-top:10px;font-family:'Noto Serif Devanagari',serif;
-font-size:.88em;color:#5a4010;display:none}
-.hint-box.show{display:block}
-.nav{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
-.nbtn{font-family:'Lato',sans-serif;font-size:.9em;font-weight:700;
-padding:9px 20px;border-radius:6px;border:none;cursor:pointer;transition:.15s}
-.nbtn.pri{background:var(--crimson);color:#fff}.nbtn.pri:hover{background:var(--navy)}
-.nbtn.sec{background:transparent;color:var(--navy);border:2px solid var(--navy)}
-.nbtn.sec:hover{background:var(--navy);color:#fff}
-.scoreboard{background:#fff;border-radius:11px;box-shadow:0 4px 18px rgba(26,39,68,.11);
-padding:34px 26px;text-align:center;margin-bottom:18px}
-.scbig{font-family:'Playfair Display',serif;font-size:2.8em;color:var(--crimson);font-weight:700;margin-bottom:6px}
-.scpct{font-size:1.05em;color:#5a6a8a;margin-bottom:9px}
-.scmsg{font-family:'Noto Serif Devanagari',serif;font-size:1.05em;color:var(--navy);margin-bottom:20px}
-.orn{text-align:center;color:var(--gold);font-size:1em;letter-spacing:.2em;margin:14px 0;opacity:.65}
-footer{text-align:center;color:#8a7a4a;font-size:.78em;padding:24px 16px 0}
-footer a{color:var(--crimson);text-decoration:none}
-@media(max-width:520px){header h1{font-size:1.35em}.q{font-size:1.05em}}
+:root{--navy:#17264a;--crimson:#9b1c2e;--gold:#c8973a;--cream:#f7f2e8;--ok:#2e7d32;--ok-bg:#e8f5e9;--bad:#b71c1c;--bad-bg:#ffebee;--muted:#66708a}
+*{box-sizing:border-box} body{margin:0;background:var(--cream);font-family:Lato,Arial,sans-serif;color:var(--navy);line-height:1.55}
+header{background:var(--navy);color:#fff;text-align:center;padding:18px 12px;border-bottom:5px solid var(--gold)}
+header h1{font-family:'Noto Serif Devanagari',serif;font-size:1.45rem;margin:0 0 6px;line-height:1.35}
+header .brand{font-size:.86rem;color:var(--gold);font-weight:700;letter-spacing:.02em}
+header .sub{font-family:'Noto Serif Devanagari',serif;font-size:.95rem;margin-top:6px;color:#dbe4ff}
+main{max-width:980px;margin:18px auto 50px;padding:0 14px}
+.panel{background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(23,38,74,.12);padding:16px;margin-bottom:14px;border-left:5px solid var(--navy)}
+.topbar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.score{font-weight:700;color:var(--crimson)}
+.progress{flex:1;min-width:180px;height:9px;background:#d9dfeb;border-radius:20px;overflow:hidden} .bar{height:100%;background:var(--gold);width:0%;transition:.2s}
+button{font-family:Lato,Arial,sans-serif;font-weight:700;border:0;border-radius:7px;padding:9px 14px;cursor:pointer}
+.btn{background:var(--navy);color:#fff} .btn:hover{background:var(--crimson)} .btn2{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+.qmap{display:flex;gap:4px;flex-wrap:wrap;margin-top:12px} .dot{width:24px;height:24px;border-radius:5px;border:1px solid #b8c1d8;background:#eef2fa;color:var(--navy);font-size:.72rem;padding:0} .dot.answered{background:#dfe8f9} .dot.ok{background:var(--ok);color:#fff} .dot.bad{background:var(--bad);color:#fff}
+.qcard{background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(23,38,74,.10);padding:20px;margin:16px 0;border-left:5px solid var(--gold)}
+.qmeta{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:.82rem;font-weight:700;margin-bottom:8px}
+.qtext{font-family:'Noto Serif Devanagari',serif;font-size:1.13rem;font-weight:700;margin:0 0 14px;color:var(--navy)}
+.opts{display:grid;gap:9px} .opt{display:flex;gap:10px;align-items:flex-start;background:#f4f7fd;border:2px solid #d2daec;border-radius:10px;padding:10px 12px;cursor:pointer}
+.opt:hover{border-color:var(--navy)} .opt .key{font-weight:700;min-width:22px} .opt .txt{font-family:'Noto Serif Devanagari',serif}
+.opt.correct{background:var(--ok-bg);border-color:#7bc47f;color:var(--ok)} .opt.wrong{background:var(--bad-bg);border-color:#e57373;color:var(--bad)} .opt.locked{cursor:default}
+.fb{display:none;margin-top:10px;border-radius:8px;padding:10px 12px;font-family:'Noto Serif Devanagari',serif} .fb.show{display:block} .fb.ok{background:var(--ok-bg);border-left:4px solid var(--ok)} .fb.bad{background:var(--bad-bg);border-left:4px solid var(--bad)}
+.navrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.result{display:none;text-align:center} .big{font-size:2.6rem;font-weight:700;color:var(--crimson)}
+.back{text-align:center;margin:24px 0} .back a{color:var(--crimson);font-family:'Noto Serif Devanagari',serif;font-weight:700;text-decoration:none}
+footer{text-align:center;padding:20px;color:#6a728a;font-size:.85rem}
+@media(max-width:600px){.qtext{font-size:1rem}.topbar{align-items:stretch}.progress{min-width:100%}}
 </style>
 </head>
 <body>
 <header>
-  <h1>भक्ति गजल विशेषांक</h1>
-  <div class="sub">BHAKTI GAZAL SPECIAL ISSUE · विदेह अंक १२६ · १५ मार्च २०१३</div>
-  <div class="src">विदेह : प्रथम मैथिली पाक्षिक ई-पत्रिका · videha.co.in · ISSN 2229-547X</div>
+  <h1>भक्ति गजल विशेषांक — उच्च-स्तरीय प्रश्नोत्तरी</h1>
+  <div class="brand">Videha QUIZ | विदेह ई-लर्निङ्ग क्विज / Videha eLearning Quiz / Videha — First Maithili Fortnightly eJournal | www.videha.co.in</div>
+  <div class="sub">भक्ति गजल, गजल-शिल्प, रदीफ-काफिया, भक्ति-रस, लोकभाषा आ मैथिली परंपरा</div>
 </header>
-<div class="orn">❖ ❖ ❖</div>
-<div class="wrap">
-  <div class="tabs" id="tabs"></div>
-  <div class="progress"><div id="bar"></div></div>
-  <div id="panes"></div>
-</div>
-<footer>© विदेह Videha · <a href="https://videha.co.in">videha.co.in</a> · विदेह विशेषांक प्रश्नोत्तरी</footer>
+<main>
+  <section class="panel">
+    <div class="topbar">
+      <span><strong>Special Issue 10</strong> — प्रश्न <strong id="cur">1</strong> / <strong>49</strong></span>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <span class="score" id="score">✓ 0 &nbsp; ✗ 0</span>
+      <button class="btn2" onclick="showQ(0)">←← पहिल</button>
+      <button class="btn" onclick="restart()">नव क्विज</button>
+    </div>
+    <div class="qmap" id="qmap"></div>
+  </section>
+  <section id="quiz"></section>
+  <section class="panel result" id="result"></section>
+  <div class="back"><a href="https://www.videha.co.in/videha-elearning.htm">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a></div>
+</main>
+<footer>© Gajendra Thakur, Editor — Videha eJournal</footer>
 <script>
-const DATA = [{"tab": "विशेषांक परिचय", "items": [{"q": "विदेहक ई भक्ति गजल विशेषांक कोन अंक छल?", "opts": ["१२६ म अंक", "१११ म अंक", "१४२ म अंक", "९७ म अंक"], "correct": 0, "hint": "१५ मार्च २०१३, वर्ष ६ अंक १२६।"}, {"q": "ई भक्ति गजल विशेषांक कोन तिथिकेँ प्रकाशित भेल?", "opts": ["१५ मार्च २०१३", "०१ अगस्त २०१२", "१५ नवम्बर २०१३", "०१ मार्च २०११"], "correct": 0, "hint": "वर्ष ६ मास ६३ अंक १२६।"}, {"q": "एहि अंकमे \"भक्ति गजल\" (गद्य विभागमे) सभसँ पहिने केकर देल गेल?", "opts": ["आशीष अनचिन्हार", "अमित मिश्र", "मिहिर झा", "इरा मल्लिक"], "correct": 0, "hint": "विषय-सूची २.१ मे।"}]}, {"tab": "रचना", "items": [{"q": "एहि अंकमे ६ टा भक्ति गजल केकर देल गेल?", "opts": ["अमित मिश्र", "आशीष अनचिन्हार", "पंकज चौधरी (नवलश्री)", "इरा मल्लिक"], "correct": 0, "hint": "पद्य विभाग ३.२।"}, {"q": "जगदीश चन्द्र ठाकुर 'अनिल' एहि अंकमे कोन विधाक रचना देलन्हि?", "opts": ["भक्ति गजल", "विहनि कथा", "एकांकी", "यात्रा प्रसंग"], "correct": 0, "hint": "पद्य विभाग ३.१।"}, {"q": "\"रत्नाकर डकैत\" (एकांकी) केकर रचना थिक?", "opts": ["जगदीश प्रसाद मण्डल", "मुन्नी कामत", "अवनीश मण्डल", "ज्योति चौधरी"], "correct": 0, "hint": "गद्य विभाग २.४।"}, {"q": "गद्य-पद्य भारतीमे \"मन्त्रद्रष्टा ऋष्यश्रृङ्ग\" (हरिशंकर श्रीवास्तव 'शलभ') केर हिन्दीसँ मैथिली अनुवाद के कएलन्हि?", "opts": ["विनीत उत्पल", "गजेन्द्र ठाकुर", "अमित मिश्र", "किशन कारीगर"], "correct": 0, "hint": "गद्य-पद्य भारती खण्ड।"}]}];
-let score=0,total=0,answered=0;
-DATA.forEach(g=>total+=g.items.length);
-const tabsEl=document.getElementById('tabs');
-const panesEl=document.getElementById('panes');
-const bar=document.getElementById('bar');
-DATA.forEach((g,gi)=>{
-  const tb=document.createElement('button');
-  tb.className='tab'+(gi===0?' active':'');
-  tb.innerHTML=g.tab+'<span class="counter-badge">'+g.items.length+'</span>';
-  tb.onclick=()=>switchTab(gi);
-  tabsEl.appendChild(tb);
-  const pane=document.createElement('div');
-  pane.className='pane'+(gi===0?' active':'');
-  pane.id='pane-'+gi;
-  g.items.forEach((q,qi)=>pane.appendChild(buildCard(g,gi,qi,q)));
-  panesEl.appendChild(pane);
-});
-function buildCard(g,gi,qi,q){
-  const card=document.createElement('div');card.className='card';
-  const meta=document.createElement('div');meta.className='qmeta';
-  meta.textContent=g.tab+' · प्रश्न '+(qi+1)+'/'+g.items.length;card.appendChild(meta);
-  const qd=document.createElement('div');qd.className='q';qd.textContent=q.q;card.appendChild(qd);
-  const opts=[];
-  q.opts.forEach((o,oi)=>{
-    const b=document.createElement('button');b.className='opt';b.textContent=o;
-    b.onclick=()=>pick(b,oi);card.appendChild(b);opts.push(b);
-  });
-  const fb=document.createElement('div');fb.className='fb';card.appendChild(fb);
-  let hintBox=null;
-  if(q.hint){hintBox=document.createElement('div');hintBox.className='hint-box';
-    hintBox.textContent='💡 '+q.hint;card.appendChild(hintBox);}
-  const nav=document.createElement('div');nav.className='nav';
-  if(q.hint){const hb=document.createElement('button');hb.className='nbtn sec';hb.textContent='संकेत';
-    hb.onclick=()=>hintBox.classList.toggle('show');nav.appendChild(hb);}
-  card.appendChild(nav);
-  let done=false;
-  function pick(btn,oi){
-    if(done)return;done=true;answered++;
-    opts.forEach((b,bi)=>{b.disabled=true;
-      if(bi===q.correct)b.classList.add('ok');
-      else if(b===btn)b.classList.add('bad');});
-    if(oi===q.correct){score++;fb.className='fb ok';fb.textContent='✓ सही उत्तर!';}
-    else{fb.className='fb bad';fb.textContent='✗ सही उत्तर: '+q.opts[q.correct];}
-    bar.style.width=(answered/total*100)+'%';
-    if(answered===total)showScore();
-  }
-  return card;
+const QDB = [{"q": "भक्ति गजलक मूल स्वरूप की अछि?", "opts": ["साहित्यकेँ समाजसँ अलग राखब", "गजलक शिल्पमे भक्तिपरक संवेदना, संवाद, विनय आ आत्मसमर्पणक अभिव्यक्ति", "केवल अनुक्रमांक पूछब", "केवल तुक मिलाएब"], "ans": 1, "exp": "भक्ति गजल भजन मात्र नहि; ई गजल-रूपक अनुशासनमे भक्त-हृदयक काव्यात्मक आवाज अछि।"}, {"q": "भक्ति गजलकेँ केवल भजन कहि देब किएक अधूरा बुझाइत अछि?", "opts": ["किएकि ओकरा मे शेर, रदीफ-काफिया, बहर आ गजल-संरचनाक स्वतंत्र भूमिका अछि", "किएकि गजलमे लय नहि होइत", "किएकि भजनमे भक्ति नहि होइत", "किएकि भक्ति गजलमे ईश्वर नहि होइत"], "ans": 0, "exp": "भक्ति भाव साझा होइतो विधागत रूप भक्ति गजलकेँ विशिष्ट बनबैत अछि।"}, {"q": "भक्ति गजलमे रदीफ कखन ‘जप’ सन प्रभाव दैत अछि?", "opts": ["जखन ओ पूर्णतः हटि जाइत अछि", "जखन हर शेर गद्य बनि जाइत अछि", "जखन पुनरावृत्त शब्द भाव-स्मरण आ नाम-स्मरणक लय बनबैत अछि", "जखन ओ अर्थ तोड़ैत अछि"], "ans": 2, "exp": "रदीफक आवृत्ति भक्ति-काव्यक स्मरण, पुकार आ ध्यानक अनुभूति जगा सकैत अछि।"}, {"q": "भक्ति गजलमे काफिया किएक केवल सजावट नहि अछि?", "opts": ["ओ भक्ति रोकैत अछि", "ओ केवल शीर्षकमे होइत अछि", "ओ भावक क्रम, ध्वनि-संबंध आ गजलात्मक अनुशासन कायम रखैत अछि", "ओ अर्थहीन तुक मात्र"], "ans": 2, "exp": "काफिया शेरसभ केँ गजल-परंपरासँ बाँधि रखैत अछि।"}, {"q": "भक्ति गजलमे भक्त आ ईश्वरक संबंध कोना व्यक्त भऽ सकैत अछि?", "opts": ["केवल शुष्क सूचना रूपमे", "संवाद, पुकार, शिकायत, विनय, आत्मालोचन आ प्रेमक रूपमे", "केवल हास्य-व्यंग्यक निषेध रूपमे", "केवल राजनीतिक आदेश रूपमे"], "ans": 1, "exp": "भक्ति साहित्यमे भक्त-ईश्वर संबंध बहुरंगी होइत अछि—समर्पण संग प्रश्न सेहो आबि सकैत अछि।"}, {"q": "भक्ति गजलमे ‘विरह’ किएक महत्त्वपूर्ण भाव भऽ सकैत अछि?", "opts": ["ईश्वरसँ दूरी भक्तिक उत्कंठा आ खोजकेँ तीव्र बनबैत अछि", "भक्ति मे दूरीक अर्थ नहि", "विरह केवल लौकिक प्रेममे सम्भव", "विरह गजल-विरोधी"], "ans": 0, "exp": "सूफी आ भक्तिक अनेक परंपरामे विरह आध्यात्मिक आकांक्षाक रूप लेैत अछि।"}, {"q": "भक्ति गजलमे भाषा केहन होएब अधिक प्रभावी अछि?", "opts": ["पूर्णतः असंगत मिश्रित", "अत्यंत दुरूह मात्र", "सिर्फ प्रशासकीय शैली", "सरल, भाव-सघन, लययुक्त, शुद्ध आ आत्मीय"], "ans": 3, "exp": "भक्ति भाव पाठक/श्रोता धरि पहुँचे लेल भाषा सहज आ ऊर्जस्वित होएब चाही।"}, {"q": "भक्ति गजलमे उपदेशात्मकताक खतरा की अछि?", "opts": ["भक्ति मे भाषा महत्वहीन", "गजलमे अनुभव नहि चाही", "काव्यात्मक अनुभव नारा वा प्रवचनमे बदलि सकैत अछि", "उपदेश सँ सौंदर्य सदा बढ़ैत"], "ans": 2, "exp": "सफल भक्ति गजल भावक अनुभूति दैत अछि, केवल आदेश नहि।"}, {"q": "भक्ति गजलमे आत्मालोचनक भूमिका की अछि?", "opts": ["भक्तिक अर्थ केवल दूसराक दोष", "आत्मालोचन भक्ति-विरोधी", "आत्मालोचन केवल समीक्षा-विधा", "भक्त अपन दोष, अहंकार, दुर्बलता आ आकांक्षा केँ ईश्वर समक्ष रखैत अछि"], "ans": 3, "exp": "भक्ति काव्य में विनय आ आत्म-परीक्षण प्रमुख तत्त्व अछि।"}, {"q": "भक्ति गजलमे ‘नाम-स्मरण’क काव्यात्मक रूप की भऽ सकैत अछि?", "opts": ["नाम हटाएब", "नामक कोनो ध्वनि-अर्थ नहि", "नामकेँ फुटनोट मात्र बनाब", "रदीफ, आवृत्ति, पुकार आ लयक माध्यमे दिव्य नामक भाव-विस्तार"], "ans": 3, "exp": "नाम-स्मरण भक्ति-संवेदना केँ ध्वनि, स्मृति आ श्रद्धासँ जोड़ैत अछि।"}, {"q": "भक्ति गजलमे लौकिक प्रेमक शब्दावली कखन आध्यात्मिक बनि जाइत अछि?", "opts": ["ई परिवर्तन असंभव", "लौकिक शब्द सदैव वर्जित", "आध्यात्मिकता तुक सँ खत्म", "जखन प्रियतम, दूरी, मिलन, दर्द आदि ईश्वरानुभूतिक प्रतीक बनैत अछि"], "ans": 3, "exp": "गजल-परंपरामे प्रेमक भाषा लौकिक आ अलौकिक दुनू अर्थ-क्षेत्र खोलि सकैत अछि।"}, {"q": "भक्ति गजलमे रस-दृष्टि सँ कोन जटिलता देखल जा सकैत अछि?", "opts": ["केवल हास्य रस होइत", "रस-सिद्धान्त गजलपर लागू नहि", "भक्ति मे कोनो रस नहि", "भक्ति रस शांत, करुण, प्रेम, विरह आ आशाक संग मिश्रित भऽ सकैत अछि"], "ans": 3, "exp": "भक्ति काव्य भाव-संयोजनक विधा अछि; एकल भावक बंद कोठरी नहि।"}, {"q": "मैथिलीमे भक्ति गजल लोकभाषाक परंपरा सँ कोना जुड़ैत अछि?", "opts": ["भक्ति केवल संस्कृतमे सम्भव", "मैथिलीमे आध्यात्मिकता असंभव", "मातृभाषामे ईश्वर, लोक-विश्वास, गामक भजन-ध्वनि आ आत्मीय संबोधन अभिव्यक्त होइत अछि", "लोकभाषा भक्ति लेल अनुपयुक्त"], "ans": 2, "exp": "लोकभाषा भक्ति केँ जन-संवेदना आ सामूहिक स्मृतिसँ जोड़ैत अछि।"}, {"q": "भक्ति गजलमे संगीतात्मकता किएक मूल तत्व अछि?", "opts": ["भक्ति भाव श्रवण, गायन, पुनरावृत्ति आ सामूहिक पाठसँ तीव्र होइत अछि", "संगीत भक्ति-विरोधी", "लयक कोनो प्रभाव नहि", "गजल सदैव नीरव गद्य"], "ans": 0, "exp": "गजल-लय आ भक्ति-गानक प्रवृत्ति एक-दोसरकेँ बल दे सकैत अछि।"}, {"q": "भक्ति गजलमे शेरक स्वतंत्रता केना काम करैत अछि?", "opts": ["शेरक स्वतंत्रता गजल समाप्त करैत", "हर शेर अलग विनय, प्रश्न वा अनुभूति दैत, मुदा भक्ति-केंद्रसँ जुड़ल रहैत अछि", "हर शेर अनिवार्यतः कथा-अध्याय", "स्वतंत्रता मतलब असम्बद्धता"], "ans": 1, "exp": "गजल एक-एक शेरमे पूर्ण अनुभव देबाक क्षमता रखैत अछि।"}, {"q": "भक्ति गजलमे मक्ता वा तखल्लुस किएक अर्थपूर्ण हो सकैत अछि?", "opts": ["कवि-स्वर हटाएब चाही", "तखल्लुस अर्थहीन गलती", "कवि अपन नाम/स्वर सँ भक्ति-अनुभवकेँ निजी साक्ष्य बनबैत अछि", "मक्ता गजलमे नहि होइत"], "ans": 2, "exp": "मक्ता कविक आत्म-स्थिति आ ईश्वरसँ संबंधक हस्ताक्षर बनि सकैत अछि।"}, {"q": "भक्ति गजलमे सामाजिक चेतना कखन वैध रूपे आबैत अछि?", "opts": ["दुखक चर्चा अधार्मिक", "भक्ति समाजसँ कटि रहबाक नाम", "सामाजिक प्रश्न सदैव निषिद्ध", "जखन आध्यात्मिकता मनुष्य-दुख, करुणा, न्याय आ लोकहितसँ जुड़ैत अछि"], "ans": 3, "exp": "भक्ति अनेक बेर करुणा आ लोकमंगलक मार्ग खोलैत अछि।"}, {"q": "भक्ति गजलमे दार्शनिकता आ भावुकता बीच संतुलन कोना बनैत अछि?", "opts": ["भावुकता सदैव पर्याप्त", "गहरा विचार भावक सहज लयमे उतरत, न कि शुष्क व्याख्यान बनत", "दार्शनिकता मतलब कविता समाप्त", "विचार आ भाव एक-दोसरक शत्रु"], "ans": 1, "exp": "उच्च भक्ति गजल विचार आ अनुभूति दुनू केँ सम्हारैत अछि।"}, {"q": "भक्ति गजलमे प्रार्थना आ याचना मे भेद की अछि?", "opts": ["दुनू पूर्णतः असम्बद्ध", "दुनू केवल गद्य-विषय", "प्रार्थना आत्मिक संवाद हो सकैत अछि; याचना प्रायः विशेष कृपा वा समाधानक मांग", "दुनू गजलमे असंभव"], "ans": 2, "exp": "भक्ति गजल दुनू रूपकेँ काव्यात्मक बना सकैत अछि।"}, {"q": "भक्ति गजलमे ‘शिकायत’ भक्तिभावक विरोध किएक नहि मानल जाए?", "opts": ["किएकि निकट संबंधमे प्रश्न, पीड़ा आ भरोसा एक संग रहि सकैत अछि", "गजलमे भाव-विविधता नहि", "भक्त कहियो प्रश्न नहि करैत", "शिकायत मतलब अविश्वास मात्र"], "ans": 0, "exp": "कई भक्त परंपरासँ ईश्वर संग संवादमे शिकायत सेहो प्रेमक रूप बनैत अछि।"}, {"q": "भक्ति गजलमे प्रतीकक भूमिका की अछि?", "opts": ["प्रतीक अर्थ रोकैत अछि", "प्रतीक केवल चित्रकला लेल", "दीप, नाव, नदी, पथ, अँधार, प्रभात सन प्रतीक आध्यात्मिक यात्रा व्यक्त करैत अछि", "भक्ति मे केवल शाब्दिक कथन"], "ans": 2, "exp": "प्रतीक भक्ति भावक अमूर्त गहराई केँ दृश्य बनबैत अछि।"}, {"q": "भक्ति गजलमे काव्यात्मक संक्षिप्तता किएक आवश्यक अछि?", "opts": ["संक्षिप्तता अर्थहीन", "गजलमे शेरक सीमा नहि", "लम्बा प्रवचन श्रेष्ठ", "शेर कम शब्दमे तीव्र भाव, दर्शन आ लय समेटैत अछि"], "ans": 3, "exp": "गजल-शेरक प्रकृति सूक्तिपरक आ तीक्ष्ण होइत अछि।"}, {"q": "भक्ति गजलमे लोक-उत्सव, होरी वा कीर्तन-ध्वनि कोन अर्थ जोड़ैत अछि?", "opts": ["उत्सव भक्ति-विरोधी", "गजलमे सामूहिकता नहुँए", "भक्ति केँ सामुदायिक आनंद, रंग आ लोक-भागीदारीसँ जोड़ैत अछि", "लोक-रंग हटाएब जरूरी"], "ans": 2, "exp": "भक्ति केवल एकान्त साधना नहि, लोक-उत्सव आ सामूहिकता सेहो अछि।"}, {"q": "भक्ति गजलमे कठिन पारिभाषिक धर्मशब्दक अति किएक सावधानी माँगैत अछि?", "opts": ["भावक कोनो अर्थ नहि", "कठिनता सदैव गुण", "शब्दक चयन अप्रासंगिक", "ओ बाल/सामान्य पाठकक भावग्रहण रोकि सकैत अछि"], "ans": 3, "exp": "भक्ति काव्य हृदयगम्य भाषा चाहैत अछि।"}, {"q": "भक्ति गजलमे छंदानुशासन आ भावावेगक संबंध की अछि?", "opts": ["भावावेग हो तँ शिल्प चाही नहि", "अनुशासन भावावेगकेँ आकार दैत अछि, ओकरा कमजोर नहि करैत", "अनुशासन भावक शत्रु", "छंद केवल गणित अछि"], "ans": 1, "exp": "गजल-रूप भाव केँ धार आ स्मरणीयता दैत अछि।"}, {"q": "भक्ति गजलमे अनेक कविक उपस्थिति विशेषांकमे कोन लाभ दैत अछि?", "opts": ["सभी कवि एके स्वर देबाक चाही", "भक्ति-स्वरक विविधता—विनय, प्रेम, करुणा, लोकधुन, दार्शनिकता—देखाइत अछि", "लेखक-संख्या मात्र गणना", "विविधता अर्थहीन"], "ans": 1, "exp": "विशेषांक बहु-स्वरक माध्यमे विधाक विस्तार देखबैत अछि।"}, {"q": "भक्ति गजलमे स्त्री-स्वरक उपस्थिति किएक महत्त्वपूर्ण अछि?", "opts": ["स्त्री-स्वर अप्रासंगिक", "भक्ति मे लिंग-अनुभवक अर्थ नहि", "केवल एक स्वर पर्याप्त", "भक्ति-अनुभव केवल पुरुष-केंद्रित नहि; स्त्री संवेदना, पीड़ा आ समर्पणक अलग स्वर रहैत अछि"], "ans": 3, "exp": "भक्ति साहित्यमे स्त्री-अनुभव गहराई आ वैविध्य जोड़ैत अछि।"}, {"q": "भक्ति गजलमे ‘ईश्वर’क प्रतिमा बहुविध किएक हो सकैत अछि?", "opts": ["भक्ति मे कल्पना नहि", "ईश्वरक केवल एक चित्र संभव", "प्रतीकक प्रयोग निषिद्ध", "ईश्वर प्रिय, माता-पिता, मित्र, स्वामी, प्रकाश, सत्य वा अन्तःचेतना रूपमे आ सकैत छथि"], "ans": 3, "exp": "काव्य ईश्वरानुभूतिक अनेक प्रतीकात्मक रूप रचि सकैत अछि।"}, {"q": "भक्ति गजलमे करुणा आ आशा केना संतुलित होइत अछि?", "opts": ["भक्ति केवल उत्सव", "आशा अछि तँ दुःख नहि", "मानवीय दुःख स्वीकारैत, दिव्य सहारा वा आन्तरिक उजासक राह देखबैत", "करुणा अछि तँ आशा नहि"], "ans": 2, "exp": "भक्ति गजल दुःखक बीच आशाक काव्य हो सकैत अछि।"}, {"q": "भक्ति गजलमे दुरूह सूफी/दार्शनिक संकेत कखन सफल होइत अछि?", "opts": ["जखन संकेत मात्र सजावट", "जखन मूल भाव हटि जाए", "जखन संकेत भाव आ शेरक अर्थकेँ गहराई दैत, अस्पष्टता नहि", "जखन पाठक बिल्कुल नहि बुझै"], "ans": 2, "exp": "गूढ़ता उपयोगी अछि जँ ओ अर्थ-विस्तार करै, अर्थ-रुकावट नहि।"}, {"q": "भक्ति गजलमे ‘समर्पण’ निष्क्रियता किएक नहि अछि?", "opts": ["समर्पण मतलब सामाजिक पलायन", "समर्पण अहंकार-त्याग आ नैतिक जागरणक सक्रिय अवस्था भऽ सकैत अछि", "समर्पण मतलब सोचब बंद", "समर्पण काव्य-विरोधी"], "ans": 1, "exp": "भक्ति समर्पण अनेक बेर आत्म-संशोधन आ लोकमंगलक प्रेरणा दैत अछि।"}, {"q": "भक्ति गजलमे व्याकरणिक शुद्धताक महत्व किएक अछि?", "opts": ["अशुद्ध भाषा लय, अर्थ आ भावविश्वक प्रभाव कमजोर करैत अछि", "व्याकरण केवल गद्य लेल", "भक्ति अछि तँ भाषाक जरूरत नहि", "गलती सौंदर्य बनैत अछि सदैव"], "ans": 0, "exp": "भक्ति-भावक प्रामाणिकता भाषा-संयमसँ बल पबैत अछि।"}, {"q": "भक्ति गजलमे श्रोता-पाठकक भूमिका की अछि?", "opts": ["भक्ति सामूहिक नहि हो सकैत", "गजल केवल निजी नोट", "ओ पुनरावृत्ति, गायन, स्मरण आ भाव-साझेदारीसँ रचना केँ जीवित करैत अछि", "श्रोता अप्रासंगिक"], "ans": 2, "exp": "भक्ति गजल सुनबाक आ गाबक विधा सेहो बनि सकैत अछि।"}, {"q": "भक्ति गजलमे ‘अहंकार’ कोन प्रकारक विरोधी तत्त्व रूपे आबि सकैत अछि?", "opts": ["अहंकारक काव्यसँ सम्बन्ध नहि", "अहंकार भक्ति बढ़बैत अछि", "ईश्वर-निकटता आ आत्मशुद्धिक बाधा रूपे", "अहंकार केवल नाटक-विषय"], "ans": 2, "exp": "भक्ति परंपरामे अहंकार-त्याग आध्यात्मिक यात्रा क मुख्य चरण मानल जाइत अछि।"}, {"q": "भक्ति गजलमे लौकिक संसारक वर्णन किएक हटाएबाक वस्तु नहि?", "opts": ["केवल अमूर्त ईश्वर लिखू", "भक्ति लोकजीवन, परिवार, दुःख, श्रम आ प्रकृति बीचहि अर्थ पबैत अछि", "लोक जीवन असाहित्यिक", "संसारक वर्णन भक्ति-विरोधी"], "ans": 1, "exp": "भक्ति काव्य आध्यात्मिकता केँ जीवित जीवनसँ जोड़ैत अछि।"}, {"q": "भक्ति गजलमे अनुवादित रचना वा अन्य विधा संग उपस्थिति कोन संकेत दैत अछि?", "opts": ["अनुवादक भक्ति सँ कोनो सम्बन्ध नहि", "अन्य विधा विशेषांक समाप्त करैत", "विविधता सदैव दोष", "विशेषांक भक्ति-गजल केंद्रित रहितो व्यापक साहित्यिक-सांस्कृतिक संवाद खोलैत अछि"], "ans": 3, "exp": "पत्रिकाक विशेषांक प्रायः मुख्य विषयक संग सहवर्ती साहित्यिक सामग्री सेहो समेटैत अछि।"}, {"q": "भक्ति गजलमे बाल-पाठ्य सामग्रीक समावेश कोन दृष्टि देखबैत अछि?", "opts": ["बाल सामग्री विशेषांकक दोष", "भक्ति, उत्सव आ भाषा-संस्कार बाल-रसक माध्यमे सेहो पहुँचि सकैत अछि", "होरी वा उत्सव बालक लेल अनुपयुक्त", "बाल साहित्य भक्ति सँ बाहर"], "ans": 1, "exp": "भक्ति-संवेदना पीढ़ी-दर-पीढ़ी गीत, पर्व आ खेलसँ पहुँचैत अछि।"}, {"q": "भक्ति गजलमे ‘दिव्य प्रियतम’क रूपक कोन साहित्यिक परंपरा संग जुड़ैत अछि?", "opts": ["कुनो परंपरा नहि", "भक्ति, सूफी आ प्रेम-काव्यक साझा विरह-मिलन परंपरा", "केवल प्रशासनिक भाषा", "केवल आधुनिक विज्ञापन"], "ans": 1, "exp": "प्रियतमक आध्यात्मिक रूप भक्ति आ गजल दुनूक सेतु बनबैत अछि।"}, {"q": "भक्ति गजलमे ‘प्रकाश’क प्रतीक किएक बार-बार कारगर होइत अछि?", "opts": ["प्रतीक सदैव अर्थहीन", "प्रकाश केवल बिजली-विषय", "प्रकाशक भक्ति सँ सम्बन्ध नहि", "ओ ज्ञान, कृपा, आशा, मार्गदर्शन आ अज्ञान-नाशक अर्थ खोलैत अछि"], "ans": 3, "exp": "प्रकाश भक्ति साहित्यक सार्वभौमिक प्रतीक सभमे एक अछि।"}, {"q": "भक्ति गजलमे पाठकक धार्मिक विविधता किएक ध्यानमे राखबाक चाही?", "opts": ["उच्च कविता संकीर्णता नहि, व्यापक करुणा आ आध्यात्मिक अनुभवक भाषा खोजैत अछि", "सभी पाठक एके मान्यता रखैत", "कविता संवाद नहि करैत", "संकीर्णता सदैव गुण"], "ans": 0, "exp": "भक्ति गजल आस्था व्यक्त करैत अछि, मुदा साहित्यिक रूप ओकरा संवादक्षम बनबैत अछि।"}, {"q": "भक्ति गजलमे भावुकता कखन कमजोरी बनैत अछि?", "opts": ["शिल्पक जरूरत नहि", "जखन भाव बिम्ब, लय, विचार आ शिल्प बिना केवल रोदन रहि जाए", "भावुकता सदैव पर्याप्त", "विचार भावक शत्रु"], "ans": 1, "exp": "कविता मे भाव केँ कलात्मक रूप चाही।"}, {"q": "भक्ति गजलमे मिथिला-संस्कृतिक संकेत कोन काम करैत अछि?", "opts": ["स्थानीय देव-स्मृति, पर्व, बोली, नदी, लोकविश्वास सँ भक्ति केँ मैथिली धरातल दैत अछि", "स्थानीयता हटाएब जरूरी", "मिथिला संकेत भक्ति-विरोधी", "संस्कृति कविता रोकैत"], "ans": 0, "exp": "मैथिली भक्ति गजल अपन क्षेत्रीय आत्मासँ विशिष्ट बनैत अछि।"}, {"q": "भक्ति गजलमे आलोचनात्मक प्रश्न पूछब किएक उचित अछि?", "opts": ["समीक्षा श्रद्धाहीनता", "भक्ति पर प्रश्न वर्जित", "विधा-संरचना, भाव-गहराई, भाषा, रस आ सामाजिक अर्थक मूल्यांकन लेल", "कविता केवल याद करबाक वस्तु"], "ans": 2, "exp": "साहित्यिक अध्ययन श्रद्धा आ आलोचना दुनूक संतुलन माँगैत अछि।"}, {"q": "भक्ति गजलमे ‘लय’ यदि कमजोर अछि तँ की हानि?", "opts": ["भक्ति-भावक श्रवणीयता, गेयता आ स्मरणीयता घटि जाइत अछि", "कुनो हानि नहि", "लय गजलमे निषिद्ध", "लय केवल वाद्ययंत्रक काम"], "ans": 0, "exp": "गजल आ भक्ति दुनूक प्रभाव ध्वनि-संरचनासँ गहिर रूपे जुड़ल अछि।"}, {"q": "भक्ति गजलमे प्रत्येक शेरमे एके बात दोहराएब किएक पर्याप्त नहि?", "opts": ["विविधता गजल-विरोधी", "दोहरावहि साहित्यक लक्ष्य", "शेरक अर्थ जरूरी नहि", "गजलमे आवृत्ति संग भाव-विस्तार, नवा कोण आ अर्थ-वृद्धि अपेक्षित अछि"], "ans": 3, "exp": "रदीफ दोहराइत अछि, मुदा शेरक भाव प्रत्येक बेर नव आयाम खोलबाक चाही।"}, {"q": "भक्ति गजलमे ‘दुःख’क प्रस्तुति कखन आध्यात्मिक भऽ सकैत अछि?", "opts": ["दुःखक भक्ति सँ संबंध नहि", "दुःख हटाएब अनिवार्य", "दुःख मात्र शिकायत", "जखन दुःख आत्मबोध, करुणा, ईश्वर-खोज वा नैतिक रूपान्तरणक कारण बनैत अछि"], "ans": 3, "exp": "भक्ति साहित्य दुःखकेँ अर्थहीन नहि, रूपान्तरकारी अनुभव बना सकैत अछि।"}, {"q": "भक्ति गजल विशेषांकक गतिशील प्रश्न-संख्या किएक ३०-४० धरि सीमित नहि राखल गेल?", "opts": ["किएकि मुख्य भक्ति-गजल संग अनेक कवि, गद्य, एकांकी, विहनि कथा, समीक्षा, अनुवाद आ बाल सामग्री अछि", "किएकि पृष्ठ-संख्या पूछबाक अछि", "किएकि लेखक-नाम मात्र गणना अछि", "किएकि प्रश्न दोहराएबाक अछि"], "ans": 0, "exp": "सामग्री-विस्तार प्रश्न-संख्या बढ़बैत अछि, मुदा प्रश्न अवधारणा-आधारित रहबाक चाही।"}, {"q": "भक्ति गजलमे उच्च-स्तरीय प्रश्न कोन प्रकारक होएब चाही?", "opts": ["केवल लिंकक पता", "केवल पृष्ठ-संख्या", "केवल अनुक्रमांक", "शिल्प, भक्ति-रस, भाषा, प्रतीक, भाव-संरचना, लोक-संस्कृति आ आलोचनात्मक अर्थ पर"], "ans": 3, "exp": "उच्च-स्तरीय क्विज समझ, व्याख्या आ विधा-बोध जाँचैत अछि।"}, {"q": "भक्ति गजलमे सर्वोत्तम उपलब्धि की मानल जाएत?", "opts": ["केवल तुकबंदी", "जखन श्रद्धा, काव्य-शिल्प, लय, भाषा-सौंदर्य आ मानवीय करुणा एक संग आ जाए", "केवल धार्मिक शब्दक संख्या", "केवल कविक नाम"], "ans": 1, "exp": "सफल भक्ति गजल रूप आ भावक समन्वय अछि।"}];
+let idx=0, answers=Array(QDB.length).fill(null);
+const letters=['क','ख','ग','घ'];
+function initMap(){
+  const m=document.getElementById('qmap'); m.innerHTML='';
+  QDB.forEach((_,i)=>{const b=document.createElement('button'); b.className='dot'; b.textContent=i+1; b.onclick=()=>showQ(i); m.appendChild(b);});
 }
-function switchTab(gi){
-  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===gi));
-  document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',i===gi));
-  window.scrollTo({top:0,behavior:'smooth'});
+function updateTop(){
+  const done=answers.filter(x=>x!==null).length, ok=answers.filter((x,i)=>x===QDB[i].ans).length, bad=answers.filter((x,i)=>x!==null&&x!==QDB[i].ans).length;
+  document.getElementById('cur').textContent=idx+1; document.getElementById('score').innerHTML=`✓ ${ok} &nbsp; ✗ ${bad}`;
+  document.getElementById('bar').style.width=(done/QDB.length*100)+'%';
+  [...document.querySelectorAll('.dot')].forEach((d,i)=>{d.className='dot'+(answers[i]!==null?' answered':'')+(answers[i]===QDB[i].ans?' ok':'')+(answers[i]!==null&&answers[i]!==QDB[i].ans?' bad':'');});
 }
-function showScore(){
-  const pct=Math.round(score/total*100);
-  let msg=pct>=80?'उत्कृष्ट! अहाँक ज्ञान अद्भुत अछि।':pct>=50?'नीक प्रयास — आओर पढ़ू।':'फेर सँ प्रयास करू, अहाँ नीक करब।';
-  const sb=document.createElement('div');sb.className='scoreboard';
-  sb.innerHTML='<div class="orn">❖ ❖ ❖</div><div class="scbig">'+score+' / '+total+'</div>'+
-    '<div class="scpct">'+pct+'%</div><div class="scmsg">'+msg+'</div>'+
-    '<button class="nbtn pri" onclick="location.reload()">फेर सँ खेलू</button>';
-  const w=document.querySelector('.wrap');w.insertBefore(sb,w.firstChild);
-  window.scrollTo({top:0,behavior:'smooth'});
+function showQ(i){
+  idx=i; const q=QDB[i]; document.getElementById('result').style.display='none';
+  let chosen=answers[i];
+  let h=`<article class="qcard"><div class="qmeta"><span>प्रश्न ${i+1}</span><span>उच्च-स्तर / अवधारणा-आधारित</span></div><p class="qtext">${q.q}</p><div class="opts">`;
+  q.opts.forEach((o,k)=>{let cls='opt'; if(chosen!==null){cls+=' locked'; if(k===q.ans) cls+=' correct'; else if(k===chosen) cls+=' wrong';} h+=`<div class="${cls}" onclick="choose(${k})"><span class="key">${letters[k]}.</span><span class="txt">${o}</span></div>`;});
+  h+=`</div><div class="fb ${chosen===null?'':(chosen===q.ans?'ok show':'bad show')}"><strong>${chosen===null?'':(chosen===q.ans?'सही उत्तर।':'गलत उत्तर।')}</strong><br>${chosen===null?'':q.exp}</div><div class="navrow"><button class="btn2" onclick="showQ(Math.max(0,idx-1))">← पछिला</button><button class="btn" onclick="idx<QDB.length-1?showQ(idx+1):finish()">${idx<QDB.length-1?'अगिला →':'परिणाम देखू'}</button></div></article>`;
+  document.getElementById('quiz').innerHTML=h; updateTop(); window.scrollTo({top:0,behavior:'smooth'});
 }
+function choose(k){ if(answers[idx]!==null) return; answers[idx]=k; showQ(idx); }
+function finish(){
+  const ok=answers.filter((x,i)=>x===QDB[i].ans).length, bad=answers.filter((x,i)=>x!==null&&x!==QDB[i].ans).length, skip=answers.filter(x=>x===null).length;
+  const pct=Math.round(ok/QDB.length*100);
+  document.getElementById('result').innerHTML=`<div class="big">${ok} / ${QDB.length}</div><p><strong>${pct}%</strong> सही — गलत: ${bad}, अनुत्तरित: ${skip}</p><p class="qtext">${pct>=80?'बहुत नीक।':'फेर अभ्यास करू; अवधारणा पर ध्यान दिअ।'}</p><button class="btn" onclick="restart()">फेर शुरू करू</button>`;
+  document.getElementById('result').style.display='block'; updateTop(); document.getElementById('result').scrollIntoView({behavior:'smooth'});
+}
+function restart(){idx=0;answers=Array(QDB.length).fill(null);showQ(0);}
+initMap(); showQ(0);
 </script>
 </body>
 </html>

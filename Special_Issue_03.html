@@ -1,146 +1,92 @@
 <!DOCTYPE html>
 <html lang="mai">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>विहनि कथा विशेषांक — विदेह क्विज</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>विदेह विशेषांक ०३ — विहनि कथा / लघुकथा प्रश्नोत्तरी</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#1a2744;--crimson:#8B1A1A;--gold:#c49a3c;--cream:#FAF6EE;
---ok-fg:#1d7a3e;--bad-fg:#a32020}
-*{box-sizing:border-box}
-body{margin:0;background:var(--cream);color:#1A1A1A;
-font-family:'Lato','Segoe UI',system-ui,sans-serif;line-height:1.55;padding-bottom:60px}
-header{background:linear-gradient(180deg,#16213b,var(--navy));color:#fff;
-padding:28px 20px 22px;text-align:center;border-bottom:4px solid var(--gold)}
-header h1{margin:0;font-family:'Noto Serif Devanagari',serif;font-size:1.7em}
-header .sub{color:var(--gold);font-size:.82em;letter-spacing:.1em;font-style:italic;margin-top:8px}
-header .src{color:#cdd6ea;font-size:.78em;margin-top:6px}
-.wrap{max-width:760px;margin:0 auto;padding:20px 16px}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;justify-content:center}
-.tab{font-family:'Noto Serif Devanagari',serif;font-weight:700;font-size:.9em;
-padding:8px 16px;border-radius:20px;border:2px solid var(--navy);background:#fff;
-color:var(--navy);cursor:pointer;transition:.15s}
-.tab.active{background:var(--navy);color:#fff}
-.counter-badge{background:var(--crimson);color:#fff;font-size:.72em;font-weight:700;
-padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle}
-.progress{height:6px;background:#e7dcc2;border-radius:4px;margin-bottom:18px;overflow:hidden}
-.progress > div{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--crimson));transition:width .3s}
-.pane{display:none}.pane.active{display:block}
-.card{background:#fff;border-radius:11px;box-shadow:0 4px 16px rgba(26,39,68,.1);
-padding:22px 22px 18px;margin-bottom:16px}
-.qmeta{font-size:.78em;color:#8a93ab;font-weight:700;margin-bottom:8px}
-.q{font-family:'Noto Serif Devanagari',serif;font-size:1.12em;font-weight:600;
-color:var(--navy);margin-bottom:14px}
-.opt{display:block;width:100%;text-align:left;
-font-family:'Noto Serif Devanagari',serif;font-size:1em;
-padding:11px 15px;margin-bottom:9px;border:1.5px solid #d8cfb8;border-radius:8px;
-background:#fffdf8;cursor:pointer;transition:.13s;color:#1A1A1A}
-.opt:hover{border-color:var(--gold);background:#fff8e8}
-.opt.ok{border-color:var(--ok-fg);background:#eafaf0;color:var(--ok-fg);font-weight:700}
-.opt.bad{border-color:var(--bad-fg);background:#fdeeee;color:var(--bad-fg)}
-.opt:disabled{cursor:default}
-.fb{margin-top:11px;font-size:.92em;font-weight:600;min-height:20px;
-font-family:'Noto Serif Devanagari',serif}
-.fb.ok{color:var(--ok-fg)}.fb.bad{color:var(--bad-fg)}
-.hint-box{background:#fffbef;border:1px solid var(--gold);border-radius:7px;
-padding:10px 14px;margin-top:10px;font-family:'Noto Serif Devanagari',serif;
-font-size:.88em;color:#5a4010;display:none}
-.hint-box.show{display:block}
-.nav{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
-.nbtn{font-family:'Lato',sans-serif;font-size:.9em;font-weight:700;
-padding:9px 20px;border-radius:6px;border:none;cursor:pointer;transition:.15s}
-.nbtn.pri{background:var(--crimson);color:#fff}.nbtn.pri:hover{background:var(--navy)}
-.nbtn.sec{background:transparent;color:var(--navy);border:2px solid var(--navy)}
-.nbtn.sec:hover{background:var(--navy);color:#fff}
-.scoreboard{background:#fff;border-radius:11px;box-shadow:0 4px 18px rgba(26,39,68,.11);
-padding:34px 26px;text-align:center;margin-bottom:18px}
-.scbig{font-family:'Playfair Display',serif;font-size:2.8em;color:var(--crimson);font-weight:700;margin-bottom:6px}
-.scpct{font-size:1.05em;color:#5a6a8a;margin-bottom:9px}
-.scmsg{font-family:'Noto Serif Devanagari',serif;font-size:1.05em;color:var(--navy);margin-bottom:20px}
-.orn{text-align:center;color:var(--gold);font-size:1em;letter-spacing:.2em;margin:14px 0;opacity:.65}
-footer{text-align:center;color:#8a7a4a;font-size:.78em;padding:24px 16px 0}
-footer a{color:var(--crimson);text-decoration:none}
-@media(max-width:520px){header h1{font-size:1.35em}.q{font-size:1.05em}}
+:root{--navy:#17264a;--crimson:#9b1c2e;--gold:#c8973a;--cream:#f7f2e8;--ok:#2e7d32;--ok-bg:#e8f5e9;--bad:#b71c1c;--bad-bg:#ffebee;--muted:#66708a}
+*{box-sizing:border-box} body{margin:0;background:var(--cream);font-family:Lato,Arial,sans-serif;color:var(--navy);line-height:1.55}
+header{background:var(--navy);color:#fff;text-align:center;padding:18px 12px;border-bottom:5px solid var(--gold)}
+header h1{font-family:'Noto Serif Devanagari',serif;font-size:1.45rem;margin:0 0 6px;line-height:1.35}
+header .brand{font-size:.86rem;color:var(--gold);font-weight:700;letter-spacing:.02em}
+header .sub{font-family:'Noto Serif Devanagari',serif;font-size:.95rem;margin-top:6px;color:#dbe4ff}
+main{max-width:980px;margin:18px auto 50px;padding:0 14px}
+.panel{background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(23,38,74,.12);padding:16px;margin-bottom:14px;border-left:5px solid var(--navy)}
+.topbar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.score{font-weight:700;color:var(--crimson)}
+.progress{flex:1;min-width:180px;height:9px;background:#d9dfeb;border-radius:20px;overflow:hidden} .bar{height:100%;background:var(--gold);width:0%;transition:.2s}
+button{font-family:Lato,Arial,sans-serif;font-weight:700;border:0;border-radius:7px;padding:9px 14px;cursor:pointer}
+.btn{background:var(--navy);color:#fff} .btn:hover{background:var(--crimson)} .btn2{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+.qmap{display:flex;gap:4px;flex-wrap:wrap;margin-top:12px} .dot{width:24px;height:24px;border-radius:5px;border:1px solid #b8c1d8;background:#eef2fa;color:var(--navy);font-size:.72rem;padding:0} .dot.answered{background:#dfe8f9} .dot.ok{background:var(--ok);color:#fff} .dot.bad{background:var(--bad);color:#fff}
+.qcard{background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(23,38,74,.10);padding:20px;margin:16px 0;border-left:5px solid var(--gold)}
+.qmeta{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:.82rem;font-weight:700;margin-bottom:8px}
+.qtext{font-family:'Noto Serif Devanagari',serif;font-size:1.13rem;font-weight:700;margin:0 0 14px;color:var(--navy)}
+.opts{display:grid;gap:9px} .opt{display:flex;gap:10px;align-items:flex-start;background:#f4f7fd;border:2px solid #d2daec;border-radius:10px;padding:10px 12px;cursor:pointer}
+.opt:hover{border-color:var(--navy)} .opt .key{font-weight:700;min-width:22px} .opt .txt{font-family:'Noto Serif Devanagari',serif}
+.opt.correct{background:var(--ok-bg);border-color:#7bc47f;color:var(--ok)} .opt.wrong{background:var(--bad-bg);border-color:#e57373;color:var(--bad)} .opt.locked{cursor:default}
+.fb{display:none;margin-top:10px;border-radius:8px;padding:10px 12px;font-family:'Noto Serif Devanagari',serif} .fb.show{display:block} .fb.ok{background:var(--ok-bg);border-left:4px solid var(--ok)} .fb.bad{background:var(--bad-bg);border-left:4px solid var(--bad)}
+.navrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.result{display:none;text-align:center} .big{font-size:2.6rem;font-weight:700;color:var(--crimson)}
+.back{text-align:center;margin:24px 0} .back a{color:var(--crimson);font-family:'Noto Serif Devanagari',serif;font-weight:700;text-decoration:none}
+footer{text-align:center;padding:20px;color:#6a728a;font-size:.85rem}
+@media(max-width:600px){.qtext{font-size:1rem}.topbar{align-items:stretch}.progress{min-width:100%}}
 </style>
 </head>
 <body>
 <header>
-  <h1>विहनि कथा विशेषांक</h1>
-  <div class="sub">VIHANI (LAGHUKATHA) SPECIAL ISSUE · विदेह अंक ६७ · ०१ अक्टूबर २०१०</div>
-  <div class="src">विदेह : प्रथम मैथिली पाक्षिक ई-पत्रिका · videha.co.in · ISSN 2229-547X</div>
+  <h1>विदेह विशेषांक ०३ — विहनि कथा / लघुकथा प्रश्नोत्तरी</h1>
+  <div class="brand">Videha QUIZ | विदेह ई-लर्निङ्ग क्विज / Videha eLearning Quiz / Videha — First Maithili Fortnightly eJournal | www.videha.co.in</div>
+  <div class="sub">विहनि कथा, लघुकथा सिद्धान्त, सामाजिक सरोकार, शिल्प आ समीक्षाशास्त्र पर ४५ उच्च-स्तरीय प्रश्न</div>
 </header>
-<div class="orn">❖ ❖ ❖</div>
-<div class="wrap">
-  <div class="tabs" id="tabs"></div>
-  <div class="progress"><div id="bar"></div></div>
-  <div id="panes"></div>
-</div>
-<footer>© विदेह Videha · <a href="https://videha.co.in">videha.co.in</a> · विदेह विशेषांक प्रश्नोत्तरी</footer>
+<main>
+  <section class="panel">
+    <div class="topbar">
+      <span><strong>विशेषांक ०३</strong> — प्रश्न <strong id="cur">1</strong> / <strong>46</strong></span>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <span class="score" id="score">✓ 0 &nbsp; ✗ 0</span>
+      <button class="btn2" onclick="showQ(0)">←← पहिल</button>
+      <button class="btn" onclick="restart()">नव क्विज</button>
+    </div>
+    <div class="qmap" id="qmap"></div>
+  </section>
+  <section id="quiz"></section>
+  <section class="panel result" id="result"></section>
+  <div class="back"><a href="https://www.videha.co.in/videha-elearning.htm">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a></div>
+</main>
+<footer>© Gajendra Thakur, Editor — Videha eJournal</footer>
 <script>
-const DATA = [{"tab": "विशेषांक परिचय", "items": [{"q": "विदेहक ई विहनि (लघु) कथा विशेषांक कोन अंक छल?", "opts": ["६७म अंक", "२१म अंक", "१२म अंक", "७२म अंक"], "correct": 0, "hint": "१ अक्टूबर २०१० केर अंक।"}, {"q": "ई विशेषांक कोन विधाकेँ समर्पित छल?", "opts": ["विहनि (लघु) कथा", "गजल", "नाटक", "समीक्षा"], "correct": 0, "hint": "\"विहनि कथा\" = बीज-कथा।"}, {"q": "\"विहनि कथा\" शब्द मूलतः कोन शब्दसँ बनल अछि?", "opts": ["विहनि (बीज)", "विहान (भोर)", "विहीन", "विहग"], "correct": 0, "hint": "छोट गातमे सम्पूर्ण कथा।"}]}, {"tab": "लघुकथा शब्दावली", "items": [{"q": "\"लघुकथा\" मूलतः कोन भाषाक शब्द थिक?", "opts": ["हिन्दी", "मैथिली", "पंजाबी", "मलयालम"], "correct": 0, "hint": "मैथिलीमे एकरा \"विहनि कथा\" कहल गेल।"}, {"q": "पंजाबीमे लघुकथाकेँ की कहल जाइत अछि?", "opts": ["मिन्नी कथा", "निमिषा", "क्षुद्रकथा", "विहनि कथा"], "correct": 0, "hint": "आलेखमे भाषावार नाम देल अछि।"}, {"q": "मलयाळममे लघुकथाकेँ की कहल जाइत अछि?", "opts": ["निमिषा", "मिन्नी कथा", "विहनि कथा", "क्षुद्रकथा"], "correct": 0, "hint": "\"निमिष\" (क्षण) सँ।"}]}, {"tab": "रचना आ रचनाकार", "items": [{"q": "एहि अंकमे लघुकथाक संग कोन वरिष्ठ साहित्यकारक रचना (लघुकथा) देल गेल?", "opts": ["देवशंकर नवीन", "मुन्नाजी", "गजेन्द्र ठाकुर", "गंगेश गुंजन"], "correct": 0, "hint": "\"...नवीन- लघुकथा\" रूपमे सूचीमे।"}, {"q": "\"मइटूगर\" कथाक शेषांश एहि अंकमे प्रकाशित भेल — ई कोन विधाक रचना थिक?", "opts": ["कथा", "गजल", "नाटक", "निबन्ध"], "correct": 0, "hint": "\"कथा 'मइटूगर'क शेषांश\"।"}, {"q": "एहि अंकमे \"चारिटा लघुकथा\" केकर देल गेल?", "opts": ["मुन्नाजी", "देवशंकर नवीन", "गजेन्द्र ठाकुर", "भारत भूषण झा"], "correct": 0, "hint": "सूचीमे \"मुन्नाजी-चारिटा लघुकथा\"।"}]}];
-let score=0,total=0,answered=0;
-DATA.forEach(g=>total+=g.items.length);
-const tabsEl=document.getElementById('tabs');
-const panesEl=document.getElementById('panes');
-const bar=document.getElementById('bar');
-DATA.forEach((g,gi)=>{
-  const tb=document.createElement('button');
-  tb.className='tab'+(gi===0?' active':'');
-  tb.innerHTML=g.tab+'<span class="counter-badge">'+g.items.length+'</span>';
-  tb.onclick=()=>switchTab(gi);
-  tabsEl.appendChild(tb);
-  const pane=document.createElement('div');
-  pane.className='pane'+(gi===0?' active':'');
-  pane.id='pane-'+gi;
-  g.items.forEach((q,qi)=>pane.appendChild(buildCard(g,gi,qi,q)));
-  panesEl.appendChild(pane);
-});
-function buildCard(g,gi,qi,q){
-  const card=document.createElement('div');card.className='card';
-  const meta=document.createElement('div');meta.className='qmeta';
-  meta.textContent=g.tab+' · प्रश्न '+(qi+1)+'/'+g.items.length;card.appendChild(meta);
-  const qd=document.createElement('div');qd.className='q';qd.textContent=q.q;card.appendChild(qd);
-  const opts=[];
-  q.opts.forEach((o,oi)=>{
-    const b=document.createElement('button');b.className='opt';b.textContent=o;
-    b.onclick=()=>pick(b,oi);card.appendChild(b);opts.push(b);
-  });
-  const fb=document.createElement('div');fb.className='fb';card.appendChild(fb);
-  let hintBox=null;
-  if(q.hint){hintBox=document.createElement('div');hintBox.className='hint-box';
-    hintBox.textContent='💡 '+q.hint;card.appendChild(hintBox);}
-  const nav=document.createElement('div');nav.className='nav';
-  if(q.hint){const hb=document.createElement('button');hb.className='nbtn sec';hb.textContent='संकेत';
-    hb.onclick=()=>hintBox.classList.toggle('show');nav.appendChild(hb);}
-  card.appendChild(nav);
-  let done=false;
-  function pick(btn,oi){
-    if(done)return;done=true;answered++;
-    opts.forEach((b,bi)=>{b.disabled=true;
-      if(bi===q.correct)b.classList.add('ok');
-      else if(b===btn)b.classList.add('bad');});
-    if(oi===q.correct){score++;fb.className='fb ok';fb.textContent='✓ सही उत्तर!';}
-    else{fb.className='fb bad';fb.textContent='✗ सही उत्तर: '+q.opts[q.correct];}
-    bar.style.width=(answered/total*100)+'%';
-    if(answered===total)showScore();
-  }
-  return card;
+const QDB = [{"q": "‘विहनि कथा’ नामकरणक मूल साहित्यिक संकेत की अछि?", "opts": ["ई बीआ-जकाँ छोट आकारमे सम्पूर्ण कथा-संभावना रखैत अछि", "ई केवल पुरान लघुकथा शब्दक संस्कृत रूप अछि", "ई गद्यक बदला पद्य-विधा अछि", "ई बाल-कथाक संक्षिप्त रूप अछि"], "ans": 0, "exp": "‘विहनि’ अर्थात बीआ। विशेषांकक दृष्टिमे विहनि कथा छोट गातमे पूरा कथा-ऊर्जा, संकेत आ प्रभाव धारण करैत अछि।"}, {"q": "विहनि कथाकेँ अंग्रेजी ‘शॉर्ट-स्टोरी’क अनुवाद मात्र मानब किएक अपूर्ण अछि?", "opts": ["कारण ई आकार मात्र नहि, उत्स, स्वभाव आ प्रभावमे अलग विधा अछि", "कारण ई केवल विदेशी विधा अछि", "कारण ई सदैव हास्य-प्रधान होइत अछि", "कारण ई कथ्य-विहीन भाषा-क्रीड़ा अछि"], "ans": 0, "exp": "लेख-परिसरमे कथा आ विहनि/लघुकथा बीच भेद केवल लंबाइमे नहि, रचनात्मक स्रोत, स्वभाव आ पाठकीय प्रभावमे देखल गेल अछि।"}, {"q": "डॉ. तारानन्द वियोगीक अनुसार आरम्भिक मैथिली लघुकथा-परिस्थिति केहन छल?", "opts": ["रचनाक स्पेस सीमित छल आ छोट कथा प्रायः ‘फीलर’ रूपमे देखल जाइत छल", "लघुकथा अकादमिक रूपेँ पूर्ण स्थापित छल", "सभ पत्रिका लघुकथाकेँ मुख्य विधा मानैत छल", "लघुकथा केवल मौखिक लोकगीत छल"], "ans": 0, "exp": "वियोगीजीक कथनमे आरम्भिक कालमे छोट कथा सभकेँ पत्रिकाक खाली जगह भरबाक सामग्री जकाँ देखबाक प्रवृत्ति छल।"}, {"q": "लघुकथाक ‘प्रो-एक्टिव’ स्वभावसँ कोन अर्थ निकलैत अछि?", "opts": ["ओ पाठकक चेतना पर तुरन्त सक्रिय प्रभाव छोड़ैत अछि", "ओ निष्क्रिय वर्णन मात्र रहैत अछि", "ओ केवल स्मरण-कथा बनि रहैत अछि", "ओ हमेशा लम्बा भूमिका चाहैत अछि"], "ans": 0, "exp": "प्रो-एक्टिव शब्द लघुकथाक त्वरित सक्रियता, असर आ विचार-उत्तेजना दिस संकेत करैत अछि।"}, {"q": "लघुकथामे सरलता आ संप्रेषणीयता लेखकसँ बेसी परिश्रम किएक मांगैत अछि?", "opts": ["किएकि कम शब्दमे स्पष्ट, तीक्ष्ण आ पूर्ण प्रभाव रचब कठिन अछि", "किएकि लेखककेँ कथानक छोड़ि देबाक पड़ैत अछि", "किएकि सरल भाषा साहित्य नहि बनि सकैत", "किएकि लघुकथा केवल संवाद-संग्रह अछि"], "ans": 0, "exp": "संकुचित आकारमे गूढ़ अनुभव, चुस्त कथ्य आ पाठकीय झटका देब लेखकक सजग श्रम माँगैत अछि।"}, {"q": "‘छोट गातमे सम्पूर्णता’ विहनि कथाक लेल कोन सौंदर्य-मानदंड ठहरैत अछि?", "opts": ["आकार लघु हो, मुदा कथ्य-अनुभूति अपूर्ण नहि रहए", "कथा आधा छोड़ि देल जाए", "केवल शीर्षकसँ कथा बनि जाए", "घटना नहि, केवल नारा रहए"], "ans": 0, "exp": "विहनि कथा बीज-सदृश होइत हुए सेहो कथा-कला, संकेत, तनाव आ असरमे पूर्णता चाहैत अछि।"}, {"q": "विहनि कथा आन्दोलनमे ‘संरचना, स्वरूप आ स्वभाव’ स्पष्ट करबाक आग्रह किएक जरूरी छल?", "opts": ["विधाकेँ फिलर वा छोट कहानीक भ्रमसँ निकालि स्वतंत्र साहित्यिक पहचान देबाक लेल", "लघुकथाकेँ कविता बनएबाक लेल", "समीक्षा पूर्णतः हटएबाक लेल", "केवल पुरान लेखकक नाम सुरक्षित करबाक लेल"], "ans": 0, "exp": "विधागत स्पष्टता बिना लघुकथा छोट कहानी वा भराव सामग्री भरि बुझल जाइत; सिद्धान्त ओकर स्वतंत्र पहचान बनबैत अछि।"}, {"q": "पंजाबी ‘मिन्नी कथा’, ओड़िया ‘क्षुद्र कथा’ आदि तुलनासँ मैथिली लघुकथाक लेल कोन शिक्षा मिलैत अछि?", "opts": ["भाषाक क्षमतासँ बेसी संस्थागत श्रम आ निरंतरता जरूरी अछि", "मैथिलीमे लघुकथा सम्भव नहि अछि", "अन्य भाषाक अनुकरण करब मात्र समाधान अछि", "विधाक नाम बदललासँ साहित्य स्वतः महान होइत अछि"], "ans": 0, "exp": "तुलना देखबैत अछि जे मानक काजक सम्भावना अछि, मुदा संस्थागत आयोजन, प्रकाशन, आलोचना आ पाठकीय पहुँच आवश्यक अछि।"}, {"q": "प्रत्येक रचनाकारक छोट संग्रह छपबाक आग्रहक साहित्यिक कारण की अछि?", "opts": ["रचनाकारक कार्य समेकित रूपमे उपलब्ध भऽ आलोचना आ पाठक-संवाद सम्भव होइत अछि", "संग्रह छपलासँ कथा स्वतः श्रेष्ठ भऽ जाइत अछि", "पत्रिका-प्रकाशन निरर्थक होइत अछि", "संग्रह केवल पुरस्कार लेल चाही"], "ans": 0, "exp": "संग्रह विधाक इतिहास, मूल्यांकन आ पाठकीय पहुँच लेल स्थायी आधार बनबैत अछि।"}, {"q": "लघुकथा-कार्यशालाक प्रस्ताव कोन कमीक उपचार रूपमे देखल जा सकैत अछि?", "opts": ["बोध, शिल्प, मानक आ विधागत अनुशासनक कमी", "पाठकक पूर्ण अभाव", "भाषाक असमर्थता", "कथा-विषयक निषेध"], "ans": 0, "exp": "कार्यशाला रचनाकारक विधा-बोध, कसावट, कथ्य-संयम आ आलोचनात्मक सजगता बढ़ा सकैत अछि।"}, {"q": "‘साहित्य अपन स्वभावेसँ क्रान्तिकारी होइत अछि’—एहि कथनक लघुकथा-सन्दर्भ की अछि?", "opts": ["सार्थक लघुकथा मानवीय-सामाजिक चेतना जगबैत अछि, केवल मान्यता मागैत नहि", "साहित्य केवल सत्ता-प्रशंसा करैत अछि", "लघुकथा आलोचना सँ दूर रहबाक विधा अछि", "साहित्यक उद्देश्य पुरस्कार-संग्रह अछि"], "ans": 0, "exp": "वियोगीजी मान्यता-पिपासा सँ बेसी सार्थक रचना, देबाक वृत्ति आ सामाजिक संवेदनाकेँ साहित्यक आधार मानैत छथि।"}, {"q": "लघुकथामे ‘नोटिस’ वा बाहरी मान्यता पर निर्भरता किएक हानिकारक मानल गेल अछि?", "opts": ["ई रचनात्मक संतोष आ समाज-सापेक्ष काजसँ ध्यान हटबैत अछि", "ई लेखककेँ भाषा सिखबैत अछि", "ई पाठकक संख्या बढ़बैत अछि", "ई कथ्यक गहराइ बढ़बैत अछि"], "ans": 0, "exp": "लेखकीय कर्मक असली मूल्य सार्थक रचना आ धरती-समाज प्रति योगदानमे अछि, बाहरी नोटिसमे नहि।"}, {"q": "‘बीज-कथा’ रूपक विहनि कथामे अन्त/मोड़क भूमिका कोना बुझल जाए?", "opts": ["अन्त पूरा अर्थकेँ अचानक खोलि पाठकक भीतर कथा विस्तार करैत अछि", "अन्त सदैव उपदेशात्मक होएब चाही", "अन्तमे पात्र-सूची देब जरूरी अछि", "अन्त रहिते विहनि कथा पूर्ण होइत अछि"], "ans": 0, "exp": "बीज-कथा पाठकक मनमे अंकुरैत अछि; तें अन्त संकेतात्मक, तीक्ष्ण आ अर्थ-उद्घाटक होइत अछि।"}, {"q": "सशक्त विहनि कथामे कथानक आ संकेतक संतुलन कोन प्रकारक होएब चाही?", "opts": ["घटना न्यून हो सकैत अछि, मुदा संकेत आ प्रभाव व्यापक होएब चाही", "घटना अतिशय विस्तारमे होएब चाही", "संकेत पूर्णतः निषिद्ध अछि", "केवल संवाद रहि जाय, अर्थ नहि"], "ans": 0, "exp": "लघुकथा अक्सर छोटी घटना पकड़ि ओकरा सामाजिक/मानवीय अर्थमे रूपान्तरित करैत अछि।"}, {"q": "‘फीलर’ मानल गेल रचनाकेँ स्वतंत्र विधा बनएबाक प्रक्रिया कोन रूपमे बुझल जाए?", "opts": ["साहित्यिक उपेक्षासँ आलोचनात्मक प्रतिष्ठा धरि विधा-संघर्ष", "पत्रिका-सजावटसँ विज्ञापन-प्रबंधन धरि", "केवल पृष्ठ-सज्जाक बदलाव", "कथाविहीन सूचनाक संग्रह"], "ans": 0, "exp": "विहनि कथा विशेषांकक प्रयत्न उपेक्षित छोट कथा रूपकेँ स्वायत्त विधा रूपमे स्थापित करबाक संघर्ष अछि।"}, {"q": "विहनि कथामे ‘सम्पूर्णता’ रहितहुँ ‘विस्तार’ नहि रहैत—एहि विरोधाभासक समाधान की?", "opts": ["सम्पूर्णता अर्थ-प्रभावमे, विस्तार शब्द-संख्यामे नहि", "सम्पूर्णता लेल लम्बाइ अनिवार्य अछि", "विस्तार नहि तँ कथा नहि", "लघुता हमेशा अपूर्णता अछि"], "ans": 0, "exp": "लघुकथा कम शब्दमे पूर्ण भावात्मक/विचारात्मक वृत्त रचैत अछि; विस्तारक काम पाठकक मनमे होइत अछि।"}, {"q": "मुन्नाजी द्वारा ‘विहनि कथा’ नामपर जोर देबाक सांस्कृतिक अर्थ की अछि?", "opts": ["मैथिलीक अपन शब्द-चेतना आ विधागत स्वाधीनता स्थापित करब", "हिन्दी शब्दावली पूर्णतः नकारब मात्र", "विदेशी विधा नकल करब", "बाल-भाषा बनएब"], "ans": 0, "exp": "‘विहनि कथा’ नाम मैथिली भीतरसँ विधाकेँ नाम आ स्वभाव देबाक सांस्कृतिक प्रयास अछि।"}, {"q": "लघुकथाक गम्भीर साधना लेल ‘बोध’ आ ‘श्रम’ दुनू किएक आवश्यक अछि?", "opts": ["बोध कथ्यक दिशा दैत अछि आ श्रम आकारक कसावट बनबैत अछि", "बोध हो तँ भाषा जरूरी नहि", "श्रम हो तँ कथ्यक आवश्यकता नहि", "दुनू केवल आलोचक लेल जरूरी अछि"], "ans": 0, "exp": "गम्भीर लघुकथा भाव, विचार, संरचना आ भाषा—सभमे सजगता चाहैत अछि।"}, {"q": "विहनि कथा विशेषांकमे अनेक रचनाकारक संकलनक मुख्य प्रभाव की अछि?", "opts": ["विधाक विविध प्रयोग, पीढ़ीगत ऊर्जा आ सामूहिक साहित्यिक आंदोलनक आभास", "एक लेखकक जीवनी तयार करब", "कविता-संग्रहक पूर्ति", "समीक्षा हटाएब"], "ans": 0, "exp": "अनेक लेखकक कथासँ विधाक व्याप्ति, भिन्न शिल्प आ समकालीन रचनात्मक हलचल स्पष्ट होइत अछि।"}, {"q": "खलील जिब्रान सन लेखकक ‘पेटार’ मे उपस्थिति विहनि कथाक कोन वैश्विक संकेत दैत अछि?", "opts": ["लघु गद्य/सूक्तिपरक कथा-ऊर्जा विश्व-साहित्यसँ संवाद करि सकैत अछि", "मैथिली लघुकथा केवल स्थानीय रहि सकैत अछि", "अनुवादक आवश्यकता नहि", "विदेशी साहित्य लघुकथासँ असम्बद्ध अछि"], "ans": 0, "exp": "जिब्रानक समावेश लघु गद्य, रूपक आ तीक्ष्ण कथ्यक विश्व-परम्परासँ मैथिली संवादक संकेत अछि।"}, {"q": "सामाजिक सरोकार छुबैत लघुकथा ककर विरोधमे खड़ा होइत अछि?", "opts": ["मात्र चुटकुला, निजी रोचकता वा कथ्य-विहीन कौशलक", "मानवीय संवेदनाक", "सामाजिक प्रश्नक", "संक्षिप्त भाषाक"], "ans": 0, "exp": "सामाजिक सरोकारक अर्थ अछि कि लघुकथा समाजक पीड़ा, विडम्बना, अन्याय आ चेतनाक संग जुड़ल रहए।"}, {"q": "गजेन्द्र ठाकुरक ‘गद्य साहित्य मध्य लघुकथाक स्थान’ शीर्षकसँ कोन समस्या उठैत अछि?", "opts": ["गद्य-विधा सभमे लघुकथाक स्वतंत्र स्थान आ ओकर आलोचना-पद्धति तय करबाक समस्या", "लघुकथा पद्य अछि कि नहि", "लघुकथा केवल नाटक अछि", "संगीतक इतिहास लिखबाक समस्या"], "ans": 0, "exp": "शीर्षक स्पष्ट करैत अछि जे लघुकथाक विधागत स्थान आ समीक्षाशास्त्र अलग सोच मांगैत अछि।"}, {"q": "‘लघुकथाक समीक्षाशास्त्र’ अलग किएक चाही?", "opts": ["कथा/उपन्यासक कसौटी सीधे लागू कएलासँ लघुकथाक संकेत, संक्षेप आ झटका अनदेखा भऽ सकैत अछि", "लघुकथा समीक्षा योग्य नहि", "लघुकथा केवल नाम-सूची अछि", "उपन्यासक विस्तार लघुकथामे अनिवार्य अछि"], "ans": 0, "exp": "लघुकथा संकेत, कटाव, संक्षेप, अन्त-प्रभाव आ पाठकीय सह-रचना पर आधारित अछि; तें अलग आलोचनात्मक उपकरण चाही।"}, {"q": "विहनि कथामे शीर्षकक महत्त्व किएक बेसी होइत अछि?", "opts": ["शीर्षक छोट रचनाक अर्थ-दिशा खोलि वा उलटि सकैत अछि", "शीर्षक केवल सजावट अछि", "शीर्षक नहियो रहए तँ सदैव ठीक", "शीर्षक लेखकक नामक स्थानापन्न अछि"], "ans": 0, "exp": "लघुकथा कम शब्दमे चलैत अछि; शीर्षक अक्सर कथा-बीज, संकेत वा अर्थ-विस्तारक सक्रिय अंग बनैत अछि।"}, {"q": "‘पति-पत्नी संवाद’ जकाँ संवाद-प्रधान लघुकथा कोन चुनौती राखैत अछि?", "opts": ["संवादहि सँ पात्र, स्थिति, व्यंग्य आ अर्थ उभारब", "संवादकेँ विवरणसँ भरि देब", "नाटकीयता हटाएब", "कथ्य बिना बात-चीत रखब"], "ans": 0, "exp": "संवाद-प्रधान लघुकथा कम हस्तक्षेपमे पात्र-स्वर आ अंतर्विरोध देखबैत अछि।"}, {"q": "‘वी.आइ.पी.’ सन शीर्षक लघुकथामे सामाजिक व्यंग्य कोना रचि सकैत अछि?", "opts": ["सामान्य/उपेक्षित मनुखकेँ सम्मानक केन्द्र बनाकऽ मूल्य-व्यवस्था पर प्रश्न उठबैत अछि", "केवल सरकारी समारोहक विवरण देइत अछि", "कथा बिना पात्रक चलैत अछि", "सामाजिक अर्थ हटबैत अछि"], "ans": 0, "exp": "लघुकथा अक्सर छोट प्रसंगसँ सम्मान, प्रकृति, श्रम, वर्ग वा नैतिकता पर पैघ प्रश्न उठबैत अछि।"}, {"q": "‘आनक बड़ाइ’ प्रकारक कथा-शीर्षकमे नैतिक विडम्बना ककरा लक्ष्य करि सकैत अछि?", "opts": ["जे लोक आनक प्रशंसा/निन्दासँ अपन मूल्य-बोध उजागर करैत छथि", "केवल प्रशंसा-गीतक", "इतिहास-लेखनक", "प्राकृतिक वर्णनक"], "ans": 0, "exp": "एहन शीर्षक मानव-व्यवहारक सूक्ष्म विसंगति आ सामाजिक दर्प पर केन्द्रित लघुकथा-संभावना रखैत अछि।"}, {"q": "‘हमरा एकर एक बायोडाटा चाही’ जकाँ कथानक लघुकथा-माध्यमे आधुनिकता पर कोन प्रश्न उठा सकैत अछि?", "opts": ["मनुष्यकेँ कागजी पहचान/प्रपत्रमे सीमित करबाक प्रवृत्ति", "साहित्यक भाषा-शुद्धता", "प्रकृति-सौंदर्यक वर्णन", "भक्तिकाव्यक छन्द"], "ans": 0, "exp": "बायोडाटा-केन्द्रित शीर्षक आधुनिक नौकरशाही, बाजारू दृष्टि वा संबंधक कागजीकरणक आलोचना बनि सकैत अछि।"}, {"q": "‘नोकरी’ आ ‘बुरबक’ सन शीर्षक सभ विहनि कथाक सामाजिक भूमि की देखबैत अछि?", "opts": ["रोजगार, वर्ग, भोलेपन, शोषण आ आम जीवनक तात्कालिकता", "केवल पौराणिक आख्यान", "प्रकृति-काव्यक संरचना", "बालगीतक लय"], "ans": 0, "exp": "विशेषांकक अनेक शीर्षक रोजमर्रा जीवनक संघर्ष आ सामाजिक स्थितिकें कथा-बीज बनबैत अछि।"}, {"q": "लघुकथाक कथावाचक दृष्टि सामान्यतः कतेक संयमित होएब चाही?", "opts": ["ओ पाठककेँ संकेत दे, मुदा अत्यधिक व्याख्यान नहि करए", "ओ हर बात स्पष्ट उपदेशमे कहए", "ओ पात्रकेँ बोलए नहि दे", "ओ घटनाकेँ पूर्णतः गायब करए"], "ans": 0, "exp": "लघुकथाक असर पाठकीय सक्रियता पर टिकैत अछि; अतिशय व्याख्या ओकर तीक्ष्णता कम करैत अछि।"}, {"q": "विहनि कथाक पाठक पर अपेक्षित प्रभाव कोन होइत अछि?", "opts": ["क्षणभरमे अनुभवक झटका, विचारक कम्पन आ अर्थक विस्तार", "धीरे-धीरे उपन्यास-जकाँ विस्तृत संसार", "केवल सूचना-संग्रह", "केवल छन्द-रस"], "ans": 0, "exp": "लघुकथा त्वरित प्रभाव रचैत अछि आ पाठकक भीतर बादो अर्थ अंकुरित करैत रहैत अछि।"}, {"q": "समकालीन नव पीढ़ी लघुकथा आगू बढ़बैत अछि—एहि कथनमे कोन चुनौती छिपल अछि?", "opts": ["ऊर्जा संग मानक, श्रम, शिल्प-सजगता आ निरंतरता बनौने राखब", "केवल संख्या बढ़ाएब पर्याप्त अछि", "समीक्षा सँ बचब जरूरी अछि", "पुरान पीढ़ीक संवाद काटि देब"], "ans": 0, "exp": "नई रचना-ऊर्जा तखन सार्थक होइत अछि जखन गुणवत्ता, विधा-बोध आ आलोचनात्मक अनुशासन साथमे चलए।"}, {"q": "लघुकथा आन्दोलनमे पूर्वज रचनाकारक ‘शिरोधार्य’ काज मानबाक अर्थ की अछि?", "opts": ["पूर्वक योगदान स्वीकार करैत नव स्थापत्य आगू बढ़ाएब", "पूर्वक सभ काज नकारि देब", "नव प्रयोग रोकि देब", "सिर्फ नाम-स्मरण करब"], "ans": 0, "exp": "विशेषांक पूर्ववर्ती काजकेँ आधार मानि ओकरा आगू संस्थित करबाक प्रयत्न करैत अछि।"}, {"q": "‘कथा’ आ ‘विहनि कथा’ बीच मुख्य रचनात्मक भेद कोन रूपमे राखल जा सकैत अछि?", "opts": ["कथामे विस्तार-प्रक्रिया प्रधान; विहनि कथामे संक्षेपक भीतर तीक्ष्ण सम्पूर्णता प्रधान", "दूनूमे कोनो भेद नहि", "विहनि कथामे पात्र नहि रहैत", "कथा सदैव पद्यमय होइत"], "ans": 0, "exp": "विहनि कथा विस्तारक बदला गहन संकेत, संक्षिप्त घटना आ सघन प्रभाव पर आधारित अछि।"}, {"q": "साहित्यिक पत्रिकामे विशेषांक निकालब विधा-विकास लेल किएक महत्त्वपूर्ण अछि?", "opts": ["सिद्धान्त, रचना, आलोचना आ पाठकीय विमर्शकेँ एक मंच दैत अछि", "सिर्फ विज्ञापन बढ़बैत अछि", "रचनाकेँ व्यक्तिगत डायरी बनबैत अछि", "भाषा-प्रयोग रोकैत अछि"], "ans": 0, "exp": "विशेषांक विधाकेँ सामूहिक दृश्यता, दस्तावेजी स्वरूप आ आलोचनात्मक विमर्श प्रदान करैत अछि।"}, {"q": "लघुकथामे ‘गागरमे सागर’ प्रकारक अपेक्षा कखन सफल होइत अछि?", "opts": ["जखन प्रत्येक शब्द अर्थ, वातावरण वा मोड़मे योगदान दैत अछि", "जखन शब्द-संख्या मनमानी हो", "जखन कथ्य नहियो रहए", "जखन शीर्षक मात्र हो"], "ans": 0, "exp": "लघुकथा मे अतिरिक्तता स्थान नहि पबैत; भाषा कसी, अर्थपूर्ण आ प्रभाव-केंद्रित होएब चाही।"}, {"q": "‘सामाजिक सरोकार’ आ ‘कलात्मक संक्षिप्तता’ मे संतुलन किएक आवश्यक अछि?", "opts": ["केवल मुद्दा कथा नहि बनबैत, आ केवल कौशल समाजहीन बनि सकैत अछि", "मुद्दा रहए तँ कला अनावश्यक अछि", "कला रहए तँ जीवन अनावश्यक अछि", "दूनू एक-दूसराक विरोधी अछि"], "ans": 0, "exp": "सशक्त लघुकथा जीवन-संबद्ध कथ्यकेँ कलात्मक संक्षेप आ प्रभावी संरचनामे ढालैत अछि।"}, {"q": "लघुकथाक ‘झटका’ पाठकक लेल उपदेशसँ बेसी प्रभावी किएक होइत अछि?", "opts": ["ओ पाठककेँ स्वयं निष्कर्ष तकबाक लेल सक्रिय करैत अछि", "ओ सोचबाक रोकि दैत अछि", "ओ कथा समाप्त करैत नहि", "ओ भाषाकेँ कठिन बनबैत अछि"], "ans": 0, "exp": "लघुकथा पाठकक मनमे अचानक अर्थ-उद्घाटन करैत अछि; एहि सह-भागितासँ प्रभाव गहिर होइत अछि।"}, {"q": "विहनि कथा विशेषांकक सम्पादकीय प्रयत्नकेँ साहित्यिक आंदोलन किएक कहल जा सकैत अछि?", "opts": ["नामकरण, सिद्धान्त, रचना-संकलन, लेखक-संवाद आ आलोचना—सभ एकत्र अछि", "केवल एकटा कविता प्रकाशित भेल अछि", "ई केवल सूचना-पत्र अछि", "एहिमे विधागत बहस नहि"], "ans": 0, "exp": "विशेषांक विधाकेँ परिभाषित, प्रतिष्ठित आ प्रसारित करबाक बहुआयामी प्रयत्न करैत अछि।"}, {"q": "विहनि कथामे ‘मिथिलाक जीवन’ प्रवेश करबाक अर्थ की होइत अछि?", "opts": ["स्थानीय अनुभव सँ सार्वभौमिक मानवीय अर्थ निकालब", "सिर्फ बोलीक प्रदर्शन करब", "गामक नाम-सूची देब", "इतिहासक वर्ष-सूची लिखब"], "ans": 0, "exp": "स्थानीय पात्र, भाषा आ प्रसंग विहनि कथामे व्यापक जीवन-सत्यक वाहक बनि सकैत अछि।"}, {"q": "लघुकथाक भाषामे ‘कसावट’ ककरा कहल जाए?", "opts": ["अनावश्यक शब्द हटाकऽ अर्थ आ ध्वनि-दबाव बढ़ाएब", "कठिन शब्द बढ़ाएब", "लम्बा वाक्य लगातार राखब", "संवाद पूर्णतः हटाएब"], "ans": 0, "exp": "कसावट संक्षिप्त विधाक मूल शर्त अछि; ई कथ्यकेँ तीक्ष्ण आ स्मरणीय बनबैत अछि।"}, {"q": "यदि लघुकथा केवल चुटकुला बनि जाए तँ कोन विधागत हानि होइत अछि?", "opts": ["सामाजिक-मानवीय गहराइ आ अर्थ-व्यंजना कमजोर पड़ि जाइत अछि", "हास्य सदैव निषिद्ध भऽ जाइत अछि", "लघुता समाप्त भऽ जाइत अछि", "संवाद असम्भव होइत अछि"], "ans": 0, "exp": "हास्य उपयोगी भऽ सकैत अछि, मुदा लघुकथा केवल पंचलाइन नहि; ओ अर्थ, संवेदना आ दृष्टि मांगैत अछि।"}, {"q": "विहनि कथा आ सूक्ति बीच सीमा कोना चिन्हल जा सकैत अछि?", "opts": ["विहनि कथामे कथा-स्थिति/चरित्र/घटना-बीज रहैत अछि; सूक्तिमे विचार प्रत्यक्ष रहैत अछि", "दूनू पूर्णतः समान अछि", "सूक्ति सदैव लम्बी होइत अछि", "विहनि कथा विचार-विहीन होइत अछि"], "ans": 0, "exp": "विहनि कथा विचार दे सकैत अछि, मुदा ओ कथा-बीज आ कलात्मक स्थिति द्वारा देइत अछि।"}, {"q": "विधा-विकासमे आलोचकक भूमिका की होएब चाही?", "opts": ["रचनात्मक काजक नोटिस लऽ, कसौटी विकसित कऽ, सार्थक संवाद बनएब", "केवल उपेक्षा करब", "लेखकक उत्साह तोड़ब", "सिर्फ पुरस्कार-सूची बनएब"], "ans": 0, "exp": "वियोगीजीक संवाद आलोचना/मान्यता-अभावक प्रश्न उठबैत अछि; स्वस्थ आलोचना विधा-विकासक साथी अछि।"}, {"q": "‘विहनि’ रूपकक दृष्टिसँ पाठकक भूमिका की अछि?", "opts": ["कथा-बीजकेँ अपन अनुभवमे अंकुरित करब", "केवल निष्क्रिय स्मरण करब", "लेखकक जीवनी खोजब", "पृष्ठ-संख्या गानब"], "ans": 0, "exp": "बीज-कथा पाठकक अनुभूति, स्मृति आ विचारमे विस्तार पबैत अछि; पाठक सह-रचनाकार बनैत अछि।"}, {"q": "विशेषांकक बहुस्वरता विहनि कथा लेल कोन निष्कर्ष देइत अछि?", "opts": ["विधा एकरूप नहि, अनेक शिल्प, कथ्य आ सामाजिक स्वर ग्रहण करि सकैत अछि", "विधा केवल एक लेखकक अधिकार अछि", "संग्रहमे भिन्नता दोष अछि", "बहुस्वरता लघुकथाकेँ नष्ट करैत अछि"], "ans": 0, "exp": "अनेक लेखकक उपस्थिति देखबैत अछि जे विहनि कथा विविध सामाजिक, नैतिक, व्यंग्यात्मक आ मानवीय प्रसंग समेटि सकैत अछि।"}];
+let idx=0, answers=Array(QDB.length).fill(null);
+const letters=['क','ख','ग','घ'];
+function initMap(){
+  const m=document.getElementById('qmap'); m.innerHTML='';
+  QDB.forEach((_,i)=>{const b=document.createElement('button'); b.className='dot'; b.textContent=i+1; b.onclick=()=>showQ(i); m.appendChild(b);});
 }
-function switchTab(gi){
-  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===gi));
-  document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',i===gi));
-  window.scrollTo({top:0,behavior:'smooth'});
+function updateTop(){
+  const done=answers.filter(x=>x!==null).length, ok=answers.filter((x,i)=>x===QDB[i].ans).length, bad=answers.filter((x,i)=>x!==null&&x!==QDB[i].ans).length;
+  document.getElementById('cur').textContent=idx+1; document.getElementById('score').innerHTML=`✓ ${ok} &nbsp; ✗ ${bad}`;
+  document.getElementById('bar').style.width=(done/QDB.length*100)+'%';
+  [...document.querySelectorAll('.dot')].forEach((d,i)=>{d.className='dot'+(answers[i]!==null?' answered':'')+(answers[i]===QDB[i].ans?' ok':'')+(answers[i]!==null&&answers[i]!==QDB[i].ans?' bad':'');});
 }
-function showScore(){
-  const pct=Math.round(score/total*100);
-  let msg=pct>=80?'उत्कृष्ट! अहाँक ज्ञान अद्भुत अछि।':pct>=50?'नीक प्रयास — आओर पढ़ू।':'फेर सँ प्रयास करू, अहाँ नीक करब।';
-  const sb=document.createElement('div');sb.className='scoreboard';
-  sb.innerHTML='<div class="orn">❖ ❖ ❖</div><div class="scbig">'+score+' / '+total+'</div>'+
-    '<div class="scpct">'+pct+'%</div><div class="scmsg">'+msg+'</div>'+
-    '<button class="nbtn pri" onclick="location.reload()">फेर सँ खेलू</button>';
-  const w=document.querySelector('.wrap');w.insertBefore(sb,w.firstChild);
-  window.scrollTo({top:0,behavior:'smooth'});
+function showQ(i){
+  idx=i; const q=QDB[i]; document.getElementById('result').style.display='none';
+  let chosen=answers[i];
+  let h=`<article class="qcard"><div class="qmeta"><span>प्रश्न ${i+1}</span><span>उच्च-स्तर / अवधारणा-आधारित</span></div><p class="qtext">${q.q}</p><div class="opts">`;
+  q.opts.forEach((o,k)=>{let cls='opt'; if(chosen!==null){cls+=' locked'; if(k===q.ans) cls+=' correct'; else if(k===chosen) cls+=' wrong';} h+=`<div class="${cls}" onclick="choose(${k})"><span class="key">${letters[k]}.</span><span class="txt">${o}</span></div>`;});
+  h+=`</div><div class="fb ${chosen===null?'':(chosen===q.ans?'ok show':'bad show')}"><strong>${chosen===null?'':(chosen===q.ans?'सही उत्तर।':'गलत उत्तर।')}</strong><br>${chosen===null?'':q.exp}</div><div class="navrow"><button class="btn2" onclick="showQ(Math.max(0,idx-1))">← पछिला</button><button class="btn" onclick="idx<QDB.length-1?showQ(idx+1):finish()">${idx<QDB.length-1?'अगिला →':'परिणाम देखू'}</button></div></article>`;
+  document.getElementById('quiz').innerHTML=h; updateTop(); window.scrollTo({top:0,behavior:'smooth'});
 }
+function choose(k){ if(answers[idx]!==null) return; answers[idx]=k; showQ(idx); }
+function finish(){
+  updateTop(); const ok=answers.filter((x,i)=>x===QDB[i].ans).length, bad=answers.filter((x,i)=>x!==null&&x!==QDB[i].ans).length, skip=answers.filter(x=>x===null).length;
+  const pct=Math.round(ok/QDB.length*100); const r=document.getElementById('result');
+  r.innerHTML=`<div class="big">${ok}/${QDB.length}</div><p><strong>${pct}%</strong> सही</p><p>गलत: ${bad} | अनुत्तरित: ${skip}</p><button class="btn" onclick="restart()">फेरसँ शुरू करू</button>`;
+  r.style.display='block'; window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});
+}
+function restart(){answers=Array(QDB.length).fill(null); idx=0; showQ(0);}
+initMap(); showQ(0);
 </script>
 </body>
 </html>

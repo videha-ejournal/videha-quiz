@@ -1,146 +1,92 @@
 <!DOCTYPE html>
 <html lang="mai">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>गजल आलोचना-समालोचना-समीक्षा विशेषांक — विदेह क्विज</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>गजल आलोचना-समालोचना-समीक्षा विशेषांक — उच्च-स्तरीय प्रश्नोत्तरी</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#1a2744;--crimson:#8B1A1A;--gold:#c49a3c;--cream:#FAF6EE;
---ok-fg:#1d7a3e;--bad-fg:#a32020}
-*{box-sizing:border-box}
-body{margin:0;background:var(--cream);color:#1A1A1A;
-font-family:'Lato','Segoe UI',system-ui,sans-serif;line-height:1.55;padding-bottom:60px}
-header{background:linear-gradient(180deg,#16213b,var(--navy));color:#fff;
-padding:28px 20px 22px;text-align:center;border-bottom:4px solid var(--gold)}
-header h1{margin:0;font-family:'Noto Serif Devanagari',serif;font-size:1.7em}
-header .sub{color:var(--gold);font-size:.82em;letter-spacing:.1em;font-style:italic;margin-top:8px}
-header .src{color:#cdd6ea;font-size:.78em;margin-top:6px}
-.wrap{max-width:760px;margin:0 auto;padding:20px 16px}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;justify-content:center}
-.tab{font-family:'Noto Serif Devanagari',serif;font-weight:700;font-size:.9em;
-padding:8px 16px;border-radius:20px;border:2px solid var(--navy);background:#fff;
-color:var(--navy);cursor:pointer;transition:.15s}
-.tab.active{background:var(--navy);color:#fff}
-.counter-badge{background:var(--crimson);color:#fff;font-size:.72em;font-weight:700;
-padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle}
-.progress{height:6px;background:#e7dcc2;border-radius:4px;margin-bottom:18px;overflow:hidden}
-.progress > div{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--crimson));transition:width .3s}
-.pane{display:none}.pane.active{display:block}
-.card{background:#fff;border-radius:11px;box-shadow:0 4px 16px rgba(26,39,68,.1);
-padding:22px 22px 18px;margin-bottom:16px}
-.qmeta{font-size:.78em;color:#8a93ab;font-weight:700;margin-bottom:8px}
-.q{font-family:'Noto Serif Devanagari',serif;font-size:1.12em;font-weight:600;
-color:var(--navy);margin-bottom:14px}
-.opt{display:block;width:100%;text-align:left;
-font-family:'Noto Serif Devanagari',serif;font-size:1em;
-padding:11px 15px;margin-bottom:9px;border:1.5px solid #d8cfb8;border-radius:8px;
-background:#fffdf8;cursor:pointer;transition:.13s;color:#1A1A1A}
-.opt:hover{border-color:var(--gold);background:#fff8e8}
-.opt.ok{border-color:var(--ok-fg);background:#eafaf0;color:var(--ok-fg);font-weight:700}
-.opt.bad{border-color:var(--bad-fg);background:#fdeeee;color:var(--bad-fg)}
-.opt:disabled{cursor:default}
-.fb{margin-top:11px;font-size:.92em;font-weight:600;min-height:20px;
-font-family:'Noto Serif Devanagari',serif}
-.fb.ok{color:var(--ok-fg)}.fb.bad{color:var(--bad-fg)}
-.hint-box{background:#fffbef;border:1px solid var(--gold);border-radius:7px;
-padding:10px 14px;margin-top:10px;font-family:'Noto Serif Devanagari',serif;
-font-size:.88em;color:#5a4010;display:none}
-.hint-box.show{display:block}
-.nav{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
-.nbtn{font-family:'Lato',sans-serif;font-size:.9em;font-weight:700;
-padding:9px 20px;border-radius:6px;border:none;cursor:pointer;transition:.15s}
-.nbtn.pri{background:var(--crimson);color:#fff}.nbtn.pri:hover{background:var(--navy)}
-.nbtn.sec{background:transparent;color:var(--navy);border:2px solid var(--navy)}
-.nbtn.sec:hover{background:var(--navy);color:#fff}
-.scoreboard{background:#fff;border-radius:11px;box-shadow:0 4px 18px rgba(26,39,68,.11);
-padding:34px 26px;text-align:center;margin-bottom:18px}
-.scbig{font-family:'Playfair Display',serif;font-size:2.8em;color:var(--crimson);font-weight:700;margin-bottom:6px}
-.scpct{font-size:1.05em;color:#5a6a8a;margin-bottom:9px}
-.scmsg{font-family:'Noto Serif Devanagari',serif;font-size:1.05em;color:var(--navy);margin-bottom:20px}
-.orn{text-align:center;color:var(--gold);font-size:1em;letter-spacing:.2em;margin:14px 0;opacity:.65}
-footer{text-align:center;color:#8a7a4a;font-size:.78em;padding:24px 16px 0}
-footer a{color:var(--crimson);text-decoration:none}
-@media(max-width:520px){header h1{font-size:1.35em}.q{font-size:1.05em}}
+:root{--navy:#17264a;--crimson:#9b1c2e;--gold:#c8973a;--cream:#f7f2e8;--ok:#2e7d32;--ok-bg:#e8f5e9;--bad:#b71c1c;--bad-bg:#ffebee;--muted:#66708a}
+*{box-sizing:border-box} body{margin:0;background:var(--cream);font-family:Lato,Arial,sans-serif;color:var(--navy);line-height:1.55}
+header{background:var(--navy);color:#fff;text-align:center;padding:18px 12px;border-bottom:5px solid var(--gold)}
+header h1{font-family:'Noto Serif Devanagari',serif;font-size:1.45rem;margin:0 0 6px;line-height:1.35}
+header .brand{font-size:.86rem;color:var(--gold);font-weight:700;letter-spacing:.02em}
+header .sub{font-family:'Noto Serif Devanagari',serif;font-size:.95rem;margin-top:6px;color:#dbe4ff}
+main{max-width:980px;margin:18px auto 50px;padding:0 14px}
+.panel{background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(23,38,74,.12);padding:16px;margin-bottom:14px;border-left:5px solid var(--navy)}
+.topbar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.score{font-weight:700;color:var(--crimson)}
+.progress{flex:1;min-width:180px;height:9px;background:#d9dfeb;border-radius:20px;overflow:hidden} .bar{height:100%;background:var(--gold);width:0%;transition:.2s}
+button{font-family:Lato,Arial,sans-serif;font-weight:700;border:0;border-radius:7px;padding:9px 14px;cursor:pointer}
+.btn{background:var(--navy);color:#fff} .btn:hover{background:var(--crimson)} .btn2{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+.qmap{display:flex;gap:4px;flex-wrap:wrap;margin-top:12px} .dot{width:24px;height:24px;border-radius:5px;border:1px solid #b8c1d8;background:#eef2fa;color:var(--navy);font-size:.72rem;padding:0} .dot.answered{background:#dfe8f9} .dot.ok{background:var(--ok);color:#fff} .dot.bad{background:var(--bad);color:#fff}
+.qcard{background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(23,38,74,.10);padding:20px;margin:16px 0;border-left:5px solid var(--gold)}
+.qmeta{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:.82rem;font-weight:700;margin-bottom:8px}
+.qtext{font-family:'Noto Serif Devanagari',serif;font-size:1.13rem;font-weight:700;margin:0 0 14px;color:var(--navy)}
+.opts{display:grid;gap:9px} .opt{display:flex;gap:10px;align-items:flex-start;background:#f4f7fd;border:2px solid #d2daec;border-radius:10px;padding:10px 12px;cursor:pointer}
+.opt:hover{border-color:var(--navy)} .opt .key{font-weight:700;min-width:22px} .opt .txt{font-family:'Noto Serif Devanagari',serif}
+.opt.correct{background:var(--ok-bg);border-color:#7bc47f;color:var(--ok)} .opt.wrong{background:var(--bad-bg);border-color:#e57373;color:var(--bad)} .opt.locked{cursor:default}
+.fb{display:none;margin-top:10px;border-radius:8px;padding:10px 12px;font-family:'Noto Serif Devanagari',serif} .fb.show{display:block} .fb.ok{background:var(--ok-bg);border-left:4px solid var(--ok)} .fb.bad{background:var(--bad-bg);border-left:4px solid var(--bad)}
+.navrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.result{display:none;text-align:center} .big{font-size:2.6rem;font-weight:700;color:var(--crimson)}
+.back{text-align:center;margin:24px 0} .back a{color:var(--crimson);font-family:'Noto Serif Devanagari',serif;font-weight:700;text-decoration:none}
+footer{text-align:center;padding:20px;color:#6a728a;font-size:.85rem}
+@media(max-width:600px){.qtext{font-size:1rem}.topbar{align-items:stretch}.progress{min-width:100%}}
 </style>
 </head>
 <body>
 <header>
-  <h1>गजल आलोचना-समालोचना-समीक्षा विशेषांक</h1>
-  <div class="sub">GAZAL ALOCHANA SPECIAL ISSUE · विदेह अंक १४२ · १५ नवम्बर २०१३</div>
-  <div class="src">विदेह : प्रथम मैथिली पाक्षिक ई-पत्रिका · videha.co.in · ISSN 2229-547X</div>
+  <h1>गजल आलोचना-समालोचना-समीक्षा विशेषांक — उच्च-स्तरीय प्रश्नोत्तरी</h1>
+  <div class="brand">Videha QUIZ | विदेह ई-लर्निङ्ग क्विज / Videha eLearning Quiz / Videha — First Maithili Fortnightly eJournal | www.videha.co.in</div>
+  <div class="sub">मैथिली गजल समीक्षा, गजलशास्त्र, भाषा, रदीफ-काफिया, बहर, इतिहास आ आलोचना-दृष्टि</div>
 </header>
-<div class="orn">❖ ❖ ❖</div>
-<div class="wrap">
-  <div class="tabs" id="tabs"></div>
-  <div class="progress"><div id="bar"></div></div>
-  <div id="panes"></div>
-</div>
-<footer>© विदेह Videha · <a href="https://videha.co.in">videha.co.in</a> · विदेह विशेषांक प्रश्नोत्तरी</footer>
+<main>
+  <section class="panel">
+    <div class="topbar">
+      <span><strong>Special Issue 11</strong> — प्रश्न <strong id="cur">1</strong> / <strong>55</strong></span>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <span class="score" id="score">✓ 0 &nbsp; ✗ 0</span>
+      <button class="btn2" onclick="showQ(0)">←← पहिल</button>
+      <button class="btn" onclick="restart()">नव क्विज</button>
+    </div>
+    <div class="qmap" id="qmap"></div>
+  </section>
+  <section id="quiz"></section>
+  <section class="panel result" id="result"></section>
+  <div class="back"><a href="https://www.videha.co.in/videha-elearning.htm">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a></div>
+</main>
+<footer>© Gajendra Thakur, Editor — Videha eJournal</footer>
 <script>
-const DATA = [{"tab": "विशेषांक परिचय", "items": [{"q": "विदेहक ई गजल आलोचना-समालोचना-समीक्षा विशेषांक कोन अंक छल?", "opts": ["१४२ म अंक", "१२६ म अंक", "१११ म अंक", "१६९ म अंक"], "correct": 0, "hint": "१५ नवम्बर २०१३, वर्ष ६ अंक १४२।"}, {"q": "ई विशेषांक कोन तिथिकेँ प्रकाशित भेल?", "opts": ["१५ नवम्बर २०१३", "१५ मार्च २०१३", "०१ अगस्त २०१२", "०१ मार्च २०११"], "correct": 0, "hint": "वर्ष ६ मास ७१ अंक १४२।"}, {"q": "एहि अंकक केन्द्रीय विषय की छल?", "opts": ["गजल समीक्षा/आलोचना", "भक्ति गजल", "बाल गजल", "अनुवाद"], "correct": 0, "hint": "\"पेटारसँ\" शृंखलामे अनेक गजल-समीक्षा।"}]}, {"tab": "समीक्षा आ रचना", "items": [{"q": "\"प्रतिबद्ध साहित्यकारक अप्रतिबद्ध गजल\" आलेख केकर अछि?", "opts": ["जगदीश चन्द्र ठाकुर 'अनिल'", "ओम प्रकाश", "अमित मिश्र", "धीरेन्द्र प्रेमर्षि"], "correct": 0, "hint": "गद्य विभाग २.३।"}, {"q": "एहि अंकमे गजेन्द्र ठाकुर केतेक आलेख (संपादकीय सहित) देलन्हि?", "opts": ["४ टा", "२ टा", "६ टा", "१ टा"], "correct": 0, "hint": "\"पेटारसँ\" गजल समीक्षा।"}, {"q": "\"नेता जी बकवास करै छथि\" कविता केकर अछि?", "opts": ["गंगेश गुंजन", "कामिनी कामायनी", "भालचन्द्र झा", "राजदेव मण्डल"], "correct": 0, "hint": "पद्य विभाग ३.५।"}, {"q": "एहि अंकक संस्कृत शिक्षा स्तंभमे \"भर्तृहरिक भाषाशास्त्रीय योगदान\" केकर आलेख थिक?", "opts": ["डॉ. अमर जी झा", "गजेन्द्र ठाकुर", "अमित मिश्र", "ओम प्रकाश"], "correct": 0, "hint": "विभाग ७, संस्कृत शिक्षा।"}]}];
-let score=0,total=0,answered=0;
-DATA.forEach(g=>total+=g.items.length);
-const tabsEl=document.getElementById('tabs');
-const panesEl=document.getElementById('panes');
-const bar=document.getElementById('bar');
-DATA.forEach((g,gi)=>{
-  const tb=document.createElement('button');
-  tb.className='tab'+(gi===0?' active':'');
-  tb.innerHTML=g.tab+'<span class="counter-badge">'+g.items.length+'</span>';
-  tb.onclick=()=>switchTab(gi);
-  tabsEl.appendChild(tb);
-  const pane=document.createElement('div');
-  pane.className='pane'+(gi===0?' active':'');
-  pane.id='pane-'+gi;
-  g.items.forEach((q,qi)=>pane.appendChild(buildCard(g,gi,qi,q)));
-  panesEl.appendChild(pane);
-});
-function buildCard(g,gi,qi,q){
-  const card=document.createElement('div');card.className='card';
-  const meta=document.createElement('div');meta.className='qmeta';
-  meta.textContent=g.tab+' · प्रश्न '+(qi+1)+'/'+g.items.length;card.appendChild(meta);
-  const qd=document.createElement('div');qd.className='q';qd.textContent=q.q;card.appendChild(qd);
-  const opts=[];
-  q.opts.forEach((o,oi)=>{
-    const b=document.createElement('button');b.className='opt';b.textContent=o;
-    b.onclick=()=>pick(b,oi);card.appendChild(b);opts.push(b);
-  });
-  const fb=document.createElement('div');fb.className='fb';card.appendChild(fb);
-  let hintBox=null;
-  if(q.hint){hintBox=document.createElement('div');hintBox.className='hint-box';
-    hintBox.textContent='💡 '+q.hint;card.appendChild(hintBox);}
-  const nav=document.createElement('div');nav.className='nav';
-  if(q.hint){const hb=document.createElement('button');hb.className='nbtn sec';hb.textContent='संकेत';
-    hb.onclick=()=>hintBox.classList.toggle('show');nav.appendChild(hb);}
-  card.appendChild(nav);
-  let done=false;
-  function pick(btn,oi){
-    if(done)return;done=true;answered++;
-    opts.forEach((b,bi)=>{b.disabled=true;
-      if(bi===q.correct)b.classList.add('ok');
-      else if(b===btn)b.classList.add('bad');});
-    if(oi===q.correct){score++;fb.className='fb ok';fb.textContent='✓ सही उत्तर!';}
-    else{fb.className='fb bad';fb.textContent='✗ सही उत्तर: '+q.opts[q.correct];}
-    bar.style.width=(answered/total*100)+'%';
-    if(answered===total)showScore();
-  }
-  return card;
+const QDB = [{"q": "गजल आलोचना-समालोचना-समीक्षा विशेषांकक केन्द्र-बिंदु की अछि?", "opts": ["कविक नाम गिनब मात्र", "केवल प्रशंसात्मक वाक्य लिखब", "मैथिली गजलक भाषा, शिल्प, व्याकरण, दोष-गुण आ भाव-गहराईक विवेकपूर्ण परीक्षण", "केवल पृष्ठ-संख्या देखब"], "ans": 2, "exp": "ई विशेषांक गजलकेँ केवल पढ़बाक नहि, ओकर संरचना आ साहित्यिक मूल्य बुझबाक अभ्यास करबैत अछि।"}, {"q": "संपादकीय दृष्टिसँ गजलक समीक्षा मे सभसँ पहिने की देखबाक चाही?", "opts": ["केवल पृष्ठ-संख्या देखब", "कविक नाम गिनब मात्र", "केवल प्रशंसात्मक वाक्य लिखब", "गजलक भाषा मैथिली-संस्कार, स्वाभाविकता आ शब्दचयनक कसौटी पर खड़ी अछि कि नहि"], "ans": 3, "exp": "भाषा आधार अछि; भाषा अस्वाभाविक भेल तँ शिल्प आ भावक प्रभाव कमजोर भऽ जाइत अछि।"}, {"q": "गजलमे ‘स्वतंत्रता’क नामपर हिन्दी-प्रभुत्व किएक प्रश्न बनैत अछि?", "opts": ["किएकि केवल कठिन शब्द चाही", "किएकि हिन्दी शब्द सदैव निषिद्ध", "किएकि भाषा-स्वाधीनता मातृभाषाक स्वभाव बचबैत, अनावश्यक मिश्रण नहि बढ़बैत अछि", "किएकि गजलमे भाषा जरूरी नहि"], "ans": 2, "exp": "संपादकीय दृष्टि अनावश्यक भाषायी निर्भरता पर प्रश्न उठबैत अछि; जरूरत पर शब्द-ग्रहण संभव अछि, मुदा स्वभाव नष्ट नहि।"}, {"q": "गजल-व्याकरण कहला पर मुख्यतः कोन तत्त्व बुझबाक चाही?", "opts": ["केवल कथा-सार", "केवल शीर्षक", "केवल कविक परिचय", "रदीफ, काफिया आ बहरक अनुशासन"], "ans": 3, "exp": "मैथिली गजल आलोचनामे व्याकरण शब्द शिल्प-संरचनाक मूल संकेत दैत अछि।"}, {"q": "रदीफक समीक्षा किएक जरूरी अछि?", "opts": ["ओ कविक उपनाम", "ओ गजलमे निषिद्ध", "ओ शेर-शेरमे ध्वनि-पुनरावृत्ति आ भाव-सूत्रक कार्य करैत अछि", "ओ केवल सजावटी विराम"], "ans": 2, "exp": "रदीफ एकरूपता दैत अछि; कमजोर रदीफ गजलक श्रवणीयता घटा सकैत अछि।"}, {"q": "काफियाक आलोचनात्मक परीक्षण की देखैत अछि?", "opts": ["कागजक रंग", "लेखक-सूची", "कविक जीवन-वर्ष", "रदीफसँ पहिने ध्वनि-साम्य सही, स्वाभाविक आ अर्थपूर्ण अछि कि नहि"], "ans": 3, "exp": "काफिया गजलक ध्वनिक बुनावटमे मुख्य भूमिका निभबैत अछि।"}, {"q": "बहरक उपेक्षा भेलासँ गजलमे कोन मुख्य हानि होइत अछि?", "opts": ["लय, संतुलन आ गजलत्व कमजोर भऽ जाइत अछि", "भाषा अपने सुधरि जाइत", "प्रकाशन रुकि जाइत", "शीर्षक बदलि जाइत"], "ans": 0, "exp": "गजल भाव-मात्र नहि, अनुशासित लयात्मक संरचना सेहो अछि।"}, {"q": "संपादकीय क्रममे भाषा आ व्याकरणक बाद सामान्य गजल-दोष देखबाक अर्थ की अछि?", "opts": ["कविक जाति जानब", "पृष्ठ संख्या मिलान", "शिल्पगत कमजोरी, असंगति, कृत्रिमता आ अनावश्यक दोहरावक पहचान", "समीक्षा रोकि देब"], "ans": 2, "exp": "दोष-गुणक विवेचन समीक्षा केँ ठोस बनबैत अछि।"}, {"q": "गजल समीक्षा मे भावनाकेँ अंतमे देखबाक सुझावक अर्थ की अछि?", "opts": ["भावना मात्रे पर्याप्त अछि", "व्याकरणक जरूरत नहि", "शिल्पक आधार देखलाक बाद भाव-संवेदनाक प्रामाणिकता परखब", "भावना अप्रासंगिक अछि"], "ans": 2, "exp": "समीक्षा भावकेँ नकारैत नहि; ओकरा शिल्पक संग जोड़ि देखैत अछि।"}, {"q": "‘काव्य कागज पर लिखल शब्द मात्र नहि’ — एहि बातक साहित्यिक अर्थ की अछि?", "opts": ["केवल मौखिक पाठ हो", "गजलमे जीवनक अर्थ नहि", "कविता लिखल नहि जाए", "रचना जीवनक कर्म, अनुभव आ नैतिक संवेदनासँ अनुप्राणित होएब चाही"], "ans": 3, "exp": "एहि दृष्टिमे साहित्य जीवन-सापेक्ष अछि, केवल शब्द-कौशल नहि।"}, {"q": "प्रतिबद्ध साहित्यकारक गजल समीक्षा मे ‘प्रतिबद्धता’क कसौटी की बनैत अछि?", "opts": ["केवल आत्मप्रशंसा", "केवल राजनीतिक नारा", "समाज, भाषा, पाठक आ शिल्प—चारू प्रति जिम्मेदारी", "कुनो अनुशासन नहि"], "ans": 2, "exp": "प्रतिबद्धता गजलमे विचार, भाषा आ काव्य-कर्मक समन्वय माँगैत अछि।"}, {"q": "‘अप्रतिबद्ध गजल’क आलोचना कखन उचित होइत अछि?", "opts": ["जखन रचना जीवन-सरोकार, भाषा-संयम वा शिल्प-ईमानदारीसँ खाली रहि जाए", "जखन पृष्ठ कम हो", "जखन कविक नाम अज्ञात हो", "जखन रदीफ अछि"], "ans": 0, "exp": "अप्रतिबद्धता साहित्यिक जिम्मेदारीक अभावक संकेत भऽ सकैत अछि।"}, {"q": "गजल-संग्रहक समीक्षा मे ‘गेटअप’ आ छपाई पर ध्यान देब पर्याप्त किएक नहि?", "opts": ["किएकि पाठक पुस्तक नहि देखैत", "किएकि बाह्य रूपसँ अधिक महत्वपूर्ण भाषा, शिल्प, बहर, कथ्य आ प्रभाव अछि", "किएकि छपाई सदैव गलत", "किएकि गजल मौखिक मात्र"], "ans": 1, "exp": "बाह्य प्रस्तुति उपयोगी अछि, मुदा साहित्यिक मूल्यांकनक केंद्र रचना होएब चाही।"}, {"q": "मैथिली गजलक नवजागरण कहबा योग्य पक्ष की अछि?", "opts": ["केवल कवि-संख्या", "केवल पुरस्कार", "नव पीढ़ीक सजग गजलकार, गजलशास्त्र, चर्चा-मंच आ शिल्प-बोधक विकास", "केवल इंटरनेटक नाम"], "ans": 2, "exp": "विशेषांक मैथिली गजलक नूतन जागरण केँ शास्त्रीयता आ संवादक रूपमे देखैत अछि।"}, {"q": "‘फराक गजलशास्त्र’ भेटबाक अर्थ की अछि?", "opts": ["गजलकेँ समाप्त करब", "समीक्षा रोकि देब", "केवल अनुवाद करब", "मैथिलीमे गजल, रुबाइ, कता, नात आदि लेल व्याकरणिक पृष्ठभूमि विकसित होएब"], "ans": 3, "exp": "गजलशास्त्र विधाक आत्मनिर्भरता आ अनुशासन स्थापित करैत अछि।"}, {"q": "इंटरनेट आ ब्लॉगक भूमिका मैथिली गजलमे कोना महत्वपूर्ण भेल?", "opts": ["ओ गजलशास्त्र, बहस, प्रशिक्षण आ रचनाक व्यापक प्रसारक मंच बनल", "ओ मुद्रित पाठकेँ नष्ट कएलक", "ओ केवल मनोरंजन रहल", "ओ शिल्पसँ असंबद्ध रहल"], "ans": 0, "exp": "सूचना-क्रांतिक माध्यम नवतूर साहित्यकारक संवादक साधन बनल।"}, {"q": "मैथिली गजलक इतिहासमे जीवन झाक उल्लेख किएक महत्त्वपूर्ण अछि?", "opts": ["गजल-विरोध सिद्ध करबाक लेल", "मंच सज्जाक लेल", "आरंभिक मैथिली गजल-प्रयासक ऐतिहासिक सूत्र बुझबाक लेल", "केवल नाम-स्मरण लेल"], "ans": 2, "exp": "इतिहास विधाक निरंतरता देखबैत अछि, मात्र वर्तमान प्रवृत्ति नहि।"}, {"q": "फारसी प्रभावक चर्चा मैथिली गजल आलोचनामे किएक अबैत अछि?", "opts": ["सभी गजल फारसीमे लिखबाक लेल", "मैथिलीकेँ फारसी घोषित करबाक लेल", "भाषा बदलि देबाक लेल", "किएकि गजल-विधाक आरंभिक शब्द-शिल्प आ सांस्कृतिक सम्पर्क बुझबाक लेल ई प्रसंग उपयोगी अछि"], "ans": 3, "exp": "इतिहास बतबैत अछि जे साहित्यिक रूप पर भाषिक-सांस्कृतिक सम्पर्कक असर पड़ैत अछि।"}, {"q": "‘गीतल’ बनाम गजल विवादक मुख्य आलोचनात्मक प्रश्न की अछि?", "opts": ["नाम बदललासँ सभ सिद्ध", "रचना गजल-शास्त्रीय कसौटी पूरा करैत अछि कि केवल गीतात्मक रूपमे रहि जाइत अछि", "गजलमे लय नहि", "गीत सदैव हीन"], "ans": 1, "exp": "विधा-नाम पर्याप्त नहि; संरचना आ शिल्प जाँचल आवश्यक अछि।"}, {"q": "पुरान गजलकारक त्रुटि पर नव आलोचकक दृष्टि कोना होएबाक चाही?", "opts": ["केवल अनुक्रमणिका", "अंध-प्रशंसा", "ऐतिहासिक परिस्थिति, उपलब्ध गजलशास्त्र आ रचनाक सामर्थ्य—तीनू देखबाक चाही", "पूर्ण नकार"], "ans": 2, "exp": "समालोचना न्यायपूर्ण होएबाक लेल काल-संदर्भ आ शिल्प दुनू बुझैत अछि।"}, {"q": "गजल-समीक्षा मे कठोरता कखन रचनात्मक बनैत अछि?", "opts": ["जखन दोष चिन्हित करैत समाधान, दिशा आ कसौटी सेहो देलक जाए", "जखन केवल अपमान हो", "जखन लेखकक परिचय हटाए", "जखन पाठक डरि जाए"], "ans": 0, "exp": "उच्च समीक्षा आलोचना संग मार्गदर्शन दैत अछि।"}, {"q": "‘बहुत किछु बुझबैए : कियो बूझि नहि सकल हमरा’ सन शीर्षक समीक्षा-दृष्टि सँ की खोलैत अछि?", "opts": ["गजलक अर्थ-स्तर, अस्पष्टता, संप्रेषण आ पाठकीय ग्रहणक प्रश्न", "केवल छपाईक दोष", "केवल कविक पता", "कुनो अर्थ नहि"], "ans": 0, "exp": "गजलमे संकेत आ संक्षिप्तता रहैत अछि, मुदा संप्रेषणीयता सेहो आवश्यक अछि।"}, {"q": "गजल समीक्षा मे ‘डाह’ आ ‘प्रेम’क विवेचन कोन बड़ प्रश्न उठबैत अछि?", "opts": ["समीक्षा मे संबंध नहिये", "प्रेम शिल्प समाप्त करैत", "डाह श्रेष्ठ आलोचना अछि", "रचनात्मक उन्नति प्रेम, उदारता आ साहित्यिक संवादसँ सम्भव अछि, ईर्ष्यासँ नहि"], "ans": 3, "exp": "साहित्यिक समाजक स्वास्थ्य आलोचकक भाव-दृष्टिसँ जुड़ल अछि।"}, {"q": "मैथिली गजल आलोचना मे ‘नवतूर’ साहित्यकारक भूमिका की अछि?", "opts": ["समीक्षा-विरोध", "केवल पुरानक नकल", "पूर्वपरंपरा पर पुनर्विचार, शास्त्र-निर्माण आ नव कविक प्रशिक्षण", "केवल पृष्ठ सज्जा"], "ans": 2, "exp": "नव पीढ़ी मात्र रचना नहि, विधा-चेतना सेहो गढ़ैत अछि।"}, {"q": "आरंभिक गजलमे अरबी बहर-सदृश अनुशासनक उल्लेख किएक महत्त्वपूर्ण अछि?", "opts": ["मैथिलीमे बहर असंभव", "एहि सँ देखाइत अछि जे मैथिली गजल प्रारंभहि सँ शिल्प-नियमक निकट रहल", "इतिहास असंगत", "गजल मात्र गीत"], "ans": 1, "exp": "गजल-व्याकरणक परंपरा मैथिलीमे पूर्णतः बाहरी आरोप नहि, ऐतिहासिक रूपे मौजूद छल।"}, {"q": "‘गजलक नव-विधान’ स्वीकार करबासँ इनकार किएक समस्या बनैत अछि?", "opts": ["किएकि विधाक विकास लेल शास्त्रीय कसौटी आ संवाद स्वीकार करब जरूरी अछि", "किएकि पुरान कविता मिटि जाए", "किएकि लेखक बदलि जाए", "किएकि पाठक कम हो"], "ans": 0, "exp": "जड़ आग्रह विधा-विकास रोकि सकैत अछि।"}, {"q": "गजलमे भाव उत्तम होइतहुँ रचना ‘निंघेस’ किएक सिद्ध भऽ सकैत अछि?", "opts": ["जँ भाषा मैथिली हो", "जँ शिल्प, बहर, रदीफ-काफिया वा गजलत्व टूटि जाए", "जँ कवि प्रसिद्ध हो", "जँ भाव अधिक हो"], "ans": 1, "exp": "उत्तम भाव आवश्यक अछि, मुदा गजल-रूपक अनुशासन सेहो आवश्यक अछि।"}, {"q": "समालोचना आ समीक्षा मे सूक्ष्म भेद कोना बुझल जा सकैत अछि?", "opts": ["दुनू पृष्ठ संख्या", "दुनू केवल निंदा", "दुनू असाहित्यिक", "समीक्षा तात्कालिक मूल्यांकन दैत, समालोचना गहिर सिद्धान्तात्मक विश्लेषण धरि पहुँचैत अछि"], "ans": 3, "exp": "विशेषांकक शीर्षकेँ आलोचना-समीक्षा-समालोचना रखबाक कारण एहि स्तर-विस्तारमे अछि।"}, {"q": "गजल-समीक्षा मे उद्धरणक उपयोग कखन सार्थक होइत अछि?", "opts": ["जखन उद्धरण सँ शिल्प, भाव वा दोष स्पष्ट हो", "जखन संदर्भ हटि जाए", "जखन उद्धरण मात्र सजावट", "जखन पूरा पाठ नकल हो"], "ans": 0, "exp": "उद्धरण प्रमाण बनैत अछि, स्थानापन्न समीक्षा नहि।"}, {"q": "गजल समीक्षा मे ‘भाषापाक’ दृष्टि किएक जरूरी अछि?", "opts": ["व्याकरण सदैव बोझ", "मानक, स्वच्छ, स्वाभाविक मैथिली गजलक संप्रेषण आ गरिमा बढ़बैत अछि", "भाषा अप्रासंगिक", "मानक भाषा गजल रोकैत"], "ans": 1, "exp": "भाषापाक रचना-लेखनक चिंता साहित्यिक गुणवत्ता सँ जुड़ल अछि।"}, {"q": "गजलमे देशज शब्दक प्रयोग कखन सफल मानल जाए?", "opts": ["जखन ओ अर्थ रोकि दे", "जखन शिल्प तोड़ि दे", "जखन ओ भाव, ध्वनि आ सांस्कृतिक धरातल केँ स्वाभाविक रूपे समृद्ध करै", "जखन केवल दिखावा हो"], "ans": 2, "exp": "देशजता गजलक कमजोरी नहि; स्वाभाविकता आ लय सँ जुड़ल हो तँ शक्ति अछि।"}, {"q": "गजल समीक्षा मे ‘कथ्य’क परीक्षण की देखैत अछि?", "opts": ["शेरक भाव-विषय नवीन, सघन, जीवन-सापेक्ष आ संक्षिप्त अछि कि नहि", "कविक हस्ताक्षर", "फॉन्ट", "कागजक मूल्य"], "ans": 0, "exp": "गजल कम शब्दमे तीव्र कथ्य माँगैत अछि।"}, {"q": "कमजोर गजलमे सामान्यतः कोन दोष देखाइत अछि?", "opts": ["अर्थ बहुत स्पष्ट", "मैथिली शब्द अधिक", "रदीफ उपस्थित", "तुकबंदी त अछि, मुदा भाव-सघनता, शिल्प-संतुलन आ भाषा-संयम नहि"], "ans": 3, "exp": "तुक मिलब गजल बनबाक प्रारंभिक शर्त हो सकैत अछि, पर्याप्त शर्त नहि।"}, {"q": "गजल समीक्षा मे ‘शेरक स्वतंत्रता’ केना परखल जाए?", "opts": ["हर शेर पूर्णतः असंबद्ध", "प्रत्येक शेर अपन अर्थपूर्ण इकाई हो, मुदा रदीफ-काफिया-लय सँ समग्र गजलसँ जुड़ल हो", "हर शेर कथा-अध्याय", "शेरक अर्थ जरूरी नहि"], "ans": 1, "exp": "गजल अलग-अलग शेरक कला अछि, परंतु ध्वनि-संरचना ओकरा जोड़ैत अछि।"}, {"q": "गजलमे सामाजिक आलोचना कखन काव्यात्मक बनैत अछि?", "opts": ["जखन पाठकक उपदेश हो", "जखन विचार प्रतीक, बिम्ब, लय आ सूक्ति-सघनता मे ढलि जाए", "जखन केवल भाषण हो", "जखन तुक हटि जाए"], "ans": 1, "exp": "गजल विचार केँ काव्य-संक्षेप आ ध्वनि-सौंदर्य मे रूपांतरित करैत अछि।"}, {"q": "‘आजाद गजल’क समीक्षा मे मुख्य सावधानी की अछि?", "opts": ["कुनो कसौटी नहि", "स्वतंत्रता आ विधा-विघटन बीच अंतर साफ करब", "गजल शब्द हटाएब", "नामे पर्याप्त"], "ans": 1, "exp": "आज़ादी काव्यात्मक होए, विधागत आलस्य नहि।"}, {"q": "गजल आलोचना मे पूर्वाग्रहक सबसे बड़ा खतरा की अछि?", "opts": ["शिल्प देखब", "भाषा देखब", "रचनाक बदला व्यक्ति, गुट वा निजी संबंधक आधार पर निर्णय", "संदर्भ देखब"], "ans": 2, "exp": "समीक्षा वस्तुनिष्ठता माँगैत अछि।"}, {"q": "गजल संग्रह पर समीक्षा लिखैत काल पाठकीय उपयोगिता की होएबाक चाही?", "opts": ["पाठक केँ बुझा देब जे संग्रहक सामर्थ्य, सीमा आ गजल-दृष्टि कोन अछि", "केवल आवरणक वर्णन", "केवल खरीद सूचना", "केवल लेखक प्रशंसा"], "ans": 0, "exp": "समीक्षा पाठकक विवेक बढ़बैत अछि।"}, {"q": "मैथिली गजलमे ‘लोक’क उपस्थिति की संकेत करैत अछि?", "opts": ["गजल केवल दरबारी", "भाषा, मुहावरा, सामाजिक अनुभव आ मिथिला-संस्कार गजलक भीतर आबि रहल अछि", "लोकभाषा गजल-विरोधी", "लोक अनुभव असाहित्यिक"], "ans": 1, "exp": "मैथिली गजल अपन लोक-जीवनसँ शक्ति लैत अछि।"}, {"q": "गजल समालोचना मे ‘इतिहास’ आ ‘वर्तमान’क संगति किएक चाही?", "opts": ["समीक्षा कालहीन", "इतिहास सदैव बाधा", "वर्तमान अप्रासंगिक", "इतिहास बिना वर्तमान प्रवृत्तिक मूल्यांकन अधूरा रहैत अछि"], "ans": 3, "exp": "गजलक आजुक रूप ओकर पुरान संघर्ष आ शिल्प-यात्रासँ जुड़ल अछि।"}, {"q": "गजल आलोचना मे ‘अनचिन्हार युग’क उल्लेख कोन अर्थ दैत अछि?", "opts": ["केवल नामक भ्रम", "गजल-विरोधी आंदोलन", "केवल अज्ञात काल", "ब्लॉग/नवमाध्यम द्वारा गजल-शास्त्र, बहस आ नव लेखनक सक्रिय चरण"], "ans": 3, "exp": "नवमाध्यम मैथिली गजलचेतनाक प्रसारमे महत्वपूर्ण रहल।"}, {"q": "गजल लेखनमे प्रशिक्षणक आवश्यकता किएक रेखांकित होइत अछि?", "opts": ["प्रशिक्षण रचना रोकैत", "शिल्प जरूरी नहि", "किएकि गजल स्वाभाविक भाव संग कठिन शिल्प-अनुशासन मांगैत अछि", "कविता सिखल नहि जा सकैत"], "ans": 2, "exp": "गजल-शास्त्र सीखलासँ अभिव्यक्ति अधिक कसावट पबैत अछि।"}, {"q": "समीक्षा मे ‘सामान्य गजल दोष’ बताबि देब किएक उपयोगी अछि?", "opts": ["दोष बतब आलोचना नहि", "नव रचनाकारकें पुनरावृत्त त्रुटिसँ बचबाक मार्ग भेटैत अछि", "सभी गजल समान", "दोष छिपेब श्रेष्ठ"], "ans": 1, "exp": "समीक्षा केवल निर्णय नहि, शिक्षण सेहो अछि।"}, {"q": "गजलमे ‘भावना’क आलोचना कखन कएल जाए?", "opts": ["जखन भाषा स्वाभाविक हो", "जखन बहर सही हो", "जखन भाव सघन हो", "जखन भावना कृत्रिम, उधार, अतिनाटकीय वा शिल्पहीन हो"], "ans": 3, "exp": "प्रामाणिकता आ कलात्मकता भावक कसौटी अछि।"}, {"q": "समीक्षकक भाषा कोना होएबाक चाही?", "opts": ["अस्पष्ट प्रशंसा", "स्पष्ट, प्रमाणसंगत, मर्यादित आ साहित्यिक", "केवल उपहास", "व्यक्तिगत आक्रामक"], "ans": 1, "exp": "समीक्षा संवाद रचैत अछि; भाषा असंयमित भेल तँ विवेचन कमजोर होइत अछि।"}, {"q": "गजल समीक्षा मे ‘मौलिकता’क अर्थ की अछि?", "opts": ["परंपरा पूर्ण नकार", "उधार भाव वा घिसल प्रतीकक बजाय निजी अनुभवक सघन काव्यात्मक रूप", "छंद तोड़ब मात्र", "अर्थहीन कठिनता"], "ans": 1, "exp": "मौलिकता परंपरा सँ संवाद करैत नव अनुभव जोड़ैत अछि।"}, {"q": "रदीफ-काफिया सही होइतहुँ गजल कमजोर किएक भऽ सकैत अछि?", "opts": ["जँ शेरमे विचार, चित्र, भाव-संक्षेप वा काव्यात्मक चमक नहि हो", "किएकि रदीफ निषिद्ध", "किएकि सही शिल्प दोष अछि", "किएकि काफिया अनावश्यक"], "ans": 0, "exp": "शिल्प ढाँचा अछि; आत्मा कथ्य आ अभिव्यक्ति सँ आबैत अछि।"}, {"q": "गजलमे ‘सूक्ति’ गुण कखन उत्पन्न होइत अछि?", "opts": ["जखन शेर लम्बा हो", "जखन अर्थ बिखरि जाए", "जखन तुक मात्र रहे", "जखन शेर कम शब्दमे व्यापक अनुभव वा विचारक तीक्ष्ण रूप दे"], "ans": 3, "exp": "गजल शेरक संक्षिप्तता ओकर सूक्तिपरक शक्ति बढ़बैत अछि।"}, {"q": "गजल आलोचना मे मिथिला-समाजक प्रश्न किएक प्रासंगिक अछि?", "opts": ["समाजक प्रश्न गद्य लेल", "भाषा आ साहित्य समाजक दुःख, संघर्ष, प्रेम, राजनीति आ संस्कारसँ अलग नहि", "गजल समाज-विरोधी विधा", "साहित्य केवल निजी खेल"], "ans": 1, "exp": "मैथिली गजल अपन समाजक जीवनानुभव सँ अर्थ पबैत अछि।"}, {"q": "गजल-समीक्षा विशेषांक मे अनेक समीक्षकक उपस्थिति कोन लाभ दैत अछि?", "opts": ["एक लेखक पर्याप्त", "सब एके बात दोहराबै", "विविधता दोष", "एकहि विधा पर बहु-दृष्टि, बहु-कसौटी आ आलोचनात्मक संवाद संभव होइत अछि"], "ans": 3, "exp": "विविध समीक्षा विधाक परिपक्वता देखबैत अछि।"}, {"q": "गजल आलोचना मे ‘परंपरा’क सम्मान आ ‘नवता’क आग्रह कोना संतुलित हो?", "opts": ["कसौटी नहुँए", "परंपरा पूर्ण नकार", "परंपराक शिल्पबोध स्वीकारैत नव अनुभव, भाषा आ सामाजिक चेतना जोड़ब", "नवता पूर्ण नकार"], "ans": 2, "exp": "सफल आलोचना इतिहासक आँखि आ वर्तमानक संवेदना दुनू रखैत अछि।"}, {"q": "गजल समीक्षा मे गद्यात्मक व्याख्या किएक सावधानी चाहैत अछि?", "opts": ["शेर अर्थहीन हो", "व्याख्या सदैव निषिद्ध", "समीक्षा केवल अनुवाद", "अधिक व्याख्या शेरक संक्षिप्त ध्वनि आ रहस्यक सौंदर्य कुंद कऽ सकैत अछि"], "ans": 3, "exp": "समीक्षा अर्थ खोलैत अछि, मुदा कविता केँ गद्यमे पूरी तरह खत्म नहि करबाक चाही।"}, {"q": "गजलमे ‘बिम्ब’क समीक्षा किएक महत्त्वपूर्ण अछि?", "opts": ["बिम्ब शिल्प-विरोधी", "बिम्ब केवल चित्रकला", "बिम्ब भावकेँ दृश्य, संक्षिप्त आ स्मरणीय बनबैत अछि", "गजलमे चित्रण नहि"], "ans": 2, "exp": "सशक्त बिम्ब शेरकेँ पाठकक भीतर टिकाबैत अछि।"}, {"q": "मैथिली गजल आलोचना मे ‘मानक मैथिली’ आ बोलचालक संबंध कोना बुझबाक चाही?", "opts": ["केवल असंयमित मिश्रण", "केवल कठोर शुद्धतावाद", "भाषा अप्रासंगिक", "मानकता आ जीवंत बोलचालक संतुलन सँ भाषा सुगठित आ स्वाभाविक बनैत अछि"], "ans": 3, "exp": "भाषा न तँ कृत्रिम हो, न बिखरल; गजलक लय ओकरा सँ जुड़ल अछि।"}, {"q": "गजल विशेषांकक गतिशील प्रश्न-संख्या किएक बेसी राखल गेल?", "opts": ["किएकि नाम गिनबाक अछि", "किएकि पृष्ठ-संख्या पूछबाक अछि", "किएकि ई अंक संपादकीय सिद्धान्त, इतिहास, गजलशास्त्र आ अनेक समीक्षात्मक आलेख समेटैत अछि", "किएकि प्रश्न दोहराएबाक अछि"], "ans": 2, "exp": "रिच कंटेंट भेलासँ प्रश्न संख्या बढ़ाओल गेल, मुदा प्रश्न अवधारणा-आधारित राखल गेल।"}];
+let idx=0, answers=Array(QDB.length).fill(null);
+const letters=['क','ख','ग','घ'];
+function initMap(){
+  const m=document.getElementById('qmap'); m.innerHTML='';
+  QDB.forEach((_,i)=>{const b=document.createElement('button'); b.className='dot'; b.textContent=i+1; b.onclick=()=>showQ(i); m.appendChild(b);});
 }
-function switchTab(gi){
-  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===gi));
-  document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',i===gi));
-  window.scrollTo({top:0,behavior:'smooth'});
+function updateTop(){
+  const done=answers.filter(x=>x!==null).length, ok=answers.filter((x,i)=>x===QDB[i].ans).length, bad=answers.filter((x,i)=>x!==null&&x!==QDB[i].ans).length;
+  document.getElementById('cur').textContent=idx+1; document.getElementById('score').innerHTML=`✓ ${ok} &nbsp; ✗ ${bad}`;
+  document.getElementById('bar').style.width=(done/QDB.length*100)+'%';
+  [...document.querySelectorAll('.dot')].forEach((d,i)=>{d.className='dot'+(answers[i]!==null?' answered':'')+(answers[i]===QDB[i].ans?' ok':'')+(answers[i]!==null&&answers[i]!==QDB[i].ans?' bad':'');});
 }
-function showScore(){
-  const pct=Math.round(score/total*100);
-  let msg=pct>=80?'उत्कृष्ट! अहाँक ज्ञान अद्भुत अछि।':pct>=50?'नीक प्रयास — आओर पढ़ू।':'फेर सँ प्रयास करू, अहाँ नीक करब।';
-  const sb=document.createElement('div');sb.className='scoreboard';
-  sb.innerHTML='<div class="orn">❖ ❖ ❖</div><div class="scbig">'+score+' / '+total+'</div>'+
-    '<div class="scpct">'+pct+'%</div><div class="scmsg">'+msg+'</div>'+
-    '<button class="nbtn pri" onclick="location.reload()">फेर सँ खेलू</button>';
-  const w=document.querySelector('.wrap');w.insertBefore(sb,w.firstChild);
-  window.scrollTo({top:0,behavior:'smooth'});
+function showQ(i){
+  idx=i; const q=QDB[i]; document.getElementById('result').style.display='none';
+  let chosen=answers[i];
+  let h=`<article class="qcard"><div class="qmeta"><span>प्रश्न ${i+1}</span><span>उच्च-स्तर / अवधारणा-आधारित</span></div><p class="qtext">${q.q}</p><div class="opts">`;
+  q.opts.forEach((o,k)=>{let cls='opt'; if(chosen!==null){cls+=' locked'; if(k===q.ans) cls+=' correct'; else if(k===chosen) cls+=' wrong';} h+=`<div class="${cls}" onclick="choose(${k})"><span class="key">${letters[k]}.</span><span class="txt">${o}</span></div>`;});
+  h+=`</div><div class="fb ${chosen===null?'':(chosen===q.ans?'ok show':'bad show')}"><strong>${chosen===null?'':(chosen===q.ans?'सही उत्तर।':'गलत उत्तर।')}</strong><br>${chosen===null?'':q.exp}</div><div class="navrow"><button class="btn2" onclick="showQ(Math.max(0,idx-1))">← पछिला</button><button class="btn" onclick="idx<QDB.length-1?showQ(idx+1):finish()">${idx<QDB.length-1?'अगिला →':'परिणाम देखू'}</button></div></article>`;
+  document.getElementById('quiz').innerHTML=h; updateTop(); window.scrollTo({top:0,behavior:'smooth'});
 }
+function choose(k){ if(answers[idx]!==null) return; answers[idx]=k; showQ(idx); }
+function finish(){
+  const ok=answers.filter((x,i)=>x===QDB[i].ans).length, bad=answers.filter((x,i)=>x!==null&&x!==QDB[i].ans).length, skip=answers.filter(x=>x===null).length;
+  const pct=Math.round(ok/QDB.length*100);
+  document.getElementById('result').innerHTML=`<div class="big">${ok} / ${QDB.length}</div><p><strong>${pct}%</strong> सही — गलत: ${bad}, अनुत्तरित: ${skip}</p><p class="qtext">${pct>=80?'बहुत नीक।':'फेर अभ्यास करू; अवधारणा पर ध्यान दिअ।'}</p><button class="btn" onclick="restart()">फेर शुरू करू</button>`;
+  document.getElementById('result').style.display='block'; updateTop(); document.getElementById('result').scrollIntoView({behavior:'smooth'});
+}
+function restart(){idx=0;answers=Array(QDB.length).fill(null);showQ(0);}
+initMap(); showQ(0);
 </script>
 </body>
 </html>

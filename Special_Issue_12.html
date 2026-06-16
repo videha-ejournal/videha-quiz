@@ -1,146 +1,92 @@
 <!DOCTYPE html>
 <html lang="mai">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>काशीकांत मिश्र मधुप विशेषांक — विदेह क्विज</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>काशीकान्त मिश्र ‘मधुप’ विशेषांक — उच्च-स्तरीय प्रश्नोत्तरी</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#1a2744;--crimson:#8B1A1A;--gold:#c49a3c;--cream:#FAF6EE;
---ok-fg:#1d7a3e;--bad-fg:#a32020}
-*{box-sizing:border-box}
-body{margin:0;background:var(--cream);color:#1A1A1A;
-font-family:'Lato','Segoe UI',system-ui,sans-serif;line-height:1.55;padding-bottom:60px}
-header{background:linear-gradient(180deg,#16213b,var(--navy));color:#fff;
-padding:28px 20px 22px;text-align:center;border-bottom:4px solid var(--gold)}
-header h1{margin:0;font-family:'Noto Serif Devanagari',serif;font-size:1.7em}
-header .sub{color:var(--gold);font-size:.82em;letter-spacing:.1em;font-style:italic;margin-top:8px}
-header .src{color:#cdd6ea;font-size:.78em;margin-top:6px}
-.wrap{max-width:760px;margin:0 auto;padding:20px 16px}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;justify-content:center}
-.tab{font-family:'Noto Serif Devanagari',serif;font-weight:700;font-size:.9em;
-padding:8px 16px;border-radius:20px;border:2px solid var(--navy);background:#fff;
-color:var(--navy);cursor:pointer;transition:.15s}
-.tab.active{background:var(--navy);color:#fff}
-.counter-badge{background:var(--crimson);color:#fff;font-size:.72em;font-weight:700;
-padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle}
-.progress{height:6px;background:#e7dcc2;border-radius:4px;margin-bottom:18px;overflow:hidden}
-.progress > div{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--crimson));transition:width .3s}
-.pane{display:none}.pane.active{display:block}
-.card{background:#fff;border-radius:11px;box-shadow:0 4px 16px rgba(26,39,68,.1);
-padding:22px 22px 18px;margin-bottom:16px}
-.qmeta{font-size:.78em;color:#8a93ab;font-weight:700;margin-bottom:8px}
-.q{font-family:'Noto Serif Devanagari',serif;font-size:1.12em;font-weight:600;
-color:var(--navy);margin-bottom:14px}
-.opt{display:block;width:100%;text-align:left;
-font-family:'Noto Serif Devanagari',serif;font-size:1em;
-padding:11px 15px;margin-bottom:9px;border:1.5px solid #d8cfb8;border-radius:8px;
-background:#fffdf8;cursor:pointer;transition:.13s;color:#1A1A1A}
-.opt:hover{border-color:var(--gold);background:#fff8e8}
-.opt.ok{border-color:var(--ok-fg);background:#eafaf0;color:var(--ok-fg);font-weight:700}
-.opt.bad{border-color:var(--bad-fg);background:#fdeeee;color:var(--bad-fg)}
-.opt:disabled{cursor:default}
-.fb{margin-top:11px;font-size:.92em;font-weight:600;min-height:20px;
-font-family:'Noto Serif Devanagari',serif}
-.fb.ok{color:var(--ok-fg)}.fb.bad{color:var(--bad-fg)}
-.hint-box{background:#fffbef;border:1px solid var(--gold);border-radius:7px;
-padding:10px 14px;margin-top:10px;font-family:'Noto Serif Devanagari',serif;
-font-size:.88em;color:#5a4010;display:none}
-.hint-box.show{display:block}
-.nav{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
-.nbtn{font-family:'Lato',sans-serif;font-size:.9em;font-weight:700;
-padding:9px 20px;border-radius:6px;border:none;cursor:pointer;transition:.15s}
-.nbtn.pri{background:var(--crimson);color:#fff}.nbtn.pri:hover{background:var(--navy)}
-.nbtn.sec{background:transparent;color:var(--navy);border:2px solid var(--navy)}
-.nbtn.sec:hover{background:var(--navy);color:#fff}
-.scoreboard{background:#fff;border-radius:11px;box-shadow:0 4px 18px rgba(26,39,68,.11);
-padding:34px 26px;text-align:center;margin-bottom:18px}
-.scbig{font-family:'Playfair Display',serif;font-size:2.8em;color:var(--crimson);font-weight:700;margin-bottom:6px}
-.scpct{font-size:1.05em;color:#5a6a8a;margin-bottom:9px}
-.scmsg{font-family:'Noto Serif Devanagari',serif;font-size:1.05em;color:var(--navy);margin-bottom:20px}
-.orn{text-align:center;color:var(--gold);font-size:1em;letter-spacing:.2em;margin:14px 0;opacity:.65}
-footer{text-align:center;color:#8a7a4a;font-size:.78em;padding:24px 16px 0}
-footer a{color:var(--crimson);text-decoration:none}
-@media(max-width:520px){header h1{font-size:1.35em}.q{font-size:1.05em}}
+:root{--navy:#17264a;--crimson:#9b1c2e;--gold:#c8973a;--cream:#f7f2e8;--ok:#2e7d32;--ok-bg:#e8f5e9;--bad:#b71c1c;--bad-bg:#ffebee;--muted:#66708a}
+*{box-sizing:border-box} body{margin:0;background:var(--cream);font-family:Lato,Arial,sans-serif;color:var(--navy);line-height:1.55}
+header{background:var(--navy);color:#fff;text-align:center;padding:18px 12px;border-bottom:5px solid var(--gold)}
+header h1{font-family:'Noto Serif Devanagari',serif;font-size:1.45rem;margin:0 0 6px;line-height:1.35}
+header .brand{font-size:.86rem;color:var(--gold);font-weight:700;letter-spacing:.02em}
+header .sub{font-family:'Noto Serif Devanagari',serif;font-size:.95rem;margin-top:6px;color:#dbe4ff}
+main{max-width:980px;margin:18px auto 50px;padding:0 14px}
+.panel{background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(23,38,74,.12);padding:16px;margin-bottom:14px;border-left:5px solid var(--navy)}
+.topbar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.score{font-weight:700;color:var(--crimson)}
+.progress{flex:1;min-width:180px;height:9px;background:#d9dfeb;border-radius:20px;overflow:hidden} .bar{height:100%;background:var(--gold);width:0%;transition:.2s}
+button{font-family:Lato,Arial,sans-serif;font-weight:700;border:0;border-radius:7px;padding:9px 14px;cursor:pointer}
+.btn{background:var(--navy);color:#fff} .btn:hover{background:var(--crimson)} .btn2{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+.qmap{display:flex;gap:4px;flex-wrap:wrap;margin-top:12px} .dot{width:24px;height:24px;border-radius:5px;border:1px solid #b8c1d8;background:#eef2fa;color:var(--navy);font-size:.72rem;padding:0} .dot.answered{background:#dfe8f9} .dot.ok{background:var(--ok);color:#fff} .dot.bad{background:var(--bad);color:#fff}
+.qcard{background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(23,38,74,.10);padding:20px;margin:16px 0;border-left:5px solid var(--gold)}
+.qmeta{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:.82rem;font-weight:700;margin-bottom:8px}
+.qtext{font-family:'Noto Serif Devanagari',serif;font-size:1.13rem;font-weight:700;margin:0 0 14px;color:var(--navy)}
+.opts{display:grid;gap:9px} .opt{display:flex;gap:10px;align-items:flex-start;background:#f4f7fd;border:2px solid #d2daec;border-radius:10px;padding:10px 12px;cursor:pointer}
+.opt:hover{border-color:var(--navy)} .opt .key{font-weight:700;min-width:22px} .opt .txt{font-family:'Noto Serif Devanagari',serif}
+.opt.correct{background:var(--ok-bg);border-color:#7bc47f;color:var(--ok)} .opt.wrong{background:var(--bad-bg);border-color:#e57373;color:var(--bad)} .opt.locked{cursor:default}
+.fb{display:none;margin-top:10px;border-radius:8px;padding:10px 12px;font-family:'Noto Serif Devanagari',serif} .fb.show{display:block} .fb.ok{background:var(--ok-bg);border-left:4px solid var(--ok)} .fb.bad{background:var(--bad-bg);border-left:4px solid var(--bad)}
+.navrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.result{display:none;text-align:center} .big{font-size:2.6rem;font-weight:700;color:var(--crimson)}
+.back{text-align:center;margin:24px 0} .back a{color:var(--crimson);font-family:'Noto Serif Devanagari',serif;font-weight:700;text-decoration:none}
+footer{text-align:center;padding:20px;color:#6a728a;font-size:.85rem}
+@media(max-width:600px){.qtext{font-size:1rem}.topbar{align-items:stretch}.progress{min-width:100%}}
 </style>
 </head>
 <body>
 <header>
-  <h1>काशीकांत मिश्र मधुप विशेषांक</h1>
-  <div class="sub">KASHIKANT MISHRA MADHUP SPECIAL ISSUE · विदेह अंक १६९ · ०१ जनवरी २०१५</div>
-  <div class="src">विदेह : प्रथम मैथिली पाक्षिक ई-पत्रिका · videha.co.in · ISSN 2229-547X</div>
+  <h1>काशीकान्त मिश्र ‘मधुप’ विशेषांक — उच्च-स्तरीय प्रश्नोत्तरी</h1>
+  <div class="brand">Videha QUIZ | विदेह ई-लर्निङ्ग क्विज / Videha eLearning Quiz / Videha — First Maithili Fortnightly eJournal | www.videha.co.in</div>
+  <div class="sub">मधुपजीक काव्य, घसल अठन्नी, जन-चेतना, विद्रोह, गीत, दलित चेतना आ सामाजिक यथार्थ</div>
 </header>
-<div class="orn">❖ ❖ ❖</div>
-<div class="wrap">
-  <div class="tabs" id="tabs"></div>
-  <div class="progress"><div id="bar"></div></div>
-  <div id="panes"></div>
-</div>
-<footer>© विदेह Videha · <a href="https://videha.co.in">videha.co.in</a> · विदेह विशेषांक प्रश्नोत्तरी</footer>
+<main>
+  <section class="panel">
+    <div class="topbar">
+      <span><strong>Special Issue 12</strong> — प्रश्न <strong id="cur">1</strong> / <strong>71</strong></span>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <span class="score" id="score">✓ 0 &nbsp; ✗ 0</span>
+      <button class="btn2" onclick="showQ(0)">←← पहिल</button>
+      <button class="btn" onclick="restart()">नव क्विज</button>
+    </div>
+    <div class="qmap" id="qmap"></div>
+  </section>
+  <section id="quiz"></section>
+  <section class="panel result" id="result"></section>
+  <div class="back"><a href="https://www.videha.co.in/videha-elearning.htm">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a></div>
+</main>
+<footer>© Gajendra Thakur, Editor — Videha eJournal</footer>
 <script>
-const DATA = [{"tab": "विशेषांक परिचय", "items": [{"q": "विदेहक ई काशीकांत मिश्र 'मधुप' विशेषांक कोन अंक छल?", "opts": ["१६९ म अंक", "१४२ म अंक", "१९१ म अंक", "२१७ म अंक"], "correct": 0, "hint": "०१ जनवरी २०१५, वर्ष ८ अंक १६९।"}, {"q": "ई मधुप विशेषांक कोन तिथिकेँ प्रकाशित भेल?", "opts": ["०१ जनवरी २०१५", "१५ नवम्बर २०१३", "०१ दिसम्बर २०१५", "१५ मार्च २०१३"], "correct": 0, "hint": "वर्ष ८ मास ८५ अंक १६९।"}, {"q": "ई विशेषांक कोन साहित्यकारकेँ समर्पित छल?", "opts": ["काशीकांत मिश्र 'मधुप'", "अरविन्द ठाकुर", "जगदीश चन्द्र ठाकुर 'अनिल'", "रामलोचन ठाकुर"], "correct": 0, "hint": "\"घसल अठन्नी\"क रचनाकार।"}]}, {"tab": "रचना आ आलेख", "items": [{"q": "मधुपजीक कोन कृति (जाहिमे दलित चेतना पर आलेख अछि) एहि अंकमे चर्चित अछि?", "opts": ["घसल अठन्नी", "गीत गंगा", "आगि थोड़े पानि", "ट्रान्सफर्मर"], "correct": 0, "hint": "डॉ. अरुण कुमार सिंहक आलेख।"}, {"q": "\"मधुपक रचना-व्यक्तित्व\" आलेख केकर अछि?", "opts": ["केदार कानन", "योगेन्द्र पाठक 'वियोगी'", "आशीष अनचिन्हार", "कीर्तिनाथ झा"], "correct": 0, "hint": "गद्य विभाग २.२।"}, {"q": "\"मधुपजीक मार्क्सवाद\" (नियंत्रित पूँजी) विषयक आलेख केकर अछि?", "opts": ["आशीष अनचिन्हार", "डॉ. अरुण कुमार सिंह", "केदार कानन", "ज्योति"], "correct": 0, "hint": "गद्य विभाग २.४।"}, {"q": "\"मधुपजी हमरा किएक मन पडैत छथि\" — ई संस्मरण केकर अछि?", "opts": ["कर्नल (डाक्टर) कीर्तिनाथ झा", "योगेन्द्र पाठक 'वियोगी'", "जगदीश चन्द्र ठाकुर 'अनिल'", "डॉ. अजीत मिश्र"], "correct": 0, "hint": "गद्य विभाग २.२।"}]}];
-let score=0,total=0,answered=0;
-DATA.forEach(g=>total+=g.items.length);
-const tabsEl=document.getElementById('tabs');
-const panesEl=document.getElementById('panes');
-const bar=document.getElementById('bar');
-DATA.forEach((g,gi)=>{
-  const tb=document.createElement('button');
-  tb.className='tab'+(gi===0?' active':'');
-  tb.innerHTML=g.tab+'<span class="counter-badge">'+g.items.length+'</span>';
-  tb.onclick=()=>switchTab(gi);
-  tabsEl.appendChild(tb);
-  const pane=document.createElement('div');
-  pane.className='pane'+(gi===0?' active':'');
-  pane.id='pane-'+gi;
-  g.items.forEach((q,qi)=>pane.appendChild(buildCard(g,gi,qi,q)));
-  panesEl.appendChild(pane);
-});
-function buildCard(g,gi,qi,q){
-  const card=document.createElement('div');card.className='card';
-  const meta=document.createElement('div');meta.className='qmeta';
-  meta.textContent=g.tab+' · प्रश्न '+(qi+1)+'/'+g.items.length;card.appendChild(meta);
-  const qd=document.createElement('div');qd.className='q';qd.textContent=q.q;card.appendChild(qd);
-  const opts=[];
-  q.opts.forEach((o,oi)=>{
-    const b=document.createElement('button');b.className='opt';b.textContent=o;
-    b.onclick=()=>pick(b,oi);card.appendChild(b);opts.push(b);
-  });
-  const fb=document.createElement('div');fb.className='fb';card.appendChild(fb);
-  let hintBox=null;
-  if(q.hint){hintBox=document.createElement('div');hintBox.className='hint-box';
-    hintBox.textContent='💡 '+q.hint;card.appendChild(hintBox);}
-  const nav=document.createElement('div');nav.className='nav';
-  if(q.hint){const hb=document.createElement('button');hb.className='nbtn sec';hb.textContent='संकेत';
-    hb.onclick=()=>hintBox.classList.toggle('show');nav.appendChild(hb);}
-  card.appendChild(nav);
-  let done=false;
-  function pick(btn,oi){
-    if(done)return;done=true;answered++;
-    opts.forEach((b,bi)=>{b.disabled=true;
-      if(bi===q.correct)b.classList.add('ok');
-      else if(b===btn)b.classList.add('bad');});
-    if(oi===q.correct){score++;fb.className='fb ok';fb.textContent='✓ सही उत्तर!';}
-    else{fb.className='fb bad';fb.textContent='✗ सही उत्तर: '+q.opts[q.correct];}
-    bar.style.width=(answered/total*100)+'%';
-    if(answered===total)showScore();
-  }
-  return card;
+const QDB = [{"q": "काशीकान्त मिश्र ‘मधुप’ विशेषांकक मूल अध्ययन-विषय की अछि?", "opts": ["मधुपजीक काव्य, जन-चेतना, विद्रोही स्वर, गीत-परंपरा आ ‘घसल अठन्नी’क सामाजिक अर्थ", "केवल छपाईक विवरण", "केवल श्रृंगारिक मनोरंजन", "सामाजिक यथार्थसँ दूरी"], "ans": 0, "exp": "ई विशेषांक एक लेखकक रचनात्मक व्यक्तित्वक बहुआयामी मूल्यांकन करैत अछि।"}, {"q": "मधुपजी केँ प्रकृति-प्रेमक विलक्षण कवि कहबाक आधार की अछि?", "opts": ["प्रकृति मात्र सजावट", "ओ प्रकृतिक विराटता आ सौन्दर्यकेँ मानवीय करुणा आ जीवन-संघर्षसँ जोड़ैत छथि", "प्रकृति हुनका लगे अनुपस्थित", "ओ केवल ऋतु-सूची बनबैत छथि"], "ans": 1, "exp": "मधुपजीक प्रकृति-चित्रण दृश्य-सौंदर्य मात्र नहि, सामाजिक स्थितिक पृष्ठभूमि बनैत अछि।"}, {"q": "‘राधाविरह’ मधुपजीक साहित्यिक प्रतिष्ठामे कोन अर्थ रखैत अछि?", "opts": ["महाकाव्यात्मक क्षमता आ शास्त्रीय काव्य-संवेदनाक प्रमाण", "गजल-विरोधी लेख", "केवल बाल-कथा", "केवल निबंध"], "ans": 0, "exp": "मधुपजी एकहि कविताक कवि नहि; हुनकर रचनाधर्मिता विस्तृत अछि।"}, {"q": "‘झंकार’ कवितासँ क्रान्ति-गीतक आह्वान कहबाक अर्थ की अछि?", "opts": ["गीतमे विचार निषिद्ध", "कविता केवल मनोरंजन", "क्रान्ति शब्द शिल्प-विरोधी", "कविता लोक-चेतना, प्रतिरोध आ सामाजिक जागरणक ध्वनि बनैत अछि"], "ans": 3, "exp": "मधुपजीक कविता समाजक निष्क्रियता तोड़बाक आह्वान करैत अछि।"}, {"q": "‘घसल अठन्नी’क लोकप्रियता केवल कथ्यसँ नहि, शिल्पसँ सेहो किएक जुड़ल अछि?", "opts": ["केवल अनुवाद उपलब्ध", "कवितामे शब्द-चित्र, लय, प्रतीक, करुणा आ सामाजिक यथार्थक तीव्र संयोजन अछि", "केवल शीर्षक असामान्य अछि", "केवल लेखक प्रसिद्ध"], "ans": 1, "exp": "लोकप्रियता रचनाक गहिर कलात्मक-सामाजिक प्रभावसँ पैदा भेल।"}, {"q": "‘घसल अठन्नी’मे अठन्नी कोन प्रतीक बनैत अछि?", "opts": ["व्यापारीक लाभ", "केवल सिक्काक इतिहास", "घसल व्यवस्था सँ पिसाएल गरीब, श्रमिक आ उपेक्षित मनुष्यक प्रतीक", "राजसी वैभव"], "ans": 2, "exp": "अठन्नी छोट मुद्रा अछि, मुदा कविता ओकरा शोषित वर्गक भाग्यक प्रतीक बनबैत अछि।"}, {"q": "बुचनीक चरित्र ‘घसल अठन्नी’मे कोन सामाजिक अर्थ दैत अछि?", "opts": ["केवल हास्य पात्र", "सामंती सुख", "शोषित स्त्री, श्रम, भूख आ असुरक्षित मातृत्वक करुण यथार्थ", "नगरीय ऐश्वर्य"], "ans": 2, "exp": "बुचनीक माध्यमे कविता वर्ग, लिंग आ गरीबीक संयुक्त पीड़ा देखबैत अछि।"}, {"q": "भुटकुन बाबू कवितामे कोन प्रवृत्तिक प्रतिनिधित्व करैत छथि?", "opts": ["कवि-स्वर", "सामंती शोषण, अहंकार आ अन्यायपूर्ण सत्ता-संरचना", "निर्दोष बालक", "करुण सहायक"], "ans": 1, "exp": "भुटकुन बाबू व्यवस्था-समर्थित उत्पीड़नक प्रतीक बनैत छथि।"}, {"q": "‘घसल अठन्नी’मे प्रकृतिक तापक वर्णन किएक प्रभावी अछि?", "opts": ["केवल मौसम-रिपोर्ट", "सुखद पर्यटन", "कवितासँ असंबद्ध", "बाह्य गरमी आ सामाजिक क्रूरताक ताप एक-दोसरकेँ तीव्र करैत अछि"], "ans": 3, "exp": "जेठक दुपहरिया श्रमजीवी जीवनक असह्य परिस्थिति केँ दृश्य बनबैत अछि।"}, {"q": "मधुपजीक भाषा ‘व्यावहारिक’ कहबाक अर्थ की अछि?", "opts": ["लोकजीवनक स्वाभाविक, चित्रात्मक आ अनुभव-सन्निकट भाषा", "केवल कठिन संस्कृत", "केवल दफ्तरी भाषा", "केवल अंग्रेजी मिश्रण"], "ans": 0, "exp": "व्यावहारिक भाषा पाठकक सामने दृश्यकेँ जीवित करैत अछि।"}, {"q": "‘घसल अठन्नी’क शब्द-चित्र पाठक पर कोन असर करैत अछि?", "opts": ["केवल अलंकार गिनाइत", "दृश्य चलचित्र जकाँ खुलैत अछि आ पाठक पीड़ित स्थितिसँ तादात्म्य करैत अछि", "कुनो भाव नहि उठैत", "अर्थ छिपि जाइत"], "ans": 1, "exp": "मधुपजी दृश्यात्मकता सँ पाठकक अनुभव-भागीदारी बनबैत छथि।"}, {"q": "कविताक अंतमे ‘हम कतए जाउ, अवलम्ब पाउ’ कोन प्रश्न उठबैत अछि?", "opts": ["कवि-नामक संकेत", "यात्रा-मार्गक प्रश्न", "भौगोलिक पहेली", "शोषित मनुष्यक आश्रय, न्याय आ सामाजिक जिम्मेदारीक प्रश्न"], "ans": 3, "exp": "कविता समाधान न देबाक बावजूद समाजक विवेककेँ झकझोरैत अछि।"}, {"q": "‘घसल अठन्नी’ काल-निरपेक्ष किएक कहल जा सकैत अछि?", "opts": ["किएकि सिक्का आजुओ चलैत अछि", "किएकि शोषणक रूप बदलैत रहैत अछि, मुदा उपेक्षित मनुष्यक पीड़ा आजुओ प्रासंगिक अछि", "किएकि कविता मौसम बतबैत अछि", "किएकि पृष्ठ नहि बदलल"], "ans": 1, "exp": "रचना अपन समय सँ जन्मि, समयकेँ पार करबाक सामर्थ्य रखैत अछि।"}, {"q": "घसल अठन्नीक आधुनिक तुलना नकली पाँच सौ टाकाक नोटसँ किएक सार्थक अछि?", "opts": ["शोषणक पुरान संरचना नवा आर्थिक रूपमे दोहराइत रहबाक संकेत", "कविताकेँ हास्य बनाबक लेल", "बैंक नियम बुझाबक लेल", "मुद्रा-विज्ञान पढ़ेबाक लेल"], "ans": 0, "exp": "रूप बदलल, अन्याय नहि; यही प्रासंगिकता लेखमे रेखांकित अछि।"}, {"q": "मधुपजी केँ ‘जन-कवि’ कहबाक मूल आधार की अछि?", "opts": ["केवल पुरस्कार", "केवल लोकप्रियता", "केवल लंबी सूची", "हुनकर कविता वंचित वर्ग, लोक-जीवन, सामाजिक विषमता आ जन-मनक पीड़ा केँ केंद्रमे राखैत अछि"], "ans": 3, "exp": "जन-कविता लोकक दुःख आ प्रतिरोधक भाषिक स्वर बनैत अछि।"}, {"q": "‘जन-चेतनाक स्वर वाहक’ कहबाक अर्थ की अछि?", "opts": ["केवल निजी स्मृति", "लोकसँ कटि गेल रचना", "मधुपजीक रचना लोकसमाजक पीड़ा, प्रश्न आ जागरण केँ वहन करैत अछि", "केवल दरबारी गीत"], "ans": 2, "exp": "लेख मधुपजीक साहित्यक सामाजिक वाहकत्व पर बल दैत अछि।"}, {"q": "मधुपजीक गीत-प्रतिभा प्रगतिशील विचारसँ विरोधाभासी किएक नहि अछि?", "opts": ["बौद्धिकता गीत-विरोधी", "लय प्रगतिशीलता रोकैत", "गीतमे विचार नहि", "राग-लय-ताल सामाजिक चेतना आ बौद्धिकता केँ अधिक पहुँचयोग्य बना सकैत अछि"], "ans": 3, "exp": "मधुपजी सिद्ध करैत छथि जे गीत सामाजिक यथार्थक सशक्त माध्यम हो सकैत अछि।"}, {"q": "‘विद्रोही कवि’ रूपमे मधुपजीक पहचान कोन बातसँ बनैत अछि?", "opts": ["केवल आवाज ऊँच करब", "कठिन शब्द भरब", "पुरस्कारक विरोध", "परंपरागत विषय-सीमा तोड़ि सामाजिक अन्याय, श्रम, भूख आ वंचना केँ कविता बनाओल"], "ans": 3, "exp": "विद्रोह हुनका लगे विषय, भाषा आ जन-पक्षधरता मे प्रकट होइत अछि।"}, {"q": "मधुपजीक ‘छुतहर’ सन विषय उठेनाइ साहित्यिक साहस किएक अछि?", "opts": ["समाजसँ असंबंधित", "ओ जाति, अस्पृश्यता आ सामाजिक पाखंड पर प्रत्यक्ष प्रश्न करैत अछि", "ई केवल हास्य-विषय", "कविता लेल अनुपयुक्त"], "ans": 1, "exp": "मधुपजी निषिद्ध मानल गेल यथार्थ केँ कविता मे आनैत छथि।"}, {"q": "‘पतित पीक’ वा साधारण जीवन-वस्तु पर कविता लिखब मधुपजीक शिल्प-दृष्टि की बतबैत अछि?", "opts": ["लोकजीवन हटबैत", "ओ केवल सजावट करैत", "ओ तुच्छ मानल वस्तु मे सामाजिक अर्थ आ काव्य-संभावना देखैत छथि", "उच्च विषय सँ डरैत"], "ans": 2, "exp": "आधुनिक संवेदना साधारण वस्तुकेँ अर्थपूर्ण बना सकैत अछि।"}, {"q": "मधुपजीक कविता मे दलित चेतना कोना देखाइत अछि?", "opts": ["वंचित अनुभव हटाकऽ", "केवल कल्पना-लोक", "केवल राजसी सौन्दर्य", "शोषित देह, श्रम, अपमान आ व्यवस्था-संचालित अन्याय केँ केंद्र बनाकऽ"], "ans": 3, "exp": "दलित चेतना सामाजिक पदानुक्रमक आलोचना आ मानवीय समानताक आग्रह करैत अछि।"}, {"q": "‘घसल अठन्नी’मे स्त्री-विमर्शक आधार की अछि?", "opts": ["बुचनीक श्रम, भूख, मातृत्व, असुरक्षा आ हिंसा स्त्री-अनुभवक कठोर पक्ष खोलैत अछि", "स्त्री पात्र अनुपस्थित", "केवल हास्य", "केवल श्रृंगार"], "ans": 0, "exp": "कविता शोषित स्त्रीक वर्गीय आ लैंगिक पीड़ा एक संग प्रस्तुत करैत अछि।"}, {"q": "मधुपजीक मार्क्सवादी अर्थ-पठन कखन सार्थक होइत अछि?", "opts": ["जखन कविता न पढ़ल जाए", "जखन जीवन-संदर्भ हटि जाए", "जखन केवल नारा लगाओल जाए", "जखन वर्ग-संघर्ष, श्रम, पूँजी, सामंती शक्ति आ शोषणक संरचना पाठमे देखल जाए"], "ans": 3, "exp": "वर्ग-दृष्टि मधुपजीक जन-केन्द्रित कविताक एक महत्त्वपूर्ण व्याख्या दे सकैत अछि।"}, {"q": "मधुपजीक रचना-व्यक्तित्वमे करुणा आ प्रतिरोध केना एक संग अछि?", "opts": ["दुनू असंबद्ध", "पीड़ितक दुःखसँ करुणा जन्मैत अछि आ अन्यायक विरुद्ध प्रतिरोधक स्वर बनैत अछि", "प्रतिरोध भावहीन", "करुणा प्रतिरोध रोकैत"], "ans": 1, "exp": "मधुपजीक काव्य करुण संवेदना केँ निष्क्रिय नहि, जाग्रत बनबैत अछि।"}, {"q": "मधुपजीक प्रकृति-चित्रण ‘सजावट’ मात्र किएक नहि?", "opts": ["केवल फूल-पात", "मौसम विज्ञापन", "कथ्यसँ कटल", "ओ सामाजिक यथार्थ, श्रम-दशा आ मानवीय कष्टक वातावरण रचैत अछि"], "ans": 3, "exp": "प्रकृति कविताक भाव-व्यवस्था सक्रिय करैत अछि।"}, {"q": "‘घसल अठन्नी’मे मखनाक भूमिका कोन जटिलता खोलैत अछि?", "opts": ["पूर्ण मुक्तिदाता", "शोषित वर्गक भीतर सत्ता-भय, हिंसा आ आपसी दमनक स्थिति", "असंबद्ध पात्र", "केवल हास्य"], "ans": 1, "exp": "कविता देखबैत अछि जे शोषणक तंत्र केवल ऊपरसँ नहि, भीतरहुँ काम करैत अछि।"}, {"q": "मधुपजीक कविता मे भूखक चित्रण किएक गहिर सामाजिक प्रश्न अछि?", "opts": ["भूख नैतिक, आर्थिक आ मानवीय व्यवस्था-विफलताक प्रमाण बनैत अछि", "भूख हास्य प्रसंग", "भूख केवल निजी समस्या", "भूख कविता-विरोधी"], "ans": 0, "exp": "भूख समाजक न्याय-बोधक परीक्षा अछि।"}, {"q": "‘अवलम्ब’ शब्द शोषित पात्रक संदर्भमे कोन अर्थ खोलैत अछि?", "opts": ["संगीत-वाद्य", "सुरक्षा, सहारा, न्याय आ सामाजिक मान्यता लेल पुकार", "लकड़ीक सहारा मात्र", "यात्रा-छड़ी"], "ans": 1, "exp": "कविता अवलम्बहीन मनुष्यक असहायता केंद्रमे आनैत अछि।"}, {"q": "मधुपजीक कवितामे लोकधुन वा फिल्मी धुनक प्रयोगक आलोचना कोना संतुलित हो?", "opts": ["धुनक साहित्यसँ संबंध नहि", "लोकप्रियता सदैव पर्याप्त", "लोकधुन सदैव दोष", "रचना-संदर्भमे देखब जे लोकप्रिय ध्वनि कविता केँ जन-समाजधरि पहुँचबैत अछि कि सतही बनबैत अछि"], "ans": 3, "exp": "मधुपजीक गीत-प्रयोग पर बहस शिल्प आ संप्रेषण दुहू मांगैत अछि।"}, {"q": "मधुपजीक ‘रचना-व्यक्तित्व’मे श्रृंगारक स्थान की अछि?", "opts": ["श्रृंगार पूर्णतः अनुपस्थित", "श्रृंगार असाहित्यिक", "केवल श्रृंगारहि सब किछु", "श्रृंगार रहितो हुनकर काव्य करुणा, लोकचेतना आ विद्रोहसँ विस्तृत बनैत अछि"], "ans": 3, "exp": "मधुपजी एकरंगी कवि नहि; अनेक रस-धारा हुनका मे भेटैत अछि।"}, {"q": "मधुपजीक साहित्य मे ‘मिथिला’ कोन रूपमे उपस्थित अछि?", "opts": ["भाषा, लोकजीवन, सामाजिक संरचना, ग्रामीण दृश्य आ सांस्कृतिक चेतनाक रूपमे", "कुनो उपस्थिति नहि", "केवल प्रशासनिक नाम", "केवल मानचित्र"], "ans": 0, "exp": "मधुपजीक काव्य मिथिलाक धरातलसँ अपना अर्थ पबैत अछि।"}, {"q": "मधुपजी पर केन्द्रित विशेषांकमे संस्मरणक महत्त्व की अछि?", "opts": ["संस्मरण असाहित्यिक", "कवितासँ संबंध नहि", "लेखकक मानवीय व्यक्तित्व, व्यवहार, स्मृति आ साहित्यिक प्रभावक जीवित चित्र भेटैत अछि", "केवल तारीख-सूची"], "ans": 2, "exp": "लेखक-विशेषांकमे रचना संग व्यक्ति-स्मृति सेहो मूल्यवान होइत अछि।"}, {"q": "‘मधुपजी हमरा किएक मन पड़ैत छथि’ सन आलेखक अध्ययन-संकेत की अछि?", "opts": ["निजी स्मृति बेकार", "लेखक विस्मृत होथि", "कवि-स्मृति निजी अनुभवसँ साहित्यिक व्यक्तित्वक अर्थ खोलि सकैत अछि", "केवल पृष्ठ देखू"], "ans": 2, "exp": "संस्मरण आलोचना केँ मानवीय धरातल दैत अछि।"}, {"q": "‘मधुपक गीत अमर, मिथिलामे’ कथन किएक विचारणीय अछि?", "opts": ["गीत पढ़ल नहि जाए", "गीत लोक-स्मृति, गेयता आ सामुदायिक भावमे जीवित रहैत अछि", "मिथिला गान-विरोधी", "अमरता छपाईक कारण"], "ans": 1, "exp": "गीतक जीवन पाठक/श्रोता समाजमे निरंतर पुनरावृत्ति सँ बनैत अछि।"}, {"q": "मधुपजीक काव्यक ‘लोक-चेतना’ आ ‘भाषा’क संबंध की अछि?", "opts": ["भाषा अप्रासंगिक", "लोकभाषा हीन", "केवल संस्कृतनिष्ठ शब्द चाही", "लोकभाषा बिना जन-पीड़ा आ जीवन-लयक प्रामाणिक अभिव्यक्ति कमजोर भऽ जाइत अछि"], "ans": 3, "exp": "जन-काव्यक आत्मा ओकर जीवंत भाषामे छुपल रहैत अछि।"}, {"q": "‘घसल अठन्नी’मे करुणा पाठक पर दया नहि, प्रश्न किएक बनैत अछि?", "opts": ["करुणा केवल आँसू", "कविता विचार रोकैत", "दया पर्याप्त समाधान", "कविता पाठककेँ व्यवस्था आ अपन सामाजिक जिम्मेदारी पर सोचबाक बाध्य करैत अछि"], "ans": 3, "exp": "उच्च करुणा निष्क्रिय भावुकता नहि, नैतिक बेचैनी जगबैत अछि।"}, {"q": "मधुपजीक विद्रोह केना कलात्मक अछि?", "opts": ["ओ प्रत्यक्ष नारा सँ बेसी पात्र, दृश्य, प्रतीक, ध्वनि आ कथा-स्थितिसँ विद्रोह रचैत छथि", "केवल घोषणापत्र", "अर्थहीन कठिनता", "शिल्पहीन क्रोध"], "ans": 0, "exp": "काव्यात्मक विद्रोह अनुभवक रूपमे पाठकधरि पहुँचैत अछि।"}, {"q": "‘बुचनी’क मृत्यु वा मुक्ति पर विचार किएक जटिल अछि?", "opts": ["ई हास्य अंत", "ई कथा-संरचना नहि", "ओ शोषित जीवनक असह्य पीड़ा आ दयनीय विकल्पहीनता केँ उजागर करैत अछि", "ई केवल सुखांत"], "ans": 2, "exp": "आलेख बुचनीक भाग्य पर विचार करैत करुणा आ भय दुनू पैदा करैत अछि।"}, {"q": "मधुपजीक काव्य मे ‘शोषक’ आ ‘शोषित’क द्वंद्व किएक केंद्रीय अछि?", "opts": ["द्वंद्व अनुपस्थित", "समाजक असमान संरचना कविता मे पात्र, प्रतीक आ घटना द्वारा मूर्त होइत अछि", "केवल रोमांस", "शोषण सजावट"], "ans": 1, "exp": "मधुपजीक सामाजिक कविता वर्गीय तनावकेँ केंद्रमे राखैत अछि।"}, {"q": "‘घसल अठन्नी’मे मुद्रा आ मनुष्यक समानता कोना बनैत अछि?", "opts": ["सिक्का राजा बनैत", "जेकाँ घसल सिक्का मूल्यहीन कएल जाइत अछि, ओहिना गरीब मनुष्य व्यवस्था मे अपमानित होइत अछि", "गरीबक तुलना निषिद्ध", "मुद्रा अमर होइत"], "ans": 1, "exp": "प्रतीक आर्थिक आ मानवीय मूल्यक प्रश्न एक संग खोलैत अछि।"}, {"q": "मधुपजीक कविता आजुक अर्थव्यवस्था मे किएक पढ़ल जाए?", "opts": ["सिक्का बदलल त कविता समाप्त", "पुरान कविता अप्रासंगिक", "नकली विकास, श्रम-शोषण, ऋण, भूख आ असमानता आजुओ कायम अछि", "साहित्य समयसँ कटल"], "ans": 2, "exp": "प्रासंगिकता विषयक सतत सामाजिक उपस्थिति सँ बनैत अछि।"}, {"q": "मधुपजीक आलोचना मे ‘यात्री’क तुलना कोन सावधानी माँगैत अछि?", "opts": ["एककेँ नकारल मात्र", "लेखक-दर-लेखक भिन्न भाषा, समाज-दृष्टि आ साहित्यिक धरातलकेँ संदर्भ सहित देखब", "तुलना असंभव", "हिन्दी पदवीक नकल"], "ans": 1, "exp": "तुलना उपयोगी हो, मुदा न्यायपूर्ण संदर्भ आ पाठ-विश्लेषण चाही।"}, {"q": "मधुपजीक कविता मे ‘ब्राह्मण वर्ण’ आ ‘छुतहर’ विषयक तनाव कोन अर्थ खोलैत अछि?", "opts": ["कवि अपन सामाजिक स्थिति पार कऽ अस्पृश्यता-विरोधी संवेदनाक पक्ष लैत छथि", "वर्ण प्रश्न अप्रासंगिक", "सामाजिक आलोचना नहि", "छुतहर केवल हास्य"], "ans": 0, "exp": "ई साहित्यिक साहस आ आत्म-समीक्षा दुनू संकेत करैत अछि।"}, {"q": "मधुपजीक गीत ‘देश-दशा आ मातृभाषा’क पृष्ठभूमिमे किएक महत्त्वपूर्ण मानल जाए?", "opts": ["देश-दशा गद्य-विषय", "गीत केवल प्रणय", "मातृभाषा असंगत", "ओ गीतकेँ समाज, भाषा-अधिकार आ जन-जीवनक प्रश्नसँ जोड़ैत अछि"], "ans": 3, "exp": "गीत-साहित्य सामूहिक चेतना केँ स्वर दऽ सकैत अछि।"}, {"q": "मधुपजीक काव्य मे श्रमजीवी जीवनक प्रस्तुति कोना अलग अछि?", "opts": ["श्रमिक अनुपस्थित", "ओ श्रमिक केँ दया-पात्र नहि, सामाजिक व्यवस्था केँ प्रश्न करयवला केंद्र बनबैत अछि", "श्रम केवल पृष्ठभूमि", "दया मात्र पर्याप्त"], "ans": 1, "exp": "श्रमजीवी पात्रक माध्यमे व्यवस्था पर नैतिक आरोप बनैत अछि।"}, {"q": "मधुपजीक साहित्य पर आलोचना लिखैत समय केवल ‘लोकप्रिय’ कहब किएक कम अछि?", "opts": ["लोकप्रियताक कारण—भाषा, शिल्प, भाव, सामाजिक अर्थ—सब विश्लेषित करब जरूरी अछि", "आलोचना केवल प्रशंसा", "विश्लेषण अनावश्यक", "लोकप्रियता पर्याप्त प्रमाण"], "ans": 0, "exp": "उच्च आलोचना कारण खोलैत अछि, न कि केवल विशेषण देत अछि।"}, {"q": "‘घसल अठन्नी’मे बच्चाक रोदन कोन भावभूमि बनबैत अछि?", "opts": ["हास्य विराम", "भूख, मातृत्व, भविष्यक संकट आ असहाय समाजक करुण बिंदु", "केवल ध्वनि-सजावट", "युद्ध-घोष"], "ans": 1, "exp": "बच्चाक उपस्थिति पीढ़ीगत अन्यायक संकेत बनैत अछि।"}, {"q": "मधुपजीक कवितामे ध्वनि-संकेत—सनसन, छनछन आदि—किएक प्रभावी अछि?", "opts": ["ओ वातावरण, ताप, भय आ जीवित दृश्य-संवेदना रचैत अछि", "केवल छंद-त्रुटि", "पाठकक ध्यान हटबैत", "ध्वनि अर्थहीन"], "ans": 0, "exp": "ध्वन्यात्मक शब्द कविता केँ श्रव्य आ दृश्य दुनू बनबैत अछि।"}, {"q": "मधुपजीक काव्य मे ‘सौन्दर्य गरीबीसँ दागल’ सन बिम्ब कोन अर्थ दैत अछि?", "opts": ["सौन्दर्य निरर्थक", "गरीबी सजावट", "गरीबी मनुष्यक देह, यौवन आ अस्तित्व पर हिंसक छाप छोड़ैत अछि", "सामाजिक अर्थ नहि"], "ans": 2, "exp": "बिम्ब सौन्दर्यशास्त्रकेँ सामाजिक यथार्थसँ जोड़ैत अछि।"}, {"q": "‘घसल जिनकर अदृष्टि’ पदबंध कोन व्यापक भाव दैत अछि?", "opts": ["केवल सिक्का", "केवल शब्द-खेल", "भाग्य नहि, व्यवस्था द्वारा घसाएल जीवनक सामूहिक व्यथा", "केवल ज्योतिष"], "ans": 2, "exp": "पदबंध निजी दुर्भाग्यसँ आगाँ बढ़ि सामाजिक नियति पर प्रश्न उठबैत अछि।"}, {"q": "मधुपजीक विशेषांकमे अनुवादक उपस्थिति कोन साहित्यिक संकेत दैत अछि?", "opts": ["मधुपजीक रचना स्थानीय रहितो व्यापक पाठकीय संवादक क्षमता रखैत अछि", "अनुवाद मूल रचना हटबैत", "स्थानीयता समाप्त", "समीक्षा असंभव"], "ans": 0, "exp": "अनुवाद रचनाक अर्थ-क्षेत्र विस्तार करैत अछि।"}, {"q": "‘Worn-out fifty paise coin’ अनुवाद शीर्षक मूल प्रतीक केँ कोना पहुँचबैत अछि?", "opts": ["कविता केँ बैंक नोट बनबैत", "घसल मुद्रा आ घसल मनुष्यक संबंध अंग्रेजी पाठक धरि संकेतित करैत अछि", "सिर्फ सिक्का-सूची", "मूल अर्थ मेटा दैत"], "ans": 1, "exp": "शीर्षक अनुवादमे केंद्रीय प्रतीकक सांस्कृतिक रूपान्तरणक प्रयास अछि।"}, {"q": "मधुपजीक आलोचना मे ‘सामंती व्यवस्था’ शब्द किएक आवश्यक अछि?", "opts": ["कविताक अन्याय व्यक्तिगत नहि, संरचनागत सत्ता-संबंधसँ जुड़ल अछि", "सामंत प्रेम-पात्र", "सत्ता अप्रासंगिक", "कवितामे व्यवस्था नहि"], "ans": 0, "exp": "सामंती ढाँचा पात्रक व्यवहार आ शोषणक कारण बुझबैत अछि।"}, {"q": "मधुपजीक रचना मे करुणा आ वर्ग-चेतना एक-दोसरकेँ कोना बल दैत अछि?", "opts": ["करुणा वर्ग-विरोधी", "करुणा पीड़ितक मानवीयता खोलैत, वर्ग-चेतना पीड़ाक सामाजिक कारण देखबैत", "वर्ग-दृष्टि भावहीन", "दुनू अलग रहबाक"], "ans": 1, "exp": "दुनू संग हो त कविता भावुकता सँ ऊपर उठैत अछि।"}, {"q": "मधुपजीक ‘आलोचनात्मक पुनर्पाठ’ आज किएक जरूरी अछि?", "opts": ["हुनकर सामाजिक विषय, भाषा-साहस आ लोकचेतना नव पीढ़ीक साहित्य-बोध विस्तार करैत अछि", "केवल पुरस्कार याद रखब", "रचना नहि, नाम काफी", "पुरान लेखक पढ़ब व्यर्थ"], "ans": 0, "exp": "पुनर्पाठ साहित्यिक परंपरा केँ जीवित आ आलोचनात्मक बनबैत अछि।"}, {"q": "लेखक-विशेषांकमे प्रश्न-संख्या ३०-४० पर सीमित नहि राखबाक कारण की अछि?", "opts": ["किएकि फाइल पैघ अछि मात्र", "किएकि नाम-दोहराव करबाक अछि", "किएकि मधुपजी पर जीवनी, संस्मरण, समीक्षा, कविता, गीत, ‘घसल अठन्नी’, दलित चेतना आ मार्क्सवादी पाठ सभ अछि", "किएकि पृष्ठ-संख्या पूछबाक अछि"], "ans": 2, "exp": "समृद्ध लेखक-केंद्रित सामग्री गतिशील रूपे अधिक उच्च-स्तरीय प्रश्न माँगैत अछि।"}, {"q": "मधुपजीक अध्ययनमे केवल जीवनी जानब पर्याप्त किएक नहि?", "opts": ["हुनकर काव्य-संरचना, प्रतीक, सामाजिक दृष्टि, भाषा आ पाठकीय प्रभाव समझब जरूरी अछि", "कविता पढ़बाक जरूरत नहि", "समीक्षा असंगत", "जीवनीहि सब किछु"], "ans": 0, "exp": "लेखकक साहित्यिक मूल्य रचना-पाठ सँ खुलैत अछि।"}, {"q": "‘मधुप’ उपनामक साहित्यिक अर्थ कोना पढ़ल जा सकैत अछि?", "opts": ["कविता सँ असंबंधित", "केवल औपचारिक नाम", "मधुरता, गीतात्मकता आ रसधारा संग सामाजिक करुणा/विद्रोहक विरोधाभासी संगति", "कठोर नारा मात्र"], "ans": 2, "exp": "उपनाम मधुरता दैत अछि, मुदा रचना मे मधुरता संग तीक्ष्ण सामाजिक चेतना सेहो अछि।"}, {"q": "मधुपजीक गीतक अमरता काव्यशास्त्रीय दृष्टि सँ कोन गुण पर निर्भर अछि?", "opts": ["लय, स्मरणीय पंक्ति, लोक-संवेदना, भाव-संक्षेप आ भाषिक सहजता", "केवल लेखकक प्रसिद्धि", "केवल लंबाई", "केवल छपाई"], "ans": 0, "exp": "गीत जखन लोक-जीवनमे गूँजैत अछि तखन ओकर काव्यिक जीवन दीर्घ होइत अछि।"}, {"q": "‘घसल अठन्नी’क पाठमे नैतिक प्रश्न की बनैत अछि?", "opts": ["समाज श्रमजीवी, विधवा, भूखल बालक आ अन्यायग्रस्त मनुष्यक प्रति की जिम्मेदारी लैत अछि", "सिक्काक धातु की अछि", "गर्मी कतेक डिग्री अछि", "कौन पृष्ठ पर कविता अछि"], "ans": 0, "exp": "कविता पाठककेँ सामाजिक नैतिकता पर सोचबाक बाध्य करैत अछि।"}, {"q": "मधुपजीक काव्य-भाषा मे देह-वर्णन किएक महत्त्वपूर्ण अछि?", "opts": ["देह गरीबी, भूख, श्रम आ हिंसाक असरक प्रत्यक्ष पाठ बनि जाइत अछि", "देह-वर्णन निषिद्ध", "केवल श्रृंगार", "देहसँ समाजक संबंध नहि"], "ans": 0, "exp": "शोषित देह सामाजिक संरचनाक दस्तावेज बनैत अछि।"}, {"q": "मधुपजीक कविता मे ‘यौवन भागल’ बिम्ब कोन सामाजिक त्रासदी बतबैत अछि?", "opts": ["सामाजिक अर्थ नहि", "सुखद हास्य", "यौवन उत्सव", "गरीबी आ भूख मनुष्यक स्वाभाविक जीवन-विकास केँ नष्ट करैत अछि"], "ans": 3, "exp": "व्यक्तिगत क्षय असमान व्यवस्था पर आरोप बनैत अछि।"}, {"q": "मधुपजीक कवितामे ‘लोकप्रिय’ आ ‘महान’ बीच संबंध कोना बुझबाक चाही?", "opts": ["लोकप्रियता सदैव हल्की", "दुनू असंबद्ध", "महानता पाठक-विरोधी", "लोकप्रियता जँ गहिर सामाजिक-सौंदर्यात्मक गुणसँ जुड़ल हो तँ साहित्यिक महानता केँ बल दैत अछि"], "ans": 3, "exp": "मधुपजीक लोकप्रियता रचना-गुणक अध्ययन मांगैत अछि।"}, {"q": "‘घसल अठन्नी’मे नारी पात्रक केंद्रियता केहन पाठ खोलैत अछि?", "opts": ["स्त्री केवल उपस्थिति", "स्त्री-श्रम, गरीबी, मातृत्व आ सामाजिक हिंसाक बहुस्तरीय पाठ", "केवल सजावट", "नारी प्रश्न अनुपस्थित"], "ans": 1, "exp": "बुचनी कविता केँ मानवीय गहराई दैत अछि।"}, {"q": "मधुपजीक विशेषांकक उच्च-स्तरीय प्रश्न कोन प्रकारक होएब चाही?", "opts": ["केवल सूची", "केवल पृष्ठ-संख्या", "रचना, प्रतीक, सामाजिक चेतना, भाषा, विद्रोह, करुणा, लोकधारा आ आलोचना-दृष्टि पर", "केवल जन्म-वर्ष"], "ans": 2, "exp": "लेखक-विशेषांकमे समझ-आधारित प्रश्न जरूरी अछि।"}, {"q": "मधुपजीक साहित्यिक मूल्यांकनमे ‘करुणा’ केँ कमजोर भाव किएक नहि मानल जाए?", "opts": ["करुणा मात्र रोदन", "ई करुणा अन्याय-विरोधी चेतना आ मानवीय गरिमा केँ जन्म दैत अछि", "करुणा साहित्यिक दोष", "करुणा विचार-विरोधी"], "ans": 1, "exp": "सक्रिय करुणा समाज-समीक्षा बनि जाइत अछि।"}, {"q": "मधुपजीक कवितामे वर्गीय अन्याय देखैत समय शिल्प किएक नहि छोड़ल जा सकैत?", "opts": ["विचारक प्रभाव बिम्ब, लय, भाषा आ संरचना सँ बढ़ैत अछि", "शिल्प सामाजिकता रोकैत", "विचार हो तँ शिल्प व्यर्थ", "कविता नारा मात्र"], "ans": 0, "exp": "मधुपजीक शक्ति विचार आ शिल्पक संयोगमे अछि।"}, {"q": "मधुपजीक साहित्य मिथिला-केंद्रित रहितो व्यापक किएक अछि?", "opts": ["मिथिला बाहर अर्थ नहि", "स्थानीयता संकीर्णता मात्र", "स्थानीय पात्र आ भाषा सार्वभौमिक भूख, अन्याय, श्रम आ गरिमाक प्रश्न खोलैत अछि", "लोकभाषा अनुवाद-असम्भव"], "ans": 2, "exp": "सशक्त स्थानीयता विश्वसनीय सार्वभौमिकता बनबैत अछि।"}, {"q": "‘घसल अठन्नी’क सफल अध्ययन लेल पाठक केँ कोन संयोजन चाही?", "opts": ["केवल सिक्का-ज्ञान", "केवल जन्म-वर्ष", "केवल अनुवाद शीर्षक", "सामाजिक इतिहास, प्रतीक-बोध, काव्य-भाषा, पात्र-विश्लेषण आ करुणा-दृष्टि"], "ans": 3, "exp": "उच्च अध्ययन रचना केँ बहुस्तर पर पढ़ैत अछि।"}, {"q": "मधुपजीक गीत आ कविता बीच भेद करैत समय कोन बात ध्यानमे राखब चाही?", "opts": ["गीतमे चेतना नहि", "दुनू रूपमे लय आ भाषा अलग ढंगसँ काम करैत, मुदा सामाजिक चेतना साझा भऽ सकैत अछि", "दुनू पूर्ण असंबद्ध", "कविता लयहीन"], "ans": 1, "exp": "मधुपजीक रचना-संसार विधा-पार सामाजिक स्वर रखैत अछि।"}, {"q": "‘घसल अठन्नी’क शीर्षक किएक स्मरणीय अछि?", "opts": ["छोट, ठोस, लोकजीवनक वस्तु द्वारा पूरा शोषित जगत केँ प्रतीकित करैत अछि", "किएकि ओ कठिन अछि", "किएकि केवल मुद्रा", "किएकि अर्थ नहि"], "ans": 0, "exp": "सफल शीर्षक रचनाक केंद्रीय भाव-सूत्र बनि जाइत अछि।"}];
+let idx=0, answers=Array(QDB.length).fill(null);
+const letters=['क','ख','ग','घ'];
+function initMap(){
+  const m=document.getElementById('qmap'); m.innerHTML='';
+  QDB.forEach((_,i)=>{const b=document.createElement('button'); b.className='dot'; b.textContent=i+1; b.onclick=()=>showQ(i); m.appendChild(b);});
 }
-function switchTab(gi){
-  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===gi));
-  document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',i===gi));
-  window.scrollTo({top:0,behavior:'smooth'});
+function updateTop(){
+  const done=answers.filter(x=>x!==null).length, ok=answers.filter((x,i)=>x===QDB[i].ans).length, bad=answers.filter((x,i)=>x!==null&&x!==QDB[i].ans).length;
+  document.getElementById('cur').textContent=idx+1; document.getElementById('score').innerHTML=`✓ ${ok} &nbsp; ✗ ${bad}`;
+  document.getElementById('bar').style.width=(done/QDB.length*100)+'%';
+  [...document.querySelectorAll('.dot')].forEach((d,i)=>{d.className='dot'+(answers[i]!==null?' answered':'')+(answers[i]===QDB[i].ans?' ok':'')+(answers[i]!==null&&answers[i]!==QDB[i].ans?' bad':'');});
 }
-function showScore(){
-  const pct=Math.round(score/total*100);
-  let msg=pct>=80?'उत्कृष्ट! अहाँक ज्ञान अद्भुत अछि।':pct>=50?'नीक प्रयास — आओर पढ़ू।':'फेर सँ प्रयास करू, अहाँ नीक करब।';
-  const sb=document.createElement('div');sb.className='scoreboard';
-  sb.innerHTML='<div class="orn">❖ ❖ ❖</div><div class="scbig">'+score+' / '+total+'</div>'+
-    '<div class="scpct">'+pct+'%</div><div class="scmsg">'+msg+'</div>'+
-    '<button class="nbtn pri" onclick="location.reload()">फेर सँ खेलू</button>';
-  const w=document.querySelector('.wrap');w.insertBefore(sb,w.firstChild);
-  window.scrollTo({top:0,behavior:'smooth'});
+function showQ(i){
+  idx=i; const q=QDB[i]; document.getElementById('result').style.display='none';
+  let chosen=answers[i];
+  let h=`<article class="qcard"><div class="qmeta"><span>प्रश्न ${i+1}</span><span>उच्च-स्तर / अवधारणा-आधारित</span></div><p class="qtext">${q.q}</p><div class="opts">`;
+  q.opts.forEach((o,k)=>{let cls='opt'; if(chosen!==null){cls+=' locked'; if(k===q.ans) cls+=' correct'; else if(k===chosen) cls+=' wrong';} h+=`<div class="${cls}" onclick="choose(${k})"><span class="key">${letters[k]}.</span><span class="txt">${o}</span></div>`;});
+  h+=`</div><div class="fb ${chosen===null?'':(chosen===q.ans?'ok show':'bad show')}"><strong>${chosen===null?'':(chosen===q.ans?'सही उत्तर।':'गलत उत्तर।')}</strong><br>${chosen===null?'':q.exp}</div><div class="navrow"><button class="btn2" onclick="showQ(Math.max(0,idx-1))">← पछिला</button><button class="btn" onclick="idx<QDB.length-1?showQ(idx+1):finish()">${idx<QDB.length-1?'अगिला →':'परिणाम देखू'}</button></div></article>`;
+  document.getElementById('quiz').innerHTML=h; updateTop(); window.scrollTo({top:0,behavior:'smooth'});
 }
+function choose(k){ if(answers[idx]!==null) return; answers[idx]=k; showQ(idx); }
+function finish(){
+  const ok=answers.filter((x,i)=>x===QDB[i].ans).length, bad=answers.filter((x,i)=>x!==null&&x!==QDB[i].ans).length, skip=answers.filter(x=>x===null).length;
+  const pct=Math.round(ok/QDB.length*100);
+  document.getElementById('result').innerHTML=`<div class="big">${ok} / ${QDB.length}</div><p><strong>${pct}%</strong> सही — गलत: ${bad}, अनुत्तरित: ${skip}</p><p class="qtext">${pct>=80?'बहुत नीक।':'फेर अभ्यास करू; अवधारणा पर ध्यान दिअ।'}</p><button class="btn" onclick="restart()">फेर शुरू करू</button>`;
+  document.getElementById('result').style.display='block'; updateTop(); document.getElementById('result').scrollIntoView({behavior:'smooth'});
+}
+function restart(){idx=0;answers=Array(QDB.length).fill(null);showQ(0);}
+initMap(); showQ(0);
 </script>
 </body>
 </html>

@@ -1,146 +1,92 @@
 <!DOCTYPE html>
 <html lang="mai">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>अनुवाद विशेषांक — विदेह क्विज</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>विदेह विशेषांक ०८ — अनुवाद विशेषांक / गद्य-पद्य भारती</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#1a2744;--crimson:#8B1A1A;--gold:#c49a3c;--cream:#FAF6EE;
---ok-fg:#1d7a3e;--bad-fg:#a32020}
-*{box-sizing:border-box}
-body{margin:0;background:var(--cream);color:#1A1A1A;
-font-family:'Lato','Segoe UI',system-ui,sans-serif;line-height:1.55;padding-bottom:60px}
-header{background:linear-gradient(180deg,#16213b,var(--navy));color:#fff;
-padding:28px 20px 22px;text-align:center;border-bottom:4px solid var(--gold)}
-header h1{margin:0;font-family:'Noto Serif Devanagari',serif;font-size:1.7em}
-header .sub{color:var(--gold);font-size:.82em;letter-spacing:.1em;font-style:italic;margin-top:8px}
-header .src{color:#cdd6ea;font-size:.78em;margin-top:6px}
-.wrap{max-width:760px;margin:0 auto;padding:20px 16px}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;justify-content:center}
-.tab{font-family:'Noto Serif Devanagari',serif;font-weight:700;font-size:.9em;
-padding:8px 16px;border-radius:20px;border:2px solid var(--navy);background:#fff;
-color:var(--navy);cursor:pointer;transition:.15s}
-.tab.active{background:var(--navy);color:#fff}
-.counter-badge{background:var(--crimson);color:#fff;font-size:.72em;font-weight:700;
-padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle}
-.progress{height:6px;background:#e7dcc2;border-radius:4px;margin-bottom:18px;overflow:hidden}
-.progress > div{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--crimson));transition:width .3s}
-.pane{display:none}.pane.active{display:block}
-.card{background:#fff;border-radius:11px;box-shadow:0 4px 16px rgba(26,39,68,.1);
-padding:22px 22px 18px;margin-bottom:16px}
-.qmeta{font-size:.78em;color:#8a93ab;font-weight:700;margin-bottom:8px}
-.q{font-family:'Noto Serif Devanagari',serif;font-size:1.12em;font-weight:600;
-color:var(--navy);margin-bottom:14px}
-.opt{display:block;width:100%;text-align:left;
-font-family:'Noto Serif Devanagari',serif;font-size:1em;
-padding:11px 15px;margin-bottom:9px;border:1.5px solid #d8cfb8;border-radius:8px;
-background:#fffdf8;cursor:pointer;transition:.13s;color:#1A1A1A}
-.opt:hover{border-color:var(--gold);background:#fff8e8}
-.opt.ok{border-color:var(--ok-fg);background:#eafaf0;color:var(--ok-fg);font-weight:700}
-.opt.bad{border-color:var(--bad-fg);background:#fdeeee;color:var(--bad-fg)}
-.opt:disabled{cursor:default}
-.fb{margin-top:11px;font-size:.92em;font-weight:600;min-height:20px;
-font-family:'Noto Serif Devanagari',serif}
-.fb.ok{color:var(--ok-fg)}.fb.bad{color:var(--bad-fg)}
-.hint-box{background:#fffbef;border:1px solid var(--gold);border-radius:7px;
-padding:10px 14px;margin-top:10px;font-family:'Noto Serif Devanagari',serif;
-font-size:.88em;color:#5a4010;display:none}
-.hint-box.show{display:block}
-.nav{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
-.nbtn{font-family:'Lato',sans-serif;font-size:.9em;font-weight:700;
-padding:9px 20px;border-radius:6px;border:none;cursor:pointer;transition:.15s}
-.nbtn.pri{background:var(--crimson);color:#fff}.nbtn.pri:hover{background:var(--navy)}
-.nbtn.sec{background:transparent;color:var(--navy);border:2px solid var(--navy)}
-.nbtn.sec:hover{background:var(--navy);color:#fff}
-.scoreboard{background:#fff;border-radius:11px;box-shadow:0 4px 18px rgba(26,39,68,.11);
-padding:34px 26px;text-align:center;margin-bottom:18px}
-.scbig{font-family:'Playfair Display',serif;font-size:2.8em;color:var(--crimson);font-weight:700;margin-bottom:6px}
-.scpct{font-size:1.05em;color:#5a6a8a;margin-bottom:9px}
-.scmsg{font-family:'Noto Serif Devanagari',serif;font-size:1.05em;color:var(--navy);margin-bottom:20px}
-.orn{text-align:center;color:var(--gold);font-size:1em;letter-spacing:.2em;margin:14px 0;opacity:.65}
-footer{text-align:center;color:#8a7a4a;font-size:.78em;padding:24px 16px 0}
-footer a{color:var(--crimson);text-decoration:none}
-@media(max-width:520px){header h1{font-size:1.35em}.q{font-size:1.05em}}
+:root{--navy:#17264a;--crimson:#9b1c2e;--gold:#c8973a;--cream:#f7f2e8;--ok:#2e7d32;--ok-bg:#e8f5e9;--bad:#b71c1c;--bad-bg:#ffebee;--muted:#66708a}
+*{box-sizing:border-box} body{margin:0;background:var(--cream);font-family:Lato,Arial,sans-serif;color:var(--navy);line-height:1.55}
+header{background:var(--navy);color:#fff;text-align:center;padding:18px 12px;border-bottom:5px solid var(--gold)}
+header h1{font-family:'Noto Serif Devanagari',serif;font-size:1.45rem;margin:0 0 6px;line-height:1.35}
+header .brand{font-size:.86rem;color:var(--gold);font-weight:700;letter-spacing:.02em}
+header .sub{font-family:'Noto Serif Devanagari',serif;font-size:.95rem;margin-top:6px;color:#dbe4ff}
+main{max-width:980px;margin:18px auto 50px;padding:0 14px}
+.panel{background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(23,38,74,.12);padding:16px;margin-bottom:14px;border-left:5px solid var(--navy)}
+.topbar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.score{font-weight:700;color:var(--crimson)}
+.progress{flex:1;min-width:180px;height:9px;background:#d9dfeb;border-radius:20px;overflow:hidden} .bar{height:100%;background:var(--gold);width:0%;transition:.2s}
+button{font-family:Lato,Arial,sans-serif;font-weight:700;border:0;border-radius:7px;padding:9px 14px;cursor:pointer}
+.btn{background:var(--navy);color:#fff} .btn:hover{background:var(--crimson)} .btn2{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+.qmap{display:flex;gap:4px;flex-wrap:wrap;margin-top:12px} .dot{width:24px;height:24px;border-radius:5px;border:1px solid #b8c1d8;background:#eef2fa;color:var(--navy);font-size:.72rem;padding:0} .dot.answered{background:#dfe8f9} .dot.ok{background:var(--ok);color:#fff} .dot.bad{background:var(--bad);color:#fff}
+.qcard{background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(23,38,74,.10);padding:20px;margin:16px 0;border-left:5px solid var(--gold)}
+.qmeta{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:.82rem;font-weight:700;margin-bottom:8px}
+.qtext{font-family:'Noto Serif Devanagari',serif;font-size:1.13rem;font-weight:700;margin:0 0 14px;color:var(--navy)}
+.opts{display:grid;gap:9px} .opt{display:flex;gap:10px;align-items:flex-start;background:#f4f7fd;border:2px solid #d2daec;border-radius:10px;padding:10px 12px;cursor:pointer}
+.opt:hover{border-color:var(--navy)} .opt .key{font-weight:700;min-width:22px} .opt .txt{font-family:'Noto Serif Devanagari',serif}
+.opt.correct{background:var(--ok-bg);border-color:#7bc47f;color:var(--ok)} .opt.wrong{background:var(--bad-bg);border-color:#e57373;color:var(--bad)} .opt.locked{cursor:default}
+.fb{display:none;margin-top:10px;border-radius:8px;padding:10px 12px;font-family:'Noto Serif Devanagari',serif} .fb.show{display:block} .fb.ok{background:var(--ok-bg);border-left:4px solid var(--ok)} .fb.bad{background:var(--bad-bg);border-left:4px solid var(--bad)}
+.navrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.result{display:none;text-align:center} .big{font-size:2.6rem;font-weight:700;color:var(--crimson)}
+.back{text-align:center;margin:24px 0} .back a{color:var(--crimson);font-family:'Noto Serif Devanagari',serif;font-weight:700;text-decoration:none}
+footer{text-align:center;padding:20px;color:#6a728a;font-size:.85rem}
+@media(max-width:600px){.qtext{font-size:1rem}.topbar{align-items:stretch}.progress{min-width:100%}}
 </style>
 </head>
 <body>
 <header>
-  <h1>अनुवाद विशेषांक</h1>
-  <div class="sub">ANUWAD (GADYA-PADYA BHARATI) SPECIAL ISSUE · विदेह अंक ९७ · ०१ जनवरी २०१२</div>
-  <div class="src">विदेह : प्रथम मैथिली पाक्षिक ई-पत्रिका · videha.co.in · ISSN 2229-547X</div>
+  <h1>विदेह विशेषांक ०८ — अनुवाद विशेषांक / गद्य-पद्य भारती</h1>
+  <div class="brand">Videha QUIZ | विदेह ई-लर्निङ्ग क्विज / Videha eLearning Quiz / Videha — First Maithili Fortnightly eJournal | www.videha.co.in</div>
+  <div class="sub">अनुवाद-सिद्धान्त, गद्य-पद्य रूपान्तरण, सांस्कृतिक समतुल्यता, काव्यशास्त्र आ भाषिक सेतु पर उच्च-स्तरीय प्रश्न</div>
 </header>
-<div class="orn">❖ ❖ ❖</div>
-<div class="wrap">
-  <div class="tabs" id="tabs"></div>
-  <div class="progress"><div id="bar"></div></div>
-  <div id="panes"></div>
-</div>
-<footer>© विदेह Videha · <a href="https://videha.co.in">videha.co.in</a> · विदेह विशेषांक प्रश्नोत्तरी</footer>
+<main>
+  <section class="panel">
+    <div class="topbar">
+      <span><strong>Special Issue 08</strong> — प्रश्न <strong id="cur">1</strong> / <strong>47</strong></span>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <span class="score" id="score">✓ 0 &nbsp; ✗ 0</span>
+      <button class="btn2" onclick="showQ(0)">←← पहिल</button>
+      <button class="btn" onclick="restart()">नव क्विज</button>
+    </div>
+    <div class="qmap" id="qmap"></div>
+  </section>
+  <section id="quiz"></section>
+  <section class="panel result" id="result"></section>
+  <div class="back"><a href="https://www.videha.co.in/videha-elearning.htm">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a></div>
+</main>
+<footer>© Gajendra Thakur, Editor — Videha eJournal</footer>
 <script>
-const DATA = [{"tab": "विशेषांक परिचय", "items": [{"q": "विदेहक ई अनुवाद विशेषांक कोन तिथिकेँ प्रकाशित भेल?", "opts": ["०१ जनवरी २०१२", "०१ मार्च २०११", "०१ अगस्त २०१२", "१५ मार्च २०१३"], "correct": 0, "hint": "नारी अंक (७७) केर बाद।"}, {"q": "ई अनुवाद विशेषांक विदेहक कोन अंक छल?", "opts": ["अंक ९७", "अंक ७७", "अंक १११", "अंक १२६"], "correct": 0, "hint": "\"गद्य-पद्य भारती\" उपशीर्षक।"}, {"q": "एहि अनुवाद विशेषांकक उपशीर्षक की छल?", "opts": ["गद्य-पद्य भारती", "अनचिन्हार आखर", "लोकवेद आ लालकिला", "पल्लव"], "correct": 0, "hint": "भारतीय भाषाक गद्य-पद्यक मैथिली अनुवाद।"}]}, {"tab": "अनुवाद", "items": [{"q": "एहि अंकमे कोन प्रसिद्ध हिन्दी कथाकारक कथाक मैथिली अनुवाद देल गेल?", "opts": ["काशीनाथ सिंह", "प्रेमचन्द", "निर्मल वर्मा", "भीष्म साहनी"], "correct": 0, "hint": "\"काशी का अस्सी\"क लेखक।"}, {"q": "एहि अंकक केन्द्रीय विधा की छल?", "opts": ["अनुवाद", "भक्ति गजल", "विहनि कथा", "समीक्षा"], "correct": 0, "hint": "आन भाषासँ मैथिलीमे अनुवाद।"}, {"q": "एहि अंकमे \"एकटा विहनि कथा\" केकर देल गेल?", "opts": ["मुन्नाजी", "काशीनाथ सिंह", "विनीत उत्पल", "ज्योति"], "correct": 0, "hint": "\"मुन्नाजी- एकटा विहनि कथा\"।"}]}];
-let score=0,total=0,answered=0;
-DATA.forEach(g=>total+=g.items.length);
-const tabsEl=document.getElementById('tabs');
-const panesEl=document.getElementById('panes');
-const bar=document.getElementById('bar');
-DATA.forEach((g,gi)=>{
-  const tb=document.createElement('button');
-  tb.className='tab'+(gi===0?' active':'');
-  tb.innerHTML=g.tab+'<span class="counter-badge">'+g.items.length+'</span>';
-  tb.onclick=()=>switchTab(gi);
-  tabsEl.appendChild(tb);
-  const pane=document.createElement('div');
-  pane.className='pane'+(gi===0?' active':'');
-  pane.id='pane-'+gi;
-  g.items.forEach((q,qi)=>pane.appendChild(buildCard(g,gi,qi,q)));
-  panesEl.appendChild(pane);
-});
-function buildCard(g,gi,qi,q){
-  const card=document.createElement('div');card.className='card';
-  const meta=document.createElement('div');meta.className='qmeta';
-  meta.textContent=g.tab+' · प्रश्न '+(qi+1)+'/'+g.items.length;card.appendChild(meta);
-  const qd=document.createElement('div');qd.className='q';qd.textContent=q.q;card.appendChild(qd);
-  const opts=[];
-  q.opts.forEach((o,oi)=>{
-    const b=document.createElement('button');b.className='opt';b.textContent=o;
-    b.onclick=()=>pick(b,oi);card.appendChild(b);opts.push(b);
-  });
-  const fb=document.createElement('div');fb.className='fb';card.appendChild(fb);
-  let hintBox=null;
-  if(q.hint){hintBox=document.createElement('div');hintBox.className='hint-box';
-    hintBox.textContent='💡 '+q.hint;card.appendChild(hintBox);}
-  const nav=document.createElement('div');nav.className='nav';
-  if(q.hint){const hb=document.createElement('button');hb.className='nbtn sec';hb.textContent='संकेत';
-    hb.onclick=()=>hintBox.classList.toggle('show');nav.appendChild(hb);}
-  card.appendChild(nav);
-  let done=false;
-  function pick(btn,oi){
-    if(done)return;done=true;answered++;
-    opts.forEach((b,bi)=>{b.disabled=true;
-      if(bi===q.correct)b.classList.add('ok');
-      else if(b===btn)b.classList.add('bad');});
-    if(oi===q.correct){score++;fb.className='fb ok';fb.textContent='✓ सही उत्तर!';}
-    else{fb.className='fb bad';fb.textContent='✗ सही उत्तर: '+q.opts[q.correct];}
-    bar.style.width=(answered/total*100)+'%';
-    if(answered===total)showScore();
-  }
-  return card;
+const QDB = [{"q": "अनुवाद विशेषांकक मूल उद्देश्य कोना बुझल जा सकैत अछि?", "opts": ["भिन्न भाषा-संसारक गद्य, पद्य, विचार आ संस्कृति केँ मैथिली पाठकधरि रचनात्मक रूपे पहुँचाब", "साहित्यकेँ समाजसँ अलग मानब", "केवल अलंकारक नाम रटब", "केवल अंक-क्रम पूछब"], "ans": 0, "exp": "अनुवाद शब्द-प्रतिस्थापन नहि; ई अर्थ, शैली, संस्कार आ पाठकीय प्रभावक पुनर्सृजन अछि।"}, {"q": "‘गद्य-पद्य भारती’ नामक संकेत अनुवादक दृष्टिसँ की बतबैत अछि?", "opts": ["केवल कविता-कंठस्थ करब", "गद्य आ कविता दुनू विधामे भारतीय भाषिक-सांस्कृतिक सम्पर्क बनएबाक आग्रह", "केवल पत्रिका-विज्ञापन", "केवल गद्यक निषेध"], "ans": 1, "exp": "शीर्षक अनुवादकेँ विधा-सीमा पार करयवला सांस्कृतिक सेतु रूपमे देखबैत अछि।"}, {"q": "अनुवादमे ‘निष्ठा’क अर्थ केवल शब्दशः समानता किएक नहि अछि?", "opts": ["निष्ठा मूल भाव, सन्दर्भ, शैली आ पाठकीय असरक प्रति सेहो होइत अछि", "निष्ठा अनुवादमे असम्भव", "निष्ठा केवल शब्दकोश मिलान", "निष्ठा मतलब वाक्य अस्वाभाविक बनाउ"], "ans": 0, "exp": "सफल अनुवाद मूलक आत्मा बचबैत लक्ष्य भाषाक स्वाभाविकता राखैत अछि।"}, {"q": "हिंदीसँ मैथिली अनुवादमे सबसे सूक्ष्म चुनौती की अछि?", "opts": ["हिंदी शब्द जस्ताक तस्तै राखब सदैव उत्तम", "दुनू भाषाक निकटताक कारण झूठी समानता आ अस्वाभाविक मिश्रणसँ बचब", "मैथिलीमे भाव व्यक्त नहि होइत", "दुनू भाषा पूर्णतः अलग संसार"], "ans": 1, "exp": "निकट भाषामे अनुवादकें अधिक सावधानी चाही—वाक्य-लय, मुहावरा आ बोलीक स्वाभाविकता नष्ट नहि हो।"}, {"q": "कविता-अनुवादमे छन्द, लय आ बिम्बक समस्या किएक गम्भीर अछि?", "opts": ["लयक कोनो महत्त्व नहि", "बिम्बक अनुवाद निषिद्ध", "कविता अनुवादमे केवल कथानक चाही", "अर्थक संग संगीत, ध्वनि आ प्रतीक-संरचना सेहो पुनः रचए पड़ैत अछि"], "ans": 3, "exp": "कविता शब्दार्थसँ बेसी ध्वनि, छवि आ भावक संग बनैत अछि; अनुवादमे ई संतुलन कठिन अछि।"}, {"q": "गद्य-अनुवादमे पठनीयता किएक प्रमुख कसौटी अछि?", "opts": ["जतेक अटपट वाक्य, ततेक सफल अनुवाद", "पठनीयता केवल मुद्रणक बात", "पाठ लक्ष्य भाषामे स्वाभाविक, स्पष्ट आ प्रवाहपूर्ण लागए", "गद्य मे अर्थ गौण"], "ans": 2, "exp": "गद्य पाठकक विचार-प्रवाह सँ जुड़ैत अछि; अनुवादक वाक्य यदि कृत्रिम अछि त’ अर्थ कमजोर होइत अछि।"}, {"q": "अनुवादक ‘सांस्कृतिक पद’केँ कोना सँभालि सकैत अछि?", "opts": ["कहियो मूल शब्द राखि व्याख्या, कहियो सांस्कृतिक समतुल्य, कहियो सन्दर्भानुसार पुनर्लेखन", "अनुवादमे संस्कृति नहि रहैत", "केवल अंग्रेजी शब्द राखब", "सभ सांस्कृतिक पद हटाएब"], "ans": 0, "exp": "संस्कृति-विशेष शब्द अनुवादक निर्णयक परीक्षा अछि; एके नियम सभ जगह लागू नहि होइत।"}, {"q": "‘हम, देह आ विदेह’ सन शीर्षक अनुवाद/विचार विमर्शमे कोन दार्शनिक संकेत दे सकैत अछि?", "opts": ["केवल वेबसाइटक नाम", "केवल भूगोलक नक्शा", "केवल हास्य शीर्षक", "अहं, शरीर, भाषा आ आत्म-अतिक्रमणक सम्बन्ध पर विचार"], "ans": 3, "exp": "एहन शीर्षक देह-चेतना आ आत्मबोधक गूढ़ प्रश्न खोलि सकैत अछि।"}, {"q": "आचार्य भामहक चिंतनक समावेश अनुवाद विशेषांकमे किएक सार्थक अछि?", "opts": ["काव्यशास्त्रक अनुवादसँ कोनो सम्बन्ध नहि", "सिद्धान्त विशेषांकमे निषिद्ध", "भामह केवल आधुनिक पत्रकार छथि", "अनुवादक संग काव्यशास्त्रीय विचार आ आलोचनात्मक परम्पराक सेतु बनेबाक लेल"], "ans": 3, "exp": "काव्यशास्त्र भाषा, अलंकार, अर्थ आ काव्यगुणक विवेचन दैत अछि; अनुवादक लेल ई संवेदनशीलता उपयोगी अछि।"}, {"q": "दण्डी आ काव्यलक्षणक अध्ययन अनुवादकें कोन लाभ दैत अछि?", "opts": ["गद्यक अर्थ समाप्त करब", "शैली, गुण, रीति, वर्णन आ काव्य-सौंदर्यक सूक्ष्मता बुझब", "साहित्यकेँ गणित बना देब", "कविता अनुवाद रोकि देब"], "ans": 1, "exp": "काव्यलक्षण समझलासँ अनुवादक केवल कथ्य नहि, सौंदर्य-व्यवस्था सेहो देखैत अछि।"}, {"q": "अनुवादित कथा मे पात्र-भाषा कोना संभालल जाए?", "opts": ["सभ पात्र एके संस्कृतनिष्ठ भाषा बाजए", "मूल पात्रक आवाज हटाएब", "पात्रक सामाजिक स्तर आ मूल स्वर बचबैत लक्ष्य भाषाक स्वाभाविक बोलचाल दऽ", "केवल शब्दकोशक भाषा प्रयोग करब"], "ans": 2, "exp": "पात्रक भाषा ओकर सामाजिकता आ स्वभाव बनबैत अछि; अनुवादमे एकर सम्मान जरूरी अछि।"}, {"q": "रिपोर्ट, डायरी, समाचार आ साहित्यिक लेखक अनुवादक शैली एके किएक नहि रहि सकैत?", "opts": ["विधा अनुवादमे अप्रासंगिक", "प्रत्येक विधाक उद्देश्य, लहजा, गति आ पाठक-संबंध अलग होइत अछि", "समाचारक भाषा कविताजेहन होएब चाही", "सभ अनुवाद एके टेम्पलेटमे"], "ans": 1, "exp": "अनुवादकें विधा-संवेदना चाही—रिपोर्टमे स्पष्टता, कवितामे लय, विचारलेखमे तर्क, कथा मे वातावरण।"}, {"q": "अनुवादमे ‘स्थानीयकरण’क खतरा की अछि?", "opts": ["अधिक स्थानीयकरणसँ मूल संस्कृतिक विशिष्टता मेटि सकैत अछि", "स्थानीयकरण केवल टाइपिंग", "स्थानीयकरण अर्थ बढ़बैत नहि", "स्थानीयकरण सदैव निषिद्ध"], "ans": 0, "exp": "मूल संस्कृतिक पहचान बचबैत लक्ष्य पाठकक समझ सुनिश्चित करब संतुलनक काम अछि।"}, {"q": "अनुवादमे ‘विदेशीपन’ बचाएब कखन उपयोगी भऽ सकैत अछि?", "opts": ["जखन पाठककेँ भ्रमित करब लक्ष्य हो", "जखन अनुवादक अर्थ नहि बुझै", "जखन मूल पाठक सांस्कृतिक भिन्नता स्वयं अर्थक हिस्सा हो", "जखन मैथिली शब्द उपलब्ध नहि"], "ans": 2, "exp": "सफल अनुवाद अनेक बेर अपरिचित संस्कृतिक स्वाद बचबैत पाठककेँ नया संसारमे लऽ जाइत अछि।"}, {"q": "मैथिलीमे अनुवाद साहित्यिक भाषा विकासमे की योगदान दैत अछि?", "opts": ["भाषाकेँ दरिद्र करैत अछि", "नव शब्द, वाक्य-विन्यास, विचार-क्षेत्र आ शैलीगत प्रयोग जोड़ैत अछि", "मूल लेखन रोकैत अछि", "केवल गलती बढ़बैत अछि"], "ans": 1, "exp": "अनुवाद भाषा केँ नया विषय, पदावली, शैली आ वैचारिक ऊर्जा दैत अछि।"}, {"q": "अनुवादकक नैतिक जिम्मेदारी की अछि?", "opts": ["मूल पाठ छिपाएब", "मूल लेखक, लक्ष्य पाठक, भाषा आ सन्दर्भ सभक प्रति ईमानदार रहब", "अर्थ मनमाने बदलि देब", "अपन विचारकें मूलक नामे देब"], "ans": 1, "exp": "अनुवादक बीचक सेतु छथि; ईमानदारी बिना सेतु भरोसेमंद नहि रहैत।"}, {"q": "कविता-अनुवादमे अनुप्रास आ ध्वनि-सौंदर्यक हानि किएक होइत अछि?", "opts": ["भाषा बदललासँ ध्वनि-संबंध आ शब्द-संगति स्वतः बदलि जाइत अछि", "ध्वनि सभ भाषामे एके होइत", "कविता ध्वनिरहित होइत", "अनुवादक ध्वनि पर ध्यान नहि दैत"], "ans": 0, "exp": "एक भाषाक ध्वनि-व्यवस्था दोसर भाषामे जस्ताक तस्तै नहि जाइत; नव ध्वनि-संतुलन बनए पड़ैत अछि।"}, {"q": "सांस्कृतिक मुहावराक अनुवादमे शब्दशः विधि किएक असफल भऽ सकैत अछि?", "opts": ["मुहावराक अर्थ नहि होइत", "मुहावरा हटाएब सदैव सही", "मुहावरा सदैव शब्दशः अनुवादित होइत", "मुहावराक अर्थ शब्दक योगफल नहि, सांस्कृतिक प्रयोगसँ बनैत अछि"], "ans": 3, "exp": "मुहावराक भावार्थ, प्रसंग आ प्रभाव लक्ष्य भाषामे खोजब पड़ैत अछि।"}, {"q": "अनुवादित बालनाटक वा कथा मे भाषा-सादगीक अर्थ की नहि अछि?", "opts": ["सादगी केवल छोटे वाक्य", "सादगी मतलब खराब भाषा", "सादगी मतलब सपाटपन नहि; बाल-मानसक अनुरूप स्पष्ट, जीवंत, लययुक्त भाषा", "सादगी मतलब विचारहीनता"], "ans": 2, "exp": "बाल साहित्यक अनुवादमे सरलता आ कलात्मकता दुनू चाही।"}, {"q": "भारतीय भाषाक बीच अनुवाद राष्ट्रीय साहित्यिक संवादमे कोन काम करैत अछि?", "opts": ["क्षेत्रीय अनुभवकेँ साझा करैत, तुलना आ सहानुभूति बढ़बैत अछि", "भाषा सभकेँ एके बना दैत", "केवल प्रशासनिक सुविधा", "स्थानीय साहित्य मिटा दैत"], "ans": 0, "exp": "अनुवाद बहुभाषी भारतमे परस्पर पाठकीयता आ सांस्कृतिक सम्मानक माध्यम अछि।"}, {"q": "अनुवादक कतेक रचनात्मक स्वतंत्रता लऽ सकैत अछि?", "opts": ["मूल भाव आ संरचना नष्ट नहि करैत लक्ष्य भाषाक प्रभावशीलता लेल विवेकपूर्ण स्वतंत्रता", "मूलक आधा पाठ हटाएब", "कुनो स्वतंत्रता नहि", "पूर्ण मनमानी"], "ans": 0, "exp": "अनुवाद नकल नहि, मुदा स्वतंत्र रचना सेहो नहि; ई नियंत्रित पुनर्सृजन अछि।"}, {"q": "अनुवाद-समीक्षा ककरा पर ध्यान देत?", "opts": ["अर्थ-संरक्षण, भाषा-स्वाभाविकता, शैली, सांस्कृतिक निर्णय आ पाठकीय प्रभाव", "केवल पृष्ठ-संख्या", "केवल शीर्षकक लम्बाई", "केवल अनुवादकक फोटो"], "ans": 0, "exp": "समीक्षा अनुवादक निर्णयसभक आलोचनात्मक मूल्यांकन करैत अछि।"}, {"q": "यदि मूल पाठमे व्यंग्य अछि तँ अनुवादकें कोन सावधानी चाही?", "opts": ["व्यंग्यक लहजा, विडम्बना आ सांस्कृतिक संकेत लक्ष्य भाषामे प्रभावी बनए", "व्यंग्यकेँ उपदेश बना देब", "व्यंग्य हटाएब", "सभी वाक्य शाब्दिक करब"], "ans": 0, "exp": "व्यंग्य केवल अर्थ नहि, टोन आ अंतर्निहित विरोधाभाससँ बनैत अछि।"}, {"q": "अनुवाद विशेषांकमे रिपोर्ट आ समारोह-लेख सभक उपस्थिति कोन पक्ष देखबैत अछि?", "opts": ["ई अनुवादक विरोध अछि", "रिपोर्ट साहित्यसँ बाहर सदैव", "भाषिक-सांस्कृतिक गतिविधि सेहो साहित्यिक संसारक हिस्सा अछि", "समारोहक वर्णन अर्थहीन"], "ans": 2, "exp": "पत्रिका साहित्यकेँ जीवित गतिविधि, संस्था, पाठक आ समुदायसँ जोड़ैत अछि।"}, {"q": "‘द्रौपदी’क कविता-अनुवादमे मिथकीय नाम केना काम करैत अछि?", "opts": ["मिथक आधुनिक पाठककेँ कोनो अर्थ नहि", "सांस्कृतिक स्मृति केँ लक्ष्य भाषामे पुनः सक्रिय करैत अछि", "मिथकीय नाम सदैव हटाएब", "नामक अनुवाद नहि, तेँ कविता असम्भव"], "ans": 1, "exp": "मिथकीय नाम पाठकक सामूहिक स्मृति जगबैत अछि; अनुवादमे ओकर अर्थक्षेत्र बचब आवश्यक अछि।"}, {"q": "अनुवादमे लिपि आ भाषा बीच भेद किएक बुझब जरूरी अछि?", "opts": ["भाषाक लिपिसँ कोनो सम्बन्ध नहि", "लिपि लेखनक रूप अछि, भाषा अर्थ, ध्वनि, व्याकरण आ संस्कृतिक व्यवस्था", "लिपि बदललासँ भाषा बदलि जाइत", "दुनू बिल्कुल एके अछि"], "ans": 1, "exp": "मैथिली विविध लिपि/लिप्यंतरण संदर्भमे रहल अछि; अनुवादकें भाषा-संरचना पर ध्यान देब चाही।"}, {"q": "अनुवादकें कखन टीका/टिप्पणी जोड़बाक जरूरत पड़ि सकैत अछि?", "opts": ["कहियो टिप्पणी नहि", "टिप्पणी मूलक बदला अनुवाद होइत", "हर वाक्य पर टिप्पणी जरूरी", "जखन सांस्कृतिक, ऐतिहासिक वा दार्शनिक सन्दर्भ लक्ष्य पाठक लेल अपरिचित हो"], "ans": 3, "exp": "टिप्पणी पाठक-सहायता अछि, मुदा ओकर अति प्रवाह रोकि सकैत अछि।"}, {"q": "अनुवादक भाषा-शुद्धता आ लोकप्रयोग बीच संतुलन कोना बनबैत अछि?", "opts": ["मानकक पूर्ण निषेध", "केवल मिश्रित बोलचाल बिना कसौटी", "मानक मैथिली राखैत, जहाँ जरूरी हो तहाँ पात्र/प्रसंगानुकूल लोकपद प्रयोग करैत", "केवल अत्यंत संस्कृतनिष्ठ भाषा"], "ans": 2, "exp": "अनुवादकें पठनीय, शुद्ध, पर जीवंत भाषा चाही।"}, {"q": "अनुवाद विशेषांकक पाठक लेल ‘मूल’ आ ‘अनुवाद’क संबंध कोना देखबाक चाही?", "opts": ["मूल आधार अछि, अनुवाद लक्ष्य भाषामे ओकर नया जीवन", "अनुवाद मूलक दुश्मन", "मूलक आवश्यकता नहि", "अनुवाद केवल प्रतिलिपि"], "ans": 0, "exp": "अनुवाद मूलसँ जन्मैत अछि मुदा नया पाठक-संसारमे स्वतन्त्र प्रभाव उत्पन्न करैत अछि।"}, {"q": "अनुवादमे स्त्री-स्वरक रक्षा किएक विशेष सावधानी माँगैत अछि?", "opts": ["भाषा बदललासँ agency, व्यंग्य, पीड़ा आ प्रतिरोधक тон कमजोर भऽ सकैत अछि", "स्त्री-स्वर अनुवादमे अप्रासंगिक", "प्रतिरोध हटाएब पठनीयता बढ़बैत", "सभी स्वर एके करब उत्तम"], "ans": 0, "exp": "स्त्री-विमर्शक पाठमे आवाजक सूक्ष्मता अनुवादक प्रमुख जिम्मेदारी अछि।"}, {"q": "शास्त्रीय काव्यशास्त्रक अनुवादमे शब्द-समतुल्य खोजब किएक कठिन अछि?", "opts": ["सब शब्दक अंग्रेजी पर्याय पर्याप्त", "अलंकार, रीति, गुण, ध्वनि सन पदक ऐतिहासिक अर्थ-संसार बहुत घना होइत अछि", "काव्यशास्त्र अनुवाद योग्य नहि", "शास्त्रीय पद सरल गाली अछि"], "ans": 1, "exp": "तकनीकी साहित्यक अनुवादमे पारिभाषिकता आ परम्परागत अर्थ दुनू सम्हारए पड़ैत अछि।"}, {"q": "अनुवादक यदि मूलक सांस्कृतिक आलोचना केँ नरम कऽ देत तँ की हानि?", "opts": ["अर्थ बढ़ि जाएत", "अनुवाद बेसी सफल भऽ जाएत", "कृतिक वैचारिक धार आ सामाजिक प्रश्न कमजोर भऽ जाएत", "पाठक सभ संतुष्ट रहत तेँ सही"], "ans": 2, "exp": "अनुवादकें असुविधाजनक प्रश्न सेहो ईमानदारीसँ पहुँचाबक चाही।"}, {"q": "अनुवादित हास्य मे सबसे कठिन तत्व की होइत अछि?", "opts": ["हास्य हटाएब अनुवादक नियम", "हास्यमे भाषा जरूरी नहि", "स्थानीय कहावत, ध्वनि-खेल, प्रसंग आ सांस्कृतिक अपेक्षा", "हास्यक अनुवाद सदैव सरल"], "ans": 2, "exp": "हास्य समाजक साझा संकेत पर निर्भर करैत अछि; भाषा बदललासँ ओकर असर बदलि सकैत अछि।"}, {"q": "अनुवाद साहित्यक इतिहासमे ‘सेतु’ रूपक किएक बार-बार प्रयुक्त होइत अछि?", "opts": ["सेतु रूपक अर्थहीन", "सेतु केवल नदी-इंजीनियरिंग", "अनुवाद अलगाव बढ़बैत", "किएकि ई भाषा, समाज, समय, विधा आ पाठक समुदाय सभकेँ जोड़ैत अछि"], "ans": 3, "exp": "अनुवाद बहुल समाजमे साहित्यिक सम्पर्कक मूल क्रिया अछि।"}, {"q": "अनुवादकें शब्दकोश पर निर्भरता सीमित किएक रखबाक चाही?", "opts": ["अनुवादक सोचब नहि चाही", "शब्दकोश अर्थ देत, मुदा प्रसंग, लहजा, मुहावरा आ भावप्रभाव नहि पूरा देत", "प्रसंगक जरूरत नहि", "शब्दकोश सदैव सम्पूर्ण"], "ans": 1, "exp": "अनुवादक पाठक सम्पूर्ण अर्थ-प्रक्रिया बुझैत अछि; शब्दकोश आरम्भिक साधन मात्र अछि।"}, {"q": "अनुवाद विशेषांक मे मैथिली पाठक कोन बौद्धिक लाभ पबैत छथि?", "opts": ["केवल मनोरंजनक सूची", "अपन भाषामे बाहरी/अन्य भाषिक विचार पढ़ि तुलनात्मक दृष्टि विकसित करैत छथि", "अन्य भाषा सँ दूरी", "मूल साहित्यक अस्वीकार"], "ans": 1, "exp": "अनुवाद पाठकक संसार विस्तार करैत अछि आ मातृभाषाक आलोचनात्मक क्षमता बढ़बैत अछि।"}, {"q": "अनुवादित लेखमे लेखकक शैली बचाएब किएक जरूरी अछि?", "opts": ["शैली लेखकक विचारक चाल, संवेदना आ व्यक्तित्वक वाहक अछि", "शैली हटाएब पठनीयता बढ़बैत", "शैली केवल फॉन्ट", "लेखकक शैलीक अर्थ नहि"], "ans": 0, "exp": "अनुवादक केवल सूचना नहि दैत; लेखकक स्वभाव आ लेखन-ऊर्जा सेहो पहुँचबैत अछि।"}, {"q": "कविता-अनुवादमे बिम्बक स्थानीय समतुल्य चुनब कखन उचित अछि?", "opts": ["बिम्बक अर्थ महत्वहीन", "सदैव मूल बिम्ब हटाउ", "कहियो स्थानीय समतुल्य नहि", "जखन मूल बिम्बक भावार्थ लक्ष्य पाठक धरि अन्यथा न पहुँचत, मुदा मूल भाव नष्ट नहि हो"], "ans": 3, "exp": "बिम्ब-निर्णय अनुवादक रचनात्मक विवेकक हिस्सा अछि।"}, {"q": "अनुवाद मे ‘स्वर’ शब्दक अर्थ की अछि?", "opts": ["केवल ध्वनि की ऊँचाई", "केवल छपाईक शैली", "कृतिक बोलबाक अंदाज—गंभीर, व्यंग्यात्मक, करुण, आत्मीय, विद्रोही आदि", "केवल गायकक स्वर"], "ans": 2, "exp": "स्वर बदललासँ कृतिक सम्पूर्ण असर बदलि सकैत अछि।"}, {"q": "अनुवादकें लक्ष्य पाठकक ज्ञान-स्तर किएक ध्यानमे रखबाक चाही?", "opts": ["अनुवाद केवल अनुवादक लेल", "कठिनता सदैव श्रेष्ठ", "अपरिचित सन्दर्भ, कठिन पद आ शैलीक प्रस्तुति पाठकक ग्रहणक्षमता अनुसार हो", "पाठकक कोनो महत्त्व नहि"], "ans": 2, "exp": "अनुवाद संवाद अछि; पाठकक पहुँच ओकर मूल कसौटीमे सँ एक अछि।"}, {"q": "अनुवादित निबंधमे तर्क-संरचना बचाएब किएक अनिवार्य अछि?", "opts": ["विचारक क्रम टूटलासँ निष्कर्ष आ विवेचन गलत बुझाइत अछि", "तर्क हटाएब शैली सुधारैत", "अनुवादमे निष्कर्ष जरूरी नहि", "निबंधमे क्रम नहि होइत"], "ans": 0, "exp": "विचारात्मक गद्यक अनुवादमे तर्कक क्रम, संक्रमण आ स्पष्टता महत्त्वपूर्ण अछि।"}, {"q": "अनुवादमे ‘अर्थ-हानि’ पूर्णतः टारल जा सकैत अछि?", "opts": ["कहियो हानि नहि होइत", "अर्थ-हानि उपयोगी अछि", "पूर्णतः नहि; मुदा सजगता, टिप्पणी, शैली-बोध आ पुनर्सृजनसँ ओकरा न्यून कएल जा सकैत अछि", "हानि भेल तँ अनुवाद रोकि देब"], "ans": 2, "exp": "भाषा बदललासँ किछु अर्थ-छाया बदलैत अछि; अनुवादक ओकरा सम्भव सीमा धरि सहेजैत अछि।"}, {"q": "अनुवाद विशेषांकमे भाषापाक रचना-लेखनक संकेत कोन बात जोड़ैत अछि?", "opts": ["लेखनक अभ्यास जरूरी नहि", "अनुवादमे भाषा-मानक अप्रासंगिक", "भाषापाक केवल हास्य", "अनुवादक संग मानक, शुद्ध, सक्षम मैथिली लेखनक अभ्यास जरूरी अछि"], "ans": 3, "exp": "अनुवाद भाषा-विकासक साधन अछि; शुद्धता आ अभिव्यक्ति क्षमता दुनू आवश्यक अछि।"}, {"q": "अनुवादक यदि मूल पाठक जातीय/क्षेत्रीय संवेदनशीलता नहि बुझै तँ कोन समस्या?", "opts": ["वह अर्थक सांस्कृतिक परत, सम्मानसूचक संकेत आ सामाजिक दर्द बिगाड़ि सकैत अछि", "जातीय संकेत हटाएब सदैव सही", "समस्या नहि", "क्षेत्रीयता अर्थहीन"], "ans": 0, "exp": "अनुवादकें पाठक सामाजिक-सांस्कृतिक संदर्भ तक पहुँचना पड़ैत अछि।"}, {"q": "अनुवादक लेल पुनर्पाठ किएक आवश्यक अछि?", "opts": ["पुनर्पाठ समयक बरबादी", "संपादन मूलक अपमान", "पहिल लिखल हमेशा अंतिम", "पहिल ड्राफ्टमे अर्थ-सटीकता, शैली, लय आ भाषा-स्वाभाविकता पूरा नहि होइत"], "ans": 3, "exp": "उत्कृष्ट अनुवाद संशोधन, तुलना आ भाषा-तराश सँ बनैत अछि।"}, {"q": "अनुवाद-साहित्य पर उच्च-स्तरीय क्विजमे कोन प्रश्न उचित अछि?", "opts": ["केवल लिंकक रंग", "अनुवादक निर्णय, शैली, सांस्कृतिक समतुल्यता, विधा-भेद आ पाठकीय प्रभाव पर प्रश्न", "केवल अनुक्रमांक", "केवल पृष्ठ-संख्या"], "ans": 1, "exp": "अनुवाद-विमर्श समझ-आधारित प्रश्न मांग करैत अछि; यांत्रिक प्रश्न ओकर गहराइ घटबैत अछि।"}, {"q": "अनुवाद विशेषांकक प्रश्न संख्या सामान्य अंकसँ बेसी किएक होएबाक चाही?", "opts": ["किएकि केवल नाम-सूची लंबी अछि", "किएकि पृष्ठ-संख्या बेसी अछि", "किएकि विषय गद्य, पद्य, काव्यशास्त्र, संस्कृति, बाल-नाटक, रिपोर्ट आ भाषापाक लेखन धरि फैलल अछि", "किएकि एके प्रश्न दोहराएब अछि"], "ans": 2, "exp": "सामग्रीक वैविध्य प्रश्न-संख्या आ अवधारणा-विस्तार बढ़बैत अछि।"}];
+let idx=0, answers=Array(QDB.length).fill(null);
+const letters=['क','ख','ग','घ'];
+function initMap(){
+  const m=document.getElementById('qmap'); m.innerHTML='';
+  QDB.forEach((_,i)=>{const b=document.createElement('button'); b.className='dot'; b.textContent=i+1; b.onclick=()=>showQ(i); m.appendChild(b);});
 }
-function switchTab(gi){
-  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===gi));
-  document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',i===gi));
-  window.scrollTo({top:0,behavior:'smooth'});
+function updateTop(){
+  const done=answers.filter(x=>x!==null).length, ok=answers.filter((x,i)=>x===QDB[i].ans).length, bad=answers.filter((x,i)=>x!==null&&x!==QDB[i].ans).length;
+  document.getElementById('cur').textContent=idx+1; document.getElementById('score').innerHTML=`✓ ${ok} &nbsp; ✗ ${bad}`;
+  document.getElementById('bar').style.width=(done/QDB.length*100)+'%';
+  [...document.querySelectorAll('.dot')].forEach((d,i)=>{d.className='dot'+(answers[i]!==null?' answered':'')+(answers[i]===QDB[i].ans?' ok':'')+(answers[i]!==null&&answers[i]!==QDB[i].ans?' bad':'');});
 }
-function showScore(){
-  const pct=Math.round(score/total*100);
-  let msg=pct>=80?'उत्कृष्ट! अहाँक ज्ञान अद्भुत अछि।':pct>=50?'नीक प्रयास — आओर पढ़ू।':'फेर सँ प्रयास करू, अहाँ नीक करब।';
-  const sb=document.createElement('div');sb.className='scoreboard';
-  sb.innerHTML='<div class="orn">❖ ❖ ❖</div><div class="scbig">'+score+' / '+total+'</div>'+
-    '<div class="scpct">'+pct+'%</div><div class="scmsg">'+msg+'</div>'+
-    '<button class="nbtn pri" onclick="location.reload()">फेर सँ खेलू</button>';
-  const w=document.querySelector('.wrap');w.insertBefore(sb,w.firstChild);
-  window.scrollTo({top:0,behavior:'smooth'});
+function showQ(i){
+  idx=i; const q=QDB[i]; document.getElementById('result').style.display='none';
+  let chosen=answers[i];
+  let h=`<article class="qcard"><div class="qmeta"><span>प्रश्न ${i+1}</span><span>उच्च-स्तर / अवधारणा-आधारित</span></div><p class="qtext">${q.q}</p><div class="opts">`;
+  q.opts.forEach((o,k)=>{let cls='opt'; if(chosen!==null){cls+=' locked'; if(k===q.ans) cls+=' correct'; else if(k===chosen) cls+=' wrong';} h+=`<div class="${cls}" onclick="choose(${k})"><span class="key">${letters[k]}.</span><span class="txt">${o}</span></div>`;});
+  h+=`</div><div class="fb ${chosen===null?'':(chosen===q.ans?'ok show':'bad show')}"><strong>${chosen===null?'':(chosen===q.ans?'सही उत्तर।':'गलत उत्तर।')}</strong><br>${chosen===null?'':q.exp}</div><div class="navrow"><button class="btn2" onclick="showQ(Math.max(0,idx-1))">← पछिला</button><button class="btn" onclick="idx<QDB.length-1?showQ(idx+1):finish()">${idx<QDB.length-1?'अगिला →':'परिणाम देखू'}</button></div></article>`;
+  document.getElementById('quiz').innerHTML=h; updateTop(); window.scrollTo({top:0,behavior:'smooth'});
 }
+function choose(k){ if(answers[idx]!==null) return; answers[idx]=k; showQ(idx); }
+function finish(){
+  const ok=answers.filter((x,i)=>x===QDB[i].ans).length, bad=answers.filter((x,i)=>x!==null&&x!==QDB[i].ans).length, skip=answers.filter(x=>x===null).length;
+  const pct=Math.round(ok/QDB.length*100);
+  document.getElementById('result').innerHTML=`<div class="big">${ok} / ${QDB.length}</div><p><strong>${pct}%</strong> सही — गलत: ${bad}, अनुत्तरित: ${skip}</p><p class="qtext">${pct>=80?'बहुत नीक।':'फेर अभ्यास करू; अवधारणा पर ध्यान दिअ।'}</p><button class="btn" onclick="restart()">फेर शुरू करू</button>`;
+  document.getElementById('result').style.display='block'; updateTop(); document.getElementById('result').scrollIntoView({behavior:'smooth'});
+}
+function restart(){idx=0;answers=Array(QDB.length).fill(null);showQ(0);}
+initMap(); showQ(0);
 </script>
 </body>
 </html>

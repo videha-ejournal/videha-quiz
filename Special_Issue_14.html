@@ -1,146 +1,92 @@
 <!DOCTYPE html>
 <html lang="mai">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>जगदीश चन्द्र ठाकुर अनिल विशेषांक — विदेह क्विज</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>जगदीश चन्द्र ठाकुर ‘अनिल’ विशेषांक — उच्च-स्तरीय प्रश्नोत्तरी</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#1a2744;--crimson:#8B1A1A;--gold:#c49a3c;--cream:#FAF6EE;
---ok-fg:#1d7a3e;--bad-fg:#a32020}
-*{box-sizing:border-box}
-body{margin:0;background:var(--cream);color:#1A1A1A;
-font-family:'Lato','Segoe UI',system-ui,sans-serif;line-height:1.55;padding-bottom:60px}
-header{background:linear-gradient(180deg,#16213b,var(--navy));color:#fff;
-padding:28px 20px 22px;text-align:center;border-bottom:4px solid var(--gold)}
-header h1{margin:0;font-family:'Noto Serif Devanagari',serif;font-size:1.7em}
-header .sub{color:var(--gold);font-size:.82em;letter-spacing:.1em;font-style:italic;margin-top:8px}
-header .src{color:#cdd6ea;font-size:.78em;margin-top:6px}
-.wrap{max-width:760px;margin:0 auto;padding:20px 16px}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;justify-content:center}
-.tab{font-family:'Noto Serif Devanagari',serif;font-weight:700;font-size:.9em;
-padding:8px 16px;border-radius:20px;border:2px solid var(--navy);background:#fff;
-color:var(--navy);cursor:pointer;transition:.15s}
-.tab.active{background:var(--navy);color:#fff}
-.counter-badge{background:var(--crimson);color:#fff;font-size:.72em;font-weight:700;
-padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle}
-.progress{height:6px;background:#e7dcc2;border-radius:4px;margin-bottom:18px;overflow:hidden}
-.progress > div{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--crimson));transition:width .3s}
-.pane{display:none}.pane.active{display:block}
-.card{background:#fff;border-radius:11px;box-shadow:0 4px 16px rgba(26,39,68,.1);
-padding:22px 22px 18px;margin-bottom:16px}
-.qmeta{font-size:.78em;color:#8a93ab;font-weight:700;margin-bottom:8px}
-.q{font-family:'Noto Serif Devanagari',serif;font-size:1.12em;font-weight:600;
-color:var(--navy);margin-bottom:14px}
-.opt{display:block;width:100%;text-align:left;
-font-family:'Noto Serif Devanagari',serif;font-size:1em;
-padding:11px 15px;margin-bottom:9px;border:1.5px solid #d8cfb8;border-radius:8px;
-background:#fffdf8;cursor:pointer;transition:.13s;color:#1A1A1A}
-.opt:hover{border-color:var(--gold);background:#fff8e8}
-.opt.ok{border-color:var(--ok-fg);background:#eafaf0;color:var(--ok-fg);font-weight:700}
-.opt.bad{border-color:var(--bad-fg);background:#fdeeee;color:var(--bad-fg)}
-.opt:disabled{cursor:default}
-.fb{margin-top:11px;font-size:.92em;font-weight:600;min-height:20px;
-font-family:'Noto Serif Devanagari',serif}
-.fb.ok{color:var(--ok-fg)}.fb.bad{color:var(--bad-fg)}
-.hint-box{background:#fffbef;border:1px solid var(--gold);border-radius:7px;
-padding:10px 14px;margin-top:10px;font-family:'Noto Serif Devanagari',serif;
-font-size:.88em;color:#5a4010;display:none}
-.hint-box.show{display:block}
-.nav{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
-.nbtn{font-family:'Lato',sans-serif;font-size:.9em;font-weight:700;
-padding:9px 20px;border-radius:6px;border:none;cursor:pointer;transition:.15s}
-.nbtn.pri{background:var(--crimson);color:#fff}.nbtn.pri:hover{background:var(--navy)}
-.nbtn.sec{background:transparent;color:var(--navy);border:2px solid var(--navy)}
-.nbtn.sec:hover{background:var(--navy);color:#fff}
-.scoreboard{background:#fff;border-radius:11px;box-shadow:0 4px 18px rgba(26,39,68,.11);
-padding:34px 26px;text-align:center;margin-bottom:18px}
-.scbig{font-family:'Playfair Display',serif;font-size:2.8em;color:var(--crimson);font-weight:700;margin-bottom:6px}
-.scpct{font-size:1.05em;color:#5a6a8a;margin-bottom:9px}
-.scmsg{font-family:'Noto Serif Devanagari',serif;font-size:1.05em;color:var(--navy);margin-bottom:20px}
-.orn{text-align:center;color:var(--gold);font-size:1em;letter-spacing:.2em;margin:14px 0;opacity:.65}
-footer{text-align:center;color:#8a7a4a;font-size:.78em;padding:24px 16px 0}
-footer a{color:var(--crimson);text-decoration:none}
-@media(max-width:520px){header h1{font-size:1.35em}.q{font-size:1.05em}}
+:root{--navy:#17264a;--crimson:#9b1c2e;--gold:#c8973a;--cream:#f7f2e8;--ok:#2e7d32;--ok-bg:#e8f5e9;--bad:#b71c1c;--bad-bg:#ffebee;--muted:#66708a}
+*{box-sizing:border-box} body{margin:0;background:var(--cream);font-family:Lato,Arial,sans-serif;color:var(--navy);line-height:1.55}
+header{background:var(--navy);color:#fff;text-align:center;padding:18px 12px;border-bottom:5px solid var(--gold)}
+header h1{font-family:'Noto Serif Devanagari',serif;font-size:1.45rem;margin:0 0 6px;line-height:1.35}
+header .brand{font-size:.86rem;color:var(--gold);font-weight:700;letter-spacing:.02em}
+header .sub{font-family:'Noto Serif Devanagari',serif;font-size:.95rem;margin-top:6px;color:#dbe4ff}
+main{max-width:980px;margin:18px auto 50px;padding:0 14px}
+.panel{background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(23,38,74,.12);padding:16px;margin-bottom:14px;border-left:5px solid var(--navy)}
+.topbar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.score{font-weight:700;color:var(--crimson)}
+.progress{flex:1;min-width:180px;height:9px;background:#d9dfeb;border-radius:20px;overflow:hidden} .bar{height:100%;background:var(--gold);width:0%;transition:.2s}
+button{font-family:Lato,Arial,sans-serif;font-weight:700;border:0;border-radius:7px;padding:9px 14px;cursor:pointer}
+.btn{background:var(--navy);color:#fff} .btn:hover{background:var(--crimson)} .btn2{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+.qmap{display:flex;gap:4px;flex-wrap:wrap;margin-top:12px} .dot{width:24px;height:24px;border-radius:5px;border:1px solid #b8c1d8;background:#eef2fa;color:var(--navy);font-size:.72rem;padding:0} .dot.answered{background:#dfe8f9} .dot.ok{background:var(--ok);color:#fff} .dot.bad{background:var(--bad);color:#fff}
+.qcard{background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(23,38,74,.10);padding:20px;margin:16px 0;border-left:5px solid var(--gold)}
+.qmeta{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:.82rem;font-weight:700;margin-bottom:8px}
+.qtext{font-family:'Noto Serif Devanagari',serif;font-size:1.13rem;font-weight:700;margin:0 0 14px;color:var(--navy)}
+.opts{display:grid;gap:9px} .opt{display:flex;gap:10px;align-items:flex-start;background:#f4f7fd;border:2px solid #d2daec;border-radius:10px;padding:10px 12px;cursor:pointer}
+.opt:hover{border-color:var(--navy)} .opt .key{font-weight:700;min-width:22px} .opt .txt{font-family:'Noto Serif Devanagari',serif}
+.opt.correct{background:var(--ok-bg);border-color:#7bc47f;color:var(--ok)} .opt.wrong{background:var(--bad-bg);border-color:#e57373;color:var(--bad)} .opt.locked{cursor:default}
+.fb{display:none;margin-top:10px;border-radius:8px;padding:10px 12px;font-family:'Noto Serif Devanagari',serif} .fb.show{display:block} .fb.ok{background:var(--ok-bg);border-left:4px solid var(--ok)} .fb.bad{background:var(--bad-bg);border-left:4px solid var(--bad)}
+.navrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.result{display:none;text-align:center} .big{font-size:2.6rem;font-weight:700;color:var(--crimson)}
+.back{text-align:center;margin:24px 0} .back a{color:var(--crimson);font-family:'Noto Serif Devanagari',serif;font-weight:700;text-decoration:none}
+footer{text-align:center;padding:20px;color:#6a728a;font-size:.85rem}
+@media(max-width:600px){.qtext{font-size:1rem}.topbar{align-items:stretch}.progress{min-width:100%}}
 </style>
 </head>
 <body>
 <header>
-  <h1>जगदीश चन्द्र ठाकुर अनिल विशेषांक</h1>
-  <div class="sub">JAGDISH CHANDRA THAKUR ANIL SPECIAL ISSUE · विदेह अंक १९१ · ०१ दिसम्बर २०१५</div>
-  <div class="src">विदेह : प्रथम मैथिली पाक्षिक ई-पत्रिका · videha.co.in · ISSN 2229-547X</div>
+  <h1>जगदीश चन्द्र ठाकुर ‘अनिल’ विशेषांक — उच्च-स्तरीय प्रश्नोत्तरी</h1>
+  <div class="brand">Videha QUIZ | विदेह ई-लर्निङ्ग क्विज / Videha eLearning Quiz / Videha — First Maithili Fortnightly eJournal | www.videha.co.in</div>
+  <div class="sub">गीत, गजल, बहर, रदीफ-काफिया, आत्मकथा, समीक्षा, पत्राचार आ बाल कविता</div>
 </header>
-<div class="orn">❖ ❖ ❖</div>
-<div class="wrap">
-  <div class="tabs" id="tabs"></div>
-  <div class="progress"><div id="bar"></div></div>
-  <div id="panes"></div>
-</div>
-<footer>© विदेह Videha · <a href="https://videha.co.in">videha.co.in</a> · विदेह विशेषांक प्रश्नोत्तरी</footer>
+<main>
+  <section class="panel">
+    <div class="topbar">
+      <span><strong>Special Issue 14</strong> — प्रश्न <strong id="cur">1</strong> / <strong>65</strong></span>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <span class="score" id="score">✓ 0 &nbsp; ✗ 0</span>
+      <button class="btn2" onclick="showQ(0)">←← पहिल</button>
+      <button class="btn" onclick="restart()">नव क्विज</button>
+    </div>
+    <div class="qmap" id="qmap"></div>
+  </section>
+  <section id="quiz"></section>
+  <section class="panel result" id="result"></section>
+  <div class="back"><a href="https://www.videha.co.in/videha-elearning.htm">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a></div>
+</main>
+<footer>© Gajendra Thakur, Editor — Videha eJournal</footer>
 <script>
-const DATA = [{"tab": "विशेषांक परिचय", "items": [{"q": "विदेहक ई जगदीश चन्द्र ठाकुर 'अनिल' विशेषांक कोन अंक छल?", "opts": ["१९१ म अंक", "१८९ म अंक", "१६९ म अंक", "२१७ म अंक"], "correct": 0, "hint": "०१ दिसम्बर २०१५, वर्ष ८ अंक १९१।"}, {"q": "ई अनिल विशेषांक कोन तिथिकेँ प्रकाशित भेल?", "opts": ["०१ दिसम्बर २०१५", "०१ जनवरी २०१५", "१५ नवम्बर २०१३", "१५ मार्च २०१३"], "correct": 0, "hint": "वर्ष ८ मास ९६ अंक १९१।"}, {"q": "संपादकीय अनुसार जगदीश चन्द्र ठाकुर 'अनिल' मूलतः की छथि?", "opts": ["कवि", "नाटककार", "समीक्षक", "अनुवादक"], "correct": 0, "hint": "ओना गद्य समालोचनो लिखलन्हि।"}]}, {"tab": "कृति", "items": [{"q": "निम्नमे सँ कोन 'अनिल'क गीत संग्रह थिक?", "opts": ["गीत गंगा", "धारक ओइ पार", "गजल गंगा", "कोरांटी"], "correct": 0, "hint": "\"तोरा अंगना मे\" सेहो गीत संग्रह।"}, {"q": "\"धारक ओइ पार\" 'अनिल'क कोन विधाक कृति थिक?", "opts": ["दीर्घ कविता", "गजल संग्रह", "गीत संग्रह", "एकांकी"], "correct": 0, "hint": "पोथीक लिंक सूचीमे।"}, {"q": "\"गजल गंगा\" 'अनिल'क कोन विधाक संग्रह थिक?", "opts": ["गजल संग्रह", "गीत संग्रह", "दीर्घ कविता", "कथा संग्रह"], "correct": 0, "hint": "नामहिमे संकेत अछि।"}, {"q": "\"कोरांटी\" 'अनिल'क कोन विधाक रचना थिक?", "opts": ["एकांकी", "गीत", "गजल", "दोहा"], "correct": 0, "hint": "समीक्षा/एकांकी विभागमे।"}]}];
-let score=0,total=0,answered=0;
-DATA.forEach(g=>total+=g.items.length);
-const tabsEl=document.getElementById('tabs');
-const panesEl=document.getElementById('panes');
-const bar=document.getElementById('bar');
-DATA.forEach((g,gi)=>{
-  const tb=document.createElement('button');
-  tb.className='tab'+(gi===0?' active':'');
-  tb.innerHTML=g.tab+'<span class="counter-badge">'+g.items.length+'</span>';
-  tb.onclick=()=>switchTab(gi);
-  tabsEl.appendChild(tb);
-  const pane=document.createElement('div');
-  pane.className='pane'+(gi===0?' active':'');
-  pane.id='pane-'+gi;
-  g.items.forEach((q,qi)=>pane.appendChild(buildCard(g,gi,qi,q)));
-  panesEl.appendChild(pane);
-});
-function buildCard(g,gi,qi,q){
-  const card=document.createElement('div');card.className='card';
-  const meta=document.createElement('div');meta.className='qmeta';
-  meta.textContent=g.tab+' · प्रश्न '+(qi+1)+'/'+g.items.length;card.appendChild(meta);
-  const qd=document.createElement('div');qd.className='q';qd.textContent=q.q;card.appendChild(qd);
-  const opts=[];
-  q.opts.forEach((o,oi)=>{
-    const b=document.createElement('button');b.className='opt';b.textContent=o;
-    b.onclick=()=>pick(b,oi);card.appendChild(b);opts.push(b);
-  });
-  const fb=document.createElement('div');fb.className='fb';card.appendChild(fb);
-  let hintBox=null;
-  if(q.hint){hintBox=document.createElement('div');hintBox.className='hint-box';
-    hintBox.textContent='💡 '+q.hint;card.appendChild(hintBox);}
-  const nav=document.createElement('div');nav.className='nav';
-  if(q.hint){const hb=document.createElement('button');hb.className='nbtn sec';hb.textContent='संकेत';
-    hb.onclick=()=>hintBox.classList.toggle('show');nav.appendChild(hb);}
-  card.appendChild(nav);
-  let done=false;
-  function pick(btn,oi){
-    if(done)return;done=true;answered++;
-    opts.forEach((b,bi)=>{b.disabled=true;
-      if(bi===q.correct)b.classList.add('ok');
-      else if(b===btn)b.classList.add('bad');});
-    if(oi===q.correct){score++;fb.className='fb ok';fb.textContent='✓ सही उत्तर!';}
-    else{fb.className='fb bad';fb.textContent='✗ सही उत्तर: '+q.opts[q.correct];}
-    bar.style.width=(answered/total*100)+'%';
-    if(answered===total)showScore();
-  }
-  return card;
+const QDB = [{"q": "जगदीश चन्द्र ठाकुर ‘अनिल’ विशेषांकक मूल साहित्यिक केन्द्र की अछि?", "opts": ["लेखकक नाम मात्र", "अनिलजीक गीत, गजल, आत्मकथा-संस्मरण, समीक्षा, एकांकी, पत्राचार आ बाल-कविताक बहुआयामी मूल्यांकन", "क्रम-संख्या याद रखब", "केवल मंचीय मनोरंजन"], "ans": 1, "exp": "ई लेखक-विशेषांक एक विधा पर सीमित नहि; रचनाकारक विकास, शिल्प, व्यक्तित्व आ संवाद सभ समेटैत अछि।"}, {"q": "संपादकीय दृष्टिसँ अनिलजी ‘मूलतः कवि’ कहला पर की संकेत भेटैत अछि?", "opts": ["ओ गद्य नहि लिखलनि", "ओ साहित्यसँ असंबंधित छथि", "ओ केवल इतिहासकार छथि", "हुनकर साहित्यिक आत्मा पद्य, गीत, गजल आ लयात्मक अभिव्यक्तिमे केंद्रित अछि"], "ans": 3, "exp": "गद्य-समीक्षा रहितो हुनकर प्रमुख पहचान कवि रूपमे देखल गेल अछि।"}, {"q": "‘पद्यक मूल गुण गेयता अछि’—एहि विचार पर संपादकीय बहसक मूल बिंदु की अछि?", "opts": ["गेयता केँ पुरानपन नहि, पद्यक लयात्मक ऊर्जाक रूपमे बुझबाक चाही", "पद्य गेय नहिए हो", "लय साहित्यसँ असंबंधित", "गेयता सदैव दोष"], "ans": 0, "exp": "संपादकीय पुरान-नव संघर्षक सरलीकरण सँ बचैत गेयता आ भावक सम्बन्ध पर विचार करैत अछि।"}, {"q": "अनिलजीक गीत-लेखनक कारण हुनकर आत्मकथात्मक कथनमे कोना उभरैत अछि?", "opts": ["गीत न गाएल जाए", "जीवनक लय, सस्वर पाठ, गायन, स्मरणीयता आ लोकगीत-संस्कारक कारण", "केवल पुरस्कार लेल", "कविता सँ दूरी लेल"], "ans": 1, "exp": "अनिलजी गीतकेँ जीवन-लय आ स्त्रीगणक मुख सँ सुनल परम्परागत गीत-संस्कारसँ जोड़ैत छथि।"}, {"q": "‘लिखब हमर संस्कारमे शामिल अछि’ कथनक साहित्यिक अर्थ की अछि?", "opts": ["लेखन अस्थायी शौक", "लेखन दंड", "लेखन पेशा वा मजबूरी नहि, जीवन-सत्य आ आनंदक स्थायी संस्कार अछि", "लेखन केवल रोज़गार"], "ans": 2, "exp": "अनिलजी लेखनकेँ जीवनभरि चलयवला सत्य, घोषणा आ आनंद मानैत छथि।"}, {"q": "अनिलजीक ‘घोषणा जे हम प्रेमक पक्षमे छी, हिंसाक विरोधमे छी’ कथन हुनकर काव्य-दृष्टि कोना बतबैत अछि?", "opts": ["हिंसाक पक्ष", "भाषाहीन प्रयोग", "कविता केँ नैतिक पक्षधरता—प्रेम, इजोत, अहिंसा—सँ जोड़ैत अछि", "नैतिकता-विहीन मनोरंजन"], "ans": 2, "exp": "लेखन हुनका लेल सामाजिक-नैतिक घोषणा सेहो अछि।"}, {"q": "‘गीतसं गजल धरि’ यात्रा कोन साहित्यिक विकासक संकेत अछि?", "opts": ["लयमय गीत-संस्कारसँ गजल-शिल्पक अनुशासन धरि क्रमिक विस्तार", "गीत छोड़ि साहित्य त्याग", "गद्यसँ चित्रकला धरि", "गजल बिना लय"], "ans": 0, "exp": "अनिलजीक रचना-यात्रा गीतक गेयता आ गजलक संरचनात्मक अनुशासन दुनू मे विकसित होइत अछि।"}, {"q": "अनिलजीक रचनात्मक विकासमे ‘बहर’क भूमिका कोना बदलैत अछि?", "opts": ["पहिने झंझट लगैत, बादमे सरल वार्णिक/अरबी बहर द्वारा गजलकेँ शिल्प-संयम दैत अछि", "बहर अर्थहीन क्रम", "बहर सदैव अस्वीकार", "बहर गीतक शत्रु"], "ans": 0, "exp": "संपादकीय देखबैत अछि जे चुनौती स्वीकार कऽ अनिलजी बहरक अनुशासनमे गजल लिखैत छथि।"}, {"q": "‘बहरक झंझटिसँ हमरा आजाद करू’ पंक्ति के बाद अनिलजीक पुनर्लेखन कोन बात सिद्ध करैत अछि?", "opts": ["गजल समाप्त भेल", "बहरक अर्थ नहि", "कवि मैदान छोड़ि देलनि", "प्रतिभा आलोचनात्मक ललकार स्वीकार करि शिल्प-सुधार करि सकैत अछि"], "ans": 3, "exp": "अनिलजी बादमे बहर आधारित गजल रचलनि; ई आत्म-संशोधनक उदाहरण अछि।"}, {"q": "‘खिड़की, केबार किछु नै, महल कोना भेलै / ने रदीफ आ ने काफिया, गजल कोना भेलै’ मे मूल तर्क की अछि?", "opts": ["गजल लेल रदीफ-काफिया संरचनात्मक आधार जकाँ आवश्यक अछि", "काफिया निषिद्ध", "महल बिना आधार पर्याप्त", "गजलमे कोनो नियम नहि"], "ans": 0, "exp": "दोहा-सदृश पंक्ति गजलक शिल्पीय आधारक महत्त्व सरल प्रतीक सँ बतबैत अछि।"}, {"q": "अनिलजीक रदीफ-प्रयोगक विशेषता की कहल गेल अछि?", "opts": ["एके रदीफक पुनरावृत्ति", "केवल संस्कृत शब्द", "बहुत विविध, बोलचाल-आधारित आ नूतन रदीफद्वारा गजलकेँ जीवंत बनब", "रदीफक पूर्ण अभाव"], "ans": 2, "exp": "संपादकीय मे रदीफक लंबी सूची हुनकर प्रयोगशीलता देखबैत अछि।"}, {"q": "रदीफ ‘मोन होइए’, ‘अछि’, ‘की’, ‘राम-राम’, ‘अहाँ छी’ आदि प्रयोग किएक महत्त्वपूर्ण अछि?", "opts": ["रदीफ केवल अरबी शब्द हो", "रदीफक अर्थ नहि", "बोलचाल असाहित्यिक", "बोलचाल, भाव, संवाद आ लोकलयक शब्द गजलमे रदीफ बनि सकैत अछि"], "ans": 3, "exp": "अनिलजी रदीफ केँ जीवित भाषा सँ चुनि मैथिली गजलकेँ स्वाभाविक बनबैत छथि।"}, {"q": "अनिलजीक गजल पर ‘लौलवश’ आ ‘झोंकमे’ लिखल गजलक भेद किएक उठैत अछि?", "opts": ["गजल केँ गद्य कहबाक लेल", "स्वाभाविक आवेग आ शिल्प-सचेतताक बीच अंतर देखेबाक लेल", "कवि नकारबाक लेल", "भाषा छोड़बाक लेल"], "ans": 1, "exp": "संपादकीय कहैत अछि जे रदीफ-काफियाक प्रयोग लापरवाही नहि, रचनात्मक झोंकक परिणाम अछि।"}, {"q": "धीरेन्द्र प्रेमर्षिकें देल सियाराम झा सरसक टिप्पणी पर संपादकीय संतुलन कोना अछि?", "opts": ["पूर्ण नकार मात्र", "साक्षात्कार अप्रासंगिक", "पूर्ण अंध-प्रशंसा", "मंचस्थ लोकप्रियताक आलोचना स्वीकार करैत, मुदा बादक शिल्पीय विकास केँ रेखांकित करैत"], "ans": 3, "exp": "लेख आलोचना आ प्रशंसा दुनू केँ संतुलित रखैत अनिलजीक क्रमिक विकास देखबैत अछि।"}, {"q": "मंचस्थ रचना आ साहित्यिक कसौटीक बीच तनाव अनिलजीक सन्दर्भमे की बतबैत अछि?", "opts": ["साहित्यिक कसौटी बेकार", "लोकप्रिय प्रस्तुति पर्याप्त नहि; रचना केँ शिल्प, भाव आ भाषा पर सेहो खड़ा होयबाक चाही", "पाठक अप्रासंगिक", "मंच पर्याप्त प्रमाण"], "ans": 1, "exp": "संपादकीय मंचीय प्रभावक सीमा आ रचना-गुणक आवश्यकता पर विचार करैत अछि।"}, {"q": "‘गजल गंगा’ नामक संग्रह पर चर्चा किएक केन्द्रीय अछि?", "opts": ["केवल नदी-वर्णन", "केवल भक्ति-पुस्तक", "समीक्षा रहित सूची", "एहि मे अनिलजीक गजल-शिल्प, बहर, रदीफ-काफिया आ विचारक तीक्ष्णता देखाइत अछि"], "ans": 3, "exp": "गजल गंगा हुनकर गीतसं गजल धरि यात्राक महत्त्वपूर्ण पड़ाव अछि।"}, {"q": "‘गीत गंगा’ पर अनेक समीक्षा विशेषांकमे किएक अछि?", "opts": ["गीत अनुपस्थित", "समीक्षा अनावश्यक", "केवल नाम दोहराव", "किएकि गीत-संग्रह अनिलजीक गीतमयता, लोकलय, भाव-धारा आ कवि-स्वर बुझबाक आधार अछि"], "ans": 3, "exp": "विभिन्न आलोचक गीत-गंगा केँ अलग-अलग दृष्टिसँ परखैत छथि।"}, {"q": "‘तोरा अंगनामे’ पर चर्चा अनिलजीक रचना-संसारक कोन पक्ष खोलैत अछि?", "opts": ["अङना असाहित्यिक", "केवल वास्तु-विवरण", "गजल-विरोध", "मैथिल अङना, घरेलू-सांस्कृतिक भावभूमि आ गीतात्मक निकटता"], "ans": 3, "exp": "शीर्षक घरे-आँगनक सांस्कृतिक संसार केँ गीतात्मक संवेदना सँ जोड़ैत अछि।"}, {"q": "‘धारक अइ पार’/‘धारक ओइ पार’ सम्बन्धी चर्चा कोन प्रतीक-संभावना खोलैत अछि?", "opts": ["काव्य-विहीन भूगोल", "सीमा, पारगमन, स्मृति, जीवन-यात्रा आ दीर्घ काव्यात्मक दृष्टि", "नदी-पुलक इंजीनियरिंग", "सिर्फ नाव"], "ans": 1, "exp": "दीर्घ कविताक शीर्षक जीवनक एक पार सँ दोसर पारक रूपक बना सकैत अछि।"}, {"q": "अनिलजीक नारी-स्वर पर संपादकीय टिप्पणीक मूल बिंदु की अछि?", "opts": ["समाज-संबंध नहि", "बालिका-आगमन, दहेज आ सामाजिक यथार्थक विरुद्ध आशा आ प्रतिरोधक स्वर", "केवल श्रृंगार", "नारी-स्वर अनुपस्थित"], "ans": 1, "exp": "‘मम्मी तों चिन्ता जुनि कर’ सन कविता स्त्री-अनुभव आ भविष्यक प्रतिरोध खोलैत अछि।"}, {"q": "‘मम्मी तों चिन्ता जुनि कर’मे बच्ची दहेज लैबला सँ बिआह नहि करबाक बात किएक महत्त्वपूर्ण अछि?", "opts": ["दहेज समर्थन", "गीतक अर्थ नहि", "बालिका मौन", "बालिका-स्वर सामाजिक कुप्रथा विरुद्ध आत्मसम्मानक घोषणा बनैत अछि"], "ans": 3, "exp": "ई कविता नारी चेतना केँ रोदन नहि, साहस आ विकल्पक रूपमे प्रस्तुत करैत अछि।"}, {"q": "‘कन्नारोहट’क अभाव पर टिप्पणी अनिलजीक नारी-कवितामे कोन गुण देखबैत अछि?", "opts": ["असंवेदनशीलता", "दुःखक बावजुद आत्मविश्वास आ वास्तविकता सँ लड़बाक रस्ता खोजब", "स्त्री-विरोध", "दुःखक नकार"], "ans": 1, "exp": "आँसू मात्र नहि; कविता सामाजिक यथार्थक सामना करबाक ऊर्जा खोजैत अछि।"}, {"q": "अनिलजीक बाल-कविताक उपस्थिति लेखक-विशेषांकमे किएक महत्त्वपूर्ण अछि?", "opts": ["लय आवश्यक नहि", "बाल साहित्य असंगत", "कवि केवल वयस्कक लेल", "ओ लय, सरलता, बाल-मन आ शिक्षात्मक-संवेदनात्मक भाषाक क्षमता देखबैत अछि"], "ans": 3, "exp": "बाल कविता लेखकक भाषा केँ सरल, स्मरणीय आ बाल-उन्मुख बनबैत अछि।"}, {"q": "‘बालानां कृते’ खंड कोन पाठक-चिन्ता दैत अछि?", "opts": ["केवल वयस्क आलोचना", "भाषा-विमुखता", "बाल-पाठकक उपेक्षा", "बाल-पाठक लेल मैथिलीमे लयात्मक, सहज, संस्कारात्मक साहित्य उपलब्ध करब"], "ans": 3, "exp": "विदेह परंपरा बाल-साहित्य केँ भाषा-संरक्षणक महत्त्वपूर्ण माध्यम मानैत अछि।"}, {"q": "अनिलजीक आत्मकथा-संस्मरण ‘किए लिखै छी?’ प्रश्नक उत्तरमे लेखनक कोन रूप सामने अबैत अछि?", "opts": ["आनंद, सत्य, संस्कार, घोषणा आ जीवन-क्रमक रूपमे लेखन", "लेखन केवल नौकरी", "लेखन दुर्घटना", "लेखन अस्वीकार"], "ans": 0, "exp": "अनिलजी लेखनकेँ बहु-आनंद, निरंतर अभ्यास आ जीवनक सत्य मानैत छथि।"}, {"q": "अनिलजीक लेखन-आनंदक सूची—छपब, पाठ, आकाशवाणी, दूरदर्शन, मंच—कथी पर बल दैत अछि?", "opts": ["श्रोता अप्रासंगिक", "लेखनक सृजन-सुख आ पाठक/श्रोता-संपर्कक सामुदायिक आनंद", "लेखन निजी बंद कमरा मात्र", "प्रकाशन अनावश्यक"], "ans": 1, "exp": "लेखन पूरा भेलासँ लऽ लोक द्वारा पढ़ल-सुनल जाए धरि आनंदक विस्तार अछि।"}, {"q": "‘सत्य वएह थिक जे काल्हियो छल, आइयो अछि आ काल्हियो रहत’ लेखनक संदर्भमे कोन भाव दैत अछि?", "opts": ["सत्य अप्रासंगिक", "लेखन क्षणिक फैशन", "कवि मौन", "लेखन अनिलजीक स्थायी जीवन-मूल्य अछि, समयानुसार बदलयवला दिखावा नहि"], "ans": 3, "exp": "ई कथन लेखनक स्थायित्व आ आत्मिक गंभीरता रेखांकित करैत अछि।"}, {"q": "अनिलजीक गीत-संस्कारमे स्त्रीगणक मुख सँ सुनल अवसर-गीतक भूमिका की अछि?", "opts": ["लोकगीतक नकार", "गीत शास्त्रहीन", "लोक-जीवनक विविध संस्कार, अवसर आ लय गीत-लेखनक प्रारंभिक स्रोत बनैत अछि", "स्त्री-स्वर असंगत"], "ans": 2, "exp": "अनिलजी नेनपनसँ अवसर-विशेष गीत सुनैत आएल, जे हुनकर गीत-रुचि बनौलक।"}, {"q": "गीतक स्मरणीयता पर अनिलजीक जोर शिक्षण/साहित्य लेल किएक महत्त्वपूर्ण अछि?", "opts": ["लय स्मृति घटबैत", "गीत याद नहि रहैत", "लयबद्ध गेय पाठ स्मृति आ सामूहिक पुनरावृत्ति केँ आसान बनबैत अछि", "गीत केवल मौन पाठ"], "ans": 2, "exp": "गीत गाएल आ दोहराएल जा सकैत अछि; एहिसँ ओकर सामाजिक जीवन लंबा होइत अछि।"}, {"q": "अनिलजीक समीक्षात्मक लेख ‘प्रतिबद्ध साहित्यकारक अप्रतिबद्ध गजल’ शीर्षक कोन समस्या उठबैत अछि?", "opts": ["गजल पर समीक्षा निषिद्ध", "लेखकक सामाजिक प्रतिबद्धता आ गजल-रचनाक शिल्प/भावमे असंगति पर प्रश्न", "लेखक नाम-सूची", "प्रतिबद्धता निरर्थक"], "ans": 1, "exp": "शीर्षक साहित्यकारक घोषित विचार आ वास्तविक गजल-रचना बीचक दूरी पर विचार करैत अछि।"}, {"q": "अनिलजी द्वारा ‘अरविन्दजीक आजाद गजल’ पर लेखनक अर्थ की अछि?", "opts": ["अरविन्दजीक नकार मात्र", "गजल-विमर्शसँ दूरी", "गीतक अन्त", "ओ समकालीन गजल-प्रयोगक आलोचनात्मक पठन करैत छथि"], "ans": 3, "exp": "अनिलजी स्वयं गजलकार होइत समकालीन प्रयोग पर विचार करैत छथि।"}, {"q": "‘कोरांटी’ एकांकीक उपस्थिति अनिलजीक रचनाकार-रूपमे कोन विस्तार देखबैत अछि?", "opts": ["संवाद-विहीनता", "कवि-गजलकारक संग नाट्य-संवाद आ मंचीय संरचनाक क्षमता", "एकांकी असाहित्यिक", "अनिलजी केवल आलोचक"], "ans": 1, "exp": "एकांकी लेखकक विधागत विस्तारक प्रमाण अछि।"}, {"q": "पत्राचार खंड लेखक-विशेषांकमे किएक मूल्यवान अछि?", "opts": ["लेखकक संवादशीलता, साहित्यिक सम्बन्ध आ युगीन साहित्यिक परिवेशक दस्तावेज", "केवल निजी कागज", "पत्र असाहित्यिक", "रचनासँ असंबंधित"], "ans": 0, "exp": "पत्राचार लेखकीय व्यक्तित्वक सामाजिक-साहित्यिक नेटवर्क देखबैत अछि।"}, {"q": "‘की भेटल आ की हेरा गेल’ शीर्षक लेखकक कोन आत्ममूल्यांकन-भाव खोलैत अछि?", "opts": ["स्मृति-विहीनता", "प्रश्नक अभाव", "खरीद-बिक्री सूची", "सृजन-यात्राक उपलब्धि आ हानि, स्मृति आ समयक आलोचनात्मक लेखा-जोखा"], "ans": 3, "exp": "शीर्षक जीवन-साहित्यक हिसाब-पुस्तिका नहि, अनुभवक विचारशील पुनर्पाठ अछि।"}, {"q": "अनिलजीक गजलमे विचारक तीक्ष्णता कखन उभरैत अछि?", "opts": ["जखन रदीफ-काफिया आ बहरक अनुशासनमे सामाजिक/नैतिक कथ्य कसि जाइत अछि", "रदीफ अर्थहीन हो", "भाव विखरि जाइ", "नियम हटि जाइ"], "ans": 0, "exp": "संपादकीय अनुसार बादक गजल सभमे रदीफ-काफिया नूतनता आ विचारक तीक्ष्णता विशेष रूपे देखाइत अछि।"}, {"q": "अनिलजीक गजल-विकासमे आलोचना की भूमिका निभबैत अछि?", "opts": ["सृजनक सीमापर ध्यान खींचि कविक आत्म-संशोधन आ शिल्प-साधना बढ़बैत अछि", "कवि सुधारि नहि सकैत", "समीक्षा निरर्थक", "आलोचना सदा हानिकारक"], "ans": 0, "exp": "सरसक आलोचना बाद अनिलजीक बहर-आधारित पुनर्लेखन विकासक उदाहरण अछि।"}, {"q": "‘सरल वार्णिक बहर, वर्ण-१७’ उल्लेख गजल-शिल्पमे किएक महत्त्वपूर्ण अछि?", "opts": ["एहि सँ गजलकेँ माप, अनुशासन आ श्रव्य-संतुलन भेटैत अछि", "वर्ण-संख्या सजावट", "बहर नकार", "गजल मात्र गद्य"], "ans": 0, "exp": "वार्णिक बहर मैथिली गजलकेँ व्यवहारिक छंदानुशासन दैत अछि।"}, {"q": "अनिलजीक रचनामे लोकभाषा आ बोलचालक प्रयोग किएक महत्त्वपूर्ण अछि?", "opts": ["लोकभाषा निषिद्ध", "केवल कृत्रिम भाषा चाही", "रचना केँ मैथिली जीवन-लय, संवाद आ पाठकक अनुभवसँ जोड़ैत अछि", "बोलचाल अर्थहीन"], "ans": 2, "exp": "रदीफ-सूची आ गीत-संस्कार दुनू बतबैत अछि जे जीवित भाषा हुनकर काव्यक आधार अछि।"}, {"q": "अनिलजीक ‘गजल गंगा’ पर जगदानन्द झा ‘मनु’क समीक्षाक महत्त्व की हो सकैत अछि?", "opts": ["केवल नामोल्लेख", "गजल-संग्रहक शिल्प, भाव आ मैथिली गजल परंपरामे स्थानक आलोचनात्मक विवेचन", "समीक्षा असंबंधित", "गजल पढ़ब नहि"], "ans": 1, "exp": "विशेषांकमे अलग समीक्षकक उपस्थिति बहुवाचक आलोचना-संवाद बनबैत अछि।"}, {"q": "‘गीत-गंगा’ पर कामिनी, परमानन्द प्रभाकर, छत्रानंद सिंह झा, अमरनाथ ठाकुर आदि लेख किएक संकेतपूर्ण अछि?", "opts": ["एके संग्रह पर अनेक दृष्टि लेखकक गीत-संसारक बहुस्तरीयता देखबैत अछि", "समीक्षा दोहराव मात्र", "आलोचना न हो", "गीत महत्वहीन"], "ans": 0, "exp": "बहु-आलोचना रचनाक स्वीकार्यता आ विवेचन-सम्भावना बढ़बैत अछि।"}, {"q": "‘गीतगंगामे अनिल’ सन शीर्षकक आलोचनात्मक आशय की अछि?", "opts": ["संग्रहक भीतर कवि-व्यक्तित्व, गीत-धारा आ भाव-संरचना खोजब", "गंगा नदी-विज्ञान", "केवल शीर्षक-सूची", "कवि अनुपस्थित"], "ans": 0, "exp": "आलोचना कृति मार्फत रचनाकारक स्वर चिन्हैत अछि।"}, {"q": "‘मैथिलीक गजलक सशक्त हस्ताक्षर अनिल’ कहला सँ कोन कसौटी अपेक्षित अछि?", "opts": ["सामग्री-विहीनता", "केवल लोकप्रिय नाम", "भाषा, शिल्प, रदीफ-काफिया, बहर आ नव कथ्य सभ पर मजबूती", "नियम-विहीन लेखन"], "ans": 2, "exp": "सशक्त हस्ताक्षर कहब तखन सार्थक जखन रचनात्मक कौशलक आधार देखाएल जाए।"}, {"q": "अनिलजीक कवितामे ‘इजोतक पक्ष’ आ ‘अन्हारक विरोध’ ककरा संग संवाद करैत अछि?", "opts": ["मूल्यहीनता", "हिंसाक समर्थन", "प्रेम, अहिंसा, सचेतता, सामाजिक आशा आ मानवीय मूल्य", "अंधकारक उत्सव"], "ans": 2, "exp": "ई नैतिक घोषणाएँ हुनकर गीत-गजल संसारक अंतर्धारा बनैत अछि।"}, {"q": "उत्तर-औपनिवेशिक रचनाकार लेल भगवानक अस्तित्व ‘बुझौअलि’ कहबाक अर्थ की अछि?", "opts": ["विज्ञानक अनुपस्थिति", "काव्यसँ असंबंधित तथ्य", "आधुनिक विज्ञान, विश्वास, सृष्टि-सौंदर्य आ अस्तित्व-प्रश्नक तनाव", "धर्मक सरल नकार मात्र"], "ans": 2, "exp": "संपादकीय ई प्रश्नकेँ दर्शन, विज्ञान आ कविताक बीचक गूढ़ उलझन बनबैत अछि।"}, {"q": "सूर्य, चान, तरेगन, मेघ, फसल आदि बिम्ब संपादकीयमे कोन भाव पैदा करैत अछि?", "opts": ["खगोलशास्त्र परीक्षा", "खेती-पंचांग", "विज्ञान-विरोध", "सृष्टि-सौंदर्यक सामने मनुष्यक अस्तित्व-आश्चर्य आ आध्यात्मिक प्रश्न"], "ans": 3, "exp": "प्रकृति-बिम्ब कविता आ दर्शन केँ जोड़ि भगवान-प्रश्नक जटिलता देखबैत अछि।"}, {"q": "अनिलजीक बालिका-केन्द्रित कविता बेरोजगार बालक प्रश्नसँ अलग किएक देखल गेल?", "opts": ["बालकक प्रश्न नहि", "स्त्री-संवेदना बेकार", "समाजमे बालिका जन्म, दहेज आ स्त्री-असुरक्षा विशेष शोक/संघर्षक कारण अछि", "बालिका अनुपस्थित"], "ans": 2, "exp": "संपादकीय नारी-कविताक सामाजिक पृष्ठभूमि स्त्रीक विशेष यथार्थमे देखैत अछि।"}, {"q": "अनिलजीक गीतक ‘संगीतबद्ध’ होयबाक क्षमता साहित्यिक प्रसारमे किएक आवश्यक अछि?", "opts": ["गीत पाठकसँ आगाँ श्रोता, मंच, आ सामूहिक गायन धरि पहुँचैत अछि", "श्रोता जरूरी नहि", "गीत मौन रहय", "संगीत गीतक शत्रु"], "ans": 0, "exp": "गीतक सामाजिक जीवन ओकर गेयता आ संगीत-सम्भावना सँ बढ़ैत अछि।"}, {"q": "अनिलजीक रचना मे ‘पढ़ब-लिखब-सिखब’ सम्बन्ध किएक महत्त्वपूर्ण अछि?", "opts": ["प्रतिभा अभ्यास बिना", "लेखन निरंतर शिक्षण, अभ्यास आ आत्म-विकासक प्रक्रिया अछि", "पढ़ब व्यर्थ", "लेखन सीखब रोकैत"], "ans": 1, "exp": "‘जकरा लिखबाक मोन होइ छै तकरा सिखबाक हिस्सक छै’—ई रचनात्मक विनम्रता अछि।"}, {"q": "अनिलजीक गजलमे रदीफक विविधता पाठकक अनुभव कोना बदलैत अछि?", "opts": ["प्रत्येक गजलमे अलग बोलचाल, ध्वनि, स्मृति आ भाव-रंग बनैत अछि", "सभी गजल समान", "रदीफ प्रभावहीन", "भाषा जड़"], "ans": 0, "exp": "रदीफ-विविधता गजल-संग्रह केँ एकरस नहि रहए दैत अछि।"}, {"q": "अनिलजीक रचनाक मूल्यांकनमे ‘लोकप्रियता’ मात्र किएक पर्याप्त नहि?", "opts": ["लोकप्रियता संग शिल्प, भाव, भाषा, लय आ विचारक कसौटी आवश्यक अछि", "लोकप्रियता ही अंतिम प्रमाण", "शिल्प न देखब", "साहित्यिक पढ़ाई अनावश्यक"], "ans": 0, "exp": "संपादकीय लोकप्रिय मंचीयता आ साहित्यिक गुणवत्ताक अलग कसौटी पर विचार करैत अछि।"}, {"q": "अनिलजीक गजल-साधना मैथिली गजल-नवजागरणसँ कोना जुड़ैत अछि?", "opts": ["बहर चर्चा बंद", "गजल-नवजागरण असंगत", "बहर पर बहस, रदीफ-काफिया अनुशासन आ भाषा-सचेत प्रयोगक माध्यमे", "मैथिली गजल अनुपस्थित"], "ans": 2, "exp": "संपादकीय गजल-नवजागरणक संदर्भमे अनिलजीक शिल्पीय विकास देखैत अछि।"}, {"q": "अनिलजीक बाल कविता, गजल, गीत आ एकांकी एक संग पढ़ला सँ की निष्कर्ष निकलैत अछि?", "opts": ["ओ बहु-विधात्मक रचनाकार छथि, मुदा लयात्मक कवि-स्वर हुनकर केन्द्र अछि", "कविता अनुपस्थित", "ओ एक विधा तक सीमित", "गद्ये सब किछु"], "ans": 0, "exp": "विधा-विस्तारक बावजूद कवि-स्वर, लय आ गेयता प्रमुख सूत्र अछि।"}, {"q": "अनिलजीक आत्मकथा मे ‘नोकरीमे रहलहुँ, सेवानिवृतिक बादो लिखि रहल छी’ कथन की सिद्ध करैत अछि?", "opts": ["सेवानिवृत्ति बाद मौन", "लेखन जीवन-स्थिति सँ स्वतंत्र, निरंतर साधना अछि", "लेखन बाल्यावस्था तक", "लेखन केवल नौकरी-काल"], "ans": 1, "exp": "लेखन हुनका लेल जीवनक प्रत्येक चरणमे चलयवला प्रक्रिया अछि।"}, {"q": "अनिलजीक पत्राचार खंडक अध्ययन छात्र लेल किएक उपयोगी अछि?", "opts": ["पत्र साहित्यिक दस्तावेज नहि", "एहिसँ साहित्यिक युग, संवाद, प्रकाशन-संस्कृति आ लेखकक आत्मीयता बुझाइत अछि", "पत्र केवल निजी रहस्य", "पत्र पढ़ब बेकार"], "ans": 1, "exp": "पत्राचार साहित्येतिहासक जीवित स्रोत बनि सकैत अछि।"}, {"q": "अनिलजीक समालोचना खंडमे दूसर लेखकक समीक्षा हुनकर कौन रूप देखबैत अछि?", "opts": ["समालोचना निषिद्ध", "दूसर लेखक असंबंधित", "रचनाकारक संग आलोचक आ पाठकक रूप", "ओ केवल बालकवि"], "ans": 2, "exp": "लेखक अपन समयक रचनासँ आलोचनात्मक संवाद करैत छथि।"}, {"q": "‘प्रतिबद्ध साहित्यकारक अप्रतिबद्ध गजल’ पढ़ैत समय सर्वोत्तम प्रश्न की होयबाक चाही?", "opts": ["लेखकक नाम मात्र", "साहित्यकारक विचारधारा गजल-शिल्प आ कथ्य मे केना उतरैत वा टूटैत अछि", "शीर्षकक क्रमांक की", "पृष्ठ कतेक"], "ans": 1, "exp": "ई लेख सामाजिक प्रतिबद्धता आ विधागत अभिव्यक्तिक संबंध पर विचार करबैत अछि।"}, {"q": "अनिलजीक विशेषांकमे आत्मकथा-संस्मरण खंड बड़का किएक अछि?", "opts": ["लेखकक साहित्यिक यात्रा, बाल्यस्वभाव, लेखन-आनंद, गीत-गजल यात्रा आ संबंध-संसार बुझाबय लेल", "रचना कम छल", "खाली स्थान भरबाक लेल", "स्मृति बेकार"], "ans": 0, "exp": "लेखक-विशेषांकमे जीवन-संदर्भ रचनाक अर्थ खोलैत अछि।"}, {"q": "अनिलजीक भाषा-चेतना मे मैथिली घर-आँगनक उपस्थिति कोन रूपमे अछि?", "opts": ["गीत, अङना, लोक-संस्कार, बोलचाल आ मातृभाषिक आत्मीयता", "भाषा अनाथ", "घर-आँगन असाहित्यिक", "लोक-संस्कार अनुपस्थित"], "ans": 0, "exp": "हुनकर काव्यलोक मैथिली घर-समाजक लयमे साँस लैत अछि।"}, {"q": "अनिलजीक ‘आँखिमे चित्र हो मैथिली केर’ शीर्षक आत्मकथाक कोन भाव दैत अछि?", "opts": ["आत्मकथा नहि", "चित्रकला मात्र", "भाषा अदृश्य", "मैथिली भाषा-संस्कृतिक दृश्य, स्मृति आ आत्मपहिचानक चित्रात्मक उपस्थिति"], "ans": 3, "exp": "शीर्षक आत्मकथा केँ मातृभाषा-दृष्टि सँ जोड़ैत अछि।"}, {"q": "‘एकटा छलाह ननू कका’ सन संस्मरणक साहित्यिक महत्त्व की अछि?", "opts": ["व्यक्ति-स्मृति मार्फत समाज, संबंध आ जीवन-मानक चित्रण", "कका असंबंधित", "स्मृति असाहित्यिक", "संस्मरण निरर्थक"], "ans": 0, "exp": "संस्मरण लेखकक आत्मीय सामाजिक संसारक झलक दैत अछि।"}, {"q": "अनिलजीक रचनामे प्रेम आ हिंसा-विरोधक घोषणा विद्यार्थी कोना पढ़य?", "opts": ["शब्द-सज्जा", "राजनीति मात्र", "भावुकता मात्र", "केवल भावुक नारा नहि, बल्कि कविताक नैतिक-मानवीय आधार"], "ans": 3, "exp": "घोषणा रचना-दृष्टि केँ मूल्यपरक बनबैत अछि।"}, {"q": "गजलमे रदीफ-काफिया आ गीतमे लय—दुनूक साझा गुण की अछि?", "opts": ["श्रव्य अनुशासन जे भाव केँ स्मरणीय आ प्रभावी बनबैत अछि", "दुनू छंद-विरोधी", "दुनू गद्य मात्र", "दुनू अलग-अलग असंबंधित"], "ans": 0, "exp": "अनिलजीक गीत-संस्कार गजल-अनुशासनमे रूपांतरित भऽ सकैत अछि।"}, {"q": "अनिलजीक रचनाक आलोचनामे पुरान बनाम नव पीढ़ी विवाद केँ कोना समझब उचित अछि?", "opts": ["पुरान सदैव गलत", "बहस असंभव", "नव सदैव गलत", "सरल पीढ़ी-विरोध नहि, बल्कि गेयता, भाव, छंद आ आधुनिक अभिव्यक्तिक जटिल बहस"], "ans": 3, "exp": "संपादकीय पीढ़ीगत झगड़ाक आड़मे छिपल मूल काव्य-प्रश्न उठबैत अछि।"}, {"q": "‘गीत गंगा’ आ ‘गजल गंगा’ नामक आवृत्ति लेखकक काव्य-विश्वमे ‘गंगा’ प्रतीकक कोन अर्थ दे सकैत अछि?", "opts": ["संग्रह असंबंधित", "भूगोल सूची मात्र", "प्रवाह, पवित्रता, निरंतरता आ गीत/गजल-धाराक व्यापकता", "प्रवाह-विरोध"], "ans": 2, "exp": "गंगा-प्रतीक काव्यधारा, लोकविश्वास आ भाव-प्रवाहक संकेत अछि।"}, {"q": "अनिलजीक विशेषांकमे प्रश्न संख्या अधिक किएक रखल गेल?", "opts": ["किएकि एहि मे आत्मकथा, गीत-गजल, समीक्षाएँ, एकांकी, पत्राचार, बाल-कविता आ व्यापक संपादकीय बहस अछि", "किएकि प्रश्न दोहरायब अछि", "किएकि पृष्ठ गिनबाक अछि", "किएकि क्रमांक पूछबाक अछि"], "ans": 0, "exp": "गतिशील प्रश्न-संख्या सामग्रीक घनत्व आ विधागत विस्तार पर आधारित अछि।"}];
+let idx=0, answers=Array(QDB.length).fill(null);
+const letters=['क','ख','ग','घ'];
+function initMap(){
+  const m=document.getElementById('qmap'); m.innerHTML='';
+  QDB.forEach((_,i)=>{const b=document.createElement('button'); b.className='dot'; b.textContent=i+1; b.onclick=()=>showQ(i); m.appendChild(b);});
 }
-function switchTab(gi){
-  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===gi));
-  document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',i===gi));
-  window.scrollTo({top:0,behavior:'smooth'});
+function updateTop(){
+  const done=answers.filter(x=>x!==null).length, ok=answers.filter((x,i)=>x===QDB[i].ans).length, bad=answers.filter((x,i)=>x!==null&&x!==QDB[i].ans).length;
+  document.getElementById('cur').textContent=idx+1; document.getElementById('score').innerHTML=`✓ ${ok} &nbsp; ✗ ${bad}`;
+  document.getElementById('bar').style.width=(done/QDB.length*100)+'%';
+  [...document.querySelectorAll('.dot')].forEach((d,i)=>{d.className='dot'+(answers[i]!==null?' answered':'')+(answers[i]===QDB[i].ans?' ok':'')+(answers[i]!==null&&answers[i]!==QDB[i].ans?' bad':'');});
 }
-function showScore(){
-  const pct=Math.round(score/total*100);
-  let msg=pct>=80?'उत्कृष्ट! अहाँक ज्ञान अद्भुत अछि।':pct>=50?'नीक प्रयास — आओर पढ़ू।':'फेर सँ प्रयास करू, अहाँ नीक करब।';
-  const sb=document.createElement('div');sb.className='scoreboard';
-  sb.innerHTML='<div class="orn">❖ ❖ ❖</div><div class="scbig">'+score+' / '+total+'</div>'+
-    '<div class="scpct">'+pct+'%</div><div class="scmsg">'+msg+'</div>'+
-    '<button class="nbtn pri" onclick="location.reload()">फेर सँ खेलू</button>';
-  const w=document.querySelector('.wrap');w.insertBefore(sb,w.firstChild);
-  window.scrollTo({top:0,behavior:'smooth'});
+function showQ(i){
+  idx=i; const q=QDB[i]; document.getElementById('result').style.display='none';
+  let chosen=answers[i];
+  let h=`<article class="qcard"><div class="qmeta"><span>प्रश्न ${i+1}</span><span>उच्च-स्तर / अवधारणा-आधारित</span></div><p class="qtext">${q.q}</p><div class="opts">`;
+  q.opts.forEach((o,k)=>{let cls='opt'; if(chosen!==null){cls+=' locked'; if(k===q.ans) cls+=' correct'; else if(k===chosen) cls+=' wrong';} h+=`<div class="${cls}" onclick="choose(${k})"><span class="key">${letters[k]}.</span><span class="txt">${o}</span></div>`;});
+  h+=`</div><div class="fb ${chosen===null?'':(chosen===q.ans?'ok show':'bad show')}"><strong>${chosen===null?'':(chosen===q.ans?'सही उत्तर।':'गलत उत्तर।')}</strong><br>${chosen===null?'':q.exp}</div><div class="navrow"><button class="btn2" onclick="showQ(Math.max(0,idx-1))">← पछिला</button><button class="btn" onclick="idx<QDB.length-1?showQ(idx+1):finish()">${idx<QDB.length-1?'अगिला →':'परिणाम देखू'}</button></div></article>`;
+  document.getElementById('quiz').innerHTML=h; updateTop(); window.scrollTo({top:0,behavior:'smooth'});
 }
+function choose(k){ if(answers[idx]!==null) return; answers[idx]=k; showQ(idx); }
+function finish(){
+  const ok=answers.filter((x,i)=>x===QDB[i].ans).length, bad=answers.filter((x,i)=>x!==null&&x!==QDB[i].ans).length, skip=answers.filter(x=>x===null).length;
+  const pct=Math.round(ok/QDB.length*100);
+  document.getElementById('result').innerHTML=`<div class="big">${ok} / ${QDB.length}</div><p><strong>${pct}%</strong> सही — गलत: ${bad}, अनुत्तरित: ${skip}</p><p class="qtext">${pct>=80?'बहुत नीक।':'फेर अभ्यास करू; अवधारणा पर ध्यान दिअ।'}</p><button class="btn" onclick="restart()">फेर शुरू करू</button>`;
+  document.getElementById('result').style.display='block'; updateTop(); document.getElementById('result').scrollIntoView({behavior:'smooth'});
+}
+function restart(){idx=0;answers=Array(QDB.length).fill(null);showQ(0);}
+initMap(); showQ(0);
 </script>
 </body>
 </html>

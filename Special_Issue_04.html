@@ -1,146 +1,92 @@
 <!DOCTYPE html>
 <html lang="mai">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>बाल साहित्य विशेषांक — विदेह क्विज</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>विदेह विशेषांक ०४ — मैथिली बाल साहित्य प्रश्नोत्तरी</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#1a2744;--crimson:#8B1A1A;--gold:#c49a3c;--cream:#FAF6EE;
---ok-fg:#1d7a3e;--bad-fg:#a32020}
-*{box-sizing:border-box}
-body{margin:0;background:var(--cream);color:#1A1A1A;
-font-family:'Lato','Segoe UI',system-ui,sans-serif;line-height:1.55;padding-bottom:60px}
-header{background:linear-gradient(180deg,#16213b,var(--navy));color:#fff;
-padding:28px 20px 22px;text-align:center;border-bottom:4px solid var(--gold)}
-header h1{margin:0;font-family:'Noto Serif Devanagari',serif;font-size:1.7em}
-header .sub{color:var(--gold);font-size:.82em;letter-spacing:.1em;font-style:italic;margin-top:8px}
-header .src{color:#cdd6ea;font-size:.78em;margin-top:6px}
-.wrap{max-width:760px;margin:0 auto;padding:20px 16px}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;justify-content:center}
-.tab{font-family:'Noto Serif Devanagari',serif;font-weight:700;font-size:.9em;
-padding:8px 16px;border-radius:20px;border:2px solid var(--navy);background:#fff;
-color:var(--navy);cursor:pointer;transition:.15s}
-.tab.active{background:var(--navy);color:#fff}
-.counter-badge{background:var(--crimson);color:#fff;font-size:.72em;font-weight:700;
-padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle}
-.progress{height:6px;background:#e7dcc2;border-radius:4px;margin-bottom:18px;overflow:hidden}
-.progress > div{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--crimson));transition:width .3s}
-.pane{display:none}.pane.active{display:block}
-.card{background:#fff;border-radius:11px;box-shadow:0 4px 16px rgba(26,39,68,.1);
-padding:22px 22px 18px;margin-bottom:16px}
-.qmeta{font-size:.78em;color:#8a93ab;font-weight:700;margin-bottom:8px}
-.q{font-family:'Noto Serif Devanagari',serif;font-size:1.12em;font-weight:600;
-color:var(--navy);margin-bottom:14px}
-.opt{display:block;width:100%;text-align:left;
-font-family:'Noto Serif Devanagari',serif;font-size:1em;
-padding:11px 15px;margin-bottom:9px;border:1.5px solid #d8cfb8;border-radius:8px;
-background:#fffdf8;cursor:pointer;transition:.13s;color:#1A1A1A}
-.opt:hover{border-color:var(--gold);background:#fff8e8}
-.opt.ok{border-color:var(--ok-fg);background:#eafaf0;color:var(--ok-fg);font-weight:700}
-.opt.bad{border-color:var(--bad-fg);background:#fdeeee;color:var(--bad-fg)}
-.opt:disabled{cursor:default}
-.fb{margin-top:11px;font-size:.92em;font-weight:600;min-height:20px;
-font-family:'Noto Serif Devanagari',serif}
-.fb.ok{color:var(--ok-fg)}.fb.bad{color:var(--bad-fg)}
-.hint-box{background:#fffbef;border:1px solid var(--gold);border-radius:7px;
-padding:10px 14px;margin-top:10px;font-family:'Noto Serif Devanagari',serif;
-font-size:.88em;color:#5a4010;display:none}
-.hint-box.show{display:block}
-.nav{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
-.nbtn{font-family:'Lato',sans-serif;font-size:.9em;font-weight:700;
-padding:9px 20px;border-radius:6px;border:none;cursor:pointer;transition:.15s}
-.nbtn.pri{background:var(--crimson);color:#fff}.nbtn.pri:hover{background:var(--navy)}
-.nbtn.sec{background:transparent;color:var(--navy);border:2px solid var(--navy)}
-.nbtn.sec:hover{background:var(--navy);color:#fff}
-.scoreboard{background:#fff;border-radius:11px;box-shadow:0 4px 18px rgba(26,39,68,.11);
-padding:34px 26px;text-align:center;margin-bottom:18px}
-.scbig{font-family:'Playfair Display',serif;font-size:2.8em;color:var(--crimson);font-weight:700;margin-bottom:6px}
-.scpct{font-size:1.05em;color:#5a6a8a;margin-bottom:9px}
-.scmsg{font-family:'Noto Serif Devanagari',serif;font-size:1.05em;color:var(--navy);margin-bottom:20px}
-.orn{text-align:center;color:var(--gold);font-size:1em;letter-spacing:.2em;margin:14px 0;opacity:.65}
-footer{text-align:center;color:#8a7a4a;font-size:.78em;padding:24px 16px 0}
-footer a{color:var(--crimson);text-decoration:none}
-@media(max-width:520px){header h1{font-size:1.35em}.q{font-size:1.05em}}
+:root{--navy:#17264a;--crimson:#9b1c2e;--gold:#c8973a;--cream:#f7f2e8;--ok:#2e7d32;--ok-bg:#e8f5e9;--bad:#b71c1c;--bad-bg:#ffebee;--muted:#66708a}
+*{box-sizing:border-box} body{margin:0;background:var(--cream);font-family:Lato,Arial,sans-serif;color:var(--navy);line-height:1.55}
+header{background:var(--navy);color:#fff;text-align:center;padding:18px 12px;border-bottom:5px solid var(--gold)}
+header h1{font-family:'Noto Serif Devanagari',serif;font-size:1.45rem;margin:0 0 6px;line-height:1.35}
+header .brand{font-size:.86rem;color:var(--gold);font-weight:700;letter-spacing:.02em}
+header .sub{font-family:'Noto Serif Devanagari',serif;font-size:.95rem;margin-top:6px;color:#dbe4ff}
+main{max-width:980px;margin:18px auto 50px;padding:0 14px}
+.panel{background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(23,38,74,.12);padding:16px;margin-bottom:14px;border-left:5px solid var(--navy)}
+.topbar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.score{font-weight:700;color:var(--crimson)}
+.progress{flex:1;min-width:180px;height:9px;background:#d9dfeb;border-radius:20px;overflow:hidden} .bar{height:100%;background:var(--gold);width:0%;transition:.2s}
+button{font-family:Lato,Arial,sans-serif;font-weight:700;border:0;border-radius:7px;padding:9px 14px;cursor:pointer}
+.btn{background:var(--navy);color:#fff} .btn:hover{background:var(--crimson)} .btn2{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+.qmap{display:flex;gap:4px;flex-wrap:wrap;margin-top:12px} .dot{width:24px;height:24px;border-radius:5px;border:1px solid #b8c1d8;background:#eef2fa;color:var(--navy);font-size:.72rem;padding:0} .dot.answered{background:#dfe8f9} .dot.ok{background:var(--ok);color:#fff} .dot.bad{background:var(--bad);color:#fff}
+.qcard{background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(23,38,74,.10);padding:20px;margin:16px 0;border-left:5px solid var(--gold)}
+.qmeta{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:.82rem;font-weight:700;margin-bottom:8px}
+.qtext{font-family:'Noto Serif Devanagari',serif;font-size:1.13rem;font-weight:700;margin:0 0 14px;color:var(--navy)}
+.opts{display:grid;gap:9px} .opt{display:flex;gap:10px;align-items:flex-start;background:#f4f7fd;border:2px solid #d2daec;border-radius:10px;padding:10px 12px;cursor:pointer}
+.opt:hover{border-color:var(--navy)} .opt .key{font-weight:700;min-width:22px} .opt .txt{font-family:'Noto Serif Devanagari',serif}
+.opt.correct{background:var(--ok-bg);border-color:#7bc47f;color:var(--ok)} .opt.wrong{background:var(--bad-bg);border-color:#e57373;color:var(--bad)} .opt.locked{cursor:default}
+.fb{display:none;margin-top:10px;border-radius:8px;padding:10px 12px;font-family:'Noto Serif Devanagari',serif} .fb.show{display:block} .fb.ok{background:var(--ok-bg);border-left:4px solid var(--ok)} .fb.bad{background:var(--bad-bg);border-left:4px solid var(--bad)}
+.navrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.result{display:none;text-align:center} .big{font-size:2.6rem;font-weight:700;color:var(--crimson)}
+.back{text-align:center;margin:24px 0} .back a{color:var(--crimson);font-family:'Noto Serif Devanagari',serif;font-weight:700;text-decoration:none}
+footer{text-align:center;padding:20px;color:#6a728a;font-size:.85rem}
+@media(max-width:600px){.qtext{font-size:1rem}.topbar{align-items:stretch}.progress{min-width:100%}}
 </style>
 </head>
 <body>
 <header>
-  <h1>बाल साहित्य विशेषांक</h1>
-  <div class="sub">BAL SAHITYA SPECIAL ISSUE · विदेह अंक ७० · १५ नवम्बर २०१०</div>
-  <div class="src">विदेह : प्रथम मैथिली पाक्षिक ई-पत्रिका · videha.co.in · ISSN 2229-547X</div>
+  <h1>विदेह विशेषांक ०४ — मैथिली बाल साहित्य प्रश्नोत्तरी</h1>
+  <div class="brand">Videha QUIZ | विदेह ई-लर्निङ्ग क्विज / Videha eLearning Quiz / Videha — First Maithili Fortnightly eJournal | www.videha.co.in</div>
+  <div class="sub">बाल साहित्य, बाल काव्यधारा, भाषा-शुद्धि, सांस्कृतिक पहचान आ पाठक-निर्माण पर ५० उच्च-स्तरीय प्रश्न</div>
 </header>
-<div class="orn">❖ ❖ ❖</div>
-<div class="wrap">
-  <div class="tabs" id="tabs"></div>
-  <div class="progress"><div id="bar"></div></div>
-  <div id="panes"></div>
-</div>
-<footer>© विदेह Videha · <a href="https://videha.co.in">videha.co.in</a> · विदेह विशेषांक प्रश्नोत्तरी</footer>
+<main>
+  <section class="panel">
+    <div class="topbar">
+      <span><strong>विशेषांक ०४</strong> — प्रश्न <strong id="cur">1</strong> / <strong>55</strong></span>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <span class="score" id="score">✓ 0 &nbsp; ✗ 0</span>
+      <button class="btn2" onclick="showQ(0)">←← पहिल</button>
+      <button class="btn" onclick="restart()">नव क्विज</button>
+    </div>
+    <div class="qmap" id="qmap"></div>
+  </section>
+  <section id="quiz"></section>
+  <section class="panel result" id="result"></section>
+  <div class="back"><a href="https://www.videha.co.in/videha-elearning.htm">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a></div>
+</main>
+<footer>© Gajendra Thakur, Editor — Videha eJournal</footer>
 <script>
-const DATA = [{"tab": "विशेषांक परिचय", "items": [{"q": "विदेहक ई बाल साहित्य विशेषांक कोन तिथिकेँ प्रकाशित भेल?", "opts": ["१५ नवम्बर २०१०", "०१ अक्टूबर २०१०", "१५ दिसम्बर २०१०", "१५ जनवरी २०११"], "correct": 0, "hint": "लघुकथा अंक (६७) केर बाद।"}, {"q": "ई विशेषांक कोन विधाकेँ समर्पित छल?", "opts": ["बाल साहित्य", "गजल", "समीक्षा", "नाटक"], "correct": 0, "hint": "बाल-किशोर रचना।"}, {"q": "संपादकीय अनुसार एहि बाल-किशोर विशेषांकक बाद कोन विशेषांक आबय वला छल (१५ दिसम्बर २०१०)?", "opts": ["नाटक-एकांकी विशेषांक", "समीक्षा विशेषांक", "नारी विशेषांक", "अनुवाद विशेषांक"], "correct": 0, "hint": "तकर बाद १५ जनवरी २०११ केँ समीक्षा।"}, {"q": "संपादकीय अनुसार १५ जनवरी २०११ केर अंक कोन विशेषांक रहत?", "opts": ["मैथिली-समीक्षा विशेषांक", "नाटक-एकांकी विशेषांक", "बाल विशेषांक", "गजल विशेषांक"], "correct": 0, "hint": "नाटक-एकांकी विशेषांकक ठीक बाद।"}]}, {"tab": "रचना", "items": [{"q": "एहि अंकमे \"प्रगतिक रहस्य\" कोन रूपमे प्रस्तुत भेल?", "opts": ["चित्रकथा", "गजल", "नाटक", "निबन्ध"], "correct": 0, "hint": "बाल पाठकक लेल चित्र-आधारित।"}, {"q": "एहि अंकमे कथा देनिहार कोन रचनाकारक नाम सूचीमे अछि?", "opts": ["जगदीश प्रसाद मंडल", "धीरेन्द्र प्रेमर्षि", "देवशंकर नवीन", "गंगेश गुंजन"], "correct": 0, "hint": "\"...मंडल-कथा\" रूपमे।"}, {"q": "\"किछु बालकथा\" एहि अंकमे केकर देल गेल?", "opts": ["अनमोल झा", "जगदीश प्रसाद मंडल", "प्रेमशंकर", "गजेन्द्र ठाकुर"], "correct": 0, "hint": "सूचीमे \"अनमोल झा- किछु बालकथा\"।"}]}];
-let score=0,total=0,answered=0;
-DATA.forEach(g=>total+=g.items.length);
-const tabsEl=document.getElementById('tabs');
-const panesEl=document.getElementById('panes');
-const bar=document.getElementById('bar');
-DATA.forEach((g,gi)=>{
-  const tb=document.createElement('button');
-  tb.className='tab'+(gi===0?' active':'');
-  tb.innerHTML=g.tab+'<span class="counter-badge">'+g.items.length+'</span>';
-  tb.onclick=()=>switchTab(gi);
-  tabsEl.appendChild(tb);
-  const pane=document.createElement('div');
-  pane.className='pane'+(gi===0?' active':'');
-  pane.id='pane-'+gi;
-  g.items.forEach((q,qi)=>pane.appendChild(buildCard(g,gi,qi,q)));
-  panesEl.appendChild(pane);
-});
-function buildCard(g,gi,qi,q){
-  const card=document.createElement('div');card.className='card';
-  const meta=document.createElement('div');meta.className='qmeta';
-  meta.textContent=g.tab+' · प्रश्न '+(qi+1)+'/'+g.items.length;card.appendChild(meta);
-  const qd=document.createElement('div');qd.className='q';qd.textContent=q.q;card.appendChild(qd);
-  const opts=[];
-  q.opts.forEach((o,oi)=>{
-    const b=document.createElement('button');b.className='opt';b.textContent=o;
-    b.onclick=()=>pick(b,oi);card.appendChild(b);opts.push(b);
-  });
-  const fb=document.createElement('div');fb.className='fb';card.appendChild(fb);
-  let hintBox=null;
-  if(q.hint){hintBox=document.createElement('div');hintBox.className='hint-box';
-    hintBox.textContent='💡 '+q.hint;card.appendChild(hintBox);}
-  const nav=document.createElement('div');nav.className='nav';
-  if(q.hint){const hb=document.createElement('button');hb.className='nbtn sec';hb.textContent='संकेत';
-    hb.onclick=()=>hintBox.classList.toggle('show');nav.appendChild(hb);}
-  card.appendChild(nav);
-  let done=false;
-  function pick(btn,oi){
-    if(done)return;done=true;answered++;
-    opts.forEach((b,bi)=>{b.disabled=true;
-      if(bi===q.correct)b.classList.add('ok');
-      else if(b===btn)b.classList.add('bad');});
-    if(oi===q.correct){score++;fb.className='fb ok';fb.textContent='✓ सही उत्तर!';}
-    else{fb.className='fb bad';fb.textContent='✗ सही उत्तर: '+q.opts[q.correct];}
-    bar.style.width=(answered/total*100)+'%';
-    if(answered===total)showScore();
-  }
-  return card;
+const QDB = [{"q": "मैथिली बाल साहित्य लेखकसँ ‘ङ’ आ ‘ञ’ प्रयोगक आग्रहक मूल उद्देश्य की अछि?", "opts": ["बच्चाकेँ सही ध्वनि-बोध देब आ मैथिलीक भाषिक विशिष्टता बचाएब", "लेखनकेँ कठिन बनएब", "देवनागरी हटाएब", "बाल साहित्यकेँ केवल व्याकरण-पुस्तक बनएब"], "ans": 0, "exp": "सम्पादकीय मतमे ङ, ञ, संयुक्ताक्षर आदि मैथिलीक ध्वनि-स्वरूप स्पष्ट करैत अछि, जाहिसँ बच्चाक भाषिक सुविधा आ शुद्धता दुनू बनैत अछि।"}, {"q": "‘नञि’ आ ‘नै’ दुनू बाल साहित्यमे चलि सकैत अछि—एहि उदार दृष्टिक अर्थ की?", "opts": ["बाल लेखनमे व्यवहारिकता आ भाषिक विविधता दुनू स्वीकार होएब चाही", "एकर मतलब व्याकरणक आवश्यकता नहि", "मैथिली शब्द छोड़ि देब चाही", "केवल हिन्दी रूप अपनाएब चाही"], "ans": 0, "exp": "सम्पादकीय भाषा-शुद्धता संग व्यवहारिक बाल-पठनक संतुलन राखैत अछि; एहि लेल वैकल्पिक स्वीकृति दैत अछि।"}, {"q": "‘भाङ’ लिखबाक आग्रह ‘भांग’ नहि—बाल साहित्यक सन्दर्भमे कोन सिद्धान्त देखबैत अछि?", "opts": ["उच्चारण, ध्वनि आ मैथिली-रूपक निकटता बालक लेल महत्त्वपूर्ण अछि", "हिन्दी वर्तनी सदैव सही अछि", "बाल साहित्य वर्तनीसँ असम्बद्ध अछि", "केवल विदेशी शब्द लिखू"], "ans": 0, "exp": "लेखक ध्वनि-विशेषता आ खाँटी मैथिली रूपकेँ बाल-पठनक आधार मानैत छथि।"}, {"q": "बाल साहित्यमे ‘सरल शब्द मुदा खाँटी मैथिली’ किएक महत्त्वपूर्ण अछि?", "opts": ["सरलता बच्चाक सुविधा देत आ खाँटीपन मातृभाषाक संस्कार देत", "खाँटी शब्द सदैव कठिन होइत अछि", "बच्चा मातृभाषा नहि सीखि सकैत", "सरलता साहित्यक विरोधी अछि"], "ans": 0, "exp": "सम्पादकीय सरलता आ भाषिक मौलिकता बीच तालमेल चाहैत अछि—बच्चा सहजता सँ पढ़ओ, मुदा भाषा-पहचान सेहो बनओ।"}, {"q": "सम्पादकीय अनुसार बाल साहित्यमे गद्य आ पद्य दुनूक महत्त्व केहन अछि?", "opts": ["दूनू महत्त्वपूर्ण, मुदा पद्यक आकर्षण कने अधिक मानल गेल अछि", "केवल गद्य मान्य अछि", "केवल अनुवाद मान्य अछि", "पद्य बाल साहित्यसँ बाहर अछि"], "ans": 0, "exp": "बालमन लय, ध्वनि आ स्मृति-सुखसँ गहिर जुड़ैत अछि; तें पद्यक विशेष महत्त्व मानल गेल अछि।"}, {"q": "बाल-कथामे विज्ञान आ समाज-विज्ञानक समावेशसँ कोन लाभ सम्भव अछि?", "opts": ["मनोरंजन आ शिक्षा बीच संतुलन बनैत अछि", "कथा पूर्णतः पाठ्यपुस्तक बनि जाइत अछि", "बाल-साहित्यक रस समाप्त होइत अछि", "विज्ञान बाल-साहित्य लेल निषिद्ध अछि"], "ans": 0, "exp": "सम्पादकीय कहैत अछि जे गद्यमे विज्ञान/समाज विज्ञान जोड़लासँ शिक्षा आ मनोरंजनक सार्थक मेल होइत अछि।"}, {"q": "बाल साहित्यक मूल्यांकन मोट-पातरक आधार पर नहि, कोन आधार पर होएब चाही?", "opts": ["विषय-वस्तु, प्रासंगिकता, भाषा-शिल्प आ लक्ष्य-बालक लेल संप्रेषणीयता", "पृष्ठ संख्या आ जिल्दक आकार", "लेखकक प्रसिद्धि मात्र", "पुरस्कारक संख्या"], "ans": 0, "exp": "वार्तालापमे स्पष्ट अछि जे बाल पोथीक असली कसौटी आजुक बच्चा लेल उपयोगिता, प्रासंगिकता आ संप्रेषणीय भाषा-शिल्प अछि।"}, {"q": "‘टारगेट ग्रुपक बच्चा लेल भाषा आ शिल्प’—एहि कसौटीक अर्थ की?", "opts": ["रचनाक भाषा, बिम्ब, प्रतीक आ कथन-भंगिमा बच्चाक ग्रहण-क्षमता अनुरूप होएब चाही", "लेखक निज कठिन भाषा थोपथि", "बालक लेल भाषा-अनुशासन जरूरी नहि", "केवल वयस्क आलोचककेँ ध्यानमे राखू"], "ans": 0, "exp": "बाल साहित्यमे पाठक बच्चा अछि; लेखककेँ ओकर संवेदना, आयु आ समझक भीतर प्रवेश करबाक पड़ैत अछि।"}, {"q": "‘परकाया-प्रवेश’ बाल लेखकक लेल किएक आवश्यक कहल गेल?", "opts": ["लेखक बच्चाक मन, दृष्टि आ अनुभव-जगतमे प्रवेश कए लिखए", "लेखक केवल अपन वयस्क अनुभव रखए", "बालक पात्र हटाए", "कथा ऐतिहासिक निबंध बनि जाए"], "ans": 0, "exp": "बाल-साहित्य रचबाक लेल लेखककेँ बच्चा-संवेदना भीतर सँ अनुभव करबाक कला चाही।"}, {"q": "उपनिषद-कथा पर लिखल कृतिकेँ मौलिक किएक कहल गेल?", "opts": ["ओ अनुवाद नहि, ओहि युगक पुनर्सृजन आ सकारात्मक जीवन-दृष्टिक रचनात्मक रूप अछि", "उपनिषदक शाब्दिक प्रतिलिपि अछि", "ओ केवल व्याख्या-सूची अछि", "ओ बालक लेल असम्बद्ध इतिहास अछि"], "ans": 0, "exp": "तारानन्द वियोगी स्पष्ट करैत छथि जे कथा अविकल अनुवाद नहि, शब्द द्वारा एक युगक पुनर्सृजन अछि।"}, {"q": "उपनिषद-कथाक बाल-साहित्यिक उद्देश्य की कहल गेल?", "opts": ["बच्चाक समक्ष सकारात्मक जीवन-प्रणाली, संबंध-बोध आ पर्यावरण-दृष्टि खोलब", "बच्चाकें केवल पौराणिक तिथि रटाएब", "वयस्क दार्शनिकता थोपब", "मनोरंजन हटाएब"], "ans": 0, "exp": "वार्तालापमे उद्देश्य सकारात्मक जीवन-प्रणाली, आपसी संबंध, पर्यावरण आ प्राथमिकताक विवेक उद्घाटित करब कहल गेल अछि।"}, {"q": "बाल-पाठककेँ प्रेरण-तत्त्व अलगसँ न देखारि पड़ए—एहि शिल्पक श्रेष्ठता की?", "opts": ["शिक्षा कथाक भीतर सहज रूपेँ गुंथल रहैत अछि, उपदेश बनि नहि उठैत", "संदेश पूर्णतः अनुपस्थित रहैत अछि", "कथा अस्पष्ट बनि जाइत अछि", "बालक अर्थ ग्रहण नहि करैत"], "ans": 0, "exp": "नीक बाल साहित्य सीखकेँ कथारसक भीतर मिलबैत अछि, खुला उपदेशक बोझ नहि बनबैत।"}, {"q": "आजुक ‘उपभोक्तावादी, व्यक्तिवादी’ समयमे उपनिषद/जातक/त्रिपिटकक प्रासंगिकता किएक बताओल गेल?", "opts": ["ई सकारात्मक जीवन, सह-अस्तित्व आ नैतिक दृष्टिक वैकल्पिक संस्कार दे सकैत अछि", "ई केवल पुरान कथा अछि, आधुनिकतासँ असम्बद्ध", "ई बच्चाक लेल असम्भव कठिन अछि", "ई विज्ञान-विरोधी पाठ मात्र अछि"], "ans": 0, "exp": "लेखक आधुनिक चुनौती सभक सन्दर्भमे एहन साहित्यकेँ उपयोगी मानैत छथि, कारण ई जीवन-प्रणाली आ मूल्य-चेतना दैत अछि।"}, {"q": "‘महाभारतमे वन जराओल जाइ छै, उपनिषदमे वनक संग मैत्री’—एहि विरोधक बाल साहित्यिक अर्थ की?", "opts": ["बालक संस्कारमे प्रकृति-संबंध आ पर्यावरण-मित्र दृष्टि रोपब", "वन-विनाशक प्रचार करब", "इतिहासक विवाद मात्र उठाएब", "कथा सँ प्रकृति हटाएब"], "ans": 0, "exp": "एहि तुलना द्वारा लेखक आजुक बालक लेल पर्यावरण-संवेदी संस्कारक आवश्यकता देखबैत छथि।"}, {"q": "तारानन्द वियोगीक मतमे मैथिली भविष्य लेल बाल साहित्यक भूमिका कतेक महत्त्वपूर्ण अछि?", "opts": ["मैथिली जीबए-बढ़ए तें बाल साहित्य बहुत पैघ भूमिका निभाएत", "बाल साहित्य गौण अछि", "केवल वयस्क कविता भाषा बचाएत", "बाल साहित्य पत्रिका-भराव अछि"], "ans": 0, "exp": "वियोगीजी कहैत छथि जे मैथिलीमे नवजीवन भरबाक लेल बाल साहित्यक प्रसार अत्यंत महत्त्वपूर्ण अछि।"}, {"q": "स्कूले-स्कूले बाल-पोथी पहुँचएबाक मॉडल किएक दूरदर्शी अछि?", "opts": ["लेखन, प्रकाशन, वितरण आ पाठक-संपर्ककेँ एकसंग जोड़ैत अछि", "ई केवल व्यापारिक उपाय अछि", "ई साहित्यक गुणवत्ता घटबैत अछि", "ई बच्चाकेँ पोथीसँ दूर करैत अछि"], "ans": 0, "exp": "सांस्थानिक सक्रियता बिना बाल साहित्य सही पाठक धरि नहि पहुँचैत; स्कूल-आधारित वितरण पाठक निर्माण करैत अछि।"}, {"q": "‘एक बच्चा पोथी किनए तँ पन्द्रह-बीस पाठक भेटि जाइत’—एहि कथनसँ कोन पाठक-दृष्टि प्रकट होइत अछि?", "opts": ["बाल-पोथी परिवार आ पड़ोस धरि सामूहिक पठन-संस्कृति फैला सकैत अछि", "एक पोथी केवल एक पाठक धरि सीमित रहैत अछि", "बाल-पोथी पढ़ल नहि जाइत", "परिवार बाल साहित्यसँ असम्बद्ध अछि"], "ans": 0, "exp": "बाल साहित्यक प्रसार बालकसँ आगाँ घर-परिवार, अड़ोस-पड़ोस धरि फैलि सकैत अछि।"}, {"q": "लेखन संग ‘एक्टिविज्म’क बेगरता किएक मानल गेल?", "opts": ["जकर लेल लिखल जाए, ओकरा धरि पोथी पहुँचएब सेहो साहित्यिक उत्तरदायित्व अछि", "लेखनक मूल्य समाप्त करब लेल", "लेखककेँ आलोचक बनएब लेल", "पोथीकेँ केवल बाजार बनएब लेल"], "ans": 0, "exp": "वियोगीजीक मतमे बाल साहित्य लेखन अपन ठाम सर्वोपरि अछि, मुदा पाठकधरि पहुँचब सेहो आवश्यक सक्रियता अछि।"}, {"q": "‘मिथिला’ सं बच्चाक आत्मीय परिचय लेल पुस्तक-माला’ योजनाक लक्ष्य की अछि?", "opts": ["भावी पीढ़ीमे अपन देस-कोस, इतिहास, संस्कृति आ पहचान प्रति अनुराग जगाएब", "केवल अतीत-गान करब", "बालकें परीक्षा-तिथि रटाएब", "सांस्कृतिक विविधता हटाएब"], "ans": 0, "exp": "योजनाक उद्देश्य मिथिलाक इतिहास, नायक, संस्कृति आ जीवन-पद्धति कथा-रूपेँ बालक धरि पहुँचाएब अछि।"}, {"q": "‘मात्र अतीत-गान नहि’—बाल-सांस्कृतिक लेखन लेल ई चेतावनी किएक जरूरी अछि?", "opts": ["अतीतसँ सकारात्मक तत्व खोजि भविष्यक जीवनमे उपयोगी पहचान बनाबय", "अतीत पूर्णतः अस्वीकार करब", "इतिहासक स्थान पर कल्पना मात्र राखब", "बालकें संस्कृति सँ दूर राखब"], "ans": 0, "exp": "लेखक गौरवक अंध-गान नहि, पहचानक सकारात्मक तत्व आ आगामी जीवनक उपयोगिता पर बल दैत छथि।"}, {"q": "बाल-साहित्य मे गोनू झा विषयक नवीनीकरणक अर्थ की हो सकैत अछि?", "opts": ["छुच्छ हास्य-ठट्ठा सँ आगाँ बुद्धि, लोकबोध आ सांस्कृतिक ऊर्जा खोजब", "पुरान पात्र हटाएब", "केवल चुटकुला दोहराएब", "बालकें लोककथा नहि देब"], "ans": 0, "exp": "वार्तालाप संकेत करैत अछि जे परिचित लोक-पात्रकेँ अर्थपूर्ण, आधुनिक बाल-पठनक रूपमे पुनर्सृजित करब चाही।"}, {"q": "प्रेमशंकर सिंहक ‘मैथिली बाल काव्यधारा’मे जीवकान्तक बाल-कविता ककरा लेल विशिष्ट मानल गेल?", "opts": ["टटका बाल-संवेदना, चंचलता, ग्रामीण परिवेश आ गीतात्मक सरलताक लेल", "केवल कठिन संस्कृत शब्दक लेल", "राजनीतिक व्यंग्यक लेल", "वयस्क दार्शनिक एकालापक लेल"], "ans": 0, "exp": "लेखांश जीवकान्तक काव्यमे बच्चा सदृश टटका संवेदना, चिदानन्द भाव, नैसर्गिक गीतमयता आ ग्रामीण जीवनक सामंजस्य देखैत अछि।"}, {"q": "बाल-काव्यमे ग्रामीण शब्दावलीक उपस्थिति किएक बालोचित सिद्ध होइत अछि?", "opts": ["ई बच्चाक वास्तविक परिवेश, खेल, श्रम, प्रकृति आ लोक-जीवनसँ जुड़ाव बनबैत अछि", "ई भाषा अनावश्यक कठिन बनबैत अछि", "ग्रामीण शब्द बालक नहि बुझैत", "ई केवल वयस्क लोकक लेल अछि"], "ans": 0, "exp": "गाछ, पशु, खेत, खेल, मौसम आ ग्रामीण वस्तु-संसार बालकक अनुभव-जगतक अंग अछि; कविता ओहिसँ जीवंत होइत अछि।"}, {"q": "गजेन्द्र ठाकुरक बाल-काव्य विषय-वैविध्यक महत्त्व की अछि?", "opts": ["बालमनक जिज्ञासा, प्रसन्नता, वेदना, प्रकृति, स्कूल, खेलकूद आ सामाजिक विषमता सब समेटैत अछि", "केवल एक विषय—स्कूल—धरि सीमित अछि", "ई बालमनसँ असम्बद्ध अछि", "ई केवल वयस्क प्रेमकाव्य अछि"], "ans": 0, "exp": "लेखमे गजेन्द्र ठाकुरक बाल-कवितामे औत्सुक्य, टीस, प्राकृतिक सुषमा, खेल, किंडरगार्टेन, छुट्टी, बाल-श्रमिक आदि अनेक प्रसंग उल्लिखित अछि।"}, {"q": "बालमनक ‘सेनसेटिभ’ होएबाक चर्चा ककरा स्पष्ट करैत अछि?", "opts": ["बच्चा सामाजिक सम्पन्नता-विपन्नता आ मानवीय भेदक अनुभव करि सकैत अछि", "बच्चा केवल खेल बुझैत अछि", "बच्चाकेँ समाजक प्रश्न नहि छुबैत", "बाल कविता केवल हास्य होएब चाही"], "ans": 0, "exp": "बाल-काव्यधारा लेख बालमनक संवेदनशीलता द्वारा सामाजिक यथार्थक बोध देखबैत अछि।"}, {"q": "नाना-नानी/मामा-मामीक प्रसंग बाल-काव्य मे किएक अर्थपूर्ण अछि?", "opts": ["बालक दुलार, उत्तर, जिज्ञासा-समाधान आ अपनत्व ओहि संबंधमे पबैत अछि", "ई केवल रिश्तेदार-सूची अछि", "बालक परिवारसँ असम्बद्ध अछि", "ई वयस्क कथा मात्र अछि"], "ans": 0, "exp": "लेखक कहैत छथि जे पितामह-मातामहक लग बालक स्नेह आ जिज्ञासाक उत्तर भेटैत अछि।"}, {"q": "स्कूल-छुट्टी पर बालकक प्रसन्नता बाल-काव्यमे की खोलैत अछि?", "opts": ["बाल-मनक स्वतंत्रता, खेल, प्रकृति आ पारिवारिक मिलनक आकांक्षा", "शिक्षाक पूर्ण अस्वीकृति", "कवितामे लयक अभाव", "सामाजिक यथार्थक नकार"], "ans": 0, "exp": "छुट्टीक प्रसंग बालकक सहज उल्लास, गाम-परिवार-संपर्क आ प्रकृति-दर्शनक दुनिया खोलैत अछि।"}, {"q": "बाल-श्रमिकक वेदना बाल-काव्यक विषय बनलासँ कोन दृष्टि स्पष्ट होइत अछि?", "opts": ["बाल-साहित्य केवल मनोरंजन नहि, संवेदना आ सामाजिक न्यायक माध्यम सेहो अछि", "बाल-साहित्य सामाजिक प्रश्न नहि उठाबय", "दुख बाल-पाठक लेल निषिद्ध अछि", "कविता केवल खेलकूद पर होएब चाही"], "ans": 0, "exp": "बाल-काव्यधारा बालमनक वेदना, वर्ग-विषमता आ श्रमक पीड़ा सेहो पकड़ैत अछि।"}, {"q": "रवीन्द्रनाथ ठाकुरक बाल-दृष्टि लेखमे कोना रखल गेल?", "opts": ["शिशु नादान नहि, बुझनुक होइत अछि आ कठिन बात सरल बनाओल जाय तँ बुझि सकैत अछि", "शिशु गंभीर विषय नहि बुझैत", "बालकसँ संवाद आवश्यक नहि", "बाल साहित्य केवल खिलौना अछि"], "ans": 0, "exp": "लेखमे रवीन्द्रनाथ शिशुक प्रति प्रेम, विश्वास आ आदर राखैत छथि; ओ मानैत छथि जे कठिन विषय सरल कएलासँ बालक आत्मसात करैत अछि।"}, {"q": "‘शिशुक संग शिशु बनि’ लिखबाक/बात करबाक लाभ की?", "opts": ["बालकक वास्तविक गुण आ सृजनात्मकता सहज रूपेँ विकसित होइत अछि", "लेखकक अधिकार घटैत अछि", "भाषा नष्ट होइत अछि", "विषय गम्भीर नहि रहैत"], "ans": 0, "exp": "बालक संग समभाव आ खेल-वार्तालाप ओकर गुणक स्वाभाविक विकासमे सहायक मानल गेल अछि।"}, {"q": "रवीन्द्रनाथक बाल-कविता मैथिलीमे अनूदित होएब कोन सांस्कृतिक महत्व राखैत अछि?", "opts": ["भारतीय भाषासभक बाल-काव्य संवाद आ साझी संवेदनाक संकेत", "केवल बंगला साहित्यक प्रतिस्पर्धा", "मैथिली बाल-काव्यक असमर्थता", "अनुवादक अप्रासंगिकता"], "ans": 0, "exp": "अनुवाद द्वारा रवीन्द्रनाथक बाल-आनन्द, जिज्ञासा आ चिंतन मैथिली पाठक धरि आबैत अछि।"}, {"q": "बाल-कवितामे प्रकृति-सुषमा आ जीव-जन्तु किएक बारम्बार अबैत अछि?", "opts": ["बालकक विस्मय, खेल, इन्द्रियानुभव आ पर्यावरण-चेतना एहि सँ बनैत अछि", "प्रकृति बालक लेल कठिन विषय अछि", "जीव-जन्तु केवल वैज्ञानिक तथ्य अछि", "कविता प्रकृतिसँ असम्बद्ध अछि"], "ans": 0, "exp": "बालमन प्रकृति, पशु-पक्षी, वर्षा, रौद, गाछ-पात सँ सहज सम्बन्ध बनबैत अछि।"}, {"q": "बाल-साहित्यक ‘आजुक जुगक चैलेंज’ सन्दर्भमे उपयोगिता ककरा कहब?", "opts": ["रचना बच्चाक वर्तमान जीवन, नैतिक उलझन, पर्यावरण, समाज आ पहचानक प्रश्नसँ जुड़ल हो", "रचना केवल पुरान शब्द याद कराबय", "रचना वर्तमानसँ आँखि मूँदि ले", "रचना केवल सजावटी चित्र हो"], "ans": 0, "exp": "वार्तालापमे उपयोगिता आ प्रासंगिकता आजुक बच्चा आ युगक चुनौतीक सन्दर्भमे परखबाक बात अछि।"}, {"q": "चित्रकथा ‘प्रगतिक रहस्य’ सन रूप बाल साहित्यमे किएक उपयुक्त हो सकैत अछि?", "opts": ["चित्र आ कथा मिलि बालकक दृश्य-बोध, जिज्ञासा आ सीखकेँ सक्रिय करैत अछि", "चित्र बालकक ध्यान भंग करैत अछि", "चित्रकथा साहित्य नहि", "चित्रकथा केवल वयस्क लेल अछि"], "ans": 0, "exp": "बाल साहित्यमे दृश्यात्मक प्रस्तुति कथ्यकेँ सहज, रोचक आ ग्रहणीय बनबैत अछि।"}, {"q": "‘कंप्यूटरक खेल’ जकाँ आधुनिक विषय बाल साहित्यमे किएक आवश्यक अछि?", "opts": ["बालकक वर्तमान तकनीकी संसारकेँ मातृभाषामे अर्थपूर्ण रूप देबाक लेल", "बाल-साहित्य केवल पुरान विषय पर रहए", "तकनीक मातृभाषामे नहि आबि सकैत", "खेल साहित्यक विरोधी अछि"], "ans": 0, "exp": "बाल-साहित्य आजुक जीवन-जगत—कंप्यूटर, खेल, नयी जिज्ञासा—सभकेँ मैथिली भाषामे रूप देब आवश्यक अछि।"}, {"q": "‘कतय गेल फिल्मक बाल कलाकार’ सन लेख बाल-साहित्य/बाल-संस्कृति मे कोन प्रश्न उठा सकैत अछि?", "opts": ["बाल-प्रतिभा, प्रदर्शन, मीडिया आ बचपनक सामाजिक उपयोग/उपेक्षा", "केवल फिल्मी गपशप", "भाषा-विज्ञानक नियम", "छन्द-गणना"], "ans": 0, "exp": "बाल कलाकारक प्रश्न बाल-संस्कृति, प्रतिभा, श्रम, प्रदर्शन आ बाल-अधिकारक विमर्श खोलि सकैत अछि।"}, {"q": "‘नानीक खिस्सा’ बाल-विधा मे किएक केंद्रीय रूप हो सकैत अछि?", "opts": ["मौखिक परम्परा, पारिवारिक अपनत्व आ कथा-संस्कार बालक धरि पहुँचैत अछि", "नानीक कथा साहित्यसँ बाहर अछि", "खिस्सा केवल वयस्कक लेल", "बालक मौखिक कथा नहि सुनैत"], "ans": 0, "exp": "नानीक खिस्सा बालकक पहिल कथा-संसार, परिवारक स्मृति आ भाषा-संस्कारक वाहक होइत अछि।"}, {"q": "शिवकुमार झा ‘टिल्लू’, मुन्नाजी, अनमोल झा आदिक बाल-कथा उपस्थिति विशेषांकक कोन स्वरूप देखबैत अछि?", "opts": ["सैद्धान्तिक लेख संग रचनात्मक बाल-कथा-प्रयोगक बहुलता", "केवल आलोचना-संग्रह", "बालकविता-विरोध", "एक लेखकक विशेषांक"], "ans": 0, "exp": "विशेषांक बाल साहित्यक सिद्धान्त, वार्ता, कथा, कविता आ चित्र—विविध रूपक मंच बनैत अछि।"}, {"q": "बाल-कविताक लय आ तुक बालक लेल किएक उपयोगी अछि?", "opts": ["स्मृति, उच्चारण-सुख, खेल-भाव आ भाषा-रस जागृत करैत अछि", "लय बालककेँ भाषा सँ दूर करैत अछि", "तुक सदैव उपदेश बनैत अछि", "कविता केवल अर्थ लेल होइत अछि"], "ans": 0, "exp": "बालमन ध्वनि, दोहराव, लय आ तुकसँ भाषा आत्मसात करैत अछि।"}, {"q": "‘बबलू बनबय छक्का-सत्ता’ सन शीर्षक बाल-कवितामे कोन बाल-जगत लाबैत अछि?", "opts": ["खेलकूद, चंचलता आ बाल-भाषाक जीवंत वातावरण", "दार्शनिक निबंध", "प्रशासनिक सूचना", "इतिहासक तिथि"], "ans": 0, "exp": "एहन शीर्षक खेलक बाल-संसार आ ध्वन्यात्मक प्रसन्नताकेँ कविता मे अनैत अछि।"}, {"q": "‘बेटी’ सन कविता बाल-साहित्य विशेषांकमे किएक अर्थपूर्ण अछि?", "opts": ["बालिका-अनुभव, संवेदना आ सामाजिक दृष्टिक समावेश करैत अछि", "बाल साहित्यमे बालिका विषय नहि होए", "ई केवल वयस्क नारी-विमर्श अछि", "कविता बिना बाल-पाठकक होए"], "ans": 0, "exp": "बाल साहित्यक संसारमे बालिका, परिवार, समानता आ संवेदनात्मक दृष्टि सभ आवश्यक आयाम अछि।"}, {"q": "बाल साहित्यमे ‘मनलग्गू ढंग’ ककरा कहल जा सकैत अछि?", "opts": ["कथ्य रोचक, प्रवाहमय आ बालकक ध्यान पकड़एबला हो", "कठिन व्याख्यान हो", "उपदेश स्पष्ट बोझिल हो", "भाषा अतिशय जटिल हो"], "ans": 0, "exp": "वार्तालापमे कथा-वस्तुकेँ एना गूँथबाक बात अछि जे बाल-पाठक एक-दू बैठकमे सहज पढ़ि ले।"}, {"q": "बाल साहित्यक अन्तर्राष्ट्रीय मानदंडक उल्लेख कोन व्यापकता देइत अछि?", "opts": ["मैथिली बाल साहित्यकेँ विश्वस्तरीय बाल-पठन कसौटी पर सोचबाक आग्रह", "स्थानीय भाषाकेँ छोड़बाक आग्रह", "केवल विदेशी अनुकरण", "बालकक मनोविज्ञानक नकार"], "ans": 0, "exp": "बाल साहित्यक गुणवत्ता केवल स्थानीय भावुकता नहि; विषय, शिल्प, आयु-उपयुक्तता, संप्रेषणीयता आदिक विस्तृत मानदंड चाही।"}, {"q": "बाल साहित्यक संस्थागत प्रकाशन-वितरण योजना भाषाक भविष्यसँ कोना जुड़ैत अछि?", "opts": ["नव पाठक बनैत अछि, मातृभाषा पठनक आदत बनैत अछि आ भाषा पीढ़ी-दर-पीढ़ी चलैत अछि", "भाषा केवल वयस्क पाठकसँ बचैत अछि", "बच्चा मातृभाषा पठनमे भूमिका नहि निभबैत", "संस्था साहित्यक शत्रु अछि"], "ans": 0, "exp": "बाल-पाठक निर्माण मातृभाषाक दीर्घजीवनक आधार अछि; योजना एहि दिशामे सक्रिय हस्तक्षेप अछि।"}, {"q": "बाल साहित्यमे ‘सकारात्मक जीवन-प्रणाली’ ककरा कहल जा सकैत अछि?", "opts": ["सम्बन्ध, प्रकृति, नैतिकता, श्रम आ सामूहिकता प्रति संतुलित दृष्टि", "केवल सफलता-प्रतिस्पर्धा", "बाजारक उपभोक्तावाद", "व्यक्तिगत अहंकार"], "ans": 0, "exp": "वियोगीजीक कथनमे उपनिषद-कथाक लक्ष्य सकारात्मक जीवन-दृष्टि—पर्यावरण, संबंध, प्राथमिकता आ मूल्य-बोध—खोलब अछि।"}, {"q": "बाल लेखनमे ‘आइडेन्टिटी’ खोजक अर्थ की?", "opts": ["बच्चा अपन भाषा, भूगोल, इतिहास आ संस्कृति सँ आत्मीय परिचय बनाए", "केवल जातीय गर्वक नारा दे", "आधुनिक जीवन त्यागि दे", "दोसरा भाषासँ बैर राखए"], "ans": 0, "exp": "मिथिला-आधारित पुस्तक-माला बालकमे सकारात्मक सांस्कृतिक आत्म-बोध जगएबाक योजना अछि।"}, {"q": "बाल-काव्यधारामे ‘टटका सम्वेदनात्मक प्रतिक्रिया’ काव्यक गुण किएक मानल गेल?", "opts": ["बाल-अनुभव ताजगी, सहजता आ तत्कालिक भाव-स्पर्शसँ जीवंत होइत अछि", "कविता पुरानी भाषा मात्र होएब चाही", "भावनाकेँ दबा देब चाही", "बच्चा प्रतिक्रिया नहि करैत"], "ans": 0, "exp": "बाल-काव्यक विशिष्टता ताजगी, सहजता आ अनुभवक प्रत्यक्षता मे अछि।"}, {"q": "बाल-कवितामे ‘आडम्बरहीन ग्रामीण परिवेश’ कोन सौंदर्य निर्मित करैत अछि?", "opts": ["सहज, जीवंत, स्थानीय आ अनुभव-निकट बाल-संसार", "दरबारी कृत्रिमता", "शहरी विज्ञापन-भाषा", "कठिन दार्शनिकता"], "ans": 0, "exp": "ग्रामीण वातावरण, लोक-शब्द आ प्रकृति बाल-कवितामे आत्मीयता आ सहज सौंदर्य दैत अछि।"}, {"q": "रवीन्द्रनाथक बाल-काव्यक भारतीय भाषामे प्रसारसँ कोन शिक्षा मैथिली बाल-साहित्य लेल मिलैत अछि?", "opts": ["स्थानीय भाषा विश्व/भारतीय बाल-संवेदना सँ संवाद करि अपन धारा समृद्ध करि सकैत अछि", "अनुवाद मातृभाषाक विरोधी अछि", "बाल साहित्य केवल एक भाषा धरि सीमित रहए", "बाहरी साहित्य पढ़ब नहि चाही"], "ans": 0, "exp": "अनुवाद आ संवाद मैथिली बाल-साहित्यक क्षितिज बढ़बैत अछि, ओकर स्वत्व हटबैत नहि।"}, {"q": "बाल साहित्यक श्रेष्ठ रचना पाठककेँ ‘एक्के सिटिंग’ मे पढ़ा जाए, तकर अर्थ की?", "opts": ["रोचकता, प्रवाह आ पाठकीय आकर्षण सफल अछि", "रचना बहुत हल्की अछि", "गम्भीरता अनुपस्थित अछि", "साहित्यक मूल्य घटि गेल"], "ans": 0, "exp": "बच्चा जँ अखंड रुचिसँ पढ़ि जाए तँ शिल्प आ कथा-प्रवाह सफल मानल जा सकैत अछि।"}, {"q": "बाल साहित्यमे ‘सुपुरुष मैथिल’ तैयार करबाक लक्ष्य ककरा दर्शबैत अछि?", "opts": ["संस्कृति-सचेत, सकारात्मक, आधुनिक चुनौतीक सामना करए योग्य भावी नागरिक", "केवल अतीतमे अटकल व्यक्ति", "भाषाहीन आधुनिक बच्चा", "साहित्य-विमुख विद्यार्थी"], "ans": 0, "exp": "योजना अतीत-गौरवसँ आगाँ जा कऽ भावी पीढ़ीक सकारात्मक सांस्कृतिक-नैतिक निर्माण चाहैत अछि।"}, {"q": "ई विशेषांक बाल साहित्यक कोन समग्र परिकल्पना प्रस्तुत करैत अछि?", "opts": ["भाषा-शुद्धि, बाल-मनोविज्ञान, रचनात्मक कथा-कविता, सांस्कृतिक पहचान आ पाठक-निर्माणक संयुक्त दृष्टि", "केवल बाल-कविताक सूची", "केवल पुरस्कार-सूचना", "केवल वयस्क आलोचना"], "ans": 0, "exp": "विशेषांक संपादकीय सिद्धान्त, बाल काव्यधारा, वार्ता, कथा-कविता, चित्र आ प्रसार—सभकेँ जोड़ि बाल साहित्यक व्यापक दृष्टि बनबैत अछि।"}, {"q": "बाल-पाठक लेल कठिन विषय सरल बनएबाक प्रक्रिया कोन साहित्यिक कौशल माँगैत अछि?", "opts": ["गंभीर विषयकेँ कथा, दृश्य, संवाद आ बाल-भाषामे रूपान्तरित करब", "विषयक गहराइ हटाएब", "बालकक बुद्धि कम आँकब", "केवल उपदेशात्मक गद्य लिखब"], "ans": 0, "exp": "रवीन्द्रनाथ-संबंधी विचारमे गंभीर विषय सरल रूपमे देल जाए तँ बालक ओकरा आत्मसात करि सकैत अछि।"}, {"q": "बाल-साहित्यक लेखनमे ‘लेखन अपन ठाम, वितरण अपन ठाम’—एहि द्वैतक सही समझ की?", "opts": ["श्रेष्ठ लेखन जरूरी अछि, मुदा पाठकधरि पहुँचबिना ओकर सामाजिक प्रभाव अधूरा रहैत अछि", "वितरण लेखनक बदला ले सकैत अछि", "लेखन अप्रासंगिक अछि", "पाठक स्वतः बनि जाइत अछि"], "ans": 0, "exp": "वार्तालापमे लेखनक सर्वोच्चता मानल गेल अछि, मुदा सक्रिय प्रसारक बेगरता सेहो रेखांकित अछि।"}, {"q": "बाल साहित्यमे मातृभाषा-आधारित आधुनिकता कोना सम्भव अछि?", "opts": ["कंप्यूटर, फिल्म, विज्ञान, समाज, मिथिला आ बाल-जीवन सभकेँ मैथिलीमे रचनात्मक रूप देब", "आधुनिक विषय हटाएब", "केवल संस्कृत कथा राखब", "मातृभाषा छोड़ि देब"], "ans": 0, "exp": "विशेषांक आधुनिक विषय आ स्थानीय भाषा-संस्कृति बीच पुल बनएबाक दिशामे सोचैत अछि।"}];
+let idx=0, answers=Array(QDB.length).fill(null);
+const letters=['क','ख','ग','घ'];
+function initMap(){
+  const m=document.getElementById('qmap'); m.innerHTML='';
+  QDB.forEach((_,i)=>{const b=document.createElement('button'); b.className='dot'; b.textContent=i+1; b.onclick=()=>showQ(i); m.appendChild(b);});
 }
-function switchTab(gi){
-  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===gi));
-  document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',i===gi));
-  window.scrollTo({top:0,behavior:'smooth'});
+function updateTop(){
+  const done=answers.filter(x=>x!==null).length, ok=answers.filter((x,i)=>x===QDB[i].ans).length, bad=answers.filter((x,i)=>x!==null&&x!==QDB[i].ans).length;
+  document.getElementById('cur').textContent=idx+1; document.getElementById('score').innerHTML=`✓ ${ok} &nbsp; ✗ ${bad}`;
+  document.getElementById('bar').style.width=(done/QDB.length*100)+'%';
+  [...document.querySelectorAll('.dot')].forEach((d,i)=>{d.className='dot'+(answers[i]!==null?' answered':'')+(answers[i]===QDB[i].ans?' ok':'')+(answers[i]!==null&&answers[i]!==QDB[i].ans?' bad':'');});
 }
-function showScore(){
-  const pct=Math.round(score/total*100);
-  let msg=pct>=80?'उत्कृष्ट! अहाँक ज्ञान अद्भुत अछि।':pct>=50?'नीक प्रयास — आओर पढ़ू।':'फेर सँ प्रयास करू, अहाँ नीक करब।';
-  const sb=document.createElement('div');sb.className='scoreboard';
-  sb.innerHTML='<div class="orn">❖ ❖ ❖</div><div class="scbig">'+score+' / '+total+'</div>'+
-    '<div class="scpct">'+pct+'%</div><div class="scmsg">'+msg+'</div>'+
-    '<button class="nbtn pri" onclick="location.reload()">फेर सँ खेलू</button>';
-  const w=document.querySelector('.wrap');w.insertBefore(sb,w.firstChild);
-  window.scrollTo({top:0,behavior:'smooth'});
+function showQ(i){
+  idx=i; const q=QDB[i]; document.getElementById('result').style.display='none';
+  let chosen=answers[i];
+  let h=`<article class="qcard"><div class="qmeta"><span>प्रश्न ${i+1}</span><span>उच्च-स्तर / अवधारणा-आधारित</span></div><p class="qtext">${q.q}</p><div class="opts">`;
+  q.opts.forEach((o,k)=>{let cls='opt'; if(chosen!==null){cls+=' locked'; if(k===q.ans) cls+=' correct'; else if(k===chosen) cls+=' wrong';} h+=`<div class="${cls}" onclick="choose(${k})"><span class="key">${letters[k]}.</span><span class="txt">${o}</span></div>`;});
+  h+=`</div><div class="fb ${chosen===null?'':(chosen===q.ans?'ok show':'bad show')}"><strong>${chosen===null?'':(chosen===q.ans?'सही उत्तर।':'गलत उत्तर।')}</strong><br>${chosen===null?'':q.exp}</div><div class="navrow"><button class="btn2" onclick="showQ(Math.max(0,idx-1))">← पछिला</button><button class="btn" onclick="idx<QDB.length-1?showQ(idx+1):finish()">${idx<QDB.length-1?'अगिला →':'परिणाम देखू'}</button></div></article>`;
+  document.getElementById('quiz').innerHTML=h; updateTop(); window.scrollTo({top:0,behavior:'smooth'});
 }
+function choose(k){ if(answers[idx]!==null) return; answers[idx]=k; showQ(idx); }
+function finish(){
+  updateTop(); const ok=answers.filter((x,i)=>x===QDB[i].ans).length, bad=answers.filter((x,i)=>x!==null&&x!==QDB[i].ans).length, skip=answers.filter(x=>x===null).length;
+  const pct=Math.round(ok/QDB.length*100); const r=document.getElementById('result');
+  r.innerHTML=`<div class="big">${ok}/${QDB.length}</div><p><strong>${pct}%</strong> सही</p><p>गलत: ${bad} | अनुत्तरित: ${skip}</p><button class="btn" onclick="restart()">फेरसँ शुरू करू</button>`;
+  r.style.display='block'; window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});
+}
+function restart(){answers=Array(QDB.length).fill(null); idx=0; showQ(0);}
+initMap(); showQ(0);
 </script>
 </body>
 </html>

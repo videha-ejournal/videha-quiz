@@ -1,146 +1,92 @@
 <!DOCTYPE html>
 <html lang="mai">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>नारी विशेषांक — विदेह क्विज</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>विदेह विशेषांक ०७ — नारी विशेषांक</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#1a2744;--crimson:#8B1A1A;--gold:#c49a3c;--cream:#FAF6EE;
---ok-fg:#1d7a3e;--bad-fg:#a32020}
-*{box-sizing:border-box}
-body{margin:0;background:var(--cream);color:#1A1A1A;
-font-family:'Lato','Segoe UI',system-ui,sans-serif;line-height:1.55;padding-bottom:60px}
-header{background:linear-gradient(180deg,#16213b,var(--navy));color:#fff;
-padding:28px 20px 22px;text-align:center;border-bottom:4px solid var(--gold)}
-header h1{margin:0;font-family:'Noto Serif Devanagari',serif;font-size:1.7em}
-header .sub{color:var(--gold);font-size:.82em;letter-spacing:.1em;font-style:italic;margin-top:8px}
-header .src{color:#cdd6ea;font-size:.78em;margin-top:6px}
-.wrap{max-width:760px;margin:0 auto;padding:20px 16px}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;justify-content:center}
-.tab{font-family:'Noto Serif Devanagari',serif;font-weight:700;font-size:.9em;
-padding:8px 16px;border-radius:20px;border:2px solid var(--navy);background:#fff;
-color:var(--navy);cursor:pointer;transition:.15s}
-.tab.active{background:var(--navy);color:#fff}
-.counter-badge{background:var(--crimson);color:#fff;font-size:.72em;font-weight:700;
-padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle}
-.progress{height:6px;background:#e7dcc2;border-radius:4px;margin-bottom:18px;overflow:hidden}
-.progress > div{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--crimson));transition:width .3s}
-.pane{display:none}.pane.active{display:block}
-.card{background:#fff;border-radius:11px;box-shadow:0 4px 16px rgba(26,39,68,.1);
-padding:22px 22px 18px;margin-bottom:16px}
-.qmeta{font-size:.78em;color:#8a93ab;font-weight:700;margin-bottom:8px}
-.q{font-family:'Noto Serif Devanagari',serif;font-size:1.12em;font-weight:600;
-color:var(--navy);margin-bottom:14px}
-.opt{display:block;width:100%;text-align:left;
-font-family:'Noto Serif Devanagari',serif;font-size:1em;
-padding:11px 15px;margin-bottom:9px;border:1.5px solid #d8cfb8;border-radius:8px;
-background:#fffdf8;cursor:pointer;transition:.13s;color:#1A1A1A}
-.opt:hover{border-color:var(--gold);background:#fff8e8}
-.opt.ok{border-color:var(--ok-fg);background:#eafaf0;color:var(--ok-fg);font-weight:700}
-.opt.bad{border-color:var(--bad-fg);background:#fdeeee;color:var(--bad-fg)}
-.opt:disabled{cursor:default}
-.fb{margin-top:11px;font-size:.92em;font-weight:600;min-height:20px;
-font-family:'Noto Serif Devanagari',serif}
-.fb.ok{color:var(--ok-fg)}.fb.bad{color:var(--bad-fg)}
-.hint-box{background:#fffbef;border:1px solid var(--gold);border-radius:7px;
-padding:10px 14px;margin-top:10px;font-family:'Noto Serif Devanagari',serif;
-font-size:.88em;color:#5a4010;display:none}
-.hint-box.show{display:block}
-.nav{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
-.nbtn{font-family:'Lato',sans-serif;font-size:.9em;font-weight:700;
-padding:9px 20px;border-radius:6px;border:none;cursor:pointer;transition:.15s}
-.nbtn.pri{background:var(--crimson);color:#fff}.nbtn.pri:hover{background:var(--navy)}
-.nbtn.sec{background:transparent;color:var(--navy);border:2px solid var(--navy)}
-.nbtn.sec:hover{background:var(--navy);color:#fff}
-.scoreboard{background:#fff;border-radius:11px;box-shadow:0 4px 18px rgba(26,39,68,.11);
-padding:34px 26px;text-align:center;margin-bottom:18px}
-.scbig{font-family:'Playfair Display',serif;font-size:2.8em;color:var(--crimson);font-weight:700;margin-bottom:6px}
-.scpct{font-size:1.05em;color:#5a6a8a;margin-bottom:9px}
-.scmsg{font-family:'Noto Serif Devanagari',serif;font-size:1.05em;color:var(--navy);margin-bottom:20px}
-.orn{text-align:center;color:var(--gold);font-size:1em;letter-spacing:.2em;margin:14px 0;opacity:.65}
-footer{text-align:center;color:#8a7a4a;font-size:.78em;padding:24px 16px 0}
-footer a{color:var(--crimson);text-decoration:none}
-@media(max-width:520px){header h1{font-size:1.35em}.q{font-size:1.05em}}
+:root{--navy:#17264a;--crimson:#9b1c2e;--gold:#c8973a;--cream:#f7f2e8;--ok:#2e7d32;--ok-bg:#e8f5e9;--bad:#b71c1c;--bad-bg:#ffebee;--muted:#66708a}
+*{box-sizing:border-box} body{margin:0;background:var(--cream);font-family:Lato,Arial,sans-serif;color:var(--navy);line-height:1.55}
+header{background:var(--navy);color:#fff;text-align:center;padding:18px 12px;border-bottom:5px solid var(--gold)}
+header h1{font-family:'Noto Serif Devanagari',serif;font-size:1.45rem;margin:0 0 6px;line-height:1.35}
+header .brand{font-size:.86rem;color:var(--gold);font-weight:700;letter-spacing:.02em}
+header .sub{font-family:'Noto Serif Devanagari',serif;font-size:.95rem;margin-top:6px;color:#dbe4ff}
+main{max-width:980px;margin:18px auto 50px;padding:0 14px}
+.panel{background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(23,38,74,.12);padding:16px;margin-bottom:14px;border-left:5px solid var(--navy)}
+.topbar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.score{font-weight:700;color:var(--crimson)}
+.progress{flex:1;min-width:180px;height:9px;background:#d9dfeb;border-radius:20px;overflow:hidden} .bar{height:100%;background:var(--gold);width:0%;transition:.2s}
+button{font-family:Lato,Arial,sans-serif;font-weight:700;border:0;border-radius:7px;padding:9px 14px;cursor:pointer}
+.btn{background:var(--navy);color:#fff} .btn:hover{background:var(--crimson)} .btn2{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+.qmap{display:flex;gap:4px;flex-wrap:wrap;margin-top:12px} .dot{width:24px;height:24px;border-radius:5px;border:1px solid #b8c1d8;background:#eef2fa;color:var(--navy);font-size:.72rem;padding:0} .dot.answered{background:#dfe8f9} .dot.ok{background:var(--ok);color:#fff} .dot.bad{background:var(--bad);color:#fff}
+.qcard{background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(23,38,74,.10);padding:20px;margin:16px 0;border-left:5px solid var(--gold)}
+.qmeta{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:.82rem;font-weight:700;margin-bottom:8px}
+.qtext{font-family:'Noto Serif Devanagari',serif;font-size:1.13rem;font-weight:700;margin:0 0 14px;color:var(--navy)}
+.opts{display:grid;gap:9px} .opt{display:flex;gap:10px;align-items:flex-start;background:#f4f7fd;border:2px solid #d2daec;border-radius:10px;padding:10px 12px;cursor:pointer}
+.opt:hover{border-color:var(--navy)} .opt .key{font-weight:700;min-width:22px} .opt .txt{font-family:'Noto Serif Devanagari',serif}
+.opt.correct{background:var(--ok-bg);border-color:#7bc47f;color:var(--ok)} .opt.wrong{background:var(--bad-bg);border-color:#e57373;color:var(--bad)} .opt.locked{cursor:default}
+.fb{display:none;margin-top:10px;border-radius:8px;padding:10px 12px;font-family:'Noto Serif Devanagari',serif} .fb.show{display:block} .fb.ok{background:var(--ok-bg);border-left:4px solid var(--ok)} .fb.bad{background:var(--bad-bg);border-left:4px solid var(--bad)}
+.navrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.result{display:none;text-align:center} .big{font-size:2.6rem;font-weight:700;color:var(--crimson)}
+.back{text-align:center;margin:24px 0} .back a{color:var(--crimson);font-family:'Noto Serif Devanagari',serif;font-weight:700;text-decoration:none}
+footer{text-align:center;padding:20px;color:#6a728a;font-size:.85rem}
+@media(max-width:600px){.qtext{font-size:1rem}.topbar{align-items:stretch}.progress{min-width:100%}}
 </style>
 </head>
 <body>
 <header>
-  <h1>नारी विशेषांक</h1>
-  <div class="sub">NARI SPECIAL ISSUE · विदेह अंक ७७ · ०१ मार्च २०११</div>
-  <div class="src">विदेह : प्रथम मैथिली पाक्षिक ई-पत्रिका · videha.co.in · ISSN 2229-547X</div>
+  <h1>विदेह विशेषांक ०७ — नारी विशेषांक</h1>
+  <div class="brand">Videha QUIZ | विदेह ई-लर्निङ्ग क्विज / Videha eLearning Quiz / Videha — First Maithili Fortnightly eJournal | www.videha.co.in</div>
+  <div class="sub">नारी-विमर्श, स्त्री-अस्मिता, देह-चेतना, अनुवाद, कथा, कविता आ सामाजिक आलोचना पर उच्च-स्तरीय प्रश्न</div>
 </header>
-<div class="orn">❖ ❖ ❖</div>
-<div class="wrap">
-  <div class="tabs" id="tabs"></div>
-  <div class="progress"><div id="bar"></div></div>
-  <div id="panes"></div>
-</div>
-<footer>© विदेह Videha · <a href="https://videha.co.in">videha.co.in</a> · विदेह विशेषांक प्रश्नोत्तरी</footer>
+<main>
+  <section class="panel">
+    <div class="topbar">
+      <span><strong>Special Issue 07</strong> — प्रश्न <strong id="cur">1</strong> / <strong>49</strong></span>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <span class="score" id="score">✓ 0 &nbsp; ✗ 0</span>
+      <button class="btn2" onclick="showQ(0)">←← पहिल</button>
+      <button class="btn" onclick="restart()">नव क्विज</button>
+    </div>
+    <div class="qmap" id="qmap"></div>
+  </section>
+  <section id="quiz"></section>
+  <section class="panel result" id="result"></section>
+  <div class="back"><a href="https://www.videha.co.in/videha-elearning.htm">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a></div>
+</main>
+<footer>© Gajendra Thakur, Editor — Videha eJournal</footer>
 <script>
-const DATA = [{"tab": "विशेषांक परिचय", "items": [{"q": "विदेहक ई नारी विशेषांक कोन तिथिकेँ प्रकाशित भेल?", "opts": ["०१ मार्च २०११", "१५ जनवरी २०११", "०१ अक्टूबर २०१०", "०१ जनवरी २०१२"], "correct": 0, "hint": "समीक्षा अंक (७४) केर बाद।"}, {"q": "ई नारी विशेषांक विदेहक कोन अंक छल?", "opts": ["अंक ७७", "अंक ७४", "अंक ७२", "अंक ९७"], "correct": 0, "hint": "समीक्षा अंक (७४) केर बाद।"}, {"q": "ई विशेषांक कोन विषयकेँ केन्द्रमे राखि निकलल छल?", "opts": ["नारी", "अनुवाद", "बाल गजल", "भक्ति गजल"], "correct": 0, "hint": "महिला रचनाकार आ नारी-विमर्श।"}]}, {"tab": "रचना", "items": [{"q": "एहि अंकमे कोन गंभीर सामाजिक विषयपर एकटा कथा देल गेल?", "opts": ["भ्रूणहत्या", "आणविक समझौता", "रिटायरमेंट", "छठि"], "correct": 0, "hint": "कन्या-भ्रूणसँ जुड़ल नारी विषय।"}, {"q": "\"बंश\" कथाक रचनाकार के छथि?", "opts": ["सुजित कुमार झा", "मुन्नाजी", "गजेन्द्र ठाकुर", "देवशंकर नवीन"], "correct": 0, "hint": "सूचीमे \"सुजित कुमार झा-कथा- बंश\"।"}, {"q": "एहि अंकमे \"दूटा विहनि कथा\" केकर देल गेल?", "opts": ["मुन्ना जी", "सुजित कुमार झा", "ज्योति", "गंगेश गुंजन"], "correct": 0, "hint": "\"मुन्ना जी- दूटा विहनि कथा\"।"}]}];
-let score=0,total=0,answered=0;
-DATA.forEach(g=>total+=g.items.length);
-const tabsEl=document.getElementById('tabs');
-const panesEl=document.getElementById('panes');
-const bar=document.getElementById('bar');
-DATA.forEach((g,gi)=>{
-  const tb=document.createElement('button');
-  tb.className='tab'+(gi===0?' active':'');
-  tb.innerHTML=g.tab+'<span class="counter-badge">'+g.items.length+'</span>';
-  tb.onclick=()=>switchTab(gi);
-  tabsEl.appendChild(tb);
-  const pane=document.createElement('div');
-  pane.className='pane'+(gi===0?' active':'');
-  pane.id='pane-'+gi;
-  g.items.forEach((q,qi)=>pane.appendChild(buildCard(g,gi,qi,q)));
-  panesEl.appendChild(pane);
-});
-function buildCard(g,gi,qi,q){
-  const card=document.createElement('div');card.className='card';
-  const meta=document.createElement('div');meta.className='qmeta';
-  meta.textContent=g.tab+' · प्रश्न '+(qi+1)+'/'+g.items.length;card.appendChild(meta);
-  const qd=document.createElement('div');qd.className='q';qd.textContent=q.q;card.appendChild(qd);
-  const opts=[];
-  q.opts.forEach((o,oi)=>{
-    const b=document.createElement('button');b.className='opt';b.textContent=o;
-    b.onclick=()=>pick(b,oi);card.appendChild(b);opts.push(b);
-  });
-  const fb=document.createElement('div');fb.className='fb';card.appendChild(fb);
-  let hintBox=null;
-  if(q.hint){hintBox=document.createElement('div');hintBox.className='hint-box';
-    hintBox.textContent='💡 '+q.hint;card.appendChild(hintBox);}
-  const nav=document.createElement('div');nav.className='nav';
-  if(q.hint){const hb=document.createElement('button');hb.className='nbtn sec';hb.textContent='संकेत';
-    hb.onclick=()=>hintBox.classList.toggle('show');nav.appendChild(hb);}
-  card.appendChild(nav);
-  let done=false;
-  function pick(btn,oi){
-    if(done)return;done=true;answered++;
-    opts.forEach((b,bi)=>{b.disabled=true;
-      if(bi===q.correct)b.classList.add('ok');
-      else if(b===btn)b.classList.add('bad');});
-    if(oi===q.correct){score++;fb.className='fb ok';fb.textContent='✓ सही उत्तर!';}
-    else{fb.className='fb bad';fb.textContent='✗ सही उत्तर: '+q.opts[q.correct];}
-    bar.style.width=(answered/total*100)+'%';
-    if(answered===total)showScore();
-  }
-  return card;
+const QDB = [{"q": "नारी विशेषांकक मूल पाठकीय चुनौती की अछि?", "opts": ["केवल छपाई आ आवरणक विवरण", "केवल पृष्ठ-सूची याद रखब", "केवल लेखकक नामक गणना", "स्त्री-अनुभवकेँ साहित्य, समाज, देह, भाषा आ अस्मिताक संयुक्त प्रश्न रूपमे पढ़ब"], "ans": 3, "exp": "नारी विमर्श केवल ‘नारी विषय’ नहि; ई सत्ता-संबंध, भाषा, सामाजिक रूढ़ि, देह-बोध आ रचनात्मक आवाजक बहुस्तरीय अध्ययन अछि।"}, {"q": "‘छिन्नमस्ता’क मैथिली अनुवाद विशेषांकमे स्त्री-विमर्शक कोन द्वार खोलैत अछि?", "opts": ["उपन्यासकेँ बालगीत बना दैत अछि", "हिंदी स्त्रीवादी उपन्यासक जटिल देह-चेतना आ आत्मसंघर्षकेँ मैथिली पाठकक समक्ष आनैत अछि", "केवल हास्य-नाटकक रूपान्तरण करैत अछि", "स्त्री पात्रकेँ इतिहाससँ बाहर करैत अछि"], "ans": 1, "exp": "प्रभा खेतानक उपन्यासक अनुवाद मैथिलीमे आधुनिक स्त्री अस्मिता, देह, बाजार आ स्वत्वक प्रश्नकेँ प्रवेश करबैत अछि।"}, {"q": "स्त्री-विमर्शक संदर्भमे ‘देह’ शब्द केवल जैविक अर्थमे सीमित किएक नहि अछि?", "opts": ["किएकि देह पर चर्चा सदैव अनावश्यक अछि", "किएकि देहक साहित्यसँ कोनो सम्बन्ध नहि", "किएकि देह समाज, नियंत्रण, इच्छा, श्रम, हिंसा आ स्वायत्तताक स्थल बनैत अछि", "किएकि देह केवल चिकित्सा-विषय अछि"], "ans": 2, "exp": "नारी-विमर्शमे देह पितृसत्ता, बाजारीकरण, इच्छा आ आत्मनिर्णयक प्रश्नसँ जुड़ल रहैत अछि।"}, {"q": "‘हमर फोटो कहिया’ सन कन्या-भ्रूणहत्या कथा किएक मार्मिक प्रश्न उठबैत अछि?", "opts": ["ओ केवल कैमरा-तकनीकक कथा अछि", "ओ पुत्र-मोहक समर्थन करैत अछि", "ओ जन्मसँ पहिने नकारल गेल बेटीकेँ आवाज आ दृश्य-अधिकार देबाक आग्रह करैत अछि", "ओ स्त्री-प्रश्नकेँ हास्यमे समाप्त करैत अछि"], "ans": 2, "exp": "शीर्षकहि बेटीकेँ दृश्यता, पहचान आ जन्मक अधिकारक प्रतीक बनि जाइत अछि।"}, {"q": "कन्या-भ्रूणहत्या पर साहित्यिक कथा समाजशास्त्रीय रिपोर्टसँ कतेक भिन्न असर करैत अछि?", "opts": ["साहित्यमे सामाजिक प्रश्न निषिद्ध अछि", "कथा आँकड़ाकेँ अनुभव, पीड़ा आ नैतिक प्रश्नमे रूपान्तरित करैत अछि", "कथा तथ्यकेँ सदैव नष्ट करैत अछि", "रिपोर्टहि मात्र साहित्य होइत अछि"], "ans": 1, "exp": "साहित्य पाठककेँ केवल सूचना नहि, भीतरक भावनात्मक-नैतिक सामना करबैत अछि।"}, {"q": "‘आधुनिक मैथिली साहित्यक प्रभाव क्षेत्रमे नारी तत्त्व’ सन विषयक केन्द्रीयता की अछि?", "opts": ["मैथिली साहित्यमे स्त्री-स्वर, स्त्री-पात्र आ स्त्री-दृष्टिक प्रभावकेँ व्यवस्थित रूपे देखब", "केवल कविताक मात्राक गणना", "केवल पुरुष लेखकक जन्मस्थल", "केवल पत्रिका-सूची"], "ans": 0, "exp": "एहन विषय साहित्येतिहासमे स्त्रीक उपस्थिति, प्रतिनिधित्व आ agency क मूल्यांकन करैत अछि।"}, {"q": "मैथिली आ तमिल कवयित्री सम्मेलनक उल्लेख नारी विशेषांकमे किएक महत्त्वपूर्ण अछि?", "opts": ["ई स्त्री-लेखनकेँ क्षेत्रीय सीमा सँ बाहर भारतीय भाषा-संवादक रूपमे देखबैत अछि", "ई मैथिलीकेँ तमिलमे समाप्त करैत अछि", "ई कविता-विमर्शक विरोध करैत अछि", "ई केवल पर्यटन समाचार अछि"], "ans": 0, "exp": "भाषा-पार संवाद स्त्री अनुभवक समानता आ भिन्नता दुनूकेँ देखबाक अवसर दैत अछि।"}, {"q": "द्रौपदीक पुनर्पाठ नारी-कवितामे किएक प्रभावी होइत अछि?", "opts": ["मिथक आधुनिक साहित्यमे अनुपयोगी अछि", "द्रौपदीक कथा केवल युद्ध-गणना अछि", "द्रौपदीक मिथकीय अपमान आधुनिक स्त्री-प्रतिरोध आ न्यायक प्रतीक बनि सकैत अछि", "स्त्री मिथकमे प्रश्न नहि उठा सकैत"], "ans": 2, "exp": "द्रौपदी स्त्री-अस्मिता, लांछन, प्रतिरोध आ सत्ता-समीक्षा लेल शक्तिशाली सांस्कृतिक प्रतिमान अछि।"}, {"q": "राधा-काव्यक नारी-पाठमे प्रमुख जिज्ञासा की होएब चाही?", "opts": ["राधाकेँ केवल विरहिणी नहि, इच्छाशक्ति, प्रेम, प्रश्न आ आत्मस्वरक रूपमे पढ़ब", "राधाकेँ केवल सजावटी पात्र मानब", "राधाकेँ केवल पृष्ठ-सूचीमे सीमित करब", "राधा-विमर्शमे स्त्री अनुभव हटाएब"], "ans": 0, "exp": "राधा भारतीय काव्यपरम्पराक महत्त्वपूर्ण स्त्री-प्रतिमा छथि; आधुनिक पाठ हुनका agency क संदर्भमे पुनः पढ़ैत अछि।"}, {"q": "स्त्री-पात्रक ‘देवी’ वा ‘डाइन’ रूपमे सीमितीकरणक आलोचना किएक जरूरी अछि?", "opts": ["ई साहित्यिक विश्लेषण नहि", "ई स्त्रीक मानवीय जटिलता आ सामान्य जीवनाधिकारकेँ नकारैत अछि", "ई स्त्रीक पूर्ण सम्मानक एकमात्र तरीका अछि", "ई केवल हास्य-विनोद अछि"], "ans": 1, "exp": "स्त्रीकेँ चरम छविमे बाँधल समाजक नियंत्रण-प्रक्रिया होइत अछि; साहित्य ओकरा प्रश्नांकित करैत अछि।"}, {"q": "नारी विशेषांकमे अनुवादित स्त्री-लेखनक भूमिका की अछि?", "opts": ["भिन्न भाषाक स्त्री-अनुभवकेँ मैथिली विमर्शक भीतर तुलनात्मक रूपे आनब", "अनुवादसँ स्त्री-विषय समाप्त भऽ जाइत अछि", "अनुवाद केवल शब्दकोश अभ्यास अछि", "अनुवाद साहित्यक दर्जा नहि रखैत"], "ans": 0, "exp": "अनुवाद भाषा-समाजक बीच सेतु अछि; स्त्री-विमर्शमे ई अनुभवक साझा आ अंतर दुनू उजागर करैत अछि।"}, {"q": "स्त्री-विमर्शमे ‘मौन’क साहित्यिक अर्थ की भऽ सकैत अछि?", "opts": ["मौन सदैव सहमति होइत अछि", "मौन केवल रिक्त पृष्ठ अछि", "मौनक साहित्यसँ कोनो अर्थ नहि", "दबाओल गेल आवाज, सामाजिक भय, अथवा चुप्पी भीतर पलैत प्रतिरोध"], "ans": 3, "exp": "नारी लेखनमे मौन बहुत बेर सत्ता-भयक संकेत सेहो होइत अछि आ भीतरक प्रतिरोधक संकेत सेहो।"}, {"q": "बालिका-जीवन पर कथा लिखलासँ नारी-विमर्शमे कोन नयापन अबैत अछि?", "opts": ["बालिका प्रश्न स्त्री-विमर्शसँ बाहर अछि", "स्त्री-अनुभवक आरंभिक सामाजिक निर्माण—पालन, शिक्षा, भय, चयन—सामने अबैत अछि", "बचपनमे लिंगभेद नहि होइत", "कथा केवल वयस्कक विषय अछि"], "ans": 1, "exp": "लैंगिक भेद बहुत जल्दी परिवार, भाषा, खेल, शिक्षा आ सुरक्षा-संस्कारमे बनैत अछि।"}, {"q": "‘नारी तत्त्व’ शब्दकेँ सतही रूपे पढ़लासँ कोन जोखिम अछि?", "opts": ["भाषा बदलि अंग्रेजी भऽ जाएत", "साहित्यक नाम बदलि जाएत", "स्त्री-विमर्श अत्यधिक व्यापक भऽ जाएत", "स्त्रीकेँ केवल कोमलता वा भावुकताक रूढ़ छविमे सीमित कऽ देब"], "ans": 3, "exp": "नारी तत्त्वक गंभीर अर्थ स्त्रीक रचनात्मक, सामाजिक, राजनीतिक आ बौद्धिक उपस्थिति अछि।"}, {"q": "नारी विशेषांकमे समीक्षा-लेखनक महत्त्व की अछि?", "opts": ["स्त्री-संबंधी रचना पर आलोचनात्मक दृष्टि बनबैत, प्रशंसा मात्र नहि करैत", "समीक्षा केवल विज्ञापन अछि", "समीक्षा पृष्ठ-संख्या गनबाक विधि अछि", "समीक्षा नारी-विमर्शक शत्रु अछि"], "ans": 0, "exp": "आलोचना बिना विमर्श भावुक नारा बनि सकैत अछि; समीक्षा तर्क, कसौटी आ पाठ-गहराइ दैत अछि।"}, {"q": "स्त्री-लेखनक मूल्यांकनमे भाषा-प्रयोग किएक केंद्रीय प्रश्न अछि?", "opts": ["मैथिलीमे स्त्री-अनुभव लिखल असम्भव अछि", "स्त्री-विषयमे केवल कथानक गनल जाए", "भाषा कृति सँ अलग चीज अछि", "भाषा स्त्रीक अनुभव, घरेलू बोली, प्रतिरोध आ सामाजिक स्थानकेँ रचैत अछि"], "ans": 3, "exp": "भाषा मे संबोधन, व्यंग्य, चुप्पी, लोकपद आ देह-बोध सभ स्त्री-अनुभवक अर्थ बनबैत अछि।"}, {"q": "पितृसत्ता पर साहित्यिक प्रश्न उठेबाक अर्थ की अछि?", "opts": ["साहित्यक अन्त करब", "परिवार, धर्म, रीति, भाषा आ अर्थव्यवस्था मे निहित असमान सत्ता-संबंधकेँ पहचानब", "केवल पुरुष-विरोध करब", "इतिहासक तथ्य हटाएब"], "ans": 1, "exp": "पितृसत्ता व्यक्ति-विशेषक निन्दा नहि; सामाजिक संरचनाक आलोचनात्मक अध्ययन अछि।"}, {"q": "स्त्री पात्र यदि स्वयं अपन कथा कहैत अछि तँ पाठकीय असर कोना बदलैत अछि?", "opts": ["लेखकक भूमिका समाप्त भऽ जाइत अछि", "वह वस्तु नहि, वक्ता बनैत अछि; अनुभव भीतरसँ खुलैत अछि", "कथा सदैव कमजोर भऽ जाइत अछि", "संवादक अर्थ नष्ट भऽ जाइत अछि"], "ans": 1, "exp": "आत्मस्वर स्त्रीक agency स्थापित करैत अछि आ बाहरी दृष्टिक सीमाकें चुनौती दैत अछि।"}, {"q": "नारी विशेषांकमे कविता आ कथा दुनूक संग उपस्थिति किएक जरूरी अछि?", "opts": ["कविता सामाजिक प्रश्न नहि उठा सकैत", "कथा सामाजिक परिस्थिति खोलैत अछि आ कविता आन्तरिक संवेदना आ प्रतीक-संसार गाढ़ करैत अछि", "कथा मे भावनात्मकता नहि होइत", "दुनू विधा एक-दोसरक विरोधी अछि"], "ans": 1, "exp": "विधा-वैविध्य नारी अनुभवक बाहरी आ भीतरी दुनू आयाम पकड़ैत अछि।"}, {"q": "स्त्री-विमर्शमे ‘प्रतिरोध’ सदैव घोषणात्मक नारा किएक नहि होइत?", "opts": ["बहुत बेर प्रतिरोध मौन, स्मृति, अस्वीकार, प्रश्न वा वैकल्पिक जीवन-चयनमे प्रकट होइत अछि", "प्रतिरोध केवल हास्यक साधन अछि", "प्रतिरोध साहित्यमे असम्भव अछि", "प्रतिरोध केवल मंचीय भाषण अछि"], "ans": 0, "exp": "साहित्य सूक्ष्म प्रतिरोधक रूप—दृष्टि, भाषा, प्रतीक, अस्वीकृति—केँ पकड़ि सकैत अछि।"}, {"q": "स्त्री-संबंधी कथा मे घरेलू स्थानक अर्थ किएक गहन होइत अछि?", "opts": ["घर साहित्यमे अप्रासंगिक अछि", "घर प्रेम, श्रम, नियंत्रण, सुरक्षा आ बंदिशक विरोधाभासी स्थल बनैत अछि", "घर केवल सजावट अछि", "घरक वर्णन इतिहास नहि"], "ans": 1, "exp": "नारी लेखनमे घरक भीतर सत्ता, श्रम-वितरण आ चुप्पी सभ प्रकट होइत अछि।"}, {"q": "स्त्री-अस्मिता आ भाषा-अस्मिता बीच सम्बन्ध कोना देखल जा सकैत अछि?", "opts": ["भाषा केवल सरकारी माध्यम अछि", "दुनूक कोनो सम्बन्ध नहि", "स्त्री-अस्मिता बिना भाषाक बनैत अछि", "मातृभाषा स्त्रीक लोकानुभव, कहावत, गीत, घरेलू स्मृति आ बोलचालक भंडार खोलैत अछि"], "ans": 3, "exp": "मैथिलीमे नारी अनुभव लिखब मातृभाषाक भीतर छिपल संवेदनात्मक संसारकेँ साहित्य बनबैत अछि।"}, {"q": "नारी-कथा मे ‘शरीर’ आ ‘सम्मान’क सामाजिक सम्बन्ध पर प्रश्न किएक उठैत अछि?", "opts": ["सम्मानक देहसँ कोनो सम्बन्ध नहि", "कथा ई प्रश्न उठा नहि सकैत", "समाज प्रायः स्त्रीक सम्मानकेँ ओकर देह पर नियंत्रणसँ जोड़ि दैत अछि", "समाज सदैव स्त्रीकेँ स्वतन्त्र राखैत"], "ans": 2, "exp": "पितृसत्तात्मक समाजमे देह-नियंत्रण प्रतिष्ठा, भय आ हिंसासँ जुड़ल रहैत अछि।"}, {"q": "स्त्री-विमर्शमे ‘आत्मनिर्णय’क अर्थ की अछि?", "opts": ["केवल आर्थिक प्रश्न", "परिवारक आदेशहि अंतिम निर्णय", "स्त्रीक निर्णय साहित्यिक दोष", "स्त्री अपन शिक्षा, देह, प्रेम, श्रम, भाषा आ जीवन-चयन पर स्वयं निर्णय लए"], "ans": 3, "exp": "आत्मनिर्णय नारी अस्मिताक मूल तत्त्व अछि; ई निजी आ सामाजिक दुनू स्तर पर लागू होइत अछि।"}, {"q": "नारी विशेषांकक प्रश्न उच्च-स्तरीय बनेबाक लेल कोन प्रकारक प्रश्न टारबाक चाही?", "opts": ["भाषा आ समाजक सम्बन्ध पर प्रश्न", "अनुवादक प्रभाव पर प्रश्न", "विमर्श, प्रतीक आ पात्र-दृष्टि पर प्रश्न", "कोन लेख कोन पृष्ठपर अछि वा क्रम-संख्या की अछि सन यांत्रिक प्रश्न"], "ans": 3, "exp": "उच्च-स्तरीय क्विज पाठककेँ समझ, व्याख्या आ आलोचना दिस लऽ जाइत अछि; पृष्ठ-सूची मात्र स्मरण-परीक्षा अछि।"}, {"q": "स्त्री लेखनमे ‘लोकगीत’ वा ‘संस्कारगीत’क पुनर्पाठ किएक महत्त्वपूर्ण अछि?", "opts": ["संस्कारगीत केवल धुन होइत", "लोकगीत आधुनिक साहित्यसँ असम्बद्ध अछि", "ओहि गीतमे स्त्रीक सामूहिक स्मृति, दुख, व्यंग्य, कामना आ सामाजिक आलोचना छिपल रहैत अछि", "लोकगीतमे स्त्री आवाज नहि होइत"], "ans": 2, "exp": "लोकपरम्परा स्त्री अनुभवक महत्त्वपूर्ण संग्रहालय अछि; आधुनिक पाठ ओकर भीतरक अर्थ निकालैत अछि।"}, {"q": "कन्या-जीवन पर केन्द्रित कथा समाजक कोन नैतिक परीक्षा बनैत अछि?", "opts": ["समाज बेटीकेँ जन्म, पहचान, शिक्षा आ सम्मान देबाक लेल तैयार अछि कि नहि", "बालिका-विषय साहित्यिक नहि", "कथा केवल मनोरंजनक परीक्षा", "समाज केवल उत्सवक संख्या गनैत अछि"], "ans": 0, "exp": "बेटीक अधिकार पर कथा समाजक भविष्य, न्याय आ संवेदना पर प्रश्न अछि।"}, {"q": "स्त्री-विमर्शक संदर्भमे ‘बाजार’ किएक आलोचनात्मक विषय अछि?", "opts": ["बाजार स्त्री-देह, सौन्दर्य, श्रम आ आकांक्षाकेँ वस्तु बना सकैत अछि", "बाजार केवल मुद्रा-सूची अछि", "बाजार सदैव मुक्तिदाता अछि", "बाजारक साहित्यसँ कोनो सम्बन्ध नहि"], "ans": 0, "exp": "आधुनिक स्त्री-विमर्श बाजार आ उपभोग-संस्कृतिक भीतर स्त्रीक स्थिति पर प्रश्न उठबैत अछि।"}, {"q": "नारी-पात्रक ‘चुप रहब’ आ ‘बोलि उठब’ बीच साहित्यिक तनाव की अछि?", "opts": ["ई हास्य-मात्र", "ई कवितामे लागू नहि", "समाजक डर आ आत्मस्वरक उदय बीच संघर्ष", "ई केवल व्याकरणक भेद"], "ans": 2, "exp": "स्त्रीक बोली अक्सर सत्ता-संरचनाक चुनौती बनैत अछि; चुप्पी ओहि चुनौतीक दबाव देखबैत अछि।"}, {"q": "स्त्री-कथा मे पुरुष पात्रक भूमिका केवल विरोधी रूपमे किएक नहि पढ़बाक चाही?", "opts": ["पात्र-संबंध जटिल होइत अछि; सहायक, पीड़ित, पितृसत्ताक वाहक आ परिवर्तनकारी सभ रूप सम्भव", "जटिलता समीक्षा के दोष", "पुरुष पात्र साहित्यमे आवश्यक नहि", "सब पुरुष पात्र एके अर्थ रखैत"], "ans": 0, "exp": "गंभीर आलोचना रूढ़ विभाजनक बदला सत्ता-संबंध आ मानवीय जटिलताकेँ देखैत अछि।"}, {"q": "नारी विशेषांक मे ‘साक्षात्कार’ विधा किएक उपयोगी भऽ सकैत अछि?", "opts": ["साक्षात्कार केवल फोटो-संग्रह", "साक्षात्कारमे विचार असम्भव", "साक्षात्कार साहित्य नहि", "प्रत्यक्ष संवादसँ लेखकीय अनुभव, समय-बोध आ स्त्री-प्रश्नक निजी-सार्वजनिक पक्ष खुलैत अछि"], "ans": 3, "exp": "साक्षात्कार आलोचना आ रचना बीच जीवित संवाद बनबैत अछि।"}, {"q": "स्त्री-विमर्शक पाठककें कोन सावधानी रखबाक चाही?", "opts": ["केवल नैतिक नारा खोजब", "केवल लेखकक नाम याद रखब", "केवल कथाक अन्त पूछब", "रचना केँ उपदेश-पत्र नहि, सौंदर्य, भाषा, संघर्ष आ संरचनाक संयुक्त पाठ रूपमे पढ़ब"], "ans": 3, "exp": "साहित्यिक स्त्री-विमर्श भावनात्मक आ बौद्धिक दुनू स्तर पर कृति पढ़बाक मांग करैत अछि।"}, {"q": "मैथिली नारी लेखनमे स्थानीयता किएक शक्ति बनैत अछि?", "opts": ["स्थानीय भाषा स्त्री-विषय रोकैत", "स्थानीयता साहित्यक कमी अछि", "स्थानीयता केवल भूगोलक नाम", "मिथिलाक रीति, बोली, श्रम, पर्व, परिवार आ स्मृति स्त्री-अनुभवकेँ ठोस धरातल दैत अछि"], "ans": 3, "exp": "स्थानीय संस्कृतिक भीतर स्त्रीक विशिष्ट अनुभव, संघर्ष आ प्रतिरोधक रूप खुलैत अछि।"}, {"q": "स्त्री-कविता मे रक्त, देह, खिड़की, भरोस सन बिम्ब सभ किएक प्रभावी होइत अछि?", "opts": ["बिम्बक अर्थ केवल शब्दकोशमे अछि", "कविता बिम्ब बिना श्रेष्ठ", "स्त्री-कविता प्रतीक प्रयोग नहि करैत", "ई आंतरिक पीड़ा, बाहरी सीमा, दृष्टि आ आशाक प्रतीक बनि सकैत अछि"], "ans": 3, "exp": "नारी कवितामे प्रतीक सभ अनुभवक गहनता आ संक्षिप्ति प्रदान करैत अछि।"}, {"q": "नारी विमर्शमे ‘शिक्षा’क प्रश्न किएक बार-बार उभरैत अछि?", "opts": ["शिक्षा केवल परीक्षा पास करब", "शिक्षाक स्त्री जीवनसँ कोनो सम्बन्ध नहि", "शिक्षा आत्मस्वर, आर्थिक स्वायत्तता आ सामाजिक निर्णय-क्षमता बढ़बैत अछि", "शिक्षा पितृसत्ताक समर्थन मात्र"], "ans": 2, "exp": "शिक्षा स्त्रीक agency, भाषा आ सार्वजनिक उपस्थितिक आधार बनि सकैत अछि।"}, {"q": "स्त्री-लेखनक इतिहास बनबैत समय ‘किन्नर’ या हाशिये पर रहल स्त्री-स्वरकें शामिल करब किएक जरूरी अछि?", "opts": ["विविधता भ्रम पैदा करैत", "इतिहासमे केवल प्रसिद्ध नाम चाही", "किएकि नारी अनुभव एकरूप नहि, जाति, वर्ग, देह, लैंगिकता आ क्षेत्र अनुसार बदलैत अछि", "हाशियाक आवाज साहित्य नहि"], "ans": 2, "exp": "समावेशी स्त्री-विमर्श अनुभवक बहुलता स्वीकारैत अछि।"}, {"q": "नारी विशेषांकक आलोचनात्मक लक्ष्य केवल ‘स्त्रीक दुख’ लिखब किएक नहि अछि?", "opts": ["दुखहि साहित्यक एकमात्र विषय", "नारी-विमर्श केवल आँसू", "स्त्रीक शक्ति लिखब निषिद्ध", "ई दुखक संग शक्ति, सृजन, प्रश्न, प्रतिरोध आ वैकल्पिक भविष्य सेहो देखैत अछि"], "ans": 3, "exp": "गंभीर नारी-विमर्श स्त्रीकेँ पीड़ित मात्र नहि, विचारक, रचयिता आ परिवर्तनकारी मानैत अछि।"}, {"q": "स्त्री-पात्रक आर्थिक निर्भरता कथा-संघर्षमे कोना काम करैत अछि?", "opts": ["निर्भरता सदैव सुखद", "निर्णय, सम्मान, सुरक्षा आ स्वतंत्रताक सीमा निर्धारित करैत अछि", "आर्थिक प्रश्न केवल पुरुषक विषय", "कथा मे अर्थव्यवस्था नहि होइत"], "ans": 1, "exp": "आर्थिक संरचना स्त्री-अस्मिता आ घरेलू सत्ता-संबंधकेँ प्रभावित करैत अछि।"}, {"q": "स्त्री-विमर्शमे ‘प्रेम’क पुनर्पाठ किएक आवश्यक अछि?", "opts": ["प्रेम सामाजिक प्रश्न नहि", "प्रेम केवल शृंगार अलंकार", "प्रेममे स्त्रीक आवाज अप्रासंगिक", "प्रेमकेँ त्याग वा अधिकार मात्र नहि, समानता, सहमति आ आत्मसम्मानक कसौटी पर पढ़ब"], "ans": 3, "exp": "आधुनिक स्त्री-पाठ प्रेमक संबंधमे शक्ति-संतुलन आ सहमति पर प्रश्न उठबैत अछि।"}, {"q": "नारी विशेषांक मे सामाजिक-राजनीतिक लेख आ साहित्यिक रचना साथ-साथ किएक सार्थक अछि?", "opts": ["स्त्री-विषय केवल निजी कथा नहि, सार्वजनिक नीति, समाज आ सत्ता-संरचनासँ जुड़ल अछि", "साहित्य आ समाजक संबंध नहि", "स्त्री-विषय केवल घरक बात", "राजनीति आएत तँ साहित्य नष्ट"], "ans": 0, "exp": "नारी विमर्श निजी अनुभव आ सार्वजनिक संरचना बीच संबंध बनबैत अछि।"}, {"q": "स्त्री-समीक्षा मे ‘प्रतिनिधित्व’क प्रश्न ककरा लेल उठैत अछि?", "opts": ["केवल प्रकाशकक विज्ञापन लेल", "केवल पुस्तकक आवरण लेल", "कृति स्त्रीकेँ स्वयं बोलए देइत अछि कि केवल बाहरी दृष्टिसँ चित्रित करैत अछि", "केवल पृष्ठ-क्रम लेल"], "ans": 2, "exp": "प्रतिनिधित्व कृति केन्द्रीय शक्ति-संबंधक प्रश्न अछि—कौन बोलैत अछि, केकरा लेल, कोन भाषामे।"}, {"q": "मिथिला संस्कृतिक भीतर नारी-विमर्शक चुनौती की अछि?", "opts": ["सुधार बिना संस्कृति बाँचैत", "संस्कारक गरिमा बचबैत ओकर भीतरक असमानता आ हिंसाकेँ प्रश्नांकित करब", "नारी-विमर्श संस्कृति-विरोध मात्र", "संस्कृति पर प्रश्न करब असम्भव"], "ans": 1, "exp": "गंभीर विमर्श परम्परा-विरोध नहि, परम्पराक भीतर न्याय आ मानवीयता खोजैत अछि।"}, {"q": "नारी-केंद्रित रचनामे शीर्षकक महत्त्व किएक बढ़ि जाइत अछि?", "opts": ["शीर्षक अक्सर चुप आवाज, प्रश्न वा प्रतिरोधक पहिल संकेत बनैत अछि", "शीर्षक प्रश्न नहि उठा सकैत", "शीर्षक केवल सजावट", "शीर्षकक अर्थ पाठसँ अलग"], "ans": 0, "exp": "‘हमर फोटो कहिया’ जेकाँ शीर्षक पूरा सामाजिक प्रश्नकेँ एक वाक्यमे संकुचित करि सकैत अछि।"}, {"q": "स्त्री-विमर्श पर आधारित quiz मे ‘सही उत्तर’ ककरा आधार पर चुनल जाए?", "opts": ["यादृच्छिक विकल्प", "सबसे छोट विकल्प", "रचनाक अवधारणा, सामाजिक अर्थ, भाषा-शिल्प आ आलोचनात्मक संकेतक आधार पर", "पृष्ठ-संख्याक निकटता"], "ans": 2, "exp": "उच्च-स्तरीय प्रश्न कृति-समझ आ विवेचन क्षमताकेँ जाँचैत अछि।"}, {"q": "नारी विशेषांकक बहुविध सामग्री प्रश्न संख्या बढ़बैत किएक अछि?", "opts": ["किएकि प्रश्न दोहराएब आसान अछि", "किएकि केवल नामावली पूछब अछि", "किएकि अंक-सूची लंबी अछि", "किएकि एतय उपन्यास-अनुवाद, कथा, कविता, सम्मेलन, समीक्षा, सामाजिक प्रश्न आ साक्षात्कार सभ अछि"], "ans": 3, "exp": "सामग्रीक विस्तार गतिशील प्रश्न-संख्या मांग करैत अछि; स्थिर १५ प्रश्न पर्याप्त नहि।"}, {"q": "स्त्रीवादी पाठमे ‘न्याय’ शब्दक व्यापक अर्थ की अछि?", "opts": ["केवल भावुक सहानुभूति", "कानूनी अधिकारक संग सामाजिक सम्मान, देह-स्वायत्तता, भाषा-स्वर आ अवसर-समानता", "केवल अदालतक फैसला", "केवल दान-दक्षिणा"], "ans": 1, "exp": "न्याय स्त्री-अनुभवमे कई स्तर पर लागू होइत अछि—शरीर, श्रम, शिक्षा, भाषा, सुरक्षा आ पहचान।"}, {"q": "नारी-विमर्शमे स्मृति किएक महत्त्वपूर्ण साहित्यिक साधन अछि?", "opts": ["स्मृति मे समाज नहि होइत", "व्यक्तिगत अनुभूति सामूहिक इतिहास आ दबाओल गेल अनुभवसँ जुड़ैत अछि", "स्मृति साहित्यक विरुद्ध", "स्मृति केवल भूल-चूक अछि"], "ans": 1, "exp": "स्त्री-स्मृति घर, परिवार, श्रम, गीत, हिंसा आ स्नेहक इतिहास सँ भरल रहैत अछि।"}, {"q": "स्त्री-कथा मे ‘प्रश्न पूछब’ स्वयं एक रचनात्मक क्रिया किएक अछि?", "opts": ["प्रश्न साहित्यमे अनावश्यक", "प्रश्न स्थिर परम्परा आ असमान मान्यताकेँ हिलबैत अछि", "प्रश्न केवल व्याकरण", "प्रश्न पाठकक विरोध"], "ans": 1, "exp": "नारी विमर्श प्रश्न सँ आरम्भ होइत अछि—किए, केकर, ककरा लेल, केना।"}, {"q": "नारी विशेषांकक पाठक लेल सबसे जरूरी आलोचनात्मक अभ्यास की अछि?", "opts": ["रचना मे स्त्रीक आवाज, सत्ता-संबंध, भाषा, प्रतीक आ सामाजिक परिणामक संयुक्त पाठ", "केवल अंकक तारीख", "केवल लेखक-नाम याद", "केवल क्रमांकक मिलान"], "ans": 0, "exp": "एहि तरहक पाठ साहित्यिक समझकेँ उच्च स्तर पर लऽ जाइत अछि।"}];
+let idx=0, answers=Array(QDB.length).fill(null);
+const letters=['क','ख','ग','घ'];
+function initMap(){
+  const m=document.getElementById('qmap'); m.innerHTML='';
+  QDB.forEach((_,i)=>{const b=document.createElement('button'); b.className='dot'; b.textContent=i+1; b.onclick=()=>showQ(i); m.appendChild(b);});
 }
-function switchTab(gi){
-  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===gi));
-  document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',i===gi));
-  window.scrollTo({top:0,behavior:'smooth'});
+function updateTop(){
+  const done=answers.filter(x=>x!==null).length, ok=answers.filter((x,i)=>x===QDB[i].ans).length, bad=answers.filter((x,i)=>x!==null&&x!==QDB[i].ans).length;
+  document.getElementById('cur').textContent=idx+1; document.getElementById('score').innerHTML=`✓ ${ok} &nbsp; ✗ ${bad}`;
+  document.getElementById('bar').style.width=(done/QDB.length*100)+'%';
+  [...document.querySelectorAll('.dot')].forEach((d,i)=>{d.className='dot'+(answers[i]!==null?' answered':'')+(answers[i]===QDB[i].ans?' ok':'')+(answers[i]!==null&&answers[i]!==QDB[i].ans?' bad':'');});
 }
-function showScore(){
-  const pct=Math.round(score/total*100);
-  let msg=pct>=80?'उत्कृष्ट! अहाँक ज्ञान अद्भुत अछि।':pct>=50?'नीक प्रयास — आओर पढ़ू।':'फेर सँ प्रयास करू, अहाँ नीक करब।';
-  const sb=document.createElement('div');sb.className='scoreboard';
-  sb.innerHTML='<div class="orn">❖ ❖ ❖</div><div class="scbig">'+score+' / '+total+'</div>'+
-    '<div class="scpct">'+pct+'%</div><div class="scmsg">'+msg+'</div>'+
-    '<button class="nbtn pri" onclick="location.reload()">फेर सँ खेलू</button>';
-  const w=document.querySelector('.wrap');w.insertBefore(sb,w.firstChild);
-  window.scrollTo({top:0,behavior:'smooth'});
+function showQ(i){
+  idx=i; const q=QDB[i]; document.getElementById('result').style.display='none';
+  let chosen=answers[i];
+  let h=`<article class="qcard"><div class="qmeta"><span>प्रश्न ${i+1}</span><span>उच्च-स्तर / अवधारणा-आधारित</span></div><p class="qtext">${q.q}</p><div class="opts">`;
+  q.opts.forEach((o,k)=>{let cls='opt'; if(chosen!==null){cls+=' locked'; if(k===q.ans) cls+=' correct'; else if(k===chosen) cls+=' wrong';} h+=`<div class="${cls}" onclick="choose(${k})"><span class="key">${letters[k]}.</span><span class="txt">${o}</span></div>`;});
+  h+=`</div><div class="fb ${chosen===null?'':(chosen===q.ans?'ok show':'bad show')}"><strong>${chosen===null?'':(chosen===q.ans?'सही उत्तर।':'गलत उत्तर।')}</strong><br>${chosen===null?'':q.exp}</div><div class="navrow"><button class="btn2" onclick="showQ(Math.max(0,idx-1))">← पछिला</button><button class="btn" onclick="idx<QDB.length-1?showQ(idx+1):finish()">${idx<QDB.length-1?'अगिला →':'परिणाम देखू'}</button></div></article>`;
+  document.getElementById('quiz').innerHTML=h; updateTop(); window.scrollTo({top:0,behavior:'smooth'});
 }
+function choose(k){ if(answers[idx]!==null) return; answers[idx]=k; showQ(idx); }
+function finish(){
+  const ok=answers.filter((x,i)=>x===QDB[i].ans).length, bad=answers.filter((x,i)=>x!==null&&x!==QDB[i].ans).length, skip=answers.filter(x=>x===null).length;
+  const pct=Math.round(ok/QDB.length*100);
+  document.getElementById('result').innerHTML=`<div class="big">${ok} / ${QDB.length}</div><p><strong>${pct}%</strong> सही — गलत: ${bad}, अनुत्तरित: ${skip}</p><p class="qtext">${pct>=80?'बहुत नीक।':'फेर अभ्यास करू; अवधारणा पर ध्यान दिअ।'}</p><button class="btn" onclick="restart()">फेर शुरू करू</button>`;
+  document.getElementById('result').style.display='block'; updateTop(); document.getElementById('result').scrollIntoView({behavior:'smooth'});
+}
+function restart(){idx=0;answers=Array(QDB.length).fill(null);showQ(0);}
+initMap(); showQ(0);
 </script>
 </body>
 </html>
