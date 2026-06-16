@@ -18,9 +18,10 @@ A PARALLEL HISTORY OF MITHILA & MAITHILI LITERATURE https://www.videha.co.in/gaj
 विदेह सूचना संपर्क अन्वेषण https://www.videha.co.in/investigation.htm 
 विदेह पुरान अंक https://www.videha.co.in/videha.htm 
 विदेह पोथी https://www.videha.co.in/pothi.htm 
-विदेह ऑडियो-वीडियो https://www.videha.co.in/Audio_Video.htm 
+विदेह दृश्य-श्रव्य नाट्य उत्सव https://www.videha.co.in/Audio_Video.htm  
 विदेह शिशु, बाल आ किशोर उत्सव https://www.videha.co.in/kids.htm 
 विदेह ई-लर्निङ्ग/ विदेह ई-लर्निङ्ग क्विज https://www.videha.co.in/videha-elearning.htm 
+Videha Converters- Thesaurus, Panji, Script Converters, Transliterators, Translators, eLearning Quizzes, Maithili Language Search and other Technical Tools https://www.videha.co.in/videha-converters.htm 
 विदेह आ सदेह दुनू  https://archive.org/details/VidehaAndSadeha 
 TWITTER/ X https://x.com/videha 
 FACEBOOK https://www.facebook.com/groups/videha/ 
