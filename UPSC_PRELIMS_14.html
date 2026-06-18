@@ -5,7 +5,7 @@
 *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Noto Sans,Arial,sans-serif;background:#eef3fb;color:var(--ink);line-height:1.55} a{color:inherit}.top{background:linear-gradient(135deg,var(--navy),var(--navy2));color:white;padding:24px 16px 18px;border-bottom:5px solid var(--gold)}.wrap{max-width:1180px;margin:0 auto}.brand{font-weight:800;letter-spacing:.3px;font-size:clamp(22px,3vw,36px)}.sub{margin-top:6px;font-size:clamp(14px,1.8vw,18px);opacity:.96}.meta{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}.pill{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:6px 10px;font-size:13px}.nav{position:sticky;top:0;z-index:20;background:white;border-bottom:1px solid #d7deea;box-shadow:0 2px 10px rgba(8,43,95,.08)}.nav .wrap{display:flex;gap:8px;overflow:auto;padding:10px 12px}.nav a{white-space:nowrap;text-decoration:none;background:#edf3ff;color:var(--navy);border:1px solid #cbd9f0;border-radius:999px;padding:7px 11px;font-weight:650;font-size:13px}.nav a:hover{background:#dfeaff}.panel{background:white;border:1px solid #dfe5ef;border-radius:18px;padding:18px;margin:16px 0;box-shadow:0 4px 18px rgba(16,33,70,.06)}.toolbar{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center}.toolbar input{width:100%;padding:12px;border:1px solid #c9d3e2;border-radius:12px;font-size:15px}.btn{border:none;border-radius:12px;padding:11px 14px;background:var(--navy);color:white;font-weight:700;cursor:pointer}.btn.secondary{background:#e9eef8;color:var(--navy)}.section-title{margin:34px 0 14px;color:var(--navy);font-size:clamp(22px,2.2vw,30px);border-left:7px solid var(--gold);padding-left:12px}.qcard{background:white;border:1px solid #dfe5ef;border-radius:18px;margin:16px 0;padding:18px;box-shadow:0 3px 14px rgba(16,33,70,.06)}.qhead{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px}.qno{font-weight:800;color:white;background:var(--navy);border-radius:10px;padding:5px 9px}.year{font-size:13px;color:var(--muted);background:#f1f4f9;border-radius:999px;padding:4px 8px}.prompt{white-space:pre-wrap;margin:12px 0 14px;font-size:15.5px}.options{display:grid;gap:9px}.opt{width:100%;text-align:left;background:#fbfdff;border:1px solid #ccd6e6;border-radius:12px;padding:11px 12px;cursor:pointer;font-size:15px;color:var(--ink)}.opt:hover{border-color:#7b94bf;background:#f2f6ff}.opt.correct{background:#e8f7ee;border-color:var(--green);color:#063d20;font-weight:700}.opt.wrong{background:#fdebef;border-color:var(--red);color:#660012;font-weight:700}.opt.disabled{cursor:default}.explanation{display:none;margin-top:12px;border-left:4px solid var(--navy2);background:#f8fbff;padding:12px;border-radius:10px;white-space:pre-wrap}.explanation.show{display:block}.scorebar{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}.stat{background:#f4f7fb;border:1px solid #dbe3ef;border-radius:12px;padding:9px 11px;font-weight:700}.footer{margin-top:40px;background:#061d42;color:white;padding:24px 16px;text-align:center}.back{display:inline-block;margin:18px 0 0;background:#fff;color:var(--navy);text-decoration:none;border-radius:999px;padding:10px 14px;font-weight:800}.hidden{display:none!important}@media(max-width:760px){.toolbar{grid-template-columns:1fr}.qcard{padding:14px}.prompt{font-size:14.5px}.opt{font-size:14px}.nav .wrap{padding:8px}.top{padding-top:18px}}
 </style></head>
 <body>
-<header class="top"><div class="wrap"><div class="brand">Videha QUIZ  |  विदेह ई-लर्निङ्ग क्विज</div><div class="sub">Videha eLearning Quiz / Videha — First Maithili Fortnightly eJournal  |  www.videha.co.in</div><div class="meta"><span class="pill">UPSC CSE Prelims GS II CSAT</span><span class="pill">2011–2026</span><span class="pill"><span id="totalQuestions">0</span> questions</span><span class="pill">Instant red/green answer feedback</span></div></div></header>
+<header class="top"><div class="wrap"><div class="brand">Videha QUIZ | विदेह ई-लर्निङ्ग क्विज</div><div class="sub">Videha eLearning Quiz / Videha — First Maithili Fortnightly eJournal | www.videha.co.in</div><div class="meta"><span class="pill">UPSC CSE Prelims GS II CSAT</span><span class="pill">2011–2026</span><span class="pill"><span id="totalQuestions">0</span> questions</span><span class="pill">Instant red/green answer feedback</span></div></div></header>
 <nav class="nav"><div class="wrap" id="sectionNav"></div></nav>
 <main class="wrap">
 <section class="panel"><div class="toolbar"><input id="search" type="search" placeholder="Search questions, year, topic or keyword..."><button class="btn secondary" id="showAllAnswers">Show all answers</button><button class="btn" id="resetQuiz">Reset quiz</button></div><div class="scorebar"><span class="stat">Answered: <span id="answered">0</span></span><span class="stat">Correct: <span id="correct">0</span></span><span class="stat">Incorrect: <span id="wrong">0</span></span></div></section>
@@ -22,61 +22,17 @@ const nav=document.getElementById('sectionNav');
 const totalCount=DATA.reduce((s,x)=>s+x.items.length,0);
 document.getElementById('totalQuestions').textContent=totalCount;
 function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
-function render(){
-  DATA.forEach((sec,si)=>{
-    const a=document.createElement('a'); a.href='#'+sec.id; a.textContent=sec.title+' ('+sec.items.length+')'; nav.appendChild(a);
-    const h=document.createElement('h2'); h.className='section-title'; h.id=sec.id; h.textContent=sec.title; root.appendChild(h);
-    sec.items.forEach((q,qi)=>{
-      const card=document.createElement('article'); card.className='qcard'; card.dataset.text=(sec.title+' '+q.year+' '+q.prompt+' '+q.options.join(' ')).toLowerCase();
-      const gid=sec.id+'-'+q.n;
-      const opts=q.options.map((op,i)=>`<button class="opt" data-letter="${letters[i]}"><strong>(${letters[i]})</strong> ${esc(op)}</button>`).join('');
-      card.innerHTML=`<div class="qhead"><span class="qno">Q ${q.n}</span>${q.year?`<span class="year">CSAT-${q.year}</span>`:''}<span class="year">${esc(sec.title)}</span></div><div class="prompt">${esc(q.prompt)}</div><div class="options">${opts}</div><div class="explanation"><strong>Answer:</strong> ${q.answer==='x'?'Dropped / not scored':'('+q.answer.toUpperCase()+')'}\n\n${esc(q.explanation)}</div>`;
-      card.querySelectorAll('.opt').forEach(btn=>btn.addEventListener('click',()=>choose(card,btn,q.answer)));
-      root.appendChild(card);
-    });
-  });
+function render(){ DATA.forEach((sec,si)=>{ const a=document.createElement('a'); a.href='#'+sec.id; a.textContent=sec.title+' ('+sec.items.length+')'; nav.appendChild(a); const h=document.createElement('h2'); h.className='section-title'; h.id=sec.id; h.textContent=sec.title; root.appendChild(h); sec.items.forEach((q,qi)=>{ const card=document.createElement('article'); card.className='qcard'; card.dataset.text=(sec.title+' '+q.year+' '+q.prompt+' '+q.options.join(' ')).toLowerCase(); const gid=sec.id+'-'+q.n; const opts=q.options.map((op,i)=>`<button class="opt" data-letter="${letters[i]}"><strong>(${letters[i]})</strong> ${esc(op)}</button>`).join(''); card.innerHTML=`<div class="qhead"><span class="qno">Q ${q.n}</span>${q.year?`<span class="year">CSAT-${q.year}</span>`:''}<span class="year">${esc(sec.title)}</span></div><div class="prompt">${esc(q.prompt)}</div><div class="options">${opts}</div><div class="explanation"><strong>Answer:</strong> ${q.answer==='x'?'Dropped / not scored':'('+q.answer.toUpperCase()+')'}\n\n${esc(q.explanation)}</div>`; card.querySelectorAll('.opt').forEach(btn=>btn.addEventListener('click',()=>choose(card,btn,q.answer))); root.appendChild(card); }); });
 }
-function choose(card,btn,ans){
-  if(card.dataset.done) return;
-  card.dataset.done='1'; answered++;
-  const expl=card.querySelector('.explanation'); expl.classList.add('show');
-  card.querySelectorAll('.opt').forEach(b=>{
-    b.classList.add('disabled');
-    if(ans!=='x' && ans.split('/').includes(b.dataset.letter)) b.classList.add('correct');
-  });
-  if(ans==='x'){
-    btn.classList.add('disabled');
-  }else if(ans.split('/').includes(btn.dataset.letter)){
-    correct++; btn.classList.add('correct');
-  }else{
-    btn.classList.add('wrong');
-  }
-  updateScore();
+function choose(card,btn,ans){ if(card.dataset.done) return; card.dataset.done='1'; answered++; const expl=card.querySelector('.explanation'); expl.classList.add('show'); card.querySelectorAll('.opt').forEach(b=>{ b.classList.add('disabled'); if(ans!=='x' && ans.split('/').includes(b.dataset.letter)) b.classList.add('correct'); }); if(ans==='x'){ btn.classList.add('disabled'); }else if(ans.split('/').includes(btn.dataset.letter)){ correct++; btn.classList.add('correct'); }else{ btn.classList.add('wrong'); } updateScore();
 }
-function updateScore(){
-  document.getElementById('answered').textContent=answered;
-  document.getElementById('correct').textContent=correct;
-  document.getElementById('wrong').textContent=Math.max(0,answered-correct);
+function updateScore(){ document.getElementById('answered').textContent=answered; document.getElementById('correct').textContent=correct; document.getElementById('wrong').textContent=Math.max(0,answered-correct);
 }
-document.getElementById('search').addEventListener('input',e=>{
-  const q=e.target.value.trim().toLowerCase();
-  document.querySelectorAll('.qcard').forEach(c=>c.classList.toggle('hidden', q && !c.dataset.text.includes(q)));
+document.getElementById('search').addEventListener('input',e=>{ const q=e.target.value.trim().toLowerCase(); document.querySelectorAll('.qcard').forEach(c=>c.classList.toggle('hidden', q && !c.dataset.text.includes(q)));
 });
-document.getElementById('showAllAnswers').addEventListener('click',()=>{
-  document.querySelectorAll('.qcard').forEach(card=>{
-    if(card.dataset.done) return;
-    card.dataset.done='1'; answered++;
-    const ans=card.querySelector('.explanation').textContent.includes('Dropped')?'x':null;
-    card.querySelector('.explanation').classList.add('show');
-    // mark correct buttons by reading answer text
-    const m=card.querySelector('.explanation').textContent.match(/Answer:\s*\(([A-D](?:\/[A-D])*)\)/);
-    if(m){const ok=m[1].toLowerCase().split('/'); card.querySelectorAll('.opt').forEach(b=>{b.classList.add('disabled'); if(ok.includes(b.dataset.letter)) b.classList.add('correct');});}
-  });
-  updateScore();
+document.getElementById('showAllAnswers').addEventListener('click',()=>{ document.querySelectorAll('.qcard').forEach(card=>{ if(card.dataset.done) return; card.dataset.done='1'; answered++; const ans=card.querySelector('.explanation').textContent.includes('Dropped')?'x':null; card.querySelector('.explanation').classList.add('show'); // mark correct buttons by reading answer text const m=card.querySelector('.explanation').textContent.match(/Answer:\s*\(([A-D](?:\/[A-D])*)\)/); if(m){const ok=m[1].toLowerCase().split('/'); card.querySelectorAll('.opt').forEach(b=>{b.classList.add('disabled'); if(ok.includes(b.dataset.letter)) b.classList.add('correct');});} }); updateScore();
 });
-document.getElementById('resetQuiz').addEventListener('click',()=>{
-  answered=0; correct=0; updateScore();
-  document.querySelectorAll('.qcard').forEach(card=>{delete card.dataset.done; card.querySelectorAll('.opt').forEach(b=>b.className='opt'); card.querySelector('.explanation').classList.remove('show');});
+document.getElementById('resetQuiz').addEventListener('click',()=>{ answered=0; correct=0; updateScore(); document.querySelectorAll('.qcard').forEach(card=>{delete card.dataset.done; card.querySelectorAll('.opt').forEach(b=>b.className='opt'); card.querySelector('.explanation').classList.remove('show');});
 });
 render(); updateScore();
 </script>
