@@ -1,0 +1,1753 @@
+<!doctype html>
+<html lang="mai-Deva">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>शिशु फोटो क्विज | विदेह ई-लर्निङ्ग क्विज</title>
+<style>
+:root {
+  --videha-red:#8b0000;
+  --videha-red-2:#b21b1b;
+  --videha-gold:#ffd76a;
+  --cream:#fff8e6;
+  --ink:#24140f;
+  --green:#177245;
+  --wrong:#a32323;
+  --card:#ffffff;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; font-family: system-ui, -apple-system, "Noto Sans Devanagari", "Mangal", sans-serif; background:linear-gradient(180deg, #fff3c7, #fff8e6 22%, #fffdf7); color:var(--ink); }
+.site-header { background:linear-gradient(135deg, var(--videha-red), #5c0000); color:#fff; padding:24px 16px 18px; text-align:center; border-bottom:8px solid var(--videha-gold); }
+.site-header h1 { margin:0 auto; max-width:1100px; line-height:1.35; font-size:clamp(1.2rem,2.2vw,2rem); font-weight:900; }
+.subtitle { margin:10px auto 0; max-width:900px; color:#ffefb7; font-weight:700; }
+.sticky-nav { position:sticky; top:0; z-index:10; background:#fff1bd; border-bottom:2px solid #e3b93b; box-shadow:0 4px 16px rgba(0,0,0,.12); }
+.sticky-nav .wrap { max-width:1180px; margin:0 auto; padding:10px 12px; display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+.sticky-nav a { text-decoration:none; color:#5c0000; background:#fffdf2; border:1px solid #d9af35; border-radius:999px; padding:8px 12px; font-weight:800; font-size:.94rem; }
+.sticky-nav a:hover { background:var(--videha-red); color:white; }
+main { max-width:1180px; margin:0 auto; padding:18px 12px 36px; }
+.intro { background:#fff; border:2px solid #e5bf49; border-radius:22px; padding:18px; margin:10px 0 18px; box-shadow:0 8px 20px rgba(139,0,0,.08); }
+.intro h2 { margin:0 0 8px; color:var(--videha-red); }
+.controls { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:12px; }
+.big-btn { border:0; background:var(--videha-red); color:white; border-radius:14px; padding:12px 18px; font-weight:900; cursor:pointer; box-shadow:0 4px 0 #5c0000; }
+.big-btn.secondary { background:#5b3a00; box-shadow:0 4px 0 #2b1b00; }
+.scorebox { display:inline-block; min-height:44px; background:#fff9df; border:2px dashed #c79b1d; border-radius:14px; padding:10px 14px; font-weight:900; color:#5c0000; }
+.hub-link { margin-top:12px; }
+.hub-link a { color:var(--videha-red); font-weight:900; text-decoration:none; background:#fff1bd; padding:9px 12px; border-radius:12px; border:1px solid #e1b949; display:inline-block; }
+.quiz-section { margin:26px 0; scroll-margin-top:92px; }
+.quiz-section h2 { margin:0; color:#fff; background:linear-gradient(90deg,var(--videha-red),var(--videha-red-2)); padding:13px 16px; border-radius:18px 18px 0 0; font-size:1.35rem; }
+.section-note { margin:0; background:#ffe89a; color:#5c0000; padding:9px 16px; font-weight:800; border-left:2px solid #d4a017; border-right:2px solid #d4a017; }
+.q-card { background:var(--card); border:2px solid #f0d375; border-radius:22px; margin:14px 0; padding:14px; box-shadow:0 7px 20px rgba(0,0,0,.07); }
+.q-top { display:flex; justify-content:space-between; gap:8px; align-items:center; margin-bottom:8px; }
+.q-num { background:#8b0000; color:white; padding:6px 10px; border-radius:999px; font-weight:900; }
+.mini { color:#7a5100; font-weight:800; font-size:.92rem; }
+.photo-frame { min-height:140px; background:radial-gradient(circle at 30% 20%, #fff7d6, #ffeaa0 60%, #ffd66b); border:5px solid #fff; outline:3px solid #d6a421; border-radius:24px; display:flex; justify-content:center; align-items:center; font-size:5.8rem; margin:10px 0 12px; text-align:center; overflow:hidden; }
+.q-text { font-size:1.15rem; font-weight:900; margin:6px 0 12px; color:#331500; }
+.choices { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; }
+.choice { font-size:1.05rem; font-weight:900; border:2px solid #d7af38; background:#fff8dc; color:#3a1b00; padding:13px 10px; border-radius:16px; cursor:pointer; }
+.choice:hover { background:#ffeaa0; }
+.choice.selected { outline:4px solid #5c0000; background:#fff0a8; }
+.choice.correct { background:#dff7e9; border-color:var(--green); color:#0a5c31; }
+.choice.wrong { background:#ffe1df; border-color:var(--wrong); color:#7c1111; }
+.feedback { margin-top:10px; font-weight:900; min-height:28px; }
+.feedback.good { color:var(--green); }
+.feedback.bad { color:var(--wrong); }
+.site-footer { background:#5c0000; color:#ffeaa0; text-align:center; padding:22px 12px; font-weight:800; border-top:8px solid var(--videha-gold); }
+.color-chip { display:inline-block; width:130px; height:130px; border-radius:28px; border:5px solid #5c0000; box-shadow:inset 0 0 0 6px rgba(255,255,255,.35); }
+.shape { display:inline-flex; align-items:center; justify-content:center; color:#8b0000; }
+.shape.circle { width:128px; height:128px; border-radius:50%; background:#e94141; }
+.shape.square { width:128px; height:128px; background:#2474d9; }
+.shape.triangle { width:0; height:0; border-left:72px solid transparent; border-right:72px solid transparent; border-bottom:132px solid #229954; }
+.shape.star { font-size:8rem; color:#d4a017; line-height:1; }
+.shape.heart { font-size:8rem; color:#d71920; line-height:1; }
+.shape.oval { width:150px; height:100px; border-radius:50%; background:#8e44ad; }
+.shape.diamond { width:112px; height:112px; background:#ff8a00; transform:rotate(45deg); }
+.shape.arrow { font-size:8rem; color:#1d5fbf; line-height:1; }
+.shape.rect { width:170px; height:90px; background:#178f43; border-radius:18px; }
+.shape.line { width:170px; height:18px; background:#111; border-radius:999px; }
+.shape.ring { width:132px; height:132px; border-radius:50%; border:18px solid #d71920; }
+.shape.semi { width:150px; height:75px; background:#7b3fb6; border-radius:150px 150px 0 0; align-self:flex-end; }
+.shape.wave { font-size:8rem; color:#2066d1; line-height:1; }
+.dotbox { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; align-items:center; max-width:300px; padding:15px; }
+.dot { width:34px; height:34px; border-radius:50%; background:#8b0000; display:inline-block; border:4px solid #fff; box-shadow:0 2px 0 #5c0000; }
+@media (max-width:640px) {
+  .choices { grid-template-columns:1fr; }
+  .photo-frame { min-height:120px; font-size:4.8rem; }
+}
+@media print {
+  .sticky-nav, .controls, .hub-link { display:none; }
+  .q-card { break-inside:avoid; }
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <h1>Videha QUIZ | विदेह ई-लर्निङ्ग क्विज Videha eLearning Quiz Videha — First Maithili Fortnightly eJournal | www.videha.co.in</h1>
+  <p class="subtitle">शिशु फोटो-क्विज — चित्र देखू, उत्तर चुनू, सीखू आ खेलू</p>
+</header>
+<nav class="sticky-nav" aria-label="खण्ड-सूची"><div class="wrap"><a href="#पशु-पक्षी">पशु-पक्षी</a><a href="#फल-तरकारी">फल-तरकारी</a><a href="#रंग-आकार">रंग-आकार</a><a href="#गाड़ी-यातायात">गाड़ी-यातायात</a><a href="#घरक चीज">घरक चीज</a><a href="#शरीर-परिवार">शरीर-परिवार</a><a href="#प्रकृति">प्रकृति</a><a href="#संख्या-खेलौना">संख्या-खेलौना</a></div></nav>
+<main>
+  <section class="intro">
+    <h2>बच्चा लेल चित्र-आधारित क्विज</h2>
+    <p>बच्चा चित्र देखि चारि विकल्पमे सँ सही उत्तर चुनत। उत्तर दिते सही-गलत संकेत देखाएत। अन्तमे “कुल अंक देखू” पर क्लिक कऽ पूरा परिणाम देखल जा सकैत अछि।</p>
+    <div class="controls">
+      <button type="button" class="big-btn" id="scoreBtn">कुल अंक देखू</button>
+      <button type="button" class="big-btn secondary" id="resetBtn">फेर सँ शुरू करू</button>
+      <span class="scorebox" id="scoreBox">अखन कोनो उत्तर जाँचल नहि गेल अछि।</span>
+    </div>
+    <div class="hub-link"><a href="https://www.videha.co.in/videha-elearning.htm">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a></div>
+  </section>
+  <section id="पशु-पक्षी" class="quiz-section"><h2>पशु-पक्षी</h2><p class="section-note">जनावर आ चिड़ै-चुनमुनी — 25 प्रश्न</p>
+        <article class="q-card" data-answer="कुकुर" data-qid="1">
+          <div class="q-top"><span class="q-num">प्रश्न 1</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🐶</div>
+          <p class="q-text">चित्र देखि बताउ—ई की अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="हाथी">हाथी</button><button type="button" class="choice" data-value="कुकुर">कुकुर</button><button type="button" class="choice" data-value="सुग्गा">सुग्गा</button><button type="button" class="choice" data-value="बिलाइ">बिलाइ</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="बिलाइ" data-qid="2">
+          <div class="q-top"><span class="q-num">प्रश्न 2</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🐱</div>
+          <p class="q-text">चित्र देखि बताउ—ई की अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="बिलाइ">बिलाइ</button><button type="button" class="choice" data-value="घोंघा">घोंघा</button><button type="button" class="choice" data-value="हाथी">हाथी</button><button type="button" class="choice" data-value="बाघ">बाघ</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="गाय" data-qid="3">
+          <div class="q-top"><span class="q-num">प्रश्न 3</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🐄</div>
+          <p class="q-text">चित्र देखि बताउ—ई की अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="गाय">गाय</button><button type="button" class="choice" data-value="घोड़ा">घोड़ा</button><button type="button" class="choice" data-value="बिलाइ">बिलाइ</button><button type="button" class="choice" data-value="कुकुर">कुकुर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="घोड़ा" data-qid="4">
+          <div class="q-top"><span class="q-num">प्रश्न 4</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🐴</div>
+          <p class="q-text">चित्र देखि बताउ—ई की अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="मधुमाछी">मधुमाछी</button><button type="button" class="choice" data-value="भालू">भालू</button><button type="button" class="choice" data-value="चिड़ै">चिड़ै</button><button type="button" class="choice" data-value="घोड़ा">घोड़ा</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="हाथी" data-qid="5">
+          <div class="q-top"><span class="q-num">प्रश्न 5</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🐘</div>
+          <p class="q-text">चित्र देखि बताउ—ई की अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="कबूतर">कबूतर</button><button type="button" class="choice" data-value="हाथी">हाथी</button><button type="button" class="choice" data-value="कुकुर">कुकुर</button><button type="button" class="choice" data-value="माछ">माछ</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="बाघ" data-qid="6">
+          <div class="q-top"><span class="q-num">प्रश्न 6</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🐯</div>
+          <p class="q-text">चित्र देखि बताउ—ई की अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="हाथी">हाथी</button><button type="button" class="choice" data-value="खरहा">खरहा</button><button type="button" class="choice" data-value="बाघ">बाघ</button><button type="button" class="choice" data-value="माछ">माछ</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="सिंह" data-qid="7">
+          <div class="q-top"><span class="q-num">प्रश्न 7</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🦁</div>
+          <p class="q-text">चित्र देखि बताउ—ई की अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="गाय">गाय</button><button type="button" class="choice" data-value="सिंह">सिंह</button><button type="button" class="choice" data-value="सुअर">सुअर</button><button type="button" class="choice" data-value="घोड़ा">घोड़ा</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="भालू" data-qid="8">
+          <div class="q-top"><span class="q-num">प्रश्न 8</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🐻</div>
+          <p class="q-text">चित्र देखि बताउ—ई की अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="भेड़">भेड़</button><button type="button" class="choice" data-value="भालू">भालू</button><button type="button" class="choice" data-value="घोंघा">घोंघा</button><button type="button" class="choice" data-value="बिलाइ">बिलाइ</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="बानर" data-qid="9">
+          <div class="q-top"><span class="q-num">प्रश्न 9</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🐵</div>
+          <p class="q-text">चित्र देखि बताउ—ई की अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="कछुआ">कछुआ</button><button type="button" class="choice" data-value="चिड़ै">चिड़ै</button><button type="button" class="choice" data-value="बानर">बानर</button><button type="button" class="choice" data-value="सुग्गा">सुग्गा</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="माछ" data-qid="10">
+          <div class="q-top"><span class="q-num">प्रश्न 10</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🐟</div>
+          <p class="q-text">चित्र देखि बताउ—ई की अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="बिलाइ">बिलाइ</button><button type="button" class="choice" data-value="मधुमाछी">मधुमाछी</button><button type="button" class="choice" data-value="माछ">माछ</button><button type="button" class="choice" data-value="गाय">गाय</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="कछुआ" data-qid="11">
+          <div class="q-top"><span class="q-num">प्रश्न 11</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🐢</div>
+          <p class="q-text">चित्र देखि बताउ—ई की अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="भालू">भालू</button><button type="button" class="choice" data-value="कछुआ">कछुआ</button><button type="button" class="choice" data-value="घोड़ा">घोड़ा</button><button type="button" class="choice" data-value="सुअर">सुअर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="खरहा" data-qid="12">
+          <div class="q-top"><span class="q-num">प्रश्न 12</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🐰</div>
+          <p class="q-text">चित्र देखि बताउ—ई की अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="ऊँट">ऊँट</button><button type="button" class="choice" data-value="बाघ">बाघ</button><button type="button" class="choice" data-value="खरहा">खरहा</button><button type="button" class="choice" data-value="सिंह">सिंह</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="ऊँट" data-qid="13">
+          <div class="q-top"><span class="q-num">प्रश्न 13</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🐪</div>
+          <p class="q-text">चित्र देखि बताउ—ई की अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="बाघ">बाघ</button><button type="button" class="choice" data-value="ऊँट">ऊँट</button><button type="button" class="choice" data-value="मोर">मोर</button><button type="button" class="choice" data-value="सुग्गा">सुग्गा</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="सुअर" data-qid="14">
+          <div class="q-top"><span class="q-num">प्रश्न 14</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🐷</div>
+          <p class="q-text">चित्र देखि बताउ—ई की अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="ऊँट">ऊँट</button><button type="button" class="choice" data-value="सुअर">सुअर</button><button type="button" class="choice" data-value="सुग्गा">सुग्गा</button><button type="button" class="choice" data-value="बानर">बानर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="बकरी" data-qid="15">
+          <div class="q-top"><span class="q-num">प्रश्न 15</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🐐</div>
+          <p class="q-text">चित्र देखि बताउ—ई की अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="कछुआ">कछुआ</button><button type="button" class="choice" data-value="बिलाइ">बिलाइ</button><button type="button" class="choice" data-value="भालू">भालू</button><button type="button" class="choice" data-value="बकरी">बकरी</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="भेड़" data-qid="16">
+          <div class="q-top"><span class="q-num">प्रश्न 16</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🐑</div>
+          <p class="q-text">चित्र देखि बताउ—ई की अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="भेड़">भेड़</button><button type="button" class="choice" data-value="कबूतर">कबूतर</button><button type="button" class="choice" data-value="सिंह">सिंह</button><button type="button" class="choice" data-value="मधुमाछी">मधुमाछी</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="मुर्गी" data-qid="17">
+          <div class="q-top"><span class="q-num">प्रश्न 17</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🐔</div>
+          <p class="q-text">चित्र देखि बताउ—ई की अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="बकरी">बकरी</button><button type="button" class="choice" data-value="ऊँट">ऊँट</button><button type="button" class="choice" data-value="मुर्गी">मुर्गी</button><button type="button" class="choice" data-value="सुग्गा">सुग्गा</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="बतख" data-qid="18">
+          <div class="q-top"><span class="q-num">प्रश्न 18</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🦆</div>
+          <p class="q-text">चित्र देखि बताउ—ई की अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="भालू">भालू</button><button type="button" class="choice" data-value="घोंघा">घोंघा</button><button type="button" class="choice" data-value="बतख">बतख</button><button type="button" class="choice" data-value="चिड़ै">चिड़ै</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="चिड़ै" data-qid="19">
+          <div class="q-top"><span class="q-num">प्रश्न 19</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🐦</div>
+          <p class="q-text">चित्र देखि बताउ—ई की अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="खरहा">खरहा</button><button type="button" class="choice" data-value="चिड़ै">चिड़ै</button><button type="button" class="choice" data-value="कबूतर">कबूतर</button><button type="button" class="choice" data-value="ऊँट">ऊँट</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="कबूतर" data-qid="20">
+          <div class="q-top"><span class="q-num">प्रश्न 20</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🕊️</div>
+          <p class="q-text">चित्र देखि बताउ—ई की अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="कबूतर">कबूतर</button><button type="button" class="choice" data-value="गाय">गाय</button><button type="button" class="choice" data-value="घोड़ा">घोड़ा</button><button type="button" class="choice" data-value="बिलाइ">बिलाइ</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="मोर" data-qid="21">
+          <div class="q-top"><span class="q-num">प्रश्न 21</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🦚</div>
+          <p class="q-text">चित्र देखि बताउ—ई की अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="मोर">मोर</button><button type="button" class="choice" data-value="कबूतर">कबूतर</button><button type="button" class="choice" data-value="सुअर">सुअर</button><button type="button" class="choice" data-value="तितली">तितली</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="सुग्गा" data-qid="22">
+          <div class="q-top"><span class="q-num">प्रश्न 22</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🦜</div>
+          <p class="q-text">चित्र देखि बताउ—ई की अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="बकरी">बकरी</button><button type="button" class="choice" data-value="कबूतर">कबूतर</button><button type="button" class="choice" data-value="सुग्गा">सुग्गा</button><button type="button" class="choice" data-value="मुर्गी">मुर्गी</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="तितली" data-qid="23">
+          <div class="q-top"><span class="q-num">प्रश्न 23</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🦋</div>
+          <p class="q-text">चित्र देखि बताउ—ई की अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="सुग्गा">सुग्गा</button><button type="button" class="choice" data-value="घोंघा">घोंघा</button><button type="button" class="choice" data-value="तितली">तितली</button><button type="button" class="choice" data-value="घोड़ा">घोड़ा</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="मधुमाछी" data-qid="24">
+          <div class="q-top"><span class="q-num">प्रश्न 24</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🐝</div>
+          <p class="q-text">चित्र देखि बताउ—ई की अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="सुअर">सुअर</button><button type="button" class="choice" data-value="घोड़ा">घोड़ा</button><button type="button" class="choice" data-value="मधुमाछी">मधुमाछी</button><button type="button" class="choice" data-value="माछ">माछ</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="घोंघा" data-qid="25">
+          <div class="q-top"><span class="q-num">प्रश्न 25</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🐌</div>
+          <p class="q-text">चित्र देखि बताउ—ई की अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="घोंघा">घोंघा</button><button type="button" class="choice" data-value="मधुमाछी">मधुमाछी</button><button type="button" class="choice" data-value="मुर्गी">मुर्गी</button><button type="button" class="choice" data-value="बानर">बानर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        </section><section id="फल-तरकारी" class="quiz-section"><h2>फल-तरकारी</h2><p class="section-note">खेबाक चीज चिन्हू — 25 प्रश्न</p>
+        <article class="q-card" data-answer="आम" data-qid="26">
+          <div class="q-top"><span class="q-num">प्रश्न 26</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🥭</div>
+          <p class="q-text">चित्र देखि सही नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="मिरचाइ">मिरचाइ</button><button type="button" class="choice" data-value="आम">आम</button><button type="button" class="choice" data-value="जैतून">जैतून</button><button type="button" class="choice" data-value="आलू">आलू</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="केला" data-qid="27">
+          <div class="q-top"><span class="q-num">प्रश्न 27</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🍌</div>
+          <p class="q-text">चित्र देखि सही नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="केला">केला</button><button type="button" class="choice" data-value="मटर">मटर</button><button type="button" class="choice" data-value="मिरचाइ">मिरचाइ</button><button type="button" class="choice" data-value="नाशपाती">नाशपाती</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="सेब" data-qid="28">
+          <div class="q-top"><span class="q-num">प्रश्न 28</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🍎</div>
+          <p class="q-text">चित्र देखि सही नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="सेब">सेब</button><button type="button" class="choice" data-value="खीरा">खीरा</button><button type="button" class="choice" data-value="आम">आम</button><button type="button" class="choice" data-value="अंगूर">अंगूर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="संतरा" data-qid="29">
+          <div class="q-top"><span class="q-num">प्रश्न 29</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🍊</div>
+          <p class="q-text">चित्र देखि सही नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="साग">साग</button><button type="button" class="choice" data-value="नेबो">नेबो</button><button type="button" class="choice" data-value="संतरा">संतरा</button><button type="button" class="choice" data-value="केला">केला</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="अंगूर" data-qid="30">
+          <div class="q-top"><span class="q-num">प्रश्न 30</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🍇</div>
+          <p class="q-text">चित्र देखि सही नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="सेब">सेब</button><button type="button" class="choice" data-value="अंगूर">अंगूर</button><button type="button" class="choice" data-value="तरबूज">तरबूज</button><button type="button" class="choice" data-value="मटर">मटर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="तरबूज" data-qid="31">
+          <div class="q-top"><span class="q-num">प्रश्न 31</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🍉</div>
+          <p class="q-text">चित्र देखि सही नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="नाशपाती">नाशपाती</button><button type="button" class="choice" data-value="गाजर">गाजर</button><button type="button" class="choice" data-value="मटर">मटर</button><button type="button" class="choice" data-value="तरबूज">तरबूज</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="नाशपाती" data-qid="32">
+          <div class="q-top"><span class="q-num">प्रश्न 32</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🍐</div>
+          <p class="q-text">चित्र देखि सही नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="चेरी">चेरी</button><button type="button" class="choice" data-value="नाशपाती">नाशपाती</button><button type="button" class="choice" data-value="आलू">आलू</button><button type="button" class="choice" data-value="कद्दू">कद्दू</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="नारियल" data-qid="33">
+          <div class="q-top"><span class="q-num">प्रश्न 33</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🥥</div>
+          <p class="q-text">चित्र देखि सही नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="नेबो">नेबो</button><button type="button" class="choice" data-value="नारियल">नारियल</button><button type="button" class="choice" data-value="संतरा">संतरा</button><button type="button" class="choice" data-value="सेब">सेब</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="नेबो" data-qid="34">
+          <div class="q-top"><span class="q-num">प्रश्न 34</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🍋</div>
+          <p class="q-text">चित्र देखि सही नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="नारियल">नारियल</button><button type="button" class="choice" data-value="नेबो">नेबो</button><button type="button" class="choice" data-value="आम">आम</button><button type="button" class="choice" data-value="साग">साग</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="गाजर" data-qid="35">
+          <div class="q-top"><span class="q-num">प्रश्न 35</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🥕</div>
+          <p class="q-text">चित्र देखि सही नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="सेब">सेब</button><button type="button" class="choice" data-value="गाजर">गाजर</button><button type="button" class="choice" data-value="नारियल">नारियल</button><button type="button" class="choice" data-value="केला">केला</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="आलू" data-qid="36">
+          <div class="q-top"><span class="q-num">प्रश्न 36</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🥔</div>
+          <p class="q-text">चित्र देखि सही नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="आलू">आलू</button><button type="button" class="choice" data-value="नेबो">नेबो</button><button type="button" class="choice" data-value="खीरा">खीरा</button><button type="button" class="choice" data-value="एभोकाडो">एभोकाडो</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="टमाटर" data-qid="37">
+          <div class="q-top"><span class="q-num">प्रश्न 37</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🍅</div>
+          <p class="q-text">चित्र देखि सही नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="मूँगफली">मूँगफली</button><button type="button" class="choice" data-value="खीरा">खीरा</button><button type="button" class="choice" data-value="टमाटर">टमाटर</button><button type="button" class="choice" data-value="साग">साग</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="बैगन" data-qid="38">
+          <div class="q-top"><span class="q-num">प्रश्न 38</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🍆</div>
+          <p class="q-text">चित्र देखि सही नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="नाशपाती">नाशपाती</button><button type="button" class="choice" data-value="एभोकाडो">एभोकाडो</button><button type="button" class="choice" data-value="संतरा">संतरा</button><button type="button" class="choice" data-value="बैगन">बैगन</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="कद्दू" data-qid="39">
+          <div class="q-top"><span class="q-num">प्रश्न 39</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🎃</div>
+          <p class="q-text">चित्र देखि सही नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="मकई">मकई</button><button type="button" class="choice" data-value="कद्दू">कद्दू</button><button type="button" class="choice" data-value="मूँगफली">मूँगफली</button><button type="button" class="choice" data-value="पियाज">पियाज</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="पियाज" data-qid="40">
+          <div class="q-top"><span class="q-num">प्रश्न 40</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🧅</div>
+          <p class="q-text">चित्र देखि सही नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="बैगन">बैगन</button><button type="button" class="choice" data-value="पियाज">पियाज</button><button type="button" class="choice" data-value="केला">केला</button><button type="button" class="choice" data-value="मूँगफली">मूँगफली</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="मकई" data-qid="41">
+          <div class="q-top"><span class="q-num">प्रश्न 41</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🌽</div>
+          <p class="q-text">चित्र देखि सही नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="पियाज">पियाज</button><button type="button" class="choice" data-value="नाशपाती">नाशपाती</button><button type="button" class="choice" data-value="मकई">मकई</button><button type="button" class="choice" data-value="मटर">मटर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="खीरा" data-qid="42">
+          <div class="q-top"><span class="q-num">प्रश्न 42</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🥒</div>
+          <p class="q-text">चित्र देखि सही नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="नारियल">नारियल</button><button type="button" class="choice" data-value="खीरा">खीरा</button><button type="button" class="choice" data-value="पियाज">पियाज</button><button type="button" class="choice" data-value="नेबो">नेबो</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="मिरचाइ" data-qid="43">
+          <div class="q-top"><span class="q-num">प्रश्न 43</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🌶️</div>
+          <p class="q-text">चित्र देखि सही नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="जैतून">जैतून</button><button type="button" class="choice" data-value="मटर">मटर</button><button type="button" class="choice" data-value="मिरचाइ">मिरचाइ</button><button type="button" class="choice" data-value="केला">केला</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="मटर" data-qid="44">
+          <div class="q-top"><span class="q-num">प्रश्न 44</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🫛</div>
+          <p class="q-text">चित्र देखि सही नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="मकई">मकई</button><button type="button" class="choice" data-value="कद्दू">कद्दू</button><button type="button" class="choice" data-value="तरबूज">तरबूज</button><button type="button" class="choice" data-value="मटर">मटर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="साग" data-qid="45">
+          <div class="q-top"><span class="q-num">प्रश्न 45</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🥬</div>
+          <p class="q-text">चित्र देखि सही नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="साग">साग</button><button type="button" class="choice" data-value="बैगन">बैगन</button><button type="button" class="choice" data-value="तरबूज">तरबूज</button><button type="button" class="choice" data-value="केला">केला</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="अनानास" data-qid="46">
+          <div class="q-top"><span class="q-num">प्रश्न 46</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🍍</div>
+          <p class="q-text">चित्र देखि सही नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="गाजर">गाजर</button><button type="button" class="choice" data-value="कद्दू">कद्दू</button><button type="button" class="choice" data-value="पियाज">पियाज</button><button type="button" class="choice" data-value="अनानास">अनानास</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="जैतून" data-qid="47">
+          <div class="q-top"><span class="q-num">प्रश्न 47</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🫒</div>
+          <p class="q-text">चित्र देखि सही नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="जैतून">जैतून</button><button type="button" class="choice" data-value="नाशपाती">नाशपाती</button><button type="button" class="choice" data-value="केला">केला</button><button type="button" class="choice" data-value="गाजर">गाजर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="एभोकाडो" data-qid="48">
+          <div class="q-top"><span class="q-num">प्रश्न 48</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🥑</div>
+          <p class="q-text">चित्र देखि सही नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="एभोकाडो">एभोकाडो</button><button type="button" class="choice" data-value="मकई">मकई</button><button type="button" class="choice" data-value="केला">केला</button><button type="button" class="choice" data-value="मटर">मटर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="चेरी" data-qid="49">
+          <div class="q-top"><span class="q-num">प्रश्न 49</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🍒</div>
+          <p class="q-text">चित्र देखि सही नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="सेब">सेब</button><button type="button" class="choice" data-value="चेरी">चेरी</button><button type="button" class="choice" data-value="साग">साग</button><button type="button" class="choice" data-value="तरबूज">तरबूज</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="मूँगफली" data-qid="50">
+          <div class="q-top"><span class="q-num">प्रश्न 50</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🥜</div>
+          <p class="q-text">चित्र देखि सही नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="मूँगफली">मूँगफली</button><button type="button" class="choice" data-value="बैगन">बैगन</button><button type="button" class="choice" data-value="मटर">मटर</button><button type="button" class="choice" data-value="संतरा">संतरा</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        </section><section id="रंग-आकार" class="quiz-section"><h2>रंग-आकार</h2><p class="section-note">रंग आ आकार — 25 प्रश्न</p>
+        <article class="q-card" data-answer="लाल" data-qid="51">
+          <div class="q-top"><span class="q-num">प्रश्न 51</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="color-chip" style="background:#d71920"></span></div>
+          <p class="q-text">ई कोन रंग अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="लाल">लाल</button><button type="button" class="choice" data-value="नारंगी">नारंगी</button><button type="button" class="choice" data-value="हरियर">हरियर</button><button type="button" class="choice" data-value="बैंगनी">बैंगनी</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="नील" data-qid="52">
+          <div class="q-top"><span class="q-num">प्रश्न 52</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="color-chip" style="background:#2066d1"></span></div>
+          <p class="q-text">ई कोन रंग अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="नील">नील</button><button type="button" class="choice" data-value="सुनहला">सुनहला</button><button type="button" class="choice" data-value="गुलाबी">गुलाबी</button><button type="button" class="choice" data-value="कारी">कारी</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="हरियर" data-qid="53">
+          <div class="q-top"><span class="q-num">प्रश्न 53</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="color-chip" style="background:#178f43"></span></div>
+          <p class="q-text">ई कोन रंग अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="उज्जर">उज्जर</button><button type="button" class="choice" data-value="हरियर">हरियर</button><button type="button" class="choice" data-value="सुनहला">सुनहला</button><button type="button" class="choice" data-value="धूसर">धूसर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="पीयर" data-qid="54">
+          <div class="q-top"><span class="q-num">प्रश्न 54</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="color-chip" style="background:#ffd43b"></span></div>
+          <p class="q-text">ई कोन रंग अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="नारंगी">नारंगी</button><button type="button" class="choice" data-value="पीयर">पीयर</button><button type="button" class="choice" data-value="नील">नील</button><button type="button" class="choice" data-value="धूसर">धूसर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="कारी" data-qid="55">
+          <div class="q-top"><span class="q-num">प्रश्न 55</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="color-chip" style="background:#1f1f1f"></span></div>
+          <p class="q-text">ई कोन रंग अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="उज्जर">उज्जर</button><button type="button" class="choice" data-value="कारी">कारी</button><button type="button" class="choice" data-value="भूरा">भूरा</button><button type="button" class="choice" data-value="हरियर">हरियर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="उज्जर" data-qid="56">
+          <div class="q-top"><span class="q-num">प्रश्न 56</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="color-chip" style="background:#ffffff"></span></div>
+          <p class="q-text">ई कोन रंग अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="गुलाबी">गुलाबी</button><button type="button" class="choice" data-value="कारी">कारी</button><button type="button" class="choice" data-value="हरियर">हरियर</button><button type="button" class="choice" data-value="उज्जर">उज्जर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="गुलाबी" data-qid="57">
+          <div class="q-top"><span class="q-num">प्रश्न 57</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="color-chip" style="background:#ff8fc7"></span></div>
+          <p class="q-text">ई कोन रंग अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="भूरा">भूरा</button><button type="button" class="choice" data-value="नारंगी">नारंगी</button><button type="button" class="choice" data-value="गुलाबी">गुलाबी</button><button type="button" class="choice" data-value="लाल">लाल</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="बैंगनी" data-qid="58">
+          <div class="q-top"><span class="q-num">प्रश्न 58</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="color-chip" style="background:#7b3fb6"></span></div>
+          <p class="q-text">ई कोन रंग अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="कारी">कारी</button><button type="button" class="choice" data-value="बैंगनी">बैंगनी</button><button type="button" class="choice" data-value="नील">नील</button><button type="button" class="choice" data-value="हरियर">हरियर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="धूसर" data-qid="59">
+          <div class="q-top"><span class="q-num">प्रश्न 59</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="color-chip" style="background:#8f8f8f"></span></div>
+          <p class="q-text">ई कोन रंग अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="धूसर">धूसर</button><button type="button" class="choice" data-value="सुनहला">सुनहला</button><button type="button" class="choice" data-value="कारी">कारी</button><button type="button" class="choice" data-value="पीयर">पीयर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="भूरा" data-qid="60">
+          <div class="q-top"><span class="q-num">प्रश्न 60</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="color-chip" style="background:#8b5a2b"></span></div>
+          <p class="q-text">ई कोन रंग अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="कारी">कारी</button><button type="button" class="choice" data-value="बैंगनी">बैंगनी</button><button type="button" class="choice" data-value="भूरा">भूरा</button><button type="button" class="choice" data-value="धूसर">धूसर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="नारंगी" data-qid="61">
+          <div class="q-top"><span class="q-num">प्रश्न 61</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="color-chip" style="background:#ff8a00"></span></div>
+          <p class="q-text">ई कोन रंग अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="नारंगी">नारंगी</button><button type="button" class="choice" data-value="लाल">लाल</button><button type="button" class="choice" data-value="कारी">कारी</button><button type="button" class="choice" data-value="भूरा">भूरा</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="सुनहला" data-qid="62">
+          <div class="q-top"><span class="q-num">प्रश्न 62</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="color-chip" style="background:#d4a017"></span></div>
+          <p class="q-text">ई कोन रंग अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="बैंगनी">बैंगनी</button><button type="button" class="choice" data-value="हरियर">हरियर</button><button type="button" class="choice" data-value="धूसर">धूसर</button><button type="button" class="choice" data-value="सुनहला">सुनहला</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="गोल" data-qid="63">
+          <div class="q-top"><span class="q-num">प्रश्न 63</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="shape circle"></span></div>
+          <p class="q-text">ई कोन आकार अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="तारा">तारा</button><button type="button" class="choice" data-value="गोल">गोल</button><button type="button" class="choice" data-value="लहरिया">लहरिया</button><button type="button" class="choice" data-value="तिकोना">तिकोना</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="चौकोर" data-qid="64">
+          <div class="q-top"><span class="q-num">प्रश्न 64</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="shape square"></span></div>
+          <p class="q-text">ई कोन आकार अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="चौकोर">चौकोर</button><button type="button" class="choice" data-value="तीर">तीर</button><button type="button" class="choice" data-value="तारा">तारा</button><button type="button" class="choice" data-value="गोल">गोल</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="तिकोना" data-qid="65">
+          <div class="q-top"><span class="q-num">प्रश्न 65</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="shape triangle"></span></div>
+          <p class="q-text">ई कोन आकार अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="तिकोना">तिकोना</button><button type="button" class="choice" data-value="अर्धगोल">अर्धगोल</button><button type="button" class="choice" data-value="दिल">दिल</button><button type="button" class="choice" data-value="हीरा">हीरा</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="तारा" data-qid="66">
+          <div class="q-top"><span class="q-num">प्रश्न 66</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="shape star">★</span></div>
+          <p class="q-text">ई कोन आकार अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="दिल">दिल</button><button type="button" class="choice" data-value="तारा">तारा</button><button type="button" class="choice" data-value="घेरा">घेरा</button><button type="button" class="choice" data-value="तिकोना">तिकोना</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="दिल" data-qid="67">
+          <div class="q-top"><span class="q-num">प्रश्न 67</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="shape heart">♥</span></div>
+          <p class="q-text">ई कोन आकार अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="तिकोना">तिकोना</button><button type="button" class="choice" data-value="गोल">गोल</button><button type="button" class="choice" data-value="हीरा">हीरा</button><button type="button" class="choice" data-value="दिल">दिल</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="अंडाकार" data-qid="68">
+          <div class="q-top"><span class="q-num">प्रश्न 68</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="shape oval"></span></div>
+          <p class="q-text">ई कोन आकार अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="चौकोर">चौकोर</button><button type="button" class="choice" data-value="तिकोना">तिकोना</button><button type="button" class="choice" data-value="दिल">दिल</button><button type="button" class="choice" data-value="अंडाकार">अंडाकार</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="हीरा" data-qid="69">
+          <div class="q-top"><span class="q-num">प्रश्न 69</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="shape diamond"></span></div>
+          <p class="q-text">ई कोन आकार अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="हीरा">हीरा</button><button type="button" class="choice" data-value="तारा">तारा</button><button type="button" class="choice" data-value="लहरिया">लहरिया</button><button type="button" class="choice" data-value="लंबगर चौकोर">लंबगर चौकोर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="तीर" data-qid="70">
+          <div class="q-top"><span class="q-num">प्रश्न 70</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="shape arrow">➜</span></div>
+          <p class="q-text">ई कोन आकार अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="तारा">तारा</button><button type="button" class="choice" data-value="लहरिया">लहरिया</button><button type="button" class="choice" data-value="गोल">गोल</button><button type="button" class="choice" data-value="तीर">तीर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="लंबगर चौकोर" data-qid="71">
+          <div class="q-top"><span class="q-num">प्रश्न 71</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="shape rect"></span></div>
+          <p class="q-text">ई कोन आकार अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="चौकोर">चौकोर</button><button type="button" class="choice" data-value="दिल">दिल</button><button type="button" class="choice" data-value="अंडाकार">अंडाकार</button><button type="button" class="choice" data-value="लंबगर चौकोर">लंबगर चौकोर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="रेखा" data-qid="72">
+          <div class="q-top"><span class="q-num">प्रश्न 72</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="shape line"></span></div>
+          <p class="q-text">ई कोन आकार अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="गोल">गोल</button><button type="button" class="choice" data-value="रेखा">रेखा</button><button type="button" class="choice" data-value="दिल">दिल</button><button type="button" class="choice" data-value="चौकोर">चौकोर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="घेरा" data-qid="73">
+          <div class="q-top"><span class="q-num">प्रश्न 73</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="shape ring"></span></div>
+          <p class="q-text">ई कोन आकार अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="गोल">गोल</button><button type="button" class="choice" data-value="रेखा">रेखा</button><button type="button" class="choice" data-value="चौकोर">चौकोर</button><button type="button" class="choice" data-value="घेरा">घेरा</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="अर्धगोल" data-qid="74">
+          <div class="q-top"><span class="q-num">प्रश्न 74</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="shape semi"></span></div>
+          <p class="q-text">ई कोन आकार अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="लंबगर चौकोर">लंबगर चौकोर</button><button type="button" class="choice" data-value="अर्धगोल">अर्धगोल</button><button type="button" class="choice" data-value="रेखा">रेखा</button><button type="button" class="choice" data-value="हीरा">हीरा</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="लहरिया" data-qid="75">
+          <div class="q-top"><span class="q-num">प्रश्न 75</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="shape wave">〰</span></div>
+          <p class="q-text">ई कोन आकार अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="गोल">गोल</button><button type="button" class="choice" data-value="लहरिया">लहरिया</button><button type="button" class="choice" data-value="हीरा">हीरा</button><button type="button" class="choice" data-value="दिल">दिल</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        </section><section id="गाड़ी-यातायात" class="quiz-section"><h2>गाड़ी-यातायात</h2><p class="section-note">सवारी आ बाट-घाट — 25 प्रश्न</p>
+        <article class="q-card" data-answer="कार" data-qid="76">
+          <div class="q-top"><span class="q-num">प्रश्न 76</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🚗</div>
+          <p class="q-text">चित्रमे कोन सवारी अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="जल-जहाज">जल-जहाज</button><button type="button" class="choice" data-value="हेलिकप्टर">हेलिकप्टर</button><button type="button" class="choice" data-value="कार">कार</button><button type="button" class="choice" data-value="हवाई जहाज">हवाई जहाज</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="बस" data-qid="77">
+          <div class="q-top"><span class="q-num">प्रश्न 77</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🚌</div>
+          <p class="q-text">चित्रमे कोन सवारी अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="ठेल-स्कूटर">ठेल-स्कूटर</button><button type="button" class="choice" data-value="साइकिल">साइकिल</button><button type="button" class="choice" data-value="बस">बस</button><button type="button" class="choice" data-value="डोंगा">डोंगा</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="रेलगाड़ी" data-qid="78">
+          <div class="q-top"><span class="q-num">प्रश्न 78</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🚆</div>
+          <p class="q-text">चित्रमे कोन सवारी अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="ठेल-स्कूटर">ठेल-स्कूटर</button><button type="button" class="choice" data-value="हेलिकप्टर">हेलिकप्टर</button><button type="button" class="choice" data-value="टैक्सी">टैक्सी</button><button type="button" class="choice" data-value="रेलगाड़ी">रेलगाड़ी</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="हवाई जहाज" data-qid="79">
+          <div class="q-top"><span class="q-num">प्रश्न 79</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">✈️</div>
+          <p class="q-text">चित्रमे कोन सवारी अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="रेल-इंजन">रेल-इंजन</button><button type="button" class="choice" data-value="मोटरसाइकिल">मोटरसाइकिल</button><button type="button" class="choice" data-value="ट्रक">ट्रक</button><button type="button" class="choice" data-value="हवाई जहाज">हवाई जहाज</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="साइकिल" data-qid="80">
+          <div class="q-top"><span class="q-num">प्रश्न 80</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🚲</div>
+          <p class="q-text">चित्रमे कोन सवारी अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="साइकिल">साइकिल</button><button type="button" class="choice" data-value="ठेल-स्कूटर">ठेल-स्कूटर</button><button type="button" class="choice" data-value="डोंगा">डोंगा</button><button type="button" class="choice" data-value="ट्रैक्टर">ट्रैक्टर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="मोटरसाइकिल" data-qid="81">
+          <div class="q-top"><span class="q-num">प्रश्न 81</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🏍️</div>
+          <p class="q-text">चित्रमे कोन सवारी अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="पुलिस गाड़ी">पुलिस गाड़ी</button><button type="button" class="choice" data-value="मोटरसाइकिल">मोटरसाइकिल</button><button type="button" class="choice" data-value="ट्रक">ट्रक</button><button type="button" class="choice" data-value="हेलिकप्टर">हेलिकप्टर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="ट्रैक्टर" data-qid="82">
+          <div class="q-top"><span class="q-num">प्रश्न 82</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🚜</div>
+          <p class="q-text">चित्रमे कोन सवारी अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="ठेल-स्कूटर">ठेल-स्कूटर</button><button type="button" class="choice" data-value="स्कूटर">स्कूटर</button><button type="button" class="choice" data-value="ट्रक">ट्रक</button><button type="button" class="choice" data-value="ट्रैक्टर">ट्रैक्टर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="ट्रक" data-qid="83">
+          <div class="q-top"><span class="q-num">प्रश्न 83</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🚚</div>
+          <p class="q-text">चित्रमे कोन सवारी अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="रेलगाड़ी">रेलगाड़ी</button><button type="button" class="choice" data-value="ट्रक">ट्रक</button><button type="button" class="choice" data-value="ठेल-स्कूटर">ठेल-स्कूटर</button><button type="button" class="choice" data-value="पुलिस गाड़ी">पुलिस गाड़ी</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="आगि-बुझौनिहार गाड़ी" data-qid="84">
+          <div class="q-top"><span class="q-num">प्रश्न 84</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🚒</div>
+          <p class="q-text">चित्रमे कोन सवारी अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="आगि-बुझौनिहार गाड़ी">आगि-बुझौनिहार गाड़ी</button><button type="button" class="choice" data-value="ट्रक">ट्रक</button><button type="button" class="choice" data-value="ठेल-स्कूटर">ठेल-स्कूटर</button><button type="button" class="choice" data-value="पुलिस गाड़ी">पुलिस गाड़ी</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="रोगी-गाड़ी" data-qid="85">
+          <div class="q-top"><span class="q-num">प्रश्न 85</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🚑</div>
+          <p class="q-text">चित्रमे कोन सवारी अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="रोगी-गाड़ी">रोगी-गाड़ी</button><button type="button" class="choice" data-value="टेम्पू">टेम्पू</button><button type="button" class="choice" data-value="ट्रक">ट्रक</button><button type="button" class="choice" data-value="बस">बस</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="पुलिस गाड़ी" data-qid="86">
+          <div class="q-top"><span class="q-num">प्रश्न 86</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🚓</div>
+          <p class="q-text">चित्रमे कोन सवारी अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="बोझा-गाड़ी">बोझा-गाड़ी</button><button type="button" class="choice" data-value="ट्रैक्टर">ट्रैक्टर</button><button type="button" class="choice" data-value="जीप">जीप</button><button type="button" class="choice" data-value="पुलिस गाड़ी">पुलिस गाड़ी</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="टैक्सी" data-qid="87">
+          <div class="q-top"><span class="q-num">प्रश्न 87</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🚕</div>
+          <p class="q-text">चित्रमे कोन सवारी अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="बोझा-गाड़ी">बोझा-गाड़ी</button><button type="button" class="choice" data-value="साइकिल">साइकिल</button><button type="button" class="choice" data-value="टैक्सी">टैक्सी</button><button type="button" class="choice" data-value="ट्रक">ट्रक</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="जल-जहाज" data-qid="88">
+          <div class="q-top"><span class="q-num">प्रश्न 88</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🚢</div>
+          <p class="q-text">चित्रमे कोन सवारी अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="मोटरसाइकिल">मोटरसाइकिल</button><button type="button" class="choice" data-value="बिजली रेल">बिजली रेल</button><button type="button" class="choice" data-value="ट्रक">ट्रक</button><button type="button" class="choice" data-value="जल-जहाज">जल-जहाज</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="नाउ" data-qid="89">
+          <div class="q-top"><span class="q-num">प्रश्न 89</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">⛵</div>
+          <p class="q-text">चित्रमे कोन सवारी अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="हवाई जहाज">हवाई जहाज</button><button type="button" class="choice" data-value="स्कूटर">स्कूटर</button><button type="button" class="choice" data-value="साइकिल">साइकिल</button><button type="button" class="choice" data-value="नाउ">नाउ</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="हेलिकप्टर" data-qid="90">
+          <div class="q-top"><span class="q-num">प्रश्न 90</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🚁</div>
+          <p class="q-text">चित्रमे कोन सवारी अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="स्कूटर">स्कूटर</button><button type="button" class="choice" data-value="छोट बस">छोट बस</button><button type="button" class="choice" data-value="डोंगा">डोंगा</button><button type="button" class="choice" data-value="हेलिकप्टर">हेलिकप्टर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="स्कूटर" data-qid="91">
+          <div class="q-top"><span class="q-num">प्रश्न 91</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🛵</div>
+          <p class="q-text">चित्रमे कोन सवारी अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="टेम्पू">टेम्पू</button><button type="button" class="choice" data-value="मोटरसाइकिल">मोटरसाइकिल</button><button type="button" class="choice" data-value="डोंगा">डोंगा</button><button type="button" class="choice" data-value="स्कूटर">स्कूटर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="टेम्पू" data-qid="92">
+          <div class="q-top"><span class="q-num">प्रश्न 92</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🛺</div>
+          <p class="q-text">चित्रमे कोन सवारी अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="आगि-बुझौनिहार गाड़ी">आगि-बुझौनिहार गाड़ी</button><button type="button" class="choice" data-value="बोझा-गाड़ी">बोझा-गाड़ी</button><button type="button" class="choice" data-value="राकेट">राकेट</button><button type="button" class="choice" data-value="टेम्पू">टेम्पू</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="राकेट" data-qid="93">
+          <div class="q-top"><span class="q-num">प्रश्न 93</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🚀</div>
+          <p class="q-text">चित्रमे कोन सवारी अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="राकेट">राकेट</button><button type="button" class="choice" data-value="हेलिकप्टर">हेलिकप्टर</button><button type="button" class="choice" data-value="आगि-बुझौनिहार गाड़ी">आगि-बुझौनिहार गाड़ी</button><button type="button" class="choice" data-value="रेलगाड़ी">रेलगाड़ी</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="रेल-इंजन" data-qid="94">
+          <div class="q-top"><span class="q-num">प्रश्न 94</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🚂</div>
+          <p class="q-text">चित्रमे कोन सवारी अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="रेल-इंजन">रेल-इंजन</button><button type="button" class="choice" data-value="रेलगाड़ी">रेलगाड़ी</button><button type="button" class="choice" data-value="पुलिस गाड़ी">पुलिस गाड़ी</button><button type="button" class="choice" data-value="राकेट">राकेट</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="जीप" data-qid="95">
+          <div class="q-top"><span class="q-num">प्रश्न 95</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🚙</div>
+          <p class="q-text">चित्रमे कोन सवारी अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="साइकिल">साइकिल</button><button type="button" class="choice" data-value="जीप">जीप</button><button type="button" class="choice" data-value="जल-जहाज">जल-जहाज</button><button type="button" class="choice" data-value="बिजली रेल">बिजली रेल</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="छोट बस" data-qid="96">
+          <div class="q-top"><span class="q-num">प्रश्न 96</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🚐</div>
+          <p class="q-text">चित्रमे कोन सवारी अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="राकेट">राकेट</button><button type="button" class="choice" data-value="नाउ">नाउ</button><button type="button" class="choice" data-value="पुलिस गाड़ी">पुलिस गाड़ी</button><button type="button" class="choice" data-value="छोट बस">छोट बस</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="बोझा-गाड़ी" data-qid="97">
+          <div class="q-top"><span class="q-num">प्रश्न 97</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🛻</div>
+          <p class="q-text">चित्रमे कोन सवारी अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="बोझा-गाड़ी">बोझा-गाड़ी</button><button type="button" class="choice" data-value="नाउ">नाउ</button><button type="button" class="choice" data-value="जल-जहाज">जल-जहाज</button><button type="button" class="choice" data-value="ट्रैक्टर">ट्रैक्टर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="ठेल-स्कूटर" data-qid="98">
+          <div class="q-top"><span class="q-num">प्रश्न 98</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🛴</div>
+          <p class="q-text">चित्रमे कोन सवारी अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="स्कूटर">स्कूटर</button><button type="button" class="choice" data-value="ठेल-स्कूटर">ठेल-स्कूटर</button><button type="button" class="choice" data-value="कार">कार</button><button type="button" class="choice" data-value="टैक्सी">टैक्सी</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="बिजली रेल" data-qid="99">
+          <div class="q-top"><span class="q-num">प्रश्न 99</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🚃</div>
+          <p class="q-text">चित्रमे कोन सवारी अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="जीप">जीप</button><button type="button" class="choice" data-value="राकेट">राकेट</button><button type="button" class="choice" data-value="बिजली रेल">बिजली रेल</button><button type="button" class="choice" data-value="डोंगा">डोंगा</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="डोंगा" data-qid="100">
+          <div class="q-top"><span class="q-num">प्रश्न 100</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🛶</div>
+          <p class="q-text">चित्रमे कोन सवारी अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="डोंगा">डोंगा</button><button type="button" class="choice" data-value="स्कूटर">स्कूटर</button><button type="button" class="choice" data-value="नाउ">नाउ</button><button type="button" class="choice" data-value="आगि-बुझौनिहार गाड़ी">आगि-बुझौनिहार गाड़ी</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        </section><section id="घरक चीज" class="quiz-section"><h2>घरक चीज</h2><p class="section-note">घरमे देखल चीज — 25 प्रश्न</p>
+        <article class="q-card" data-answer="घर" data-qid="101">
+          <div class="q-top"><span class="q-num">प्रश्न 101</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🏠</div>
+          <p class="q-text">चित्र देखि वस्तुक नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="बाल्टी">बाल्टी</button><button type="button" class="choice" data-value="बिछौना">बिछौना</button><button type="button" class="choice" data-value="घर">घर</button><button type="button" class="choice" data-value="दरवाजा">दरवाजा</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="कुर्सी" data-qid="102">
+          <div class="q-top"><span class="q-num">प्रश्न 102</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🪑</div>
+          <p class="q-text">चित्र देखि वस्तुक नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="टोपी">टोपी</button><button type="button" class="choice" data-value="दर्पण">दर्पण</button><button type="button" class="choice" data-value="घर">घर</button><button type="button" class="choice" data-value="कुर्सी">कुर्सी</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="किताब" data-qid="103">
+          <div class="q-top"><span class="q-num">प्रश्न 103</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">📚</div>
+          <p class="q-text">चित्र देखि वस्तुक नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="खिड़की">खिड़की</button><button type="button" class="choice" data-value="पेन्सिल">पेन्सिल</button><button type="button" class="choice" data-value="किताब">किताब</button><button type="button" class="choice" data-value="कैंची">कैंची</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="पेन्सिल" data-qid="104">
+          <div class="q-top"><span class="q-num">प्रश्न 104</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">✏️</div>
+          <p class="q-text">चित्र देखि वस्तुक नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="पेन्सिल">पेन्सिल</button><button type="button" class="choice" data-value="झोरा">झोरा</button><button type="button" class="choice" data-value="कुर्सी">कुर्सी</button><button type="button" class="choice" data-value="दरवाजा">दरवाजा</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="थारी" data-qid="105">
+          <div class="q-top"><span class="q-num">प्रश्न 105</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🍽️</div>
+          <p class="q-text">चित्र देखि वस्तुक नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="झोरा">झोरा</button><button type="button" class="choice" data-value="दीप">दीप</button><button type="button" class="choice" data-value="दरवाजा">दरवाजा</button><button type="button" class="choice" data-value="थारी">थारी</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="गिलास" data-qid="106">
+          <div class="q-top"><span class="q-num">प्रश्न 106</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🥛</div>
+          <p class="q-text">चित्र देखि वस्तुक नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="बाल्टी">बाल्टी</button><button type="button" class="choice" data-value="गिलास">गिलास</button><button type="button" class="choice" data-value="घर">घर</button><button type="button" class="choice" data-value="साबुन">साबुन</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="कप" data-qid="107">
+          <div class="q-top"><span class="q-num">प्रश्न 107</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">☕</div>
+          <p class="q-text">चित्र देखि वस्तुक नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="किताब">किताब</button><button type="button" class="choice" data-value="कुर्सी">कुर्सी</button><button type="button" class="choice" data-value="कप">कप</button><button type="button" class="choice" data-value="कैंची">कैंची</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="घड़ी" data-qid="108">
+          <div class="q-top"><span class="q-num">प्रश्न 108</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🕰️</div>
+          <p class="q-text">चित्र देखि वस्तुक नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="थारी">थारी</button><button type="button" class="choice" data-value="घड़ी">घड़ी</button><button type="button" class="choice" data-value="घर">घर</button><button type="button" class="choice" data-value="दर्पण">दर्पण</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="चाबी" data-qid="109">
+          <div class="q-top"><span class="q-num">प्रश्न 109</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🔑</div>
+          <p class="q-text">चित्र देखि वस्तुक नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="बिछौना">बिछौना</button><button type="button" class="choice" data-value="कोट">कोट</button><button type="button" class="choice" data-value="चाबी">चाबी</button><button type="button" class="choice" data-value="पेन्सिल">पेन्सिल</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="झोरा" data-qid="110">
+          <div class="q-top"><span class="q-num">प्रश्न 110</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🎒</div>
+          <p class="q-text">चित्र देखि वस्तुक नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="दर्पण">दर्पण</button><button type="button" class="choice" data-value="गिलास">गिलास</button><button type="button" class="choice" data-value="झोरा">झोरा</button><button type="button" class="choice" data-value="बल्ब">बल्ब</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="छाता" data-qid="111">
+          <div class="q-top"><span class="q-num">प्रश्न 111</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">☂️</div>
+          <p class="q-text">चित्र देखि वस्तुक नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="पेन्सिल">पेन्सिल</button><button type="button" class="choice" data-value="कोट">कोट</button><button type="button" class="choice" data-value="छाता">छाता</button><button type="button" class="choice" data-value="घर">घर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="दीप" data-qid="112">
+          <div class="q-top"><span class="q-num">प्रश्न 112</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🪔</div>
+          <p class="q-text">चित्र देखि वस्तुक नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="झाड़ू">झाड़ू</button><button type="button" class="choice" data-value="दीप">दीप</button><button type="button" class="choice" data-value="कप">कप</button><button type="button" class="choice" data-value="दरवाजा">दरवाजा</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="बल्ब" data-qid="113">
+          <div class="q-top"><span class="q-num">प्रश्न 113</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">💡</div>
+          <p class="q-text">चित्र देखि वस्तुक नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="झाड़ू">झाड़ू</button><button type="button" class="choice" data-value="बल्ब">बल्ब</button><button type="button" class="choice" data-value="झोरा">झोरा</button><button type="button" class="choice" data-value="पेन्सिल">पेन्सिल</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="दरवाजा" data-qid="114">
+          <div class="q-top"><span class="q-num">प्रश्न 114</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🚪</div>
+          <p class="q-text">चित्र देखि वस्तुक नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="दरवाजा">दरवाजा</button><button type="button" class="choice" data-value="टोपी">टोपी</button><button type="button" class="choice" data-value="दीप">दीप</button><button type="button" class="choice" data-value="खिड़की">खिड़की</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="खिड़की" data-qid="115">
+          <div class="q-top"><span class="q-num">प्रश्न 115</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🪟</div>
+          <p class="q-text">चित्र देखि वस्तुक नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="खिड़की">खिड़की</button><button type="button" class="choice" data-value="साबुन">साबुन</button><button type="button" class="choice" data-value="दरवाजा">दरवाजा</button><button type="button" class="choice" data-value="घर">घर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="टोकरी" data-qid="116">
+          <div class="q-top"><span class="q-num">प्रश्न 116</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🧺</div>
+          <p class="q-text">चित्र देखि वस्तुक नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="झाड़ू">झाड़ू</button><button type="button" class="choice" data-value="कैंची">कैंची</button><button type="button" class="choice" data-value="टोकरी">टोकरी</button><button type="button" class="choice" data-value="खिड़की">खिड़की</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="साबुन" data-qid="117">
+          <div class="q-top"><span class="q-num">प्रश्न 117</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🧼</div>
+          <p class="q-text">चित्र देखि वस्तुक नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="बाल्टी">बाल्टी</button><button type="button" class="choice" data-value="जूता">जूता</button><button type="button" class="choice" data-value="साबुन">साबुन</button><button type="button" class="choice" data-value="कैंची">कैंची</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="जूता" data-qid="118">
+          <div class="q-top"><span class="q-num">प्रश्न 118</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">👟</div>
+          <p class="q-text">चित्र देखि वस्तुक नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="जूता">जूता</button><button type="button" class="choice" data-value="खिड़की">खिड़की</button><button type="button" class="choice" data-value="दरवाजा">दरवाजा</button><button type="button" class="choice" data-value="बाल्टी">बाल्टी</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="टोपी" data-qid="119">
+          <div class="q-top"><span class="q-num">प्रश्न 119</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🎩</div>
+          <p class="q-text">चित्र देखि वस्तुक नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="किताब">किताब</button><button type="button" class="choice" data-value="खिड़की">खिड़की</button><button type="button" class="choice" data-value="टोपी">टोपी</button><button type="button" class="choice" data-value="चाबी">चाबी</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="कोट" data-qid="120">
+          <div class="q-top"><span class="q-num">प्रश्न 120</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🧥</div>
+          <p class="q-text">चित्र देखि वस्तुक नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="कोट">कोट</button><button type="button" class="choice" data-value="घर">घर</button><button type="button" class="choice" data-value="छाता">छाता</button><button type="button" class="choice" data-value="टोकरी">टोकरी</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="दर्पण" data-qid="121">
+          <div class="q-top"><span class="q-num">प्रश्न 121</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🪞</div>
+          <p class="q-text">चित्र देखि वस्तुक नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="कप">कप</button><button type="button" class="choice" data-value="दर्पण">दर्पण</button><button type="button" class="choice" data-value="दीप">दीप</button><button type="button" class="choice" data-value="चाबी">चाबी</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="कैंची" data-qid="122">
+          <div class="q-top"><span class="q-num">प्रश्न 122</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">✂️</div>
+          <p class="q-text">चित्र देखि वस्तुक नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="कैंची">कैंची</button><button type="button" class="choice" data-value="साबुन">साबुन</button><button type="button" class="choice" data-value="जूता">जूता</button><button type="button" class="choice" data-value="घर">घर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="बिछौना" data-qid="123">
+          <div class="q-top"><span class="q-num">प्रश्न 123</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🛏️</div>
+          <p class="q-text">चित्र देखि वस्तुक नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="बाल्टी">बाल्टी</button><button type="button" class="choice" data-value="बिछौना">बिछौना</button><button type="button" class="choice" data-value="टोकरी">टोकरी</button><button type="button" class="choice" data-value="दरवाजा">दरवाजा</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="झाड़ू" data-qid="124">
+          <div class="q-top"><span class="q-num">प्रश्न 124</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🧹</div>
+          <p class="q-text">चित्र देखि वस्तुक नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="बिछौना">बिछौना</button><button type="button" class="choice" data-value="टोकरी">टोकरी</button><button type="button" class="choice" data-value="दर्पण">दर्पण</button><button type="button" class="choice" data-value="झाड़ू">झाड़ू</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="बाल्टी" data-qid="125">
+          <div class="q-top"><span class="q-num">प्रश्न 125</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🪣</div>
+          <p class="q-text">चित्र देखि वस्तुक नाम चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="झोरा">झोरा</button><button type="button" class="choice" data-value="बल्ब">बल्ब</button><button type="button" class="choice" data-value="बाल्टी">बाल्टी</button><button type="button" class="choice" data-value="घड़ी">घड़ी</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        </section><section id="शरीर-परिवार" class="quiz-section"><h2>शरीर-परिवार</h2><p class="section-note">देहक अंग आ परिवार — 25 प्रश्न</p>
+        <article class="q-card" data-answer="आँखि" data-qid="126">
+          <div class="q-top"><span class="q-num">प्रश्न 126</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">👁️</div>
+          <p class="q-text">चित्र देखू आ सही उत्तर चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="दादी">दादी</button><button type="button" class="choice" data-value="आँखि">आँखि</button><button type="button" class="choice" data-value="बहिन">बहिन</button><button type="button" class="choice" data-value="भाइ">भाइ</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="कान" data-qid="127">
+          <div class="q-top"><span class="q-num">प्रश्न 127</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">👂</div>
+          <p class="q-text">चित्र देखू आ सही उत्तर चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="बच्ची">बच्ची</button><button type="button" class="choice" data-value="कान">कान</button><button type="button" class="choice" data-value="रक्षक">रक्षक</button><button type="button" class="choice" data-value="दादा">दादा</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="नाक" data-qid="128">
+          <div class="q-top"><span class="q-num">प्रश्न 128</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">👃</div>
+          <p class="q-text">चित्र देखू आ सही उत्तर चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="किसान">किसान</button><button type="button" class="choice" data-value="केश">केश</button><button type="button" class="choice" data-value="नाक">नाक</button><button type="button" class="choice" data-value="दाँत">दाँत</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="मुँह" data-qid="129">
+          <div class="q-top"><span class="q-num">प्रश्न 129</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">👄</div>
+          <p class="q-text">चित्र देखू आ सही उत्तर चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="मुँह">मुँह</button><button type="button" class="choice" data-value="रक्षक">रक्षक</button><button type="button" class="choice" data-value="किसान">किसान</button><button type="button" class="choice" data-value="बहिन">बहिन</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="दाँत" data-qid="130">
+          <div class="q-top"><span class="q-num">प्रश्न 130</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🦷</div>
+          <p class="q-text">चित्र देखू आ सही उत्तर चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="दादी">दादी</button><button type="button" class="choice" data-value="दाँत">दाँत</button><button type="button" class="choice" data-value="किसान">किसान</button><button type="button" class="choice" data-value="हृदय">हृदय</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="जीह" data-qid="131">
+          <div class="q-top"><span class="q-num">प्रश्न 131</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">👅</div>
+          <p class="q-text">चित्र देखू आ सही उत्तर चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="बच्ची">बच्ची</button><button type="button" class="choice" data-value="नन्हक बच्चा">नन्हक बच्चा</button><button type="button" class="choice" data-value="जीह">जीह</button><button type="button" class="choice" data-value="केश">केश</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="हाथ" data-qid="132">
+          <div class="q-top"><span class="q-num">प्रश्न 132</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">✋</div>
+          <p class="q-text">चित्र देखू आ सही उत्तर चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="बहिन">बहिन</button><button type="button" class="choice" data-value="हाथ">हाथ</button><button type="button" class="choice" data-value="रक्षक">रक्षक</button><button type="button" class="choice" data-value="दाँत">दाँत</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="पयर" data-qid="133">
+          <div class="q-top"><span class="q-num">प्रश्न 133</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🦶</div>
+          <p class="q-text">चित्र देखू आ सही उत्तर चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="बहिन">बहिन</button><button type="button" class="choice" data-value="पयर">पयर</button><button type="button" class="choice" data-value="रक्षक">रक्षक</button><button type="button" class="choice" data-value="नन्हक बच्चा">नन्हक बच्चा</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="केश" data-qid="134">
+          <div class="q-top"><span class="q-num">प्रश्न 134</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">💇</div>
+          <p class="q-text">चित्र देखू आ सही उत्तर चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="मुँह">मुँह</button><button type="button" class="choice" data-value="केश">केश</button><button type="button" class="choice" data-value="आँखि">आँखि</button><button type="button" class="choice" data-value="मित्र">मित्र</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="हृदय" data-qid="135">
+          <div class="q-top"><span class="q-num">प्रश्न 135</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">❤️</div>
+          <p class="q-text">चित्र देखू आ सही उत्तर चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="हृदय">हृदय</button><button type="button" class="choice" data-value="जीह">जीह</button><button type="button" class="choice" data-value="बच्चा">बच्चा</button><button type="button" class="choice" data-value="दादा">दादा</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="नन्हक बच्चा" data-qid="136">
+          <div class="q-top"><span class="q-num">प्रश्न 136</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">👶</div>
+          <p class="q-text">चित्र देखू आ सही उत्तर चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="नाक">नाक</button><button type="button" class="choice" data-value="माए">माए</button><button type="button" class="choice" data-value="मुँह">मुँह</button><button type="button" class="choice" data-value="नन्हक बच्चा">नन्हक बच्चा</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="बच्चा" data-qid="137">
+          <div class="q-top"><span class="q-num">प्रश्न 137</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🧒</div>
+          <p class="q-text">चित्र देखू आ सही उत्तर चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="मित्र">मित्र</button><button type="button" class="choice" data-value="हृदय">हृदय</button><button type="button" class="choice" data-value="बच्चा">बच्चा</button><button type="button" class="choice" data-value="दाँत">दाँत</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="बच्ची" data-qid="138">
+          <div class="q-top"><span class="q-num">प्रश्न 138</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">👧</div>
+          <p class="q-text">चित्र देखू आ सही उत्तर चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="बहिन">बहिन</button><button type="button" class="choice" data-value="बच्ची">बच्ची</button><button type="button" class="choice" data-value="शिक्षक">शिक्षक</button><button type="button" class="choice" data-value="बाबूजी">बाबूजी</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="माए" data-qid="139">
+          <div class="q-top"><span class="q-num">प्रश्न 139</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">👩</div>
+          <p class="q-text">चित्र देखू आ सही उत्तर चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="मित्र">मित्र</button><button type="button" class="choice" data-value="दादा">दादा</button><button type="button" class="choice" data-value="हृदय">हृदय</button><button type="button" class="choice" data-value="माए">माए</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="बाबूजी" data-qid="140">
+          <div class="q-top"><span class="q-num">प्रश्न 140</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">👨</div>
+          <p class="q-text">चित्र देखू आ सही उत्तर चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="बाबूजी">बाबूजी</button><button type="button" class="choice" data-value="शिक्षक">शिक्षक</button><button type="button" class="choice" data-value="मुँह">मुँह</button><button type="button" class="choice" data-value="किसान">किसान</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="दादा" data-qid="141">
+          <div class="q-top"><span class="q-num">प्रश्न 141</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">👴</div>
+          <p class="q-text">चित्र देखू आ सही उत्तर चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="दादा">दादा</button><button type="button" class="choice" data-value="नाक">नाक</button><button type="button" class="choice" data-value="केश">केश</button><button type="button" class="choice" data-value="रसोइया">रसोइया</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="दादी" data-qid="142">
+          <div class="q-top"><span class="q-num">प्रश्न 142</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">👵</div>
+          <p class="q-text">चित्र देखू आ सही उत्तर चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="दादी">दादी</button><button type="button" class="choice" data-value="जीह">जीह</button><button type="button" class="choice" data-value="नाक">नाक</button><button type="button" class="choice" data-value="बहिन">बहिन</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="भाइ" data-qid="143">
+          <div class="q-top"><span class="q-num">प्रश्न 143</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">👦</div>
+          <p class="q-text">चित्र देखू आ सही उत्तर चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="शिक्षक">शिक्षक</button><button type="button" class="choice" data-value="भाइ">भाइ</button><button type="button" class="choice" data-value="रक्षक">रक्षक</button><button type="button" class="choice" data-value="दादा">दादा</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="बहिन" data-qid="144">
+          <div class="q-top"><span class="q-num">प्रश्न 144</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">👭</div>
+          <p class="q-text">चित्र देखू आ सही उत्तर चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="रक्षक">रक्षक</button><button type="button" class="choice" data-value="बहिन">बहिन</button><button type="button" class="choice" data-value="बाबूजी">बाबूजी</button><button type="button" class="choice" data-value="हृदय">हृदय</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="मित्र" data-qid="145">
+          <div class="q-top"><span class="q-num">प्रश्न 145</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🧑‍🤝‍🧑</div>
+          <p class="q-text">चित्र देखू आ सही उत्तर चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="बहिन">बहिन</button><button type="button" class="choice" data-value="केश">केश</button><button type="button" class="choice" data-value="मित्र">मित्र</button><button type="button" class="choice" data-value="डाक्टर">डाक्टर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="शिक्षक" data-qid="146">
+          <div class="q-top"><span class="q-num">प्रश्न 146</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🧑‍🏫</div>
+          <p class="q-text">चित्र देखू आ सही उत्तर चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="डाक्टर">डाक्टर</button><button type="button" class="choice" data-value="भाइ">भाइ</button><button type="button" class="choice" data-value="शिक्षक">शिक्षक</button><button type="button" class="choice" data-value="पयर">पयर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="डाक्टर" data-qid="147">
+          <div class="q-top"><span class="q-num">प्रश्न 147</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🧑‍⚕️</div>
+          <p class="q-text">चित्र देखू आ सही उत्तर चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="नाक">नाक</button><button type="button" class="choice" data-value="कान">कान</button><button type="button" class="choice" data-value="डाक्टर">डाक्टर</button><button type="button" class="choice" data-value="जीह">जीह</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="रसोइया" data-qid="148">
+          <div class="q-top"><span class="q-num">प्रश्न 148</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🧑‍🍳</div>
+          <p class="q-text">चित्र देखू आ सही उत्तर चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="बाबूजी">बाबूजी</button><button type="button" class="choice" data-value="मुँह">मुँह</button><button type="button" class="choice" data-value="रसोइया">रसोइया</button><button type="button" class="choice" data-value="रक्षक">रक्षक</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="रक्षक" data-qid="149">
+          <div class="q-top"><span class="q-num">प्रश्न 149</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">👮</div>
+          <p class="q-text">चित्र देखू आ सही उत्तर चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="भाइ">भाइ</button><button type="button" class="choice" data-value="केश">केश</button><button type="button" class="choice" data-value="दादी">दादी</button><button type="button" class="choice" data-value="रक्षक">रक्षक</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="किसान" data-qid="150">
+          <div class="q-top"><span class="q-num">प्रश्न 150</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🧑‍🌾</div>
+          <p class="q-text">चित्र देखू आ सही उत्तर चुनू।</p>
+          <div class="choices"><button type="button" class="choice" data-value="मित्र">मित्र</button><button type="button" class="choice" data-value="कान">कान</button><button type="button" class="choice" data-value="किसान">किसान</button><button type="button" class="choice" data-value="माए">माए</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        </section><section id="प्रकृति" class="quiz-section"><h2>प्रकृति</h2><p class="section-note">आकाश, धरती आ प्रकृति — 25 प्रश्न</p>
+        <article class="q-card" data-answer="सूरज" data-qid="151">
+          <div class="q-top"><span class="q-num">प्रश्न 151</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">☀️</div>
+          <p class="q-text">चित्रमे प्रकृतिक कोन चीज अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="सूरज">सूरज</button><button type="button" class="choice" data-value="बादरि">बादरि</button><button type="button" class="choice" data-value="पानि">पानि</button><button type="button" class="choice" data-value="चान">चान</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="चान" data-qid="152">
+          <div class="q-top"><span class="q-num">प्रश्न 152</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🌙</div>
+          <p class="q-text">चित्रमे प्रकृतिक कोन चीज अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="बिजुली">बिजुली</button><button type="button" class="choice" data-value="तारा">तारा</button><button type="button" class="choice" data-value="हिम">हिम</button><button type="button" class="choice" data-value="चान">चान</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="तारा" data-qid="153">
+          <div class="q-top"><span class="q-num">प्रश्न 153</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">⭐</div>
+          <p class="q-text">चित्रमे प्रकृतिक कोन चीज अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="समुद्र">समुद्र</button><button type="button" class="choice" data-value="हिम">हिम</button><button type="button" class="choice" data-value="बिजुली">बिजुली</button><button type="button" class="choice" data-value="तारा">तारा</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="बादरि" data-qid="154">
+          <div class="q-top"><span class="q-num">प्रश्न 154</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">☁️</div>
+          <p class="q-text">चित्रमे प्रकृतिक कोन चीज अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="तारा">तारा</button><button type="button" class="choice" data-value="गाछ">गाछ</button><button type="button" class="choice" data-value="कमल">कमल</button><button type="button" class="choice" data-value="बादरि">बादरि</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="इंद्रधनुष" data-qid="155">
+          <div class="q-top"><span class="q-num">प्रश्न 155</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🌈</div>
+          <p class="q-text">चित्रमे प्रकृतिक कोन चीज अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="बरफ">बरफ</button><button type="button" class="choice" data-value="इंद्रधनुष">इंद्रधनुष</button><button type="button" class="choice" data-value="बादरि">बादरि</button><button type="button" class="choice" data-value="हिम">हिम</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="बरखा" data-qid="156">
+          <div class="q-top"><span class="q-num">प्रश्न 156</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🌧️</div>
+          <p class="q-text">चित्रमे प्रकृतिक कोन चीज अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="फूल">फूल</button><button type="button" class="choice" data-value="बरखा">बरखा</button><button type="button" class="choice" data-value="बरफ">बरफ</button><button type="button" class="choice" data-value="नदी">नदी</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="हिम" data-qid="157">
+          <div class="q-top"><span class="q-num">प्रश्न 157</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">❄️</div>
+          <p class="q-text">चित्रमे प्रकृतिक कोन चीज अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="समुद्र">समुद्र</button><button type="button" class="choice" data-value="पहाड़">पहाड़</button><button type="button" class="choice" data-value="बादरि">बादरि</button><button type="button" class="choice" data-value="हिम">हिम</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="आगि" data-qid="158">
+          <div class="q-top"><span class="q-num">प्रश्न 158</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🔥</div>
+          <p class="q-text">चित्रमे प्रकृतिक कोन चीज अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="जंगल">जंगल</button><button type="button" class="choice" data-value="धान">धान</button><button type="button" class="choice" data-value="बरफ">बरफ</button><button type="button" class="choice" data-value="आगि">आगि</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="पानि" data-qid="159">
+          <div class="q-top"><span class="q-num">प्रश्न 159</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">💧</div>
+          <p class="q-text">चित्रमे प्रकृतिक कोन चीज अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="धरती">धरती</button><button type="button" class="choice" data-value="गाछ">गाछ</button><button type="button" class="choice" data-value="पाथर">पाथर</button><button type="button" class="choice" data-value="पानि">पानि</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="समुद्र" data-qid="160">
+          <div class="q-top"><span class="q-num">प्रश्न 160</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🌊</div>
+          <p class="q-text">चित्रमे प्रकृतिक कोन चीज अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="चान">चान</button><button type="button" class="choice" data-value="पानि">पानि</button><button type="button" class="choice" data-value="समुद्र">समुद्र</button><button type="button" class="choice" data-value="हिम">हिम</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="नदी" data-qid="161">
+          <div class="q-top"><span class="q-num">प्रश्न 161</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🏞️</div>
+          <p class="q-text">चित्रमे प्रकृतिक कोन चीज अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="कमल">कमल</button><button type="button" class="choice" data-value="नदी">नदी</button><button type="button" class="choice" data-value="बादरि">बादरि</button><button type="button" class="choice" data-value="अंकुर">अंकुर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="पहाड़" data-qid="162">
+          <div class="q-top"><span class="q-num">प्रश्न 162</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🏔️</div>
+          <p class="q-text">चित्रमे प्रकृतिक कोन चीज अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="पहाड़">पहाड़</button><button type="button" class="choice" data-value="बरखा">बरखा</button><button type="button" class="choice" data-value="समुद्र">समुद्र</button><button type="button" class="choice" data-value="अंकुर">अंकुर</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="गाछ" data-qid="163">
+          <div class="q-top"><span class="q-num">प्रश्न 163</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🌳</div>
+          <p class="q-text">चित्रमे प्रकृतिक कोन चीज अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="आगि">आगि</button><button type="button" class="choice" data-value="बादरि">बादरि</button><button type="button" class="choice" data-value="तारा">तारा</button><button type="button" class="choice" data-value="गाछ">गाछ</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="फूल" data-qid="164">
+          <div class="q-top"><span class="q-num">प्रश्न 164</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🌸</div>
+          <p class="q-text">चित्रमे प्रकृतिक कोन चीज अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="कमल">कमल</button><button type="button" class="choice" data-value="फूल">फूल</button><button type="button" class="choice" data-value="अंकुर">अंकुर</button><button type="button" class="choice" data-value="समुद्र">समुद्र</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="पात" data-qid="165">
+          <div class="q-top"><span class="q-num">प्रश्न 165</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🍃</div>
+          <p class="q-text">चित्रमे प्रकृतिक कोन चीज अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="धान">धान</button><button type="button" class="choice" data-value="कमल">कमल</button><button type="button" class="choice" data-value="पात">पात</button><button type="button" class="choice" data-value="आगि">आगि</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="धान" data-qid="166">
+          <div class="q-top"><span class="q-num">प्रश्न 166</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🌾</div>
+          <p class="q-text">चित्रमे प्रकृतिक कोन चीज अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="बवंडर">बवंडर</button><button type="button" class="choice" data-value="धान">धान</button><button type="button" class="choice" data-value="पाथर">पाथर</button><button type="button" class="choice" data-value="धरती">धरती</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="कमल" data-qid="167">
+          <div class="q-top"><span class="q-num">प्रश्न 167</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🪷</div>
+          <p class="q-text">चित्रमे प्रकृतिक कोन चीज अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="कमल">कमल</button><button type="button" class="choice" data-value="नदी">नदी</button><button type="button" class="choice" data-value="फूल">फूल</button><button type="button" class="choice" data-value="धरती">धरती</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="धरती" data-qid="168">
+          <div class="q-top"><span class="q-num">प्रश्न 168</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🌍</div>
+          <p class="q-text">चित्रमे प्रकृतिक कोन चीज अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="बिजुली">बिजुली</button><button type="button" class="choice" data-value="समुद्र">समुद्र</button><button type="button" class="choice" data-value="बवंडर">बवंडर</button><button type="button" class="choice" data-value="धरती">धरती</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="जंगल" data-qid="169">
+          <div class="q-top"><span class="q-num">प्रश्न 169</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🌲</div>
+          <p class="q-text">चित्रमे प्रकृतिक कोन चीज अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="धरती">धरती</button><button type="button" class="choice" data-value="धान">धान</button><button type="button" class="choice" data-value="जंगल">जंगल</button><button type="button" class="choice" data-value="पहाड़">पहाड़</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="बिजुली" data-qid="170">
+          <div class="q-top"><span class="q-num">प्रश्न 170</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">⚡</div>
+          <p class="q-text">चित्रमे प्रकृतिक कोन चीज अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="पात">पात</button><button type="button" class="choice" data-value="बिजुली">बिजुली</button><button type="button" class="choice" data-value="हिम">हिम</button><button type="button" class="choice" data-value="नदी">नदी</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="पाथर" data-qid="171">
+          <div class="q-top"><span class="q-num">प्रश्न 171</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🪨</div>
+          <p class="q-text">चित्रमे प्रकृतिक कोन चीज अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="आगि">आगि</button><button type="button" class="choice" data-value="फूल">फूल</button><button type="button" class="choice" data-value="पाथर">पाथर</button><button type="button" class="choice" data-value="चान">चान</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="मरुभूमि" data-qid="172">
+          <div class="q-top"><span class="q-num">प्रश्न 172</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🏜️</div>
+          <p class="q-text">चित्रमे प्रकृतिक कोन चीज अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="बरफ">बरफ</button><button type="button" class="choice" data-value="अंकुर">अंकुर</button><button type="button" class="choice" data-value="मरुभूमि">मरुभूमि</button><button type="button" class="choice" data-value="गाछ">गाछ</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="बरफ" data-qid="173">
+          <div class="q-top"><span class="q-num">प्रश्न 173</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🧊</div>
+          <p class="q-text">चित्रमे प्रकृतिक कोन चीज अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="बरफ">बरफ</button><button type="button" class="choice" data-value="कमल">कमल</button><button type="button" class="choice" data-value="इंद्रधनुष">इंद्रधनुष</button><button type="button" class="choice" data-value="जंगल">जंगल</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="अंकुर" data-qid="174">
+          <div class="q-top"><span class="q-num">प्रश्न 174</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🌱</div>
+          <p class="q-text">चित्रमे प्रकृतिक कोन चीज अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="कमल">कमल</button><button type="button" class="choice" data-value="अंकुर">अंकुर</button><button type="button" class="choice" data-value="पात">पात</button><button type="button" class="choice" data-value="बादरि">बादरि</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="बवंडर" data-qid="175">
+          <div class="q-top"><span class="q-num">प्रश्न 175</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🌪️</div>
+          <p class="q-text">चित्रमे प्रकृतिक कोन चीज अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="बवंडर">बवंडर</button><button type="button" class="choice" data-value="इंद्रधनुष">इंद्रधनुष</button><button type="button" class="choice" data-value="पाथर">पाथर</button><button type="button" class="choice" data-value="फूल">फूल</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        </section><section id="संख्या-खेलौना" class="quiz-section"><h2>संख्या-खेलौना</h2><p class="section-note">गिनती आ खेलौना — 25 प्रश्न</p>
+        <article class="q-card" data-answer="एक" data-qid="176">
+          <div class="q-top"><span class="q-num">प्रश्न 176</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="dotbox"><span class="dot"></span></span></div>
+          <p class="q-text">बिन्दु गिनू—कतेक गो अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="एक">एक</button><button type="button" class="choice" data-value="दस">दस</button><button type="button" class="choice" data-value="आठ">आठ</button><button type="button" class="choice" data-value="सात">सात</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="दू" data-qid="177">
+          <div class="q-top"><span class="q-num">प्रश्न 177</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="dotbox"><span class="dot"></span><span class="dot"></span></span></div>
+          <p class="q-text">बिन्दु गिनू—कतेक गो अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="नौ">नौ</button><button type="button" class="choice" data-value="दू">दू</button><button type="button" class="choice" data-value="आठ">आठ</button><button type="button" class="choice" data-value="सात">सात</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="तीन" data-qid="178">
+          <div class="q-top"><span class="q-num">प्रश्न 178</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="dotbox"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></div>
+          <p class="q-text">बिन्दु गिनू—कतेक गो अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="दू">दू</button><button type="button" class="choice" data-value="तीन">तीन</button><button type="button" class="choice" data-value="छह">छह</button><button type="button" class="choice" data-value="पाँच">पाँच</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="चारि" data-qid="179">
+          <div class="q-top"><span class="q-num">प्रश्न 179</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="dotbox"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></div>
+          <p class="q-text">बिन्दु गिनू—कतेक गो अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="नौ">नौ</button><button type="button" class="choice" data-value="चारि">चारि</button><button type="button" class="choice" data-value="दू">दू</button><button type="button" class="choice" data-value="दस">दस</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="पाँच" data-qid="180">
+          <div class="q-top"><span class="q-num">प्रश्न 180</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="dotbox"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></div>
+          <p class="q-text">बिन्दु गिनू—कतेक गो अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="सात">सात</button><button type="button" class="choice" data-value="पाँच">पाँच</button><button type="button" class="choice" data-value="एक">एक</button><button type="button" class="choice" data-value="तीन">तीन</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="छह" data-qid="181">
+          <div class="q-top"><span class="q-num">प्रश्न 181</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="dotbox"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></div>
+          <p class="q-text">बिन्दु गिनू—कतेक गो अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="चारि">चारि</button><button type="button" class="choice" data-value="तीन">तीन</button><button type="button" class="choice" data-value="पाँच">पाँच</button><button type="button" class="choice" data-value="छह">छह</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="सात" data-qid="182">
+          <div class="q-top"><span class="q-num">प्रश्न 182</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="dotbox"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></div>
+          <p class="q-text">बिन्दु गिनू—कतेक गो अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="दस">दस</button><button type="button" class="choice" data-value="तीन">तीन</button><button type="button" class="choice" data-value="एक">एक</button><button type="button" class="choice" data-value="सात">सात</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="आठ" data-qid="183">
+          <div class="q-top"><span class="q-num">प्रश्न 183</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="dotbox"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></div>
+          <p class="q-text">बिन्दु गिनू—कतेक गो अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="नौ">नौ</button><button type="button" class="choice" data-value="तीन">तीन</button><button type="button" class="choice" data-value="दू">दू</button><button type="button" class="choice" data-value="आठ">आठ</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="नौ" data-qid="184">
+          <div class="q-top"><span class="q-num">प्रश्न 184</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="dotbox"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></div>
+          <p class="q-text">बिन्दु गिनू—कतेक गो अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="नौ">नौ</button><button type="button" class="choice" data-value="छह">छह</button><button type="button" class="choice" data-value="पाँच">पाँच</button><button type="button" class="choice" data-value="आठ">आठ</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="दस" data-qid="185">
+          <div class="q-top"><span class="q-num">प्रश्न 185</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र"><span class="dotbox"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></div>
+          <p class="q-text">बिन्दु गिनू—कतेक गो अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="नौ">नौ</button><button type="button" class="choice" data-value="एक">एक</button><button type="button" class="choice" data-value="तीन">तीन</button><button type="button" class="choice" data-value="दस">दस</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="गेंद" data-qid="186">
+          <div class="q-top"><span class="q-num">प्रश्न 186</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">⚽</div>
+          <p class="q-text">चित्रमे कोन खेलौना अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="घंटी">घंटी</button><button type="button" class="choice" data-value="गेंद">गेंद</button><button type="button" class="choice" data-value="लट्टू">लट्टू</button><button type="button" class="choice" data-value="बल्ला">बल्ला</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="पतंग" data-qid="187">
+          <div class="q-top"><span class="q-num">प्रश्न 187</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🪁</div>
+          <p class="q-text">चित्रमे कोन खेलौना अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="फिसलनी">फिसलनी</button><button type="button" class="choice" data-value="लट्टू">लट्टू</button><button type="button" class="choice" data-value="पतंग">पतंग</button><button type="button" class="choice" data-value="भालूक खेलौना">भालूक खेलौना</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="गुब्बारा" data-qid="188">
+          <div class="q-top"><span class="q-num">प्रश्न 188</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🎈</div>
+          <p class="q-text">चित्रमे कोन खेलौना अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="ढोल">ढोल</button><button type="button" class="choice" data-value="जोड़-टुकड़ा">जोड़-टुकड़ा</button><button type="button" class="choice" data-value="गुब्बारा">गुब्बारा</button><button type="button" class="choice" data-value="निशाना">निशाना</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="गुड़िया" data-qid="189">
+          <div class="q-top"><span class="q-num">प्रश्न 189</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🪆</div>
+          <p class="q-text">चित्रमे कोन खेलौना अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="घंटी">घंटी</button><button type="button" class="choice" data-value="गुड़िया">गुड़िया</button><button type="button" class="choice" data-value="गेंद">गेंद</button><button type="button" class="choice" data-value="लट्टू">लट्टू</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="भालूक खेलौना" data-qid="190">
+          <div class="q-top"><span class="q-num">प्रश्न 190</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🧸</div>
+          <p class="q-text">चित्रमे कोन खेलौना अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="भालूक खेलौना">भालूक खेलौना</button><button type="button" class="choice" data-value="बल्ला">बल्ला</button><button type="button" class="choice" data-value="ढोल">ढोल</button><button type="button" class="choice" data-value="फिसलनी">फिसलनी</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="पासा" data-qid="191">
+          <div class="q-top"><span class="q-num">प्रश्न 191</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🎲</div>
+          <p class="q-text">चित्रमे कोन खेलौना अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="घंटी">घंटी</button><button type="button" class="choice" data-value="गुड़िया">गुड़िया</button><button type="button" class="choice" data-value="पासा">पासा</button><button type="button" class="choice" data-value="निशाना">निशाना</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="जोड़-टुकड़ा" data-qid="192">
+          <div class="q-top"><span class="q-num">प्रश्न 192</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🧩</div>
+          <p class="q-text">चित्रमे कोन खेलौना अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="जोड़-टुकड़ा">जोड़-टुकड़ा</button><button type="button" class="choice" data-value="निशाना">निशाना</button><button type="button" class="choice" data-value="पतंग">पतंग</button><button type="button" class="choice" data-value="घंटी">घंटी</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="लट्टू" data-qid="193">
+          <div class="q-top"><span class="q-num">प्रश्न 193</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🪀</div>
+          <p class="q-text">चित्रमे कोन खेलौना अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="पासा">पासा</button><button type="button" class="choice" data-value="लट्टू">लट्टू</button><button type="button" class="choice" data-value="गेंद">गेंद</button><button type="button" class="choice" data-value="ढोल">ढोल</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="फिसलनी" data-qid="194">
+          <div class="q-top"><span class="q-num">प्रश्न 194</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🛝</div>
+          <p class="q-text">चित्रमे कोन खेलौना अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="फिसलनी">फिसलनी</button><button type="button" class="choice" data-value="जोड़-टुकड़ा">जोड़-टुकड़ा</button><button type="button" class="choice" data-value="पासा">पासा</button><button type="button" class="choice" data-value="बल्ला">बल्ला</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="रंग-पेटी" data-qid="195">
+          <div class="q-top"><span class="q-num">प्रश्न 195</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🎨</div>
+          <p class="q-text">चित्रमे कोन खेलौना अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="रंग-पेटी">रंग-पेटी</button><button type="button" class="choice" data-value="फिसलनी">फिसलनी</button><button type="button" class="choice" data-value="टोकरी-गेंद">टोकरी-गेंद</button><button type="button" class="choice" data-value="पासा">पासा</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="ढोल" data-qid="196">
+          <div class="q-top"><span class="q-num">प्रश्न 196</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🥁</div>
+          <p class="q-text">चित्रमे कोन खेलौना अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="ढोल">ढोल</button><button type="button" class="choice" data-value="लट्टू">लट्टू</button><button type="button" class="choice" data-value="निशाना">निशाना</button><button type="button" class="choice" data-value="भालूक खेलौना">भालूक खेलौना</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="घंटी" data-qid="197">
+          <div class="q-top"><span class="q-num">प्रश्न 197</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🔔</div>
+          <p class="q-text">चित्रमे कोन खेलौना अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="पतंग">पतंग</button><button type="button" class="choice" data-value="गुब्बारा">गुब्बारा</button><button type="button" class="choice" data-value="गुड़िया">गुड़िया</button><button type="button" class="choice" data-value="घंटी">घंटी</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="बल्ला" data-qid="198">
+          <div class="q-top"><span class="q-num">प्रश्न 198</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🏏</div>
+          <p class="q-text">चित्रमे कोन खेलौना अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="जोड़-टुकड़ा">जोड़-टुकड़ा</button><button type="button" class="choice" data-value="बल्ला">बल्ला</button><button type="button" class="choice" data-value="टोकरी-गेंद">टोकरी-गेंद</button><button type="button" class="choice" data-value="पतंग">पतंग</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="टोकरी-गेंद" data-qid="199">
+          <div class="q-top"><span class="q-num">प्रश्न 199</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🏀</div>
+          <p class="q-text">चित्रमे कोन खेलौना अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="लट्टू">लट्टू</button><button type="button" class="choice" data-value="पासा">पासा</button><button type="button" class="choice" data-value="टोकरी-गेंद">टोकरी-गेंद</button><button type="button" class="choice" data-value="ढोल">ढोल</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        
+        <article class="q-card" data-answer="निशाना" data-qid="200">
+          <div class="q-top"><span class="q-num">प्रश्न 200</span><span class="mini">चित्र देखि उत्तर दिअ</span></div>
+          <div class="photo-frame" aria-label="चित्र">🎯</div>
+          <p class="q-text">चित्रमे कोन खेलौना अछि?</p>
+          <div class="choices"><button type="button" class="choice" data-value="ढोल">ढोल</button><button type="button" class="choice" data-value="निशाना">निशाना</button><button type="button" class="choice" data-value="पासा">पासा</button><button type="button" class="choice" data-value="टोकरी-गेंद">टोकरी-गेंद</button></div>
+          <div class="feedback" aria-live="polite"></div>
+        </article>
+        </section>
+</main>
+<footer class="site-footer">© Gajendra Thakur, Editor — Videha eJournal</footer>
+<script>
+(function() {
+  const cards = Array.from(document.querySelectorAll('.q-card'));
+  cards.forEach(card => {
+    const answer = card.dataset.answer;
+    const feedback = card.querySelector('.feedback');
+    const choices = Array.from(card.querySelectorAll('.choice'));
+    choices.forEach(btn => {
+      btn.addEventListener('click', () => {
+        choices.forEach(b => b.classList.remove('selected','correct','wrong'));
+        btn.classList.add('selected');
+        card.dataset.chosen = btn.dataset.value;
+        if (btn.dataset.value === answer) {
+          btn.classList.add('correct');
+          feedback.textContent = 'बधाइ! ई सही उत्तर अछि।';
+          feedback.className = 'feedback good';
+        } else {
+          btn.classList.add('wrong');
+          choices.forEach(b => { if (b.dataset.value === answer) b.classList.add('correct'); });
+          feedback.textContent = 'फेर सोचू। सही उत्तर: ' + answer;
+          feedback.className = 'feedback bad';
+        }
+      });
+    });
+  });
+  document.getElementById('scoreBtn').addEventListener('click', () => {
+    let done = 0, right = 0;
+    cards.forEach(card => {
+      if (card.dataset.chosen) {
+        done++;
+        if (card.dataset.chosen === card.dataset.answer) right++;
+      }
+    });
+    const left = cards.length - done;
+    document.getElementById('scoreBox').textContent = 'कुल ' + cards.length + ' मे ' + done + ' उत्तर देल गेल। सही: ' + right + '। बाकी: ' + left + '।';
+  });
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    cards.forEach(card => {
+      delete card.dataset.chosen;
+      card.querySelectorAll('.choice').forEach(b => b.classList.remove('selected','correct','wrong'));
+      const fb = card.querySelector('.feedback');
+      fb.textContent='';
+      fb.className='feedback';
+    });
+    document.getElementById('scoreBox').textContent='अखन कोनो उत्तर जाँचल नहि गेल अछि।';
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+})();
+</script>
+</body>
+</html>

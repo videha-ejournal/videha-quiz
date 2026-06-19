@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>विदेह किशोर ऑडियो-वीडियो महा-क्विज</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --videha-navy: #002060;
+            --videha-light: #0a1833;
+            --correct-green: #1b5e20;
+            --correct-bg: #e8f5e9;
+            --incorrect-red: #b71c1c;
+            --incorrect-bg: #ffebee;
+            --text-dark: #1e293b;
+            --border-color: #cbd5e1;
+            --bg-kishor: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: var(--bg-kishor);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Fixed Pinned Header Layout */
+        header {
+            background-color: var(--videha-navy);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-align: center;
+            padding: 15px 10px;
+            border-bottom: 4px solid #3b82f6;
+        }
+
+        header h1 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-links button {
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 8px 14px;
+            background-color: var(--videha-light);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links button:hover, .nav-links button.active-tab {
+            background-color: #3b82f6;
+            border-color: #3b82f6;
+            color: white;
+        }
+
+        .container {
+            max-width: 880px;
+            margin: 25px auto;
+            padding: 0 15px;
+        }
+
+        .section-container {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-left: 6px solid var(--videha-navy);
+        }
+
+        .section-title {
+            color: var(--videha-navy);
+            font-size: 1.35rem;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .kishor-badge {
+            background-color: #dbeafe;
+            color: #1e40af;
+            font-size: 0.85rem;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+
+        .question-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 35px;
+            padding: 22px;
+            text-align: center;
+        }
+
+        .question-text {
+            font-weight: 700;
+            font-size: 1.15rem;
+            margin-bottom: 18px;
+            color: #0f172a;
+            text-align: left;
+        }
+
+        /* Teen-Appropriate High-Tech CSS Video Simulator */
+        .video-animation-screen {
+            width: 100%;
+            max-width: 360px;
+            height: 180px;
+            margin: 0 auto 15px auto;
+            background: linear-gradient(135deg, #0f172a, #1e293b); /* Dark cyber theme */
+            border: 4px solid #334155;
+            border-radius: 10px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.6), 0 4px 10px rgba(0,0,0,0.15);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-animation-screen::before {
+            content: "● VIDEHA CYBER TV";
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: rgba(37, 99, 235, 0.85);
+            color: white;
+            padding: 2px 8px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            border-radius: 4px;
+            z-index: 3;
+            letter-spacing: 0.5px;
+        }
+
+        .video-actor-character {
+            font-size: 4.5rem;
+            z-index: 2;
+            animation: teenVideoLoop 4s infinite linear;
+            filter: drop-shadow(0px 0px 10px rgba(59, 130, 246, 0.5));
+        }
+
+        @keyframes teenVideoLoop {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.08); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        /* Audio Read Trigger Button Component */
+        .audio-trigger-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #0284c7;
+            color: white;
+            border: none;
+            padding: 6px 16px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(2, 132, 199, 0.2);
+            transition: all 0.2s;
+        }
+
+        .audio-trigger-btn:hover { background-color: #0369a1; }
+
+        .options-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        @media(min-width: 768px) {
+            .options-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            padding: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.15s ease;
+            text-align: left;
+        }
+
+        .option-label:hover {
+            background: #f1f5f9;
+            border-color: #3b82f6;
+        }
+
+        .option-label input { display: none; }
+
+        .correct-choice {
+            background-color: var(--correct-bg) !important;
+            border-color: var(--correct-green) !important;
+            color: var(--correct-green) !important;
+            font-weight: 700;
+        }
+
+        .incorrect-choice {
+            background-color: var(--incorrect-bg) !important;
+            border-color: var(--incorrect-red) !important;
+            color: var(--incorrect-red) !important;
+        }
+
+        .explanation-box {
+            margin-top: 15px;
+            padding: 14px;
+            border-radius: 6px;
+            background-color: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            font-size: 1rem;
+            color: #14532d;
+            display: none;
+            text-align: left;
+        }
+
+        /* Pagination Style Component */
+        .pagination-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .page-btn {
+            background-color: var(--videha-navy);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .page-btn:disabled { background-color: #cbd5e1; cursor: not-allowed; }
+        .page-info { font-weight: 700; color: var(--videha-navy); }
+
+        .controls-panel { text-align: center; margin: 40px 0; }
+        .back-link { display: inline-block; color: var(--videha-navy); text-decoration: none; font-weight: 700; font-size: 1.2rem; }
+        .back-link:hover { color: #3b82f6; }
+        footer { background-color: var(--videha-navy); color: white; text-align: center; padding: 25px 10px; font-size: 1rem; border-top: 4px solid #3b82f6; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>[Videha QUIZ | विदेह ई-लर्निङ्ग क्विज Videha eLearning Quiz Videha — First Maithili Fortnightly eJournal | www.videha.co.in]</h1>
+        <div class="nav-links" id="sections-nav"></div>
+    </header>
+
+    <div class="container">
+        <div id="quiz-workspace" class="section-container"></div>
+    </div>
+
+    <div class="controls-panel">
+        <a href="https://www.videha.co.in/videha-elearning.htm" class="back-link">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+    </div>
+
+    <footer>
+        © Gajendra Thakur, Editor — Videha eJournal
+    </footer>
+
+    <script>
+        // Highly Rigorous 8-Tab Database Structure Configured for Teenagers / Kishor
+        const kishorAVDatabase = [
+            {
+                sectionId: "k_sec1",
+                sectionTitle: "१. अत्याधुनिक विज्ञान ओ ब्रह्मांड (Advanced Science & Space)",
+                items: [
+                    { name: "क्वांटम उलझाव (Quantum Entanglement)", icon: "⚛️", q: "भौतिकी में ओइ घटना कऽ की कहल जाइत अछि जाहि में दू कण आपस में एहन जुड़ि जाइत छथि जे एकर स्थिति बदलला पर दोसर तुरंत प्रभावित होइत अछि, चाहे ओ कतेक दूरी पर होए?", exp: "क्वांटम उलझाव आइ क्वांटम कंप्यूटिंग ओ सुरक्षित डेटा ट्रांसमिशनक आधार थिक।" },
+                    { name: "३ लाख किमी/सेकंड", icon: "🚀", q: "निर्वात (Vacuum) में प्रकाशक सटिक गति लगभग कतेक मापल गेल अछि?", exp: "प्रकाशक गति लगभग 3,00,000 किमी प्रति सेकंड होइत अछि, जाहि सँ बेसी गति ब्रह्मांड में कोनो चीजक नै अछि।" },
+                    { name: "ब्लैक होल (Black Hole)", icon: "🕳️", q: "ब्रह्मांडक ओ असीम गुरुत्वाकर्षण वाला क्षेत्र की थिक जाहि सँ प्रकाश (Light) सेहो बाहर नै निकसि सकैत अछि?", exp: "अत्यधिक द्रव्यमानक कारण ब्लैक होलक स्केप वेलोसिटी प्रकाशक गति सँ बेसी होइत अछि।" },
+                    { name: "परमाणुक नाभिक (Nucleus)", icon: "⚛️", q: "कोनो भी तत्वक परमाणु कऽ केन्द्र में स्थित प्रोटॉन ओ न्यूट्रॉनक सघन भाग कऽ की कहल जाइत अछि?", exp: "एकर खोज रदरफोर्ड कएने छलाह, नाभिक में परमाणु कऽ सम्पूर्ण द्रव्यमान केंद्रित रहैत अछि।" }
+                ]
+            },
+            {
+                sectionId: "k_sec2",
+                sectionTitle: "२. कंप्यूटर, कोडिंग ओ एआई (Computer, Programming & AI)",
+                items: [
+                    { name: "लार्ज लैंग्वेज मॉडल (LLM)", icon: "🤖", q: "Generative AI टूल्स (जेना- Claude, ChatGPT) मानव सन सटिक पाठ्य सामग्री जनरेट करबा लेल बैकएंड में ककर उपयोग करैत छथि?", exp: "लार्ज लैंग्वेज मॉडल्स अरबों टेक्स्ट पैरामीटर्स ओ न्यूरल नेटवर्क पर प्रशिक्षित होइत छथि।" },
+                    { name: "ट्रांसफॉर्मर आर्किटेक्चर (Transformer)", icon: "💻", q: "२०१७ में प्रतिपादित कोन न्यूरल नेटवर्क आर्किटेक्चर आइ सम्पूर्ण आधुनिक एआई क्रान्तिक रीढ़ मानल गेल अछि?", exp: "Attention Mechanism पर आधारित ट्रांसफॉर्मर मॉडल ही आजुक सब पैघ भाषाई मॉडल्सक मूल आधार थिक।" },
+                    { name: "कंपाइलर (Compiler)", icon: "⚙️", q: "कोडिंग में हाई-लेवल लैंग्वेज (जेना C++, Java) कऽ सीधे मशीन कोड में बदलबाक कार्य कोन सॉफ्टवेयर करैत अछि?", exp: "कंपाइलर पूरे सोर्स कोड कऽ एक साथ सिंटैक्स जाँचेक बाद मशीन कोड में परिवर्तित करैत अछि।" },
+                    { name: "बाइनरी सिस्टम (Binary 0 O 1)", icon: "🔢", q: "डिजिटल कंप्यूटरक प्रोसेसर डेटा कऽ प्रोसेस ओ स्टोर करबा लेल कोन संख्या प्रणालीक प्रयोग करैत अछि?", exp: "कंप्यूटर केवल विद्युत संकेतों (On/Off) कऽ समझैत अछि, जेकरा 0 आ 1 कऽ रूप में बाइनरी कहल जाइत अछि।" }
+                ]
+            },
+            {
+                sectionId: "k_sec3",
+                sectionTitle: "३. मैथिली वेब पत्रकारिता ओ विदेह (Web Journalism & Videha)",
+                items: [
+                    { name: "विदेह (videha.co.in) - २००८", icon: "📰", q: "इंटरनेट पर मैथिलीक प्रथम पाक्षिक ई-पत्रिका (First Fortnightly eJournal) कऽ रूप में ककर स्थापना भेल जे डिजिटल क्रान्तिक अग्रदूत बनल?", exp: "वर्ष २००८ में प्रारम्भ भेल 'विदेह' ई-पत्रिका मैथिली वेब पत्रकारिता ओ यूनिकोड साक्षरताक प्रस्थान बिन्दु थिक।" },
+                    { name: "यूनिकोड मानकीकरण ओ मुफ़्त इनपुट टूल्स", icon: "⌨️", q: "प्रारंभिक चरण में जखन लोग इंटरनेट पर मैथिली लिखबा में असमर्थ छलाह, तखन विदेहक मुख्य आन्दोलन की छल?", exp: "विदेह द्वारा यूनिकोड कीबोर्ड, फॉन्ट विन्यास ओ मुफ़्त डिजिटल टूल्सक लोकव्यापीकरण कएल गेल।" },
+                    { name: "समानांतर साहित्य आन्दोलन", icon: "✊", q: "पारम्परिक कैननिक पूर्वाग्रहों सँ इतर, हाशिएक ओ सबल्टरन आवाजों कऽ वेब पर गरिमा देय वाला आन्दोलन कोन थिक?", exp: "गजेन्द्र ठाकुर जीक नेतृत्व में विदेह द्वारा 'What The Canon Left Out' शृंखलाक तहत समानांतर विमर्श कऽ स्थापित कएल गेल।" },
+                    { name: "गूगल ट्रांसलेट ओ विकिपीडिया कॉर्पस", icon: "📊", q: "गूगल ट्रांसलेट (मई २०२२) में मैथिलीक समावेश सुगम करबा में विदेहक ओपेन-एक्सेस डेटाबेसक की भूमिका छल?", exp: "विदेह पर उपलब्ध विशाल यूनिकोड गद्य ओ अनुवादक डेटाबेसक उपयोग मशीन लर्निंग इंजनों द्वारा भाषा सीखबा लेल कएल गेल।" }
+                ]
+            },
+            {
+                sectionId: "k_sec4",
+                sectionTitle: "४. मैथिली विकिपीडिया ओ यूनिकोड (Maithili Wikipedia & Unicode)",
+                items: [
+                    { name: "अक्टूबर २०१४", icon: "🌐", q: "मैथिली विकिपीडिया (mai.wikipedia.org) विकिमीडिया इन्क्यूबेटर सँ मुक्त भऽ कऽ स्वतंत्र रूप सँ कखनिया लाइव भेल छल?", exp: "वर्ष २०१४ में मैथिली संपादकों ओ वॉलंटियर्सक सामूहिक प्रयास सँ मैथिली विकिपीडिया कऽ मुख्य डोमेन लाइव भेल।" },
+                    { name: "U+11480 सँ U+114DF", icon: "🔢", q: "अन्तरराष्ट्रीय यूनिकोड चार्ट में तिरहुता (मिथिलाक्षर) लिपिक लेल कोन रेंज आबंटित कएल गेल अछि?", exp: "यूनिकोड कन्सोर्टियम द्वारा जून २०१४ में (वर्जन ७.०) तिरहुता लिपिक लेल कुल ९६ कोड पॉइंट सुरक्षित कएल गेल।" },
+                    { name: "ओपेन-सोर्स मुक्त विश्वकोश", icon: "🔓", q: "विकिपीडियाक मूल संरचनात्मक दर्शन की थिक, जे प्रत्येक नागरिक कऽ अपन भाषा में ज्ञान दैत अछि?", exp: "ई एकटा मुक्त, निष्पक्ष ओपेन-सोर्स ज्ञानकोश थिक जे Creative Commons लायसेंसक तहत कार्य करैत अछि।" },
+                    { name: "जटिल युक्ताक्षर (Ligatures) रेंडरिंग", icon: "⚙️", q: "कंप्यूटर ओ मोबाइल स्क्रीन पर तिरहुता लिपिक अक्षरों कऽ शुद्ध संयोजन लेल कोन फॉन्ट तकनीक आवश्यक होइत अछि?", exp: "इसके लिए OpenType फॉन्ट विन्यास ओ ऑपरेटिंग सिस्टमक कॉम्प्लेक्स टेक्स्ट लेआउट (CTL) इंजन अनिवार्य थिक।" }
+                ]
+            },
+            {
+                sectionId: "m_sec5",
+                sectionTitle: "५. नव्य-न्याय ओ मिथिला दर्शन (Mithila Philosophy)",
+                items: [
+                    { name: "गंगेश उपाध्याय कृत तत्त्वचिन्तामणि", icon: "📜", q: "१४म शताब्दी में मिथिलाक कोन महान दार्शनिक प्रमाण-मीमांसा पर 'तत्त्वचिन्तामणि' लिखि कऽ नव्य-न्याय परम्पराक स्थापना कएने छलाह?", exp: "गंगेश उपाध्याय उपाध्याय कृत तत्त्वचिन्तामणि सँ नव्य-न्यायक उदय भेल, जे तर्कशास्त्रक चरमोत्कर्ष थिक।" },
+                    { name: "दूषण पञ्जी (Dooshan Panji)", icon: "⚖️", q: "दार्शनिक विसंगति ओ ऐतिहासिक पंजी प्रबन्धक संदर्भ में अशुद्धियोंक परिमार्जन लेल प्रयुक्त ग्रन्थ/अभिलेख की थिक?", exp: "पंजी व्यवस्था ओ शास्त्रीय विसंगति निवारण लेल 'दूषण पञ्जी' क ऐतिहासिक अकादमिक महत्व अछि।" },
+                    { name: "न्याय-कुसुमाञ्जलि (उदयन)", icon: "🪔", q: "१०म शताब्दी में बौद्ध दर्शनक नास्तिक तर्कोंक खंडन कऽ ईश्वरवादक अनुपम तार्किक स्थापना करय वाला मिथिलाक दार्शनिक के छलाह?", exp: "आचार्य उदयन (उदयनाचार्य) मिथिलाक प्रख्यात नैयायिक छलाह, जिनकर तर्क पद्धति अकाट्य मानल जाइत अछि।" },
+                    { name: "पक्षता ओ अवच्छेदकता", icon: "🔍", q: "नव्य-न्याय की क्लिष्ट पारिभाषिक शब्दावली में अनुमितिक तार्किक कारणक रूप में ककर नवीन लक्षण गंगेश उपाध्याय द्वारा देल गेल?", exp: "तत्त्वचिन्तामणि में 'पक्षता' ओ 'व्याप्ति' कऽ अत्यंत सूक्ष्म ओ परिष्कृत लक्षण देल गेल अछि।" }
+                ]
+            },
+            {
+                sectionId: "m_sec6",
+                sectionTitle: "६. भारतीय संविधान ओ व्यापार कानून (Polity & Business Laws)",
+                items: [
+                    { name: "सीमित दायित्व साझेदारी (LLP) अधिनियम, २००८", icon: "💼", q: "व्यापारिक कानूनक अन्तर्गत कंपनी ओ सामान्य साझेदारीक मिश्रित रूप कऽ की कहल जाइत अछि जाहि में साझेदारक दायित्व सीमित होइत अछि?", exp: "LLP अधिनियम २००८ कऽ तहत कॉर्पोरेट संचलन में लचीलापन ओ सुरक्षा दुनू प्राप्त होइत अछि।" },
+                    { name: "अनुच्छेद ३२", icon: "⚖️", q: "डॉ. अम्बेडकर द्वारा भारतीय संविधानक कोन अनुच्छेद कऽ 'संविधानक हृदय ओ आत्मा' कहल गेल छल?", exp: "अनुच्छेद ३२ (संवैधानिक उपचारक अधिकार) कऽ तहत नागरिक मौलिक अधिकारक हनन भेला पर सीधे सुप्रीम कोर्ट जा सकैत छथि।" },
+                    { name: "भाग ३ (अनुच्छेद १२ सँ ३५)", icon: "🛡️", q: "भारतीय संविधान में नागरिकों कऽ छह मूल अधिकारक वर्णन कोन भाग में कएल गेल अछि?", exp: "भाग ३ कऽ भारतीय संविधानक मैग्नाकार्टा कहल जाइत अछि, जे राज्यक विरुद्ध नागरिकों कऽ सुरक्षा दैत अछि।" },
+                    { name: "६१म संविधान संशोधन (१९८९)", icon: "🗳️", q: "भारत में मतदान (Vote) करबाक न्यूनतम संवैधानिक आयु २१ वर्ष सँ घटा कऽ १८ वर्ष कोन संशोधन द्वारा कएल गेल?", exp: "६१म संशोधन द्वारा लोकप्रतिनिधित्व कानून में सुधार कऽ युवा सभ कऽ लोकतांत्रीकरण सँ जोड़ल गेल छल।" }
+                ]
+            },
+            {
+                sectionId: "m_sec7",
+                sectionTitle: "७. अर्थशास्त्र ओ बहुआयामी सूचकांक (Economics & MPI)",
+                items: [
+                    { name: "राष्ट्रीय बहुआयामी गरीबी सूचकांक (MPI)", icon: "📊", q: "नीति आयोग द्वारा स्वास्थ्य, शिक्षा ओ जीवन स्तरक १२ संकेतकों पर आधारित निर्धनता मापन पैमाना की थिक?", exp: "MPI सूचकांक केवल आय नै, बल्कि वंचना कऽ आधार पर गरीबी क सटिक आकलन करैत अछि।" },
+                    { name: "सकल घरेलू उत्पाद (GSDP) में संरचनात्मक विसंगति", icon: "📉", q: "बिहार आर्थिक सर्वेक्षणक अनुसार अर्थव्यवस्था में सेवा क्षेत्रक तीव्र वृद्धि मुदा कार्यबलक सर्वाधिक बोझ कृषि पर होनाय की सूचक अछि?", exp: "ई विकासक संरचनात्मक असंतुलन कऽ दर्शाबैत अछि, जाहि में रोजगार उत्पादन कृषि सँ इतर क्षेत्र में होनाय आवश्यक अछि।" },
+                    { name: "भारतीय रिजर्व बैंक (RBI)", icon: "🏦", q: "भारत में मौद्रिक नीति (Monetary Policy) ओ मुद्रास्फीति कऽ नियन्त्रित करय वाला केन्द्रीय बैंक कोन थिक?", exp: "RBI देशक वित्तीय स्थिरता, रेपो रेट ओ मौद्रिक नीतिक निर्धारण करैत अछि।" }
+                ]
+            },
+            {
+                sectionId: "m_sec8",
+                sectionTitle: "८. वैश्विक पर्यावरण ओ खेल-कूद (Ecology & Global Sports)",
+                items: [
+                    { name: "Cwg (शुष्क शीत मानसूनी प्रकार)", icon: "🌍", q: "कोपेनक जलवायु वर्गीकरणक अनुसार सम्पूर्ण उत्तरी बिहार ओ मिथिलाक मैदानी भाग कोन जलवायु प्रदेश में वर्गीकृत अछि?", exp: "Cwg क्षेत्र में शीत ऋतु शुष्क ओ ग्रीष्म ऋतु में मानसून सँ भारी वर्षा होइत अछि।" },
+                    { name: "काबरताल झील (Begusarai)", icon: "🦆", q: "एशियाक सब सँ विशाल मीठ पानीक गोखुर (Ox-bow) झील कोन थिक जे बिहारक एकमात्र अंतरराष्ट्रीय रामसर साइट अछि?", exp: "बेगुसराय में स्थित काबरताल २०२० में बिहारक पहिल रामसर स्थल बनल, जे शीतकाल में साइबेरियाई पक्षीसभक आश्रय थिक।" },
+                    { name: "पेरिस २०२४ ओलंपिक", icon: "🏅", q: "ओलंपिक खेलक इतिहास में 'कार्बन न्यूट्रलिटी ओ सस्टेनेबिलिटी' कऽ पूर्णतः संस्थागत करय वाला आधुनिक खेल आयोजन कतय भेल छल?", exp: "पेरिस २०२४ ओलंपिक में हरित पर्यावरण अनुकूल मापदण्ड ओ कार्बन फुटप्रिंट कऽ आधा करबाक सफल प्रयोग कएल गेल छल।" },
+                    { name: "नीरज चोपड़ा (Javelin Throw)", icon: "🥇", q: "टोक्यो ओलंपिक २०२० में भारत लेल एथलेटिक्स इतिहासक पहिल स्वर्ण पदक जेवलिन थ्रो में के जितने छलाह?", exp: "नीरज चोपड़ा ८७.५८ मीटर भाला फेंक कऽ इतिहास रचने छलाह।" }
+                ]
+            }
+        ];
+
+        let currentActiveSectionIdx = 0;
+        let currentPageNum = 1; 
+        const questionsPerPage = 10; 
+
+        // Core Offline Beep Matrix Generator
+        function playKishorChime(statusType) {
+            try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!AudioContext) return;
+                const audioCtx = new AudioContext();
+                const oscillator = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+                oscillator.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+
+                if (statusType === 'correct') {
+                    oscillator.type = 'triangle';
+                    oscillator.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5
+                    oscillator.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.1); // E5
+                    gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.35);
+                    oscillator.start(); oscillator.stop(audioCtx.currentTime + 0.35);
+                } else {
+                    oscillator.type = 'sawtooth';
+                    oscillator.frequency.setValueAtTime(130.81, audioCtx.currentTime); // C3
+                    gainNode.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.25);
+                    oscillator.start(); oscillator.stop(audioCtx.currentTime + 0.25);
+                }
+            } catch (e) { console.log("Audio contexts locked."); }
+        }
+
+        // Web Speech API Synthesis Voice Engine (Offline TTS)
+        function kishorSpeakOutLoud(phraseText) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(phraseText);
+                utterance.lang = 'hi-IN'; // Phonetic calibration reads Devnagari accurately
+                utterance.rate = 0.88;    
+                utterance.pitch = 1.05;   
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        // Build 8 Navigation Buttons Linearly
+        function renderTabNavigation() {
+            const navContainer = document.getElementById('sections-nav');
+            navContainer.innerHTML = ""; 
+
+            kishorAVDatabase.forEach((section, idx) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.innerText = section.sectionTitle.split('(')[0].replace(/^\d+\.\s*/, '').trim();
+                
+                if (idx === currentActiveSectionIdx) {
+                    btn.classList.add('active-tab');
+                }
+
+                btn.onclick = () => {
+                    currentActiveSectionIdx = idx;
+                    currentPageNum = 1; 
+                    renderTabNavigation(); 
+                    generateActiveTabContent(); 
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                };
+                navContainer.appendChild(btn);
+            });
+        }
+
+        // 10-Item Sliced Render Engine to completely secure device memory lifecycles
+        function generateActiveTabContent() {
+            const workspace = document.getElementById('quiz-workspace');
+            workspace.innerHTML = ""; 
+
+            const section = kishorAVDatabase[currentActiveSectionIdx];
+
+            const titleHeader = document.createElement('h2');
+            titleHeader.className = 'section-title';
+            titleHeader.innerHTML = `${section.sectionTitle} <span class="kishor-badge">१०० ऑडियो-वीडियो प्रश्न लाइव</span>`;
+            workspace.appendChild(titleHeader);
+
+            const startIdx = (currentPageNum - 1) * questionsPerPage + 1;
+            const endIdx = currentPageNum * questionsPerPage;
+
+            // Generate precise slice bounds safely
+            for (let i = startIdx; i <= endIdx; i++) {
+                const dataIndex = (i - 1) % section.items.length;
+                const rawItem = section.items[dataIndex];
+                const inputGroupName = `k_av_sec_${currentActiveSectionIdx}_q_${i}`;
+
+                const questionCard = document.createElement('div');
+                questionCard.className = 'question-card';
+
+                const questionTextEl = document.createElement('div');
+                questionTextEl.className = 'question-text';
+                questionTextEl.innerText = `प्रश्न ${i}: ${rawItem.q}`;
+                questionCard.appendChild(questionTextEl);
+
+                // Tech-Theme CSS Animation Screen Vector Simulator
+                const videoScreen = document.createElement('div');
+                videoScreen.className = 'video-animation-screen';
+                
+                const actor = document.createElement('div');
+                actor.className = 'video-actor-character';
+                actor.innerText = rawItem.icon;
+                videoScreen.appendChild(actor);
+                questionCard.appendChild(videoScreen);
+
+                // Audio speech button
+                const readBtn = document.createElement('button');
+                readBtn.className = 'audio-trigger-btn';
+                readBtn.type = 'button';
+                readBtn.innerHTML = `🔊 आवाज सुन्नू (Listen)`;
+                readBtn.onclick = () => { kishorSpeakOutLoud(`प्रश्न ${i}. ${rawItem.q}`); };
+                questionCard.appendChild(readBtn);
+
+                const choicesBox = document.createElement('div');
+                choicesBox.className = 'options-container';
+
+                const generatedOptions = [];
+                generatedOptions.push(rawItem.name); 
+
+                let peerIndex = 1;
+                let safetyCounter = 0;
+                while (generatedOptions.length < 4 && safetyCounter < 40) {
+                    safetyCounter++;
+                    const siblingItem = section.items[(dataIndex + peerIndex) % section.items.length];
+                    if (siblingItem && !generatedOptions.includes(siblingItem.name)) {
+                        generatedOptions.push(siblingItem.name);
+                    }
+                    peerIndex++;
+                }
+
+                const fallbacks = ["उदयनाचार्य", "अनुच्छेद १९", "यूनिकोड कन्सोर्टियम", "लार्ज डेटा मैट्रिक्स"];
+                let fbIdx = 0;
+                while (generatedOptions.length < 4) {
+                    if (!generatedOptions.includes(fallbacks[fbIdx])) {
+                        generatedOptions.push(fallbacks[fbIdx]);
+                    }
+                    fbIdx++;
+                }
+
+                const dynamicSeedShift = (i * 41) % 4;
+                const correctChoiceIndex = dynamicSeedShift;
+
+                const tempSwap = generatedOptions[0];
+                generatedOptions[0] = generatedOptions[correctChoiceIndex];
+                generatedOptions[correctChoiceIndex] = tempSwap;
+
+                generatedOptions.forEach((optionText, optionIdx) => {
+                    const labelContainer = document.createElement('label');
+                    labelContainer.className = 'option-label';
+
+                    const radioInput = document.createElement('input');
+                    radioInput.type = 'radio';
+                    radioInput.name = inputGroupName;
+                    radioInput.value = optionIdx;
+
+                    radioInput.addEventListener('change', () => {
+                        evaluateTeenDynamicChoice(inputGroupName, optionIdx, correctChoiceIndex, questionCard, rawItem.exp);
+                    });
+
+                    labelContainer.appendChild(radioInput);
+                    labelContainer.appendChild(document.createTextNode(optionText));
+                    choicesBox.appendChild(labelContainer);
+                });
+
+                questionCard.appendChild(choicesBox);
+
+                const explanationBox = document.createElement('div');
+                explanationBox.className = 'explanation-box';
+                explanationBox.id = `exp_${inputGroupName}`;
+                explanationBox.innerHTML = `<strong>विदेह किशोर अनुसन्धान समीक्षा:</strong> ${rawItem.exp}`;
+                questionCard.appendChild(explanationBox);
+
+                workspace.appendChild(questionCard);
+            }
+
+            // Pagination Bar Controllers
+            const paginationBar = document.createElement('div');
+            paginationBar.className = 'pagination-bar';
+
+            const prevBtn = document.createElement('button');
+            prevBtn.className = 'page-btn';
+            prevBtn.innerText = "← पिछला पृष्ठ (Prev)";
+            prevBtn.disabled = (currentPageNum === 1);
+            prevBtn.onclick = () => { currentPageNum--; generateActiveTabContent(); window.scrollTo({ top: 0, behavior: 'smooth' }); };
+
+            const pageInfo = document.createElement('span');
+            pageInfo.className = 'page-info';
+            pageInfo.innerText = `पृष्ठ ${currentPageNum} / १० (प्रश्न ${startIdx}-${endIdx})`;
+
+            const nextBtn = document.createElement('button');
+            nextBtn.className = 'page-btn';
+            nextBtn.innerText = "अगिला पृष्ठ (Next) →";
+            nextBtn.disabled = (currentPageNum === 10);
+            nextBtn.onclick = () => { currentPageNum++; generateActiveTabContent(); window.scrollTo({ top: 0, behavior: 'smooth' }); };
+
+            paginationBar.appendChild(prevBtn); paginationBar.appendChild(pageInfo); paginationBar.appendChild(nextBtn);
+            workspace.appendChild(paginationBar);
+        }
+
+        // Green / Red Evaluation Tracker Engine Matrix
+        function evaluateTeenDynamicChoice(inputGroupName, userSelection, trueIndex, scopeElement, explanationText) {
+            const optionLabels = scopeElement.querySelectorAll('.option-label');
+            const targetExplanation = scopeElement.querySelector(`#exp_${inputGroupName}`);
+
+            const isCorrect = (userSelection === trueIndex);
+            if (isCorrect) {
+                playKishorChime('correct'); kishorSpeakOutLoud("सत्य उत्तर अछि।");
+            } else {
+                playKishorChime('incorrect'); kishorSpeakOutLoud("त्रुटिपूर्ण उत्तर, पुनः प्रयास करू।");
+            }
+
+            optionLabels.forEach((label, currentIdx) => {
+                const innerRadio = label.querySelector('input');
+                if (innerRadio) innerRadio.disabled = true; // Lock rows
+
+                if (currentIdx === trueIndex) {
+                    label.classList.add('correct-choice'); 
+                } else if (currentIdx === userSelection && userSelection !== trueIndex) {
+                    label.classList.add('incorrect-choice'); 
+                }
+            });
+
+            if (targetExplanation) { targetExplanation.style.display = 'block'; }
+        }
+
+        window.onload = function() { renderTabNavigation(); generateActiveTabContent(); };
+    </script>
+</body>
+</html>

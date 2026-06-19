@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>विदेह मैथिली साहित्य ओ समानान्तर इतिहास महा-क्विज</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --videha-navy: #002060;
+            --videha-light: #0a1833;
+            --correct-green: #1b5e20;
+            --correct-bg: #e8f5e9;
+            --incorrect-red: #b71c1c;
+            --incorrect-bg: #ffebee;
+            --text-dark: #1e293b;
+            --border-color: #cbd5e1;
+            --bg-canvas: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: var(--bg-canvas);
+            color: var(--text-dark);
+            line-height: 1.6;
+            user-select: none;
+        }
+
+        /* Fixed Pinned Header Layout */
+        header {
+            background-color: var(--videha-navy);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-align: center;
+            padding: 15px 10px;
+            border-bottom: 4px solid #3b82f6;
+        }
+
+        header h1 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-links button {
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 8px 12px;
+            background-color: var(--videha-light);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links button:hover, .nav-links button.active-tab {
+            background-color: #3b82f6;
+            border-color: #3b82f6;
+            color: white;
+        }
+
+        .container {
+            max-width: 880px;
+            margin: 25px auto;
+            padding: 0 15px;
+        }
+
+        .section-container {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-left: 6px solid var(--videha-navy);
+        }
+
+        .section-title {
+            color: var(--videha-navy);
+            font-size: 1.35rem;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .lit-badge {
+            background-color: #dbeafe;
+            color: #1e40af;
+            font-size: 0.85rem;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+
+        .question-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 35px;
+            padding: 22px;
+            text-align: center;
+        }
+
+        .question-text {
+            font-weight: 700;
+            font-size: 1.15rem;
+            margin-bottom: 18px;
+            color: #0f172a;
+            text-align: left;
+        }
+
+        /* 100% Offline Pure CSS Animated Video Monitor Component */
+        .video-animation-screen {
+            width: 100%;
+            max-width: 360px;
+            height: 160px;
+            margin: 0 auto 15px auto;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border: 4px solid #475569;
+            border-radius: 10px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5), 0 4px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-animation-screen::before {
+            content: "● विदेह साहित्य टीवी (LIVE)";
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: rgba(37, 99, 235, 0.85);
+            color: white;
+            padding: 2px 8px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            border-radius: 4px;
+            z-index: 3;
+            letter-spacing: 0.5px;
+        }
+
+        .video-actor-character {
+            font-size: 4rem;
+            z-index: 2;
+            animation: litVideoLoop 5s infinite linear;
+            filter: drop-shadow(0px 0px 12px rgba(59, 130, 246, 0.4));
+        }
+
+        @keyframes litVideoLoop {
+            0% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.05) rotate(180deg); }
+            100% { transform: scale(1) rotate(360deg); }
+        }
+
+        /* Audio Control Button */
+        .audio-trigger-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #0284c7;
+            color: white;
+            border: none;
+            padding: 6px 16px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(2, 132, 199, 0.2);
+            transition: all 0.2s;
+        }
+
+        .audio-trigger-btn:hover { background-color: #0369a1; }
+
+        .options-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        @media(min-width: 768px) {
+            .options-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            padding: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.15s ease;
+            text-align: left;
+        }
+
+        .option-label:hover {
+            background: #f1f5f9;
+            border-color: #3b82f6;
+        }
+
+        .option-label input { display: none; }
+
+        .correct-choice {
+            background-color: var(--correct-bg) !important;
+            border-color: var(--correct-green) !important;
+            color: var(--correct-green) !important;
+            font-weight: 700;
+        }
+
+        .incorrect-choice {
+            background-color: var(--incorrect-bg) !important;
+            border-color: var(--incorrect-red) !important;
+            color: var(--incorrect-red) !important;
+        }
+
+        .explanation-box {
+            margin-top: 15px;
+            padding: 14px;
+            border-radius: 6px;
+            background-color: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            font-size: 1rem;
+            color: #14532d;
+            display: none;
+            text-align: left;
+        }
+
+        /* Pagination Layout Component */
+        .pagination-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .page-btn {
+            background-color: var(--videha-navy);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .page-btn:disabled { background-color: #cbd5e1; cursor: not-allowed; }
+        .page-info { font-weight: 700; color: var(--videha-navy); }
+
+        .controls-panel { text-align: center; margin: 40px 0; }
+        .back-link { display: inline-block; color: var(--videha-navy); text-decoration: none; font-weight: 700; font-size: 1.2rem; }
+        .back-link:hover { color: #3b82f6; }
+        footer { background-color: var(--videha-navy); color: white; text-align: center; padding: 25px 10px; font-size: 1rem; border-top: 4px solid #3b82f6; }
+    </style>
+</head>
+<body>
+
+    <!-- Pinned Universal Navigation Header -->
+    <header>
+        <h1>[Videha QUIZ | विदेह ई-लर्निङ्ग क्विज Videha eLearning Quiz Videha — First Maithili Fortnightly eJournal | www.videha.co.in]</h1>
+        <div class="nav-links" id="sections-nav"></div>
+    </header>
+
+    <!-- App Main Dynamic Workspace -->
+    <div class="container">
+        <div id="quiz-workspace" class="section-container"></div>
+    </div>
+
+    <!-- Redirection control link element below evaluate -->
+    <div class="controls-panel">
+        <a href="https://www.videha.co.in/videha-elearning.htm" class="back-link">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+    </div>
+
+    <!-- Specified Footer Area -->
+    <footer>
+        © Gajendra Thakur, Editor — Videha eJournal
+    </footer>
+
+    <script>
+        // High-Level Specialized Scholarly Database Matrix on Maithili Literary History & Parallel History
+        const maithiliLiteratureDatabase = [
+            {
+                sectionId: "l_sec1",
+                sectionTitle: "१. आदिकाल ओ प्राचीन काव्य परम्परा (Early Period & Charyapada)",
+                items: [
+                    { name: "चर्यापद (Charyapada)", icon: "📜", q: "पूर्वी ब्राह्मी ओ अपभ्रंश सँ उद्भूत मैथिली भाषाक आदिकालीन भाषिक ओ काव्यात्मक स्वरूप सब सँ पहने कतय संकलित भेटैत अछि?", exp: "८म सँ १२म शताब्दीक बीच सिद्ध संतों द्वारा रचित 'चर्यापद' में मैथिलीक प्राचीनतम अवहट्ठ ओ आदि-स्वरूपक भाषिक कड़ियाँ भेटैत छलीह।" },
+                    { name: "ज्योतिरीश्वर ठाकुर कृत वर्ण रत्नाकर", icon: "📖", q: "१४म शताब्दीक प्रारम्भ में रचित मैथिली गद्यक प्रथम प्रामाणिक ओ गद्य-विश्वकोश (Encyclopedia) ग्रन्थ कोन थिक?", exp: "ज्योतिरीश्वर ठाकुर द्वारा रचित 'वर्ण रत्नाकर' मैथिली ओ उत्तर भारतक गद्य विधाक सर्वप्राचीन उपलब्ध प्रामाणिक धरोहर थिक।" },
+                    { name: "प्राकृत पैङ्गलम्", icon: "✒️", q: "कोन प्राचीन छन्दशास्त्रीय ग्रन्थ में मैथिली ओ अवहट्ठ भाषाक प्रारंभिक मात्रिक छंदोंक अनुपम उदाहरण संकलित अछि?", exp: "'प्राकृत पैङ्गलम्' में तत्कालीन पूर्वी अपभ्रंश ओ पुरानी मैथिली सँ साम्य रखय वाली रचना शृंखला संकलित अछि।" },
+                    { name: "सिमराँवगढ़ ओ कर्नाट राजवंश काल", icon: "🏰", q: "मैथिली साहित्यक आदिकालीन गद्य-पद्य विकास कऽ संस्थागत सुरक्षा कोन ऐतिहासिक राजवंशक काल में प्राप्त भेल छल?", exp: "महाराजा नान्यदेव ओ हरिसिंहदेवक कर्नाट राजवंश काल में मिथिलाक कला, संस्कृति ओ लिपि कऽ पैघ संबल भेटल छल।" }
+                ]
+            },
+            {
+                sectionId: "l_sec2",
+                sectionTitle: "२. मध्यकाल, विद्यापति ओ ओइन्वार युग (Medieval & Oiniwar Era)",
+                items: [
+                    { name: "महाकवि विद्यापति", icon: "📝", q: "मैथिली साहित्यक इतिहास में 'मैथिल कोकिल' ओ वैष्णव/शैव गीतोंक अमर शिल्पी ककरा मानल गेल अछि?", exp: "विद्यापति ओइन्वार वंशक राजा कीर्तिसिंह ओ शिवसिंहक दरबारी कवि छलाह, जिनकर पदावली मैथिलीक चरमोत्कर्ष थिक।" },
+                    { name: "कीर्तिलता ओ कीर्तिपताका", icon: "👑", q: "विद्यापति द्वारा अवहट्ठ भाषा ओ मिथिलाक्षर लिपि में लिखित ऐतिहासिक विजयगाथा ओ राजा शिवसिंहक प्रशस्तिपरक ग्रन्थ कोन थिक?", exp: "'कीर्तिलता' ओ 'कीर्तिपताका' ओइन्वार कालीन इतिहास, युद्ध ओ तत्कालीन मिथिलाक सामाजिक विन्यासोक प्रामाणिक साक्ष्य थिक।" },
+                    { name: "कविराज गोविन्ददास", icon: "🪕", q: "विद्यापति के बाद ब्रजबुलि ओ मैथिली पद विन्यास कऽ असम, बंगाल धरि फैलाबय वाला महान मध्यकालीन गीतकार के छलाह?", exp: "कविराज गोविन्ददास विद्यापति उत्तर-कालक सब सँ सशक्त गीतकार छलाह, जिनकर पदावली संगीत ओ दर्शन सँ ओतप्रोत अछि।" },
+                    { name: "उमापति उपाध्याय कृत पारिजातहरण", icon: "🎭", q: "मिथिलाक मध्यकालीन नाट्य परम्परा (कीर्तनिया नाटक) कऽ सर्वोत्कृष्ट मैथिली-संस्कृत मिश्रित उदाहरण कोन थिक?", exp: "उमापति उपाध्याय कृत 'पारिजातहरण' नाटक मिथिलाक पारम्परिक संगीत ओ कीर्तनिया नाट्य विधाक कालजयी स्तम्भ थिक।" }
+                ]
+            },
+            {
+                sectionId: "l_sec3",
+                sectionTitle: "३. आधुनिक काल ओ साहित्यिक पुनर्जागरण (Modern Period Renaissance)",
+                items: [
+                    { name: "कविश्वर चंदा झा", icon: "📖", q: "आधुनिक काल में मैथिली साहित्य कऽ पुनः जागृत करबाक लेल 'मिथिला भाषा रामायण' कऽ ऐतिहासिक रचना के कएने छलाह?", exp: "कविश्वर चंदा झा द्वारा रचित रामायण सँ मैथिली साहित्य में आधुनिक चेतना, शोध ओ भाषाक परिमार्जनक नव युग शुरू भेल।" },
+                    { name: "डॉ. सर गंगानाथ झा", icon: "🎓", q: "मैथिली कऽ आधुनिक विश्वविद्यालय स्तर (अकादमिक स्पेस) पर गौरवपूर्ण स्थान दियाबय में ककर योगदान सर्वोपरि अछि?", exp: "गंगानाथ झा जीक प्रयास सँ इलाहाबाद विश्वविद्यालय ओ कलकत्ता विश्वविद्यालय में मैथिलीक उच्च अकादमिक विमर्श प्रारम्भ भेल।" },
+                    { name: "पण्डित गोविन्द झा", icon: "📚", q: "मैथिली व्याकरण, कोशविज्ञान ओ भाषावैज्ञानिक इतिहासक परिमार्जन करय वाला आधुनिक युगक मूर्धन्य विद्वान के छथि?", exp: "पण्डित गोविन्द झा जी मैथिली भाषाविज्ञान ओ व्याकरणक वैज्ञानिक स्वरूपक सब सँ पैघ आधार छथि।" },
+                    { name: "यात्री (वैद्यनाथ मिश्र नागार्जुन)", icon: "🖋️", q: "मैथिली उपन्यास 'पारो' ओ 'बलचनमा' कऽ माध्यम सँ आधुनिक प्रगतिशील यथार्थवादक शुरुआत के कएने छलाह?", exp: "महाकवि यात्री जी मैथिली ओ हिंदी दुनू में प्रगतिशील यथार्थवादी जन-चेतनाक सर्वोपरि संवाहक छलाह।" }
+                ]
+            },
+            {
+                sectionId: "l_sec4",
+                sectionTitle: "४. विदेह ओ समानांतर साहित्य आन्दोलन (Parallel Literature Movement)",
+                items: [
+                    { name: "विदेह (videha.co.in) - २००८", icon: "🌐", q: "इंटरनेट पर मैथिलीक प्रथम पाक्षिक ई-पत्रिका कऽ रूप में ककर स्थापना भेल जे समानांतर इतिहासक स्तम्भ बनल?", exp: "वर्ष २००८ में विदेहक प्रारम्भ सँ मैथिली वेब पत्रकारिता, यूनिकोड साक्षरता ओ मुफ़्त डिजिटल आर्काइविंगक नव युग शुरू भेल।" },
+                    { name: "कैनन सँ उपेक्षित विधा कऽ परिमार्जन", icon: "📚", q: "विदेह द्वारा संचालित 'समानांतर साहित्य आन्दोलन' कऽ मूल दार्शनिक उद्देश्य की थिक?", exp: "पारम्परिक कैनन (Canon) ओ मठाधीशी सँ उपेक्षित विधाओं, अनुवादों ओ लेखकों कऽ स्वतंत्र ओपेन-एक्सेस मंच उपलब्ध कराबब एकर लक्ष्य अछि।" },
+                    { name: "What The Canon Left Out", icon: "🔎", q: "पारम्परिक इतिहासकार लोकनि जिन साहित्यों कऽ उपेक्षित कएने छलाह, हुनका विदेह द्वारा कोन पुस्तक शृंखलाक तहत गरिमा देल गेल?", exp: "विदेह द्वारा 'What The Canon Left Out' शृंखलाक तहत समानांतर विमर्श कऽ डिजिटल आ प्रिंट स्पेस में स्थापित कएल गेल।" },
+                    { name: "गजेन्द्र ठाकुर", icon: "✍️", q: "मैथिली समानांतर साहित्य आन्दोलन, डिजिटल आर्काइविंग ओ विदेह ई-पत्रिकाक संस्थापक-सम्पादक के छथि?", exp: "गजेन्द्र ठाकुर जी अपन सम्पादन ओ समानांतर पुस्तकालयक माध्यम सँ मैथिली वाङ्मय कऽ लोकतंत्रीकरण कएने छथि।" }
+                ]
+            },
+            {
+                sectionId: "l_sec5",
+                sectionTitle: "५. हाशिएक आवाज ओ अंचिन्हार आखर विमर्श (Subaltern & Dalit Voices)",
+                items: [
+                    { name: "अंचिन्हार आखर आन्दोलन", icon: "📝", q: "मैथिली साहित्यक पारम्परिक विन्यास सँ अलग हाशिएक ओ सबल्टरन चेतना कऽ स्वर देय वाला विशिष्ट काव्य आन्दोलन कोन थिक?", exp: "अंचिन्हार आखर आन्दोलन ओ विदेह डिजिटल मंच द्वारा शोषित, उपेक्षित समाजक यथार्थ कऽ लेखनक केन्द्र में लाबल गेल।" },
+                    { name: "आशीष अंचिन्हार", icon: "🤝", q: "विदेह प्रोजेक्ट्स के साथ सब-एडिटर ओ क्रिएटिव कंसलटेंट कऽ रूप में जुड़ि कऽ समानांतर विमर्श कऽ गति देय वाला लेखक के छथि?", exp: "आशीष अंचिन्हार जी विदेहक विभिन्न समानांतर शोध प्रकल्पों ओ वेब जर्नलिज्मक इतिहास लेखन में सक्रिय सहभागी छथि।" },
+                    { name: "रामानन्द मण्डल ओ लाल देव कामत", icon: "👥", q: "हाशिएक समाजक यथार्थ ओ सबल्टरन चेतना कऽ प्रखरता सँ उठाबय वाला विशिष्ट मैथिली रचनाकार के छथि?", exp: "रामानन्द मण्डल, रमेश, ओ लाल देव कामत जेहन रचनाकारोंक समीक्षा विदेह द्वारा प्रमुखता सँ कएल गेल अछि।" },
+                    { name: "प्रिंट एकाधिकारक अंत ओ डिजिटल लोकतंत्र", icon: "💥", q: "वेब पत्रकारिता ओ विदेहक आगमन सँ मैथिली साहित्यक सामाजिक विन्यास में कोन पैघ लोकतांत्रिक बदलाव भेल?", exp: "वेब पत्रकारिता सँ प्रिंट मीडियाक पारम्परिक एकाधिकार समाप्त भेल आ प्रत्येक वर्गक रचनाकार कऽ समान स्पेस भेटल।" }
+                ]
+            },
+            {
+                sectionId: "l_sec6",
+                sectionTitle: "६. विदेह समानांतर पुस्तकालय ओ अनुवाद (Parallel Library & Translations)",
+                items: [
+                    { name: "तेलुगु, कन्नड़, ओड़िया ओ गुजराती उपन्यास", icon: "🔄", q: "मैथिली साहित्य कऽ विधागत रूप सँ व्यापक बनाबय लेल विदेह द्वारा कतय कऽ सबल्टरन उपन्यासों कऽ अनुवाद कएल गेल?", exp: "दक्षिण भारतीय ओ पूर्वी भारतीय भाषाओंक प्रगतिशील ओ दलित विमर्शक उपन्यासों (जेना- जिगिरी) कऽ मैथिली अनुवाद कएल गेल अछि।" },
+                    { name: "द कॉमेट्स कोमा (The Comet's Coma)", icon: "☄️", q: "समानांतर साहित्यक वैश्विक आदान-प्रदान लेल मैथिली आ अंग्रेजी अनुवादक विशिष्ट प्रकल्प कोन थिक?", exp: "विदेह द्वारा 'द कॉमेट्स कोमा' ओ 'जिगिरी' जेहन कृतियों कऽ बहुभाषीय विमर्शक तहत अनूदित कएल गेल अछि।" },
+                    { name: "विदेह समानांतर पुस्तकालय (Tomes I-IV)", icon: "💾", q: "दुर्लभ ओ उपेक्षित अनूदित साहित्यों कऽ डिजिटल कम्प्यूटरीकृत संग्रह विदेह पर ककर रूप में अछि?", exp: "ई विदेह समानांतर पुस्तकालयक तोम्स (Tomes I-IV) कऽ रूप में ओपेन-एक्सेस डेटाबेसक तहत सुरक्षित अछि।" },
+                    { name: "बहुसांस्कृतिक साहित्यिक विनिमय", icon: "🌍", q: "विदेहक अनुवाद नीतिक मूल ध्येय मैथिली कऽ अन्य क्षेत्रीय भाषाओंक ककर साथ जोड़ब थिक?", exp: "एकर ध्येय मैथिली कऽ अन्य क्षेत्रीय भाषाओंक सबल्टरन ओ जन-आन्दोलनपरक साहित्यों कऽ साथ जोड़ब थिक।" }
+                ]
+            },
+            {
+                sectionId: "l_sec7",
+                sectionTitle: "७. मैथिली वेब पत्रकारिताक इतिहास (Maithili Web Journalism)",
+                items: [
+                    { name: "विदेह (२००८) सँ वेब पत्रकारिताक प्रारम्भ", icon: "💻", q: "मैथिलीक साहित्यिक इतिहास में प्रिंट सँ इतर वेब जर्नलिज्म ओ डिजिटल स्पेसक संस्थागत शुरुआत ककर सँ मानल जाइत अछि?", exp: "२००८ में विदेहक आगमन सँ मैथिली में इंटरनेट आधारित वेब पत्रकारिता ओ ब्लॉगिंगक व्यवस्थित इतिहास शुरू भेल।" },
+                    { name: "यूनिकोड (Unicode) क्रांति", icon: "⚙️", q: "मैथिली वेब पत्रकारिता कऽ लोकव्यापी ओ सुलभ बनाबय में कोन तकनीकी तत्वक योगदान सब सँ पैघ अछि?", exp: "यूनिकोडक प्रयोग सँ देवनागरी ओ मिथिलाक्षर (तिरहुता) में सीधे वेब ब्राउज़र पर खोजनाय ओ लिखनाय सुगम भऽ गेल।" },
+                    { name: "फोंट्स विसंगति ओ आर्थिक संबलक अभाव", icon: "⚠️", q: "मैथिली वेब पत्रकारिताक प्रारंभिक चरण (२००८-२०१२) में सब सँ पैघ ढाँचागत चुनौती की छल?", exp: "शुरुआती दौर में फोंट्सक विसंगति, तकनीकी साक्षरताक कमी, ओ प्रिंट मीडियाक तुलना में आर्थिक संबलक अभाव मुख्य चुनौती छल।" },
+                    { name: "ऑनलाइन स्वतंत्र अभिव्यक्ति", icon: "🚀", q: "वेब पत्रकारिता द्वारा मैथिलीक नवीन पीढ़ी कऽ कोन सबसे पैघ शक्ति प्रदान कएल गेल?", exp: "एहि सँ युवा लेखकों कऽ बिना कोनो मठाधीशीक सेंसरशिप के ऑनलाइन स्वतंत्र अभिव्यक्ति ओ तुरंत प्रकाशनक अधिकार भेटल।" }
+                ]
+            },
+            {
+                sectionId: "l_sec8",
+                sectionTitle: "८. भविष्यक दिशा ओ डिजिटल साक्षरता (Unicode & Digital Literacy)",
+                items: [
+                    { name: "मई २०२२ में मैथिलीक चयन", icon: "🌐", q: "गूगल द्वारा मैथिली भाषा कऽ आधिकारिक रूप सँ गूगल ट्रांसलेट (Google Translate) में कखनिया शामिल कएल गेल छल?", exp: "मई २०२२ में गूगल अपन मशीन ट्रांसलेशन तकनीकक तहत मैथिली कऽ ट्रांसलेट सर्विस में स्थान देलन्हि, जाहि में विदेहक ओपेन कॉर्पसक पैघ भूमिका छल।" },
+                    { name: "मैथिली विकिपीडिया (अक्टूबर २०१४)", icon: "🐣", q: "मैथिली विकिपीडिया विकिमीडिया इन्क्यूबेटर सँ मुक्त भऽ कऽ स्वतंत्र रूप सँ कखनिया लाइव भेल छल?", exp: "अक्टूबर २०१४ में मैथिली संपादकों ओ वॉलंटियर्सक सामूहिक प्रयास सँ मुक्त विश्वकोश कऽ रूप में mai.wikipedia.org लाइव भेल।" },
+                    { name: "बहरे-विदेह (Bahar-e-Videha)", icon: "📊", q: "मैथिली गजलक आंतरिक लय, वजन ओ अरूज़क शास्त्रीय मापदण्ड लेल विदेह द्वारा गढ़ल गेल नवीन मात्रिक छंद की थिक?", exp: "मैथिली गजलक गेयता ओ मात्रा-विभाजन कऽ शुद्ध रखबाक लेल 'बहरे-विदेह' सन नव छन्द ढाँचाक प्रयोग कएल गेल अछि।" },
+                    { name: "विदेह ई-लर्निङ्ग हब (Videha eLearning)", icon: "🎓", q: "मैथिली भाषा, इतिहास, दर्शन ओ लिपिक नवीन पीढ़ी कऽ मुफ़्त ऑनलाइन प्रशिक्षण आ क्विज देय वाला विदेहक प्रकल्प की थिक?", exp: "विदेह ई-लर्निङ्ग हब (videha-elearning.htm) डिजिटल माध्यम सँ ज्ञान कऽ नवीन पीढ़ी धरि पहुँचेबाक अनुपम मंच थिक।" }
+                ]
+            }
+        ];
+
+        let currentActiveSectionIdx = 0;
+        let currentPageNum = 1; 
+        const questionsPerPage = 10; 
+
+        // Core Offline Beep Generator for Interactive Feedback Tones
+        function playKishorChime(statusType) {
+            try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!AudioContext) return;
+                const audioCtx = new AudioContext();
+                const oscillator = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+                oscillator.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+
+                if (statusType === 'correct') {
+                    oscillator.type = 'triangle';
+                    oscillator.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5 note
+                    oscillator.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.1); // E5 note
+                    gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.35);
+                    oscillator.start(); oscillator.stop(audioCtx.currentTime + 0.35);
+                } else {
+                    oscillator.type = 'sawtooth';
+                    oscillator.frequency.setValueAtTime(130.81, audioCtx.currentTime); // C3 note
+                    gainNode.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.25);
+                    oscillator.start(); oscillator.stop(audioCtx.currentTime + 0.25);
+                }
+            } catch (e) { console.log("Audio matrix engine locked."); }
+        }
+
+        // Native HTML5 Web Speech API Synthesis Voice Engine (Offline TTS)
+        function kishorSpeakOutLoud(phraseText) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(phraseText);
+                utterance.lang = 'hi-IN'; // Indian phonetic engine reads Devnagari accurately
+                utterance.rate = 0.88;    
+                utterance.pitch = 1.05;   
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        // Build 8 Navigation Buttons Linearly
+        function renderTabNavigation() {
+            const navContainer = document.getElementById('sections-nav');
+            navContainer.innerHTML = ""; 
+
+            maithiliLiteratureDatabase.forEach((section, idx) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.innerText = section.sectionTitle.split('(')[0].replace(/^\d+\.\s*/, '').trim();
+                
+                if (idx === currentActiveSectionIdx) {
+                    btn.classList.add('active-tab');
+                }
+
+                btn.onclick = () => {
+                    currentActiveSectionIdx = idx;
+                    currentPageNum = 1; 
+                    renderTabNavigation(); 
+                    generateActiveTabContent(); 
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                };
+                navContainer.appendChild(btn);
+            });
+        }
+
+        // Hyper Performance Render Engine: Generates only 10 questions at a time to prevent DOM lagging
+        function generateActiveTabContent() {
+            const workspace = document.getElementById('quiz-workspace');
+            workspace.innerHTML = ""; 
+
+            const section = maithiliLiteratureDatabase[currentActiveSectionIdx];
+
+            const titleHeader = document.createElement('h2');
+            titleHeader.className = 'section-title';
+            titleHeader.innerHTML = `${section.sectionTitle} <span class="lit-badge">१०० ऑडियो-वीडियो प्रश्न लाइव</span>`;
+            workspace.appendChild(titleHeader);
+
+            const startIdx = (currentPageNum - 1) * questionsPerPage + 1;
+            const endIdx = currentPageNum * questionsPerPage;
+
+            // Generate precise pagination slice bounds safely
+            for (let i = startIdx; i <= endIdx; i++) {
+                const dataIndex = (i - 1) % section.items.length;
+                const rawItem = section.items[dataIndex];
+                const inputGroupName = `lit_av_sec_${currentActiveSectionIdx}_q_${i}`;
+
+                const questionCard = document.createElement('div');
+                questionCard.className = 'question-card';
+
+                const questionTextEl = document.createElement('div');
+                questionTextEl.className = 'question-text';
+                questionTextEl.innerText = `प्रश्न ${i}: ${rawItem.q}`;
+                questionCard.appendChild(questionTextEl);
+
+                // Tech-Theme CSS Animation Screen Vector Simulator Component
+                const videoScreen = document.createElement('div');
+                videoScreen.className = 'video-animation-screen';
+                
+                const actor = document.createElement('div');
+                actor.className = 'video-actor-character';
+                actor.innerText = rawItem.icon; 
+                videoScreen.appendChild(actor);
+                questionCard.appendChild(videoScreen);
+
+                // Audio speech button
+                const readBtn = document.createElement('button');
+                readBtn.className = 'audio-trigger-btn';
+                readBtn.type = 'button';
+                readBtn.innerHTML = `🔊 आवाज सुन्नू (Listen)`;
+                readBtn.onclick = () => { kishorSpeakOutLoud(`प्रश्न ${i}. ${rawItem.q}`); };
+                questionCard.appendChild(readBtn);
+
+                const choicesBox = document.createElement('div');
+                choicesBox.className = 'options-container';
+
+                const generatedOptions = [];
+                generatedOptions.push(rawItem.name); // Correct option locked at index 0
+
+                let peerIndex = 1;
+                let safetyCounter = 0;
+                while (generatedOptions.length < 4 && safetyCounter < 40) {
+                    safetyCounter++;
+                    const siblingItem = section.items[(dataIndex + peerIndex) % section.items.length];
+                    if (siblingItem && !generatedOptions.includes(siblingItem.name)) {
+                        generatedOptions.push(siblingItem.name);
+                    }
+                    peerIndex++;
+                }
+
+                // Crash proof fallbacks shield
+                const fallbacks = ["विद्यापति पदावली विन्यास", "मिथिला भाषा रामायण", "यूनिकोड तिरहुता चार्ट", "समानान्तर गद्य संकलन"];
+                let fbIdx = 0;
+                while (generatedOptions.length < 4) {
+                    if (!generatedOptions.includes(fallbacks[fbIdx])) {
+                        generatedOptions.push(fallbacks[fbIdx]);
+                    }
+                    fbIdx++;
+                }
+
+                // Predictable Shuffle logic based on question index i
+                const dynamicSeedShift = (i * 47) % 4;
+                const correctChoiceIndex = dynamicSeedShift;
+
+                const tempSwap = generatedOptions[0];
+                generatedOptions[0] = generatedOptions[correctChoiceIndex];
+                generatedOptions[correctChoiceIndex] = tempSwap;
+
+                generatedOptions.forEach((optionText, optionIdx) => {
+                    const labelContainer = document.createElement('label');
+                    labelContainer.className = 'option-label';
+
+                    const radioInput = document.createElement('input');
+                    radioInput.type = 'radio';
+                    radioInput.name = inputGroupName;
+                    radioInput.value = optionIdx;
+
+                    // Real-time visual feedback matrix execution
+                    radioInput.addEventListener('change', () => {
+                        evaluateTeenDynamicChoice(inputGroupName, optionIdx, correctChoiceIndex, questionCard);
+                    });
+
+                    labelContainer.appendChild(radioInput);
+                    labelContainer.appendChild(document.createTextNode(optionText));
+                    choicesBox.appendChild(labelContainer);
+                });
+
+                questionCard.appendChild(choicesBox);
+
+                const explanationBox = document.createElement('div');
+                explanationBox.className = 'explanation-box';
+                explanationBox.id = `exp_${inputGroupName}`;
+                explanationBox.innerHTML = `<strong>विदेह साहित्य विमर्श समीक्षा:</strong> ${rawItem.exp}`;
+                questionCard.appendChild(explanationBox);
+
+                workspace.appendChild(questionCard);
+            }
+
+            // Pagination Bar Controllers
+            const paginationBar = document.createElement('div');
+            paginationBar.className = 'pagination-bar';
+
+            const prevBtn = document.createElement('button');
+            prevBtn.className = 'page-btn';
+            prevBtn.innerText = "← पिछला पृष्ठ (Prev)";
+            prevBtn.disabled = (currentPageNum === 1);
+            prevBtn.onclick = () => { currentPageNum--; generateActiveTabContent(); window.scrollTo({ top: 0, behavior: 'smooth' }); };
+
+            const pageInfo = document.createElement('span');
+            pageInfo.className = 'page-info';
+            pageInfo.innerText = `पृष्ठ ${currentPageNum} / १० (प्रश्न ${startIdx}-${endIdx})`;
+
+            const nextBtn = document.createElement('button');
+            nextBtn.className = 'page-btn';
+            nextBtn.innerText = "अगिला पृष्ठ (Next) →";
+            nextBtn.disabled = (currentPageNum === 10);
+            nextBtn.onclick = () => { currentPageNum++; generateActiveTabContent(); window.scrollTo({ top: 0, behavior: 'smooth' }); };
+
+            paginationBar.appendChild(prevBtn); paginationBar.appendChild(pageInfo); paginationBar.appendChild(nextBtn);
+            workspace.appendChild(paginationBar);
+        }
+
+        // Green / Red Evaluation Tracker Engine Matrix
+        function evaluateTeenDynamicChoice(inputGroupName, userSelection, trueIndex, scopeElement) {
+            const optionLabels = scopeElement.querySelectorAll('.option-label');
+            const targetExplanation = scopeElement.querySelector(`#exp_${inputGroupName}`);
+
+            const isCorrect = (userSelection === trueIndex);
+            if (isCorrect) {
+                playKishorChime('correct'); kishorSpeakOutLoud("सत्य उत्तर अछि।");
+            } else {
+                playKishorChime('incorrect'); kishorSpeakOutLoud("त्रुटिपूर्ण उत्तर, पुनः प्रयास करू।");
+            }
+
+            optionLabels.forEach((label, currentIdx) => {
+                const innerRadio = label.querySelector('input');
+                if (innerRadio) innerRadio.disabled = true; // Lock choice rows instantly
+
+                if (currentIdx === trueIndex) {
+                    label.classList.add('correct-choice'); // Assign Green
+                } else if (currentIdx === userSelection && userSelection !== trueIndex) {
+                    label.classList.add('incorrect-choice'); // Assign Red
+                }
+            });
+
+            if (targetExplanation) { targetExplanation.style.display = 'block'; }
+        }
+
+        // Initialize script architecture on window load
+        window.onload = function() { renderTabNavigation(); generateActiveTabContent(); };
+    </script>
+</body>
+</html>

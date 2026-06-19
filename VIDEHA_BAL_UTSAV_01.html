@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>विदेह ई-लर्निङ्ग क्विज | Videha eLearning Quiz</title>
+    <style>
+        :root {
+            --navy-blue: #002060;
+            --light-navy: #1e3d75;
+            --correct-green: #2e7d32;
+            --correct-bg: #e8f5e9;
+            --incorrect-red: #c62828;
+            --incorrect-bg: #ffebee;
+            --text-color: #333;
+            --bg-color: #f4f6f9;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Pinned Header Configuration */
+        header {
+            background-color: var(--navy-blue);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            text-align: center;
+            padding: 15px 10px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.4rem;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        /* Pinned Section Navigation Links */
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 12px;
+            background: var(--light-navy);
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .section-container {
+            background: #fff;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            scroll-margin-top: 140px; /* Offset for sticky header */
+            border-left: 5px solid var(--navy-blue);
+        }
+
+        .section-title {
+            color: var(--navy-blue);
+            font-size: 1.6rem;
+            margin-top: 0;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        .question-card {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .question-card:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .question-text {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .options-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        @media(min-width: 600px) {
+            .options-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .option-label {
+            display: block;
+            background: #f8f9fa;
+            border: 1px solid #ced4da;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .option-label:hover {
+            background: #e9ecef;
+            border-color: #b0b3b8;
+        }
+
+        .option-label input {
+            margin-right: 10px;
+        }
+
+        /* Instant Evaluation Classes */
+        .option-label.correct-choice {
+            background-color: var(--correct-bg) !important;
+            border-color: var(--correct-green) !important;
+            color: var(--correct-green) !important;
+            font-weight: bold;
+        }
+
+        .option-label.incorrect-choice {
+            background-color: var(--incorrect-bg) !important;
+            border-color: var(--incorrect-red) !important;
+            color: var(--incorrect-red) !important;
+        }
+
+        .explanation-box {
+            margin-top: 12px;
+            padding: 12px;
+            border-radius: 5px;
+            background-color: #f0f4f8;
+            border-left: 4px solid var(--light-navy);
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        /* Footer & Navigation Controls */
+        .controls-panel {
+            text-align: center;
+            margin: 40px 0 20px 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--navy-blue);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #ff5722;
+        }
+
+        footer {
+            background-color: var(--navy-blue);
+            color: #fff;
+            text-align: center;
+            padding: 20px 10px;
+            margin-top: 50px;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Videha QUIZ | विदेह ई-लर्निङ्ग क्विज Videha eLearning Quiz Videha — First Maithili Fortnightly eJournal | www.videha.co.in</h1>
+        <div class="nav-links" id="sections-nav">
+            </div>
+    </header>
+
+    <div class="container" id="quiz-workspace">
+        </div>
+
+    <div class="controls-panel">
+        <a href="https://www.videha.co.in/videha-elearning.htm" class="back-link">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+    </div>
+
+    <footer>
+        © Gajendra Thakur, Editor — Videha eJournal
+    </footer>
+
+    <script>
+        // Data Structure designed to scale up to 10,000 items seamlessly.
+        // अहाँ एहि एरे में अपन सम्पूर्ण डेटाबेस कऽ विस्तारित कऽ सकैत छी।
+        const quizData = [
+            {
+                sectionId: "sec1",
+                sectionTitle: "१. इतिहास (History)",
+                questions: [
+                    {
+                        id: "q1_1",
+                        q: "मिथिलाक कर्नाट वंशक संस्थापक के छलाह?",
+                        options: ["हरिसिंहदेव", "नान्यदेव", "गांगेयदेव", "मल्लिकार्जुन"],
+                        correct: 1,
+                        exp: "कर्नाट वंशक स्थापना नान्यदेव द्वारा १०९७ ईस्वी में कएल गेल छल।"
+                    },
+                    {
+                        id: "q1_2",
+                        q: "तिरहुत पर गयासुद्दीन तुगलकक आक्रमण ककर काल में भेल छल?",
+                        options: ["नान्यदेव", "नरसिंहदेव", "हरिसिंहदेव", "शिवसिंह"],
+                        correct: 2,
+                        exp: "१३२४-२५ ई. में गयासुद्दीन तुगलकक आक्रमण काल में मिथिलाक राजा हरिसिंहदेव छलाह।"
+                    }
+                ]
+            },
+            {
+                sectionId: "sec2",
+                sectionTitle: "२. भूगोल (Geography)",
+                questions: [
+                    {
+                        id: "q2_1",
+                        q: "कोशी नदीक उद्गम स्थल कतय अछि?",
+                        options: ["अमरकंटक", "सप्तकोशिकी (नेपाल)", "छोटा नागपुर", "रोहतास"],
+                        correct: 1,
+                        exp: "कोशी नदीक मुख्य धारा हिमालय सँ निकसि कऽ नेपालक सप्तकोशिकी सँ होइत मैदान में आबैत अछि।"
+                    }
+                ]
+            },
+            {
+                sectionId: "sec3",
+                sectionTitle: "३. मैथिली साहित्य ओ संस्कृति (Literature & Culture)",
+                questions: [
+                    {
+                        id: "q3_1",
+                        q: "मैथिली साहित्यक आदिकवि ककरा मानल जाइत अछि?",
+                        options: ["चंदा झा", "गोविन्ददास", "विद्यापति", "ज्योतिरीश्वर"],
+                        correct: 2,
+                        exp: "महाकवि विद्यापति कऽ मैथिली साहित्यक आदिकवि ओ सर्वोपरि स्तम्भ मानल जाइत अछि।"
+                    },
+                    {
+                        id: "q3_2",
+                        q: "वर्ण रत्नाकरक रचयिता के छथि?",
+                        options: ["विद्यापति", "ज्योतिरीश्वर ठाकुर", "भानुनाथ", "चंदा झा"],
+                        correct: 1,
+                        exp: "ज्योतिरीश्वर ठाकुर द्वारा रचित 'वर्ण रत्नाकर' मैथिली ओ गद्य विधाक प्राचीनतम उपलब्ध ग्रन्थ थिक।"
+                    }
+                ]
+            },
+            {
+                sectionId: "sec4",
+                sectionTitle: "४. विज्ञान ओ प्रौद्योगिकी (Science & Tech)",
+                questions: [
+                    {
+                        id: "q4_1",
+                        q: "जलक रासायनिक सूत्र की थिक?",
+                        options: ["CO2", "H2O", "O2", "NaCl"],
+                        correct: 1,
+                        exp: "हाइड्रोजनक दू अणु ओ ऑक्सीजनक एक अणु मिलि कऽ जल (H2O) बनबैत अछि।"
+                    }
+                ]
+            },
+            {
+                sectionId: "sec5",
+                sectionTitle: "५. भारतीय संविधान ओ राजनीति (Polity)",
+                questions: [
+                    {
+                        id: "q5_1",
+                        q: "भारतीय संविधानक प्रारूप समितिक अध्यक्ष के छलाह?",
+                        options: ["डॉ. राजेन्द्र प्रसाद", "जवाहरलाल नेहरू", "डॉ. बी.आर. अम्बेडकर", "सच्चिदानन्द सिन्हा"],
+                        correct: 2,
+                        exp: "डॉ. भीमराव अम्बेडकर प्रारूप समिति (Drafting Committee) कऽ अध्यक्ष छलाह।"
+                    }
+                ]
+            },
+            {
+                sectionId: "sec6",
+                sectionTitle: "६. अर्थशास्त्र (Economics)",
+                questions: [
+                    {
+                        id: "q6_1",
+                        q: "भारतक केन्द्रीय बैंक कोन थिक?",
+                        options: ["भारतीय स्टेट बैंक", "भारतीय रिजर्व बैंक", "पंजाब नेशनल बैंक", "नाबार्ड"],
+                        correct: 1,
+                        exp: "भारतीय रिजर्व बैंक (RBI) भारतक केन्द्रीय बैंक थिक जे मौद्रिक नीतिक संचालन करैत अछि।"
+                    }
+                ]
+            },
+            {
+                sectionId: "sec7",
+                sectionTitle: "७. खेल-कूद (Sports)",
+                questions: [
+                    {
+                        id: "q7_1",
+                        q: "भारत पहिल बेर एकदिवसीय क्रिकेट विश्व कप कखनिया जितने छल?",
+                        options: ["१९८३", "२०११", "२००३", "१९९९"],
+                        correct: 0,
+                        exp: "कपिल देवक कप्तानी में भारत १९८३ में वेस्टइंडीज कऽ हरा कऽ पहिल विश्व कप जितने छल।"
+                    }
+                ]
+            },
+            {
+                sectionId: "sec8",
+                sectionTitle: "८. विविध सामान्य ज्ञान (General Knowledge)",
+                questions: [
+                    {
+                        id: "q8_1",
+                        q: "क्षेत्रफलक दृष्टिकोण सँ विश्वक सब सँ पैघ देश कोन थिक?",
+                        options: ["कनाडा", "चीन", "रूस", "अमेरिका"],
+                        correct: 2,
+                        exp: "रूस क्षेत्रफलक दृष्टिकोण सँ विश्वक सब सँ विशाल देश थिक।"
+                    }
+                ]
+            }
+        ];
+
+        // Function to build dynamic content and layout links
+        function initQuiz() {
+            const navContainer = document.getElementById('sections-nav');
+            const quizWorkspace = document.getElementById('quiz-workspace');
+
+            quizData.forEach(sec => {
+                // 1. Append navigation layout
+                const navLink = document.createElement('a');
+                navLink.href = `#${sec.sectionId}`;
+                navLink.innerText = sec.sectionTitle.split('(')[0].trim();
+                navContainer.appendChild(navLink);
+
+                // 2. Append Section Container
+                const sectionEl = document.createElement('div');
+                sectionEl.id = sec.sectionId;
+                sectionEl.className = 'section-container';
+
+                const titleEl = document.createElement('h2');
+                titleEl.className = 'section-title';
+                titleEl.innerText = sec.sectionTitle;
+                sectionEl.appendChild(titleEl);
+
+                // 3. Append Questions within Section
+                sec.questions.forEach((qItem, index) => {
+                    const qCard = document.createElement('div');
+                    qCard.className = 'question-card';
+                    
+                    const qText = document.createElement('div');
+                    qText.className = 'question-text';
+                    qText.innerText = `प्रश्न ${index + 1}: ${qItem.q}`;
+                    qCard.appendChild(qText);
+
+                    const optionsDiv = document.createElement('div');
+                    optionsDiv.className = 'options-container';
+
+                    qItem.options.forEach((opt, optIdx) => {
+                        const label = document.createElement('label');
+                        label.className = 'option-label';
+                        
+                        const radio = document.createElement('input');
+                        radio.type = 'radio';
+                        radio.name = qItem.id;
+                        radio.value = optIdx;
+                        
+                        // Action listener for instant check
+                        radio.addEventListener('change', () => evaluateAnswer(qItem.id, optIdx, qItem.correct, qCard));
+
+                        label.appendChild(radio);
+                        label.appendChild(document.createTextNode(` ${opt}`));
+                        optionsDiv.appendChild(label);
+                    });
+
+                    qCard.appendChild(optionsDiv);
+
+                    // Explanation block declaration
+                    const expDiv = document.createElement('div');
+                    expDiv.className = 'explanation-box';
+                    expDiv.id = `exp_${qItem.id}`;
+                    expDiv.innerHTML = `<strong>व्याख्या:</strong> ${qItem.exp}`;
+                    qCard.appendChild(expDiv);
+
+                    sectionEl.appendChild(qCard);
+                });
+
+                quizWorkspace.appendChild(sectionEl);
+            });
+        }
+
+        // Logic for Instant Evaluation (Green/Red feedback loop)
+        function evaluateAnswer(questionId, selectedIdx, correctIdx, cardElement) {
+            const labels = cardElement.querySelectorAll('.option-label');
+            const expBox = cardElement.querySelector(`#exp_${questionId}`);
+            
+            labels.forEach((label, idx) => {
+                // Disable subsequent inputs for this question to prevent modification
+                const input = label.querySelector('input');
+                if(input) input.disabled = true;
+
+                // Color execution logic
+                if (idx === correctIdx) {
+                    label.classList.add('correct-choice');
+                } else if (idx === selectedIdx && selectedIdx !== correctIdx) {
+                    label.classList.add('incorrect-choice');
+                }
+            });
+
+            // Instant display of explanation text block
+            if(expBox) {
+                expBox.style.display = 'block';
+            }
+        }
+
+        // Run Setup script
+        window.onload = initQuiz;
+    </script>
+</body>
+</html>

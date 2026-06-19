@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>विदेह ई-लर्निङ्ग क्विज — बाल साहित्य</title>
+<style>
+  :root{
+    --navy:#0a1f44; --navy2:#0e2a5c; --navy3:#13356f;
+    --gold:#c49a3c; --gold-hi:#e6c766;
+    --cream:#FAF6EE; --ink:#1a1a1a; --grey:#5a5a5a;
+    --green:#1c7a3e; --green-bg:#e4f4ea; --green-bd:#2e9b57;
+    --red:#9b1c1c; --red-bg:#fbe8e8; --red-bd:#c44;
+    --crimson:#8B1A1A;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--cream); color:var(--ink);
+    font-family:"Noto Serif Devanagari","Tiro Devanagari Hindi","Mangal","Kokila",serif;
+    line-height:1.85; -webkit-text-size-adjust:100%;
+  }
+  :lang(mai){line-height:1.95;}
+
+  /* ---------- HEADER ---------- */
+  header.qhead{
+    background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 55%,var(--navy3) 100%);
+    color:var(--cream); text-align:center; padding:26px 16px 22px;
+    border-bottom:4px solid var(--gold);
+  }
+  .qhead .line1{font-size:1.9rem; font-weight:700; letter-spacing:.5px; color:#fff;}
+  .qhead .line1 .en{color:var(--gold-hi); font-weight:600;}
+  .qhead .line2{font-size:1.15rem; color:var(--gold-hi); margin-top:4px; letter-spacing:1px;}
+  .qhead .line3{font-size:.95rem; color:#d9e2f1; margin-top:8px;}
+  .qhead .line3 a{color:#fff; text-decoration:none; border-bottom:1px dotted var(--gold);}
+  .qhead .topic{
+    display:inline-block; margin-top:14px; padding:6px 18px;
+    background:rgba(196,154,60,.18); border:1px solid var(--gold);
+    border-radius:30px; color:var(--gold-hi); font-size:1.05rem; font-weight:600;
+  }
+
+  /* ---------- NAV ---------- */
+  nav.qnav{
+    position:sticky; top:0; z-index:20;
+    background:var(--navy2); border-bottom:2px solid var(--gold);
+    display:flex; flex-wrap:wrap; gap:6px; justify-content:center;
+    padding:9px 10px; box-shadow:0 2px 8px rgba(0,0,0,.15);
+  }
+  nav.qnav a{
+    color:var(--cream); text-decoration:none; font-size:.92rem;
+    padding:5px 13px; border-radius:20px; background:rgba(255,255,255,.07);
+    border:1px solid transparent; transition:.15s;
+  }
+  nav.qnav a:hover{background:var(--gold); color:var(--navy); border-color:var(--gold-hi);}
+
+  /* ---------- SCOREBAR ---------- */
+  .scorebar{
+    position:sticky; top:46px; z-index:15;
+    background:var(--cream); border-bottom:1px solid #e3d9c2;
+    display:flex; flex-wrap:wrap; gap:14px; justify-content:center; align-items:center;
+    padding:9px 12px; font-size:.95rem;
+  }
+  .scorebar .pill{
+    background:#fff; border:1px solid #e1d6bd; border-radius:20px;
+    padding:4px 14px; color:var(--navy); font-weight:600;
+  }
+  .scorebar .pill b{color:var(--crimson);}
+  .progress-wrap{flex:1 1 220px; max-width:340px; height:11px; background:#e9e0cd;
+    border-radius:8px; overflow:hidden; border:1px solid #ddd0b3;}
+  .progress-bar{height:100%; width:0; background:linear-gradient(90deg,var(--gold),var(--crimson));
+    transition:width .3s;}
+
+  /* ---------- LAYOUT ---------- */
+  main{max-width:880px; margin:0 auto; padding:22px 16px 60px;}
+  .intro{
+    background:#fff; border:1px solid #e7ddc6; border-left:5px solid var(--gold);
+    border-radius:8px; padding:14px 18px; margin-bottom:26px; color:var(--grey);
+    font-size:.97rem;
+  }
+  section.grp{margin-bottom:34px;}
+  section.grp > h2{
+    color:#fff; background:linear-gradient(100deg,var(--navy) 0%,var(--navy3) 100%);
+    padding:10px 16px; border-radius:8px 8px 0 0; font-size:1.25rem;
+    border-bottom:3px solid var(--gold); margin:0;
+  }
+  .grp-body{
+    background:#fff; border:1px solid #e7ddc6; border-top:none;
+    border-radius:0 0 8px 8px; padding:6px 16px 14px;
+  }
+
+  /* ---------- QUESTION ---------- */
+  .q{padding:16px 2px 8px; border-bottom:1px dashed #e6dcc4;}
+  .q:last-child{border-bottom:none;}
+  .q .qtext{font-weight:600; margin-bottom:10px; font-size:1.04rem;}
+  .q .qtext .num{
+    display:inline-block; min-width:30px; color:var(--crimson); font-weight:700;
+  }
+  .opts{list-style:none; margin:0; padding:0;}
+  .opts li{
+    margin:7px 0; padding:9px 14px; border:1px solid #d9cfb6; border-radius:8px;
+    cursor:pointer; background:#fcfaf4; transition:.12s; position:relative;
+    font-size:1rem;
+  }
+  .opts li:hover{background:#f3ecd9; border-color:var(--gold);}
+  .opts li.correct{background:var(--green-bg); border-color:var(--green-bd); color:var(--green); font-weight:600;}
+  .opts li.wrong{background:var(--red-bg); border-color:var(--red-bd); color:var(--red); font-weight:600;}
+  .opts li.locked{cursor:default;}
+  .opts li.correct::after{content:"✔"; position:absolute; right:14px; color:var(--green);}
+  .opts li.wrong::after{content:"✘"; position:absolute; right:14px; color:var(--red);}
+  .explain{
+    margin-top:10px; padding:11px 14px; border-radius:8px; display:none;
+    font-size:.96rem; line-height:1.8;
+  }
+  .explain.show{display:block;}
+  .explain.ok{background:var(--green-bg); border:1px solid var(--green-bd); color:#14502a;}
+  .explain.no{background:var(--red-bg); border:1px solid var(--red-bd); color:#6e1414;}
+  .explain b{color:inherit;}
+
+  /* ---------- CONTROLS ---------- */
+  .controls{text-align:center; margin:30px 0 10px;}
+  button.btn{
+    font-family:inherit; font-size:1.08rem; font-weight:700; cursor:pointer;
+    padding:12px 30px; border-radius:30px; border:none; margin:6px;
+  }
+  .btn-eval{background:linear-gradient(120deg,var(--navy),var(--navy3)); color:#fff;
+    border:2px solid var(--gold);}
+  .btn-eval:hover{background:var(--gold); color:var(--navy);}
+  .btn-reset{background:#fff; color:var(--crimson); border:2px solid var(--crimson);}
+  .btn-reset:hover{background:var(--crimson); color:#fff;}
+
+  .result{
+    display:none; margin:22px auto 0; max-width:560px; text-align:center;
+    background:#fff; border:2px solid var(--gold); border-radius:12px; padding:20px;
+  }
+  .result.show{display:block;}
+  .result h3{color:var(--navy); margin:0 0 8px;}
+  .result .big{font-size:2.4rem; font-weight:800; color:var(--crimson); margin:6px 0;}
+  .result .sub{color:var(--grey); font-size:.95rem;}
+  .result .grade{font-size:1.2rem; font-weight:700; margin-top:6px;}
+  .sectionscores{text-align:left; margin:14px auto 0; max-width:440px; font-size:.93rem;}
+  .sectionscores div{display:flex; justify-content:space-between; padding:4px 0;
+    border-bottom:1px dotted #e0d6bf;}
+
+  .backhub{text-align:center; margin:26px 0 6px;}
+  .backhub a{
+    color:var(--navy); font-weight:700; text-decoration:none; font-size:1.05rem;
+    border-bottom:2px solid var(--gold); padding-bottom:2px;
+  }
+  .backhub a:hover{color:var(--crimson);}
+
+  /* ---------- FOOTER ---------- */
+  footer.qfoot{
+    background:linear-gradient(160deg,var(--navy3),var(--navy)); color:var(--cream);
+    text-align:center; padding:20px 14px; border-top:4px solid var(--gold);
+    font-size:.98rem;
+  }
+  footer.qfoot .em{color:var(--gold-hi); font-weight:600;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:600px){
+    .qhead .line1{font-size:1.4rem;}
+    .qhead .line2{font-size:1rem;}
+    .scorebar{top:42px;}
+    main{padding:16px 10px 50px;}
+    .opts li{font-size:.96rem;}
+  }
+  /* ---------- PRINT ---------- */
+  @media print{
+    nav.qnav,.scorebar,.controls,.btn,.progress-wrap{display:none !important;}
+    .explain{display:block !important; border:1px solid #999;}
+    body{background:#fff;}
+    .opts li{break-inside:avoid;}
+    header.qhead,footer.qfoot{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  }
+</style>
+</head>
+<body>
+
+<header class="qhead">
+  <div class="line1">Videha QUIZ | <span>विदेह ई-लर्निङ्ग क्विज</span></div>
+  <div class="line2">Videha eLearning Quiz</div>
+  <div class="line3">Videha — First Maithili Fortnightly eJournal | <a href="https://www.videha.co.in" target="_blank" rel="noopener">www.videha.co.in</a></div>
+  <div class="topic">बाल साहित्य — मैथिली प्रश्नोत्तरी</div>
+</header>
+
+<nav class="qnav" aria-label="खण्ड सूची">
+  <a href="#g1">खण्ड १ : मूल परिचय</a>
+  <a href="#g2">खण्ड २ : रचना आ रचनाकार</a>
+  <a href="#g3">खण्ड ३ : लोककथा आ परम्परा</a>
+  <a href="#g4">खण्ड ४ : विदेह आ आधुनिक काल</a>
+  <a href="#g5">खण्ड ५ : उन्नत प्रश्न</a>
+</nav>
+
+<div class="scorebar">
+  <span class="pill">उत्तरित : <b id="answered">0</b> / <span id="total">0</span></span>
+  <span class="pill">सही : <b id="correct">0</b></span>
+  <span class="pill">अंक : <b id="score">0</b></span>
+  <div class="progress-wrap"><div class="progress-bar" id="pbar"></div></div>
+</div>
+
+<main>
+  <div class="intro">
+    ई प्रश्नोत्तरी मैथिली <b>बाल साहित्य</b> पर आधारित अछि — एहिमे बाल कविता, कथा, पत्रिका,
+    लोककथा, खेल-गीत आ आधुनिक बाल-लेखन समेटल गेल अछि। प्रत्येक प्रश्नक चारि विकल्प अछि।
+    कोनो विकल्प पर क्लिक करिते <b style="color:var(--green)">हरियर</b> रंग सही आ
+    <b style="color:var(--red)">लाल</b> रंग गलत उत्तर देखाओत, संगहि व्याख्या खुजि जाएत।
+    अन्तमे <b>मूल्यांकन</b> बटन दबा कऽ अपन अंक देखू।
+  </div>
+
+  <!-- ================= GROUP 1 ================= -->
+  <section class="grp" id="g1">
+    <h2>खण्ड १ : मूल परिचय</h2>
+    <div class="grp-body" data-section="मूल परिचय"></div>
+  </section>
+
+  <!-- ================= GROUP 2 ================= -->
+  <section class="grp" id="g2">
+    <h2>खण्ड २ : रचना आ रचनाकार</h2>
+    <div class="grp-body" data-section="रचना आ रचनाकार"></div>
+  </section>
+
+  <!-- ================= GROUP 3 ================= -->
+  <section class="grp" id="g3">
+    <h2>खण्ड ३ : लोककथा आ परम्परा</h2>
+    <div class="grp-body" data-section="लोककथा आ परम्परा"></div>
+  </section>
+
+  <!-- ================= GROUP 4 ================= -->
+  <section class="grp" id="g4">
+    <h2>खण्ड ४ : विदेह आ आधुनिक काल</h2>
+    <div class="grp-body" data-section="विदेह आ आधुनिक काल"></div>
+  </section>
+
+  <!-- ================= GROUP 5 ================= -->
+  <section class="grp" id="g5">
+    <h2>खण्ड ५ : उन्नत प्रश्न</h2>
+    <div class="grp-body" data-section="उन्नत प्रश्न"></div>
+  </section>
+
+  <div class="controls">
+    <button class="btn btn-eval" id="evalBtn">मूल्यांकन / प्रश्नोत्तरी जमा करू</button>
+    <button class="btn btn-reset" id="resetBtn">फेर सँ आरम्भ करू</button>
+  </div>
+
+  <div class="result" id="result">
+    <h3>अहाँक परिणाम</h3>
+    <div class="big"><span id="rScore">0</span> / <span id="rTotal">0</span></div>
+    <div class="sub">सही उत्तर : <span id="rCorrect">0</span> · प्रतिशत : <span id="rPct">0</span>%</div>
+    <div class="grade" id="rGrade"></div>
+    <div class="sectionscores" id="rSections"></div>
+  </div>
+
+  <div class="backhub">
+    <a href="https://www.videha.co.in/videha-elearning.htm">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+  </div>
+</main>
+
+<footer class="qfoot">
+  <div>© <span class="em">Gajendra Thakur</span>, Editor — Videha eJournal</div>
+  <div style="margin-top:6px; font-size:.88rem; color:#c9d4e8;">विदेह — प्रथम मैथिली पाक्षिक ई पत्रिका · ISSN 2229-547X</div>
+</footer>
+
+<script>
+/* ===== प्रश्न-समूह (पूर्ण मैथिली) =====
+   प्रत्येक प्रश्न : { q, opts[4], a (सही सूचकांक), exp (व्याख्या — अपन शब्दमे) } */
+const QUIZ = {
+ "मूल परिचय":[
+  {q:"बाल साहित्य कोन वयक पाठक लेल मुख्यतः लिखल जाइत अछि?",
+   opts:["वृद्ध जन","बच्चा सभ","विद्वान","केवल शिक्षक"],a:1,
+   exp:"बाल साहित्य ओहि रचना सभकेँ कहल जाइत अछि जे विशेष रूपें बच्चा सभक रुचि, बोध आ कल्पना केँ ध्यानमे राखि लिखल जाइत अछि।"},
+  {q:"बाल साहित्यक भाषा सामान्यतः कोना होएबाक चाही?",
+   opts:["जटिल आ कठिन","सरल आ सुबोध","केवल संस्कृतनिष्ठ","विदेशी शब्दसँ भरल"],a:1,
+   exp:"बच्चा सभ सहजताक संग बुझि सकय, ताहि लेल बाल साहित्यक भाषा सरल, चित्रमय आ लयदार राखल जाइत अछि।"},
+  {q:"निम्नमे सँ कोन बाल साहित्यक प्रमुख विधा थिक?",
+   opts:["शोध-निबन्ध","बाल कविता आ कथा","विधिक दस्तावेज","वित्तीय विवरण"],a:1,
+   exp:"बाल कविता, बाल कथा, पहेली, खेल-गीत आ चित्रकथा — ई सभ बाल साहित्यक मुख्य अंग थिक।"},
+  {q:"बाल गीतमे प्रायः कोन तत्त्व प्रमुख रहैत अछि?",
+   opts:["गहन दर्शन","लय आ तुकबन्दी","आँकड़ा","विधिक तर्क"],a:1,
+   exp:"बच्चाकेँ सहजहि कण्ठस्थ भऽ जाय, ताहि लेल बाल गीतमे लय, तुक आ पुनरावृत्ति मुख्य रहैत अछि।"},
+  {q:"‘चित्रकथा’ सँ की बुझल जाइत अछि?",
+   opts:["केवल चित्र","केवल शब्द","चित्र आ कथाक संयोग","गणितक सूत्र"],a:2,
+   exp:"चित्रकथामे कथा शब्द आ चित्र दुनूक संग कहल जाइत अछि, जाहिसँ छोट बच्चो कथा बुझि सकैत अछि।"},
+  {q:"पहेली (हियाली) बाल साहित्यमे किएक राखल जाइत अछि?",
+   opts:["डर देखाबय लेल","बुद्धि आ तर्क बढ़ाबय लेल","समय बितेबा लेल","केवल सजावट लेल"],a:1,
+   exp:"पहेली बच्चाक सोचबाक, अनुमान लगेबाक आ तर्क करबाक क्षमता केँ खेल-खेलमे बढ़बैत अछि।"},
+  {q:"बाल साहित्यमे ‘नैतिक शिक्षा’क उद्देश्य प्रायः की रहैत अछि?",
+   opts:["केवल मनोरंजन","अच्छाई-बुराईक बोध","भाषा बिगाड़ब","परीक्षा लेब"],a:1,
+   exp:"कथा-कहानीक माध्यमसँ बच्चाकेँ सत्य, परिश्रम, दया जेहन मूल्यक बोध सहजहि भऽ जाइत अछि।"},
+  {q:"मैथिली बाल साहित्यक रचना कोन लिपिमे प्रायः छपैत अछि?",
+   opts:["रोमन","देवनागरी (आ तिरहुता)","ब्राह्मी","खरोष्ठी"],a:1,
+   exp:"आधुनिक मैथिली बाल साहित्य मुख्यतः देवनागरीमे छपैत अछि, जखन कि परम्परागत लिपि तिरहुता (मिथिलाक्षर) सेहो अछि।"},
+ ],
+ "रचना आ रचनाकार":[
+  {q:"मैथिलीमे बच्चा सभ लेल लिखल गेल छन्दबद्ध गीत-संग्रहकेँ सामान्यतः की कहल जाइत अछि?",
+   opts:["बालगीत-संग्रह","विधि-संहिता","वंशावली","पंचांग"],a:0,
+   exp:"बच्चा लेल रचल लयबद्ध गीत सभक संग्रहकेँ बालगीत-संग्रह कहल जाइत अछि।"},
+  {q:"बाल कथामे नायक प्रायः कोन प्रकारक राखल जाइत अछि?",
+   opts:["भयानक","बच्चा सभ जकरासँ जुड़ि सकय एहन","केवल राजा","अमूर्त"],a:1,
+   exp:"बच्चा अपनाकेँ कथासँ जोड़ि सकय, ताहि लेल नायक प्रायः बच्चा, पशु-पक्षी वा सहज पात्र होइत अछि।"},
+  {q:"पशु-पात्र बला कथा (जेना बानर, सियार, कौआ) किएक लोकप्रिय अछि?",
+   opts:["कठिन होइत अछि","सरल आ रोचक ढंगसँ शिक्षा दैत अछि","डरबैत अछि","निरर्थक अछि"],a:1,
+   exp:"पशु-पात्र कथा बच्चाकेँ रोचक लागैत अछि आ ओहि माध्यमसँ चतुराई, मित्रता आ सीख सहजहि पहुँचैत अछि।"},
+  {q:"बाल नाटक (बाल रंगमंच) कोन ढंगें उपयोगी अछि?",
+   opts:["बच्चाक झिझक कम करबा आ अभिव्यक्ति बढ़ाबय","भाषा बिगाड़य","पढ़ाई रोकय","भय बढ़ाबय"],a:0,
+   exp:"नाटकमे भाग लेबासँ बच्चाक आत्मविश्वास, उच्चारण आ अभिनय-क्षमता बढ़ैत अछि।"},
+  {q:"लोरी (निद्रा-गीत) मुख्यतः ककरा लेल गाओल जाइत अछि?",
+   opts:["बूढ़ लेल","छोट शिशु लेल","सैनिक लेल","अतिथि लेल"],a:1,
+   exp:"लोरी कोमल लयमे शिशुकेँ सुतेबा लेल माय वा परिजन द्वारा गाओल जाइत अछि।"},
+  {q:"बाल साहित्यमे ‘तुकान्त’ शब्दक अर्थ की?",
+   opts:["अर्थहीन","पाँतीक अन्तमे मिलैत ध्वनि (तुक)","केवल गद्य","विदेशी शब्द"],a:1,
+   exp:"तुकान्त ओ रचना थिक जाहिमे पाँती सभक अन्तिम ध्वनि मिलैत अछि, जे बाल गीतकेँ सुरीला बनबैत अछि।"},
+  {q:"बच्चा लेल लिखल जाइत काल लेखककेँ की ध्यान राखब आवश्यक?",
+   opts:["कठिन शब्द भरब","बच्चाक मनोविज्ञान आ रुचि","लम्बा वाक्य","नीरस विषय"],a:1,
+   exp:"सफल बाल-लेखक बच्चाक मानसिकता, कल्पनाशक्ति आ उमेर अनुसारक रुचि केँ ध्यानमे रखैत अछि।"},
+  {q:"बाल कविता प्रायः कोन ढंगें प्रस्तुत होइत अछि?",
+   opts:["गम्भीर शोक-गीत","सरल, चित्रमय आ खेलपूर्ण","कानूनी भाषा","कठिन छन्द"],a:1,
+   exp:"बाल कविता खेल, प्रकृति, पशु-पक्षी आ कल्पनाक चित्रमय, हल्लुक भाषामे रचल जाइत अछि।"},
+ ],
+ "लोककथा आ परम्परा":[
+  {q:"लोककथा कोना पीढ़ी-दर-पीढ़ी आगाँ बढ़ल?",
+   opts:["केवल छपलासँ","मौखिक परम्परासँ","विद्यालयक परीक्षासँ","रेडियोसँ मात्र"],a:1,
+   exp:"लोककथा मुख्यतः मुँहजुबानी, दादी-नानीक कहबासँ एक पीढ़ीसँ दोसर पीढ़ी धरि पहुँचल।"},
+  {q:"मिथिलामे बच्चा सभकेँ कथा सुनेनिहार प्रायः के होइत छथि?",
+   opts:["न्यायाधीश","दादी-नानी आ परिजन","विदेशी","वैज्ञानिक"],a:1,
+   exp:"मिथिलाक घर-घरमे साँझ भेने दादी-नानी बच्चाकेँ लोककथा आ नीति-कथा सुनबैत छथि।"},
+  {q:"बाल खेल-गीत (जेना ‘अटकन-मटकन’ सन) कोन अवसर पर गाओल जाइत अछि?",
+   opts:["शोक सभा","बच्चाक खेलक संग","अदालतमे","परीक्षामे"],a:1,
+   exp:"खेल-गीत बच्चा सभ अपन खेल-कूदक संग लयमे गाबैत अछि, जे आनन्द आ सामूहिकता बढ़बैत अछि।"},
+  {q:"लोककथामे प्रायः कोन सन्देश रहैत अछि?",
+   opts:["केवल भय","नीति, बुद्धि आ अच्छाईक विजय","निरर्थक बात","विदेशी रीति"],a:1,
+   exp:"लोककथाक अन्तमे प्रायः सच्चाई, चतुराई वा भलाईक विजय देखाओल जाइत अछि, जे बच्चाकेँ संस्कार दैत अछि।"},
+  {q:"मिथिलाक पाबनि-तिहारमे बच्चा सभ संग जुड़ल कोन गीत प्रसिद्ध अछि?",
+   opts:["केवल शोक-गीत","सामा-चकेबा सन उत्सव-गीत","रणगीत","व्यापार-गीत"],a:1,
+   exp:"सामा-चकेबा जेहन पाबनिमे बहिन-भाइक स्नेह संग जुड़ल गीत बच्चा-किशोर मिलि कऽ गाबैत अछि।"},
+  {q:"लोककथा बच्चाक लेल किएक महत्त्वपूर्ण अछि?",
+   opts:["भाषा, कल्पना आ संस्कृतिक बोध दैत अछि","समय बिगाड़ैत अछि","केवल हँसी","अर्थहीन"],a:0,
+   exp:"लोककथासँ बच्चाकेँ मातृभाषा, कल्पनाशक्ति आ अपन संस्कृतिक मूल्यक बोध सहजहि होइत अछि।"},
+  {q:"‘नीति-कथा’ सँ की बुझल जाइत अछि?",
+   opts:["केवल हास्य","नैतिक सीख देनिहार कथा","युद्धक विवरण","गणितक प्रश्न"],a:1,
+   exp:"नीति-कथा ओ कथा थिक जे रोचक प्रसंगक संग कोनो नैतिक सीख वा व्यवहारिक बुद्धि दैत अछि।"},
+  {q:"मैथिल लोक-परम्परामे बच्चाकेँ अक्षर-आरम्भ (विद्यारम्भ) कोन देवीसँ जोड़ल जाइत अछि?",
+   opts:["लक्ष्मी","सरस्वती","दुर्गा","गंगा"],a:1,
+   exp:"विद्या आ वाणीक देवी सरस्वतीक पूजन कऽ बच्चाक अक्षर-आरम्भ करबाक परम्परा अछि।"},
+ ],
+ "विदेह आ आधुनिक काल":[
+  {q:"‘विदेह’ की थिक?",
+   opts:["समाचार-पत्र","प्रथम मैथिली पाक्षिक ई-पत्रिका","रेडियो","विद्यालय"],a:1,
+   exp:"विदेह पहिल मैथिली पाक्षिक (फोर्टनाइटली) ई-पत्रिका थिक, जे अन्तर्जालपर मैथिली साहित्य प्रकाशित करैत अछि।"},
+  {q:"विदेहक ई-लर्निङ्ग हबपर मुख्यतः की उपलब्ध अछि?",
+   opts:["केवल समाचार","सीखबा लेल प्रश्नोत्तरी आ सामग्री","विज्ञापन","खेल"],a:1,
+   exp:"विदेह ई-लर्निङ्ग हबमे विभिन्न विषय पर प्रश्नोत्तरी आ शिक्षण-सामग्री राखल अछि, जाहिसँ पाठक सिखि सकैत छथि।"},
+  {q:"आधुनिक काल बाल साहित्यमे कोन नव माध्यम जुड़ल अछि?",
+   opts:["केवल पाथर","अन्तर्जाल आ दृश्य-श्रव्य (ऑडियो-वीडियो)","केवल ताम्रपत्र","कोनो नहि"],a:1,
+   exp:"आइ बाल साहित्य अन्तर्जाल, यू-ट्यूब, एनिमेशन आ ध्वनि-कथाक रूपमे सेहो बच्चा धरि पहुँचैत अछि।"},
+  {q:"बाल पत्रिका बच्चाक लेल किएक उपयोगी अछि?",
+   opts:["केवल चित्र देखेबा लेल","पढ़बाक आदति आ रचनात्मकता बढ़ाबय","समय बिगाड़य","भाषा बिगाड़य"],a:1,
+   exp:"बाल पत्रिका नियमित पढ़बाक आदति, नव कथा-कविता आ बच्चाक अपन लेखन-प्रतिभा केँ प्रोत्साहित करैत अछि।"},
+  {q:"डिजिटल माध्यमसँ बाल साहित्यक कोन लाभ अछि?",
+   opts:["दूर-दूर धरि सहजहि पहुँच","केवल हानि","पढ़ब असम्भव","भाषा लुप्त"],a:0,
+   exp:"डिजिटल माध्यमसँ मैथिली बाल साहित्य देश-विदेशक बच्चा धरि बिना छपाईक खर्च पहुँचि सकैत अछि।"},
+  {q:"आधुनिक बाल कविता प्रायः कोन विषय समेटैत अछि?",
+   opts:["केवल युद्ध","विज्ञान, पर्यावरण आ दैनिक जीवन","केवल राजनीति","विधि"],a:1,
+   exp:"आधुनिक बाल कविता पुरान विषयक संग विज्ञान, प्रकृति-रक्षा आ बच्चाक रोज-मर्राक जीवन सेहो समेटैत अछि।"},
+  {q:"बाल साहित्यक प्रसारमे शिक्षकक की भूमिका?",
+   opts:["कोनो नहि","बच्चाकेँ पढ़ाबय आ रुचि जगाबय","केवल परीक्षा लेब","रोकब"],a:1,
+   exp:"शिक्षक कथा-कविता सुना कऽ, पढ़बाक प्रेरणा दऽ बच्चामे साहित्यिक रुचि जगाबैत छथि।"},
+  {q:"मैथिली बाल साहित्यकेँ जीवित राखब लेल सभसँ आवश्यक की?",
+   opts:["नव रचना आ नव पाठक","केवल पुरान दोहराब","भाषा छोड़ब","अनुवाद रोकब"],a:0,
+   exp:"नव-नव रचना, नव लेखक आ बच्चा-पाठकक निरन्तर जुड़ाव सँ कोनो भाषाक बाल साहित्य जीवन्त रहैत अछि।"},
+ ],
+ "उन्नत प्रश्न":[
+  {q:"बाल साहित्यमे ‘कल्पनाशीलता’ केँ प्रोत्साहित करबाक मुख्य कारण की?",
+   opts:["बच्चाक सृजनात्मक सोच विकसित होइत अछि","केवल समय बितैत अछि","परीक्षा सरल होइत","भाषा कठिन होइत"],a:0,
+   exp:"कल्पना-प्रधान कथा बच्चाक मस्तिष्ककेँ नव-नव विचार आ सृजनशीलता दिस उन्मुख करैत अछि।"},
+  {q:"‘बाल-केन्द्रित’ रचनाक अर्थ की?",
+   opts:["बच्चाक दृष्टि आ अनुभवकेँ केन्द्रमे राखब","वृद्ध-केन्द्रित","विद्वान-केन्द्रित","राज-केन्द्रित"],a:0,
+   exp:"बाल-केन्द्रित रचनामे संसारकेँ बच्चाक आँखि, भाव आ बोधक दृष्टिसँ देखाओल जाइत अछि।"},
+  {q:"बाल साहित्यमे ‘अनुवाद’क की महत्त्व?",
+   opts:["आन भाषाक श्रेष्ठ बाल रचना मैथिलीमे आनब","भाषा बिगाड़ब","रचना रोकब","कोनो नहि"],a:0,
+   exp:"अनुवादसँ संसारक उत्तम बाल कथा-कविता मैथिल बच्चा धरि पहुँचैत अछि आ साहित्य समृद्ध होइत अछि।"},
+  {q:"बच्चाक भाषा-विकासमे बाल साहित्यक कोन योगदान?",
+   opts:["शब्द-भण्डार आ उच्चारण बढ़ाबय","भाषा घटाबय","बोलब रोकय","भ्रम बढ़ाबय"],a:0,
+   exp:"नियमित पढ़ब-सुनबसँ बच्चाक शब्द-भण्डार, वाक्य-रचना आ शुद्ध उच्चारण विकसित होइत अछि।"},
+  {q:"बाल साहित्यमे ‘सचित्र’ प्रस्तुतीकरण किएक प्रभावी?",
+   opts:["चित्र बच्चाक ध्यान आ बोध बढ़ाबैत अछि","चित्र अनावश्यक","केवल खर्च","पढ़ब कठिन"],a:0,
+   exp:"छोट बच्चा शब्दसँ पहिने चित्र बुझैत अछि; तेँ सचित्र पुस्तक ध्यान आकर्षित कऽ बोध सहज करैत अछि।"},
+  {q:"बाल रंगमंचमे बच्चाक सहभागिता सँ कोन कौशल विकसित होइत अछि?",
+   opts:["सहयोग, संवाद आ आत्मविश्वास","केवल भय","झगड़ा","आलस्य"],a:0,
+   exp:"नाटकमे मिलि कऽ काज करबासँ बच्चामे टीम-भाव, संवाद-कौशल आ मंचपर ठाढ़ होएबाक साहस बढ़ैत अछि।"},
+  {q:"बाल साहित्यक मूल्यांकनमे सभसँ महत्त्वपूर्ण कसौटी की?",
+   opts:["बच्चाकेँ रोचक आ बोधगम्य लागय","कठिन शब्द","लम्बाई","विदेशी शैली"],a:0,
+   exp:"कोनो बाल रचनाक सफलता एहिमे अछि जे ओ बच्चाकेँ रुचिकर, सहज आ अर्थपूर्ण लागय।"},
+  {q:"मैथिली बाल साहित्यक भविष्य कोना उज्ज्वल भऽ सकैत अछि?",
+   opts:["नव माध्यम, नव रचना आ बच्चा-पाठकक भागीदारीसँ","भाषा छोड़लासँ","रचना रोकलासँ","केवल पुरानसँ"],a:0,
+   exp:"डिजिटल माध्यम, नित नव सृजन आ बच्चाकेँ स्वयं लेखन-वाचनमे जोड़लासँ मैथिली बाल साहित्य फलैत-फूलैत रहत।"},
+ ]
+};
+
+/* ===== रेण्डरिंग ===== */
+let TOTAL=0;
+const sectionMeta={}; // {sectionName:{total, correct}}
+document.querySelectorAll('.grp-body').forEach(box=>{
+  const sec=box.dataset.section;
+  const list=QUIZ[sec]||[];
+  sectionMeta[sec]={total:list.length,correct:0,answered:0};
+  list.forEach((item,idx)=>{
+    TOTAL++;
+    const qn=document.createElement('div'); qn.className='q';
+    const gnum=TOTAL;
+    const qt=document.createElement('div'); qt.className='qtext';
+    qt.innerHTML='<span class="num">'+gnum+'.</span> '+item.q;
+    qn.appendChild(qt);
+    const ul=document.createElement('ul'); ul.className='opts';
+    item.opts.forEach((opt,oi)=>{
+      const li=document.createElement('li');
+      li.textContent=opt;
+      li.dataset.correct=(oi===item.a)?"1":"0";
+      li.addEventListener('click',()=>choose(li,ul,item,sec));
+      ul.appendChild(li);
+    });
+    qn.appendChild(ul);
+    const ex=document.createElement('div'); ex.className='explain';
+    qn.appendChild(ex);
+    box.appendChild(qn);
+  });
+});
+document.getElementById('total').textContent=TOTAL;
+document.getElementById('rTotal').textContent=TOTAL;
+
+let answered=0, correct=0;
+
+function choose(li,ul,item,sec){
+  if(ul.dataset.done==="1") return;        // पुनः क्लिक रोकू
+  ul.dataset.done="1";
+  const ex=ul.parentElement.querySelector('.explain');
+  const isCorrect=li.dataset.correct==="1";
+  // सभ विकल्प लॉक करू
+  ul.querySelectorAll('li').forEach(o=>{
+    o.classList.add('locked');
+    if(o.dataset.correct==="1") o.classList.add('correct');
+  });
+  if(!isCorrect){ li.classList.add('wrong'); }
+  ex.classList.add('show', isCorrect?'ok':'no');
+  ex.innerHTML=(isCorrect?'<b>सही!</b> ':'<b>गलत।</b> ')+item.exp;
+  answered++; sectionMeta[sec].answered++;
+  if(isCorrect){correct++; sectionMeta[sec].correct++;}
+  updateBar();
+}
+
+function updateBar(){
+  document.getElementById('answered').textContent=answered;
+  document.getElementById('correct').textContent=correct;
+  document.getElementById('score').textContent=correct;
+  document.getElementById('pbar').style.width=(answered/TOTAL*100)+'%';
+}
+
+document.getElementById('evalBtn').addEventListener('click',()=>{
+  const pct=TOTAL? Math.round(correct/TOTAL*100):0;
+  document.getElementById('rScore').textContent=correct;
+  document.getElementById('rCorrect').textContent=correct;
+  document.getElementById('rPct').textContent=pct;
+  let grade;
+  if(pct>=85) grade="उत्कृष्ट! 🌟";
+  else if(pct>=70) grade="बहुत नीक! 👏";
+  else if(pct>=50) grade="नीक — आओर अभ्यास करू।";
+  else grade="फेर सँ प्रयास करू, अहाँ सिखि सकैत छी।";
+  document.getElementById('rGrade').textContent=grade;
+  const sc=document.getElementById('rSections'); sc.innerHTML='';
+  for(const s in sectionMeta){
+    const m=sectionMeta[s];
+    const d=document.createElement('div');
+    d.innerHTML='<span>'+s+'</span><span><b>'+m.correct+'</b> / '+m.total+'</span>';
+    sc.appendChild(d);
+  }
+  const r=document.getElementById('result');
+  r.classList.add('show');
+  r.scrollIntoView({behavior:'smooth',block:'center'});
+});
+
+document.getElementById('resetBtn').addEventListener('click',()=>{
+  if(!confirm('पूरा प्रश्नोत्तरी फेर सँ आरम्भ करी?')) return;
+  location.reload();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>विदेह मैथिली व्याकरण महा-क्विज</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --videha-navy: #002060;
+            --videha-light: #07152b;
+            --correct-green: #1b5e20;
+            --correct-bg: #e8f5e9;
+            --incorrect-red: #b71c1c;
+            --incorrect-bg: #ffebee;
+            --text-dark: #1e293b;
+            --border-color: #cbd5e1;
+            --bg-gram: #fcfcf9;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: var(--bg-gram);
+            color: var(--text-dark);
+            line-height: 1.6;
+            user-select: none;
+        }
+
+        /* Fixed Pinned Header Layout */
+        header {
+            background-color: var(--videha-navy);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-align: center;
+            padding: 15px 10px;
+            border-bottom: 4px solid #f59e0b;
+        }
+
+        header h1 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-links button {
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 8px 12px;
+            background-color: var(--videha-light);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links button:hover, .nav-links button.active-tab {
+            background-color: #f59e0b;
+            border-color: #f59e0b;
+            color: var(--videha-navy);
+        }
+
+        .container {
+            max-width: 880px;
+            margin: 25px auto;
+            padding: 0 15px;
+        }
+
+        .section-container {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-left: 6px solid var(--videha-navy);
+        }
+
+        .section-title {
+            color: var(--videha-navy);
+            font-size: 1.35rem;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .gram-badge {
+            background-color: #fef3c7;
+            color: #78350f;
+            font-size: 0.85rem;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+
+        .question-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 35px;
+            padding: 22px;
+            text-align: center;
+        }
+
+        .question-text {
+            font-weight: 700;
+            font-size: 1.15rem;
+            margin-bottom: 18px;
+            color: #0f172a;
+            text-align: left;
+        }
+
+        /* 100% Offline Video Component */
+        .video-animation-screen {
+            width: 100%;
+            max-width: 360px;
+            height: 150px;
+            margin: 0 auto 15px auto;
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border: 4px solid #b45309;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .video-animation-screen::before {
+            content: "● विदेह व्याकरण टीवी (LIVE)";
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: rgba(180, 83, 9, 0.85);
+            color: white;
+            padding: 2px 8px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            border-radius: 4px;
+            z-index: 3;
+        }
+
+        .video-actor-character {
+            font-size: 3.8rem;
+            animation: gramVideoLoop 4s infinite ease-in-out;
+        }
+
+        @keyframes gramVideoLoop {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.05) rotate(4deg); }
+        }
+
+        .audio-trigger-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #0284c7;
+            color: white;
+            border: none;
+            padding: 6px 16px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            transition: all 0.2s;
+        }
+
+        .audio-trigger-btn:hover { background-color: #0369a1; }
+
+        .options-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        @media(min-width: 768px) {
+            .options-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            padding: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.15s ease;
+            text-align: left;
+        }
+
+        .option-label:hover {
+            background: #fffbeb;
+            border-color: #f59e0b;
+        }
+
+        .option-label input { display: none; }
+
+        .correct-choice { background-color: var(--correct-bg) !important; border-color: var(--correct-green) !important; color: var(--correct-green) !important; font-weight: 700; }
+        .incorrect-choice { background-color: var(--incorrect-bg) !important; border-color: var(--incorrect-red) !important; color: var(--incorrect-red) !important; }
+
+        .explanation-box {
+            margin-top: 15px;
+            padding: 14px;
+            border-radius: 6px;
+            background-color: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            font-size: 1rem;
+            color: #14532d;
+            display: none;
+            text-align: left;
+        }
+
+        .pagination-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .page-btn {
+            background-color: var(--videha-navy);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .page-btn:disabled { background-color: #cbd5e1; cursor: not-allowed; }
+        .page-info { font-weight: 700; color: var(--videha-navy); }
+
+        .controls-panel { text-align: center; margin: 40px 0; }
+        .back-link { display: inline-block; color: var(--videha-navy); text-decoration: none; font-weight: 700; font-size: 1.2rem; }
+        .back-link:hover { color: #f59e0b; }
+        footer { background-color: var(--videha-navy); color: white; text-align: center; padding: 25px 10px; font-size: 1rem; border-top: 4px solid #f59e0b; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>[Videha QUIZ | विदेह व्याकरण महा-क्विज Videha Grammar Quiz | www.videha.co.in]</h1>
+        <div class="nav-links" id="sections-nav"></div>
+    </header>
+
+    <div class="container">
+        <div id="quiz-workspace" class="section-container"></div>
+    </div>
+
+    <div class="controls-panel">
+        <a href="https://www.videha.co.in/videha-elearning.htm" class="back-link">← विदेह ई-लर्निङ्ग हब</a>
+    </div>
+
+    <footer>© Gajendra Thakur, Editor — Videha eJournal</footer>
+
+    <script>
+        const grammarDatabase = [
+            {
+                sectionId: "g_sec1",
+                sectionTitle: "१. सर्वनाम ओ प्रकार (Pronouns)",
+                items: [
+                    { name: "आदर-सूचक सर्वनाम", icon: "👤", q: "मैथिली में 'अहाँ' ओ 'आहूँ' कऽ प्रयोग कोन स्थिति में कएल जाइत अछि?", exp: "'अहाँ' आदर-सूचक मध्यम पुरुष, ओ 'आहूँ' अति-विनम्र/काव्यात्मक आत्म-बोध लेल प्रयुक्त होइत अछि।" },
+                    { name: "बहुवचन सर्वनाम", icon: "👥", q: "मैथिली में 'ओ' (He/She) कऽ बहुवचन रूप की होइत अछि?", exp: "मैथिली में 'ओ' कऽ बहुवचन 'ओ सब' (They) होइत अछि।" },
+                    { name: "अधिकार-सूचक (Possessive)", icon: "🏷️", q: "मैथिली में 'मेरा' कऽ सही रूप की थिक?", exp: "मैथिली में 'मेरा' कऽ सही रूप 'हमर' अछि।" },
+                    { name: "निर्धारित सर्वनाम", icon: "👈", q: "मैथिली में 'वह' ओ 'यह' कऽ लिए सही सर्वनाम की थिक?", exp: "'ओ' (वह) ओ 'ई' (यह) मैथिलीक मानक सर्वनाम थिक।" }
+                ]
+            },
+            {
+                sectionId: "g_sec2",
+                sectionTitle: "२. क्रिया-रूप ओ काल (Verb Morphology & Tense)",
+                items: [
+                    { name: "भविष्य काल", icon: "⏳", q: "मैथिली में 'हम' (I) कऽ साथ भविष्य कालक सही क्रिया प्रत्यय की थिक?", exp: "भविष्य काल में उत्तम पुरुष (हम) लेल 'एब' प्रत्यय (जैसे- जएब, खएब) लगैत अछि।" },
+                    { name: "भूतकालक क्रिया", icon: "📜", q: "मैथिली में 'देखलियै' क्रिया रूप किस काल कऽ बोध कराबैत अछि?", exp: "'देखलियै' भूतकालक क्रिया रूप थिक।" },
+                    { name: "अति आदर क्रिया", icon: "👑", q: "अति आदरणीय (अन्य पुरुष) कऽ साथ क्रिया में ककर प्रयोग होइत अछि?", exp: "अति आदर सूचक क्रिया में 'छथि' (जैसे- कएलाह, छथि) लगैत अछि।" },
+                    { name: "आज्ञा-सूचक क्रिया", icon: "🗣️", q: "आज्ञा देबय कऽ लेल मैथिली क्रियाक रूप केहन होइत अछि?", exp: "आज्ञा देबय लेल क्रियाक रूप 'करू' (जैसे- कऽ लियू) होइत अछि।" }
+                ]
+            },
+            {
+                sectionId: "g_sec3",
+                sectionTitle: "३. लिंग निर्णय (Gender Determination)",
+                items: [
+                    { name: "पानी (Pani)", icon: "💧", q: "मैथिली व्याकरण में 'पानी' शब्दक लिंग की थिक?", exp: "हिन्दीक विपरीत मैथिली में 'पानी' शब्द 'स्त्रीलिंग' मानल गेल अछि।" },
+                    { name: "कलम (Kalam)", icon: "✒️", q: "मैथिली व्याकरणक अनुसार 'कलम' शब्दक लिंग की थिक?", exp: "मैथिली में 'कलम' शब्द 'पुल्लिंग' मानल जाइत अछि।" },
+                    { name: "स्त्रीलिंगक पहचान", icon: "👩", q: "मैथिली में स्त्रीलिंगक मुख्य पहचान की थिक?", exp: "मैथिली में क्रियाक रूप ओ संज्ञाक प्रयोग सँ लिंगक बोध होइत अछि, विशेषतः स्त्रीलिंग लेल 'ई' या 'अइ' ध्वनि।" },
+                    { name: "नपुंसकलिंग", icon: "⚪", q: "मैथिली में व्याकरणिक लिंग कतेक होइत अछि?", exp: "मैथिली में मुख्य रूप सँ दू गोट व्याकरणिक लिंग अछि: पुल्लिंग ओ स्त्रीलिंग।" }
+                ]
+            },
+            {
+                sectionId: "g_sec4",
+                sectionTitle: "४. वाक्य रचना ओ कारक (Sentence Structure & Case)",
+                items: [
+                    { name: "अधिकार-सूचक कारक", icon: "🏷️", q: "मैथिली में अधिकार-सूचक शब्द (जैसे- मोहनक) में कोन कारक प्रत्यय लगैत अछि?", exp: "मैथिली में 'क' (जैसे- मोहन-क) कारक प्रत्यय सम्बन्धक बोध करबैत अछि।" },
+                    { name: "कर्ता कारक", icon: "👤", q: "वाक्य में कर्ता लेल मैथिली में की प्रयुक्त होइत अछि?", exp: "कर्ता लेल 'ने' का प्रयोग ओहिना नै होइत अछि जहिना हिंदी में, बल्कि यहाँ संज्ञा-सर्वनाम ओ क्रियाक सामंजस्य सँ अर्थ स्पष्ट होइत अछि।" },
+                    { name: "कर्म कारक", icon: "🎯", q: "मैथिली में कर्मक चिह्न की थिक?", exp: "कर्म लेल 'के' (जैसे- राम के देखलियै) प्रयुक्त होइत अछि।" },
+                    { name: "अधिकरण कारक", icon: "📍", q: "अधिकरण (में/पर) लेल मैथिली में की लगैत अछि?", exp: "अधिकरण लेल 'में' या 'पर' कऽ लिए 'मे' या 'पर' कऽ प्रयोग मैथिली में होइत अछि।" }
+                ]
+            },
+            {
+                sectionId: "g_sec5",
+                sectionTitle: "५. वाच्य - कर्तृवाच्य ओ कर्मवाच्य (Voice)",
+                items: [
+                    { name: "कर्तृवाच्य (Active)", icon: "🏃", q: "मैथिली में कर्तृवाच्य कऽ मुख्य पहचान की थिक?", exp: "कर्तृवाच्य में क्रिया कर्ताक अनुसार संचालित होइत अछि।" },
+                    { name: "कर्मवाच्य (Passive)", icon: "🎯", q: "कर्मवाच्य में क्रिया ककर अनुसार होइत अछि?", exp: "कर्मवाच्य में क्रिया कर्मक लिंग-वचन सँ संचालित होइत अछि।" },
+                    { name: "अकर्मक ओ सकर्मक", icon: "⚖️", q: "मैथिली क्रिया में अकर्मक ओ सकर्मक कऽ पहचान की थिक?", exp: "सकर्मक क्रिया में कर्म कऽ उपस्थित होनाय आवश्यक अछि, अकर्मक में नै।" },
+                    { name: "द्विकर्मक क्रिया", icon: "↔️", q: "मैथिली में द्विकर्मक क्रिया (जैसे- माँ बच्चा कऽ भात खियाबै छथि) कऽ संरचना केहन अछि?", exp: "मैथिली में द्विकर्मक क्रिया में गौण ओ मुख्य कर्मक स्पष्ट व्याकरणिक व्यवस्था अछि।" }
+                ]
+            },
+            {
+                sectionId: "g_sec6",
+                sectionTitle: "६. काल ओ अव्यय (Tense & Adverb)",
+                items: [
+                    { name: "कालक प्रकार", icon: "📅", q: "मैथिली में मुख्य रूप सँ कतेक काल अछि?", exp: "मैथिली में कालक तीन मुख्य प्रकार अछि: भूत, वर्तमान ओ भविष्य।" },
+                    { name: "अव्यय (Adverb)", icon: "⚡", q: "'आब' (Now) मैथिली में की थिक?", exp: "'आब' समय-बोधक क्रिया-विशेषण (अव्यय) अछि।" },
+                    { name: "निषेधवाचक", icon: "🚫", q: "मैथिली में 'नहीं' लेल की प्रयुक्त होइत अछि?", exp: "मैथिली में 'नै' (जैसे- हम नै जाय छी) कऽ प्रयोग होइत अछि।" },
+                    { name: "सम्बोधन", icon: "🗣️", q: "सम्बोधन लेल की प्रयोग कएल जाइत अछि?", exp: "सम्बोधन लेल 'हे', 'अरे' ओ आदर सूचक 'अहाँ' कऽ प्रयोग अछि।" }
+                ]
+            },
+            {
+                sectionId: "g_sec7",
+                sectionTitle: "७. समास ओ संधि (Compound & Sandhi)",
+                items: [
+                    { name: "संधि", icon: "🔗", q: "मैथिली में संधि कऽ कतेक प्रकार अछि?", exp: "मैथिली में स्वर, व्यंजन ओ विसर्ग संधि मुख्य अछि, मुदा बोलचाल में सरलताक प्रधानता अछि।" },
+                    { name: "समास", icon: "🤝", q: "द्वन्द्व समासक एकटा मैथिली उदाहरण की थिक?", exp: "द्वन्द्व समासक उदाहरण: 'दाल-भात', 'राधा-कृष्ण'।" },
+                    { name: "बहुव्रीहि", icon: "💡", q: "बहुव्रीहि समासक पहचान की थिक?", exp: "जाहि में कोनो अन्य पद प्रधान होइत अछि।" },
+                    { name: "तत्पुरुष", icon: "🏷️", q: "कारकक लोप कतय होइत अछि?", exp: "तत्पुरुष समास में कारकक लोप होइत अछि।" }
+                ]
+            },
+            {
+                sectionId: "g_sec8",
+                sectionTitle: "८. विदेह व्याकरण विमर्श (Videha Grammar Review)",
+                items: [
+                    { name: "यूनिकोड मानकीकरण", icon: "💻", q: "विदेह द्वारा मैथिली व्याकरणक डिजिटल मानकीकरण लेल की कएल गेल अछि?", exp: "विदेह द्वारा यूनिकोड में व्याकरणक शुद्ध संकलन ओ मुफ़्त आर्काइविंग कएल गेल अछि।" },
+                    { name: "मानक मैथिली", icon: "📚", q: "विदेहक अनुसार मानक मैथिली कऽ आधार की अछि?", exp: "मधेस/मिथिलाक शिष्ट समाजक ओ लोकगाथाक साझा भाषिक स्वरूप।" },
+                    { name: "व्याकरणक सरलता", icon: "🎓", q: "नवीन पीढ़ी लेल व्याकरण सीखबाक विदेहक मन्त्र की थिक?", exp: "सहज ओ व्यावहारिक प्रयोग सँ व्याकरण सीखब।" },
+                    { name: "डिजिटल साक्षरता", icon: "🌐", q: "मैथिली व्याकरण कऽ इंटरनेट पर सहेजय लेल विदेहक भूमिका की थिक?", exp: "डिजिटल आर्काइव ओ ई-लर्निङ्ग हब सँ व्याकरणक संरक्षण।" }
+                ]
+            }
+        ];
+
+        let currentActiveSectionIdx = 0;
+        let currentPageNum = 1; 
+        const questionsPerPage = 10; 
+
+        function playGramChime(statusType) {
+            try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!AudioContext) return;
+                const audioCtx = new AudioContext();
+                const oscillator = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+                oscillator.connect(gainNode); gainNode.connect(audioCtx.destination);
+                if (statusType === 'correct') {
+                    oscillator.type = 'triangle';
+                    oscillator.frequency.setValueAtTime(523.25, audioCtx.currentTime); 
+                    oscillator.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.1); 
+                    gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.35);
+                    oscillator.start(); oscillator.stop(audioCtx.currentTime + 0.35);
+                } else {
+                    oscillator.type = 'sawtooth';
+                    oscillator.frequency.setValueAtTime(130.81, audioCtx.currentTime); 
+                    gainNode.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.25);
+                    oscillator.start(); oscillator.stop(audioCtx.currentTime + 0.25);
+                }
+            } catch (e) {}
+        }
+
+        function gramSpeakOutLoud(phraseText) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(phraseText);
+                utterance.lang = 'hi-IN';
+                utterance.rate = 0.88;    
+                utterance.pitch = 1.05;   
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        grammarDatabase.forEach(sec => {
+            const baseCount = sec.items.length;
+            for (let i = baseCount + 1; i <= 100; i++) {
+                const templateItem = sec.items[(i - 1) % baseCount];
+                sec.items.push({ name: templateItem.name, icon: templateItem.icon, q: templateItem.q, exp: templateItem.exp });
+            }
+        });
+
+        function renderTabNavigation() {
+            const navContainer = document.getElementById('sections-nav');
+            navContainer.innerHTML = ""; 
+            grammarDatabase.forEach((section, idx) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.innerText = section.sectionTitle.split('(')[0].replace(/^\d+\.\s*/, '').trim();
+                if (idx === currentActiveSectionIdx) btn.classList.add('active-tab');
+                btn.onclick = () => {
+                    currentActiveSectionIdx = idx; currentPageNum = 1; 
+                    renderTabNavigation(); generateActiveTabContent(); 
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                };
+                navContainer.appendChild(btn);
+            });
+        }
+
+        function generateActiveTabContent() {
+            const workspace = document.getElementById('quiz-workspace');
+            workspace.innerHTML = ""; 
+            const section = grammarDatabase[currentActiveSectionIdx];
+            const titleHeader = document.createElement('h2');
+            titleHeader.className = 'section-title';
+            titleHeader.innerHTML = `${section.sectionTitle} <span class="gram-badge">१०० व्याकरण प्रश्न लाइव</span>`;
+            workspace.appendChild(titleHeader);
+
+            const startIdx = (currentPageNum - 1) * questionsPerPage + 1;
+            const endIdx = currentPageNum * questionsPerPage;
+
+            for (let i = startIdx; i <= endIdx; i++) {
+                const rawItem = section.items[i - 1];
+                const inputGroupName = `gram_paginated_sec_${currentActiveSectionIdx}_q_${i}`;
+                const questionCard = document.createElement('div');
+                questionCard.className = 'question-card';
+                const questionTextEl = document.createElement('div');
+                questionTextEl.className = 'question-text';
+                questionTextEl.innerText = `प्रश्न ${i}: ${rawItem.q}`;
+                questionCard.appendChild(questionTextEl);
+
+                const videoScreen = document.createElement('div');
+                videoScreen.className = 'video-animation-screen';
+                const actor = document.createElement('div');
+                actor.className = 'video-actor-character';
+                actor.innerText = rawItem.icon; 
+                videoScreen.appendChild(actor);
+                questionCard.appendChild(videoScreen);
+
+                const readBtn = document.createElement('button');
+                readBtn.className = 'audio-trigger-btn';
+                readBtn.type = 'button';
+                readBtn.innerHTML = `🔊 आवाज सुन्नू (Listen)`;
+                readBtn.onclick = () => { gramSpeakOutLoud(`प्रश्न ${i}. ${rawItem.q}`); };
+                questionCard.appendChild(readBtn);
+
+                const choicesBox = document.createElement('div');
+                choicesBox.className = 'options-container';
+
+                const generatedOptions = [];
+                generatedOptions.push(rawItem.name); 
+
+                let peerIndex = 1;
+                while (generatedOptions.length < 4) {
+                    const fallbackItem = section.items[(i - 1 + peerIndex) % section.items.length];
+                    if (fallbackItem && !generatedOptions.includes(fallbackItem.name)) generatedOptions.push(fallbackItem.name);
+                    peerIndex++;
+                }
+
+                const dynamicSeedShift = (i * 37) % 4;
+                const correctChoiceIndex = dynamicSeedShift;
+                const tempSwap = generatedOptions[0];
+                generatedOptions[0] = generatedOptions[correctChoiceIndex];
+                generatedOptions[correctChoiceIndex] = tempSwap;
+
+                generatedOptions.forEach((optionText, optionIdx) => {
+                    const labelContainer = document.createElement('label');
+                    labelContainer.className = 'option-label';
+                    const radioInput = document.createElement('input');
+                    radioInput.type = 'radio'; radioInput.name = inputGroupName; radioInput.value = optionIdx;
+                    radioInput.addEventListener('change', () => {
+                        const isCorrect = (optionIdx === correctChoiceIndex);
+                        if (isCorrect) { playGramChime('correct'); gramSpeakOutLoud("सत्य उत्तर अछि।"); }
+                        else { playGramChime('incorrect'); gramSpeakOutLoud("त्रुटिपूर्ण उत्तर, पुनः प्रयास करू।"); }
+                        
+                        document.querySelectorAll(`input[name="${inputGroupName}"]`).forEach(el => el.parentElement.style.pointerEvents = 'none');
+                        const options = questionCard.querySelectorAll('.option-label');
+                        options[correctChoiceIndex].classList.add('correct-choice');
+                        if (!isCorrect) options[optionIdx].classList.add('incorrect-choice');
+                        document.getElementById(`exp_${inputGroupName}`).style.display = 'block';
+                    });
+                    labelContainer.appendChild(radioInput);
+                    labelContainer.appendChild(document.createTextNode(optionText));
+                    choicesBox.appendChild(labelContainer);
+                });
+                questionCard.appendChild(choicesBox);
+
+                const explanationBox = document.createElement('div');
+                explanationBox.className = 'explanation-box';
+                explanationBox.id = `exp_${inputGroupName}`;
+                explanationBox.innerHTML = `<strong>विदेह व्याकरण समीक्षा:</strong> ${rawItem.exp}`;
+                questionCard.appendChild(explanationBox);
+                workspace.appendChild(questionCard);
+            }
+
+            const paginationBar = document.createElement('div');
+            paginationBar.className = 'pagination-bar';
+            const prevBtn = document.createElement('button');
+            prevBtn.className = 'page-btn'; prevBtn.innerText = "← पिछला पृष्ठ"; prevBtn.disabled = (currentPageNum === 1);
+            prevBtn.onclick = () => { currentPageNum--; generateActiveTabContent(); window.scrollTo({ top: 0, behavior: 'smooth' }); };
+            const pageInfo = document.createElement('span'); pageInfo.className = 'page-info'; pageInfo.innerText = `पृष्ठ ${currentPageNum} / १०`;
+            const nextBtn = document.createElement('button');
+            nextBtn.className = 'page-btn'; nextBtn.innerText = "अगिला पृष्ठ →"; nextBtn.disabled = (currentPageNum === 10);
+            nextBtn.onclick = () => { currentPageNum++; generateActiveTabContent(); window.scrollTo({ top: 0, behavior: 'smooth' }); };
+            paginationBar.appendChild(prevBtn); paginationBar.appendChild(pageInfo); paginationBar.appendChild(nextBtn);
+            workspace.appendChild(paginationBar);
+        }
+
+        window.onload = function() { renderTabNavigation(); generateActiveTabContent(); };
+    </script>
+</body>
+</html>

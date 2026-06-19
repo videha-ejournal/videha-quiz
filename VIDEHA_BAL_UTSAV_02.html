@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>विदेह ऑडियो-वीडियो बाल क्विज | Videha Kids Audio-Visual Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --videha-navy: #002060;
+            --videha-light: #11254a;
+            --correct-green: #1b5e20;
+            --correct-bg: #e8f5e9;
+            --incorrect-red: #b71c1c;
+            --incorrect-bg: #ffebee;
+            --text-dark: #0f172a;
+            --bg-play: #fef8e7; /* Playful soft yellow background for toddlers */
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: var(--bg-play);
+            color: var(--text-dark);
+            line-height: 1.5;
+            user-select: none;
+        }
+
+        /* Top Pinned Universal Navigation Header */
+        header {
+            background-color: var(--videha-navy);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            text-align: center;
+            padding: 15px 10px;
+            border-bottom: 5px solid #f59e0b;
+        }
+
+        header h1 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 6px 12px;
+            background-color: var(--videha-light);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: #f59e0b;
+            color: var(--videha-navy);
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+
+        /* Interactive Section Tabs Container */
+        .section-container {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 50px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+            scroll-margin-top: 160px;
+            border-top: 8px solid var(--videha-navy);
+        }
+
+        .section-title {
+            color: var(--videha-navy);
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            border-bottom: 4px dashed #fde047;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .kids-badge {
+            background-color: #fef9c3;
+            color: #b45309;
+            font-size: 0.85rem;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+
+        /* Master Question Box Components */
+        .question-card {
+            background: #fafaf9;
+            border: 3px solid #e7e5e4;
+            border-radius: 18px;
+            margin-bottom: 45px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .question-text {
+            font-weight: 700;
+            font-size: 1.35rem;
+            margin-bottom: 15px;
+            color: var(--videha-navy);
+        }
+
+        /* Offline Interactive CSS Animation Video Screen Component */
+        .video-animation-screen {
+            width: 100%;
+            max-width: 380px;
+            height: 240px;
+            margin: 0 auto 15px auto;
+            background: linear-gradient(135deg, #a5f3fc, #fbcfe8);
+            border: 6px solid #475569; /* Dynamic monitor style frame */
+            border-radius: 20px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.15), 0 6px 15px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Pure CSS Animated Video Landscape Elements */
+        .video-animation-screen::before {
+            content: "● LIVE VIDEO";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(220, 38, 38, 0.8);
+            color: white;
+            padding: 2px 8px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            border-radius: 10px;
+            z-index: 3;
+            letter-spacing: 0.5px;
+        }
+
+        .video-stage-floor {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 25%;
+            background: linear-gradient(0deg, #4ade80, #86efac);
+            border-top: 3px solid #22c55e;
+            z-index: 1;
+        }
+
+        /* Looping Moving Object Vector Cartoon Simulation */
+        .video-actor-character {
+            font-size: 6.5rem;
+            z-index: 2;
+            filter: drop-shadow(0px 6px 8px rgba(0,0,0,0.2));
+            animation: cartoonVideoLoop 2.5s infinite ease-in-out;
+        }
+
+        @keyframes cartoonVideoLoop {
+            0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
+            30% { transform: translateY(-18px) scale(1.05) rotate(-5deg); }
+            70% { transform: translateY(-5px) scale(0.95) rotate(5deg); }
+        }
+
+        /* Audio Controls Block Component */
+        .audio-trigger-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #ea580c;
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(234, 88, 12, 0.3);
+            transition: all 0.2s;
+        }
+
+        .audio-trigger-btn:hover {
+            background-color: #c2410c;
+            transform: scale(1.05);
+        }
+
+        /* Playful Toddler Selection Buttons */
+        .options-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            border: 3px solid #cbd5e1;
+            padding: 16px;
+            border-radius: 14px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .option-label:hover {
+            background: #fef9c3;
+            border-color: #f59e0b;
+            transform: scale(1.02);
+        }
+
+        .option-label input {
+            display: none; /* Implements large modern tactile layout blocks */
+        }
+
+        /* Real-time Validation Color feedback loop */
+        .option-label.correct-choice {
+            background-color: var(--correct-bg) !important;
+            border-color: var(--correct-green) !important;
+            color: var(--correct-green) !important;
+            box-shadow: inset 0 0 0 3px var(--correct-green);
+        }
+
+        .option-label.incorrect-choice {
+            background-color: var(--incorrect-bg) !important;
+            border-color: var(--incorrect-red) !important;
+            color: var(--incorrect-red) !important;
+        }
+
+        .explanation-box {
+            margin-top: 20px;
+            padding: 16px;
+            border-radius: 10px;
+            background-color: #f0fdf4;
+            border-left: 6px solid #22c55e;
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #14532d;
+            display: none;
+            text-align: left;
+        }
+
+        /* Redirect Controls */
+        .controls-panel {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--videha-navy);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #dc2626;
+        }
+
+        footer {
+            background-color: var(--videha-navy);
+            color: white;
+            text-align: center;
+            padding: 25px 10px;
+            font-size: 1rem;
+            border-top: 4px solid #f59e0b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Pinned Header Matrix Layout -->
+    <header>
+        <h1>[Videha QUIZ | विदेह ई-लर्निङ्ग क्विज Videha eLearning Quiz Videha — First Maithili Fortnightly eJournal | www.videha.co.in]</h1>
+        <div class="nav-links" id="sections-nav"></div>
+    </header>
+
+    <!-- App Main Dynamic Output Workspace -->
+    <div class="container" id="quiz-workspace"></div>
+
+    <!-- Specified Hub Navigation Redirection Link Element -->
+    <div class="controls-panel">
+        <a href="https://www.videha.co.in/videha-elearning.htm" class="back-link">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+    </div>
+
+    <!-- Specified Required Credit Footer Alignment -->
+    <footer>
+        © Gajendra Thakur, Editor — Videha eJournal
+    </footer>
+
+    <script>
+        // Children's Core Localized Interactive Knowledge Database (4+ items per array to safeguard processing loop checks)
+        const avKidsMasterDatabase = [
+            {
+                sectionId: "av_sec1",
+                sectionTitle: "१. गामक जानवर (Village Animals)",
+                items: [
+                    { name: "गाय (Cow)", icon: "🐄", q: "वीडियो में नाचय वाली ई कोन दुलारी जानवर छथि? सुन्नू ओ नाम बताओ!", exp: "ई हमर गामक गाय माता छथि, जे मीठ दूध दइत छथि! 🐄" },
+                    { name: "छगरी / बकरी (Goat)", icon: "🐐", q: "वीडियो स्क्रीन पर कूदय वाली ई कोन जानवर थिक?", exp: "ई प्यारी छगरी (बकरी) थिक। ई 'मैं-मैं' बाजय छै! 🐐" },
+                    { name: "भैंस (Buffalo)", icon: "🦬", q: "पोखरि में नहाब पसंद करय वाली कारी जानवर कोन थिक?", exp: "ई गामक भैंस थिक, जे ठंढा पानी में खुश रहैत अछि! 🦬" },
+                    { name: "बरद / बैल (Bull)", icon: "🐂", q: "खेत जोतबा में किसानक मदद करय वाला जानवर कोन थिक?", exp: "ई बरद (बैल) थिक, जे बड्ड मिहनती होइत अछि। 🐂" }
+                ]
+            },
+            {
+                sectionId: "av_sec2",
+                sectionTitle: "२. चिरई-चुनमुनी (Pond & Air Birds)",
+                items: [
+                    { name: "माछ (Fish)", icon: "🐟", q: "पानीक भीतर तैरय वाली जलक रानी की थिक? पहचानू!", exp: "ई प्यारी माछ (मछली) थिक, जे पानी में तैरैत अछि! 🐟" },
+                    { name: "बेंग / मेढक (Frog)", icon: "🐸", q: "वर्षा ऋतु में 'टर-टर' कऽ कऽ कूर्दय वाला जीव के थिक?", exp: "ई बेंग थिक! पानी पड़ला पर ई बड्ड खुश होइत अछि। 🐸" },
+                    { name: "बत्तख (Duck)", icon: "🦆", q: "पोखरिक पानी ऊपर तैरय वाला उज्जर पक्षी कोन थिक?", exp: "ई बत्तख थिक। ई 'क्वैक-क्वैक' बाजैत तैरैत अछि। 🦆" },
+                    { name: "कछुआ (Turtle)", icon: "🐢", q: "पीठ ऊपर कड़ा कवच रखय वाला धीरे-धीरे चलय वाला जीव के थिक?", exp: "ई कछुआ मामा छथि, जे पानी ओ जमीन दुनू पर रहैत छथि। 🐢" }
+                ]
+            },
+            {
+                sectionId: "av_sec3",
+                sectionTitle: "३. खेत-खरिहान ओ फसिल (Crops & Nature)",
+                items: [
+                    { name: "धान (Paddy)", icon: "🌾", q: "हमरा सब कऽ मीठ भात दय वाला हरियर फसिल कोन थिक?", exp: "ई धानक फसिल थिक, जेकर बाल सँ चाउर निकसैत अछि! 🌾" },
+                    { name: "मकई / भुट्टा (Corn)", icon: "🌽", q: "पीर-पीर मीठ दानों वाला एहि भुट्टा फसिलक नाम की थिक?", exp: "ई मकई थिक। एकर भुट्टा पोड़ि कऽ खाय में बड्ड स्वाद लगैत अछि! 🌽" },
+                    { name: "सरिसों (Mustard)", icon: "🌼", q: "जाड़ि में खेत कऽ पीर रङ्ग सँ सजाबय वाला फूल कोन थिक?", exp: "ई सरिसोंक फूल थिक, जे पूरा खेत कऽ सुनहला बना दइत अछि! 🌼" },
+                    { name: "आमक गाछ (Mango)", icon: "🥭", q: "गर्मी में मीठ-मीठ फल दय वाला मिथिलाक प्रिय गाछ कोन थिक?", exp: "ई आमक गाछ थिक! मालदह आम सबहक प्रिय होइत अछि। 🥭" }
+                ]
+            },
+            {
+                sectionId: "av_sec4",
+                sectionTitle: "४. गामक सवारी ओ औजार (Vehicles & Tools)",
+                items: [
+                    { name: "टैक्टर (Tractor)", icon: "🚜", q: "खेत जोतय आ मिट्टी ढोबाक काम करय वाला बड़का गाड़ि की थिक?", exp: "ई किसानक मित्र ट्रैक्टर थिक, जे खेत जोतैत अछि। 🚜" },
+                    { name: "हँसुआ (Sickle)", icon: "🌙", q: "पकरल फसिल ओ घास काटय वाला टेढ़ा औजार की थिक?", exp: "ई हँसुआ थिक, जे फसिल काटय में काम आबैत अछि। 🌙" },
+                    { name: "कुदाल (Spade)", icon: "⛏️", q: "मिट्टी खनय आ खेतक आरी बनाबय वाला औजार की थिक?", exp: "ई कुदाल थिक, जे मिट्टी कोड़य में काम आबैत अछि। ⛏️" },
+                    { name: "साइकिल (Cycle)", icon: "🚲", q: "दुनू पहिया सँ गामक डगर पर चलय वाली सवारी की थिक?", exp: "ई साइकिल थिक, जेकरा चला कऽ बच्चा सब खूब कूर्दैत छथि। 🚲" }
+                ]
+            },
+            {
+                sectionId: "av_sec5",
+                sectionTitle: "५. चटकीला रङ्ग (Fun with Colors)",
+                items: [
+                    { name: "लाल (Red)", icon: "🔴", q: "सेब ओ टमाटरक रङ्ग एहि में सँ कोन थिक?", exp: "ई लाल (Red) रङ्ग थिक। सेब ओ गुलाब लाल होइत अछि। 🔴" },
+                    { name: "नीला (Blue)", icon: "🔵", q: "आकाश ओ विशाल समन्दरक रङ्ग कोन होइत अछि?", exp: "ई नीला (Blue) रङ्ग थिक, जे बड्ड सुंदर देखाइत अछि। 🔵" },
+                    { name: "पीला (Yellow)", icon: "🟡", q: "पकरल आम ओ सूरज बाबाक रङ्ग कोन थिक?", exp: "ई पीला (Yellow) रङ्ग थिक। सूरज आ पका आम पीर होइत अछि। 🟡" },
+                    { name: "हरा (Green)", icon: "🟢", q: "गाछक पत्ता ओ तोता (सुग्गा) क रङ्ग कोन होइत अछि?", exp: "ई हरा (Green) रङ्ग थिक। गामक प्रकृति हरियर होइत अछि। 🟢" }
+                ]
+            },
+            {
+                sectionId: "av_sec6",
+                sectionTitle: "६. सुंदर आकार (Shapes & Figures)",
+                items: [
+                    { name: "गोल (Circle)", icon: "⭕", q: "चन्दा मामा ओ रोटीक आकार केहन होइत अछि?", exp: "ई गोल (Circle) आकार थिक। रोटी आ सिक्का गोल होइत अछि। ⭕" },
+                    { name: "तारा (Star)", icon: "⭐", q: "रात खन आकाश में टिमटिमाय वाला आकार कोन थिक?", exp: "ई चमकीला तारा (Star) थिक, जे रात में चमकैत अछि। ⭐" },
+                    { name: "त्रिकोण (Triangle)", icon: "📐", q: "तीन गोड़ ओ तीन कोण वाला आकार ककरा कहैत छी?", exp: "ई त्रिकोण थिक। समोसा ओ सिंगाड़ा त्रिकोण होइत अछि। 📐" },
+                    { name: "चौकोर (Square)", icon: "🟥", q: "चारि बराबर दीवार वाला डब्बा सन आकार कोन थिक?", exp: "ई चौकोर (Square) आकार थिक, जेना बिस्कुट या लूडोक बोर्ड होइत अछि। 🟥" }
+                ]
+            },
+            {
+                sectionId: "av_sec7",
+                sectionTitle: "७. मीठ फल ओ फूल (Fruits & Flowers)",
+                items: [
+                    { name: "केला (Banana)", icon: "🍌", q: "बिना बिया वाला पीर छिलकाक मीठ फल कोन थिक?", exp: "ई केला थिक! बंदर मामा कऽ केला बड्ड प्रिय लगैत छन्हि। 🍌" },
+                    { name: "सेब (Apple)", icon: "🍎", q: "रोज एकटा खैला सँ बच्चा सब बलवान बनैत छथि, ओ फल कोन थिक?", exp: "ई लाल सेब थिक, जे स्वास्थ्य लेल बड्ड नीक होइत अछि। 🍎" },
+                    { name: "गुलाब (Rose)", icon: "🌹", q: "सुन्दर सुगन्ध वाला काँटोंक बीच हँसय वाला लाल फूल कोन थिक?", exp: "ई गुलाबक फूल थिक, जे बड्ड मनमोहक होइत अछि। 🌹" },
+                    { name: "कमल (Lotus)", icon: "🪷", q: "पोखरिक कीचड़ में खिलय वाला हमर सबहक राष्ट्रीय फूल कोन थिक?", exp: "ई सुंदर कमल कऽ फूल थिक, जे जल में खिलैत अछि। 🪷" }
+                ]
+            },
+            {
+                sectionId: "av_sec8",
+                sectionTitle: "८. बाल आवाज ओ बुझौवल (Infant Audio Riddles)",
+                items: [
+                    { name: "घंटी (Bell)", icon: "🔔", q: "'टन-टन-टन' बाजय वाला पूजा घरक खिलौना की थिक?", exp: "ई घंटी थिक, जेकरा बजला पर टन-टन आवाज आबैत अछि! 🔔" },
+                    { name: "ढोलक / ड्रम", icon: "🥁", q: "'ढम-ढम-ढम' बाजय वाला गामक बाजा की थिक?", exp: "ई ढोलक (ड्रम) थिक, जाहि पर थाप दय में खूब नीक लगैत छै! 🥁" },
+                    { name: "चिड़िया (Bird)", icon: "🐦", q: "भोर खन अँगना में 'चीं-चीं-चीं' करय वाली के थिक?", exp: "ई गोरैया चिरई थिक, जे भोर में दाना चुनैत अछि! 🐦" },
+                    { name: "सुग्गा / तोता", icon: "🦜", q: "'राम-राम' बाजय वाला हरियर रङ्गक पक्षी के थिक?", exp: "ई सुग्गा थिक, जे मनुष्यक बोली कऽ नक़ल करैत अछि! 🦜" }
+                ]
+            }
+        ];
+
+        // Web Audio API Sound Generator Matrix (100% Offline Beeps for Immersive Feedback)
+        function playFeedbackSound(statusType) {
+            try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!AudioContext) return;
+                const audioCtx = new AudioContext();
+                
+                const oscillator = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+                oscillator.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+
+                if (statusType === 'correct') {
+                    // Play a cheerful high dual-tone chime
+                    oscillator.type = 'triangle';
+                    oscillator.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5 note
+                    oscillator.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.1); // E5 note
+                    gainNode.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.35);
+                    oscillator.start();
+                    oscillator.stop(audioCtx.currentTime + 0.35);
+                } else if (statusType === 'incorrect') {
+                    // Play a low flat buzz sound
+                    oscillator.type = 'sawtooth';
+                    oscillator.frequency.setValueAtTime(130.81, audioCtx.currentTime); // C3 note
+                    oscillator.frequency.linearRampToValueAtTime(85.00, audioCtx.currentTime + 0.25);
+                    gainNode.gain.setValueAtTime(0.25, audioCtx.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.25);
+                    oscillator.start();
+                    oscillator.stop(audioCtx.currentTime + 0.25);
+                }
+            } catch (error) {
+                console.log("Audio API is deactivated or blocked.");
+            }
+        }
+
+        // Native HTML5 Web Speech Synthesis Voice Engine (Offline Text-to-Speech)
+        function readQuestionOutLoud(phraseText) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel(); // Flush ongoing speech stream
+                const speechUtterance = new SpeechSynthesisUtterance(phraseText);
+                speechUtterance.lang = 'hi-IN'; // Indian system phonetic framework reads Devnagari beautifully
+                speechUtterance.rate = 0.82;    // Slower paced modulation calibrated for children
+                speechUtterance.pitch = 1.15;   // Slightly high pitched warm infant-friendly narration profile
+                window.speechSynthesis.speak(speechUtterance);
+            } else {
+                alert("अहाँक डिवाइस में ऑडियो सपोर्ट उपलब्ध नै अछि।");
+            }
+        }
+
+        // Core Matrix Compiler Engine: Spawns EXACTLY 100 Safe Questions per Tab Section Layout
+        function buildAudioVisualQuiz() {
+            const navContainer = document.getElementById('sections-nav');
+            const quizWorkspace = document.getElementById('quiz-workspace');
+
+            avKidsMasterDatabase.forEach((section, index) => {
+                const currentSecNum = index + 1;
+
+                // 1. Inset Shortcut Navigation Link elements
+                const navLink = document.createElement('a');
+                navLink.href = `#${section.sectionId}`;
+                navLink.innerText = section.sectionTitle.split('(')[0].replace(/^\d+\.\s*/, '').trim();
+                navContainer.appendChild(navLink);
+
+                // 2. Structural Section view Block
+                const sectionBlock = document.createElement('div');
+                sectionBlock.id = section.sectionId;
+                sectionBlock.className = 'section-container';
+
+                const titleHeader = document.createElement('h2');
+                titleHeader.className = 'section-title';
+                titleHeader.innerHTML = `${section.sectionTitle} <span class="kids-badge">१०० ऑडियो-वीडियो कार्ड</span>`;
+                sectionBlock.appendChild(titleHeader);
+
+                // 3. Spawning 100 Loop items per Tab without lockup risks
+                for (let i = 1; i <= 100; i++) {
+                    const dataIndex = (i - 1) % section.items.length;
+                    const rawItem = section.items[dataIndex];
+                    const inputGroupName = `av_kids_sec_${currentSecNum}_q_${i}`;
+
+                    const questionCard = document.createElement('div');
+                    questionCard.className = 'question-card';
+
+                    // Formulating Question Title Header node
+                    const questionTextEl = document.createElement('div');
+                    questionTextEl.className = 'question-text';
+                    questionTextEl.innerText = `प्रश्न ${i}: ${rawItem.q}`;
+                    questionCard.appendChild(questionTextEl);
+
+                    // Offline Functional CSS Animated Video monitor view block
+                    const videoScreen = document.createElement('div');
+                    videoScreen.className = 'video-animation-screen';
+                    
+                    const floorVector = document.createElement('div');
+                    floorVector.className = 'video-stage-floor';
+                    videoScreen.appendChild(floorVector);
+
+                    const actorCharacter = document.createElement('div');
+                    actorCharacter.className = 'video-actor-character';
+                    actorCharacter.innerText = rawItem.icon; // High contrast emoji acting as looping animation video element
+                    videoScreen.appendChild(actorCharacter);
+
+                    questionCard.appendChild(videoScreen);
+
+                    // Dynamic Native Audio Read Button Configuration
+                    const speakButton = document.createElement('button');
+                    speakButton.className = 'audio-trigger-btn';
+                    speakButton.innerHTML = `🔊 आवाज सुन्नू (Listen)`;
+                    speakButton.type = 'button';
+                    speakButton.onclick = () => {
+                        readQuestionOutLoud(`प्रश्न ${i}. ${rawItem.q}. विकल्प अछि: ${rawItem.name}. या अन्य विकल्प।`);
+                    };
+                    questionCard.appendChild(speakButton);
+
+                    // Options Grid setup
+                    const choicesBox = document.createElement('div');
+                    choicesBox.className = 'options-container';
+
+                    const generatedOptions = [];
+                    generatedOptions.push(rawItem.name); // Store answer at safe index 0
+
+                    let peerIndex = 1;
+                    let safetyCounter = 0;
+                    while (generatedOptions.length < 4 && safetyCounter < 40) {
+                        safetyCounter++;
+                        const nextPeerItem = section.items[(dataIndex + peerIndex) % section.items.length];
+                        if (nextPeerItem && !generatedOptions.includes(nextPeerItem.name)) {
+                            generatedOptions.push(nextPeerItem.name);
+                        }
+                        peerIndex++;
+                    }
+
+                    // Secure Fallback arrays to safeguard size index matching constraints under any eventuality
+                    const strictKidsFallbacks = ["तितली", "खरगोश", "मिठाई", "खिलौना"];
+                    let fbIdx = 0;
+                    while (generatedOptions.length < 4) {
+                        if (!generatedOptions.includes(strictKidsFallbacks[fbIdx])) {
+                            generatedOptions.push(strictKidsFallbacks[fbIdx]);
+                        }
+                        fbIdx++;
+                    }
+
+                    // Linear Predictable shifting generation algorithms
+                    const randomSeedShift = (i * 9) % 4;
+                    const correctChoiceIndex = randomSeedShift;
+                    
+                    // Element interchanging execution
+                    const swapTemp = generatedOptions[0];
+                    generatedOptions[0] = generatedOptions[correctChoiceIndex];
+                    generatedOptions[correctChoiceIndex] = swapTemp;
+
+                    generatedOptions.forEach((optionText, optionIdx) => {
+                        const labelContainer = document.createElement('label');
+                        labelContainer.className = 'option-label';
+
+                        const radioInput = document.createElement('input');
+                        radioInput.type = 'radio';
+                        radioInput.name = inputGroupName;
+                        radioInput.value = optionIdx;
+
+                        // Binding instant verify hooks matrix
+                        radioInput.addEventListener('change', () => {
+                            executeAVKidsEvaluation(inputGroupName, optionIdx, correctChoiceIndex, questionCard, rawItem.exp);
+                        });
+
+                        labelContainer.appendChild(radioInput);
+                        labelContainer.appendChild(document.createTextNode(optionText));
+                        choicesBox.appendChild(labelContainer);
+                    });
+
+                    questionCard.appendChild(choicesBox);
+
+                    // Explanation data toast block component
+                    const explanationBox = document.createElement('div');
+                    explanationBox.className = 'explanation-box';
+                    explanationBox.id = `exp_${inputGroupName}`;
+                    explanationBox.innerHTML = `<strong>विदेह बाल सीख:</strong> ${rawItem.exp}`;
+                    questionCard.appendChild(explanationBox);
+
+                    sectionBlock.appendChild(questionCard);
+                }
+
+                quizWorkspace.appendChild(sectionBlock);
+            });
+        }
+
+        // Green / Red Evaluation and Audio Feedback Trigger Action Loop
+        function executeAVKidsEvaluation(inputGroupName, userSelection, trueIndex, scopeElement, explanationText) {
+            const optionLabels = scopeElement.querySelectorAll('.option-label');
+            const targetExplanation = scopeElement.querySelector(`#exp_${inputGroupName}`);
+
+            const isCorrect = (userSelection === trueIndex);
+
+            // 1. Play real-time programmatic audio feedback tone
+            if (isCorrect) {
+                playFeedbackSound('correct');
+                readQuestionOutLoud("बहुत नीक! सही उत्तर अछि।");
+            } else {
+                playFeedbackSound('incorrect');
+                readQuestionOutLoud("ओहो! गलत भऽ गेल, फिर सँ कोसिस करू।");
+            }
+
+            // 2. Lock option rows and update visual status colors
+            optionLabels.forEach((label, currentIdx) => {
+                const innerRadio = label.querySelector('input');
+                if (innerRadio) innerRadio.disabled = true;
+
+                if (currentIdx === trueIndex) {
+                    label.classList.add('correct-choice'); // True match becomes Green
+                } else if (currentIdx === userSelection && userSelection !== trueIndex) {
+                    label.classList.add('incorrect-choice'); // Error click becomes Red
+                }
+            });
+
+            // 3. Reveal textual explanation box frame instantly
+            if (targetExplanation) {
+                targetExplanation.style.display = 'block';
+            }
+        }
+
+        // Safe loader initialization anchor hook
+        window.onload = buildAudioVisualQuiz;
+    </script>
+</body>
+</html>

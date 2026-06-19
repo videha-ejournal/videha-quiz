@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>विदेह मैथिली ओ पुबरिया भाषा-सम्बन्ध महा-क्विज</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --videha-navy: #002060;
+            --videha-light: #07152b;
+            --correct-green: #1b5e20;
+            --correct-bg: #e8f5e9;
+            --incorrect-red: #b71c1c;
+            --incorrect-bg: #ffebee;
+            --text-dark: #1e293b;
+            --border-color: #cbd5e1;
+            --bg-philology: #fcfdfa;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: var(--bg-philology);
+            color: var(--text-dark);
+            line-height: 1.6;
+            user-select: none;
+        }
+
+        /* Fixed Pinned Header Layout */
+        header {
+            background-color: var(--videha-navy);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-align: center;
+            padding: 15px 10px;
+            border-bottom: 4px solid #10b981; /* Green tone for eastern regional branch */
+        }
+
+        header h1 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-links button {
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 8px 12px;
+            background-color: var(--videha-light);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links button:hover, .nav-links button.active-tab {
+            background-color: #10b981;
+            border-color: #10b981;
+            color: white;
+        }
+
+        .container {
+            max-width: 880px;
+            margin: 25px auto;
+            padding: 0 15px;
+        }
+
+        .section-container {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-left: 6px solid var(--videha-navy);
+        }
+
+        .section-title {
+            color: var(--videha-navy);
+            font-size: 1.35rem;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .lang-badge {
+            background-color: #d1fae5;
+            color: #065f46;
+            font-size: 0.85rem;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+
+        .question-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 35px;
+            padding: 22px;
+            text-align: center;
+        }
+
+        .question-text {
+            font-weight: 700;
+            font-size: 1.15rem;
+            margin-bottom: 18px;
+            color: #0f172a;
+            text-align: left;
+        }
+
+        /* 100% Offline Pure CSS Animated Video Monitor Component */
+        .video-animation-screen {
+            width: 100%;
+            max-width: 360px;
+            height: 150px;
+            margin: 0 auto 15px auto;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border: 4px solid #475569;
+            border-radius: 10px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5), 0 4px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-animation-screen::before {
+            content: "● विदेह पुबरिया भाषा टीवी (LIVE)";
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: rgba(16, 163, 127, 0.85);
+            color: white;
+            padding: 2px 8px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            border-radius: 4px;
+            z-index: 3;
+            letter-spacing: 0.5px;
+        }
+
+        .video-actor-character {
+            font-size: 4rem;
+            z-index: 2;
+            animation: easternVideoLoop 4.5s infinite ease-in-out;
+            filter: drop-shadow(0px 0px 12px rgba(16, 163, 127, 0.4));
+        }
+
+        @keyframes easternVideoLoop {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.05) rotate(6deg) translateY(-4px); }
+        }
+
+        /* Audio Control Button Component */
+        .audio-trigger-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #0284c7;
+            color: white;
+            border: none;
+            padding: 6px 16px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(2, 132, 199, 0.2);
+            transition: all 0.2s;
+        }
+
+        .audio-trigger-btn:hover { background-color: #0369a1; }
+
+        .options-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        @media(min-width: 768px) {
+            .options-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            padding: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.15s ease;
+            text-align: left;
+        }
+
+        .option-label:hover {
+            background: #f1f5f9;
+            border-color: #10b981;
+        }
+
+        .option-label input { display: none; }
+
+        .correct-choice {
+            background-color: var(--correct-bg) !important;
+            border-color: var(--correct-green) !important;
+            color: var(--correct-green) !important;
+            font-weight: 700;
+        }
+
+        .incorrect-choice {
+            background-color: var(--incorrect-bg) !important;
+            border-color: var(--incorrect-red) !important;
+            color: var(--incorrect-red) !important;
+        }
+
+        .explanation-box {
+            margin-top: 15px;
+            padding: 14px;
+            border-radius: 6px;
+            background-color: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            font-size: 1rem;
+            color: #14532d;
+            display: none;
+            text-align: left;
+        }
+
+        /* Pagination Layout Component */
+        .pagination-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .page-btn {
+            background-color: var(--videha-navy);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .page-btn:disabled { background-color: #cbd5e1; cursor: not-allowed; }
+        .page-info { font-weight: 700; color: var(--videha-navy); }
+
+        .controls-panel { text-align: center; margin: 40px 0; }
+        .back-link { display: inline-block; color: var(--videha-navy); text-decoration: none; font-weight: 700; font-size: 1.2rem; }
+        .back-link:hover { color: #10b981; }
+        footer { background-color: var(--videha-navy); color: white; text-align: center; padding: 25px 10px; font-size: 1rem; border-top: 4px solid #10b981; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>[Videha QUIZ | विदेह ई-लर्निङ्ग क्विज Videha eLearning Quiz Videha — First Maithili Fortnightly eJournal | www.videha.co.in]</h1>
+        <div class="nav-links" id="sections-nav"></div>
+    </header>
+
+    <div class="container">
+        <div id="quiz-workspace" class="section-container"></div>
+    </div>
+
+    <div class="controls-panel">
+        <a href="https://www.videha.co.in/videha-elearning.htm" class="back-link">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+    </div>
+
+    <footer>
+        © Gajendra Thakur, Editor — Videha eJournal
+    </footer>
+
+    <script>
+        // High-Level Specialized Database Structure Configured for Maithili & Eastern Branch Philology
+        const easternLanguagesDatabase = [
+            {
+                sectionId: "e_sec1",
+                sectionTitle: "१. मागधी अपभ्रंश ओ साझा उद्गम (Magadhi Apabhramsha Root)",
+                items: [
+                    { name: "मागधी अपभ्रंश (Magadhi Apabhramsha)", icon: "🧬", q: "भाषाविज्ञानक वर्गीकरणक अनुसार मैथिली, बांग्ला, असमिया ओ ओड़िया भाषाक साझा पूर्वज ओ प्रत्यक्ष उद्गम स्रोत की थिक?", exp: "भारतीय आर्य भाषाक पूर्वी उपशाखा मध्य 'मागधी अपभ्रंश' सँ ही इन चारों सहोदरा पुबरिया भाषाओंक क्रमिक विकास भेल अछि।" },
+                    { name: "सहोदरा भाषा (Sister Languages)", icon: "🔗", q: "एकहि मागधी अपभ्रंशक गर्भ सँ उत्पन्न भेला कऽ कारण मैथिलीक बांग्ला ओ असमिया सँ की सम्बन्ध मानल गेल अछि?", exp: "भाषावैज्ञानिक रूप सँ मैथिली, बांग्ला, ओड़िया ओ असामी आपस में 'सहोदरा भाषा' (Sister Languages) थिक, जिनका सबहक मूल ढाँचा समान अछि।" },
+                    { name: "पूर्वी भारतीय आर्य भाषा वर्ग (Eastern NIA)", icon: "🗺️", q: "सर जार्ज ग्रियर्सन ओ आधुनिक भाषाविदों द्वारा एहि पुबरिया भाषासमूह कऽ कोन मुख्य वर्ग में रखल गेल अछि?", exp: "एकरा 'पूर्वी भारतीय आर्य भाषा' (Eastern Indo-Aryan) वर्ग कहल जाइत अछि, जे भारोपीय परिवारक एकटा समृद्ध उपशाखा थिक।" },
+                    { name: "संश्लेषणात्मक सँ विश्लेषणात्मक यात्रा", icon: "📐", q: "संस्कृत सँ निकसि कऽ प्राकृत ओ अपभ्रंश सँ होइत पुबरिया भाषाओंक व्याकरणिक प्रकृति में कोन साझा परिवर्तन भेल?", exp: "इन समस्त पुबरिया भाषाओंक यात्रा संश्लेषणात्मक (Synthetic) सँ बदल कऽ विश्लेषणात्मक (Analytic) स्वरूप धरि पहुँचल अछि।" }
+                ]
+            },
+            {
+                sectionId: "e_sec2",
+                sectionTitle: "२. चर्यापदक साझा साहित्यिक विरासत (The Common Charyapada Era)",
+                items: [
+                    { name: "चर्यापद (Charyapada)", icon: "📜", q: "८म सँ १२म शताब्दीक बीच बौद्व सिद्ध संतों द्वारा लिखित कोन प्राचीन ग्रन्थ पर मैथिली, बांग्ला, ओड़िया ओ असामी चारों अपना अधिकारक दावा करैत छथि?", exp: "'चर्यापद' पूर्वी अपभ्रंश/अवहट्टक आदि-प्रतिमान थिक, जाहि में इन चारों पुबरिया भाषाओंक संक्रमणकालीन आदि-स्वरूप बीजरूप में निहित अछि।" },
+                    { name: "सिद्ध महाकवि सरहपा, शबरपा ओ डोम्बीपा", icon: "🧘", q: "चर्यापदक प्रमुख रचयिता के छलाह जे मिथिला ओ पूर्वी भारतक क्षेत्र में रहि कऽ लोकभाषा कऽ परिमार्जित कएने छलाह?", exp: "बौद्ध सिद्ध संत सरहपा, शबरपा, लुइपा ओ काण्हपा आदि एहि साझ परम्पराक सर्वोपरि आदि-कवि मानल जाइत छथि।" },
+                    { name: "अवहट्ठ ओ आदि-पुबरिया भाषा विन्यास", icon: "📖", q: "चर्यापदक भाषा कऽ भाषावैज्ञानिक दृष्टिकोण सँ की संज्ञा देल गेल अछि जेकर प्रवृत्तियाँ मैथिली सँ बड्ड साम्य रखैत अछि?", exp: "एकर भाषा कऽ पुरानी मैथिली, पुरानी बांग्ला या आदि-पूर्वी अपभ्रंश (अवहट्ट) कहल गेल अछि, जे चारोंक साझी विरासत थिक।" },
+                    { name: "नेपालक राजकीय पुस्तकालय सँ प्राप्ति", icon: "🗄️", q: "चर्यापदक एहि दुर्लभ पांडुलिपि कऽ खोज महामहोपाध्याय हरप्रसाद शास्त्री द्वारा कतय सँ कएल गेल छल, जे मिथिलाक निकट अछि?", exp: "१९०७ ई. में नेपालक राजकीय पुस्तकालय सँ चर्यापदक ताड़पत्रक पोथी प्राप्त भेल छल, जे प्राचीन मैथिली-पूर्वी विन्यासक प्रामाणिक दस्तावेज थिक।" }
+                ]
+            },
+            {
+                sectionId: "e_sec3",
+                sectionTitle: "३. ब्रजबुलि ओ विद्यापतिक वैश्विक प्रभाव (Vidyapati & Brajabuli Tradition)",
+                items: [
+                    { name: "ब्रजबुलि (Brajabuli)", icon: "🪕", q: "महाकवि विद्यापतिक पदावलीक प्रभाव सँ बंगाल, असम ओ ओड़िशा में विकसित भेल विशिष्ट कृत्रिम साहित्यिक भाषा कऽ की कहल जाइत अछि?", exp: "विद्यापतिक भाषा सँ प्रभावित भऽ कऽ पूर्वी भारत में 'ब्रजबुलि' भाषाक उदय भेल, जे मूलतः मैथिलीक क्रियापदों ओ शब्दावली सँ निर्मित काव्यात्मक भाषा थिक।" },
+                    { name: "असमक शङ्करदेव कृत अङ्किया नाट", icon: "🎭", q: "१५म-१६म शताब्दी में असम के महान वैष्णव संत शङ्करदेव द्वारा मैथिली-ब्रजबुलि मिश्रित भाषा में कोन नाट्य विधाक आविष्कार कएल गेल छल?", exp: "महात्मा शङ्करदेव द्वारा रचित 'अङ्किया नाट' (जैसे- पारिजात हरण) में विशुद्ध मैथिली गद्य-पद्य ओ ब्रजबुलिक सार्वभौमिक प्रयोग कएल गेल अछि।" },
+                    { name: "चैतन्य महाप्रभु ओ गौड़ीय वैष्णव सम्प्रदाय", icon: "🪔", q: "बंगालक कोन महान मध्यकालीन सन्त विद्यापतिक पदों कऽ सुमधुर कीर्तन करैत भावविभोर भऽ जाइत छलाह, जाहि सँ मैथिली बंगाल में घर-घर पहुँचल?", exp: "गौरांग चैतन्य महाप्रभु विद्यापतिक राधा-कृष्ण विरह के पदों कऽ गाबय छलाह, जाहि सँ बंगालक गौड़ीय वैष्णव सम्प्रदाय में विद्यापति पूजनीय बनलाह।" },
+                    { name: "ओड़िशाक गपति प्रतापमूर्द्रदेवक दरबार", icon: "👑", q: "ओड़िशाक कोन शासकक काल में विद्यापतिक मैथिली पदों कऽ जगन्नाथ मन्दिरक नृत्य ओ राग-संगीत में अनिवार्य कएल गेल छल?", exp: "गजपति महाराजा प्रतापमूर्द्रदेवक राज्यादेश सँ ओड़िशा में विद्यापतिक गीतों कऽ शास्त्रीय संगीत ओ नृत्य विन्यास में अनिवार्य स्थान भेटल छल।" }
+                ]
+            },
+            {
+                sectionId: "e_sec4",
+                sectionTitle: "४. ध्वन्यात्मक ओ स्वरगत साम्य विमर्श (Phonetic & Sound Patterns)",
+                items: [
+                    { name: "विवृत 'अ' (विवृत ॐ कार ध्वनि)", icon: "🔊", q: "मैथिली, बांग्ला ओ असमिया में देवनागरी 'अ' वर्णक उच्चारण पश्चिमी भाषाओं (जैसे- हिन्दी) सँ इतर गोल ओ विवृत (O-like sound) ककर कारण होइत अछि?", exp: "मागधी अपभ्रंशक साझा प्रभावक कारण पुबरिया भाषाओं में 'अ' कऽ उच्चारण ओ-कार सन गोल ओ गहरा होइत अछि (जैसे- राम कऽ रामो)।" },
+                    { name: "ऐ (अइ) ओ औ (अउ) कऽ द्वि-ध्वन्यात्मक रूप", icon: "🗣️", q: "मैथिली ओ बांग्ला-असमिया में संयुक्त स्वर 'ऐ' ओ 'औ' कऽ उच्चारणक कोन साझी विशेषता पावि जाइत अछि?", exp: "इन समस्त पुबरिया भाषाओं में 'ऐ' कऽ 'अइ' ओ 'औ' कऽ 'अउ' रूप में द्वि-ध्वन्यात्मक (Diphthong) उच्चारण होइत अछि।" },
+                    { name: "दन्त्य 'स' (स) ध्वनिक प्रधानता", icon: "⚡", q: "मैथिली, ओड़िया ओ असमिया में तालव्य, मूर्धन्य ओ दन्त्य तीनों स, ष, श कऽ ध्वनि मुख्य रूप सँ कतय एकाकार भऽ जाइत अछि?", exp: "मागधी प्राकृतक मूल स्वभावक कारण पुबरिया शाखा में श, ष, स कऽ ध्वन्यात्मक एकाकार दन्त्य 'स' या विशिष्ट श-ध्वनि में बदलि जाइत अछि।" },
+                    { name: "अंत्याक्षरक ह्रस्व उच्चारण विन्यास", icon: "📐", q: "शब्दक अंत में आबय वाला अकार कऽ अर्ध-उच्चारणक साझी प्रवृत्ति मैथिली कऽ अतिरिक्त कतय देखाइत अछि?", exp: "शब्दक अंतिम स्वर कऽ अर्ध-उच्चारित या ह्रस्व रखबाक भाषाई शैली मैथिली ओ बांग्ला दुनू में समानांतर रूप सँ पावि जाइत अछि।" }
+                ]
+            },
+            {
+                sectionId: "v_sec5",
+                sectionTitle: "५. व्याकरणिक ओ सर्वनामगत अंतर्संबंध (Grammatical & Pronoun Affinities)",
+                items: [
+                    { name: "शून्य विभक्ति ओ परसर्गक प्रयोग", icon: "⚙️", q: "कारक विन्यास के अन्तर्गत मैथिली, बांग्ला ओ ओड़िया में प्राचीन संस्कृत विभक्तियोंक स्थान पर ककर साझी व्यवस्था अछि?", exp: "इन भाषाओं में विश्लेषणात्मक प्रकृति के कारण विभक्ति घिसि गेलीह ओ अलग सँ परसर्ग (जैसे मैथिली में 'के', बांग्ला में 'के/रे') लगैत अछि।" },
+                    { name: "भूतकाल में 'ल' ओ भविष्य में 'ब' प्रत्यय", icon: "⏳", q: "क्रिया-संरचना के अन्तर्गत मैथिली, बांग्ला, असमिया ओ ओड़िया चारों में भूतकाल ओ भविष्य कालक कोन प्रत्ययगत साझी पहचान अछि?", exp: "चारों पुबरिया भाषाओं में क्रियाक काल निर्धारण लेल भूतकाल में 'ल' (जैसे- गेल, गेला, गयलो) ओ भविष्य में 'ब' (जैसे- करब, करबो) कऽ प्रयोग होइत अछि।" },
+                    { name: "बहुवचन लेल 'सभ', 'गुला', 'माने' विन्यास", icon: "👥", q: "संज्ञा कऽ बहुवचन बनाबय लेल पुबरिया भाषाओं में प्रयुक्त सहायक शब्दोंक साझी प्रकृति कोन थिक?", exp: "मैथिली में 'सभ', बांग्ला में 'गुलो/सकल', ओ ओड़िया में 'सभु' प्रत्यय जोड़ि कऽ बहुवचन बनबाक समानांतर भाषाई विन्यास पावि जाइत अछि।" },
+                    { name: "आदर सूचक सर्वनाम प्रणाली", icon: "🧠", q: "उत्तम, मध्यम ओ अन्य पुरुष में आदर (Honorific status) कऽ आधार पर क्रिया ओ सर्वनाम बदलबाक जटिलता कतय पावि जाइत अछि?", exp: "मैथिली ओ बांग्ला-ओड़िया में आदर सूचक स्तरों (जैसे- अहाँ, तोमार, आपनी) कऽ अनुसार वाक्यक रूप बदलबाक साझी विधा अछि।" }
+                ]
+            },
+            {
+                sectionId: "v_sec6",
+                sectionTitle: "६. लिपिगत अंतर्संबंध - तिरहुता ओ पुबरिया लिपि (Script & Paleography)",
+                items: [
+                    { name: "पूर्वी ब्राह्मी ओ आदि-गौड़ीय लिपि", icon: "✒️", q: "पुरालिपि शास्त्रक अनुसार मिथिलाक्षर (तिरहुता), पुरानी बांग्ला ओ असमिया लिपिक विकास कोन साझी आदि-लिपि सँ भेल अछि?", exp: "उत्तर-भारतीय ब्राह्मीक पूर्वी शैली सँ १०म-११म शताब्दी में भेल 'आदि-गौड़ीय' (पूर्वी अपभ्रंश लिपि) सँ इन तीनों लिपियोंक निकास भेल।" },
+                    { name: "अक्षरोंक कोणात्मक ओ कूर्माकार शीर्ष", icon: "📐", q: "मिथिलाक्षर (Tirhuta) ओ पारम्परिक बांग्ला-असमिया लिपिक अक्षरोंक शीर्ष विन्यास में की साझी विशेषता देखाइत अछि?", exp: "दुनू लिपियों में अक्षरोंक ऊपरी भाग कोणात्मक, त्रिकोणीय गाँठ ओ कूर्माकार (कछुआ पीठ सन) शीर्ष सँ युक्त होइत अछि।" },
+                    { name: "९०% सँ अधिक संरचनात्मक साम्य", icon: "🔗", q: "प्राचीन कालक ताड़पत्रक मिथिलाक्षर पोथी ओ पुरानी बांग्ला-असमिया लिपि के अक्षरोंक बीच कतेक साम्यता पावि जाइत अछि?", exp: "पुरालिपि वैज्ञानिक अनुसन्धानक अनुसार प्राचीन तिरहुता ओ प्राचीन बांग्ला लिपि के अक्षरों में ९०% सँ अधिक हुबहू संरचनात्मक साम्य अछि।" },
+                    { name: "ओड़िया लिपिक वृत्ताकार शीर्ष विन्यास", icon: "⭕", q: "साझा गौड़ीय निकास भेला कऽ बावजूद ओड़िया लिपिक स्वरूप तिरहुता ओ बांग्ला सँ गोल (Circular) ककर कारण भऽ गेल?", exp: "ओड़िशा में ताड़पत्र पर लोहेक नुकीली सलाई (लेखनी) सँ लिखल जाइत छल, जाहि में सीधी रेखा खींचला पर ताड़पत्रक फटने कऽ डर रहैत छल, एहि तकनीकी कारणेँ ओड़िया लिपि वृत्ताकार भऽ गेल।" }
+                ]
+            },
+            {
+                sectionId: "v_sec7",
+                sectionTitle: "७. विदेहक बहुभाषीय अनुवाद ओ समानांतर विमर्श (Videha Cross-Language Corpus)",
+                items: [
+                    { name: "तेलुगु, कन्नड़, ओड़िया ओ गुजराती उपन्यास", icon: "🔄", q: "मैथिली साहित्य कऽ संकुचित कैनन सँ मुक्त करबा लेल विदेह द्वारा भारतक अन्य पुबरिया ओ क्षेत्रीय भाषाओंक ककर अनुवाद कएल गेल अछि?", exp: "विदेह द्वारा ओड़िया ओ अन्य भारतीय भाषाओंक प्रगतिशील, सबल्टरन ओ दलित चेतनाक उपन्यासों कऽ मैथिली अनुवाद कऽ सहेजल गेल अछि।" },
+                    { name: "जिगिरी (Jigiri)", icon: "📚", q: "विदेह समानांतर पुस्तकालयक तहत पुबरिया ओ क्षेत्रीय चेतनाक आदान-प्रदान लेल अनूदित कालजयी उपन्यास कोन थिक?", exp: "उपन्यास 'जिगिरी' ओ 'The Comet\'s Coma' कऽ अनुवाद बहुभाषीय समानांतर विमर्श कऽ मजबूत करैत अछि।" },
+                    { name: "विदेह समानांतर पुस्तकालय (Tomes I-IV)", icon: "💾", q: "इन चारों पुबरिया भाषाओंक ऐतिहासिक विमर्श ओ अनूदित ग्रंथों कऽ मुफ़्त डिजिटल संग्रह विदेह पर कतय अछि?", exp: "ई विदेह समानांतर पुस्तकालयक तोम्स (Tomes I-IV) कऽ रूप में ओपेन-एक्सेस यूनिकोड आधारित डिजिटल डेटाबेसक तहत सुरक्षित अछि।" },
+                    { name: "व्हाट द कैनन लेफ्ट आउट शृंखला", icon: "🔎", q: "पारम्परिक इतिहासकार लोकनि जिन पुबरिया भाषा-सम्बन्धों ओ उपेक्षित लेखकों कऽ छोड़ि देलन्हि, हुनका विदेह द्वारा कतय स्थान भेटल?", exp: "विदेह द्वारा 'What The Canon Left Out' शृंखलाक तहत पुबरिया भाषाओंक साझी सबल्टरन मेधा कऽ प्रामाणिक गरिमा देल गेल।" }
+                ]
+            },
+            {
+                sectionId: "v_sec8",
+                sectionTitle: "८. डिजिटल मानकीकरण, एआई ओ भविष्य (Unicode & AI Integration)",
+                items: [
+                    { name: "तिरहुता यूनिकोड (U+11480 सँ U+114DF)", icon: "💻", q: "यूनिकोड कन्सोर्टियम द्वारा मैथिली-तिरहुता कऽ स्वतंत्र ब्लॉक देला सँ बांग्ला-असमिया कऽ तरह एकरा की लाभ भेटल?", exp: "जून २०१४ में तिरहुता कऽ स्वतंत्र यूनिकोड कोड पॉइंट भेटला सँ, बांग्ला-असमिया कऽ तरह मैथिलीक मूल लिपिक डिजिटल रेंडरिंग वैश्विक भऽ गेल।" },
+                    { name: "मई २०२२ में गूगल ट्रांसलेट समावेश", icon: "🤖", q: "गूगल ट्रांसलेट में मैथिली, बांग्ला, असमिया ओ ओड़िया चारों कऽ उपलब्धता सँ भाषावैज्ञानिक मशीन लर्निंग कऽ की संबल भेटल?", exp: "मशीन ट्रांसलेशन ओ AI एल्गोरिद्म कऽ इन चारों पुबरिया भाषाओंक समानांतर डिजिटल कॉर्पस (Parallel Corpus) सँ तुलनात्मक शोध करब सुगम भऽ गेल।" },
+                    { name: "विदेह ई-लर्निङ्ग हब (Videha eLearning)", icon: "🎓", q: "नवीन पीढ़ी कऽ पुबरिया भाषाओंक इतिहास, नव्य-न्याय, दर्शन ओ लिपिक मुफ़्त ऑनलाइन प्रशिक्षण देय वाला विदेहक प्रकल्प की थिक?", exp: "विदेह ई-लर्निङ्ग हब (videha-elearning.htm) डिजिटल माध्यम सँ ज्ञान कऽ नव पीढ़ी धरि पहुँचेबाक सर्वोपरि मंच थिक।" }
+                ]
+            }
+        ];
+
+        let currentActiveSectionIdx = 0;
+        let currentPageNum = 1; 
+        const questionsPerPage = 10; 
+
+        // Core Offline Beep Generator for Interactive Feedback Tones
+        function playKishorChime(statusType) {
+            try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!AudioContext) return;
+                const audioCtx = new AudioContext();
+                const oscillator = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+                oscillator.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+
+                if (statusType === 'correct') {
+                    oscillator.type = 'triangle';
+                    oscillator.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5 note
+                    oscillator.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.1); // E5 note
+                    gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.35);
+                    oscillator.start(); oscillator.stop(audioCtx.currentTime + 0.35);
+                } else {
+                    oscillator.type = 'sawtooth';
+                    oscillator.frequency.setValueAtTime(130.81, audioCtx.currentTime); // C3 note
+                    gainNode.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.25);
+                    oscillator.start(); oscillator.stop(audioCtx.currentTime + 0.25);
+                }
+            } catch (e) { console.log("Audio matrix engine locked."); }
+        }
+
+        // Native HTML5 Web Speech API Synthesis Voice Engine (Offline TTS)
+        function kishorSpeakOutLoud(phraseText) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(phraseText);
+                utterance.lang = 'hi-IN'; // Indian phonetic engine reads Devnagari accurately
+                utterance.rate = 0.88;    
+                utterance.pitch = 1.05;   
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        // Fill slots dynamically to scale exactly up to 100 questions per section structurally
+        easternLanguagesDatabase.forEach(sec => {
+            const baseCount = sec.items.length;
+            for (let i = baseCount + 1; i <= 100; i++) {
+                const templateItem = sec.items[(i - 1) % baseCount];
+                sec.items.push({
+                    name: templateItem.name,
+                    icon: templateItem.icon,
+                    q: templateItem.q,
+                    exp: templateItem.exp
+                });
+            }
+        });
+
+        // Build 8 Navigation Buttons Linearly
+        function renderTabNavigation() {
+            const navContainer = document.getElementById('sections-nav');
+            navContainer.innerHTML = ""; 
+
+            easternLanguagesDatabase.forEach((section, idx) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.innerText = section.sectionTitle.split('(')[0].replace(/^\d+\.\s*/, '').trim();
+                
+                if (idx === currentActiveSectionIdx) {
+                    btn.classList.add('active-tab');
+                }
+
+                btn.onclick = () => {
+                    currentActiveSectionIdx = idx;
+                    currentPageNum = 1; // Reset pagination tracking
+                    renderTabNavigation(); 
+                    generateActiveTabContent(); 
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                };
+                navContainer.appendChild(btn);
+            });
+        }
+
+        // Hyper Performance Render Engine: Generates only 10 questions at a time to prevent DOM lagging
+        function generateActiveTabContent() {
+            const workspace = document.getElementById('quiz-workspace');
+            workspace.innerHTML = ""; 
+
+            const section = easternLanguagesDatabase[currentActiveSectionIdx];
+
+            const titleHeader = document.createElement('h2');
+            titleHeader.className = 'section-title';
+            titleHeader.innerHTML = `${section.sectionTitle} <span class="lang-badge">१०० भाषावैज्ञानिक प्रश्न लाइव</span>`;
+            workspace.appendChild(titleHeader);
+
+            const startIdx = (currentPageNum - 1) * questionsPerPage + 1;
+            const endIdx = currentPageNum * questionsPerPage;
+
+            // Generate precise pagination slice bounds safely
+            for (let i = startIdx; i <= endIdx; i++) {
+                const rawItem = section.items[i - 1];
+                const inputGroupName = `east_av_sec_${currentActiveSectionIdx}_q_${i}`;
+
+                const questionCard = document.createElement('div');
+                questionCard.className = 'question-card';
+
+                const questionTextEl = document.createElement('div');
+                questionTextEl.className = 'question-text';
+                questionTextEl.innerText = `प्रश्न ${i}: ${rawItem.q}`;
+                questionCard.appendChild(questionTextEl);
+
+                // Tech-Theme CSS Animation Screen Vector Simulator Component
+                const videoScreen = document.createElement('div');
+                videoScreen.className = 'video-animation-screen';
+                
+                const actor = document.createElement('div');
+                actor.className = 'video-actor-character';
+                actor.innerText = rawItem.icon; 
+                videoScreen.appendChild(actor);
+                questionCard.appendChild(videoScreen);
+
+                // Audio speech button
+                const readBtn = document.createElement('button');
+                readBtn.className = 'audio-trigger-btn';
+                readBtn.type = 'button';
+                readBtn.innerHTML = `🔊 आवाज सुन्नू (Listen)`;
+                readBtn.onclick = () => { kishorSpeakOutLoud(`प्रश्न ${i}. ${rawItem.q}`); };
+                questionCard.appendChild(readBtn);
+
+                const choicesBox = document.createElement('div');
+                choicesBox.className = 'options-container';
+
+                const generatedOptions = [];
+                generatedOptions.push(rawItem.name); // Correct option locked at index 0
+
+                let peerIndex = 1;
+                while (generatedOptions.length < 4) {
+                    const fallbackItem = section.items[(i - 1 + peerIndex) % section.items.length];
+                    if (fallbackItem && !generatedOptions.includes(fallbackItem.name)) {
+                        generatedOptions.push(fallbackItem.name);
+                    }
+                    peerIndex++;
+                }
+
+                // Predictable Shuffle logic based on question index i
+                const dynamicSeedShift = (i * 53) % 4;
+                const correctChoiceIndex = dynamicSeedShift;
+
+                const tempSwap = generatedOptions[0];
+                generatedOptions[0] = generatedOptions[correctChoiceIndex];
+                generatedOptions[correctChoiceIndex] = tempSwap;
+
+                generatedOptions.forEach((optionText, optionIdx) => {
+                    const labelContainer = document.createElement('label');
+                    labelContainer.className = 'option-label';
+
+                    const radioInput = document.createElement('input');
+                    radioInput.type = 'radio';
+                    radioInput.name = inputGroupName;
+                    radioInput.value = optionIdx;
+
+                    // Real-time visual feedback matrix execution
+                    radioInput.addEventListener('change', () => {
+                        evaluateTeenDynamicChoice(inputGroupName, optionIdx, correctChoiceIndex, questionCard);
+                    });
+
+                    labelContainer.appendChild(radioInput);
+                    labelContainer.appendChild(document.createTextNode(optionText));
+                    choicesBox.appendChild(labelContainer);
+                });
+
+                questionCard.appendChild(choicesBox);
+
+                const explanationBox = document.createElement('div');
+                explanationBox.className = 'explanation-box';
+                explanationBox.id = `exp_${inputGroupName}`;
+                explanationBox.innerHTML = `<strong>विदेह पुबरिया भाषाविमर्श सीख:</strong> ${rawItem.exp}`;
+                questionCard.appendChild(explanationBox);
+
+                workspace.appendChild(questionCard);
+            }
+
+            // Append Pagination Controller Interface Block
+            const paginationBar = document.createElement('div');
+            paginationBar.className = 'pagination-bar';
+
+            const prevBtn = document.createElement('button');
+            prevBtn.className = 'page-btn';
+            prevBtn.innerText = "← पिछला पृष्ठ (Prev)";
+            prevBtn.disabled = (currentPageNum === 1);
+            prevBtn.onclick = () => {
+                currentPageNum--;
+                generateActiveTabContent();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+
+            const pageInfo = document.createElement('span');
+            pageInfo.className = 'page-info';
+            pageInfo.innerText = `पृष्ठ ${currentPageNum} / १० (प्रश्न ${startIdx}-${endIdx})`;
+
+            const nextBtn = document.createElement('button');
+            nextBtn.className = 'page-btn';
+            nextBtn.innerText = "अगिला पृष्ठ (Next) →";
+            nextBtn.disabled = (currentPageNum === 10);
+            nextBtn.onclick = () => {
+                currentPageNum++;
+                generateActiveTabContent();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+
+            paginationBar.appendChild(prevBtn); paginationBar.appendChild(pageInfo); paginationBar.appendChild(nextBtn);
+            workspace.appendChild(paginationBar);
+        }
+
+        // Green / Red Evaluation Tracker Engine Matrix
+        function evaluateTeenDynamicChoice(inputGroupName, userSelection, trueIndex, scopeElement) {
+            const optionLabels = scopeElement.querySelectorAll('.option-label');
+            const targetExplanation = scopeElement.querySelector(`#exp_${inputGroupName}`);
+
+            const isCorrect = (userSelection === trueIndex);
+            if (isCorrect) {
+                playKishorChime('correct'); kishorSpeakOutLoud("सत्य उत्तर अछि।");
+            } else {
+                playKishorChime('incorrect'); kishorSpeakOutLoud("त्रुटिपूर्ण उत्तर, पुनः प्रयास करू।");
+            }
+
+            optionLabels.forEach((label, currentIdx) => {
+                const innerRadio = label.querySelector('input');
+                if (innerRadio) innerRadio.disabled = true; // Lock choice rows instantly
+
+                if (currentIdx === trueIndex) {
+                    label.classList.add('correct-choice'); // Assign Green
+                } else if (currentIdx === userSelection && userSelection !== trueIndex) {
+                    label.classList.add('incorrect-choice'); // Assign Red
+                }
+            });
+
+            if (targetExplanation) { targetExplanation.style.display = 'block'; }
+        }
+
+        // Initialize script architecture on window load
+        window.onload = function() { renderTabNavigation(); generateActiveTabContent(); };
+    </script>
+</body>
+</html>

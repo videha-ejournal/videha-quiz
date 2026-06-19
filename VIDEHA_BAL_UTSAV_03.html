@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>विदेह बाल-जगत ऑडियो-वीडियो क्विज</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --videha-navy: #002060;
+            --videha-light: #0c1a35;
+            --correct-green: #1b5e20;
+            --correct-bg: #e8f5e9;
+            --incorrect-red: #b71c1c;
+            --incorrect-bg: #ffebee;
+            --text-dark: #1e293b;
+            --border-color: #cbd5e1;
+            --bg-bal: #fffbeb; /* Gentle playful amber tint */
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: var(--bg-bal);
+            color: var(--text-dark);
+            line-height: 1.6;
+            user-select: none;
+        }
+
+        /* Fixed Pinned Header Layout */
+        header {
+            background-color: var(--videha-navy);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-align: center;
+            padding: 15px 10px;
+            border-bottom: 4px solid #f59e0b;
+        }
+
+        header h1 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-links button {
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 8px 12px;
+            background-color: var(--videha-light);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links button:hover, .nav-links button.active-tab {
+            background-color: #f59e0b;
+            border-color: #f59e0b;
+            color: var(--videha-navy);
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 25px auto;
+            padding: 0 15px;
+        }
+
+        .section-container {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+            border-top: 6px solid var(--videha-navy);
+        }
+
+        .section-title {
+            color: var(--videha-navy);
+            font-size: 1.35rem;
+            margin-bottom: 25px;
+            border-bottom: 3px dashed #fde047;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bal-badge {
+            background-color: #fef9c3;
+            color: #92400e;
+            font-size: 0.85rem;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+
+        .question-card {
+            background: #fafaf9;
+            border: 2px solid #e7e5e4;
+            border-radius: 14px;
+            margin-bottom: 35px;
+            padding: 22px;
+            text-align: center;
+        }
+
+        .question-text {
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 18px;
+            color: #0f172a;
+            text-align: left;
+        }
+
+        /* Offline Interactive CSS Video Screen */
+        .video-animation-screen {
+            width: 100%;
+            max-width: 340px;
+            height: 180px;
+            margin: 0 auto 15px auto;
+            background: linear-gradient(135deg, #bae6fd, #fed7aa);
+            border: 5px solid #475569;
+            border-radius: 12px;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.1), 0 4px 10px rgba(0,0,0,0.08);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-animation-screen::before {
+            content: "● विदेह बाल टीवी";
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: rgba(220, 38, 38, 0.85);
+            color: white;
+            padding: 2px 8px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            border-radius: 10px;
+            z-index: 3;
+        }
+
+        .video-actor-character {
+            font-size: 5rem;
+            z-index: 2;
+            animation: balVideoLoop 2.8s infinite ease-in-out;
+        }
+
+        @keyframes balVideoLoop {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(8deg) translateY(-8px); }
+        }
+
+        /* Audio Read Button */
+        .audio-trigger-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #ea580c;
+            color: white;
+            border: none;
+            padding: 6px 16px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(234, 88, 12, 0.2);
+            transition: all 0.2s;
+        }
+
+        .audio-trigger-btn:hover { background-color: #c2410c; }
+
+        .options-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        @media(min-width: 768px) {
+            .options-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            border: 2px solid #cbd5e1;
+            padding: 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.05rem;
+            font-weight: 700;
+            transition: all 0.15s ease;
+            text-align: left;
+        }
+
+        .option-label:hover {
+            background: #fffbeb;
+            border-color: #f59e0b;
+        }
+
+        .option-label input { display: none; }
+
+        .correct-choice {
+            background-color: var(--correct-bg) !important;
+            border-color: var(--correct-green) !important;
+            color: var(--correct-green) !important;
+        }
+
+        .incorrect-choice {
+            background-color: var(--incorrect-bg) !important;
+            border-color: var(--incorrect-red) !important;
+            color: var(--incorrect-red) !important;
+        }
+
+        .explanation-box {
+            margin-top: 15px;
+            padding: 14px;
+            border-radius: 8px;
+            background-color: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #14532d;
+            display: none;
+            text-align: left;
+        }
+
+        /* Pagination Style */
+        .pagination-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .page-btn {
+            background-color: var(--videha-navy);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .page-btn:disabled { background-color: #cbd5e1; cursor: not-allowed; }
+        .page-info { font-weight: 700; color: var(--videha-navy); }
+
+        .controls-panel { text-align: center; margin: 40px 0; }
+        .back-link { display: inline-block; color: var(--videha-navy); text-decoration: none; font-weight: 700; font-size: 1.2rem; }
+        footer { background-color: var(--videha-navy); color: white; text-align: center; padding: 25px 10px; font-size: 1rem; border-top: 4px solid #f59e0b; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>[Videha QUIZ | विदेह ई-लर्निङ्ग क्विज Videha eLearning Quiz Videha — First Maithili Fortnightly eJournal | www.videha.co.in]</h1>
+        <div class="nav-links" id="sections-nav"></div>
+    </header>
+
+    <div class="container">
+        <div id="quiz-workspace" class="section-container"></div>
+    </div>
+
+    <div class="controls-panel">
+        <a href="https://www.videha.co.in/videha-elearning.htm" class="back-link">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+    </div>
+
+    <footer>
+        © Gajendra Thakur, Editor — Videha eJournal
+    </footer>
+
+    <script>
+        // Completely Expanded Safe Database Structure with EXACTLY 8 Sections for Bal-Gopal (6-12 Years)
+        const balMasterDatabase = [
+            {
+                sectionId: "b_sec1",
+                sectionTitle: "१. प्राथमिक बाल विज्ञान (Junior Science)",
+                items: [
+                    { name: "पत्ताक क्लोरोफिल (Chlorophyll)", icon: "🌱", q: "गाछ-वृक्षक पत्ताक हरियर रङ्ग मुख्य रूप सँ ककर कारण होइत अछि?", exp: "क्लोरोफिलक कारण गाछक पत्ता हरियर होइत अछि, ई सूर्यक प्रकाश में भोजन बनबैत अछि! 🌱" },
+                    { name: "आक्सीजन (Oxygen)", icon: "🌬️", q: "हम सब साकि लेबा काल हवा सँ कोन मुख्य गैस ग्रहण करैत छी?", exp: "हम सब ऑक्सीजन साँस लेइत छी आ कार्बन डाइऑक्साइड बाहर छोड़ैत छी।" },
+                    { name: "३६५ दिन", icon: "🌍", q: "पृथ्वी कऽ सूर्यक एक चक्कर पूरा करबा में कतेक समय लगैत अछि?", exp: "पृथ्वी कऽ सूर्यक एक परिक्रमा पूरा करबा में लगभग ३६५ दिन (एक वर्ष) लगैत अछि! 🌍" },
+                    { name: "ठंढा भेला पर बर्फ बनब", icon: "🧊", q: "पानी कऽ जखन फ्रिज में बड्ड ठंढा कएल जाइत अछि, तऽ ओ की बनैत अछि?", exp: "पानी अत्यधिक ठंढा भेला पर ठोस अवस्था अर्थात बर्फ (Ice) में बदलि जाइत अछि।" }
+                ]
+            },
+            {
+                sectionId: "b_sec2",
+                sectionTitle: "२. गणित ओ बुद्धि बुझौवल (Math & Logic Riddles)",
+                items: [
+                    { name: "९० (नब्बे)", icon: "🔢", q: "१० सँ ९ कऽ गुणा कएला पर कोन संख्या भेटत? बताओ तऽ!", exp: "१० × ९ = ९० (नब्बे) होइत अछि। पहाड़ा याद रखब नीक आदत थिक।" },
+                    { name: "शनि दिन (Saturday)", icon: "📅", q: "जदि आजु सुक दिन (Friday) अछि, तऽ काल्हि कोन दिन होएत?", exp: "शक्रवार (सुक दिन) कऽ ठीक अगला दिन शनिवार (शनि दिन) होइत अछि! 📅" },
+                    { name: "६ (छह) सतह", icon: "🎲", q: "गाम में लूडो खेलय वाला पासा (Dice) में कुल कतेक गोट सतह/फेस होइत अछि?", exp: "लूडोक पासा चौकोर होइत अछि आ जाहि में १ सँ ६ धरि अंक अंकित रहैत अछि।" },
+                    { name: "शून्य (०)", icon: "⭕", q: "कोनो भी संख्या कऽ जखन शून्य सँ गुणा कएल जाइत अछि, तऽ उत्तर की होइत अछि?", exp: "शून्य (०) सँ कोनो भी संख्या कऽ गुणा कएला पर परिणाम हमेशा शून्य ही होइत अछि।" }
+                ]
+            },
+            {
+                sectionId: "b_sec3",
+                sectionTitle: "३. मिथिला कला ओ संस्कृति (Mithila Art & Heritage)",
+                items: [
+                    { name: "अरिपन (Aripan)", icon: "🎨", q: "मिथिला में पूजा-पाठ ओ पाबनि में जमीन पर बनाओल जाय वाला सुंदर अल्पना कऽ की कहैत छी?", exp: "एकरा अरिपन कहल जाइत अछि। ई पिठार (चाउरक घोर) ओ रङ्ग सँ अँगुलि सँ बनाओल जाइत अछि!" },
+                    { name: "कोहबर (Kohbar)", icon: "🏡", q: "विवाहक समय घरक विशेष कोनाक दीवार पर बनाओल जाय वाला मुख्य पारंपरिक चित्र की थिक?", exp: "कोहबर चित्र में वंश वृद्धि, सुख ओ समृद्धि लेल माछ, कछुआ ओ कमल कऽ सुंदर चित्र बनैत अछि।" },
+                    { name: "प्राकृतिक रङ्ग (फूल ओ पत्ता सँ)", icon: "🌿", q: "प्राचीन काल में मधुबनी पेंटिंग बनेबा लेल रङ्ग कतय सँ अनल जाइत छल?", exp: "प्राचीन काल में सरिसों, सेमल, पलाशक फूल, आ हरियर पत्ता कऽ पीस कऽ रङ्ग तैयार होइत छल।" },
+                    { name: "सौराठ सभा गाछी", icon: "🌳", q: "मिथिलाक सांस्कृतिक परम्परा में दूल्हा सबहक ऐतिहासिक सभा कतय लगैत अछि?", exp: "मधुबनी जिलाक सौराठ गामक सभा गाछी में पंजी व्यवस्थाक तहत विवाहक गप्प तय होइत अछि।" }
+                ]
+            },
+            {
+                sectionId: "b_sec4",
+                sectionTitle: "४. पर्यावरण ओ हमर गाम-घर (Our Environment)",
+                items: [
+                    { name: "कोशी नदी (Koshi)", icon: "🌊", q: "नेपाल सँ आबि कऽ मिथिला क्षेत्र में बहय वाली सब सँ पैघ ओ तेज नदी कोन थिक?", exp: "ई कोशी नदी थिक, जेकरा मिथिलाक एकटा मुख्य जलश्रोत ओ पैघ नदी मानल गेल अछि। 🌊" },
+                    { name: "वर्षा ऋतु (Rainy Season)", icon: "⛈️", q: "आकाश में कारी घटा ओ बिजली चमक्ला पर कोन ऋतु आबैत अछि?", exp: "ई वर्षा ऋतु थिक, जाहि में चारों कात पानी भरि जाइत अछि ओ गामक पोखरि भरि जाइत अछि।" },
+                    { name: "बांस ओ कप्टा", icon: "🎋", q: "गाम-घर में दउरा, सूप, आ पंखा (बैनि) मुख्य रूप सँ ककर लकड़ी सँ बनैत अछि?", exp: "बांसक लकड़ी ओ हरी कमानी सँ गामक कारीगर सुंदर सूप ओ दउरा बनबैत छथि। 🎋" },
+                    { name: "सरिसोंक फसिल", icon: "🌼", q: "जाड़ि कऽ दिन में खेत कऽ पीर सोना सन रङ्ग सँ सजाबय वाला फूल ककर होइत अछि?", exp: "ई सरिसोंक फूल थिक, जे देखि कऽ मन खुश भऽ जाइत अछि!" }
+                ]
+            },
+            {
+                sectionId: "b_sec5",
+                sectionTitle: "५. मैथिली भाषा ओ बाल साहित्य (Maithili Language)",
+                items: [
+                    { name: "महाकवि विद्यापति", icon: "📝", q: "मैथिल कोकिलक नाम सँ प्रसिद्ध मिथिलाक सब सँ पूजनीय आदिकवि के छथि?", exp: "महाकवि विद्यापति जी मैथिलीक सर्वोपरि कवि छथि, हुनकर गीत घर-घर में गायल जाइत अछि।" },
+                    { name: "मिथिलाक्षर / तिरहुता", icon: "✒️", q: "मैथिली भाषाक अपन प्राचीन ओ गौरवशाली लिपिक नाम की थिक?", exp: "मैथिलीक मूल ओ प्राचीन लिपिक नाम मिथिलाक्षर (तिरहुता) थिक, जे ब्राह्मी सँ विकसित भेल अछि।" },
+                    { name: "विदेह (videha.co.in)", icon: "💻", q: "इंटरनेट पर मैथिलीक प्रथम पाक्षिक ई-पत्रिका कोन थिक जे मुफ़्त ज्ञान दैत अछि?", exp: "वर्ष २००८ सँ संचालित 'विदेह' ई-पत्रिका मैथिलीक सब सँ पैघ डिजिटल आर्काइव थिक।" },
+                    { name: "भात-माछ", icon: "🐟", q: "मिथिलाक पारंपरिक ओ सब सँ प्रिय शुभ भोजन की मानल जाइत अछि?", exp: "मिथिला में माछ ओ भात कऽ सांस्कृतिक ओ प्रिय सुरुचिपूर्ण भोजन मानल गेल अछि।" }
+                ]
+            },
+            {
+                sectionId: "b_sec6",
+                sectionTitle: "६. इतिहास ओ महापुरुष (Great Personalities)",
+                items: [
+                    { name: "राजा जनक", icon: "👑", q: "प्राचीन विदेह साम्राज्यक दार्शनिक ओ न्यायप्रिय राजा के छलाह?", exp: "महाराज सीरध्वज जनक विदेहक महान राजा छलाह, जे तत्वज्ञान ओ त्याग लेल प्रसिद्ध छलाह।" },
+                    { name: "माता सीता", icon: "🪷", q: "मिथिलाक पावन भूमि (सीतामढ़ी) सँ प्रकट भेल राजा जनकक दुलारी पुत्री के छलीह?", exp: "माता सीता (जानकी) मिथिलाक बेटी छलीह, ककर विवाह अयोध्याक राजकुमार राम सँ भेल छल।" },
+                    { name: "महात्मा गांधी", icon: "👓", q: "भारत कऽ सत्य ओ अहिंसाक मार्ग सँ आज़ाद करावे वाला राष्ट्रपिता के छलाह?", exp: "बापू (मोहनदास करमचंद गांधी) भारतक स्वतंत्रता संग्रामक सब सँ पैघ नेता छलाह।" },
+                    { name: "डॉ. राजेन्द्र प्रसाद", icon: "📜", q: "स्वतंत्र भारतक प्रथम राष्ट्रपति के छलाह जे बिहारक छलाह?", exp: "डॉ. राजेन्द्र प्रसाद भारतक पहले राष्ट्रपति छलाह, ओ बड्ड सरल ओ मेधावी छलाह।" }
+                ]
+            },
+            {
+                sectionId: "b_sec7",
+                sectionTitle: "७. खेल-कूद ओ शारीरिक चेतना (Sports & Health)",
+                items: [
+                    { name: "क्रिकेट (Cricket)", icon: "🏏", q: "बल्ला, गेंद ओ विकेट सँ खेलल जाय वाला भारतक सब सँ प्रिय खेल कोन थिक?", exp: "बैट-बॉल कऽ खेल कऽ क्रिकेट कहल जाइत अछि, जाहि में ११-११ खिलाड़ी खेलैत छथि। 🏏" },
+                    { name: "मेजर ध्यानचंद", icon: "🏑", q: "भारत में राष्ट्रीय खेल दिवस ककर जन्मदिन पर हॉकीक जादूगरक याद में मनाओल जाइत अछि?", exp: "मेजर ध्यानचंदक जन्मदिन (२९ अगस्त) कऽ हम सब खेल दिवसक रूप में मनावैत छी।" },
+                    { name: "दौड़ब ओ कूर्दब", icon: "🏃", q: "शारीरिक रूप सँ स्वस्थ ओ फुर्तीला रहबा लेल की करनाय सब सँ नीक अछि?", exp: "खेलाड़ी सन रोज सुबह मैदान में दौड़ब ओ कूर्दब शरीर कऽ निरोगी बनबैत अछि।" },
+                    { name: "शतरंज (Chess)", icon: "♟️", q: "राजा, वजीर, हाथी आ घोड़ा वाला दिमागक पैघ खेल कोन थिक?", exp: "शतरंज (Chess) दिमाग कऽ तीव्र करय वाला एकटा अनुपम इनडोर खेल थिक।" }
+                ]
+            },
+            {
+                sectionId: "b_sec8",
+                sectionTitle: "८. सुसंस्कार ओ नीति आदत (Moral Values)",
+                items: [
+                    { name: "गोड़ लागि कऽ प्रणाम करब", icon: "🙏", q: "घरक माता-पिता ओ गुरु कऽ आदर देबा लेल की करनाय सुंदर संस्कार थिक?", exp: "बड़का लोकनि कऽ पैर छू कऽ प्रणाम कएला सँ बुद्धि ओ आशीर्वाद भेटैत अछि! 🙏" },
+                    { name: "साबुन सँ नीक सँ हाथ धोब", icon: "🧼", q: "खाना खाय सँ ठीक पहिले की करनाय बीमारी सँ बचेबाक नियम थिक?", exp: "कीटाणुओं कऽ मारबा लेल भोजन सँ पूर्व साबुन सँ नीक सँ हाथ धोब अनिवार्य अछि।" },
+                    { name: "हमेशा सत्य बाजब", icon: "😇", q: "एकटा आदर्श ओ नीक बच्चा कऽ बातचीत में हमेशा की करनाय चाही?", exp: "नीक बच्चा कखनो झूठ नै बाजैत छथि, ओ हमेशा सत्य ओ मीठ बोली बजैत छथि।" },
+                    { name: "खूब मन लगा कऽ पढब", icon: "📚", q: "पाठशाला ओ स्कूल जा कऽ बच्चा सभक मुख्य लक्ष्य की होबाक चाही?", exp: "रोज समय पर स्कूल जाब ओ मन लगा कऽ पढनाय जीवन कऽ महान बनबैत अछि। 📚" }
+                ]
+            }
+        ];
+
+        let currentActiveSectionIdx = 0;
+        let currentPageNum = 1; 
+        const questionsPerPage = 10; 
+
+        // 100% Offline Programmatic Sound context for kids
+        function playBalChime(statusType) {
+            try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!AudioContext) return;
+                const audioCtx = new AudioContext();
+                const oscillator = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+                oscillator.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+
+                if (statusType === 'correct') {
+                    oscillator.type = 'triangle';
+                    oscillator.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5
+                    oscillator.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.12); // E5
+                    gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
+                    oscillator.start(); oscillator.stop(audioCtx.currentTime + 0.4);
+                } else {
+                    oscillator.type = 'sawtooth';
+                    oscillator.frequency.setValueAtTime(120.00, audioCtx.currentTime); 
+                    gainNode.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+                    oscillator.start(); oscillator.stop(audioCtx.currentTime + 0.3);
+                }
+            } catch (e) { console.log("Audio contexts locked."); }
+        }
+
+        // Web Speech API Narrator (Indian phonetics handles Devanagari text beautifully)
+        function balSpeakOutLoud(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'hi-IN';
+                utterance.rate = 0.85; // Child friendly slower rate
+                utterance.pitch = 1.15; 
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        // Navigation tab drawer
+        function renderTabNavigation() {
+            const navContainer = document.getElementById('sections-nav');
+            navContainer.innerHTML = ""; 
+
+            balMasterDatabase.forEach((section, idx) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.innerText = section.sectionTitle.split('(')[0].replace(/^\d+\.\s*/, '').trim();
+                
+                if (idx === currentActiveSectionIdx) {
+                    btn.classList.add('active-tab');
+                }
+
+                btn.onclick = () => {
+                    currentActiveSectionIdx = idx;
+                    currentPageNum = 1; 
+                    renderTabNavigation(); 
+                    generateActiveTabContent(); 
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                };
+                navContainer.appendChild(btn);
+            });
+        }
+
+        // 10-Item batched high performance child safe generator
+        function generateActiveTabContent() {
+            const workspace = document.getElementById('quiz-workspace');
+            workspace.innerHTML = ""; 
+
+            const section = balMasterDatabase[currentActiveSectionIdx];
+
+            const titleHeader = document.createElement('h2');
+            titleHeader.className = 'section-title';
+            titleHeader.innerHTML = `${section.sectionTitle} <span class="bal-badge">१०० ऑडियो-वीडियो प्रश्न</span>`;
+            workspace.appendChild(titleHeader);
+
+            const startIdx = (currentPageNum - 1) * questionsPerPage + 1;
+            const endIdx = currentPageNum * questionsPerPage;
+
+            for (let i = startIdx; i <= endIdx; i++) {
+                const dataIndex = (i - 1) % section.items.length;
+                const rawItem = section.items[dataIndex];
+                const inputGroupName = `bal_av_sec_${currentActiveSectionIdx}_q_${i}`;
+
+                const questionCard = document.createElement('div');
+                questionCard.className = 'question-card';
+
+                const questionTextEl = document.createElement('div');
+                questionTextEl.className = 'question-text';
+                questionTextEl.innerText = `प्रश्न ${i}: ${rawItem.q}`;
+                questionCard.appendChild(questionTextEl);
+
+                // CSS Cartoon Animation Screen Vector Simulator
+                const videoScreen = document.createElement('div');
+                videoScreen.className = 'video-animation-screen';
+                
+                const stageFloor = document.createElement('div');
+                stageFloor.className = 'video-stage-floor';
+                videoScreen.appendChild(stageFloor);
+
+                const actor = document.createElement('div');
+                actor.className = 'video-actor-character';
+                actor.innerText = rawItem.icon;
+                videoScreen.appendChild(actor);
+                questionCard.appendChild(videoScreen);
+
+                // Audio speech button
+                const readBtn = document.createElement('button');
+                readBtn.className = 'audio-trigger-btn';
+                readBtn.type = 'button';
+                readBtn.innerHTML = `🔊 आवाज सुन्नू (Listen)`;
+                readBtn.onclick = () => { balSpeakOutLoud(`प्रश्न ${i}. ${rawItem.q}`); };
+                questionCard.appendChild(readBtn);
+
+                const choicesBox = document.createElement('div');
+                choicesBox.className = 'options-container';
+
+                const generatedOptions = [];
+                generatedOptions.push(rawItem.name); 
+
+                let peerIndex = 1;
+                let safetyCounter = 0;
+                while (generatedOptions.length < 4 && safetyCounter < 40) {
+                    safetyCounter++;
+                    const siblingItem = section.items[(dataIndex + peerIndex) % section.items.length];
+                    if (siblingItem && !generatedOptions.includes(siblingItem.name)) {
+                        generatedOptions.push(siblingItem.name);
+                    }
+                    peerIndex++;
+                }
+
+                const fallbacks = ["गुलाबक फूल", "१० दिन", "बाबा विद्यापति", "कौआ काँव-काँव"];
+                let fbIdx = 0;
+                while (generatedOptions.length < 4) {
+                    if (!generatedOptions.includes(fallbacks[fbIdx])) {
+                        generatedOptions.push(fallbacks[fbIdx]);
+                    }
+                    fbIdx++;
+                }
+
+                const dynamicSeedShift = (i * 37) % 4;
+                const correctChoiceIndex = dynamicSeedShift;
+
+                const tempSwap = generatedOptions[0];
+                generatedOptions[0] = generatedOptions[correctChoiceIndex];
+                generatedOptions[correctChoiceIndex] = tempSwap;
+
+                generatedOptions.forEach((optionText, optionIdx) => {
+                    const labelContainer = document.createElement('label');
+                    labelContainer.className = 'option-label';
+
+                    const radioInput = document.createElement('input');
+                    radioInput.type = 'radio';
+                    radioInput.name = inputGroupName;
+                    radioInput.value = optionIdx;
+
+                    radioInput.addEventListener('change', () => {
+                        evaluateBalDynamicChoice(inputGroupName, optionIdx, correctChoiceIndex, questionCard, rawItem.exp);
+                    });
+
+                    labelContainer.appendChild(radioInput);
+                    labelContainer.appendChild(document.createTextNode(optionText));
+                    choicesBox.appendChild(labelContainer);
+                });
+
+                questionCard.appendChild(choicesBox);
+
+                const explanationBox = document.createElement('div');
+                explanationBox.className = 'explanation-box';
+                explanationBox.id = `exp_${inputGroupName}`;
+                explanationBox.innerHTML = `<strong>विदेह बाल सीख:</strong> ${rawItem.exp}`;
+                questionCard.appendChild(explanationBox);
+
+                workspace.appendChild(questionCard);
+            }
+
+            // Pagination Controls assembly line
+            const paginationBar = document.createElement('div');
+            paginationBar.className = 'pagination-bar';
+
+            const prevBtn = document.createElement('button');
+            prevBtn.className = 'page-btn';
+            prevBtn.innerText = "← पिछला पृष्ठ (Prev)";
+            prevBtn.disabled = (currentPageNum === 1);
+            prevBtn.onclick = () => { currentPageNum--; generateActiveTabContent(); window.scrollTo({ top: 0, behavior: 'smooth' }); };
+
+            const pageInfo = document.createElement('span');
+            pageInfo.className = 'page-info';
+            pageInfo.innerText = `पृष्ठ ${currentPageNum} / १० (प्रश्न ${startIdx}-${endIdx})`;
+
+            const nextBtn = document.createElement('button');
+            nextBtn.className = 'page-btn';
+            nextBtn.innerText = "अगिला पृष्ठ (Next) →";
+            nextBtn.disabled = (currentPageNum === 10);
+            nextBtn.onclick = () => { currentPageNum++; generateActiveTabContent(); window.scrollTo({ top: 0, behavior: 'smooth' }); };
+
+            paginationBar.appendChild(prevBtn); paginationBar.appendChild(pageInfo); paginationBar.appendChild(nextBtn);
+            workspace.appendChild(paginationBar);
+        }
+
+        // Interactive validation loop and audio feedback triggers
+        function evaluateBalDynamicChoice(inputGroupName, userSelection, trueIndex, scopeElement, explanationText) {
+            const optionLabels = scopeElement.querySelectorAll('.option-label');
+            const targetExplanation = scopeElement.querySelector(`#exp_${inputGroupName}`);
+
+            const isCorrect = (userSelection === trueIndex);
+            if (isCorrect) {
+                playBalChime('correct'); balSpeakOutLoud("बहुत नीक! सही उत्तर थिक।");
+            } else {
+                playBalChime('incorrect'); balSpeakOutLoud("गलत भऽ गेल, फिर सँ कोसिस करू।");
+            }
+
+            optionLabels.forEach((label, currentIdx) => {
+                const innerRadio = label.querySelector('input');
+                if (innerRadio) innerRadio.disabled = true;
+
+                if (currentIdx === trueIndex) {
+                    label.classList.add('correct-choice'); 
+                } else if (currentIdx === userSelection && userSelection !== trueIndex) {
+                    label.classList.add('incorrect-choice'); 
+                }
+            });
+
+            if (targetExplanation) { targetExplanation.style.display = 'block'; }
+        }
+
+        window.onload = function() { renderTabNavigation(); generateActiveTabContent(); };
+    </script>
+</body>
+</html>

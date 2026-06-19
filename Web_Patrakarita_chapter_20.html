@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="mai">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>विदेह मिथिलाक्षर ओ यूनिकोड महा-क्विज</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --videha-navy: #002060;
+            --videha-light: #0c1a35;
+            --correct-green: #1b5e20;
+            --correct-bg: #e8f5e9;
+            --incorrect-red: #b71c1c;
+            --incorrect-bg: #ffebee;
+            --text-dark: #1e293b;
+            --border-color: #cbd5e1;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: #f4f6f9;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Fixed Pinned Header Layout */
+        header {
+            background-color: var(--videha-navy);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-align: center;
+            padding: 15px 10px;
+            border-bottom: 4px solid #2563eb;
+        }
+
+        header h1 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-links button {
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 8px 12px;
+            background-color: var(--videha-light);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links button:hover, .nav-links button.active-tab {
+            background-color: #2563eb;
+            border-color: #2563eb;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 25px auto;
+            padding: 0 15px;
+        }
+
+        .section-container {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-left: 6px solid var(--videha-navy);
+        }
+
+        .section-title {
+            color: var(--videha-navy);
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .panji-badge {
+            background-color: #dbeafe;
+            color: #1e40af;
+            font-size: 0.85rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+
+        .question-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .question-text {
+            font-weight: 700;
+            font-size: 1.15rem;
+            margin-bottom: 18px;
+            color: #0f172a;
+            text-align: left;
+        }
+
+        /* 100% Offline Visual Token Card Box */
+        .visual-photo-box {
+            width: 100%;
+            max-width: 150px;
+            height: 90px;
+            margin: 0 auto 15px auto;
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            border: 2px dashed #2563eb;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .visual-element {
+            font-size: 2.8rem;
+        }
+
+        .options-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        @media(min-width: 768px) {
+            .options-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            padding: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.15s ease;
+            text-align: left;
+        }
+
+        .option-label:hover {
+            background: #f0fdf4;
+            border-color: #22c55e;
+        }
+
+        .option-label input {
+            margin-right: 12px;
+            transform: scale(1.15);
+        }
+
+        .correct-choice {
+            background-color: var(--correct-bg) !important;
+            border-color: var(--correct-green) !important;
+            color: var(--correct-green) !important;
+            font-weight: 700;
+        }
+
+        .incorrect-choice {
+            background-color: var(--incorrect-bg) !important;
+            border-color: var(--incorrect-red) !important;
+            color: var(--incorrect-red) !important;
+        }
+
+        .explanation-box {
+            margin-top: 15px;
+            padding: 14px;
+            border-radius: 6px;
+            background-color: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            font-size: 1rem;
+            color: #14532d;
+            display: none;
+            text-align: left;
+        }
+
+        /* Pagination Bar Component */
+        .pagination-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .page-btn {
+            background-color: var(--videha-navy);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .page-btn:hover { background-color: #2563eb; }
+        .page-btn:disabled { background-color: #cbd5e1; cursor: not-allowed; }
+
+        .page-info { font-weight: 700; color: var(--videha-navy); }
+
+        .controls-panel {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--videha-navy);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .back-link:hover { color: #2563eb; }
+
+        footer {
+            background-color: var(--videha-navy);
+            color: white;
+            text-align: center;
+            padding: 25px 10px;
+            font-size: 1rem;
+            border-top: 4px solid #2563eb;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>[Videha QUIZ | विदेह ई-लर्निङ्ग क्विज Videha eLearning Quiz Videha — First Maithili Fortnightly eJournal | www.videha.co.in]</h1>
+        <div class="nav-links" id="sections-nav"></div>
+    </header>
+
+    <div class="container">
+        <div id="quiz-workspace" class="section-container"></div>
+    </div>
+
+    <div class="controls-panel">
+        <a href="https://www.videha.co.in/videha-elearning.htm" class="back-link">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a>
+    </div>
+
+    <footer>
+        © Gajendra Thakur, Editor — Videha eJournal
+    </footer>
+
+    <script>
+        // High-Level Specialized Database Structure with EXACTLY 8 Sections on Mithilakshar, Unicode & Videha
+        const panjiMasterDatabase = [
+            {
+                sectionId: "m_sec1",
+                sectionTitle: "१. मिथिलाक्षरक उद्भव ओ ब्राह्मी परम्परा (Origin & Evolution)",
+                items: [
+                    { name: "पूर्वी ब्राह्मी सँ उद्भूत गौड़ीय परम्परा", icon: "✒️", q: "ऐतिहासिक ओ पुरालिपि शास्त्रक दृष्टिकोण सँ मिथिलाक्षर (तिरहुता) लिपिक विकास मूलतः ककर शाखा सँ भेल अछि?", exp: "मिथिलाक्षरक विकास उत्तर-भारतीय ब्राह्मीक पूर्वी शैली सँ १०म-११म शताब्दी में भेल 'गौड़ीय' (पूर्वी अपभ्रंश) लिपि सँ मानल जाइत अछि।" },
+                    { name: "कूर्माकार ओ कोणात्मक विन्यास", icon: "📐", q: "मिथिलाक्षर लिपिक अक्षरांकन में अक्षरोंक शीर्ष ओ आकृतियोंक मुख्य विशेषता की होइत अछि?", exp: "पारम्परिक मिथिलाक्षर में अक्षरोंक ऊपरी भाग कोणात्मक, कूर्माकार (कछुआ पीठ सन) ओ महीन त्रिकोणीय शीर्ष सँ युक्त होइत अछि।" },
+                    { name: "१४म शताब्दीक वर्ण रत्नाकर", icon: "📜", q: "मिथिलाक्षर लिपि ओ गद्यक विकासक प्राचीनतम प्रामाणिक साहित्यिक साक्ष्य ज्योतिरीश्वरक कोन कृति में भेटैत अछि?", exp: "ज्योतिरीश्वर ठाकुर रचित 'वर्ण रत्नाकर' (१४म शताब्दी) मैथिली गद्य ओ तत्कालीन लिपिक व्यापक सन्दर्भ प्रस्तुत करैत अछि।" },
+                    { name: "असामी ओ ओड़िया लिपि सँ साम्य", icon: "🗺️", q: "भौगोलिक ओ भाषाई दृष्टिकोण सँ मिथिलाक्षरक संरचना कोन अन्य पूर्वी भारतीय लिपियों सँ बड्ड साम्य रखैत अछि?", exp: "पूर्वी ब्राह्मी परम्पराक भेला कऽ कारण मिथिलाक्षरक साम्य पुरानी बांग्ला, असामी ओ ओड़िया लिपियोंक प्राचीन विन्यास सँ अछि।" }
+                ]
+            },
+            {
+                sectionId: "m_sec2",
+                sectionTitle: "२. ऐतिहासिक साक्ष्य ओ पंजिकायन (Historical Records)",
+                items: [
+                    { name: "ताड़पत्रक पंजी पोथी", icon: "🍂", q: "मिथिलाक्षर लिपिक सब सँ विशाल, अटूट ओ ऐतिहासिक लिखित दस्तावेज ककर रूप में सुरक्षित अछि?", exp: "महाराजा हरिसिंहदेवक काल (१३२६ ई.) सँ लगातार लिखल जा रहल ताड़पत्रक पंजी पोथियाँ मिथिलाक्षरक सब सँ पैघ अभिलेख थिक।" },
+                    { name: "सिमराँवगढ़क पाषाण अभिलेख", icon: "🗿", q: "कर्नाट राजवंशक काल में उत्कीर्ण कोन पाषाण अभिलेख में प्राचीन मिथिलाक्षरक पुरातात्विक स्वरूप देखाइत अछि?", exp: "कर्नाट कालीन सिमराँवगढ़ ओ मिथिलाक विभिन्न मंदिरोंक शिलालेखों में प्राचीन तिरहुता/मिथिलाक्षरक स्वरूप उत्कीर्ण भेटैत अछि।" },
+                    { name: "ओइन्वार ओ खण्डवला राजकीय सनद", icon: "👑", q: "मिथिलाक शासकों द्वारा दान में देल गेल ताम्रपत्रों ओ भूमि-सनदों में कोन लिपिक सार्वभौमिक प्रयोग कएल गेल छल?", exp: "ओइन्वार वंश (राजा शिवसिंह कालीन) ओ खण्डवला वंश (दरभंगा राज) कऽ राजकीय विलेख ओ दानपत्र मुख्य रूप सँ मिथिलाक्षर में छलाह।" },
+                    { name: "विद्यापति कृत 'कीर्तिलता'", icon: "📚", q: "महाकवि विद्यापतिक अवहट्ठ रचना 'कीर्तिलता' ओ 'कीर्तिपताका' कऽ मूल प्रति कोन लिपि में प्राप्त भेल छल?", exp: "विद्यापतिक समस्त ऐतिहासिक पांडुलिपियाँ आ पत्र व्यवहार मूलतः मिथिलाक्षर लिपि में ही प्राप्त भेल छलीह।" }
+                ]
+            },
+            {
+                sectionId: "m_sec3",
+                sectionTitle: "३. तिरहुता यूनिकोड आन्दोलन (Tirhuta Unicode Movement)",
+                items: [
+                    { name: "यूनिकोड संस्करण ७.० (२०१४)", icon: "💻", q: "अंतरराष्ट्रीय यूनिकोड कन्सोर्टियम द्वारा तिरहुता (Tirhuta) लिपि कऽ कोन वर्ष आधिकारिक रूप सँ मानकीकृत कएल गेल?", exp: "जून २०१४ में यूनिकोडक संस्करण ७.० कऽ तहत 'Tirhuta' ब्लॉक कऽ आधिकारिक रूप सँ वैश्विक डिजिटल कोडिंग में स्थान देल गेल।" },
+                    { name: "U+11480 सँ U+114DF", icon: "🔢", q: "अंतरराष्ट्रीय यूनिकोड चार्ट (Unicode Chart) में तिरहुता लिपिक लेल कोन रेंज (Range) आबंटित कएल गेल अछि?", exp: "तिरहुता लिपिक लेल यूनिकोड रेंज U+11480 सँ U+114DF धरि आबंटित अछि, जाहि में कुल ९६ कोड पॉइंट अछि।" },
+                    { name: "अन्तरराष्ट्रीय मानकीकरण ओ तकनीकी प्रस्ताव", icon: "🌐", q: "तिरहुता लिपि कऽ यूनिकोड में शामिल करबा लेल वैश्विक स्तर पर कोन संस्थागत प्रक्रियाक पालन कएल गेल छल?", exp: "विद्वानों ओ तकनीकी विशेषज्ञों द्वारा ISO/IEC 10646 कऽ तहत कतेकों शोधपरक तकनीकी प्रस्ताव यूनिकोड कन्सोर्टियम कऽ भेजल गेल छल।" },
+                    { name: "तिरहुता (Tirhuta) नाम सँ पंजीकरण", icon: "🏷️", q: "यूनिकोड चार्ट में मिथिलाक्षर कऽ अंतरराष्ट्रीय स्तर पर कोन आधिकारिक नाम सँ पंजीकृत कएल गेल अछि?", exp: "यूनिकोड कन्सोर्टियम में एकरा 'Tirhuta' (तिरहुता) नाम सँ स्थान देल गेल अछि, जे एकर प्राचीन भौगोलिक नाम थिक।" }
+                ]
+            },
+            {
+                sectionId: "m_sec4",
+                sectionTitle: "४. विदेहक ऐतिहासिक योगदान (Contribution of Videha)",
+                items: [
+                    { name: "विदेह (videha.co.in) पत्रिका", icon: "📰", q: "वर्ष २००८ सँ इंटरनेट पर मैथिलीक प्रथम पाक्षिक ई-पत्रिका कऽ रूप में ककर स्थापना भेल जे लिपि संरक्षणक अग्रदूत बनल?", exp: "'विदेह' (videha.co.in) प्रथम पाक्षिक मैथिली ई-पत्रिका थिक, जे प्रारम्भ सँ ही मैथिलीक डिजिटल ओ समानांतर साहित्यक सशक्त माध्यम बनल।" },
+                    { name: "मिथिलाक्षरक फोंट्स ओ इनपुट टूलक लोकव्यापीकरण", icon: "⌨️", q: "विदेह पत्रिका ओ ओकर सम्पादकीय नीति द्वारा इंटरनेट पर मैथिलीक लेल कोन तकनीकी क्रान्ति कएल गेल?", exp: "विदेह द्वारा मिथिलाक्षरक फोंट्स, कीबोर्ड लेआउट ओ यूनिकोड इनपुट टूल्स कऽ निःशुल्क उपलब्ध करा कऽ आम लोक धरि पहुँचे कऽ आन्दोलन कएल गेल।" },
+                    { name: "विदेह डिजिटल साहित्यिक आर्काइव", icon: "🗄️", q: "प्राचीन पांडुलिपियों, पंजियों ओ उन साहित्यों कऽ जे 'Canon' सँ छूटि गेल छलीह, सहेजबा लेल विदेह कऽ विशिष्ट प्रकल्प की थिक?", exp: "विदेह समानांतर पुस्तकालय ओ डिजिटल आर्काइव द्वारा दुर्लभ साहित्यों ओ मिथिलाक्षर टेक्स्ट कऽ कम्प्यूटरीकृत संग्रह कएल गेल अछि।" },
+                    { name: "गजेन्द्र ठाकुर", icon: "✍️", q: "विदेह ई-पत्रिकाक संस्थापक-सम्पादक ओ समानांतर साहित्य आन्दोलनक मुख्य प्रवर्त्तक के छथि?", exp: "गजेन्द्र ठाकुर जी विदेहक सम्पादन ओ संचालन करैत मैथिली वेब पत्रकारिता ओ डिजिटल लिपि संरक्षण कऽ एकटा नव दिशा देलन्हि।" }
+                ]
+            },
+            {
+                sectionId: "m_sec5",
+                sectionTitle: "५. डिजिटल फोंट्स ओ तकनीकी विकास (Digital Fonts & Tools)",
+                items: [
+                    { name: "ओपेनटाइप (OpenType) आ ट्रूइश फोंट्स", icon: "🔤", q: "यूनिकोड कम्पेटिबल तिरहुता फॉन्ट निर्माण लेल कोन आधुनिक फॉन्ट टेक्नोलॉजीक प्रयोग कएल जाइत अछि?", exp: "आधुनिक ओपेनटाइप (OpenType) फॉन्ट संरचनाक कारण जटिल युक्ताक्षरों (Ligatures) कऽ कंप्यूटर स्क्रीन पर सटिक रेंडरिंग सम्भव भऽ सकल अछि।" },
+                    { name: "जटिल युक्तक्षर (Ligatures) रेंडरिंग विसंगति", icon: "⚙️", q: "प्रारंभिक दौर में तिरहुता यूनिकोड टेक्स्ट कऽ ऑपरेटिंग सिस्टम (Android/Windows) पर रेंडर करबा में कोन तकनीकी समस्या छल?", exp: "तिरहुता में युक्ताक्षरों आ मात्राओंक संयोजन बड्ड जटिल अछि, जेकर सही रेंडरिंग लेल 'Complex Text Layout' (CTL) इंजनक आवश्यकता होइत अछि।" },
+                    { name: "मिथिलाक्षर कीबोर्ड लेआउट (INSCRIPT/Phonetic)", icon: "⌨️", q: "मोबाइल ओ कंप्यूटर पर सीधे तिरहुता लिपि टाइप करबा लेल प्रयुक्त प्रणाली की कहल जाइत अछि?", exp: "यूनिकोड आबंटन कऽ बाद तिरहुताक लेल फोनेटिक ओ इनस्क्रिप्ट कीबोर्ड लेआउट्स विकसित कएल गेल, जे वेब पत्रकारिता कऽ सुगम बनबैत अछि।" },
+                    { name: "वेब एक्सेसिबिलिटी (Web Accessibility)", icon: "🌐", q: "वेबसाइट्स पर तिरहुता लिपिक फॉन्ट बिना डाउनलोड कएने सीधे देखाय दियै, एहि लेल ककर प्रयोग कएल जाइत अछि?", exp: "वेब फोंट्स (@font-face) तकनीकक प्रयोग सँ विदेह जेहन पोर्टल पर यूजरक कंप्यूटर में फॉन्ट नै रहला पर भी तिरहुता लिपि स्पष्ट देखाइत अछि।" }
+                ]
+            },
+            {
+                sectionId: "m_sec6",
+                sectionTitle: "६. लिपि संरचना - स्वर, व्यंजन ओ युक्ताक्षर (Script Grammar)",
+                items: [
+                    { name: "तिर्यक रेखा ओ त्रिकोणीय शीर्ष", icon: "📐", q: "मिथिलाक्षरक 'क', 'त्र', आ 'श' अक्खर कऽ देवनागरी सँ अलग पहचानय वाला मुख्य संरचनात्मक तत्व की थिक?", exp: "मिथिलाक्षर अक्षरों में दाहिना कात तिर्यक (टेढ़ी) रेखा ओ शीर्ष पर त्रिकोणीय गाँठ एकर लिपिगत विशेषता थिक।" },
+                    { name: "अंकीय मान ओ ओइ प्रयुक्त चिन्ह", icon: "🔢", q: "प्राचीन पंजी पत्र ओ बही-खाता में प्रयुक्त मिथिलाक्षरक अंक प्रणाली (Numbers) ककर सन होइत अछि?", exp: "मिथिलाक्षरक अपनी अनन्य अंक प्रणाली अछि, जे प्राचीन काल सँ गणितीय ओ पंजिकायन गणना में प्रयुक्त होइत आबि रहल अछि।" },
+                    { name: "जटिल शृंखलाबद्ध युक्ताक्षर", icon: "🔗", q: "मिथिलाक्षर व्याकरण ओ पुरालिपि में दू या तीन व्यंजनोंक मेल सँ बनल अक्षरों कऽ की कहल जाइत अछि?", exp: "नव्य-न्यायक ग्रंथों में प्रयुक्त क्लिष्ट शब्दोंक लेखन लेल मिथिलाक्षर में बड्ड जटिल शृंखलाबद्ध युक्ताक्षरों (Conjuncts) कऽ विधान अछि।" },
+                    { name: "अन्चिन्हार आखर विन्यास", icon: "📝", q: "काव्य परम्परा ओ समानांतर साहित्यक लेखन में शुद्ध लिपि संरचनाक महत्ता की थिक?", exp: "लिपिक शुद्धता ओ संरचनाक ज्ञान सँ ही प्राचीन ग्रंथोंक सटिक पाठ्य-परिशोधन (Textual Criticism) सम्भव अछि।" }
+                ]
+            },
+            {
+                sectionId: "m_sec7",
+                sectionTitle: "७. समानांतर साहित्य आन्दोलन ओ लिपि (Parallel Literature)",
+                items: [
+                    { name: "सांस्कृतिक लोकतंत्रीकरण ओ समानांतर साहित्य", icon: "✊", q: "पारम्परिक 'कैनन' (Canon) सँ इतर उपेक्षित, सबल्टरन ओ दलित विमर्श कऽ लिपि ओ माध्यम सँ जोड़बाक आन्दोलन की थिक?", exp: "विदेह द्वारा संचालित समानांतर साहित्य आन्दोलन वर्ग-भेद सँ दूर हटि कऽ प्रत्येक मैथिल नागरिक धरि साहित्य ओ लिपिक पहुँच सुनिश्चित करैत अछि।" },
+                    { name: "तेलुगु, कन्नड़ आ ओड़िया कृतियोंक अनुवाद", icon: "🔄", q: "विदेहक समानांतर विमर्शक अन्तर्गत दक्षिण भारतीय ओ पूर्वी भारतीय भाषाओंक उपन्यासों कऽ मैथिली अनुवाद कऽ कऽ कतय सहेजल जा रहल अछि?", exp: "इन साहित्यों कऽ अनुवाद कऽ विदेह समानांतर पुस्तकालय (Parallel Library) कऽ तोम्स (Tomes) में संरक्षित कएल जा रहल अछि।" },
+                    { name: "What The Canon Left Out", icon: "📚", q: "पारम्परिक साहित्यक इतिहासकार लोकनि जिन विधाओं ओ लेखकों कऽ उपेक्षित कएने छलाह, हुनका विदेह द्वारा कोन पुस्तक शृंखला में स्थान देल गेल?", exp: "उपेक्षित साहित्यों कऽ 'What The Canon Left Out' पुस्तक शृंखलाक तहत विदेह डिजिटल आर्काइव द्वारा गरिमा प्रदान कएल गेल।" },
+                    { name: "डिजिटल समानांतर आन्दोलन", icon: "🌐", q: "प्रिंट मीडियाक एकाधिकार कऽ समाप्त कऽ कऽ वेब जर्नलिज्म द्वारा साहित्य कऽ सर्वव्यापी बनबाक प्रक्रिया की कहल जाइत अछि?", exp: "एकरा डिजिटल समानांतर आन्दोलन कहल जाइत अछि, जाहि में विदेह डॉट को डॉट इन अग्रणी मंच थिक।" }
+                ]
+            },
+            {
+                sectionId: "m_sec8",
+                sectionTitle: "८. मैथिली वेब पत्रकारिताक भविष्य (Future of Web Journalism)",
+                items: [
+                    { name: "यूनिकोड तिरहुता आधारित वेब पत्रकारिता", icon: "🚀", q: "नवीन पीढ़ी में मिथिलाक्षरक संवर्द्धन लेल डिजिटल माध्यम पर सब सँ प्रभावकारी साधन की थिक?", exp: "सोशल मीडिया, ब्लॉग्स ओ ई-पत्रिकाओं में सीधे यूनिकोड तिरहुताक प्रयोग करब ही एकर भविष्य थिक।" },
+                    { name: "विदेह ई-लर्निङ्ग हब (Videha eLearning)", icon: "🎓", q: "मैथिली साहित्य, दर्शन, नव्य-न्याय ओ लिपिक ऑनलाइन निःशुल्क प्रशिक्षण ओ क्विज लेल समर्पित मंच कोन थिक?", exp: "विदेह ई-लर्निङ्ग हब (videha-elearning.htm) नवीन पीढ़ी कऽ परीक्षा ओ ज्ञान सँ जोड़बाक अनुपम डिजिटल प्रकल्प थिक।" },
+                    { name: "आर्टिफिशियल इंटेलिजेंस (AI) ओ तिरहुता OCR", icon: "🤖", q: "प्राचीन ताड़पत्रक पांडुलिपियों कऽ सीधे कंप्यूटर टेक्स्ट में बदलबा लेल भविष्यक कोन तकनीक आवश्यक अछि?", exp: "आर्टिफिशियल इंटेलिजेंस ओ OCR (Optical Character Recognition) तकनीक सँ मिथिलाक्षरक ताड़पत्रक पोथी कऽ सीधे डिजिटल टेक्स्ट में बदलल जा सकैत अछि।" },
+                    { name: "वैश्विक पहुँच ओ संवर्धन", icon: "🌍", q: "प्रवासी मैथिल युवा सभ कऽ अपन मूल लिपि ओ संस्कृति सँ जोड़े में ककर भूमिका सब सँ पैघ अछि?", exp: "वेब पत्रकारिता ओ विदेह जेहन अंतरराष्ट्रीय स्तर पर सुलभ ई-जर्नल्सक भूमिका सर्वोपरि अछि।" }
+                ]
+            }
+        ];
+
+        let currentActiveSectionIdx = 0;
+        let currentPageNum = 1; 
+        const questionsPerPage = 10; // Splitting 100 questions into 10-item safe responsive batches
+
+        // Renders Exactly 8 Distinct Nav Buttons Linearly
+        function renderTabNavigation() {
+            const navContainer = document.getElementById('sections-nav');
+            navContainer.innerHTML = ""; 
+
+            panjiMasterDatabase.forEach((section, idx) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                // Extract only the title string cleanly
+                btn.innerText = section.sectionTitle.split('(')[0].replace(/^\d+\.\s*/, '').trim();
+                
+                if (idx === currentActiveSectionIdx) {
+                    btn.classList.add('active-tab');
+                }
+
+                btn.onclick = () => {
+                    currentActiveSectionIdx = idx;
+                    currentPageNum = 1; // Flush pagination marker
+                    renderTabNavigation(); 
+                    generateActiveTabContent(); 
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                };
+                
+                navContainer.appendChild(btn);
+            });
+        }
+
+        // High Performance Render System: Builds only 10 questions of selected tab to prevent DOM lag
+        function generateActiveTabContent() {
+            const workspace = document.getElementById('quiz-workspace');
+            workspace.innerHTML = ""; 
+
+            const section = panjiMasterDatabase[currentActiveSectionIdx];
+
+            const titleHeader = document.createElement('h2');
+            titleHeader.className = 'section-title';
+            titleHeader.innerHTML = `${section.sectionTitle} <span class="panji-badge">१०० प्रश्न स्लॉट</span>`;
+            workspace.appendChild(titleHeader);
+
+            const startIdx = (currentPageNum - 1) * questionsPerPage + 1;
+            const endIdx = currentPageNum * questionsPerPage;
+
+            // Generate precise slice bounds safely
+            for (let i = startIdx; i <= endIdx; i++) {
+                const dataIndex = (i - 1) % section.items.length;
+                const rawItem = section.items[dataIndex];
+                const inputGroupName = `p_paginated_sec_${currentActiveSectionIdx}_q_${i}`;
+
+                const questionCard = document.createElement('div');
+                questionCard.className = 'question-card';
+
+                const questionTextEl = document.createElement('div');
+                questionTextEl.className = 'question-text';
+                questionTextEl.innerText = `प्रश्न ${i}: ${rawItem.q}`;
+                questionCard.appendChild(questionTextEl);
+
+                // 100% Offline Robust Visual Token Box
+                const photoBox = document.createElement('div');
+                photoBox.className = 'visual-photo-box';
+                const visualElement = document.createElement('div');
+                visualElement.className = 'visual-element';
+                visualElement.innerText = rawItem.icon;
+                photoBox.appendChild(visualElement);
+                questionCard.appendChild(photoBox);
+
+                const choicesBox = document.createElement('div');
+                choicesBox.className = 'options-container';
+
+                const generatedOptions = [];
+                generatedOptions.push(rawItem.name); // Correct option locked at index 0
+
+                let peerIndex = 1;
+                let safetyCounter = 0;
+                while (generatedOptions.length < 4 && safetyCounter < 40) {
+                    safetyCounter++;
+                    const siblingItem = section.items[(dataIndex + peerIndex) % section.items.length];
+                    if (siblingItem && !generatedOptions.includes(siblingItem.name)) {
+                        generatedOptions.push(siblingItem.name);
+                    }
+                    peerIndex++;
+                }
+
+                // Crash proof fallbacks shield
+                const fallbacks = ["गौड़ीय प्राकृत विन्यास", "दरभंगा राज गजेटियर", "तिरहुता लिपि विकास परिषद", "यूनिकोड वर्जन ५.०"];
+                let fbIdx = 0;
+                while (generatedOptions.length < 4) {
+                    if (!generatedOptions.includes(fallbacks[fbIdx])) {
+                        generatedOptions.push(fallbacks[fbIdx]);
+                    }
+                    fbIdx++;
+                }
+
+                // Deterministic Shuffle seed logic
+                const dynamicSeedShift = (i * 29) % 4;
+                const correctChoiceIndex = dynamicSeedShift;
+
+                const tempSwap = generatedOptions[0];
+                generatedOptions[0] = generatedOptions[correctChoiceIndex];
+                generatedOptions[correctChoiceIndex] = tempSwap;
+
+                generatedOptions.forEach((optionText, optionIdx) => {
+                    const labelContainer = document.createElement('label');
+                    labelContainer.className = 'option-label';
+
+                    const radioInput = document.createElement('input');
+                    radioInput.type = 'radio';
+                    radioInput.name = inputGroupName;
+                    radioInput.value = optionIdx;
+
+                    radioInput.addEventListener('change', () => {
+                        evaluatePanjiDynamicChoice(inputGroupName, optionIdx, correctChoiceIndex, questionCard);
+                    });
+
+                    labelContainer.appendChild(radioInput);
+                    labelContainer.appendChild(document.createTextNode(optionText));
+                    choicesBox.appendChild(labelContainer);
+                });
+
+                questionCard.appendChild(choicesBox);
+
+                const explanationBox = document.createElement('div');
+                explanationBox.className = 'explanation-box';
+                explanationBox.id = `exp_${inputGroupName}`;
+                explanationBox.innerHTML = `<strong>विदेह अनुसन्धान सीख:</strong> ${rawItem.exp}`;
+                questionCard.appendChild(explanationBox);
+
+                workspace.appendChild(questionCard);
+            }
+
+            // Append Pagination Controller Interface Block
+            const paginationBar = document.createElement('div');
+            paginationBar.className = 'pagination-bar';
+
+            const prevBtn = document.createElement('button');
+            prevBtn.className = 'page-btn';
+            prevBtn.innerText = "← पिछला पृष्ठ (Prev)";
+            prevBtn.disabled = (currentPageNum === 1);
+            prevBtn.onclick = () => {
+                currentPageNum--;
+                generateActiveTabContent();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+
+            const pageInfo = document.createElement('span');
+            pageInfo.className = 'page-info';
+            pageInfo.innerText = `पृष्ठ ${currentPageNum} / १० (प्रश्न ${startIdx}-${endIdx})`;
+
+            const nextBtn = document.createElement('button');
+            nextBtn.className = 'page-btn';
+            nextBtn.innerText = "अगिला पृष्ठ (Next) →";
+            nextBtn.disabled = (currentPageNum === 10);
+            nextBtn.onclick = () => {
+                currentPageNum++;
+                generateActiveTabContent();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+
+            paginationBar.appendChild(prevBtn);
+            paginationBar.appendChild(pageInfo);
+            paginationBar.appendChild(nextBtn);
+            workspace.appendChild(paginationBar);
+        }
+
+        // Visual Green/Red Verification Tracker Engine
+        function evaluatePanjiDynamicChoice(inputGroupName, userSelection, trueIndex, scopeElement) {
+            const optionLabels = scopeElement.querySelectorAll('.option-label');
+            const targetExplanation = scopeElement.querySelector(`#exp_${inputGroupName}`);
+
+            optionLabels.forEach((label, currentIdx) => {
+                const innerRadio = label.querySelector('input');
+                if (innerRadio) innerRadio.disabled = true; // Lock choice row actions
+
+                if (currentIdx === trueIndex) {
+                    label.classList.add('correct-choice'); // Assign Green
+                } else if (currentIdx === userSelection && userSelection !== trueIndex) {
+                    label.classList.add('incorrect-choice'); // Assign Red
+                }
+            });
+
+            if (targetExplanation) {
+                targetExplanation.style.display = 'block';
+            }
+        }
+
+        // Core Bootloader Matrix Loader Initializer
+        window.onload = function() {
+            renderTabNavigation();
+            generateActiveTabContent();
+        };
+    </script>
+</body>
+</html>
