@@ -172,6 +172,47 @@
     .opts li{break-inside:avoid;}
     header.qhead,footer.qfoot{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
   }
+
+
+  /* ---------- FIX: MANY-TAB NAVIGATION SHOULD NOT COVER QUIZ ---------- */
+  .qnavbox{
+    background:var(--navy2);
+    border-bottom:2px solid var(--gold);
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+  }
+  .qnavbox summary{
+    cursor:pointer;
+    color:var(--cream);
+    font-weight:700;
+    text-align:center;
+    padding:10px 14px;
+    list-style:none;
+    user-select:none;
+  }
+  .qnavbox summary::-webkit-details-marker{display:none;}
+  .qnavbox summary::before{content:"▸ "; color:var(--gold-hi);}
+  .qnavbox[open] summary::before{content:"▾ "; color:var(--gold-hi);}
+  .qnavbox nav.qnav{
+    position:static !important;
+    top:auto !important;
+    z-index:auto !important;
+    max-height:240px;
+    overflow-y:auto;
+    justify-content:flex-start;
+    align-items:flex-start;
+    box-shadow:none;
+    border-top:1px solid rgba(255,255,255,.14);
+    border-bottom:none;
+  }
+  .scorebar{top:0 !important;}
+  .grp-body:empty::before{
+    content:"एहि खण्डमे प्रश्न load नहि भेल — कृपया corrected final file फिर upload करू।";
+    display:block;
+    padding:14px;
+    color:var(--red);
+    font-weight:700;
+  }
+
 </style>
 </head>
 <body>
@@ -183,6 +224,7 @@
   <div class="topic">विदेह अंक १-४४० : समानान्तर मैथिली साहित्य/कला/संस्कृति/नाटक आन्दोलन — मैथिली प्रश्नोत्तरी (441 प्रश्न)</div>
 </header>
 
+<details class="qnavbox"><summary>खण्ड-सूची खोलू / Jump to section</summary>
 <nav class="qnav" aria-label="खण्ड सूची">
   <a href="#g1">खण्ड १ : आरम्भ — भालसरिक गाछ</a>
   <a href="#g2">खण्ड २ : विदेहक जन्म आ प्रथम अंक</a>
@@ -233,6 +275,7 @@
   <a href="#g47">खण्ड ४७ : विदेह अंक २३० (वर्ष १०, जुलाई २०१७)</a>
   <a href="#g48">खण्ड ४८ : विदेह अंक २७०, २८० (वर्ष १२, मार्च-अगस्त २०१९)</a>
 </nav>
+</details>
 
 <div class="scorebar">
   <span class="pill">उत्तरित : <b id="answered">0</b> / <span id="total">0</span></span>
@@ -5073,6 +5116,16 @@
   const resetBtn = byId('resetBtn');
   if(evalBtn) evalBtn.addEventListener('click', evaluate);
   if(resetBtn) resetBtn.addEventListener('click', resetQuiz);
+
+
+
+  // FIX: after using the compact section list, close it so it never hides questions.
+  document.querySelectorAll('.qnav a').forEach(function(a){
+    a.addEventListener('click', function(){
+      var box = a.closest('.qnavbox');
+      if(box){ setTimeout(function(){ box.open = false; }, 80); }
+    });
+  });
 
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
