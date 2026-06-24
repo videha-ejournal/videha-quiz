@@ -1,0 +1,33 @@
+{
+  "name": "Videha eLearning Quiz",
+  "short_name": "Videha Quiz",
+  "description": "मैथिली, मिथिला, साहित्य, इतिहास, कला, UGC-NET, UPSC आ BPSC लेल Videha eLearning Quiz संग्रह।",
+  "lang": "mai",
+  "dir": "auto",
+  "start_url": "/videha-quiz/",
+  "scope": "/videha-quiz/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#FAF6EE",
+  "theme_color": "#8B1A1A",
+  "categories": [
+    "education",
+    "books",
+    "magazines",
+    "culture"
+  ],
+  "icons": [
+    {
+      "src": "https://www.videha.co.in/assets/img/favicon.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://www.videha.co.in/assets/img/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
