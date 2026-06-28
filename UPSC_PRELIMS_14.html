@@ -70,7 +70,25 @@ function updateScore(){ document.getElementById('answered').textContent=answered
 }
 document.getElementById('search').addEventListener('input',e=>{ const q=e.target.value.trim().toLowerCase(); document.querySelectorAll('.qcard').forEach(c=>c.classList.toggle('hidden', q && !c.dataset.text.includes(q)));
 });
-document.getElementById('showAllAnswers').addEventListener('click',()=>{ document.querySelectorAll('.qcard').forEach(card=>{ if(card.dataset.done) return; card.dataset.done='1'; answered++; const ans=card.querySelector('.explanation').textContent.includes('Dropped')?'x':null; card.querySelector('.explanation').classList.add('show'); // mark correct buttons by reading answer text const m=card.querySelector('.explanation').textContent.match(/Answer:\s*\(([A-D](?:\/[A-D])*)\)/); if(m){const ok=m[1].toLowerCase().split('/'); card.querySelectorAll('.opt').forEach(b=>{b.classList.add('disabled'); if(ok.includes(b.dataset.letter)) b.classList.add('correct');});} }); updateScore();
+document.getElementById('showAllAnswers').addEventListener('click',()=>{
+  document.querySelectorAll('.qcard').forEach(card=>{
+    if(card.dataset.done) return;
+    card.dataset.done='1';
+    answered++;
+    const expl=card.querySelector('.explanation');
+    expl.classList.add('show');
+    const m=expl.textContent.match(/Answer:\s*\(([A-D](?:\/[A-D])*)\)/);
+    if(m){
+      const ok=m[1].toLowerCase().split('/');
+      card.querySelectorAll('.opt').forEach(b=>{
+        b.classList.add('disabled');
+        if(ok.includes(b.dataset.letter)) b.classList.add('correct');
+      });
+    }else{
+      card.querySelectorAll('.opt').forEach(b=>b.classList.add('disabled'));
+    }
+  });
+  updateScore();
 });
 document.getElementById('resetQuiz').addEventListener('click',()=>{ answered=0; correct=0; updateScore(); document.querySelectorAll('.qcard').forEach(card=>{delete card.dataset.done; card.querySelectorAll('.opt').forEach(b=>b.className='opt'); card.querySelector('.explanation').classList.remove('show');});
 });
