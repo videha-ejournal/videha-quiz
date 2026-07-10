@@ -177,6 +177,55 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=IM+Fell+English:ital@0;1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Devanagari:wght@300;400;500;600&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/videha.css" data-videha-uniform="true">
+
+<style id="videha-mobile-quiz-fix">
+/* Mobile-safe quiz patch: keeps navigation, score bar and answer taps usable. */
+html,body{max-width:100%;overflow-x:hidden;}
+body{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+.videha-topbar,.videha-utilbar,.videha-masthead,.videha-nav,header.qhead,nav.qnav,.scorebar,main,footer.qfoot{max-width:100%;}
+.qtext,.opts li,.explain,.intro,.sectionscores span{overflow-wrap:anywhere;word-break:normal;}
+.opts li{min-height:46px;display:flex;align-items:center;padding-right:42px;touch-action:manipulation;-webkit-tap-highlight-color:rgba(196,154,60,.25);user-select:none;-webkit-user-select:none;}
+.opts li.correct::after,.opts li.wrong::after{top:50%;transform:translateY(-50%);}
+button,.btn,.videha-nav-toggle,nav.qnav a{touch-action:manipulation;}
+@media (max-width:768px){
+  .videha-topbar,.videha-utilbar{font-size:.78rem;line-height:1.45;padding-left:10px;padding-right:10px;}
+  .videha-utilbar{display:block;text-align:center;}
+  .videha-utilbar-social{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:5px;}
+  .videha-masthead{padding-left:10px;padding-right:10px;}
+  .videha-masthead-title{font-size:clamp(2.2rem,15vw,4rem)!important;}
+  .videha-nav{position:relative!important;top:auto!important;}
+  .videha-nav-toggle{display:block;min-width:48px;min-height:44px;margin:6px auto;}
+  .videha-nav-inner.open{display:flex!important;flex-direction:column;align-items:stretch;width:100%;}
+  .videha-nav-inner.open a{display:block;width:100%;padding:11px 14px;}
+  header.qhead{padding:19px 10px 16px;}
+  .qhead .line1{font-size:1.28rem;line-height:1.45;}
+  .qhead .line2{font-size:.94rem;line-height:1.5;}
+  .qhead .line3{font-size:.84rem;line-height:1.5;}
+  .qhead .topic{font-size:.96rem;padding:6px 12px;}
+  nav.qnav{position:relative!important;top:auto!important;z-index:4;display:flex;flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:8px;scrollbar-width:thin;}
+  nav.qnav a{flex:0 0 auto;min-height:42px;display:flex;align-items:center;padding:7px 12px;}
+  .scorebar{position:relative!important;top:auto!important;z-index:3;gap:7px;padding:8px;}
+  .scorebar .pill{padding:5px 10px;font-size:.88rem;}
+  .progress-wrap{flex-basis:100%;max-width:none;}
+  main{width:100%;padding:14px 8px 44px;}
+  .intro{padding:12px;margin-bottom:18px;}
+  section.grp{margin-bottom:24px;}
+  section.grp>h2{font-size:1.08rem;line-height:1.55;padding:9px 11px;}
+  .grp-body{padding:4px 9px 12px;}
+  .q{padding:14px 0 7px;}
+  .q .qtext{font-size:1rem;line-height:1.72;margin-bottom:8px;}
+  .q .qtext .num{min-width:26px;}
+  .opts li{font-size:.96rem;line-height:1.55;margin:8px 0;padding:11px 42px 11px 12px;border-radius:9px;}
+  .explain{font-size:.93rem;line-height:1.72;padding:10px 11px;}
+  .controls{margin-top:22px;}
+  button.btn{display:block;width:100%;max-width:360px;min-height:48px;margin:9px auto;padding:11px 16px;}
+  .result{width:100%;padding:16px 10px;}
+  .result .big{font-size:2rem;}
+  .sectionscores div{gap:12px;align-items:flex-start;}
+  .sectionscores div span:first-child{flex:1;min-width:0;}
+  .sectionscores div span:last-child{flex:0 0 auto;}
+}
+</style>
 </head>
 <body>
 <!-- Videha standard header/nav added for uniform GitHub tool & quiz pages -->
@@ -390,7 +439,10 @@ document.querySelectorAll('.grp-body').forEach(box=>{
       const li=document.createElement('li');
       li.textContent=opt;
       li.dataset.correct=(oi===item.a)?"1":"0";
+      li.setAttribute('role','button');
+      li.setAttribute('tabindex','0');
       li.addEventListener('click',()=>choose(li,ul,item,sec));
+      li.addEventListener('keydown',(e)=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); choose(li,ul,item,sec); } });
       ul.appendChild(li);
     });
     qn.appendChild(ul);
