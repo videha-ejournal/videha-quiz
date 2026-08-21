@@ -1,0 +1,48 @@
+name: Build Videha Quiz Search
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'pagefind/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: videha-quiz-pagefind-main
+  cancel-in-progress: true
+
+jobs:
+  build-search:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Prepare bilingual quiz corpus
+        run: python3 tools/videha-quiz-pagefind-prepare.py . _pagefind_build
+      - name: Build Pagefind
+        run: npx -y pagefind@1.5.2 --site _pagefind_build --output-subdir pagefind --glob '**/*.{html,htm}'
+      - name: Install search bundle
+        run: |
+          rm -rf pagefind
+          cp -R _pagefind_build/pagefind ./pagefind
+          rm -rf _pagefind_build
+      - name: Commit refreshed quiz search index
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pagefind
+          if git diff --cached --quiet; then
+            echo "Quiz search index unchanged."
+          else
+            git commit -m "Build Videha Quiz search index"
+            git push
+          fi
